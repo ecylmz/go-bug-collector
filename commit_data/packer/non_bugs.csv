@@ -1,0 +1,943 @@
+sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message
+ac899c44c2652403810a08e75674691aa1a5c211,False,1,1,7,7,7.0,1,58,57,0.0,1.0,1.0,408,67,8,1,"hcl2template: don't error on empty bucket slug
+
+When a user defines a `hcp_packer_registry` block in their `build`
+without a `bucket_name`, but they define it in their environment, Packer
+should not report the bucket_name being wrong."
+69ec781ee2302a4cc8a439b1eb220c774c0d7cd5,False,1,1,11,11,11.0,5,6,1,0.0,1.0,1.0,419,77,13,1,"hcp: don't continue if HEAD doesn't exist
+
+In HCP's metadata package, especially the VCS/git parts, we keep the
+current HEAD for a repository, along with the state it is in, in order
+to report it to HCP Packer when the build completes.
+
+However, when a build is run on a template from an empty Git repository,
+and HCP Packer is enabled, the code would crash when trying to get the
+information on the current HEAD, as it doesn't exist.
+
+The git library we use returns an error in such a case, but this was
+ignored, leading to a crash when attempting to get the hash to this
+reference later on.
+
+This commit fixes the problem by NOT ignoring the error to get the head,
+and immediately stop processing the git data as it doesn't yet exist."
+4a7f5f38a663092968e72b77e0c02f31425e3422,False,1,3,140,65,46.666666666666664,17,125,108,1.0,1.0,1.0,1260,193,36,9,"Makefile: replace enumer upstream with dmarkham's (#13107)
+
+Since the enumer implementation we used hadn't been updated for 5+
+years, this didn't work with recent linux/go versions, and enumer
+crashed while attempting to parse/analyse the source files.
+
+There's another alternative on Github, forked from the one we used,
+which seems more maintained now, and does produce the expected files in
+Packer."
+5d4323965454b68b5cca49b3cb60b1f5ab27caeb,False,1,1,2,2,2.0,1,1,0,,,,643,113,23,1,"datasource/http: don't error on 2xx code
+
+When a server returns a code that is not 200, we error in the current
+state.
+
+This is not conformant to the HTTP norm, as anything in the 2xx range is
+considered a success, so the datasource should not error in this case.
+
+Therefore, this commit fixes the condition in which we report an error,
+so that anything in the 2xx range is now considered a success by the
+datasource."
+682968d0dfe5194e3ead6662b1428e1ca5b494cd,False,1,1,5,5,5.0,0,5,5,0.0,0.0,1.0,4530,708,141,1,"packer: don't load plugins with metadata in name
+
+If a plugin is installed in the PACKER_PLUGIN_PATH, and its version
+contains metadata, we reject it. This is because metadata is free-form
+data, which could then make it possible to have multiple conflicting
+versions of a plugin installed, so we don't support it and explicitely
+reject plugins like those.
+
+A valid plugin with metadata in its version information should be
+installed without its metadata part, so there can only be one variant of
+the plugin installed at a specific version."
+97db9d82c4cb8b71a975e2a1c0e77878f2c962a8,False,1,1,6,6,6.0,2,4,2,,,,132,26,4,1,packer: fix splitting error message on pathsep
+403e35d2ffca3f78ef13b1e45a69570d9ba5b46b,False,1,2,78,72,39.0,9,69,60,1.0,1.0,1.0,3387,578,107,12,"Add thread-safe add and get methods for plugin storage
+
+* Add general code improvements"
+410e59f141fb6c0391bbba67d79bdd3631732814,False,1,1,6,6,6.0,1,5,4,,,,119,32,3,1,"version: compute SemVer from rawVersion
+
+A bug in the SDK prevents us from calling SemVer on the PluginVersion
+derived from the rawVersion, as when doing so, we reset the semVer
+attribute to only use the core part of the version, thereby dropping any
+information on pre-release/metadata.
+
+This is not ideal, and arguably not wanted. So in order to not lose this
+information, we re-compute the SemVer from rawVersion, this way we don't
+overwrite it for both structures."
+132e3d29b8759ef4a86a5409946a3c343543fdbb,False,1,1,10,10,10.0,5,5,0,,,,3903,606,116,1,"packer: fix version string variable name typo
+
+When introduced back in January, the version variable extracted from the
+binary name had a typo in its name, and was named `protocolVerionStr'
+instead of `protocolVersionStr'.
+
+This commit was already merged into main, so it's too late to fix at
+introduction site, but we can fix it today as a separate commit ontop
+the stack."
+32f89015fef72926605cfdd5fe783cb0a20d75ca,False,1,1,24,24,24.0,8,141,133,0.0,0.9338842975206612,0.9338842975206612,2747,521,101,1,"hcp: fix hcp artifact extraction method
+
+With Packer 1.10.1 we started warning when a build failed to complete
+because of a potential incompatibility with the builder being used.
+
+This led to cases in which the build failed for other reasons, and
+Packer would still warn of potential incompatibilities, even if the
+builder was in effect HCP compatible.
+
+We attempted to fix this issue by introducing a new error type, and
+checks when we read the artifacts linked to a build, however this loop
+would fail when any one of the artifacts is not compatible with HCP
+Packer, leading to false failures.
+
+To avoid this problem, we log incompatibilities to the verbose logger,
+and only signal the problem if all the artifacts could not be used to
+upload data to HCP Packer, in which case it's almost certain that if the
+build succeeded and no artifacts are registered to the build, that all
+the components used are not compatible with HCP, and should be reported
+as such to users."
+da97f46958d7bf51fd4d2f6427bc3d4f16edbbe5,False,1,1,18,18,18.0,18,60,42,0.0,1.0,1.0,3314,504,95,3,"plugin-getter: don't rely only on version for list
+
+The plugins installed command list installed plugins, and prints out all
+their paths and versions.
+
+The results are listed in a list of unique versions, in ascending
+order.
+
+When listing plugins outside of a specific identifier however, because
+of the insertion in the list works, we only consider the version number,
+and ignore all subsequent insertions with the same version.
+
+This causes a problem when we have multiple plugins installed with the
+same version, as only the first one that is discovered (typically the
+one with lexicographical precedence) gets inserted, and the others are
+ignored.
+
+To support such a use case, we change the insertion routine to not only
+support versions, but also paths when finding a spot to insert the
+installation into."
+ac076366331e0f999506ec80dade0d863d431556,False,1,1,1,1,1.0,0,1,1,,,,1626,273,23,0,"Add VirtualBox as known plugin prefix
+
+It was found in https://github.com/hashicorp/packer/issues/12715 that the bundled version of the
+Virtualbox plugin was not included in the bundled plugin warning. This miss lead to a user consistently
+receiving warning even when addressing the reported warning."
+434a1637f85be46c1e6ee585d9d45be7531a5d8b,False,1,1,52,52,52.0,13,39,26,1.0,1.0,1.0,1195,198,46,2,"hcl2template: fix func to get vars from a config
+
+The previous implementation of the GetVarsByType function worked only on
+top-level attributes, ignoring the nested blocks in the structure.
+
+This implies that if a datasource depends on another through an
+expression within a nested block, we may not execute it first, and then
+executing this datasource before its dependent is possible, resulting in
+an error in the end.
+
+This commit is an attempt at making this more reliable for HCL configs,
+but only works on configs lifted from HCL files for now. We need to make
+this more reliable for later iterations."
+f8ebf69c0de67c0a297d2d5c64dd962989ad59fd,False,1,1,3,3,3.0,0,25,25,1.0,1.0,1.0,1110,210,38,1,"telemetry: Add nil check in SetBundledUsage
+
+Invoking Packer with the  CHECKPOINT_DISABLE env. variable the telemetry reporter is left uninitialized in order to disable telemetry reporting.
+Any method calls on the nil reporter is expected to check if the reporter is active or in NOOP mode. This change fixes a crash when calling SetBundledUsage()
+on a nil CheckpointTelemetry type that occurs when using a bundled plugin with CHECKPOINT_DISABLE=1."
+848039dcdb2a150b0271e044407327e7ec8ec347,False,1,1,3,3,3.0,183,244,61,0.15384615384615385,0.5576923076923077,1.0,1992,335,78,1,"Update plugin discover testing
+
+* Add test case for loading plugin in CWD
+* Add test case to validate checksume files are ignored
+* Update Discover to include CWD ""."" in PluginFolders if KnowPluginFolders is unset"
+60c66fdf9fa0f30986f5b857f4fc69f6a21834dc,False,1,1,48,48,48.0,100,31,-69,0.9230769230769231,0.0,0.0,839,157,29,5,"Add additional validation for manually set project ids
+
+When setting a project id via the HCP_PROJECT_ID env the client will try to validate the project
+by checking that it has an associated registry. If the project is invalid or not a valid UUID an error
+will be displayed to the user
+
+* Add comment to clarify usage of SDK loaded env. variables"
+4347e8cee80729e85fadca9b2dcc6fd564115ce9,False,1,2,12,9,6.0,7,6,-1,0.0,,,2564,423,99,2,"Default to PuluginFolders is KnownPluginFolders is unset
+
+* PACKER_PLUGIN_PATH takes precedence over all"
+925cb5e5411d670af9f9e729b8a61daeb4f8b62d,False,1,3,60,55,20.0,3,222,219,0.1657754010695187,0.8502673796791443,1.0,858,172,36,4,"hcp: support HCP_PROJECT_ID environment variable
+
+With HCP supporting multi-projects now, Packer needs to take it into
+account when picking a project from an organisation.
+
+This commit adds two cases:
+
+1. multiple projects are defined, none is supplied through
+   HCP_PROJECT_ID: in this case we will default to the oldest project
+   defined for the organisation.
+
+2. we supply HCP_PROJECT_ID: in this case, we pick the project with the
+   corresponding ID, and use it for publishing metadata."
+8f67444311625a22272148496506c4e0fd8b2e2c,False,1,1,4,4,4.0,1,79,78,0.0,0.9016393442622951,1.0,3835,674,119,1,"Update JSON template does not return substitute values in 1.8.6 version (#12290)
+
+This change fixes a regression introduced in Packer 1.8.6, where configurations custom builder names
+, via the name attribute, would internally interpolate the proper build names, but would display the
+name to STDOUT as uninterpolated values. The change updates the creation of a CoreBuild for legacy JSON templates
+to use use the interpolated name as the final build type, which gets rendered to the screen.
+
+Test Results Before Fix
+```
+~>  go test ./... -run='TestCoreBuild_buildNameIntepolation' -v
+--- FAIL: TestCoreBuild_buildTypeIntepolation (0.01s)
+    core_test.go:930: build type interpolation failed; expected ""test.mybuild-RandomToken"", got ""test.{{user `build_name`}}""
+    core_test.go:930: build type interpolation failed; expected ""test.build-vardata"", got ""test.{{user `build_name`}}""
+    core_test.go:930: build type interpolation failed; expected ""test.build-12345"", got ""test.{{user `build_name`}}""
+FAIL
+```
+
+Test Results After Fix
+```
+~>  go test ./... -run='TestCoreBuild_buildNameIntepolation' -v
+=== RUN   TestCoreBuild_buildTypeIntepolation
+--- PASS: TestCoreBuild_buildTypeIntepolation (0.01s)
+PASS
+```
+
+Closes #12281"
+095959ed6dc1f378ccf499e927da10845ed7808e,False,1,1,3,3,3.0,0,61,61,0.0,0.25,1.0,6714,1106,219,1,"Fix crash when variables block is undefined
+
+This change fixes a crash that occurs when trying to add undeclared variables into an empty
+variables map. The variables block when defined will always be non-nil but in the case
+where variables are declared and initialized from a legacy JSON variables file the map
+must be initialized first."
+d880d1bca7a0acae9fbe001cd38658f565710aac,False,1,1,16,16,16.0,8,57,49,0.1702127659574468,1.0,1.0,2625,465,98,2,"Update ReadFromHCLBuildBlock to use the hcp_packer_registry.Description
+
+In packer v1.8.5, the bucket's description was not properly set in the
+bucket object we use for HCP, therefore all the buckets created by
+Packer did not have their description updated.
+
+Before the change
+```
+--- FAIL: TestReadFromHCLBuildBlock (0.00s)
+    --- FAIL: TestReadFromHCLBuildBlock/configure_bucket_using_only_hcp_packer_registry_block (0.00s)
+        types.bucket_test.go:380: expected the build to to have contents of hcp_packer_registry block but it does not:   &registry.Bucket{
+                Slug:         ""hcp_packer_registry-block-test"",
+            -   Description:  """",
+            +   Description:  ""description from hcp_packer_registry block"",
+                Destination:  """",
+                BucketLabels: {""org"": ""test""},
+                ... // 5 identical fields
+              }
+FAIL
+FAIL    github.com/hashicorp/packer/internal/hcp/registry       1.072s
+FAIL
+```
+
+After Change
+```
+~>  go test ./...
+?       github.com/hashicorp/packer/internal/hcp/api    [no test files]
+ok      github.com/hashicorp/packer/internal/hcp/env    (cached)
+ok      github.com/hashicorp/packer/internal/hcp/registry       1.130s
+
+```"
+4d559e23b7d3d8a8b9db3165a6b933b6647e818f,False,1,1,20,20,20.0,10,40,30,0.55,1.0,0.95,4250,690,121,3,"hcl2: don't warn on excluded post-processor (#12187)
+
+* hcl2template: use && for chaining conditions
+
+For deciding if we need to run an error provisioner block, we checked
+using a nested if that we didn't need to avoid running it.
+
+This is unnecessary, and adds a superfluous level of inbrication to the
+code, so we chain both conditions with &&.
+
+* hcl2: don't warn on excluded post-processor
+
+When a post-processor is excluded through the -except command-line
+argument for packer build, we used to print a warning on HCL2 templates
+if this except statement did not match a build.
+
+However, since we can use the except option to avoid running
+post-processors, we should account for this as well when printing out a
+warning that there were no matches.
+
+This commit adds this counter to the except checks for the
+post-processors as well."
+9002ac263fe98f1972684244eda5ae44b2f231c3,False,1,1,10,10,10.0,3,47,44,0.3,0.925,1.0,1040,178,26,1,"Update BuildBlock with valid HCL2Ref (#12167)
+
+While looking into #11932 I found that Packer will throw an error when
+an unknown source is referenced from within the sources attribute for
+a build block. The hcl.Diagnostics error includes a Subject, which
+should highlight where in the HCL2 configuration file the unknown source resides.
+But when creating the BuildBlock no HCL2Ref data is copied over, thus the
+Subject is displayed with with zero value for an hcl.Range type.
+
+This change updates the build creation logic to copy the HCL2Ref data
+from the build block at decode time so that it can be properly
+referenced downstream.
+
+Closes #11932
+
+Failure due to change in output
+```
+--- FAIL: TestValidateCommand_ShowLineNumForMissing (0.00s)
+    --- FAIL: TestValidateCommand_ShowLineNumForMissing/test-fixtures/validate-invalid/missing_build_block.pkr.hcl (0.00s)
+        validate_test.go:377: Unexpected output:   (
+                """"""
+                Error: Unknown source file.cho
+
+            -     on  line 0:
+            +     on test-fixtures/validate-invalid/missing_build_block.pkr.hcl line 6:
+                  (source code not available)
+
+                ... // 4 identical lines
+                """"""
+              )
+        validate_test.go:379:
+FAIL
+FAIL    github.com/hashicorp/packer/command     1.002s
+```"
+9d9f6d3a9a3b8b75879b3438f96b3f10c2875b26,False,1,1,4,4,4.0,1,53,52,0.0,0.9791666666666666,1.0,3427,514,98,1,"packer: try previous ver. on unavailable checksum
+
+When Packer tries to get the latest version of a plugin, it will attempt
+to get the latest version from a list that is picked from the list of
+releases, fetched directly from Github.
+
+What may happen is that a release is triggered, the assets are not yet
+available, including the checksum file, which is uploaded last, at the
+end of the release process.
+
+This causes any client that tries to get the latest version of a plugin
+to fail during that window, as the code will fail immediately whenever a
+checksum file is unavailable.
+
+To circumvent this issue, and fallback to a previous version, we
+acknowledge that a checksum was unavailable then trying to get the
+latest version, and fallback to a previous one."
+68ddb2f89d898a2a52e44dac02d82383fa440455,False,1,1,2,2,2.0,1,22,21,0.3333333333333333,1.0,1.0,6488,1070,211,1,"hcl2_upgrade: add share_image_gallery workaround (#12087)
+
+In azure templates, the shared_image_gallery was mistakenly considered
+an attribute while this is supposed to be a block.
+
+This is due to a heuristic we use for deciding whether a JSON object is
+to be translated to an attribute or a block that fell short as the
+shared_image_gallery does not contain complex types.
+
+This cannot be fixed trivially for the general case, so we add this
+entity to the list of workarounds until we can implement something more
+robust."
+296562614f3b23fdc7ec47e6de1aab6def3214e8,False,1,1,14,14,14.0,7,7,0,,,,6484,1070,210,3,"hcl2_upgrade: fix liniting issues with fmt.Sprintf
+
+Some literal strings without format-string directives nor arguments were
+littered around the hcl2_upgrade command's code, which is pointed out by
+the linters.
+
+Since they serve no purpose, we remove them."
+a298617ecb0c11fd0c955158a70aac942f75a358,False,1,2,18,10,9.0,17,99,82,0.018518518518518517,0.7037037037037037,1.0,6314,1042,174,2,"command/build: warn and exit when nothing to build
+
+When a `packer build' is run on a config that does not define anything
+to be built, the process would run normally, and only state that no
+artifacts were produced after builds were run successfully.
+
+This is misleading as we reach the end of the command without having a
+proper warning that nothing was even attempted to be built.
+
+This commit adds a warning when that happens, and leaves immediately
+after."
+6794c6053a7cdb8e845d3a4848f344eeea7bd453,False,1,1,13,13,13.0,0,13,13,0.0,0.0,1.0,1234,205,35,1,"hcl2template: only iterate on known HCP datasource (#11883)
+
+When we try to validate a build that contains references to
+hcp_packer_image, the data is not fetched, and the value is therefore
+unknown.
+
+However, during the decoding phase for the build blocks, we attempt to
+fetch the ancestry information for the current build, from the
+information previously fetched from HCP.
+
+Since we're validating, there's no way this is set, and attempting to
+cast without checking causes Packer to crash on the conversion.
+
+To avoid this, we only attempt this conversion if the value is known.
+
+Closes #11870"
+2ad15617cc8d63825527522700ec6a98f458364a,False,1,1,4,4,4.0,0,4,4,0.0,0.0,1.0,4350,711,125,1,"core/hcl2: Fix issue preventing builds from pausing between provisioners when the `--debug` argument has been passed (#11537)
+
+* Update HCL2 PackerConfig to call SetDebug mode for CoreBuild when --debug flag is passed
+
+```
+~>  packer build --debug /tmp/source.pkr.hcl
+Debug mode enabled. Builds will not be parallelized.
+null.example: output will be in this color.
+
+==> null.example: Pausing after run of step 'StepConnect'. Press enter to continue.
+==> null.example: Pausing before the next provisioner . Press enter to continue.
+==> null.example: Running local shell script: /var/folders/vz/rv7bk6v15211jxg8q801f7kw0000gq/T/packer-shell4149319610
+    null.example: hi
+==> null.example: Pausing before the next provisioner . Press enter to continue.
+==> null.example: Running local shell script: /var/folders/vz/rv7bk6v15211jxg8q801f7kw0000gq/T/packer-shell3210691290
+    null.example: hi 2
+==> null.example: Pausing after run of step 'StepProvision'. Press enter to continue.
+==> null.example: Pausing before cleanup of step 'StepProvision'. Press enter to continue.
+==> null.example: Pausing before cleanup of step 'StepConnect'. Press enter to continue.
+Build 'null.example' finished after 8 seconds 284 milliseconds.
+
+==> Wait completed after 8 seconds 284 milliseconds
+
+==> Builds finished. The artifacts of successful builds are:
+--> null.example: Did not export anything. This is the null builder
+```
+
+* Add call to SetOnError, and SetForce"
+e03ad29ca0fc6055b10e32830f2d3eaeaf6c2169,False,1,2,39,32,19.5,28,104,76,0.0,1.0,1.0,7818,1285,210,3,"Sanitize var code (#11566)
+
+* evaluateLocalVariables: modify code for readability and some (not benchmarked) perfs
+
+* Make default input variable type the DynamicPseudoType
+
+This should be the default, and avoids a panic. This type can represent situations where a type is not yet known. Its meaning is undefined in cty.
+
+* do not take Empty types from default value
+
+* Update types.variables.go
+
+Co-authored-by: Wilken Rivera <wilken@hashicorp.com>"
+119a82529627de84dd81b3de4a9b27abe04c3ecb,False,1,1,19,19,19.0,329,528,199,0.08387096774193549,0.5290322580645161,1.0,1760,289,60,2,"Update CreateIntialBuildForIteration to initialize each build its own map (#11574)
+
+* Rename mock bucket test file
+
+* Add failing tests for reproducing #11573
+
+```
+=== RUN   TestBucket_CreateInitialBuildForIteration
+2022/02/16 16:22:21 [TRACE] creating initial build for component happycloud.image
+--- PASS: TestBucket_CreateInitialBuildForIteration (0.00s)
+=== RUN   TestBucket_UpdateLabelsForBuild
+2022/02/16 16:22:21 [TRACE] creating initial build for component happycloud.image
+    types.bucket_test.go:87: expected the initial build to have an additional build label but thee is no diff: """"
+--- FAIL: TestBucket_UpdateLabelsForBuild (0.00s)
+=== RUN   TestBucket_UpdateLabelsForBuild_withMultipleBuilds
+2022/02/16 16:22:21 [TRACE] creating initial build for component happycloud.image
+2022/02/16 16:22:21 [TRACE] creating initial build for component happycloud.image2
+    types.bucket_test.go:125: Comparing component build labels: map[based_off:alpine source_image:another-happycloud-image version:1.7.0]
+         against global build labels: map[based_off:alpine source_image:another-happycloud-image version:1.7.0]
+    types.bucket_test.go:128: expected the initial build to have an additional build label but they are equal
+    types.bucket_test.go:125: Comparing component build labels: map[based_off:alpine source_image:another-happycloud-image version:1.7.0]
+         against global build labels: map[based_off:alpine source_image:another-happycloud-image version:1.7.0]
+    types.bucket_test.go:128: expected the initial build to have an additional build label but they are equal
+--- FAIL: TestBucket_UpdateLabelsForBuild_withMultipleBuilds (0.00s)
+FAIL
+FAIL    github.com/hashicorp/packer/internal/registry   0.646s
+
+```
+
+* Update CreateIntialBuildForIteration to initialize each build with a new map
+
+Previously upon creating the initial build the same map, which was
+initialized for the build_labels argument was being shared across all
+build images. This was causing an issue with labels being backed by the
+same map for all builds. This change ensures that all builds get their
+own map with any global build labels copied over during the initial creation.
+
+Closes #11573
+
+Passing tests with changes on branch
+```
+RUN   TestBucket_CreateInitialBuildForIteration
+2022/02/16 16:37:40 [TRACE] creating initial build for component happycloud.image
+--- PASS: TestBucket_CreateInitialBuildForIteration (0.00s)
+=== RUN   TestBucket_UpdateLabelsForBuild
+2022/02/16 16:37:40 [TRACE] creating initial build for component happycloud.image
+--- PASS: TestBucket_UpdateLabelsForBuild (0.00s)
+=== RUN   TestBucket_UpdateLabelsForBuild_withMultipleBuilds
+2022/02/16 16:37:40 [TRACE] creating initial build for component happycloud.image
+2022/02/16 16:37:40 [TRACE] creating initial build for component happycloud.image2
+    types.bucket_test.go:125: Comparing component build labels: map[based_off:alpine source_image:another-happycloud-image version:1.7.0]
+         against global build labels: map[based_off:alpine version:1.7.0]
+    types.bucket_test.go:125: Comparing component build labels: map[based_off:alpine source_image:the-original-happycloud-image version:1.7.0]
+         against global build labels: map[based_off:alpine version:1.7.0]
+--- PASS: TestBucket_UpdateLabelsForBuild_withMultipleBuilds (0.00s)
+
+```
+
+* Handle errors from bucket methods
+
+* Update test cases
+
+Initialize maps for bucket when calling NewBucketWithIteration"
+0362a3ec10339db86107fea89e8d3a68c5403071,False,1,4,8,2,2.0,4,95,91,0.05,1.0,1.0,2633,244,19,5,"all shells: Pass env vars through a key value store (#11569)
+
+* allowing to set shell env vars from a key/value map.
+* tests
+
+This new map will work alongside the `environment_vars` but it allows using a
+datasource value seamlessly. At validation, and because `environment_vars` was
+an array of strings containing `KEY=value`, using datsources would not work,
+because these values are not known yet and would evaluate to `<unknown>`. With
+this, the value and the key can be unknown and will validate correctly for
+datasources."
+5d17d7fe65f9e26fbf7cce96449161e91bb37fb7,False,1,3,123,108,41.0,62,61,-1,0.5,1.0,0.0,9811,1611,263,10,"prevent duplicate local block creation (#11534)
+
+* prevent duplicate local block creation
+
+* remove duplicate locals block bug
+
+* local variables: first get block, then decode it + simplify retry loop
+
+* Update types.packer_config.go
+
+* revert go get of hcl lib"
+927093e5c0026425a799f4fad83729acc712d9d9,False,1,1,3,3,3.0,1,18,17,,,,6514,1107,193,1,improve regex to fix escaping on split function (#11083)
+6867456a72dd77bfcb4cdb745ea404e3d74ba913,False,1,1,6,6,6.0,1,5,4,0.0,0.0,1.0,1729,286,70,2,Implemented DEFAULT_NAME handling for datasource plugins (#11026)
+f6f2469d4d73966eabbf366a981e161f350a43e7,False,1,2,60,58,30.0,1,186,185,0.11805555555555555,0.8263888888888888,1.0,1015,169,14,3,"fix: HCL ""index"" function now actually returns the index of the element (#11008)"
+0993c976fab3d11dcb9db85f9f40ae8a7efb0ed4,False,1,1,56,56,56.0,2,107,105,0.3611111111111111,0.0,1.0,6447,1102,192,4,"hcl2_upgrade escaped quotes fix (#10794)
+
+* clean up extra quoting that can cause text template failures. when everyone else abandons you, regex will always be there.
+
+* LINTING"
+610dde7f02327b6c37a480b7074e07cc09e64814,False,1,1,9,9,9.0,0,26,26,0.0,0.0,1.0,6097,1051,181,2,check for nil config map (#10730)
+f2f33fa3449072ee64fa2f39fd9f7f03f7ed9a04,False,1,1,1,1,1.0,1,0,-1,1.0,0.0,1.0,1191,159,19,1,Correct SIG timout (#10816)
+794e83b171af516781af93e7adc27bc63d1b4170,False,1,3,10,5,3.3333333333333335,5,13,8,0.0,0.0,1.0,13783,2067,400,2,"Proxmox builder return first ipv4 address (#10858)
+
+* Check if IP address is IPv4 before returning it
+
+Returns the first IPv4 address instead of the first IP address which is an IPv6 for Windows VMs
+
+* Updated the go module
+
+* Reversed the order of checks
+
+First check if it's a loopback and check for ipv4 afterwards"
+d81c02b4563383aeb449d31ec0476380de1ac53c,False,1,4,112,58,28.0,59,398,339,0.18996415770609318,0.5161290322580645,1.0,8411,1301,270,6,"Fix primary disk resize on clone and add tests (#10848)
+
+* Fix primary disk resize on clone and add tests
+
+* remove commented tests"
+349a300213b8a34ce1a7030ad153f892d55dfd9e,False,1,1,1,1,1.0,0,90,90,0.0,0.9866666666666667,1.0,396,72,9,1,"Add new disk to existingDevices list (#10844)
+
+* add new disk to existingDevices list
+
+* add tests"
+1e312ebc21d7d1de7e923b163975b427986bf1b3,False,1,3,10,4,3.3333333333333335,0,10,10,0.0,0.0,1.0,2375,341,48,3,"Fix description that was ignored in Osc builder (#10792)
+
+Signed-off-by: Matthias Gatto <matthias.gatto@outscale.com>"
+80f807de4d1972713f1cd55afc5407a5798e1de5,False,1,1,2,2,2.0,1,1,0,,,,1349,249,73,1,Fix issue with test breaking default value when client_cert_token_timeout is missing (#10783)
+d0737dcd17f23ebc535eb2e82ab700b8be15e393,False,1,2,8,4,4.0,6,2,-4,1.0,0.0,0.0,5344,571,73,1,skip DownloadPathKey and ShouldUploadISO on mapstructure-to-hcl2 (#10772)
+77ce2b39d86794e9245afdc3815905478f1dad1f,False,1,1,6,6,6.0,3,29,26,0.0,1.0,1.0,2911,444,88,2,"Fix the version parsing in ChecksumFileEntry.init() so that plugins whose name contain v's can `packer init` (#10760)
+
+* fix
+* test"
+33cf6bf45435dcbafcd954a7edc164056eaf989f,False,1,1,2,2,2.0,1,1,0,,,,979,154,47,1,Fix logic for checking for KMS keys (#10754)
+273a7204405f99172b02dee56501ad7b0c6cbca3,False,1,6,71,50,11.833333333333334,27,61,34,0.0,0.7,1.0,11717,1173,129,9,Add client_cert_token_timeout to address GH-9465 (#10528)
+ff5b55b560095ca88421d3f1ad8b8a66646b7ab6,False,1,2,81,54,40.5,41,140,99,0.0,0.8529411764705882,1.0,4044,554,100,3,chef-solo: json_string to HCL2 templates compatibility (#10655)
+9a11fd4136023d85ffde1115677042a1b04a6193,False,1,35,16801,6128,480.0285714285714,1131,15680,14549,0.7817950581395349,0.8504723837209303,0.9182412790697675,801052,135071,26690,1055,Update amazon sdk (#10668)
+c4a22e9a56d4456311104daa41df0450eebdf4cc,False,1,1,4,4,4.0,4,0,-4,1.0,1.0,0.0,1574,283,52,1,fix packer interpolation of packer log path (#10660)
+317e2da00074205a99b7a9a05be41a63271a85a1,False,1,1,8,8,8.0,2,6,4,0.0,0.0,0.0,2216,241,26,1,azure client sig fix: don't overwrite subscription id if unset (#10659)
+37d05c85ff7df87b5518c7608758e8328c849b0d,False,1,1,3,3,3.0,3,8,5,0.0,0.0,1.0,5644,989,170,1,upgrade pause_before (#10654)
+bd7b31853e67abfd013691b883ff6221729c7e37,False,1,2,6,4,3.0,269,255,-14,,,,2582,429,110,1,Multi plugin naming (#10608)
+e0557f84e93ede2ed89a71ef4733aca03c94752c,False,1,1,54,54,54.0,17,171,154,0.75,0.8125,1.0,5624,986,169,4,Add access config to generated amazon ami data source (#10634)
+2c08479825ef599bb1756ecd5f65eef8704e8575,False,1,1,5,5,5.0,1,4,3,0.0,0.0,1.0,346,56,13,1,add AWS API call retries on AMIGetFilteredImage (#10610)
+6c77d28537f81465a7d733f0e53eb6e6c346c584,False,1,11,918,276,83.45454545454545,452,544,92,0.29577464788732394,0.7887323943661971,0.9014084507042254,15062,1612,175,15,proxmox: Fix additional_iso_files (#10586)
+f5006d0842fc628af34761b360261dc8e5ed821d,False,1,1,8,8,8.0,4,265,261,0.0,0.2857142857142857,1.0,3895,643,112,1,fix empty locals and source name with blank space (#10593)
+9afaa5a21f4f34f1708ca02b1d1ea18512ff049e,False,1,2,145,132,72.5,11,135,124,0.13333333333333333,0.0,0.44761904761904764,2794,399,80,13,Profitbricks builder fixes (#10549)
+ef4afafde9e942ecc3f90baa47aee6423d84eac4,False,1,4,42,16,10.5,17,123,106,0.0,0.96,1.0,5204,870,140,5,Fix force flag for hcl2 provisioners and post-processors (#10571)
+c3266cc3b076c0eda69a637f175a8cf54ac7db36,False,1,1,2,2,2.0,20,20,0,,,,2055,292,51,1,remove indexing from cdrom command and let qemu handle it (#10519)
+e588029d6a3e8e3ac52b9fee980316faaa96071b,False,1,5,301,239,60.2,122,187,65,0.0,0.9411764705882353,1.0,5012,606,65,7,yandex: some fix (#10522)
+490616a301200857118e0468a99b0d454b27075c,False,1,1,5,5,5.0,0,5,5,0.0,0.0,1.0,511,76,14,1,Improve cloud init logging for proxmox builder (#10499)
+889e42443a3b80ca31c69185912210c141912de3,False,1,1,2,2,2.0,1,1,0,,,,650,115,3,1,Fix 2nd binding of string reverse for list reverse (#10380)
+f8e85f94fdd0ed19edc785658bf8ff221851be51,False,1,1,8,8,8.0,5,3,-2,,,,1376,216,38,1,fix set user-agent (#10361)
+355b93730b3f35f4f7e70e27d693d1ef3e2cce84,False,1,4,47,24,11.75,3,80,77,0.1276595744680851,0.1702127659574468,1.0,6545,1071,177,6,Gcp oslogin issue 10170 (#10360)
+f5d5e280124a78fd1adbf8aa6e71110b064f4828,False,1,1,2,2,2.0,1,1,0,,,,335,53,9,1,Update step_copy_disk.go (#10333)
+89199a4c57bf9aba51289de49d43b95cd81a6522,False,1,1,3,3,3.0,1,2,1,,,,6089,927,191,1,WaitForIP should not return an error if an IP is not found (#10321)
+d82b9d2072947f9a6f5035badc934f961dbb6617,False,1,2,17,10,8.5,7,10,3,0.0,0.0,1.0,2472,355,63,3,"builder/qemu: Add ok check for state values (#10249)
+
+This changes fixes two crashes in `step_run` that expects certain
+information to be in state from prior steps. This change requires
+testing to ensure the bugs have been fixed.
+
+I believe there may be more state values that need to be checked as they
+may not be put into state if a build configuration has attributes that
+would skip or otherwise not put data into the statebag."
+67e2c0b83ccdc71f7098686d45b68eaf50814f65,False,1,2,10,8,5.0,1,9,8,1.0,1.0,1.0,160,41,7,3,"Add nullStep as return for multistep.If (#10247)
+
+This change introduces a new nullStep type that can be used in place of
+a nil step. This fixes an issue where multistep.If would return a nil
+step if the condition was not met causing a builder to crash when
+executed using `-on-error=ask` or `-on-error=abort`.
+
+Closes #10241"
+c4866504e157db4b3524d81a6eded234f5a18dcd,False,1,3,72,30,24.0,40,94,54,0.40540540540540543,1.0,1.0,1335,239,39,3,"respect the destroy flag in content library config (#10165)
+
+* respect the destroy flag in content library config
+
+* Make vsphere-clone respect delete_vm state tag; use a common delete func to prevent future drift"
+809f38be3abce439e4134a2c821e9e49378dc53f,False,1,5,109,70,21.8,27,242,215,0.08,0.656,1.0,1405,270,26,6,[azure-chroot] Updating parameter `exlude_from_latest` to `exclude_from_latest` (#10034)
+bdb1c47532655ceac13a14d06bc7e228b33db983,False,1,1,1,1,1.0,0,1,1,0.0,0.0,0.0,1287,196,18,1,Pass QemuImgArgs to stepConvertDisk (#10001)
+96e3def2943ad4edc879c338ad9e5b9b01065df3,False,1,10,36,13,3.6,0,42,42,0.0,0.25,0.8,25956,2710,174,10,Add pause_before_ssm config to pause before establishing the Session Manager session (#9988)
+11861fc7d780a5d3d11d6633f40bcffe36066ef7,False,1,1,2,2,2.0,1,1,0,,,,406,171,6,0,Removed hardcoded but obsolete Task Scheduler timeout (#9994)
+654fade0a9198fc6448307e58c071ec5dc9f0aac,False,1,5,57,23,11.4,41,73,32,0.2857142857142857,1.0,1.0,11525,1791,283,7,"azure arm: make map[string]*string => map[string]string to simplify things (#9985)
+
+* azure arm: make map[string]*string => map[string]string to simplify things
+* go generate ./builder/azure/...
+* tests !
+
+fix #9984"
+eca9b2f30d6829b19c7ff69b7214c1705ffd42a2,False,1,1,47,47,47.0,47,0,-47,1.0,1.0,0.0,219,40,9,1,aws ebs_surrogate: fix unhonored kms_key_id (#9959)
+d347bbec4cc142019ce8a1b34797608392cf21c2,False,1,1,23,23,23.0,13,10,-3,0.0,0.0,1.0,2723,390,72,3,Retry fleet creating only on invalid IAM instance profile (#9946)
+bdd736b80017b1952ec4baa08e3cf2ce85a79653,False,1,6,96,30,16.0,13,147,134,0.4444444444444444,0.4444444444444444,0.9012345679012346,5391,938,163,7,Interpolate vagrantfile_template on Vagrant post-processor (#9923)
+c032d463d3a45dfd7b76079ed23b7ed4ed0d8470,False,1,1,105,105,105.0,28,105,77,0.24675324675324675,0.7142857142857143,0.8961038961038961,749,148,22,8,Bootcommand Fix For Proxmox Builder (#9885)
+20eeffee0dfc5b82cfc9bfccd312c78a614a2911,False,1,2,16,10,8.0,7,9,2,1.0,1.0,1.0,1999,345,92,4,"integration/secretsmanager: Add support for AWS SharedConfig file (#9781)
+
+This changes updates the AWS Secrets manager session authentication
+logic to support reading the AWS configuration file for default
+credentials and region settings, if they are not provided via
+environment variables.
+
+* Modify error output a little to remove stutter ""error ... : error ...`
+
+Results before change
+```
+unset AWS_REGION
+⇶  ~/pkg/packer build amazon-ebs_secretsmanager_shell-local.json
+template: root:1:3: executing ""root"" at <aws_secretsmanager `packer/test/keys`
+`shell`>: error calling aws_secretsmanager: Error getting secret: MissingRegion:
+could not find region configuration
+```
+
+Results after change
+```
+unset AWS_REGION
+⇶  ~/pkg/packer build amazon-ebs_secretsmanager_shell-local.json
+null: output will be in this color.
+
+==> null: Running local shell script: /tmp/packer-shell721444992
+    null: powershell
+Build 'null' finished after 4 milliseconds 121 microseconds.
+
+==> Wait completed after 4 milliseconds 192 microseconds
+
+==> Builds finished. The artifacts of successful builds are:
+```"
+56f6a976de99eadeaee48232e87b5fc5b77e77a3,False,1,1,6,6,6.0,3,37,34,0.0,0.0,1.0,412,76,15,1,"integrations/secretsmanager: Add support for plaintext, non key/pair, secrets (#9773)"
+a0c09e85dfc8ac11232a77bfea1411a3377f94e8,False,1,1,41,41,41.0,10,31,21,0.9411764705882353,0.9411764705882353,1.0,2733,390,70,3,"retry spot instance creation when an ""Invalid IAM Instance Profile name"" error pops up (#9810)
+
+PutRolePolicy & AddRoleToInstanceProfile are eventually consistent but it is not possible to wait for them to be done here: https://github.com/hashicorp/packer/blob/0785c2f6fca9c22bf25528e0176042799dd79df9/builder/amazon/common/step_iam_instance_profile.go#L117-L134 which was causing the `CreateFleet` to fail (100% for me). So for now we retry a bit later. Waiting 5 seconds after the previously linked code also fixed this.
+
+Test file:
+
+```json
+{
+	""builders"": [
+		{
+			""type"": ""amazon-ebs"",
+			""region"": ""eu-west-1"",
+			""ami_name"": ""ubuntu-16.04 test {{timestamp}}"",
+			""ami_description"": ""Ubuntu 16.04 LTS - expand root partition"",
+			""source_ami_filter"": {
+				""filters"": {
+					""virtualization-type"": ""hvm"",
+					""name"": ""ubuntu/images/*/ubuntu-xenial-16.04-amd64-server-*"",
+					""root-device-type"": ""ebs""
+				},
+				""owners"": [
+					""099720109477""
+				],
+				""most_recent"": true
+			},
+			""spot_price"": ""0.03"",
+			""spot_instance_types"": [
+				""t2.small""
+			],
+			""encrypt_boot"": true,
+			""ssh_username"": ""ubuntu"",
+			""ssh_interface"": ""session_manager"",
+			""temporary_iam_instance_profile_policy_document"": {
+				""Version"": ""2012-10-17"",
+				""Statement"": [
+					{
+						""Effect"": ""Allow"",
+						""Action"": [
+							""*""
+						],
+						""Resource"": ""*""
+					}
+				]
+			},
+			""communicator"": ""ssh""
+		}
+]}
+```"
+46a26a3d9e0e094863bf53cd75b2042b4eb6706d,False,1,1,2,2,2.0,1,1,0,,,,425,72,9,1,Fix Hyper-V boot command refs #5291 (#9765)
+281af9a03d5a35d3a40162320bd6bc35139b1e6a,False,1,1,10,10,10.0,3,7,4,,,,435,84,21,1,prefer $APPDATA over $HOME in Windows (#9830)
+0df2e15d9f3675b4a5c7b4bd8c52aee91e6c1b35,False,1,1,15,15,15.0,3,12,9,,,,7,140,0,0,"If proposed exit code not equal 0 set proper metadata key to expected 'cloud-init-error'. (#9849)
+
+Last one checked at `StepWaitCloudInitScript`."
+10e74961d29f941c4c0084659b21cdf48d44a576,False,1,1,45,45,45.0,20,53,33,0.0,0.96,1.0,2203,318,55,2,"Add check for empty artifact.Files slice (#9857)
+
+* Add check for empty artifact.Files slice
+
+Tests before change
+```
+⇶  go test ./post-processor/digitalocean-import/... -run=TestPostProcsor_extractImageArtifact
+2020/08/31 13:51:25 Looking for image in artifact
+--- FAIL: TestPostProcsor_extractImageArtifact (0.00s)
+panic: runtime error: index out of range [0] with length 0 [recovered]
+        panic: runtime error: index out of range [0] with length 0
+
+goroutine 7 [running]:
+testing.tRunner.func1.1(0xfb0300, 0xc000456460)
+        /usr/local/go/src/testing/testing.go:940 +0x2f5
+testing.tRunner.func1(0xc0003ab560)
+        /usr/local/go/src/testing/testing.go:943 +0x3f9
+panic(0xfb0300, 0xc000456460)
+        /usr/local/go/src/runtime/panic.go:969 +0x166
+github.com/hashicorp/packer/post-processor/digitalocean-import.extractImageArtifact(0x0, 0x0, 0x0, 0x24, 0xc000060ea0, 0x453937, 0x1431250)
+        /home/wilken/Development/packer/post-processor/digitalocean-import/post-processor.go:262 +0x36d
+github.com/hashicorp/packer/post-processor/digitalocean-import.TestPostProcsor_extractImageArtifact(0xc0003ab560)
+        /home/wilken/Development/packer/post-processor/digitalocean-import/post-processor_test.go:28 +0x2b0
+testing.tRunner(0xc0003ab560, 0x1077208)
+        /usr/local/go/src/testing/testing.go:991 +0xdc
+created by testing.(*T).Run
+        /usr/local/go/src/testing/testing.go:1042 +0x357
+FAIL    github.com/hashicorp/packer/post-processor/digitalocean-import  0.009s
+FAIL
+```
+
+Tests after change
+```
+[go-1.14.2] [1] wilken@automaton in ~/Development/packer/ on fix_9848 (ahead 1)
+⇶  go test ./post-processor/digitalocean-import/... -run=TestPostProcsor_extractImageArtifact
+ok      github.com/hashicorp/packer/post-processor/digitalocean-import  0.006s
+```
+
+* Update to reflect review feedback"
+efd69aea2a4ae83e344f886a8478e2f30de71cae,False,1,1,6,6,6.0,5,2,-3,0.0,0.0,0.0,606,134,24,1,"console: allow to use console when there are untyped vars (#9864)
+
+* the var will simply be ""unknown""
+* add a test"
+2837d56885b6bf0c5a2f7b99ddbfc1fa0d013b0a,False,1,1,3,3,3.0,0,3,3,0.0,0.0,0.0,1182,191,25,1,Check for error after runner completes (#9925)
+e475db6a665d77bfec413673cf868b6dbd20cb99,False,1,1,10,10,10.0,2,8,6,0.0,0.0,1.0,811,141,31,2,check for ip after timeout (#9748)
+80960d7a64409bce357baaae43d66e22c7ece79f,False,1,2,15,8,7.5,1,14,13,0.0,0.0,0.4444444444444444,1439,251,50,3,Fix vsphere boot command and check for context cancelation when waiting for ip (#9739)
+6d1a1461435512160f56d858c3d4cecc5ae2aaf5,False,1,1,29,29,29.0,3,26,23,,,,29,94,0,0,"Fix Google Compute Export Post-Processor (#9708)
+
+* Fix Google Compute Export Post-Processor
+
+The current Post-Processor hangs on waiting for the Startup Script to finish. The startup script doesn't update the metadata (StartupScriptStatusKey) so this change aims to fix that but adding the `SetMetadata` functionality to this script.
+
+* Update startup.go"
+dd37a1035505b17e0ff32786fa2c184c80aa94ac,False,1,1,10,10,10.0,5,5,0,,,,236,42,8,1,fix configuration_parameters (#9713)
+6b8d086e94fbd87654d2199f30642c80d842961e,False,1,1,5,5,5.0,3,2,-1,,0.0,,647,112,19,2,"alt, ctrl, and shift should be outside variables (#9702)"
+9181a435aaf15616bd2e5bc7907d67492d02eba9,False,1,7,53,20,7.571428571428571,24,179,155,0.1532258064516129,0.8387096774193549,1.0,10513,1747,326,10,Make max_retries a string to allow variable interpolation (#9673)
+a28edbaa0b93d761d09638a7e8e04dbb81c54950,False,1,1,26,26,26.0,12,14,2,0.0,0.0,0.0,2209,320,22,1,Fix skip_save_build_region in the ebssurrogate builder. (#9666)
+b695615d7d4554330790e8c777c9864456ad5ef0,False,1,1,16,16,16.0,3,53,50,0.0,0.9090909090909091,1.0,1538,241,37,1,fix local file stating (#9660)
+883339be25dd11272b2bb96bea7e9c7be18f1a29,False,1,1,5,5,5.0,9,5,-4,1.0,0.75,0.0,1366,236,34,2,"Set project via project flag, not setting in the config (#9662)
+
+* set project via project flag, not setting in the config + tests"
+8fc4e031399ec14ccfcfb2a393897f5a8f34424f,False,1,1,2,2,2.0,7,7,0,,,,4137,658,152,1,quote packer build name to handle names with spaces (#9590)
+eb5c3c3efb9b41cbec403797d532bc66a4c6de25,False,1,1,26,26,26.0,6,20,14,0.0,0.8,1.0,1455,224,45,1,fix file size descriptor (#9568)
+5a006f226a5256e1d1df5002f2ee0b1a1edf498a,False,1,4,15,5,3.75,9,9,0,0.0,0.0,1.0,960,196,25,6,Don't use Packer context as vSphere driver context (#9576)
+3dc7a53125e68a5a5790e4d65a1e12f339834f79,False,1,1,2,2,2.0,16,26,10,0.0,1.0,1.0,4137,658,152,1,Correct check if PackerHttpAddr is implemented or not (#9498)
+88c94cc987b327cf7d12ac52e5ff62b7da052804,False,1,2,26,24,13.0,11,15,4,0.0,0.0,1.0,2255,365,77,2,Fix 8904 (#9435)
+374f82b978ffb892c1676718fdce4c92df261627,False,1,1,8,8,8.0,3,5,2,0.0,0.0,1.0,472,69,6,1,"buidler/vsphere-iso: ISOUrl Fix (#9321)
+
+* ISOUrl Fix
+
+Added the check for ISOUrls back in addition to a check for RawSingleISOUrl.  This should allow both ISOUrls[] or ISOUrl to work while not requiring them all the time.
+
+* Update config.go
+
+Fixed formatting."
+fecb040bf4aec803c8fae9449c0b3b24655cc841,False,1,1,9,9,9.0,4,5,1,,,,2673,385,92,1,fix bug where build vars couldn't be properly interpolated into this execute command (#9275)
+be9dbaacd7f851418c0f0d16813f967bfafcd100,False,1,1,20,20,20.0,3,37,34,0.0,0.0,0.0,2926,446,95,3,"Interpolate generatedData in the Inspec provisioner (#9262)
+
+* Interpolate generatedData in the Inspec provisioner
+
+* Add inspec license section to inspec docs
+
+* add user arg if user config it not empty
+
+* increase resource size for check-lint pipeline
+
+* update changelog
+
+* Update provisioner/inspec/provisioner.go
+
+* Update provisioner/inspec/provisioner.go
+
+Co-authored-by: Megan Marsh <megan@hashicorp.com>"
+b86efe7604e11c7bd4fcb54712e0953d199b0b3d,False,1,1,2,2,2.0,2,37,35,0.0,1.0,1.0,726,120,15,1,"Vbox Checksum Bugfix (#9101)
+
+* attempting to repro github issue 9049
+
+* update vbox ovf configtest to table test for mixedcase bug"
+3f8ee2b426906db19dca8d1fa65bb061f1a87d2f,False,1,5,46,19,9.2,11,47,36,0.7777777777777778,0.0,0.4444444444444444,3318,529,76,6,"add exported files to VSphere artifact (#9020)
+
+* add exported files to VSphere artifact
+
+* clean up grammar for vsphere template docs
+
+* add to vsphere clone"
+b679f615361ae87f77d132cd249e030931fbf2a4,False,1,1,2,2,2.0,1,1,0,,,,2929,380,86,1,"Update to make NoExitOnFailure work correctly. (#9119)
+
+if NoExitOnFailure is true then ignore the error returned from salt."
+e0d2f4fd694f6f1c4c56822887b5aed156b07c6d,False,1,1,23,23,23.0,5,18,13,0.0,0.0,1.0,4592,717,194,1,builder/azure-arm: Fix SSH connection for temporary admin users specified in `ssh_username` (#9103)
+c43a52aafe53dcbbcc209d8bab62e795e3fc099f,False,1,3,68,32,22.666666666666668,27,41,14,0.0,0.0,0.0,5266,873,104,3,"fix issue where -force is not working with vsphere builders (#9039)
+
+* add better error support to check if vm exists use path.Join so that it looks up the VM correctly turn off VM if it is still running
+
+* fix the vsphere-clone also
+
+* add a common precleanvm to the driver to dedupe iso and clone logic, reduce the if nesting"
+2af40c762b372ecd45e5384b0686dd38c45359ea,False,1,8,82,42,10.25,45,262,217,0.0,0.781021897810219,0.9781021897810219,5426,816,122,17,"HCL2: pass on builder type and name (#8956)
+
+* sets `packer_build_name` and `packer_builder_type` variables for builder provisioners and post-processors in HCL2
+* allows to use the new `${source.type}` and `${source.name}` variables in HCL2
+* fixes #8932 
+
+Note that the common.PackerConfig is used everywhere and was not set for HCL2, this had some implications: 
+
+For #8923 you can see the issue here:
+
+https://github.com/hashicorp/packer/blob/dde74232f251434715cb76664426d9c1e1c91bd8/builder/lxd/config.go#L61-L63
+
+More random examples of where this could cause an issue :
+
+https://github.com/hashicorp/packer/blob/0785c2f6fca9c22bf25528e0176042799dd79df9/provisioner/ansible-local/provisioner.go#L380-L381
+
+https://github.com/hashicorp/packer/blob/b4efd13a4d69a937a22caa5dd84eb98f7fdce5cf/builder/amazon/ebs/builder.go#L232-L236
+
+
+
+* [All references to PackerConfig.PackerBuildName](https://sourcegraph.com/github.com/hashicorp/packer@ff6a039d5bb45e34ff761d9c52e8b98972288447/-/blob/common/packer_config.go#L7:2&tab=references)
+
+* [All references to PackerConfig.PackerBuilderType](https://sourcegraph.com/github.com/hashicorp/packer@ff6a039d5bb45e34ff761d9c52e8b98972288447/-/blob/common/packer_config.go#L8:2&tab=references)"
+bdcc95f989a30078419c56bec10ce1a13fbf1010,False,1,2,17,10,8.5,0,126,126,0.036036036036036036,0.9459459459459459,1.0,2331,368,82,2,"fix execution policy parser to not interfere with legit integers, and add tests (#8997)"
+b0c7fe491c9923f81fb5630105d4feb5b22d91f8,False,1,1,30,30,30.0,30,0,-30,1.0,1.0,0.0,2741,438,71,1,Remove net_device prepare validation (#8979)
+f5c98a7601b8e05bc233fb8ff2ab1a438458d4e7,False,1,1,8,8,8.0,2,18,16,0.0,0.8461538461538461,1.0,704,111,24,1,make sure cli vars supercede var files (#8964)
+e6368b9246a69e07a57c33cd7411c86759df8b7b,False,1,3,67,58,22.333333333333332,23,143,120,0.0,0.36893203883495146,1.0,7981,1126,269,5,Fix azure winrm_password attribution and allow to set winrm_username (#8928)
+b17b211aa99dd4a4df1e39e6ae94b3e0a3ab57bd,False,1,5,13,5,2.6,0,56,56,0.06666666666666667,1.0,1.0,7697,787,35,3,Add cleanup_remote_cache config option to vmware-iso (#8917)
+c387dc2c53220db71d3aa3baa86add7890c442d5,False,1,2,18,9,9.0,8,10,2,0.0,0.0,1.0,1439,237,42,2,builder/vsphere-clone: Find the vm within the folder (#8938)
+d068430abf13c9d9dfb1a74e3cf3fb648091841e,False,1,1,4,4,4.0,3,7,4,,,,1038,173,25,1,"make sure locals are evaluated only once variables are + test this (#8918)
+
+fix #8898"
+76f13deaf4a7aa443807cd68d3347d290ab476d7,False,1,2,10,6,5.0,20,40,20,1.0,1.0,0.0,2413,411,101,1,Make template variables SSHPublicKey and SSHPrivateKey as strings (#8829)
+f2b0fabe6600587b9bcc78fea0f26d7a53e00163,False,1,1,15,15,15.0,7,8,1,,,,3383,554,98,1,Fixes #3466 - Remote path needs to be set prior to config interpolation (#3468)
+b67ee530c8eb9eecad296d83a4fc54791dd128e5,False,1,1,28,28,28.0,18,20,2,,,,1064,156,33,2,"post-processor/shell-local: don't set executable bit for artifact files (#3505)
+
+Signed-off-by: Vasiliy Tolstov <v.tolstov@selfip.ru>"
+d40e115ad783bfc2b5322dbb510e6dc0ebe31644,False,1,3,15,7,5.0,18,18,0,1.0,1.0,1.0,973,141,25,3,"Only cleanup if necessary. (#3517)
+
+Do not delete the resource group as part of cleanup unless it exists."
+9219ffa982d0b0e3bcfc9f40be50372bcea5bbb3,False,1,1,63,63,63.0,21,83,62,0.0,0.6666666666666666,1.0,929,143,24,2,"Resolves vsphere post-processor problems (#3321)
+
+* Fixed vsphere post-processor and added logic for optional arguments
+
+* Refactored arg building, and added test for vsphere post-processor"
+d14d62074ec1755a26ed654aaa04a7a0a659c427,False,1,2,7,5,3.5,1,109,108,0.0,0.0,1.0,4748,751,130,1,"Add winrm functionality to vmware-iso builder (#3738)
+
+* Use winrm_host, if provided, this allows packer to work in ESXi
+environments without DHCP.
+
+Signed-off-by: Charlie Vieth <cviethjr@pivotal.io>"
+4ac6e2a08c4c83e9094d36e468d84f8313823699,False,1,1,6,6,6.0,4,2,-2,1.0,0.0,0.0,2795,427,101,1,Dont check for poweron command error to force retry at state check (#3195)
+d02b106a16dde0aa5a77275ee74bf5dad825590b,False,1,4,14,6,3.5,4,10,6,0.5,0.0,1.0,3055,486,52,6,Fix for issue #2972 - Implemented ssh_host for virtualbox builders (#3617)
+d01fb65dcf5de8cf9becedea3b5df1f9b7f411ae,False,1,3,60,30,20.0,29,49,20,0.0,0.0,1.0,3729,573,74,3,"Fix. Use temporary_key_pair_name when specified. (#3739)
+
+Fix: Use temporary_key_pair_name when specified.
+
+This is to fix an issue where the temporary_key_pair_name configuration option
+for amazon-ebs and amazon-instance builders would be ignored and replaced with
+an automatically generated value using UUID, even when the option was explicitly
+specified.
+
+Remove space from the auto-generated SSH key-pair name.
+
+Resolves #3736"
+49067e732a66c9f7a87843a2c91100de112b21cc,False,1,1,4,4,4.0,1,3,2,0.0,0.0,0.0,2612,413,83,1,"append ANSIBLE_HOST_KEY_CHECKING correctly (#3568)
+
+Append the ANSIBLE_HOST_KEY_CHECKING environment variable correctly
+regardless of whether the template specifies some environment variables."
+33f430bf255ce2999f3eec7270e15b516a1c214a,False,1,1,8,8,8.0,4,4,0,,,,1145,167,33,1,"Use the private port for the firewall rules (#4114)
+
+Because of how CloudStack configures the firerwall on the router VM, you need to allow traffic to the private port instead of the public port."
+d1eadd91bb836c9644707260cd493656160d1ad2,False,1,2,16,12,8.0,4,12,8,0.0,0.0,1.0,1816,277,58,2,"Fix cloudstack builder (#4139)
+
+* add zone id when associate ip address in cloudstack
+
+* configure keypair
+
+* fix bug firewall port"
+68c6835bb5ee6a4b6d72adb136b6648ff30a206e,False,1,2,41,33,20.5,30,11,-19,1.0,1.0,0.0,1765,263,56,2,"Do not create a random public port (#4149)
+
+This is meant to be a gentle solution for a very specific use case, but is causing more issues then it solves.
+
+If you have a port conflict when trying to use an already associated public IP, the easiest way around it is to let the builder associate a new temporary public IP address."
+9403b48a528da307d62ba6c814099ec658bd2216,False,1,1,26,26,26.0,17,104,87,0.10666666666666667,0.9733333333333334,0.8933333333333333,1823,301,45,3,"hcl2template/types.variables: Update logic for parsing literal value variables (#8834)
+
+* hcl2template/types.variables: Update logic for parsing literal value variables
+
+In running tests via the CLI it was determined that when using the variable block with no explicit type assigned the type of the default
+value was not being set within the map. This change updates the `decodeConfig` method so that a type is always set for any defined variable if not specified.
+
+The second change is to properly handle the evaluation of basic variable types (e.g String, Number, Bool). Previously variables defined on the
+CLI or via PKR_VAR required some additional quoting to for proper evaluation. This change fixes that issue so that it works like it does in Terraform :)
+
+Build results before the change
+```
+⇶  PKR_VAR_example='[""one"",""two""]' ~/bin/packer build -var 'foo=home' .
+Error: Variables not allowed
+
+  on <value for var.foo from arguments> line 1:
+  (source code not available)
+
+Variables may not be used here.
+
+==> Builds finished but no artifacts were created.
+
+```
+
+Build results after the change
+```
+⇶  PKR_VAR_example='[""one"",""two""]' ~/bin/packer build -var 'foo=""home""' .
+null: output will be in this color.
+
+==> null: Running local shell script: /tmp/packer-shell885249462
+    null: two
+    null: home
+Build 'null' finished.
+
+==> Builds finished. The artifacts of successful builds are:
+--> null: Did not export anything. This is the null builder
+
+⇶  ~/bin/packer build -var 'foo=home' -var 'example=[""one"",""another variable""]' .
+null: output will be in this color.
+
+==> null: Running local shell script: /tmp/packer-shell123467506
+    null: another variable
+    null: home
+Build 'null' finished.
+
+==> Builds finished. The artifacts of successful builds are:
+--> null: Did not export anything. This is the null builder
+
+```
+
+* tests/hcl2template/types.variables: Update test to use Bool
+
+Turns out a string value won't actually complain if it's given a non
+string looking value. It will just covert the value to a string literal
+so using a type Bool which should fail if given anything that is not
+true or false.
+
+* tests/hcl2template/types.variables: Update unit tests
+
+During testing it was found that by default the variable stanza were defaulting to a cty.NilType, and not the Type of it's default value.
+This change sets the default type of the defined variable to ensure variable evaluation behaviors correctly.
+
+* Add a simple cty.Bool test case
+
+* tests/hcl2template/types.variables:  Enable quoted_string test case
+
+* Update hcl2template/types.variables.go
+
+space
+
+Co-authored-by: Adrien Delorme <azr@users.noreply.github.com>"
+ce674ff2729cd913ba4112af1fe256ae0e94bcd6,False,1,5,46,30,9.2,21,25,4,0.0,0.0,1.0,14772,1889,379,3,Add exclude mapstructure tag to exclude from hcl2spec struct (#8785)
+6dbe86fcf48054db5c959270c034aa21d6275e64,False,1,2,94,88,47.0,3,189,186,0.518796992481203,1.0,1.0,586,114,18,11,only re-set path name if it needs to be unquoted; otherwise unquote r… (#8826)
+0cfcbd66ca6311e6fa17102d78ea639a02800729,False,1,1,69,69,69.0,30,46,16,0.4,1.0,1.0,1630,264,77,4,execute_command in powershell wasn't interpolating build vars properly (#8771)
+561f02cc2f4d2816094627d0a4121413c0c8c63c,False,1,3,52,26,17.333333333333332,19,33,14,0.0,0.0,0.0,4667,590,109,3,"builder/azure-arm: Update logic for setting subscriptionID (#8685)
+
+* builder/azure-arm: Update logic for setting subscriptionID
+
+Previously, when using managed identities, the Azure builder would set the SubscriptionID in the Prepare method. But would not update it after getting the updated SubscriptionID from the metadata server. This change updates the Run method to ensure a valid subscriptionID is saved to the statebag before continuing with an image build.
+
+Co-authored-by: Paul Meyer <paul.meyer@outlook.com>"
+23fa3107a3f1cd8a3b330c32b8030fad6f9ddb57,False,1,5,22,7,4.4,3,76,73,0.0,1.0,0.9722222222222222,2973,472,94,6,Render variables one time on prepare method (#8727)
+591b684f088de9a38a4af20c19fd2031de3893e3,False,1,3,229,121,76.33333333333333,85,313,228,0.0,0.8666666666666667,0.8611111111111112,4061,652,101,11,Fix HCL2 local variables decoding to allow local usage within another local in the same locals block (#8755)

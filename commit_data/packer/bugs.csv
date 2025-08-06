@@ -1,0 +1,1673 @@
+sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message
+dff49df12903a96597d46d6d3d4b46aa26e0aa03,False,1,1,11,11,11.0,0,177,177,0.0,0.9396551724137931,1.0,402,67,7,1,"hcl2template: check bucket name at parse-time
+
+Not validating the bucket's name during parse leads to configurations
+being marked as valid, even if the bucket name is not, which will fail
+during a real build afterwards.
+
+To avoid this problem and fail with an error as quickly as possible, we
+add a check during parsing, so that it gets reported for validate as
+well."
+aa6c5f8405a5aa3e85d8a026cb1f335fba78921b,False,1,11,430,132,39.09090909090909,7,487,480,0.34579439252336447,0.838006230529595,0.9875389408099688,7161,1257,195,31,feat: Phase 2 Extension of Build Metadata (#13092)
+bac9c744474fa4da797fcb9037d53d5c81813000,False,1,13,626,136,48.15384615384615,153,807,654,0.29292929292929293,0.6868686868686869,0.9621212121212122,12465,2182,371,34,packer console for HCL2 (#9359)
+7e45a1e950aa5abb82778e3d90b2f88a5adc273f,False,1,2,59,51,29.5,4,55,51,1.0,1.0,1.0,275,55,9,4,fix enum
+e62aba37888b6a7bf21883f88c1ed6c788a3effd,False,1,3,32,15,10.666666666666666,13,19,6,1.0,1.0,1.0,2616,420,90,1,"allow to set ExecutionPolicy to none for powershell provisioner
+
+this has the effect to not wrap the command, which will allow to know the exit status of a command in docker"
+e96409954aefb69f267cca744a74b2d4d5be3057,False,1,4,128,55,32.0,7,142,135,0.9666666666666667,0.9666666666666667,0.9833333333333333,3217,531,113,10,add execution policy type and use it to default the powershell cmd
+805225a1133e2f425bc11a77a7bbcf78d6a0e776,False,1,3,235,157,78.33333333333333,0,488,488,0.2653061224489796,0.5204081632653061,1.0,1748,287,40,9,feat: add http datasource (#11658)
+f80ba2821b7881bd520778b3737747a987df2286,False,1,1,8,8,8.0,0,8,8,0.0,1.0,1.0,121,25,4,1,"packer: error multiple paths in PACKER_PLUGIN_PATH
+
+When a user defines PACKER_PLUGIN_PATH in their environment, we need to
+error if their path defines multiple directories separated by `:`.
+
+This used to be supported, but this is removed with 1.11 as we're
+simplifying the loading process for plugins, so we opted to fall-back to
+only one plugin directory supported."
+595b45e67c83ac02f7c3810da6c80c28a95a4feb,False,1,5,97,40,19.4,21,139,118,0.0,0.6235294117647059,0.7294117647058823,8365,1409,247,6,Packer tracks Version and Plugins Metadata (#12860)
+cdaad0cde2170ece81273fb64523c8656749634c,False,1,1,20,20,20.0,14,6,-8,0.0,0.0,0.0,116,32,3,1,"version: up version handling code for SDK update
+
+Since the SDK was updated and now accepts raw version strings in
+addition to also supporting metadata officially, we can start using
+those functions in our version package as well."
+0502e09399bdce020f3d7f08f5ac970504d60185,False,1,1,6,6,6.0,0,6,6,0.0,0.0,1.0,3646,561,107,1,"packer: check API version matches between name/bin
+
+As with the version of the plugin, the API version should also match
+between the path and the self-reported API version from the describe
+command.
+
+This was not checked before, so users could masquerade a plugin's use of
+an API version that may be incompatible with Packer.
+
+To avoid this problem, we make sure both versions are the same, so that
+they work as expected."
+ed091163be017ad7bd16bc8e99351fc03ef93489,False,1,266,64897,15669,243.97368421052633,6687,83326,76639,0.5967909913428366,0.7921955347262905,0.7068931849248193,414368,68768,15045,3660,"HCL2 Parse packer.required_plugins block + packer init (#10304)
+
+This adds the new `required_plugins` block to be nested under the packer block.
+
+Example:
+```hcl
+packer {
+  required_plugins {
+    aws = {
+      version = "">= 2.7.0""
+      source = ""azr/aws""
+    }
+    azure = "">= 2.7.0""
+  }
+}
+```
+
+For example on darwin_amd64 Packer will install those under :
+* ""${PACKER_HOME_DIR}/plugin/github.com/azr/amazon/packer-plugin-amazon_2.7.0_x5.0_darwin_amd64""
+* ""${PACKER_HOME_DIR}/plugin/github.com/hashicorp/azure/packer-plugin-azure_2.7.0_x5.0_darwin_amd64_x5""
+
++ docs
++ tests"
+f3e4c2c3bbf9d04316ce858eb79a33e3d1c6240a,False,1,7,407,110,58.142857142857146,515,182,-333,0.8951310861423221,0.19101123595505617,0.21722846441947566,12647,2169,388,16,tmp: move HCP logic to unwrap builds/post
+548893bbee4e5a49bbbb07a81d19b2e2641fa421,False,1,2,60,43,30.0,23,37,14,0.0,0.0,0.5,4844,888,151,3,"build: don't suggest lack of HCP support on fail
+
+When running a build with HCP Packer enabled, Packer attempts to push
+the build status to HCP.
+If the build fails, we update the status to BUILD_FAILED, and that's the
+end of it.
+If however the build succeeds, Packer attempts to get the HCP artifact
+from the builder, which will only succeed if the builder supports it.
+Otherwise, we'll get either nil, or an artifact type that is not
+compatible with what is expected for HCP support.
+
+When either of those happens, we warn that the builder may not support
+HCP Packer at all, so users are aware of the problem.
+
+However, when the error was introduced, it only looked at the fact that
+an error was produced, independently of the type of error. This caused
+legitimate errors while building to be reported as potential
+incompatibility between the builder and HCP, which was confusing to
+users.
+
+This commit changes this by introducing a new error type, only produced
+when the artifact either is nil, or failed to be deserialised into a HCP
+artifact, which lets us produce the incompatibility warning with more
+accuracy."
+9f4a1281dd390dbf23145b17d126e32a93feaa3c,False,1,9,514,124,57.111111111111114,9,725,716,0.3341708542713568,0.6005025125628141,1.0,6609,1144,185,27,"Add `packer plugins` command and subcommands to interact with plugins (#11553)
+
+* add basic docs for plugins command
+
+* refactor docs
+
+Co-Authored-By: Wilken Rivera <1749304+nywilken@users.noreply.github.com>
+
+* add plugins command
+
+* add plugins subcommands
+
+they do nothing for now
+
+* add plugins installed command + tests
+
+* add plugins install command
+
+* add remove plugin command
+
+* better docs for the plugins install command
+
+* remove duplicate content
+
+* better output for installed plugins
+
+* add plugins required command
+
+* Update plugins_install.go
+
+* add newline after `Usage:`
+
+* Update plugins_remove.go
+
+* Update plugins_required.go
+
+* Update plugins_remove.go
+
+* Update plugins_installed.go
+
+* Update plugins_install.go
+
+* add docs
+
+* Update plugins_install.go
+
+* fix typos
+
+* Update plugins_test.go
+
+* fix typos
+
+Co-Authored-By: Wilken Rivera <1749304+nywilken@users.noreply.github.com>
+
+* Update core_wrapper.go
+
+Co-Authored-By: Wilken Rivera <1749304+nywilken@users.noreply.github.com>
+
+* Update website/content/docs/commands/plugins/remove.mdx
+
+Co-authored-by: Wilken Rivera <wilken@hashicorp.com>
+
+* Update website/content/docs/commands/plugins/required.mdx
+
+Co-authored-by: Wilken Rivera <wilken@hashicorp.com>
+
+* Update website/content/docs/commands/plugins/required.mdx
+
+Co-authored-by: Wilken Rivera <wilken@hashicorp.com>
+
+* Update plugins_required.go
+
+* Update install.mdx
+
+* Update required.mdx
+
+* plugins requirement, warn when no plugin was found
+
+* Update website/content/docs/commands/plugins/required.mdx
+
+Co-authored-by: Wilken Rivera <wilken@hashicorp.com>
+
+Co-authored-by: Wilken Rivera <1749304+nywilken@users.noreply.github.com>
+Co-authored-by: Wilken Rivera <wilken@hashicorp.com>"
+d9259d6d12873360755f699d911ec8d0d3f680f9,False,1,2,51,31,25.5,21,30,9,0.0,1.0,1.0,5211,839,159,2,"hcl2template: extract attr filter code from ds
+
+Datasources use their attribute's expressions to determine whether or
+not they depend on another datasource, in order to get the list of
+dependencies and execute them before executing a datasource.
+
+This code may be useful later on for figuring out the dependencies for
+any block, so we move this code to the utils.go file, and use this for
+datasources."
+4347e8cee80729e85fadca9b2dcc6fd564115ce9,False,1,2,12,9,6.0,7,6,-1,0.0,,,2564,423,99,2,"Default to PuluginFolders is KnownPluginFolders is unset
+
+* PACKER_PLUGIN_PATH takes precedence over all"
+72c1912b60a24d1b8a20f037637a20afe1d77a31,False,1,3,177,101,59.0,106,234,128,0.40540540540540543,0.3918918918918919,1.0,3234,514,119,12,"allow to discover & start packer-plugin-* muliplugin binaries (#10277)
+
+This add :
+* discovery of `packer-plugin-*` binaries from the known folders and ask them to describe themselves
+* tests
+
+For testing: in go we create a bash script that in turn calls back to Go. I could not make the tests to work on windows and then would like to postpone testing this for when we know more about the finite layout of this feature. That is mainly: how things are going to work with init, versioning and such."
+1dd7532846dabc2758696bc7b2ba060959c0bfcd,False,1,2,68,64,34.0,22,295,273,0.09230769230769231,0.19487179487179487,0.8051282051282052,5393,844,176,5,"Support `packer plugins installed` plugins in JSON (and HCL without required block)  (#11712)
+
+* Parse plugins from nested installed directories in json/non-required block HCL
+
+* Add Packer Plugins installed test
+
+* Add checksum validation for multi-component plugins installed by the packer plugins subcommand (#11732)
+
+This change copies a bit of the logic in hcl2template/plugin in order to
+strengthen the check for multi-component plugins installed via the
+`packer plugins install` commands.
+
+* Replace ioutil with os pkg
+
+In go1.16 the ioutil std lib package was deprecated in favor of the os
+and io packages. This change just updates all Temp creation methods to
+their os pkg equivalents.
+
+Co-authored-by: Wilken Rivera <wilken@hashicorp.com>"
+291121dd5524d3b892a6d2a288531ffc8532dd86,False,1,31,1264,146,40.774193548387096,210,1732,1522,0.13702928870292888,0.551255230125523,1.0,32865,5480,918,66,(2) Implement datasources (#10440)
+0666b787fc97eacd09616505684e6f3ba4d18f69,False,1,1,2,2,2.0,34,120,86,0.23255813953488372,1.0,1.0,1437,234,58,1,allow plugins with registered items with name from plugin.DEFAULT_NAME string constant to be passthroughs to the plugin binary suffix
+925cb5e5411d670af9f9e729b8a61daeb4f8b62d,False,1,3,60,55,20.0,3,222,219,0.1657754010695187,0.8502673796791443,1.0,858,172,36,4,"hcp: support HCP_PROJECT_ID environment variable
+
+With HCP supporting multi-projects now, Packer needs to take it into
+account when picking a project from an organisation.
+
+This commit adds two cases:
+
+1. multiple projects are defined, none is supplied through
+   HCP_PROJECT_ID: in this case we will default to the oldest project
+   defined for the organisation.
+
+2. we supply HCP_PROJECT_ID: in this case, we pick the project with the
+   corresponding ID, and use it for publishing metadata."
+38101a64c9650798cd60ea873227a5828bf1525a,False,1,3,123,118,41.0,43,84,41,0.0,0.0,1.0,1024,210,46,6,"hcp: Add support for project level service principals
+
+HCP supports two types of service principals: Organization-level and project-level.
+When a user tries to publish to an active HCP Packer registry using a plsp the client
+fails when configuring the client due to a API permission error; namely plsp do not have
+the permissions to query an org for a list of projects. Setting the HCP_PROJECT_ID does
+not resolve the issue because the call to ListProjects is still executed.
+
+This changes updates the client configuration params to obtain both the HCP Organization and
+Project IDs that will be used for connecting to the HCP Packer registry. With this change
+if a user provides a project Id via the HCP_PROJECT_ID environment variable no call to ListProjects will
+be made. Instead the value will be take as is and used to create the connection. A user connecting with
+a project level service principals must provide a valid HCP_PROJECT_ID in order to connect."
+f7a0df4bd189b556bf5321178c17ef47e42471a1,False,1,1,224,224,224.0,78,147,69,0.18309859154929578,0.18309859154929578,1.0,2405,397,95,7,"Reduce the number of nest plugin scans
+
+Packer will try to discover installed plugins in all of the directories
+defined by packer.KnowPluginFolders. In a previous release logic was
+added to scan nested directories in order to load plugins installed by
+`packer plugins install`. This change resulted in a nested directory
+scan for each folder within the KnownPluginFolders slice.
+
+This change reduces the nested directory scan to only the directories
+where plugins would have been installed using `packer plugins install`"
+a534c743cf21e9cd6bcb97367254f99767a24582,False,1,23,1681,405,73.08695652173913,27,3124,3097,0.19703622392974754,0.6317233809001098,0.8748627881448957,21352,3644,618,71,"HCP Packer registry enabled Packer client (#11154)
+
+* Add working registry pkg
+
+* Add custom error for handling the loading of PAR environment variables
+
+* Working Publish to Build, with proper error handling for bucket names
+
+* Update hcp-sdk-go to use branch instead of mod replace directive
+
+* Update Packer build status configuration
+
+* Add support for HCP_PACKER_BUILD_FINGERPRINT env
+
+* Add support for publishing one or more PARtifacts from a single build
+
+* add git shas to this branch
+
+* Add ability to set provider name if available
+
+* Add working RegistryBuilder type
+
+* Add RegistryPostProcessor as wrapper post-processor
+
+* When in PAR mode a empty RegistryPostProcessor is added to the end of
+  the post-processor list to publish all final image data.
+
+* Add support for updating a build from PAR that is not in a DONE state
+
+* Fix a small issue with creation the initial builds for an empty
+  iteration.
+
+* Add PAR URL to post-processor display
+
+* Implement hcp_packer_registry block (#11168)
+
+* Update vendored Amazon plugin to v1.0.1-dev
+
+* Fix panic when running a Packer registry build in a clean directory
+
+* Remove the publishing of post-processor metadata from the registry
+  post-processor.
+
+* Remove metadata add from registry_builder
+
+* Update registry builder to skip a build that was found to be DONE
+
+Co-authored-by: Megan Marsh <megan@hashicorp.com>
+Co-authored-by: Sylvia Moss <moss@hashicorp.com>"
+ca197afe9b70398bc0e9ee6f27fd6e6cc6ef7f83,False,1,9,109,37,12.11111111111111,55,263,208,0.4444444444444444,1.0,0.9572649572649573,12377,2188,365,20,"hcp: remove superfluous return value on GetBuilds
+
+This commit irons out one of the pain points of the HCP rework by
+introducing a HCPPublisher interface, implemented both by the JSON Core,
+and the HCL2 PackerConfig, which keeps a map of the build names used by
+Packer to the build names pushed on HCP.
+
+This in turn lets us go back to the old implementation of the GetBuilds
+function, which returns a list of (filtered) builds, and eventually an
+error if something went wrong while processing."
+606e6c48f1dc005db58902e73d0d3f2d6caa5d67,False,1,25,521,76,20.84,289,301,12,1.0,1.0,1.0,12963,2325,402,70,"internal: reorganise registry/HCP code
+
+This commit reorganises the code for both the registry/API and the
+Orchestrator/Registry.
+
+The main difference with the previous version is how stuff is exposed.
+Now we only expose a Registry interface to the outside (previously named
+Orchestrator), which has several implementations: null is the default,
+and is returned if HCP is not enabled.
+
+The other implementations being HCL/JSON, both private to the hcp
+sub-package.
+
+The api (previously `registry') is the set of functionality that
+abstracts and calls the HCP API.
+It was meant to be merged with the `hcp' package, but because of a
+dependency loop with the datasources, both are separated for now."
+3ddb17ad86c65c10cd246bec9da763e8b1c7c254,False,1,5,53,41,10.6,16,77,61,0.0,1.0,1.0,7829,1263,209,9,Don't allow data sources to be used inside data sources (#10559)
+774c5903f6b4f6a5c6a862afedbf51674e495b95,False,1,4,158,68,39.5,45,313,268,0.0,1.0,0.9117647058823529,9348,1513,262,7,Add error-cleanup-provisioner to HCL2 (#10604)
+0785c2f6fca9c22bf25528e0176042799dd79df9,False,1,284,6264,331,22.056338028169016,3144,5928,2784,0.54182156133829,0.9842007434944238,0.9879182156133829,310891,39045,4991,505,"build using HCL2 (#8423)
+
+This follows #8232 which added the code to generate the code required to parse
+HCL files for each packer component.
+
+All old config files of packer will keep on working the same. Packer takes one
+argument. When a directory is passed, all files in the folder with a name
+ending with  “.pkr.hcl” or “.pkr.json” will be parsed using the HCL2 format.
+When a file ending with “.pkr.hcl” or “.pkr.json” is passed it will be parsed
+using the HCL2 format. For every other case; the old packer style will be used.
+
+## 1. the hcl2template pkg can create a packer.Build from a set of HCL (v2) files
+
+I had to make the packer.coreBuild (which is our one and only packer.Build ) a public struct with public fields
+
+## 2. Components interfaces get a new ConfigSpec Method to read a file from an HCL file.
+
+  This is a breaking change for packer plugins.
+
+a packer component can be a: builder/provisioner/post-processor
+
+each component interface now gets a `ConfigSpec() hcldec.ObjectSpec`
+which allows packer to tell what is the layout of the hcl2 config meant
+to configure that specific component.
+
+This ObjectSpec is sent through the wire (RPC) and a cty.Value is now
+sent through the already existing configuration entrypoints:
+
+ Provisioner.Prepare(raws ...interface{}) error
+ Builder.Prepare(raws ...interface{}) ([]string, error)
+ PostProcessor.Configure(raws ...interface{}) error
+
+close #1768
+
+
+Example hcl files:
+
+```hcl
+// file amazon-ebs-kms-key/run.pkr.hcl
+build {
+    sources = [
+        ""source.amazon-ebs.first"",
+    ]
+
+    provisioner ""shell"" {
+        inline = [
+            ""sleep 5""
+        ]
+    }
+
+    post-processor ""shell-local"" {
+        inline = [
+            ""sleep 5""
+        ]
+    }
+}
+
+// amazon-ebs-kms-key/source.pkr.hcl
+
+source ""amazon-ebs"" ""first"" {
+
+    ami_name = ""hcl2-test""
+    region = ""us-east-1""
+    instance_type = ""t2.micro""
+
+    kms_key_id = ""c729958f-c6ba-44cd-ab39-35ab68ce0a6c""
+    encrypt_boot = true
+    source_ami_filter {
+        filters {
+          virtualization-type = ""hvm""
+          name =  ""amzn-ami-hvm-????.??.?.????????-x86_64-gp2""
+          root-device-type = ""ebs""
+        }
+        most_recent = true
+        owners = [""amazon""]
+    }
+    launch_block_device_mappings {
+        device_name = ""/dev/xvda""
+        volume_size = 20
+        volume_type = ""gp2""
+        delete_on_termination = ""true""
+    }
+    launch_block_device_mappings {
+        device_name = ""/dev/xvdf""
+        volume_size = 500
+        volume_type = ""gp2""
+        delete_on_termination = true
+        encrypted = true
+    }
+
+    ami_regions = [""eu-central-1""]
+    run_tags {
+        Name = ""packer-solr-something""
+        stack-name = ""DevOps Tools""
+    }
+    
+    communicator = ""ssh""
+    ssh_pty = true
+    ssh_username = ""ec2-user""
+    associate_public_ip_address = true
+}
+```"
+77a29fc2f8797a962e3c00218bdcc822d8f3e170,False,1,4,59,22,14.75,82,98,16,1.0,0.0,0.09375,4614,734,115,7,"Allow to have `dynamic` blocks in a `build` block + tests (#10825)
+
+This :
+* allows to have a `build.dynamic` block
+* add tests
+* makes sure to show a correct message when a source was not found
+  * display only name of source (instead of a weird map printout) 
+  * use a ""Did you mean %q"" feature where possible 
+
+
+Because dynamic blocks need all variables to be evaluated and available, I moved parsing of everything that is not a variable to ""after"" variables are extrapolated. Meaning that dynamic block get expanded in the `init` phase and then only we start interpreting HCL2 content.
+
+After #10819 fix #10657"
+a766d59d82c129a40f8612e648cde2d051a91fba,False,1,3,149,126,49.666666666666664,39,110,71,0.14285714285714285,0.14285714285714285,1.0,5228,878,150,4,packer init: better error handling with a special care for gh rate limit errors  (#11330)
+eb8e3029416665c7f62d85792bee07c7a1dc99ff,False,1,3,40,21,13.333333333333334,7,178,171,0.7619047619047619,0.6666666666666666,1.0,7770,1304,212,8,"hcl2_upgrade: special case: vsphere fix (#11216)
+
+* fix typo
+
+* hcl2_upgrade: special case linux_options and network_interface to block instead of maps
+
+* Update hcl2_upgrade_test.go
+
+* Update hcl2_upgrade_test.go
+
+remove unused code
+
+* hcl2_upgrade: support strftime too (#11220)
+
+* hcl2_upgrade strftime function
+* create legacy_strftime.mdx"
+17ec88246fc33c50702480182d6423ff05038c56,False,1,1,106,106,106.0,12,214,202,0.7717391304347826,0.9021739130434783,0.7717391304347826,2585,442,79,9,"hcl2_upgrade update (#10221)
+
+* handle template_dir, pwd funcs, handle min_packer_version
+* gotpl packer_version becomes hcl2 packer.version
+* uuid becomes hcl2 uuidv4
+* test code with emojis
+* handle all cases were we cannot guess what the argument was
+* handle clean_resource_name cases
+* up docs"
+98990fc34e933ad935e589fede79cd8d2ceccb51,False,1,1,41,41,41.0,22,131,109,0.0,0.6,1.0,6514,1107,193,2,"hcl2_upgrade: allow to hcl2_upgrade with unknown builders, just log errors (#11049)"
+48de1fc7da54974f9244da2f51495b07e2f37f72,False,1,6,340,124,56.666666666666664,47,432,385,0.26903553299492383,0.5177664974619289,0.4416243654822335,6832,1137,181,14,"allow datasources to use other datasources
+create a null data source for testing. We can choose to document if we want to, but it's a convenience for us
+
+add a test to catch cyclic datasource dependency, update tests to include out of order data sources, and update the code to clean up the returned diagnostics generated from the recursive evaluation
+
+PR review comments"
+591b684f088de9a38a4af20c19fd2031de3893e3,False,1,3,229,121,76.33333333333333,85,313,228,0.0,0.8666666666666667,0.8611111111111112,4061,652,101,11,Fix HCL2 local variables decoding to allow local usage within another local in the same locals block (#8755)
+c0a6623ea2daedea3686679d61fda6571c0a64bc,False,1,2,79,77,39.5,6,203,197,0.20261437908496732,0.5359477124183006,0.20915032679738563,4183,676,117,6,teach HCL mode builds to honor -only and -except options (#8947)
+193dad46e6d15ae4ffc49a3a176c2933419ba81c,False,1,97,16349,2696,168.5463917525773,897,22809,21912,0.23177706145367577,0.3452220027035458,0.6878444421337215,138870,21774,4760,567,"Hcl2 input variables, local variables and functions (#8588)
+
+Mainly redefine or reused what Terraform did.
+
+* allow to used `variables`, `variable` and `local` blocks
+* import the following functions and their docs from Terraform: abs, abspath, basename, base64decode, base64encode, bcrypt, can, ceil, chomp, chunklist, cidrhost, cidrnetmask, cidrsubnet, cidrsubnets, coalesce, coalescelist, compact, concat, contains, convert, csvdecode, dirname, distinct, element, file, fileexists, fileset, flatten, floor, format, formatdate, formatlist, indent, index, join, jsondecode, jsonencode, keys, length, log, lookup, lower, max, md5, merge, min, parseint, pathexpand, pow, range, reverse, rsadecrypt, setintersection, setproduct, setunion, sha1, sha256, sha512, signum, slice, sort, split, strrev, substr, timestamp, timeadd, title, trim, trimprefix, trimspace, trimsuffix, try, upper, urlencode, uuidv4, uuidv5, values, yamldecode, yamlencode, zipmap."
+2b0e0d4eab8dd197649c30f59ed9dfa8ab42351a,False,1,13,1116,182,85.84615384615384,0,1863,1863,0.10655737704918032,0.7407786885245902,0.9661885245901639,4658,798,107,25,"add hcl2template pkg
+
+Package hcl2template defines code to parse hcl2 template files correctly.
+
+In order to configure a packer builder,provisioner,communicator and post
+processor.
+
+Checkout the files in testdata/complete/ to see what a packer config could
+look like."
+a70164f489f57c7428da50ddeb08b5a704cc1c71,False,1,1,4,4,4.0,3,37,34,0.0,1.0,1.0,2006,339,49,1,"HCL2: when the type of a variable is not known evaluate setting as a litteral. (#9863)
+
+* tests
+* docs"
+5d17d7fe65f9e26fbf7cce96449161e91bb37fb7,False,1,3,123,108,41.0,62,61,-1,0.5,1.0,0.0,9811,1611,263,10,"prevent duplicate local block creation (#11534)
+
+* prevent duplicate local block creation
+
+* remove duplicate locals block bug
+
+* local variables: first get block, then decode it + simplify retry loop
+
+* Update types.packer_config.go
+
+* revert go get of hcl lib"
+91d73324714145cefb8148beb55a7047f65266d1,False,1,4,374,252,93.5,39,337,298,0.1984732824427481,0.4580152671755725,1.0,3123,534,78,8,"add basic code for variable validation parsing
+
+* hcl2template/addrs.ParseRef will parse a reference and tell for example if we
+  are referring to a variable and its name, for now it can only do that and in
+  the future it improved when we need to most of it is from the TF code. This
+  is used to tell wether a variable vas referenced in a variable validation
+  condition; for now.
+* Added Validations blocks to the hcl2 Variable struct and code to
+  parse/validate that."
+06b35c39de300057c68e140677044b36f34fc509,False,1,2,61,40,30.5,53,182,129,0.011494252873563218,0.4942528735632184,1.0,2221,368,70,4,"hcp packer registry build labels (#11401)
+
+* Add basic support for build_labels argument
+
+* Update support for build_labels configuration argument
+
+* Update complete test-fixture with a build_labels configuration
+* Add test for deprecated labels argument
+* Add deprecation for hcp_packer_registry.labels
+
+When using the now deprecated labels argument of the new bucket_labels a
+Warning will be presented to the user.
+
+```
+~>  HCP_PACKER_BUILD_FINGERPRINT=356786543567865456789656789 packer
+build source.pkr.hcl
+Warning: the argument hcp_packer_registry.labels has been deprecated and will be removed in a future release; please use hcp_packer_registry.bucket_labels
+```
+
+When trying to use both bucket_labels and labels together an error is
+presented to the user.
+```
+~>  HCP_PACKER_BUILD_FINGERPRINT=ss6786543567865456789656789 packer
+build source.pkr.hcl
+Error: hcp_packer_registry.labels and hcp_packer_registry.bucket_labels are mutely exclusive; please use the recommended argument hcp_packer_registry.bucket_labels
+
+  on source.pkr.hcl line 17:
+    (source code not available)
+
+```
+
+* Update documentation for build_labels
+
+* Apply suggestions from code review
+
+Co-authored-by: Adrien Delorme <azr@users.noreply.github.com>
+
+* Update hcl2template/types.build.hcp_packer_registry.go
+
+Co-authored-by: Adrien Delorme <azr@users.noreply.github.com>"
+b763b79d9faf6c484787e46e601bd76a614e28a1,False,1,3,66,37,22.0,27,121,94,0.0,0.49019607843137253,1.0,8267,1356,236,4,implement contextual variable packer.iteration_id
+92d4553890814ce921189e73c2d02c973c2cda41,False,1,1,2,2,2.0,15964,39245,23281,0.3895274584929757,0.8339719029374202,0.9591315453384419,1410,214,43,0,initial port
+0b1829ef88c05a677f36a15c2a24bd49ab01b085,False,1,98,16164,2661,164.9387755102041,11722,4526,-7196,0.0,0.0,0.3415141430948419,62240,10277,2112,1121,"Update to gopsutil v3.21.1 to allow builds to work for darwin arm64 (#10697)
+
+* Update to v3.21.1 to allow builds to work for darwin arm64
+
+Co-authored-by: Megan Marsh <megan@hashicorp.com>
+Co-authored-by: Adrien Delorme <adrien.delorme@icloud.com>"
+980deeb6845e1c79155a4257bc0026faaebfd51c,False,1,4,346,164,86.5,4,436,432,0.5165562913907285,0.8874172185430463,0.8675496688741722,3133,462,58,15,"Implement hcp packer data source. This is a rough copy of the terraform provider's data source, to make beta user experience consistent across both sources"
+44616d3bffaddfd31c7e9fa6c2a321172e028d20,False,1,13,133,29,10.23076923076923,56,153,97,0.9137931034482759,1.0,1.0,14140,2510,417,18,"refactor initialization out from packer configs + tests (#9627)
+
+The initialization of packer core in JSON also validates that `null` variables were set, except in the case of `packer validate --syntax-only` , but after the refactor to allow to have all commands work with HCL2 and JSON this subtlety was lost.
+
+This refactors the initialisation of the core in order to allow to have `packer validate --syntax-only` not error in case a variable is not set. Since these calls are refactored this works for HCL2 too.
+
+fix #9478"
+1d01ad3651cdbea63b0ad36de1580311a4eafc7e,False,1,1,17,17,17.0,1,24,23,0.9090909090909091,1.0,1.0,4320,705,125,2,feat: print all locals errors when there is a circular error (#11527)
+fbbda0f9d99bfa1867c6cb2a7e4bdf6e3ded2ec4,False,1,3,102,54,34.0,17,163,146,0.27906976744186046,0.1511627906976744,1.0,8511,1398,223,6,"Sensitive locals (#10509)
+
+* Allow locals to be delcared as individual blocks, and give them the Sensitive flag
+
+* add docs for new local block
+
+* linting
+
+* add tests
+
+* modified parsing to use schema, check for dupes properly
+
+* update comment
+
+fix wording a liiitle
+
+* add tests for duplicate variables definition in two different files
+
+* remove unnecessary slice initialisation
+
+* fix crash by returning when decode error is hit
+
+* parseLocalVariables: only treat a local vars if its not nil
+
+also return in case of error
+return locals in case of error too
+
+* fix duplicate_locals test for windows
+
+Co-authored-by: Adrien Delorme <azr@users.noreply.github.com>"
+bd3112fa7c433cf11bf83aa5c248f30933521d4f,False,1,1,10,10,10.0,6,4,-2,1.0,0.0,0.0,1385,211,39,1,parseLocalVariables: simplify loop
+0993c976fab3d11dcb9db85f9f40ae8a7efb0ed4,False,1,1,56,56,56.0,2,107,105,0.3611111111111111,0.0,1.0,6447,1102,192,4,"hcl2_upgrade escaped quotes fix (#10794)
+
+* clean up extra quoting that can cause text template failures. when everyone else abandons you, regex will always be there.
+
+* LINTING"
+502708b86ae27f37ebcf6ba0269ff430f15e5035,False,1,1,112,112,112.0,48,64,16,1.0,1.0,0.0,6194,1066,185,7,Refactor hcl2_upgrade (#10787)
+645cdf1a59e54faadfc8127db12248f0de123c16,False,1,76,27456,9538,361.2631578947368,305,30829,30524,0.4007175692342191,0.7993609149007737,0.6173337818141047,160879,24049,4776,1325,Updating the modules to include update to autorest 12.4
+4d9fb629c60fddad0ebecde8538977079d3b9641,False,1,11,1004,419,91.27272727272727,283,839,556,0.1396508728179551,0.7880299251870324,0.9600997506234414,28969,3798,613,46,Allow using API tokens for Proxmox authentication (#10797)
+d2f036ec44c00a2b50078787e6f3a5690f83c492,False,1,14,2581,706,184.35714285714286,0,3412,3412,0.269897732325478,0.6073810582481103,0.8772787905735883,14365,2315,413,96,"Revert ""Revert ""Merge pull request #7391 from carlpett/proxmox-builder""""
+
+This reverts commit 032527ecfe2c5a9fcbe32c63cdf7755f2777df88."
+e8d8fd62058f627c07677a8a95561d0ee816e2e6,False,1,14,636,218,45.42857142857143,296,365,69,1.0,1.0,1.0,4585,821,129,50,Refactor vSphere driver
+98b2f9943602a99274524ff858dbede3c1c0ce26,False,1,2,42,40,21.0,0,43,43,0.05,0.0,0.0,1678,295,36,3,Resize disk
+3b523e147e813838327ac04a9f5459f5e4e6999c,False,1,11,700,176,63.63636363636363,298,592,294,0.33064516129032256,0.38911290322580644,0.8528225806451613,17004,2010,262,22,add config opt to additional storage to cloned vm
+cb782c223a5952eb838edd73037a53ed0cf37905,False,1,6,89,25,14.833333333333334,36,55,19,0.7272727272727273,0.6363636363636364,0.0,4310,737,82,10,Cluster support (#61)
+e929b193e0a809ba7d03d650003ff26e81643324,False,1,3,12,7,4.0,0,13,13,0.0,0.14285714285714285,1.0,4032,679,74,3,'notes' option (#185)
+f46f373e3a19a7bd3a5d459c48d2284ac3b4d0a1,False,1,23,412,56,17.91304347826087,239,173,-66,0.0,0.0,0.0,8169,1405,169,28,Code cleanup
+268e95364fec8b61a6f8f539ad2e27e57bf34991,False,1,6,296,115,49.333333333333336,25,339,314,0.26282051282051283,0.2692307692307692,0.967948717948718,9957,1359,132,12,Adds vApp properties config and save public ssh key to a vApp property (#9507)
+395ce39611647f1d97576cae79e21765c5882a3f,False,1,2,47,45,23.5,2,45,43,0.0,0.0,1.0,3986,660,74,2,"Support redefining network in vsphere-clone builder
+
+Fixes #226"
+942bfbf2214b2d2cdc42002c23c08571ad2a2d74,False,1,37,626,147,16.91891891891892,143,958,815,0.41651376146788993,0.5174311926605505,0.9651376146788991,24602,4009,619,185,Add driver mocks and write tests to steps Remote Upload and Create VM (#9833)
+349a300213b8a34ce1a7030ad153f892d55dfd9e,False,1,1,1,1,1.0,0,90,90,0.0,0.9866666666666667,1.0,396,72,9,1,"Add new disk to existingDevices list (#10844)
+
+* add new disk to existingDevices list
+
+* add tests"
+c44221a800c10251112d7b3b7dacc7caa4f0e7fc,False,1,9,305,112,33.888888888888886,159,146,-13,0.0,0.6666666666666666,0.8571428571428571,5321,909,90,16,share hardware customization step
+caf65781d71531798e59585234e7e8da84014cf4,False,1,4,16,7,4.0,1,17,16,0.5,0.0,1.0,10187,1344,110,5,"Add vsphere-clone mac_address option (#9930)
+
+* add vsphere-clone mac_address option
+
+* check on prepare if network is set together with mac_address"
+273a7204405f99172b02dee56501ad7b0c6cbca3,False,1,6,71,50,11.833333333333334,27,61,34,0.0,0.7,1.0,11717,1173,129,9,Add client_cert_token_timeout to address GH-9465 (#10528)
+5b3ff89cb075c932ed0f5717711329d3fc3afe85,False,1,7,729,253,104.14285714285714,380,349,-31,1.0,0.0,0.0,11600,1126,102,11,proxmox: move iso.storageConfig to common.storageConfig
+6c77d28537f81465a7d733f0e53eb6e6c346c584,False,1,11,918,276,83.45454545454545,452,544,92,0.29577464788732394,0.7887323943661971,0.9014084507042254,15062,1612,175,15,proxmox: Fix additional_iso_files (#10586)
+1d9bba6fe383f3c0be4712a73d3b0e18fa6128cd,False,1,2,11,9,5.5,9,6,-3,1.0,1.0,0.0,1817,273,64,2,change AMIEncryptBootVolume to trilean
+bcc848a83d81f74ce96643c1c9ef67058ea2dad7,False,1,11,46,10,4.181818181818182,527,490,-37,1.0,0.0,0.0,12067,2045,328,0,were rendering yay
+39354f64e54eac5cd0fe962d62f7b581ee137e49,False,1,127,246,12,1.937007874015748,289,308,19,,,,116911,18128,2850,1,"move helper/communicator dir into packer-plugin-sdk
+
+fix imports; fix website and generated partials"
+f36554fa0ee1b8f44576c9a22f06f04a10a03608,False,1,18,44,8,2.4444444444444446,177,177,0,,,,26564,4089,691,0,Update redirects and URLs to legacy JSON template docs (#10530)
+40947c2bf62124622eeddbf2f9d96508a96fdcd7,False,1,118,10386,276,88.01694915254237,5193,5193,0,0.0,1.0,1.0,156556,13112,426,1,"HCL2: generate hcl tags with go-cty tags too (#9306)
+
+This will allow to generate the config files:
+
+```go
+package main
+
+import (
+	""fmt""
+
+	""github.com/hashicorp/hcl/v2/gohcl""
+	""github.com/hashicorp/hcl/v2/hclwrite""
+	""github.com/hashicorp/packer/builder/alicloud/ecs""
+)
+
+func main() {
+	name := ""name""
+	app := ecs.FlatConfig{
+		AlicloudImageName: &name,
+		ECSSystemDiskMapping: &ecs.FlatAlicloudDiskDevice{
+			DiskName: &name,
+		},
+	}
+
+	f := hclwrite.NewEmptyFile()
+	block := gohcl.EncodeAsBlock(&app, `source ""something"" ""something""`)
+	f.Body().AppendBlock(block)
+	fmt.Printf(""%s"", f.Bytes())
+}
+
+```
+
+Will output:
+
+```
+source ""something"" ""something"" {
+  packer_user_variables      = null
+  packer_sensitive_variables = null
+  image_name                 = ""name""
+  image_share_account        = null
+  image_unshare_account      = null
+  image_copy_regions         = null
+  image_copy_names           = null
+  tags                       = null
+  tag                        = null
+  system_disk_mapping        = { disk_category = null, disk_delete_with_instance = null, disk_descri
+ption = null, disk_device = null, disk_encrypted = null, disk_name = ""name"", disk_size = null, disk_
+snapshot_id = null }
+  image_disk_mappings        = null
+  ssh_remote_tunnels         = null
+  ssh_local_tunnels          = null
+  ssh_public_key             = null
+  ssh_private_key            = null
+}
+```
+
+This is a good first step for #9015 and #9282 
+
+fix #9304"
+8ecd16db81fa21341db7f7fb0907f112f19d39bc,False,1,90,180,2,2.0,0,180,180,0.0,1.0,1.0,163633,13059,234,90,regenerate code
+65b7d3b604960408f263a2573aa591c0fecd8d18,False,1,6,139,99,23.166666666666668,0,222,222,0.4380165289256198,0.8677685950413223,0.9421487603305785,11060,1094,111,13,"Add Azure CLI authentication (#10157)
+
+Adds the ability to use an active `az login` session for authenticating the Azure builder"
+aa29facdae3e85481b1aa858cdde25f715690eea,False,1,3,276,155,92.0,11,465,454,0.2573099415204678,0.4064327485380117,0.8538011695906432,1920,322,83,11,"Allow certificate bearer JWT client authentication
+
+This allows certificate based authentication, both by just referencing
+the certificate file as well as by providing a bearer JWT. This last
+option allows authentication without exposing the private key to packer
+using an expiring JWT containting the thumbprint (and sometimes the
+whole certificate for subject/issuer based auth), signed using the
+certificate private key."
+c4183071624736af1b5f195a60142dfa94ef3931,False,1,1,13,13,13.0,5,8,3,0.0,1.0,0.0,3080,468,93,3,"Add version selection for chef-solo provisioner
+
+Prevents issues such as #1751 when chef changes major versions"
+8014dac742544578380d9442737ca7a7acc47534,False,1,2,167,113,83.5,80,169,89,0.0,0.0,1.0,6347,986,187,11,"Add Windows support to Chef provisioners
+
+- Add guest os type to change the default Chef-Solo and Chef-Client provisioner behavior. Paths, commands etc.
+- Change Chef installation download location to chef.io domain
+- Add encrypted data bag secret configuration"
+840e67f7757af8e23174d709799875d9a0508699,False,1,93,385,14,4.139784946236559,223,222,-1,1.0,1.0,0.0,145863,12007,354,103,"HCL2: when we see a map generate an attribute spec instead of a block spec (#9035)
+
+* mapstructure-to-hcl2: when we see a map generate an attribute spec and not a block spec
+
+this will alow to do
+
+tags = {
+ key = ""value""
+}
+
+instead of
+
+tags {
+  key = ""value""
+}
+
+This will also enable using variables directly for those tags
+
+* generate code
+
+* update tests"
+543fdbd8c258ce135d435cc2dad101e9afda65c1,False,1,1,97,97,97.0,39,58,19,0.0,0.0,1.0,1770,271,57,4,Make JSON attributes work with real JSON!
+13da0ef49b2fde6f39f54f63c1bd2848b0b38814,False,1,1,18,18,18.0,9,9,0,,,,1753,268,54,3,Rename configuration `avoid_sudo` to `prevent_sudo`
+607372f75a780e79624f9e1a342e86ceb7925c86,False,1,1,336,336,336.0,269,106,-163,0.784,1.0,0.0,1192,194,39,13,provisioner/chef-solo: massive refactor and style nitpick
+708165eaa801b10d5dd3d3a2525d66d086c73ac0,False,1,6,357,342,59.5,202,404,202,0.2922077922077922,0.6948051948051948,0.6558441558441559,10694,1594,206,11,"refactoring step_run_spot_instance and swapping out the calls to create a spot instance with a call to create a spot fleet of one, so that we can be more flexible with the instance type when desired"
+42444e58e6bca930677802b3d9ab98add954f775,False,1,86,16401,6299,190.7093023255814,2710,15319,12609,0.9425738007380073,0.9040590405904059,0.24607933579335795,293588,50171,9771,1241,Updating step_run_source_instance to add tags at instance start instead of adding them to running instance
+77c3c12244f3847762788a30feb3f6ec9f1617ff,False,1,183,14083,4420,76.95628415300547,5906,8406,2500,1.0,0.7020408163265306,0.9306122448979591,930735,168256,27391,848,fix vendoring
+e0e82e2192accd4b2a4dc939ba45041b8b926625,False,1,34,13734,4839,403.94117647058823,1070,12855,11785,0.7273050907796369,0.7888928444286223,0.9729441082235671,837671,126317,23187,540,"Support AWS gp3 volumes (#10338)
+
+* Support AWS gp3 volumes
+* docs
+* tests"
+ecd118b6c231fa2d49c8b3d70e381363028a07eb,False,1,72,17660,11577,245.27777777777777,2684,14990,12306,0.7048932959689588,0.9620607889631386,0.770640224186247,446787,74330,14381,851,"Update aws-sdk-go to v1.22.2
+
+Signed-off-by: Brian Dwyer <Brian.Dwyer@broadridge.com>"
+87b3a1f99de00da3cd83a9077b8f32de30b2631b,False,1,34,4835,2362,142.2058823529412,406,4436,4030,0.892882818116463,0.918763479511143,0.9640546369518332,337040,55993,10152,313,update aws sdk
+8a53385cbc2f61b1a469e6c5e987217c0aff95e0,False,1,1038,348651,39937,335.8872832369942,240,390508,390268,0.4509676526677375,0.5859878359111336,0.8775830641231569,1438347,254503,45023,13462,"Revert ""Remove a bunch of unused dependencies (godep v54+ required)""
+
+This reverts commit 9ed133ea018e2010ff82b9b280e10caeeb0e7644."
+dbdb98863480b904c0655d222e55b6102103e464,False,1,1182,365158,39937,308.9323181049069,0,408767,408767,0.4550783695491332,0.5867870192252969,0.8724915483819562,1515564,268056,48152,14454,Vendor all dependencies
+e919c2ff443d55829cd19175d81b9776134ea3fa,False,1,73,70806,61546,969.945205479452,36440,45896,9456,0.8258992805755395,0.8413669064748202,0.9386091127098322,410115,68587,13354,5959,GO111MODULE=on go mod vendor && git add vendor/github.com/aws && git add github.com/jmespath/go-jmespath
+16604373acb1d8fb39062c1622b433b594373d82,False,1,6,38916,37952,6486.0,0,38917,38917,0.7995658956793055,0.8131316557010106,0.9413959167062335,109113,18215,4213,2774,initial ssm tunnel changes - not working
+0fa60c68fbfcf5ef29485489a41f5afa0565bdee,False,1,273,104441,47051,382.56776556776555,34084,74845,40761,0.754406364749082,0.8772949816401469,0.9157282741738066,1503639,239332,44996,7676,"Drop the iso_checksum_type & iso_checksum_url fields (#8437)
+
+* Drop the iso_checksum_type & iso_checksum_url fields
+
+In favor of simply using iso_checksum that will know what to do.
+
+* fix after master merge
+
+* Update builder_test.go
+
+* Update builder_test.go
+
+* Update builder_test.go
+
+* Update builder_test.go
+
+* Update builder_test.go
+
+* remove checksum lowercasing tests
+
+* Update builder_test.go
+
+* Update builder_test.go
+
+* better docs
+
+* Update builder_test.go
+
+* even better docs
+
+* Update config.go
+
+* Update builder_test.go
+
+* Update step_create_vmx_test.go
+
+* make generate
+
+* better docs
+
+* fix imports
+
+* up tests
+
+* Update _ISOConfig-required.html.md
+
+* Update builder_test.go
+
+* don't use sha1.Sum(""none"") as a caching path
+
+* Update builder_test.go
+
+* better docs
+
+* Update iso_config_test.go
+
+remove ISOChecksumType/ISOChecksumURL references
+
+* Update step_download_test.go
+
+* add iso_checksum_url and iso_checksum_type fixers + tests
+
+* add concrete examples of checksum values
+
+* add examples of checksumming from local file
+
+* update go-getter dep
+
+* up deps
+
+* use new go-getter version
+
+* up ESX5Driver.VerifyChecksum: use go-getter's checksumming
+
+* ISOConfig.Prepare: get checksum there in case we need it as a string in ESX5Driver.VerifyChecksum
+
+* Update iso_config.go
+
+* get go-getter from v2 branch
+
+* Update driver_esx5.go
+
+add more comments
+
+* Update driver_esx5.go
+
+* show better error message when the checksum is invalid
+
+* Update builder_test.go
+
+put in a valid checksum to fix tests, checksum is md5(""packer"")
+
+* Update builder_test.go
+
+test invalid and valid checksum
+
+* more test updating
+
+* fix default md5 string to be a valid md5
+
+* TestChecksumFileNameMixedCaseBug: use 'file:' prefix for file checksumming
+
+* Update iso_config_test.go
+
+* Update iso_config_test.go
+
+* Update builder_test.go
+
+* Update builder_test.go
+
+* Update builder_test.go
+
+* Update CHANGELOG.md
+
+* Update CHANGELOG.md
+
+* Update go.mod
+
+* Update go.mod
+
+* Update CHANGELOG.md"
+096651e8b560f736de217a6fb5115772b6573eec,False,1,95,13562,6684,142.7578947368421,2901,12853,9952,0.6822566501023093,0.8582285881321251,0.9231218941829874,370715,61742,11975,661,"amazon: Update aws-sdk-go to v1.15.54
+
+This adds support for credential_source, see https://github.com/aws/aws-sdk-go/pull/2201
+Closes #6717"
+4ebcbad33274e3ebb6bfa6f0b7b436ff5d721f99,False,1,195,31625,5006,162.17948717948718,2771,31407,28636,0.5133840224976565,0.6578481408186647,0.8387667951255078,827928,137508,27914,1448,"update consul and vault dependencies (#9205)
+
+* update consul and vault dependencies
+
+* update triton sign call accorting to https://github.com/joyent/triton-go/pull/135
+
+* Delete readme.md
+
+* put back github.com/mitchellh/reflectwalk to v1.0.0 and explain why
+
+* fix/fixer_pp_docker_tag_tags.go: simplify deduplication loop and keep seen/stable order"
+429d43136586716b269333e976df04d430c27586,False,1,58,21099,8820,363.7758620689655,2250,18954,16704,0.7276743874682019,0.9594323202570625,0.898379970544919,809263,134739,26550,1170,"Implement assume_role for Packer. This functionality is copied shamelessly
+from the Terraform AWS provider"
+8b83cca0649c530ae9aaaec6621c454bca6f1c99,False,1,13,33971,33117,2613.153846153846,15,33977,33962,0.7674696736716214,0.8165897830172562,0.8884332820775671,99772,15611,3432,2014,adding temporary instance profile document policy
+8054e66db66fae64ca4415a146607a44df1c9b9d,False,1,12,666,283,55.5,543,208,-335,0.5274725274725275,0.8791208791208791,0.0,2907,537,93,28,"command: move more to this package, remove old packages"
+ba74602d632290d8fa326dfcbf8af85d3ba5e948,False,1,4,116,75,29.0,71,176,105,0.14285714285714285,0.14285714285714285,0.5714285714285714,13750,1669,306,5,Allows publishing to a  Shared Image Gallery with a different subscription id (#9875)
+5ba134ac5b9f28ee597cc893a26463d713ee419c,False,1,22,11668,5700,530.3636363636364,13219,1029,-12190,1.0,0.9285714285714286,0.0,39659,6492,907,38,"JSON to HCL2 (minimal best-effort) transpiler (#9659)
+
+hcl2_upgrade transforms a JSON build-file in a HCL2 build-file.
+This starts a validated Packer core and from that core we generate an HCL 'block' per plugin/configuration. So for a builder, a provisioner, a post-processor or a variable. The contents of each block is just transformed as is and basically all fields are HCL2-ified.
+A generated field can be valid in JSON but invalid on HCL2; for example JSON templating (in mapstructure) allows to set arrays of strings - like `x = [""a"", ""b""]` - with single strings - like `x=""a""` -, HCL does not allow this.
+Since JSON does not make the distinction between variables and locals, everything will be a variable. So variables that use other variables will not work.
+hcl2_upgrade tries to transform go templating interpolation calls to HCL2 calls when possible, leaving the go templating calls like they are in case it cannot.
+
+Work:
+* transpiler
+* tests
+* update hcl v2 library so that output looks great.
+* update docs"
+1e86c49e321e16cd68d935b0d4bbbf05ba511b21,False,1,1,177,177,177.0,0,177,177,0.2125984251968504,0.5118110236220472,0.6771653543307087,814,143,38,7,Add packer-plugin-check command (#10351)
+e89db37717b8a7696d636d88e0adc1f5c8311aed,False,1,3,199,166,66.33333333333333,18,326,308,0.5673758865248227,0.8439716312056738,1.0,1464,258,48,14,"add aws multiplugin binary canary code (#10272)
+
+This creates a new plumbing to allow to have binaries that can define any plugin on any type."
+d53488db6886cfaa3a7b93c853653c0a5e153081,False,1,1,259,259,259.0,50,281,231,0.104,0.312,1.0,3864,638,111,10,Add aws_secretsmanager transformation to hcl2_upgrade (#10553)
+76e3d57caee0891006b752d749c58cc884a28ebf,False,1,2,786,782,393.0,280,999,719,0.622093023255814,0.9418604651162791,1.0,5923,994,180,15,add with-annotation flag to hcl2_upgrade
+3c7944624a02a26e9a9148e11c03fc58a7f31626,False,1,17,378,101,22.235294117647058,90,643,553,0.6510067114093959,0.6845637583892618,1.0,21390,3224,411,30,(3) Add amazon-ami data source (#10467)
+d35f342319858e0059f9728e64f078af6a7a136b,False,1,27,48,7,1.7777777777777777,2,51,49,0.0,0.8461538461538461,0.6153846153846154,53269,5471,293,25,add the ability to configure the http bind address. defaults to 0.0.0.0.
+bab29060feca581f303bd19663c28d0e286af062,False,1,2,8,4,4.0,0,8,8,0.0,1.0,1.0,5364,416,4,2,regen hcl after master merge
+522d122858a1fda077ea79c6c9277a07d5167857,False,1,44,176,4,4.0,44,132,88,0.0,1.0,1.0,124325,9707,132,44,regen all code
+905869308df4650c4a8e88cfb3b2d90e9a821f09,False,1,21,1789,348,85.19047619047619,703,1459,756,0.16483516483516483,1.0,0.8983516483516484,16928,1954,196,48,"Split proxmox builder into a common part and iso/clone builders
+
+Clone builder is still just a stub. Proof-of-concept for #9626
+
+Signed-off-by: Calle Pettersson <calle@cape.nu>"
+41edd09d3c0e8e0df054535d1202ca8602cccd0e,False,1,47,370,16,7.872340425531915,197,210,13,,,,121462,9724,218,0,undocument temporary_key_pair_name and ssh_private_key_file
+e4f975fae1b4b7fb355f6e525b9538b40e1794ef,False,1,7,428,231,61.142857142857146,106,359,253,0.12337662337662338,0.12987012987012986,0.922077922077922,8955,1097,159,10,"Allows for the mounting of ISOs when a Proxmox VM s created. Same as … (#9653)
+
+Allows the mounting of additional ISOs when the VM is created. The config option was taken from PR #9055 and slightly changed. Users can specify an array of bus names, bus numbers and filenames.
+
+""cd_drive"":[
+{
+""bus"": ""ide"",
+""bus_number"": 3,
+""filename"": ""isos:iso/virtio-win-0.1.187.iso""
+},
+{
+""bus"": ""sata"",
+""bus_number"": 3,
+""filename"": ""isos:iso/someother.iso""
+}
+]
+
+Closes: #7950
+Co-authored-by: Calle Pettersson <carlpett@users.noreply.github.com>"
+c70870cb83b2119cfb44bdb804a1efa0e2b5ec3c,False,1,100,1762,119,17.62,898,908,10,,,,140440,22035,3983,114,move multierror and multierrorappend into sdk
+28f8241a0543711657dca2ff50d95e84255ca451,False,1,45,180,4,4.0,0,188,188,0.0,1.0,1.0,119762,9392,130,45,update generated files
+e04eaa89e65bdbd6151c72e22deb286dc6603a93,False,1,984,34777,6431,35.34247967479675,17513,17379,-134,1.0,0.9666666666666667,0.0,471325,85814,12696,3320,move steps and step configs from packer/common to packer/common/commonsteps
+a687d6fe121edb837b2aa9f080397472db9998b0,False,1,48,130,26,2.7083333333333335,23,266,243,0.11956521739130435,0.9565217391304348,1.0,127668,10329,286,50,"ci/tech-debt: Fix vmware acceptance tests (#9636)
+
+* add kex algorithm option to ssh config
+
+* regenerate code
+
+* This commit fixes old vmware acceptance tests that have not been run in some time. It does this in two parts:
+1) It modifies the minimal vmware build configuration to use a custom kex algorithm, which enables the ssh connection to succeed.
+2) It modifies logic in reading and defaulting hardware config values, which was crashing.
+3) It adds a new acceptance test with a preseed file to test loading from an http directory."
+8ea64c5b35ac673ae437b8218c5e0b9c7e233949,False,1,47,192,8,4.085106382978723,111,111,0,,,,121462,9724,218,0,undocument ssh_keypair_name and ssh_agent_auth
+4f77bb0c4a9747eda90ca73deb3b6ecf3c4d5d5c,False,1,47,109,15,2.3191489361702127,0,121,121,0.0,0.94,1.0,120956,9688,218,49,add new ssh_ciphers option
+3739970b84af4daa10e62ccbc982927fc63dbbb2,False,1,18,108,44,6.0,17,97,80,0.0,0.0,1.0,45574,3855,154,19,"Adds ability to specify interfaces for http_directroy and VM for the Proxmox builder (#9874)
+
+Adds two config options to the Proxmox builder:
+```
+http_interface
+vm_interface
+```
+Both give the user the ability to specify an interface whos IP will be set as the `.HTTPIP` and VMIP respectively.
+
+This is useful when the VM and or the machine executing Packer has multiple interfaces.
+Until now Packer would accept the first non-loopback IP as the `.HTTPIP` and VMIP.
+
+I'm open to suggestions and any kind of feedback. 
+
+
+* Added ability to define the NIC where the HTTPIP is taken from.
+* Added VM interface config option
+* fmt and documentation
+* Moved HTTPInterface into HTTPCommon
+* Build Fix
+* Documentation Fix"
+be7251f185513a26167d2abb6fc131ee9feb0376,False,1,2,3,2,1.5,0,7,7,0.0,0.25,1.0,4466,482,55,1,add option to disable kvm hardware virtualization
+f6d362d392f99aa2dcec29ddd61846014e56614b,False,1,2,6,4,3.0,1,5,4,0.0,1.0,1.0,4766,517,56,1,skip Ctx
+4178625afb9ca164bae5a174d87de41511e3fba5,False,1,100,13591,2052,135.91,13190,790,-12400,0.6725271114032205,0.5665461715412422,0.1263555701610253,133071,11825,699,449,re-add winrm_no_proxy option. Winrm code needs to be modified in order to read no_proxy env var when client is created rather than when net/http library is instantiated.
+fdda18e392a0816a6d9839e39eff3f4e95a3d3ea,False,1,3,9,5,3.0,4,5,1,,,,3095,281,14,1,"Use Trilean for boolean value, and allow for missing values for defaults"
+54afe0b880cd4acf05d285013b01d5392038abf7,False,1,3,6,2,2.0,0,6,6,0.0,1.0,1.0,8907,711,14,3,Generating new hcl2specs for proxmox builder.
+484960c9d131b42124261453002c295311029734,False,1,15,471,64,31.4,225,264,39,0.0,1.0,0.4827586206896552,12545,1996,336,19,Fixes #4169
+230079f73a361d5001c2dc81618e43a0a78531c0,False,1,15,75,19,5.0,58,62,4,,,,12794,2058,302,15,spell fixes
+2008c6019aa5ccb99c49a4ec1b87919e7f865b0b,False,1,1,21,21,21.0,4,19,15,1.0,1.0,1.0,1193,165,27,2,Addressing PR remarks
+c67d118523bb46128f2a97d687e4723f4151b01b,False,1,22,1161,402,52.77272727272727,603,3209,2606,0.9465648854961832,0.8676844783715013,0.806615776081425,13800,2369,286,82,Update packer to Use ProfitBricks Image Alias feature
+a61716d4a4d1a76f28abd4674a0077593e3758c0,False,1,23,1200,296,52.17391304347826,1561,524,-1037,0.3185419968304279,0.09667194928684628,0.45166402535657685,3518,557,82,80,"Merge remote-tracking branch 'upstream/master' into packer-builder-profitbricks
+
+# Conflicts:
+#	Godeps/Godeps.json"
+df0298c9ae282d07da35cf6d5060936ba283926d,False,1,24,1589,221,66.20833333333333,0,2294,2294,0.6731328806983511,0.7555771096023278,0.8448108632395732,7794,1328,212,143,Packer Builder ProfitBricks
+39261f367149c8e76f8d0a73b9e2b28af322cb4a,False,1,3,86,68,28.666666666666668,33,122,89,0.07142857142857142,0.9761904761904762,0.9047619047619048,1710,277,35,4,add hcl2 post processor type that reprepares itself
+3d371a2d5dcda5144f018da35157090584d737c6,False,1,2,36,29,18.0,22,912,890,0.20270270270270271,0.9864864864864865,1.0,3436,568,99,5,"Add complete HCL2 examples + allow to name a singular build.source blocks (#9490)
+
+* in the examples/hcl folder
+* add possibility to name singular build.source blocks to differentiate their output and to filter on them"
+db6c3adbbaaf90090ed1c7a86b629c6c7ee42ee0,False,1,5,102,61,20.4,50,129,79,0.06666666666666667,0.9777777777777777,0.9777777777777777,5441,865,151,12,add hcl2 provisioner type that reprepares itself
+ee5635722bd8c34cb114c3cbfe80eafcac78e16a,False,1,6,45,16,7.5,5,40,35,0.0,0.5714285714285714,0.0,8078,1384,231,7,"enable force, debug, and on-error for hcl2 builds"
+bfb9df00398f4a1f2ec96675040c68db8e45dd9a,False,1,2,25,23,12.5,19,227,208,0.05825242718446602,0.6699029126213593,0.8640776699029126,5151,896,158,3,fix except flag for JSON and HCL2
+9140985ab0d49ea8f5b824051e52dd99ecb3837d,False,1,2,26,20,13.0,4,22,18,0.0,0.0,0.7333333333333333,4859,737,130,3,implement cd_files for qemu builder
+b54b778572c4075540f0687cecb396649b383eb2,False,1,2,365,363,182.5,232,834,602,0.021526418786692758,1.0,0.9608610567514677,3312,483,67,7,"major refactor of the step_run. Splits step into two major parts:
+- generating defaults
+- overriding defaults with user args
+
+The default generation has been shuffled around some, in order to
+make sure that any changes to a specific arg happen in one place
+to make it easier to reason about those args. Related args have
+been moved close to one another.
+
+The deviceArgs and driveArgs were overly complex after several
+layers of copy/paste modifications. Careful pruning reduced the
+layers of logic and repeated code, to help make it easier to reason
+about."
+9ac76be190017457b3932f67f2d96147ceefe410,False,1,2,28,15,14.0,23,142,119,0.0,1.0,1.0,3184,481,79,2,clean up step_run
+d5a6781fb7cd0cadab9c9ebaa24779758b283a53,False,1,5,427,198,85.4,0,427,427,0.15384615384615385,0.7692307692307693,0.6346153846153846,2827,602,37,12,Add new 'yandex-export' post-processor
+9fabad6f1dd8f2718467085a841c89f1612179ca,False,1,5,47,25,9.4,19,34,15,0.0,0.5714285714285714,0.35714285714285715,6299,746,78,7,rebase && some fixes
+804fefef17c74dbed2300580ac6922724895f66e,False,1,9,277,67,30.77777777777778,194,178,-16,1.0,1.0,0.2727272727272727,8952,1185,151,12,"yandex-import: allow set custom API endpoint (#9850)
+
+* Separate Access Config from yandex builder Config
+
+* make use of Access Config explicit
+
+* Move `MaxRetries` into AccessConfig
+
+* NewDriverYC use AccessConfig instead Config
+
+* yandex-import PP use common Access Config
+
+Now support set custom API Endpoint
+
+* yandex-export PP use common Access Config
+
+Now support set custom API Endpoint too (as yandex-import)
+
+* fix test
+
+* Tiny doc updates."
+478fda12bad9cd5c8f5f793838df7e2242536714,False,1,15,859,232,57.266666666666666,461,710,249,0.2743362831858407,0.8141592920353983,0.7345132743362832,12958,1738,225,29,reuse common configs
+0101eb1bb1ef0c0c275049b0cbc15dd05933a596,False,1,2,62,45,31.0,7,93,86,0.2857142857142857,0.2857142857142857,1.0,2613,397,70,2,support merge cloud user-data
+2b8fcead23410aa4a3a55a92e79f1aa4395ad683,False,1,1,22,22,22.0,3,24,21,1.0,1.0,1.0,232,53,9,2,support shellscript
+379a33de4260a22fc2892863854471e4a3c9ed2d,False,1,14,815,150,58.214285714285715,423,510,87,0.2774869109947644,0.7172774869109948,0.7486910994764397,9737,1275,171,32,yandex/update-dump-method
+fceaa9ccf9164885b60dad62cbc606ae659cc887,False,1,3,35,23,11.666666666666666,6,38,32,0.0,0.09090909090909091,0.9090909090909091,2632,456,81,3,"Add retries to Yandex builder
+
+Signed-off-by: Gennady Lipenkov <xgen@yandex-team.ru>"
+af333a5de0ea908b033a95fa77ff5c803b67f306,False,1,14,1305,337,93.21428571428571,0,1558,1558,0.2137862137862138,0.45454545454545453,0.9470529470529471,6084,1021,179,46,Initial version
+8e4e3145538b1c113de7131ebf5cfa612798ec77,False,1,11,648,268,58.90909090909091,330,384,54,0.7647058823529411,0.6470588235294118,1.0,5644,924,149,33,"Bulk update 'yandex' builder
+
+Squashed commit of the following:
+
+commit ccc020231780179d241d46eef7c0ba103366aed0
+Author: Yandex.Cloud Bot <ycloud-bot@yandex.ru>
+Date:   Tue Apr 9 14:38:30 2019 +0000
+
+    sync upstream"
+1ecd715221f94a05f542dc36cf6587a17f46f488,False,1,22,266,52,12.090909090909092,73,207,134,1.0,1.0,1.0,15827,2447,437,19,refactor code so that packer/version is not a dependency of sdk code or plugin code
+e5606d483dcb8efece8f8d2db6454d7cb5abe2f6,False,1,11,2227,1276,202.45454545454547,41,3111,3070,0.31962616822429907,0.6420560747663552,0.9925233644859813,18856,2905,454,94,"builder/googlecompute: add support for oslogin (#9339)
+
+
+* feat: add support for oslogin
+
+Signed-off-by: Wei Cheng <calvinpohwc@gmail.com>
+
+Co-authored-by: Wilken Rivera <dev@wilkenrivera.com>"
+be56632f7ec6ad06572eb36c98fc86bee579a549,False,1,4,151,78,37.75,88,127,39,0.0,1.0,1.0,4395,384,13,4,fix vendoring
+1052733fca27bb539bbe5b429bc4738dd73a549a,False,1,5,96,35,19.2,13,194,181,0.10344827586206896,0.646551724137931,0.9482758620689655,4261,733,118,5,"Skip qemu-img convert if format of output file matches format of input file.
+This works around an osx bug in qemu-img convert in osx."
+50b6c86b1c25b0fcd876a3746a4e491bd3279f86,False,1,1,36,36,36.0,23,13,-10,1.0,1.0,0.0,4348,715,73,1,look at all the IPs of the VM when waiting for an IP
+c9b693080a4583c7eee80b2084511d97931d8cba,False,1,5,121,61,24.2,36,95,59,0.0,0.0,0.9047619047619048,5400,855,136,6,Add additional disk support for QEMU builder.
+f1f834b8fe59a31edb9e5271e2c4cdb504ea2c97,False,1,1,5,5,5.0,1,4,3,0.0,0.0,1.0,2040,290,50,1,commhostport isn't present if communicator is null; protect casting in a check
+1d218d9e655958000661e3cb656dd9794cc2ae0b,False,1,9,269,56,29.88888888888889,127,485,358,0.22340425531914893,1.0,0.8191489361702128,9989,1326,177,14,"add QemuImgArgs option to set specialized flags in qemu-img
+convert, resize, and create commands. Add tests. Refactor steps to
+not require config pulled from statebag."
+f4f731b83c926e9a93ec077d8885e3a1e9e725bb,False,1,9,249,88,27.666666666666668,181,154,-27,0.675,0.0,0.0,4885,868,160,11,Refactor google compute's temporary ssh keygen genertion to use the sshkey package
+1046b5ef0983cb01cd15c9155e33a219a6c78f72,False,1,1,7,7,7.0,1,6,5,0.0,1.0,1.0,421,74,12,1,"handle VM clone errors
+
+do not try to cleanup failed VM, it it's not created"
+df40ffbe8d1a5049614c863c20014e7cb30f419f,False,1,11,427,110,38.81818181818182,82,436,354,0.4692737430167598,1.0,0.8547486033519553,2441,434,52,20,Add ISO builder which creates an empty VM
+b2c6e44c7060675a15c86610bbbfc0c3100d227f,False,1,9,857,271,95.22222222222223,293,564,271,0.06666666666666667,0.6222222222222222,1.0,2852,483,81,28,"Builder (#2)
+
+* the very initial builder: just clones the VM
+
+* removed post-processor
+
+* builder now waits for IP address
+
+* more separated steps
+
+* clean up
+
+* added run and shutdown steps
+
+* added step connecting via ssh
+
+* changed the BuilderId to a proper one
+
+* added shutdown command, only echo works
+
+* added cleanup
+
+* removed wainting for VM to stop, removed error on the non-zero exit status
+
+* removed BuildSuccessFlag
+
+* refactored config structures; fixed interpolation of json template
+
+* the rest of configuration refactoring
+
+* removed duplicated parameters from Config
+
+* removed duplicated parameters drom Config
+
+* changed BuilderId and Artifact
+
+* create a dedicated step for VM hardware configuration
+
+* merged StepSetupCloningEnv into StepCloneVM
+
+* improved cleanup
+
+* added proper handling of 'disconnected' command exit status; added guest os shutdown before halting the machine [in case when no shutdown command is given]
+
+* refactored non-conventional variable and field names
+
+* removed redundant fields from Artifact
+
+* removed the success field at all
+
+* removed ArtifactFiles
+
+* removed unnecessary warnings
+
+* minor change in parameters structure"
+22d7851e1f1ec5b7b90d12d62979f0c72243144c,False,1,4,228,69,57.0,101,128,27,1.0,1.0,1.0,2070,347,47,8,Separate configs for connection & cloning
+3a0dfa125913216bb962cb42501c013069e493e0,False,1,3,11,6,3.6666666666666665,1,12,11,0.2,0.0,1.0,1544,248,36,3,add option to destroy vm after deploy to content library (#9569)
+2240ead39c5c5b640cb6e35401e332bfb3405b92,False,1,6,602,151,100.33333333333333,76,587,511,0.13994169096209913,0.49271137026239065,0.9825072886297376,5198,816,124,19,[azure/chroot] Add shared image output
+5c89d22fa2f6a8439379e9db41795ca67ad2ed0f,False,1,4,236,132,59.0,91,203,112,0.9259259259259259,1.0,1.0,4056,568,82,5,generated & docs
+4ffe5611b8c084aa83a469bfdd8d2572977c9ffd,False,1,3,10,4,3.3333333333333335,10,652,642,0.1555944055944056,0.9982517482517482,1.0,1293,195,27,1,Add more tests
+11be4ffc4b3bb3a8055c9cb623dfbf1f00d784df,False,1,3,391,192,130.33333333333334,190,201,11,1.0,1.0,1.0,2184,460,56,7,"Attempt at generalising elevated support
+
+Refactor puppet-server provisioner to use it."
+9a74ce60d533ac1fd0a6d8b16f0dfd96cf8d281b,False,1,1,7,7,7.0,0,7,7,0.0,0.0,1.0,4293,665,179,1,Update config.go
+b5e8750f5f865fb916d42bce6a007bf5c0f63326,False,1,26,1174,240,45.15384615384615,611,615,4,,,,46365,4827,516,28,Change key/value to name/value to remain consistent with Terraform
+ece0a78990ae91f004b7dcf1f7727d00f5b4ec12,False,1,8,270,91,33.75,133,590,457,0.05025125628140704,0.6381909547738693,0.9246231155778895,6209,1197,165,11,azure: tag all resources
+09ce3c9803cda7c2db02c13b892e9c353b48c14c,False,1,19,502,104,26.42105263157895,242,260,18,0.0,0.0,0.0,19608,3037,549,89,Make it compile again
+f1917edd344c4cbbbd3e60cf73b48331833263de,False,1,75,3941,180,52.54666666666667,845,3096,2251,0.5,0.5,0.5,51329,8595,1618,4,generate the comments for config struct of builders scraping doc website
+1ef491d4c8969385f0030af919cbc12f0a125de2,False,1,2,31,27,15.5,36,256,220,0.0,0.43529411764705883,1.0,4313,666,172,2,incorporate reviewer feedback
+d2e593de378e24b476482bfe1ca61594d30f4391,False,1,4,57,31,14.25,0,499,499,0.08490566037735849,0.5566037735849056,0.839622641509434,6533,1265,226,4,azure: support for marketplace plan information
+73242e8de422228c0345b75d46bed9a21cdd8fa8,False,1,25,754,190,30.16,387,480,93,1.0,1.0,1.0,44506,4714,574,31,make sure keyvalue and namevalue filters are using the same naming as the service being used
+3f1a9766f43f2fb3c62fed61c0fe51195068bf07,False,1,1,2,2,2.0,5,3,-2,0.0,0.0,0.0,3559,567,150,1,formatting verb fixes for go 1.11
+d9c9bfbae8bc7e36f3e464dce8ad984eeae10434,False,1,1,12,12,12.0,0,12,12,,,,433,102,0,0,add identity field to the template
+5950d3d92b4f1e04d5aaf99409d7c1c1baafe527,False,1,16,1232,423,77.0,839,1939,1100,0.3170731707317073,0.5945121951219512,1.0,7066,1379,184,49,Implement support for custom images.
+dcc22df6094069795eb0fdee27b5807ab50d84d4,False,1,8,196,111,24.5,43,155,112,0.5076923076923077,0.5076923076923077,1.0,9008,1370,208,14,"aws: move the OmitFromArtifact field in ebssurrogat where it's being used
+
+also, simplified a bit the usage of block device"
+4aa33306cb74227bf1996695c18858a1969176c1,False,1,1,6,6,6.0,1,5,4,0.0,0.0,1.0,2546,368,61,1,make sure that fleetId exists before trying to stick it into error message
+a0c09e85dfc8ac11232a77bfea1411a3377f94e8,False,1,1,41,41,41.0,10,31,21,0.9411764705882353,0.9411764705882353,1.0,2733,390,70,3,"retry spot instance creation when an ""Invalid IAM Instance Profile name"" error pops up (#9810)
+
+PutRolePolicy & AddRoleToInstanceProfile are eventually consistent but it is not possible to wait for them to be done here: https://github.com/hashicorp/packer/blob/0785c2f6fca9c22bf25528e0176042799dd79df9/builder/amazon/common/step_iam_instance_profile.go#L117-L134 which was causing the `CreateFleet` to fail (100% for me). So for now we retry a bit later. Waiting 5 seconds after the previously linked code also fixed this.
+
+Test file:
+
+```json
+{
+	""builders"": [
+		{
+			""type"": ""amazon-ebs"",
+			""region"": ""eu-west-1"",
+			""ami_name"": ""ubuntu-16.04 test {{timestamp}}"",
+			""ami_description"": ""Ubuntu 16.04 LTS - expand root partition"",
+			""source_ami_filter"": {
+				""filters"": {
+					""virtualization-type"": ""hvm"",
+					""name"": ""ubuntu/images/*/ubuntu-xenial-16.04-amd64-server-*"",
+					""root-device-type"": ""ebs""
+				},
+				""owners"": [
+					""099720109477""
+				],
+				""most_recent"": true
+			},
+			""spot_price"": ""0.03"",
+			""spot_instance_types"": [
+				""t2.small""
+			],
+			""encrypt_boot"": true,
+			""ssh_username"": ""ubuntu"",
+			""ssh_interface"": ""session_manager"",
+			""temporary_iam_instance_profile_policy_document"": {
+				""Version"": ""2012-10-17"",
+				""Statement"": [
+					{
+						""Effect"": ""Allow"",
+						""Action"": [
+							""*""
+						],
+						""Resource"": ""*""
+					}
+				]
+			},
+			""communicator"": ""ssh""
+		}
+]}
+```"
+316a30b31dd094af5fd0bcca2926703947efd76f,False,1,2,113,97,56.5,53,60,7,0.45454545454545453,0.45454545454545453,1.0,3624,535,113,4,fix spot_tags
+3dd4c08f2d95b2afdaa998b267eee5780e0bc15e,False,1,4,417,211,104.25,264,182,-82,0.6794871794871795,0.4230769230769231,0.0,2085,387,73,14,post-processor/vagrant: start new format
+832b4408a596dca81a88ee21619a8378baa42cd8,False,1,4,27,9,6.75,3,24,21,0.8333333333333334,1.0,0.8333333333333334,1089,195,28,3,builder/docker: verify docker is available on path
+3feab1dea147cba617d9d45312e6b4bffe05fe0a,False,1,2,82,70,41.0,0,92,92,0.20930232558139536,1.0,0.5813953488372093,332,61,10,3,builder/docker: boilerplate
+5cb7355814d9caeefc8ca29e7ad068d23f49f1ea,False,1,4,35,17,8.75,77,33,-44,0.6285714285714286,0.0,0.0,1156,201,31,4,"builder/docker: change commit to the opt-in, special case build steps
+
+/cc @andytson - Wanted to CC you in here so you could see some changes I
+made.
+
+First, I changed commit to opt-in, so you set ""commit"": true to get
+commit behavior. This simplifies the logic a bit. Then, I removed the
+skipping for StepExport and StepCommit and put that into the Builder
+itself. This simplifies those steps (limits abstraction leakage).
+Otherwise, everything looks great!"
+0ba6b22fee91c50a5f6445482688f73aee5a7acd,False,1,1,2,2,2.0,1,1,0,,,,577,90,12,1,builder/docker: Update type of config stored in state bag
+034e04cc1e58ae26f2d6d4011c7fe756558ec5fd,False,1,4,139,102,34.75,1,138,137,0.6025641025641025,1.0,0.9487179487179487,879,159,24,7,builder/docker: pull images
+0f6d1beccf6cffee75acef741329bb80831b69f6,False,1,57,495,44,8.68421052631579,533,592,59,0.06976744186046512,0.9767441860465116,1.0,61407,9472,1138,61,add an extra string array to the Prepare() return values in the builder interfaces; this sets up the ability for builders to give the provisioners custom user-accessible build-time variables.
+df41b56d9addd2c0669c1822ab140e1ce3f2531d,False,1,2,7,5,3.5,58,51,-7,0.14285714285714285,0.0,0.0,1050,195,25,1,Change MonitorCmd/sendkeys to Sendkey
+e6dbbe454eefc6a69111dc3523baed39c8c8038f,False,1,1,4,4,4.0,2,2,0,,,,1734,282,82,2,Fix linting issues
+55fa3e1b0bf85ec138461057acfc23141a7525cb,False,1,3,167,97,55.666666666666664,7,281,274,0.05747126436781609,0.42528735632183906,1.0,2183,381,96,8,Add support for specifying key to fetch from AWS Secrets Manager
+0fca4a8ba84e97b46e0dd08db7f363e27ccedc36,False,1,8,5982,5424,747.75,75,6390,6315,0.8269344359125812,0.8706438275251034,0.9049025398700532,15172,2354,535,303,"Add template function aws_secretsmanager
+
+Allow users to read secrets from AWS Secrets Manager via
+packer template functions"
+b73602eadd27d4c95257470f93fa2ef8cb989ead,False,1,3,28,14,9.333333333333334,22,17,-5,0.0,0.0,0.0,2161,375,95,3,"Fix corrections
+
+* Fix typos in comments.
+* Add documentation of how to use multiple keys with `aws_secretsmanager` function.
+* Move `Client` struct to `secretsmanager.go` file."
+e16fb19bfc5e0a098a7d5dc7f9bcbc1fd3e51dd3,False,1,1,21,21,21.0,8,13,5,0.0,0.0,1.0,2467,361,60,1,don't abort on a single error if another availability zone was able to create the instance
+918db58604ae1729874daeba8a006d366f73a800,False,1,16,97,14,6.0625,47,153,106,0.13636363636363635,0.6818181818181818,0.0,20078,3011,416,19,added new template variables to replace PACKER_KEY_INTERVAL with tunable key and keygroup intervals depending on driver used
+1055c119bc8a77704f4a1f5cc5920a946c0773dd,False,1,3,142,52,47.333333333333336,90,52,-38,0.0,0.0,0.0,352,70,18,9,"make code of homeDir, configFile & configDir not os specific anymore"
+7384b86e953a74cddd572f7dac1e9d4ea1b9ce06,False,1,1,7,7,7.0,4,12,8,0.0,0.0,1.0,496,91,25,1,"windows plugin: prioritize AppData over default user directory ( UserProfile )
+
+It was the default behaviour before.
+It is also standard for a binary to use files from the AppData directory. ex: https://github.com/golang/oauth2/blob/c453e0c757598fd055e170a3a359263c91e13153/google/default.go#L104
+
+More on home: https://en.wikipedia.org/wiki/Home_directory"
+cd60f3286645d711c8437c924acaafa50bbde194,False,1,1,48,48,48.0,24,24,0,,,,7,131,0,0,"fix yandex-export aws: (#9814)
+
+1. move aws validation before disk image creation
+2. add `--region` option"
+c0c5c6afacff5d9a4b72e959f3d53894526cb93b,False,1,6,391,359,65.16666666666667,15,506,491,0.1918819188191882,0.39114391143911437,0.8118081180811808,5456,899,126,17,Add DigitalOcean post-processor.
+ee430d9a40753e4e814bb9f915b07ca73b13c462,False,1,1,24,24,24.0,9,15,6,0.0,0.0,1.0,2057,304,50,1,Only filter on suffix if more than one file.
+a9ffa1559e67d3765afcb85cd41efac42dd4cf4c,False,1,1,44,44,44.0,12,33,21,0.3333333333333333,0.3333333333333333,1.0,648,110,24,5,"Don't wait for IP till heat death of the universe
+
+Introduced 'ip_wait_timeout' parameter with '5m' (five minutes) default value."
+80960d7a64409bce357baaae43d66e22c7ece79f,False,1,2,15,8,7.5,1,14,13,0.0,0.0,0.4444444444444444,1439,251,50,3,Fix vsphere boot command and check for context cancelation when waiting for ip (#9739)
+65cfb880fda682c3c3d41f3179b145c1a631ed41,False,1,4,111,47,27.75,186,92,-94,0.6486486486486487,0.0,0.0,4657,510,37,12,Fix boot_command and update docs
+55b5a45ae48633636c873ee58c1ad4c7e77b8e0a,False,1,11,452,189,41.09090909090909,205,323,118,0.5362318840579711,0.34782608695652173,0.9855072463768116,6024,1055,177,21,"Created googlecompute-export post-processor. Modified the googlecompute builder to pass a few configuration values to its resulting artifact. These values can then be used in googlecompute-export post-processor.
+
+Added documentation and changed authentication stuff on temporary VM."
+8975f6790112fcd337fe7d679e8e0dac2947ebf0,False,1,3,214,184,71.33333333333333,85,159,74,0.0,0.0,1.0,2124,406,52,2,googlecompute-export: add exporter instance configs
+63f9282f5c93543a971e139814a42104c59762f5,False,1,2,46,24,23.0,19,30,11,0.0,0.0,1.0,4623,764,83,1,fix vshere ToolsSyncTime and ToolsUpgradePolicy
+39f1e4a3944c27ff42dd86cc13393604e57cf67a,False,1,4,62,36,15.5,0,62,62,0.8235294117647058,1.0,0.8235294117647058,3658,615,53,4,Add 'configuration_parameters' option
+585a86fe03a9be562393dc66f2457b21cd3cf9ea,False,1,6,567,265,94.5,242,378,136,0.34408602150537637,1.0,0.956989247311828,3331,557,72,23,Add usb_driver to common boot_command and use it on vsphere
+ba767d1663db82d02fa18c087e4d99043d141fd3,False,1,2,47,42,23.5,42,6,-36,1.0,1.0,0.0,1455,246,34,4,remove duplicated press
+553b1fb9f85b0dfd5a59812b4217661f8cc896bd,False,1,9,125,45,13.88888888888889,7,532,525,0.23054755043227665,0.40057636887608067,0.8760806916426513,11389,1725,308,11,Add RetriedProvisioner to allow retry provisioners (#9061)
+2d1a67c6cb0e5ef8728238fd3d730293d87650ef,False,1,8,111,40,13.875,37,144,107,0.2641509433962264,1.0,1.0,4324,722,105,15,hcl2: allow to optionnaly name provisioners and post-processors
+4c29f88a0a69309915049cca577e9a920490f5c2,False,1,1,80,80,80.0,46,34,-12,1.0,1.0,0.0,2283,354,71,2,reuse code
+b8c2a5fd438909619bb22f6c648172bd629fc47f,False,1,3,24,8,8.0,9,51,42,0.0,0.0,0.0,4951,779,87,3,fix step initializer everywhere StepAMIRegionCopy is called
+201c8c1332bbeb1118ace869c11b0eaded826ee5,False,1,5,6,2,1.2,0,6,6,0.0,0.0,0.2,7759,1174,116,5,make sure that you encrypt using the provided kms key id and not the default
+f9f4726effe22a1c561e6677f57711d82119b6c7,False,1,5,52,38,10.4,3,121,118,0.2926829268292683,0.6097560975609756,0.926829268292683,8450,1262,142,6,"builder/amazon/step_pre_validate: Add check for non-default VPCs
+
+Subnet information is only really needed when the specified `vpc_id` is
+not the default VPC for the region where the builder is being executed.
+This change uses the AWS API to determine if the VPC provided is a
+non-default VPC and only validates the existence of a `subnet_id` if a
+user has provided a non-default `vpc_id`.
+
+Tests after change
+```
+> make test TEST=./builder/amazon/... TESTARGS='-count=1 -v -run=TestStepPreValidate_checkVpc'
+...
+
+=== RUN   TestStepPreValidate_checkVpc
+=== RUN   TestStepPreValidate_checkVpc/DefaultVpc
+=== RUN   TestStepPreValidate_checkVpc/NonDefaultVpcNoSubnet
+=== RUN   TestStepPreValidate_checkVpc/NonDefaultVpcWithSubnet
+=== RUN   TestStepPreValidate_checkVpc/SubnetWithNoVpc
+=== RUN   TestStepPreValidate_checkVpc/NoVpcInformation
+--- PASS: TestStepPreValidate_checkVpc (0.00s)
+    --- PASS: TestStepPreValidate_checkVpc/DefaultVpc (0.00s)
+    --- PASS: TestStepPreValidate_checkVpc/NonDefaultVpcNoSubnet (0.00s)
+    --- PASS: TestStepPreValidate_checkVpc/NonDefaultVpcWithSubnet (0.00s)
+    --- PASS: TestStepPreValidate_checkVpc/SubnetWithNoVpc (0.00s)
+    --- PASS: TestStepPreValidate_checkVpc/NoVpcInformation (0.00s)
+PASS
+
+...
+```"
+e85633930920baa7c326e9caa9df2a38943c597b,False,1,4,96,42,24.0,9,95,86,0.0,0.0,0.4788732394366197,3902,570,53,9,"build/amazon-ebssurrogate: Add region copy, attributes, tags steps
+
+As pointed out in the initial code review of #4351, some of the steps
+from the standard EBS builder were (intetionally) omitted. It turns out
+that these actually are useful, and the original rationale for the
+omission was wrong. Consequently, this commit adds in the following
+steps:
+
+- `StepPrevalidate`
+- `StepTagEBSVolumes`
+- `StepDeregisterAMI`
+- `StepCreateEncryptedAMICopy`
+- `StepAMIRegionCopy`
+- `StepModifyAMIAttribute`
+- `StepCreateTags`
+
+We also fix the interpolation filter and documentation to reflect these
+additions, though the majority were already documented and just not
+functional."
+b4efd13a4d69a937a22caa5dd84eb98f7fdce5cf,False,1,3,6,2,2.0,3,3,0,,,,6095,903,65,3,aws: use the empty func when possible
+2c352cc6813fd54b0d1890b79926e211b5928ec4,False,1,6,80,73,13.333333333333334,25,219,194,0.46153846153846156,0.9230769230769231,0.9384615384615385,9795,1525,167,12,add tests for step_ami_region_copy
+9f82b75e57e35784564c25f3f7d5e07fd5495226,False,1,752,186999,14272,248.66888297872342,43369,186585,143216,0.5242802559090102,0.7161453705349209,0.8261951306202239,1993569,327992,43431,7599,"Use the hashicorp/go-getter to download files
+
+* removed packer.Cache and references since packer.Cache is never used except in the download step. The download step now uses the new func packer.CachePath(targetPath) for this, the behavior is the same.
+* removed download code from packer that was reimplemented into the go-getter library: progress bar, http download restart, checksuming from file, skip already downloaded files, symlinking, make a download cancellable by context.
+* on windows if packer is running without symlinking rights and we are getting a local file, the file will be copied instead to avoid errors.
+* added unit tests for step_download that are now CI tested on windows, mac & linux.
+* files are now downloaded under cache dir `sha1(filename + ""?checksum="" + checksum) + file_extension`
+* since the output dir is based on the source url and the checksum, when the checksum fails, the file is auto deleted.
+* a download file is protected and locked by a file lock,
+* updated docs
+* updated go modules and vendors"
+266bba279b27b93f903345071f45489d71050c25,False,1,1,6,6,6.0,3,3,0,,,,1427,229,31,1,linting
+850303b8b8281303075db1dc38a8f4bb08745412,False,1,3,42,38,14.0,8,34,26,0.0,0.0,0.9444444444444444,2049,347,47,3,get gcloud integration working on Windows
+e6073bcec7eb57b908eed04cb5a3c7b74612a43d,False,1,11,375,260,34.09090909090909,16,388,372,0.15730337078651685,0.6910112359550562,0.8426966292134831,13143,1790,268,23,implement iap proxy for googlecompute. ssh-only so far
+4fc92d7858a466855649a61c3f8128dc50f5cfce,False,1,1,3,3,3.0,2,124,122,0.367816091954023,1.0,1.0,388,73,16,1,add tests
+b66e49223d7cc40c3391356d586a4fb3935981d8,False,1,1,50,50,50.0,20,149,129,0.0,0.9469026548672567,0.9469026548672567,3955,631,138,2,extract the building of command args into a testable helper function
+5976929595e3d62cc21b93ac95ebe648f42a6b64,False,1,1,54,54,54.0,25,95,70,0.15384615384615385,0.8307692307692308,0.8307692307692308,4117,652,151,3,Fix for #9283
+99b0b9831120b895dd93580ba27b58496e26ddb4,False,1,17,1385,304,81.47058823529412,194,1268,1074,0.4592833876221498,0.15309446254071662,0.7719869706840391,14539,1985,148,22,"Add ovf export capability to vsphere builders (#8764)
+
+* add ovf export capability to vsphere builders
+
+* remove unneeded floppy ejection
+
+* add prepare step for export. updated output directory to be the actual destination directory
+
+* add step export documentation
+
+* add extra export options
+
+* add ui messages for export step
+
+Co-authored-by: Megan Marsh <megan@hashicorp.com>
+Co-authored-by: Wilken Rivera <dev@wilkenrivera.com>"
+9c1409dbba89daa33035dd4d7f56cb1605f28fb1,False,1,30,2462,290,82.06666666666666,231,2341,2110,0.6034063260340633,0.6618004866180048,0.7019464720194647,24423,3455,349,96,Add content_library_destination to import VM template to a Content Library (#9551)
+3450b6fd6f2dfdc043b4d8c55f8b6605d63cf588,False,1,1,7,7,7.0,0,7,7,0.0,0.0,0.0,2895,460,95,1,ansible: expose packer_http_addr extra var
+be1a6c9f3575ec77f2aedb15abe8a93485053298,False,1,1,2,2,2.0,1,1,0,,,,1851,302,66,1,return error when LoadSnapshots turns up empty
+d3202497ae2c5dca416bd7188d0c486a82a286a6,False,1,8,226,84,28.25,35,191,156,0.0,0.0,0.9264705882352942,7796,1234,192,14,First working version of virtualbox/vm builder
+092e32fe9e2fa308d450372dfeebf2dea553e9e3,False,1,7,440,171,62.857142857142854,136,304,168,1.0,0.9125,1.0,5554,918,159,25,First version of reworked snapshot implementation
+23ce26e82c6efce539c2e3bc0a3448ca761eb6b0,False,1,5,123,57,24.6,8,119,111,0.12162162162162163,0.21621621621621623,0.7297297297297297,2500,394,54,6,add step remote upload for iso builder (#164)
+11db6014fa97870ea772d0f75eea0242ed8e7e31,False,1,1,55,55,55.0,43,103,60,0.22,1.0,1.0,2544,377,85,5,"provisioner/powershell: Update remote clean up logic
+
+* Add retry logic so that the provisioner will retry if it fails to upload/execute because of some restart provisioner step
+* Add a testConfigWithSkipClean for testing that the provisioner executes the correct commands
+* Add a test case for toggling the ""skip_clean"" config option"
+f6a61e25117f013886c0c3e753318878fc249c0b,False,1,2,55,53,27.5,5,50,45,0.0,0.6206896551724138,0.6206896551724138,3226,433,86,5,provisioner/powershell: Add post clean up step to remove temp script files
+f5b13e3cb54ab2735e0a842ae1a059f628d42fb1,False,1,3,850,563,283.3333333333333,1,1402,1401,0.328159645232816,0.4279379157427938,0.8880266075388027,5442,903,152,39,added inspec.io provisioner
+39fd462b561f2058d83acfc1d52d6894dbb28fee,False,1,27,142,30,5.2592592592592595,97,103,6,1.0,0.0,0.0,38860,6082,1233,60,change all provision func signatures to use map[string]interface{}
+337856811ecb6d733f175fd67e63a83190cfd005,False,1,3,29,13,9.666666666666666,95,142,47,0.0,0.0,1.0,1946,306,29,3,"Implements OVA downloads w/local checksum support
+
+Presumably, it is convention to store a manifest file with checksums
+inside the OVA, so remote checksum support was not implemented."
+41744c3bcc20729a98898a48f781f31b3cad3e2f,False,1,10,164,84,16.4,99,73,-26,0.5,0.4,0.0,3552,609,102,26,Code cleanup
+f555e7a9f285605604255db6738158061cf20c09,False,1,42,481,122,11.452380952380953,240,287,47,0.6428571428571429,1.0,0.0,51025,8085,1553,92,"allow a provisioner to timeout
+
+* I had to contextualise Communicator.Start and RemoteCmd.StartWithUi
+NOTE: Communicator.Start starts a RemoteCmd but RemoteCmd.StartWithUi will run the cmd and wait for a return, so I renamed StartWithUi to RunWithUi so that the intent is clearer.
+Ideally in the future RunWithUi will be named back to StartWithUi and the exit status or wait funcs of the command will allow to wait for a return. If you do so please read carrefully https://golang.org/pkg/os/exec/#Cmd.Stdout to avoid a deadlock
+* cmd.ExitStatus to cmd.ExitStatus() is now blocking to avoid race conditions
+* also had to simplify StartWithUi"
+5b5888b23055702fb968b3bd9bf3d9d17c632533,False,1,28,1871,249,66.82142857142857,0,3666,3666,0.5982986767485823,0.8534971644612477,0.9343100189035917,8169,1568,194,99,Initial import of Microsoft contributed code
+e6368b9246a69e07a57c33cd7411c86759df8b7b,False,1,3,67,58,22.333333333333332,23,143,120,0.0,0.36893203883495146,1.0,7981,1126,269,5,Fix azure winrm_password attribution and allow to set winrm_username (#8928)
+94a036038bd569a987d3b52acfd9faf383e07f71,False,1,10,85,30,8.5,43,42,-1,0.6666666666666666,0.6666666666666666,1.0,6948,1157,153,11,Fix inspections
+d7230827cde056774bd089c5014cb772c42ffd0f,False,1,4,159,60,39.75,46,131,85,0.4230769230769231,0.5,1.0,8042,1028,84,5,"(vsphere-iso) add ability to define multiple disks
+
+Closes #8749"
+1b1ef09706208c3680e8e90fe4422846a2fc1bb0,False,1,4,31,15,7.75,1,30,29,0.0,0.0,0.9166666666666666,2331,388,54,4,support '-force': replace existing vm (#186)
+c387dc2c53220db71d3aa3baa86add7890c442d5,False,1,2,18,9,9.0,8,10,2,0.0,0.0,1.0,1439,237,42,2,builder/vsphere-clone: Find the vm within the folder (#8938)
+0ccff0d5b96c0fa2651fb80575b1ffbe941f984f,False,1,3,32,21,10.666666666666666,18,34,16,0.5333333333333333,0.7333333333333333,1.0,4241,689,103,4,"all variables must have a value.
+
+A variable's default value can be set to null to force user to set it."
+a8fcb2d91a0d69b4b8a2f35e86d720d9538ef77d,False,1,12,1061,262,88.41666666666667,20,1527,1507,0.2981260647359455,0.43270868824531517,0.8568994889267462,7121,1077,154,37,"HCL2: add support for dynamic blocks, document for loops and splat expressions (#8720)"
+2981fd627d8ea7ebe5314c362a0f37e17f91e1e4,False,1,4,60,27,15.0,25,51,26,0.6,1.0,0.0,3229,529,83,10,Avoid calling CoreBuild.Prepare(...) for HCL2 templates (#8742)
+ad8dafa3bd44e3910bc9806dccc9f08093eedcaf,False,1,2,9,6,4.5,0,183,183,0.21487603305785125,0.7603305785123967,0.8760330578512396,1726,282,48,2,HCL: add tests and fixes around var-file and var args  (#8914)
+db593a517dc275787393ada9fc7df380efd5fa2b,False,1,3,139,100,46.333333333333336,0,139,139,0.28125,0.53125,1.0,1436,261,28,8,"Added manifest post-processor, which creates a manifest of build artifacts"
+fe76081e0a77ef62575b8cbe170a2ff98d638735,False,1,1,16,16,16.0,6,14,8,0.0,0.0,1.0,651,98,17,1,"post-processor/manifest: allow to strip path components from artifact path
+
+Signed-off-by: Vasiliy Tolstov <v.tolstov@selfip.ru>"
+25711ed7d0f322b5c2a2bfd6938c66b72c27ad21,False,1,3,43,25,14.333333333333334,12,31,19,0.0,0.0,1.0,1685,262,35,6,make HCL2 respect the new builder-returned generated vars list
+10f47b5158c13f677aba9bcade56420108acb454,False,1,1,2,2,2.0,6,80,74,,,,1307,239,43,1,document clearly what keep_input_artifact does for each post-processor
+b29d0b43781d5b9d245e40a6425a38c645617e67,False,1,1,29,29,29.0,14,15,1,0.0,1.0,1.0,686,101,18,2,"post-processor/manifest: fixes interpolation of output
+
+* rename `filename` to `output` for consistent with other post-processors
+* interpolate output with variables
+
+Signed-off-by: Vasiliy Tolstov <v.tolstov@selfip.ru>"
+dde74232f251434715cb76664426d9c1e1c91bd8,False,1,9,67,34,7.444444444444445,108,244,136,,,,10051,1693,305,0,Clearly document all template-engine-enabled options (#8770)
+2f8f2d5ad1f01dd548636f82fe3462cff55dc56e,False,1,2,118,89,59.0,28,123,95,0.0,0.0,1.0,3597,552,105,2,Fixes #1 and Fixes #2 by allowing qemuargs to operate and override defaults.
+c87c88fce21f5404e2f25c0193a4d566627e8448,False,1,1,1,1,1.0,0,1,1,,,,2655,417,79,0,OEL available net device
+d58a209b73613fe4d03b6aa3c59781ebca418c28,False,1,2,45,41,22.5,7,58,51,0.0,0.0,1.0,3240,500,95,2,"added network and disk driver options, also a source comment on the kickstart file in the docs (I can't find the original source)."
+c8300b620a581f3c2fa9f505621f35d568f4a25a,False,1,5,55,19,11.0,32,76,44,0.0,0.53125,0.0,5381,869,145,9,"allow to use hcl files as var files in HCL mode
+
+fix #8781"
+5484b9c7d09573bdea5357424ae9a27b2230f596,False,1,1,27,27,27.0,10,38,28,0.6818181818181818,0.7727272727272727,1.0,1875,329,61,4,Do not use a communicator for unit tests. (#3539)
+654cc4c4d5f39556226abe1464c6ff0b93999609,False,1,2,13,9,6.5,4,9,5,1.0,1.0,1.0,7435,1039,247,3,"builder/azure-arm: Set WinRMPassword on the communicator config
+
+Build results before change
+```
+azure-arm: output will be in this color.
+
+==> azure-arm: Running builder ...
+azure-arm:
+==> azure-arm: Provisioning with Powershell...
+==> azure-arm: Provisioning with powershell script:
+/tmp/powershell-provisioner922851060
+==> azure-arm: Exception calling ""RegisterTaskDefinition"" with ""7"" argument(s): ""(38,4):Task:""
+==> azure-arm: At C:\Windows\Temp\packer-elevated-shell-5e320d29-bdbd-b619-9e64-0c8a301b9d1d.p
+==> azure-arm: s1:60 char:1 ==> azure-arm: + $f.RegisterTaskDefinition($name, $t, 6,
+""packer"", $password, $logon_type,
+==> azure-arm: $null) ...
+==> azure-arm: +
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+==> azure-arm: ~~~
+==> azure-arm:     + CategoryInfo          : NotSpecified:
+(:) [], MethodInvocationException
+==> azure-arm:     + FullyQualifiedErrorId :
+ComMethodTargetInvocation
+==> azure-arm:
+==> azure-arm: Exception calling ""GetTask"" with ""1""
+argument(s): ""The system cannot find the
+==> azure-arm: file specified. (Exception from HRESULT:
+0x80070002)""
+==> azure-arm: At
+C:\Windows\Temp\packer-elevated-shell-5e320d29-bdbd-b619-9e64-0c8a301b9d1d.p
+==> azure-arm: s1:61 char:1
+==> azure-arm: + $t = $f.GetTask(""\$name"")
+==> azure-arm: + ~~~~~~~~~~~~~~~~~~~~~~~~~
+==> azure-arm:     + CategoryInfo          : NotSpecified:
+(:) [], MethodInvocationException
+==> azure-arm:     + FullyQualifiedErrorId :
+ComMethodTargetInvocation
+==> azure-arm:
+==> azure-arm: Method invocation failed because
+[System.__ComObject] does not contain a
+==> azure-arm: method named 'Run'.
+==> azure-arm: At
+C:\Windows\Temp\packer-elevated-shell-5e320d29-bdbd-b619-9e64-0c8a301b9d1d.p
+==> azure-arm: s1:62 char:1
+==> azure-arm: + $t.Run($null) | Out-Null
+==> azure-arm: + ~~~~~~~~~~~~~~~~~~~~~~~~
+==> azure-arm:     + CategoryInfo          :
+InvalidOperation: (Run:String) [], RuntimeExcept
+==> azure-arm:    ion
+==> azure-arm:     + FullyQualifiedErrorId : MethodNotFound
+==> azure-arm:
+Cancelling build after receiving interrupt
+==> azure-arm: Removing the created Deployment object:
+'pkrdp087bb80ibj'
+==> azure-arm: Removing the created Deployment object:
+'kvpkrdp087bb80ibj'
+==> azure-arm:
+==> azure-arm: Cleanup requested, deleting resource group
+...
+==> azure-arm: Resource group has been deleted.
+Build 'azure-arm' errored: Build was cancelled.
+Cleanly cancelled builds after being interrupted.
+```
+
+Build results after change
+```
+azure-arm: WinRM connected.
+==> azure-arm: <Objs Version=""1.1.0.1""
+xmlns=""http://schemas.microsoft.com/powershell/2004/04""><Obj S=""progress"" RefId=""0""><TN RefId=""0""><T>System.Management.Automation.PSCustomObject</T><T>System.Object</T></TN><MS><I64
+N=""SourceId"">1</I64><PR N=""Record""><AV>Preparing modules for first use.</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1</SR><SD> </SD></PR></MS></Obj><Obj S=""progress"" RefId=""1""><TNRef RefId=""0"" /><MS><I64 N=""SourceId"">2</I64><PR N=""Record""><AV>Preparing modules for first use.</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1</SR><SD> </SD></PR></MS></Obj><Obj S=""progress"" RefId=""2""><TNRef RefId=""0"" /><MS><I64 N=""SourceId"">3</I64><PR N=""Record""><AV>Preparing modules for first use.</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1</SR><SD> </SD></PR></MS></Obj></Objs>
+==> azure-arm: Connected to WinRM!
+==> azure-arm: Running local shell script:
+/tmp/packer-shell091779215 azure-arm: 022xUtbwAH3DdqIoRCOh9caZi8tOYqcY
+==> azure-arm: Provisioning with Powershell...
+==> azure-arm: Provisioning with powershell script: /tmp/powershell-provisioner469853889
+azure-arm: HELLO NEW USER; automatically generated aws password is: 022xUtbwAH3DdqIoRCOh9caZi8tOYqcY
+==> azure-arm: Querying the machine's properties ...
+```"
+4682b3a9d2fdd5a0a079f800557038c62db4369b,False,1,2,33,17,16.5,25,22,-3,1.0,1.0,1.0,445,78,12,6,refactor possible random strings into common/random
+a3fb24639ab4541a3c8b5077568254e841f6a6fb,False,1,3,15,11,5.0,91,96,5,1.0,1.0,0.0,3690,471,90,7,make tests pass again
+c7d8f4e1505df459f0119e1eab2edc1c9b272765,False,1,3,58,26,19.333333333333332,27,107,80,0.0,0.6666666666666666,0.0,7038,1299,252,15,"azure: configuration for disk caching
+
+Export a configuration knob to change the disk caching setting. The
+default value remains ReadWrite.  This seems the most appropriate value
+given Packer.  Certain disk sizes require that disk caching be disable,
+and this knob allows the user to do just that."
+0780667b4d65180aa4ba0828e343f976166f8662,False,1,4,36,21,9.0,12,103,91,0.0,0.26229508196721313,0.9508196721311475,5511,1122,181,7,"azure: support storage account for managed images
+
+Closes #5202"
+c8824f148c3e491590a30aa561635165537f3aa1,False,1,1,2,2,2.0,1,1,0,,,,603,97,20,1,Minor nil fix
+cc8ca3098ea662029dc244066ce243bf1bac4572,False,1,4,580,283,145.0,5,860,855,0.297153024911032,0.4359430604982206,0.9519572953736655,4214,694,141,26,add ansible provisioner
+0677b02e1847d89f77201909f519413d5448767f,False,1,11,127,62,11.545454545454545,39,352,313,0.29411764705882354,0.6877828054298643,0.9276018099547512,13389,2102,290,15,Share SourceImageName with provisioners and manifest post-processor (#8603)
+ac570e0cc08b091719e03221c6f85fbd22971199,False,1,1,4,4,4.0,0,4,4,0.5,1.0,1.0,673,106,21,2,store ssh public and private keys on shared info
+0566f1f999b217c4de257ecf34574db9d5f0ced6,False,1,9,78,36,8.666666666666666,15,73,58,0.2608695652173913,1.0,0.9565217391304348,8287,1294,163,9,Extract http ip discover to a new step
+6bc5a95c3a92231b663258a5545d232db4d5eed0,False,1,1,6,6,6.0,11,16,5,,,,1500,247,69,3,tweak docs; change  to
+000e5b67ff8ec028a3aa67848410d506f8fa2d33,False,1,2,83,71,41.5,42,219,177,1.0,0.6666666666666666,0.13333333333333333,2430,387,79,7,provisioner/chef-client: docs and validation key path
+73bbfab8f106c83a7bffc7df9fa0c49c424a463f,False,1,2,556,546,278.0,0,740,740,0.166,0.456,0.792,2759,420,89,18,adding chef-client provisioner
+b57ed27352a1312c99d0b51faf44637805db554e,False,1,4,53,16,13.25,22,33,11,0.2,0.8,1.0,2079,381,76,3,"Add support for NTLM the WinRM communicator.
+
+WinRM exposes an HTTP transport decorator that can be used for different
+authentication schemes.  Windows on Azures requires this if one is to use
+the out of the box configuration."
+34b59bc05193608b359d7c9e3d4d51993ec5e2bb,False,1,3,287,213,95.66666666666667,0,644,644,0.2966101694915254,0.655367231638418,0.9830508474576272,1335,207,43,8,"Create a shell-local post processor
+
+The following commits build on work from @vtolstov to create a
+post processor shell-local plugin. Please see his original work
+over at https://github.com/vtolstov/packer-post-processor-shell
+
+I have modified it slightly to output information onto the packer
+ui as shown in the below screenshot which executes a script that
+runs env.
+
+This plugin enables users to submit environmental variables to
+external external shell script(s) to do some post processing
+e.g. (Upload to somewhere, convert to different format, and so
+on)
+
+Most of the work is a merge from the provisioner shell and
+shell-local scripts.
+
+![Example run of post processor shell-local](http://i.imgur.com/kJv6j9l.png)
+
+Signed-off-by: Ian Duffy <ian@ianduffy.ie>"
+5b4e0fe25bc1e61d8b3397bdd452412603944117,False,1,1,66,66,66.0,32,34,2,0.0,0.0,1.0,1075,155,33,1,"Loop through all files in the given artifact and return the given artifact on finish
+
+Signed-off-by: Ian Duffy <ian@ianduffy.ie>"
+133048e86ead3e13909dc7b542173deda9956e13,False,1,27,83,8,3.074074074074074,68,73,5,,,,7358,1408,182,0,Update LICENSE notice
+c7018a00c820d19ebdcd28e002d64db6d29c9a9d,False,1,47,3082,317,65.57446808510639,389,4769,4380,0.29385429385429385,0.6617826617826618,0.8705738705738706,18540,3333,428,162,"Add support for Windows to Azure.
+
+This is last merge that will happen from the github.com/Azure/packer-Azure
+repository.  All development is being over to this repository.
+
+The biggest change in this merge is support for Windows.  There are a few other
+fixes as well.
+
+ * If the user cancels the build, clean up any resources.
+ * Output a reasonable build artifact.
+ * Log requests and responses with Azure.
+ * Support for US Government and the China clouds.
+ * Support interrupting long running tasks.
+ * Allow the user to set the image version.
+ * Device login support."
+699c6735369990bbc32238ee71b78369e8567994,False,1,9,194,74,21.555555555555557,24,174,150,0.06329113924050633,0.06329113924050633,1.0,7177,1174,198,10,"builder/vmware-esxi: Add step_export
+
+If `format` option is configured, packer exports the VM with ovftool.
+
+website: Document about OVF Tool and `format` option.
+
+post-processor/vsphere: Enable to use `mitchellh.vmware-esx` artifact type and OVF and OVA formats, fixes #1457."
+b05129e52e5e42a391b5d2aff410eda33e105bc4,False,1,1,2,2,2.0,0,2,2,0.0,0.0,1.0,789,123,16,1,post-processor/vsphere: logging for upload parameters
+b52132c650a77a6a0dcc27aed1b84a50ecdadb89,False,1,1,85,85,85.0,42,44,2,0.0,0.0,1.0,634,103,13,2,"post-processor/vsphere: cleanups
+
+/cc @mheidenr - Some basic cleanups. :)"
+195405ca5bd388de1379ab241b6086d019bf7aa5,False,1,1,10,10,10.0,5,5,0,,,,753,120,16,1,"Update post-processor.go
+
+Added support for spaces for vm folders, datastore names etc. in the ovftool command line arguments."
+15766602c79028521c48a82c1742090665123b41,False,1,3,137,124,45.666666666666664,1,137,136,0.04,0.04,1.0,1245,241,30,3,added post-processor-vsphere
+096b42abce08a94f1e802ae19ea901a31312917a,False,1,1,2,2,2.0,1,1,0,,,,753,120,16,1,Added support for spaces in vSphere resource pools
+458bfd186fd54d46818933897311965b2c4bc324,False,1,17,124,53,7.294117647058823,67,60,-7,,,,9607,1574,279,18,builder/vmware: move driver out of ISO
+eacae832ad7ec5e9f9bc8b5a3146365f49f20f8b,False,1,1,16,16,16.0,1,15,14,0.0,1.0,1.0,2386,370,86,1,"Fixes #1334, Add power on retry to ESXi Driver."
+115d583cff475b870028ded5d8374f4d881613e9,False,1,30,216,19,7.2,103,113,10,0.3076923076923077,0.07692307692307693,1.0,24353,4009,617,48,helper/communicator: make host more generic
+31bf1f342c18a83b5c02a4ac5039e39628548211,False,1,4,134,48,33.5,64,70,6,0.0,0.0,0.5,3774,593,79,4,https://github.com/mitchellh/packer/issues/578
+4f02c506e95ceb23ee804169c209d71788888322,False,1,4,5,2,1.25,0,5,5,0.0,0.0,0.3333333333333333,2610,437,57,3,Testing adding user-data support to Packer
+c710323f0416bf6cf6ced736d2bdb4454a128759,False,1,4,13,8,3.25,4,16,12,0.2222222222222222,0.7777777777777778,0.7777777777777778,2344,375,48,4,builder/amazon/*: Fix failing tests from rebase of VPC
+e99cd56b6ccb6eaebfe8ac85e0e1dd68b6d49c2e,False,1,30,792,175,26.4,359,507,148,0.009523809523809525,1.0,1.0,17126,2653,395,55,"Migrate from mitchellh/goamz to awslabs/aws-sdk-go
+
+This commit moves the Amazon builders of Packer away from the Hashicorp
+fork of the goamz library to the official AWS SDK for Go, in order that
+third party plugins may depend on the more complete official library
+more easily."
+c33e7cc8674e4208853ef7ee40b40251b4897cf1,False,1,5,134,94,26.8,21,113,92,0.0379746835443038,0.08860759493670886,0.9873417721518988,3925,614,100,5,"Add the support of launching spot instances in ""amazon-ebs"" AMI"
+64ced7ff2c359d9543d7cec895b8de5fdb927496,False,1,6,54,30,9.0,20,34,14,0.0,0.0,0.0,2465,403,53,9,builder/amazon: extract StepRunSourceInstance
+09fb6ca593bc7c3cc0b27c9432f0b9a3141fa5d8,False,1,2,2,1,1.0,0,2,2,0.0,0.0,0.0,2177,343,44,2,builder/amazon/all: support user data file
+9186a7f2141f3598ef72e6358ab4caf51a6f8c3a,False,1,3,14,12,4.666666666666667,0,15,15,0.0,0.0,0.8,2964,468,56,3,builder/amazon: output DNS name if debug mode
+91670cea07bb1ff0bf37c3f9346f00eccd02875b,False,1,6,58,46,9.666666666666666,2,97,95,0.38181818181818183,0.9454545454545454,0.9636363636363636,3689,578,68,8,builder/amazon: add block device mappings [GH-90]
+1a775c05d9a603ea5ce1a5afd0d8f17898d82403,False,1,23,228,50,9.91304347826087,132,132,0,,,,12361,1915,325,37,"Update calls to amazon to match the upstream
+
+- see http://aws.amazon.com/releasenotes/2948141298714307
+- run awsmigrate-renamer on each amazon module (chroot, instance, etc.)"
+13fb00b2c6fdca05b251eb5ba1f934a800254255,False,1,3,18,16,6.0,7,11,4,0.0,0.0,0.5,1491,249,31,2,"Added IAM Instance Profile support
+
+Conflicts:
+	builder/amazon/common/run_config.go"
+2e5f3da5c1ba4c323c6e938d7a2f82615260412f,False,1,2,10,7,5.0,3,7,4,0.0,0.0,1.0,1359,238,45,1,builder/amazon: fix {{uuid}} default not being replaced
+b95a56899ff6744b55b7238615eff8eec411b410,False,1,3,10,4,3.3333333333333335,5,5,0,,,,2130,339,45,3,builder/amazon: rename availzone to availability zone
+28bf1877c24a4f62eade44309bb4931066d3bedd,False,1,12,56,12,4.666666666666667,39,38,-1,,,,7574,1148,176,14,Updated AWS SDK calls to match the 0.7.0 release of the AWS SDK
+db90c16118201cf44d1030fbd71326b5dfae2e2b,False,1,4,83,72,20.75,15,99,84,0.1896551724137931,0.1896551724137931,0.9655172413793104,5054,780,101,4,builder/amazon: support auto spot price discovery [GH-1465]
+8aabe01badb4e91d599626d59e7277811fa93cc4,False,1,4,76,52,19.0,23,63,40,0.0,0.0,0.9130434782608695,4025,624,85,4,builder/amazon/common: run_tags to apply to launch [GH-722]
+8349e22df950ee9e94be84d9707a2a8cccd245c5,False,1,4,5,2,1.25,0,13,13,0.0,0.6666666666666666,0.3333333333333333,4870,764,85,3,Add ebs_optimized support
+ed7e0847fd9018e13ce34caa977997020f89a4e7,False,1,4,71,45,17.75,50,38,-12,1.0,0.0,0.0,3087,498,68,4,"builder/amazon/all: TemporaryKeyPairName
+
+/cc @whostolebenfrog - I actually simplified things quite a bit. I added
+a ""uuid"" global template function so it just uses that now. I renamed it
+so that it is clear it is a temporary keypair."
+27915421710eb82fdf21f88ddb0fbf66ee375870,False,1,1,10,10,10.0,1,17,16,0.0,0.0,0.0,2306,368,74,1,Allow specifying environment variables for ansible provisioner
+dbf3bf56d46b1cca6bd6caf3658a9286eca4e09a,False,1,10,1112,237,111.2,1,1539,1538,0.15011286681715574,0.33747178329571104,0.945823927765237,5978,966,180,26,Add a CloudStack Builder
+33f430bf255ce2999f3eec7270e15b516a1c214a,False,1,1,8,8,8.0,4,4,0,,,,1145,167,33,1,"Use the private port for the firewall rules (#4114)
+
+Because of how CloudStack configures the firerwall on the router VM, you need to allow traffic to the private port instead of the public port."
+d1eadd91bb836c9644707260cd493656160d1ad2,False,1,2,16,12,8.0,4,12,8,0.0,0.0,1.0,1816,277,58,2,"Fix cloudstack builder (#4139)
+
+* add zone id when associate ip address in cloudstack
+
+* configure keypair
+
+* fix bug firewall port"
+0eb9090dcfa8cf0a7d61a3f780c584d70bcee497,False,1,1,537,537,537.0,0,537,537,0.17336683417085427,0.3969849246231156,0.8316582914572864,3749,452,96,20,"Create mapstructure-to-hcl2.go
+
+mapstructure-to-hcl2 fills the gaps between hcl2 and mapstructure for Packer
+
+By generating a struct that the HCL2 ecosystem understands making use of
+mapstructure tags.
+
+Packer heavily uses the mapstructure decoding library to load/parse user
+config files. Packer now needs to move to HCL2.
+
+Here are a few differences/gaps betweens hcl2 and mapstructure:
+
+ * in HCL2 all basic struct fields (string/int/struct) that are not pointers
+  are required ( must be set ). In mapstructure everything is optional.
+
+ * mapstructure allows to 'squash' fields
+ (ex: Field CommonStructType `mapstructure:"",squash""`) this allows to
+ decorate structs and reuse configuration code. HCL2 parsing libs don't have
+ anything similar.
+
+mapstructure-to-hcl2 will parse Packer's config files and generate the HCL2
+compliant code that will allow to not change any of the current builders in
+order to move to HCL2 to softly move to HCL2."
+078ba7c8c38d30f988709a1b3d0d06d735a9d1c1,False,1,178,10947,313,61.5,37,10936,10899,0.1075,0.9620833333333333,1.0,224968,27338,3571,217,"commit old code generation tool
+
+for history"
+bbd64896a0341909dcc593babb429b86d2e4f296,False,1,2,12,10,6.0,8,4,-4,1.0,1.0,0.0,1445,236,43,2,use strconv.unquote instead of DIY
+5d266b20d0a1ddfb74efb7e0b2f977356b220605,False,1,2,36,19,18.0,8,28,20,0.5625,0.0,1.0,2178,357,93,4,"generated func now validates based on data provided in context, which needs to include the future values if it is to be interpolated properly."
+cd7abf1f9e8b4b6f913bb6944ab621a96a02047c,False,1,4,22,13,5.5,4,18,14,0.0,0.0,1.0,3700,603,128,4,clean up a few final issues with info sharing
+82367a88f88553035a99b581d526ff76a5ac017d,False,1,10,99,38,9.9,39,60,21,1.0,1.0,1.0,17314,2797,563,10,"reorganize placeholder data call to live with provisioner implementation; force users to use the generated function, therefore forcing validation, for all variables except winrmpassword, by doing a simple string check against the placeholder data."
+0e706320ad3ba30cd6d04598bbfe948eb8395588,False,1,5,71,39,14.2,32,204,172,0.23417721518987342,0.6265822784810127,0.9873417721518988,6625,990,214,6,"Issue #5045 - Add build_resource_group_name
+
+* Created a new parameter for using existing resource groups
+* Implemented logic to ensure temp_ and build_ can't both be used
+* Implemented logic to ensure they can only be used in correct context
+* Implemented tests for this logic
+* Updated where required to ensure the process works"
+34dac691122ccea057c95680f0c900ba4a352214,False,1,3,17,15,5.666666666666667,5,12,7,0.0,0.8571428571428571,1.0,3953,501,78,4,pass subscription id via state bag
+6504d3ae5cca388cb9cef98a04972469ad826406,False,1,4,155,131,38.75,1,154,153,0.20192307692307693,0.5769230769230769,0.41346153846153844,5573,694,101,10,Changes to ARM builder for publishing to SIG
+994dca5f784eb61bc90f234d1e3a25123987513c,False,1,1,2,2,2.0,1,1,0,,,,846,104,14,1,fix bug in step_publish w.r.t managed image RG
+76dbf4fb3b7c5cf9b6ea020534c2c8378dcff14f,False,1,4,70,53,17.5,38,33,-5,1.0,0.3333333333333333,0.0,8100,1132,249,6,Remove subscription id from SIG destination input
+41a6fe9fda564e4add99254d3f1782a46fd4b2ff,False,1,1,273,273,273.0,0,365,365,0.40086206896551724,0.8146551724137931,0.9698275862068966,1164,182,38,14,template/interpolate: RenderMap to render a complex structure

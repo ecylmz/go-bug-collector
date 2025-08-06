@@ -1,0 +1,1982 @@
+sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message
+18b29c45c491e492e7eecb29df4d90043a4d937a,False,1,101,14136,988,139.96039603960395,5879,20202,14323,0.24044566910267162,0.8284413561758716,0.8772013897208578,175945,27701,5799,830,"New ACLs (#4791)
+
+This PR is almost a complete rewrite of the ACL system within Consul. It brings the features more in line with other HashiCorp products. Obviously there is quite a bit left to do here but most of it is related docs, testing and finishing the last few commands in the CLI. I will update the PR description and check off the todos as I finish them over the next few days/week.
+Description
+
+At a high level this PR is mainly to split ACL tokens from Policies and to split the concepts of Authorization from Identities. A lot of this PR is mostly just to support CRUD operations on ACLTokens and ACLPolicies. These in and of themselves are not particularly interesting. The bigger conceptual changes are in how tokens get resolved, how backwards compatibility is handled and the separation of policy from identity which could lead the way to allowing for alternative identity providers.
+
+On the surface and with a new cluster the ACL system will look very similar to that of Nomads. Both have tokens and policies. Both have local tokens. The ACL management APIs for both are very similar. I even ripped off Nomad's ACL bootstrap resetting procedure. There are a few key differences though.
+
+    Nomad requires token and policy replication where Consul only requires policy replication with token replication being opt-in. In Consul local tokens only work with token replication being enabled though.
+    All policies in Nomad are globally applicable. In Consul all policies are stored and replicated globally but can be scoped to a subset of the datacenters. This allows for more granular access management.
+    Unlike Nomad, Consul has legacy baggage in the form of the original ACL system. The ramifications of this are:
+        A server running the new system must still support other clients using the legacy system.
+        A client running the new system must be able to use the legacy RPCs when the servers in its datacenter are running the legacy system.
+        The primary ACL DC's servers running in legacy mode needs to be a gate that keeps everything else in the entire multi-DC cluster running in legacy mode.
+
+So not only does this PR implement the new ACL system but has a legacy mode built in for when the cluster isn't ready for new ACLs. Also detecting that new ACLs can be used is automatic and requires no configuration on the part of administrators. This process is detailed more in the ""Transitioning from Legacy to New ACL Mode"" section below."
+9199e99e21126e06ec2c0ea43cd47663edd4da90,False,1,23,369,48,16.043478260869566,261,304,43,0.06666666666666667,0.26666666666666666,1.0,70011,10724,2262,67,"Update token language to distinguish Accessor and Secret ID usage (#16044)
+
+* remove legacy tokens
+
+* remove lingering legacy token references from docs
+
+* update language and naming for token secrets and accessor IDs
+
+* updates all tokenID references to clarify accessorID
+
+* remove token type references and lookup tokens by accessorID index
+
+* remove unnecessary constants
+
+* replace additional tokenID param names
+
+* Add warning info for deprecated -id parameter
+
+Co-authored-by: Paul Glass <pglass@hashicorp.com>
+
+* Update field comment
+
+Co-authored-by: Paul Glass <pglass@hashicorp.com>
+
+---------
+
+Co-authored-by: Paul Glass <pglass@hashicorp.com>"
+a5397b1f23d89a956112f8afe6d7d27146a4ad2c,False,1,6,333,113,55.5,268,245,-23,0.6923076923076923,1.0,1.0,20143,3166,708,40,"Connect CA Primary Provider refactor (#16749)
+
+* Rename Intermediate cert references to LeafSigningCert
+
+Within the Consul CA subsystem, the term ""Intermediate""
+is confusing because the meaning changes depending on
+provider and datacenter (primary vs secondary). For
+example, when using the Consul CA the ""ActiveIntermediate""
+may return the root certificate in a primary datacenter.
+
+At a high level, we are interested in knowing which
+CA is responsible for signing leaf certs, regardless of
+its position in a certificate chain. This rename makes
+the intent clearer.
+
+* Move provider state check earlier
+
+* Remove calls to GenerateLeafSigningCert
+
+GenerateLeafSigningCert (formerly known
+as GenerateIntermediate) is vestigial in
+non-Vault providers, as it simply returns
+the root certificate in primary
+datacenters.
+
+By folding Vault's intermediate cert logic
+into `GenerateRoot` we can encapsulate
+the intermediate cert handling within
+`newCARoot`.
+
+* Move GenerateLeafSigningCert out of PrimaryProvidder
+
+Now that the Vault Provider calls
+GenerateLeafSigningCert within
+GenerateRoot, we can remove the method
+from all other providers that never
+used it in a meaningful way.
+
+* Add test for IntermediatePEM
+
+* Rename GenerateRoot to GenerateCAChain
+
+""Root"" was being overloaded in the Consul CA
+context, as different providers and configs
+resulted in a single root certificate or
+a chain originating from an external trusted
+CA. Since the Vault provider also generates
+intermediates, it seems more accurate to
+call this a CAChain."
+4dfca64ded20512089c015f4913e969989934431,False,1,1,82,82,82.0,38,99,61,0.0,0.34210526315789475,1.0,4961,765,188,11,Vault CA provider clean up previous default issuers (#18773)
+922619dfc33572c4f6076fae7e7dce0ec5fe450c,False,1,1,42,42,42.0,25,107,82,0.2,0.78,0.92,3915,641,152,5,"Fix leaked Vault LifetimeRenewers (#12607)
+
+* Fix leaked Vault LifetimeRenewers
+
+When the Vault CA Provider is reconfigured we do not stop the
+LifetimeRenewers which can cause them to leak until the Consul processes
+recycles. On Configure execute stopWatcher if it exists and is not nil
+before starting a new renewal
+
+* Add jitter before restarting the LifetimeWatcher
+
+If we fail to login to Vault or our token is no longer valid we can
+overwhelm a Vault instance with many requests very quickly by restarting
+the LifetimeWatcher. Before restarting the LifetimeWatcher provide a
+backoff time of 1 second or less.
+
+* Use a retry.Waiter instead of RandomStagger
+
+* changelog
+
+* gofmt'd
+
+* Swap out bool for atomic.Unit32 in test
+
+* Provide some extra clarification in comment and changelog"
+9b45107c1e907a8209ad4d38af230f2fa863fd22,False,1,7,62,17,8.857142857142858,49,74,25,0.6956521739130435,0.6956521739130435,0.9565217391304348,16844,2818,568,13,"Format certificates properly (rfc7468) with a trailing new line (#10411)
+
+* trim carriage return from certificates when inserting rootCA in the inMemDB
+
+* format rootCA properly when returning the CA on the connect CA endpoint
+
+* Fix linter warnings
+
+* Fix providers to trim certs before returning it
+
+* trim newlines on write when possible
+
+* add changelog
+
+* make sure all provider return a trailing newline after the root and intermediate certs
+
+* Fix endpoint to return trailing new line
+
+* Fix failing test with vault provider
+
+* make test more robust
+
+* make sure all provider return a trailing newline after the leaf certs
+
+* Check for suffix before removing newline and use function
+
+* Add comment to consul provider
+
+* Update change log
+
+Co-authored-by: R.B. Boyer <4903+rboyer@users.noreply.github.com>
+
+* fix typo
+
+* simplify code callflow
+
+Co-authored-by: R.B. Boyer <4903+rboyer@users.noreply.github.com>
+
+* extract requireNewLine as shared func
+
+* remove dependency to testify in testing file
+
+* remove extra newline in vault provider
+
+* Add cert newline fix to envoy xds
+
+* remove new line from mock provider
+
+* Remove adding a new line from provider and fix it when the cert is read
+
+* Add a comment to explain the fix
+
+* Add missing for leaf certs
+
+* fix missing new line
+
+* fix missing new line in leaf certs
+
+* remove extra new line in test
+
+* updage changelog
+
+Co-authored-by: Daniel Nephin <dnephin@hashicorp.com>
+
+* fix in vault provider and when reading cache (RPC call)
+
+* fix AWS provider
+
+* fix failing test in the provider
+
+* remove comments and empty lines
+
+* add check for empty cert in test
+
+* fix linter warnings
+
+* add new line for leaf and private key
+
+* use string concat instead of Sprintf
+
+* fix new lines for leaf signing
+
+* preallocate slice and remove append
+
+* Add new line to `SignIntermediate` and `CrossSignCA`
+
+Co-authored-by: R.B. Boyer <4903+rboyer@users.noreply.github.com>
+Co-authored-by: Daniel Nephin <dnephin@hashicorp.com>"
+01ce9f5b18b23bc86aea0d2a329d08a9a35b539b,False,1,3,39,21,13.0,39,42,3,0.0,0.5,1.0,3872,669,132,4,Update CI for leader renew CA test using Vault
+900584ca826b477635c19d9d163f62f2ab468b62,False,1,5,231,166,46.2,398,926,528,0.0,0.9277899343544858,0.8183807439824945,16186,2688,562,18,"connect: ensure all vault connect CA tests use limited privilege tokens (#15669)
+
+All of the current integration tests where Vault is the Connect CA now use non-root tokens for the test. This helps us detect privilege changes in the vault model so we can keep our guides up to date.
+
+One larger change was that the RenewIntermediate function got refactored slightly so it could be used from a test, rather than the large duplicated function we were testing in a test which seemed error prone."
+e5d58c59c9216fd9a40195eb862874eb77fb5a2f,False,1,4,29,17,7.25,307,484,177,0.8064516129032258,1.0,0.9758064516129032,6862,1077,238,3,changes to support new PQ enterprise fields (#16793)
+516eb4febc5b99980ff5206b8e354e5d781b4a08,False,1,4,823,687,205.75,0,4031,4031,0.3926247288503254,0.6746203904555315,0.9663774403470716,6447,1129,226,42,Add `builtin/ext-authz` Envoy Extension (#17495)
+1b027493752b0e4c8bdf468199f572cba2fef5a8,False,1,19,1031,259,54.26315789473684,744,1099,355,0.22085889570552147,0.9141104294478528,0.9815950920245399,29598,5329,970,74,Add extension validation on config save and refactor extensions. (#16110)
+779647b9486e239de1f868854ac6f367f3e5af4e,False,1,8,309,158,38.625,114,1344,1230,0.11403508771929824,0.7763157894736842,0.5,15711,2257,493,16,Add Envoy and Consul version constraints to Envoy extensions (#17612)
+4a4c63bda0b779b3ccce864e28ee4e50c9411458,False,1,7,34,9,4.857142857142857,113,205,92,0.4142857142857143,0.9571428571428572,1.0,30599,4482,971,9,Ensure Consul is IPv6 compliant (#5468)
+a3ef6f016e9af3b8c3ebc7d29fbc0f193b68c23e,False,1,2,77,75,38.5,119,134,15,1.0,1.0,0.0,9794,1317,298,4,refactor sidecare_service method into parts
+1e7eace0663f58d8ed0d5bc61d74a95ab792e377,False,1,14,549,146,39.214285714285715,89,1828,1739,0.04338235294117647,0.7757352941176471,0.9860294117647059,47225,7704,1008,16,"Add SidecarService Syntax sugar to Service Definition (#4686)
+
+* Added new Config for SidecarService in ServiceDefinitions.
+
+* WIP: all the code needed for SidecarService is written... none of it is tested other than config :). Need API updates too.
+
+* Test coverage for the new sidecarServiceFromNodeService method.
+
+* Test API registratrion with SidecarService
+
+* Recursive Key Translation :facepalm:
+
+* Add tests for nested sidecar defintion arrays to ensure they are translated correctly
+
+* Use dedicated internal state rather than Service Meta for tracking sidecars for deregistration.
+
+Add tests for deregistration.
+
+* API struct for agent register. No other endpoint should be affected yet.
+
+* Additional test cases to cover updates to API registrations"
+b36d4e16b6dfad1e756021c0e79f2e524c183e26,False,1,16,1212,482,75.75,1865,2885,1020,0.09375,0.790625,1.0,81222,13394,2711,51,"Support per-listener TLS configuration ⚙️ (#12504)
+
+Introduces the capability to configure TLS differently for Consul's
+listeners/ports (i.e. HTTPS, gRPC, and the internal multiplexed RPC
+port) which is useful in scenarios where you may want the HTTPS or
+gRPC interfaces to present a certificate signed by a well-known/public
+CA, rather than the certificate used for internal communication which
+must have a SAN in the form `server.<dc>.consul`."
+0cfb6051ea906a50bc315393ba7c98950be1fc17,False,1,8,422,158,52.75,524,627,103,0.0,0.6888888888888889,0.0,14101,2311,489,15,"Add integration test for central config; fix central config WIP (#5752)
+
+* Add integration test for central config; fix central config WIP
+
+* Add integration test for central config; fix central config WIP
+
+* Set proxy protocol correctly and begin adding upstream support
+
+* Add upstreams to service config cache key and start new notify watcher if they change.
+
+This doesn't update the tests to pass though.
+
+* Fix some merging logic get things working manually with a hack (TODO fix properly)
+
+* Simplification to not allow enabling sidecars centrally - it makes no sense without upstreams anyway
+
+* Test compile again and obvious ones pass. Lots of failures locally not debugged yet but may be flakes. Pushing up to see what CI does
+
+* Fix up service manageer and API test failures
+
+* Remove the enable command since it no longer makes much sense without being able to turn on sidecar proxies centrally
+
+* Remove version.go hack - will make integration test fail until release
+
+* Remove unused code from commands and upstream merge
+
+* Re-bump version to 1.5.0"
+dbf0a0f6c0d604ae90845b941582a0b6f75678cb,False,1,1,7,7,7.0,1,13,12,0.0,0.6,1.0,1604,243,70,2,"Copy the proxy config instead of direct assignment (#5786)
+
+This prevents modifying the data in the state store which is supposed to be immutable."
+3975cb89bfe0699cbdd2a14e87e725b2440e670e,False,1,2,8,6,4.0,0,173,173,0.1386861313868613,0.9927007299270073,1.0,4055,740,162,3,agent: blocking central config RPCs iterations should not interfere with each other (#6316)
+8d953f5840cf64e3db54c7cf0fbb92f12f50860a,False,1,29,1249,283,43.06896551724138,417,2684,2267,0.15996908809891808,0.7132921174652241,0.9034003091190108,67194,10834,2099,73,"Implement Mesh Gateways
+
+This includes both ingress and egress functionality."
+c09693e545c5138ee7da5e102e5afa9e73c25c87,False,1,52,1509,233,29.01923076923077,825,1893,1068,0.25170068027210885,0.7040816326530612,0.9030612244897959,144408,22539,4609,213,Updates to Config Entries and Connect for Namespaces (#7116)
+acec711a6a8256577c0e91f2ecb55af5083f679c,False,1,6,257,177,42.833333333333336,64,948,884,0.05829015544041451,0.9196891191709845,0.9727979274611399,52031,7473,1740,8,Update server-side config resolution and client-side merging
+7bd51ff536ddd45fb0eeb26ec5af429f61cd6a68,False,1,16,671,393,41.9375,232,837,605,0.3002028397565923,0.7200811359026369,1.0,80950,13366,2782,42,"Replace TransparentProxy bool with ProxyMode
+
+This PR replaces the original boolean used to configure transparent
+proxy mode. It was replaced with a string mode that can be set to:
+
+- """": Empty string is the default for when the setting should be
+defaulted from other configuration like config entries.
+- ""direct"": Direct mode is how applications originally opted into the
+mesh. Proxy listeners need to be dialed directly.
+- ""transparent"": Transparent mode enables configuring Envoy as a
+transparent proxy. Traffic must be captured and redirected to the
+inbound and outbound listeners.
+
+This PR also adds a struct for transparent proxy specific configuration.
+Initially this is not stored as a pointer. Will revisit that decision
+before GA."
+fdd10dd8b872466f8a614c7ed76b3becf2c5fc4c,False,1,28,1332,348,47.57142857142857,213,3278,3065,0.19457245263696876,0.6876600102406554,0.9626216077828981,91659,15152,2877,62,"Expose HTTP-based paths through Connect proxy (#6446)
+
+Fixes: #5396
+
+This PR adds a proxy configuration stanza called expose. These flags register
+listeners in Connect sidecar proxies to allow requests to specific HTTP paths from outside of the node. This allows services to protect themselves by only
+listening on the loopback interface, while still accepting traffic from non
+Connect-enabled services.
+
+Under expose there is a boolean checks flag that would automatically expose all
+registered HTTP and gRPC check paths.
+
+This stanza also accepts a paths list to expose individual paths. The primary
+use case for this functionality would be to expose paths for third parties like
+Prometheus or the kubelet.
+
+Listeners for requests to exposed paths are be configured dynamically at run
+time. Any time a proxy, or check can be registered, a listener can also be
+created.
+
+In this initial implementation requests to these paths are not
+authenticated/encrypted."
+bf3a53f6d04d4f4e323a00a0ef2a63705e3601cc,False,1,1,49,49,49.0,0,49,49,0.0,1.0,1.0,189,34,4,1,command/agent: added missing syslog wrapper
+33c401a16e36ce27900cacff3a7c07ed49b1b9d1,False,1,3,36,27,12.0,45,26,-19,1.0,0.42857142857142855,0.0,3117,559,78,4,"logging: Setup accept io.Writer instead of []io.Writer
+
+Also accept a non-pointer Config, since the config is not modified"
+fc14f5ab14a77166be5c7674a90669665d57c78c,False,1,9,140,31,15.555555555555555,114,52,-62,0.2857142857142857,0.0,0.14285714285714285,23114,3848,806,17,"ca: move provider creation into CAManager
+
+This further decouples the CAManager from Server. It reduces the interface between them and
+removes the need for the SetLogger method on providers."
+796de297c847c69913615948bd37d44fa45d74f1,False,1,696,216671,22055,311.30890804597703,218595,9719,-208876,0.7040474382804932,0.5295834751420269,0.20420451867947745,174793,29542,5071,6175,"connect: intermediate CA certs generated with the vault provider lack URI SANs (#6491)
+
+This only affects vault versions >=1.1.1 because the prior code
+accidentally relied upon a bug that was fixed in
+https://github.com/hashicorp/vault/pull/6505
+
+The existing tests should have caught this, but they were using a
+vendored copy of vault version 0.10.3. This fixes the tests by running
+an actual copy of vault instead of an in-process copy. This has the
+added benefit of changing the dependency on vault to just vault/api.
+
+Also update VaultProvider to use similar SetIntermediate validation code
+as the ConsulProvider implementation."
+49056fe70f39e50a1c5b60ca2ffb3e2e02a7ba60,False,1,3,39,35,13.0,53,49,-4,1.0,1.0,1.0,9171,1505,362,9,Clean up Vault renew tests and shutdown
+7839b2d7e0e72a8ee870768d559c949ddca6b703,False,1,2,24,12,12.0,13,149,136,0.5982142857142857,1.0,0.7232142857142857,10275,1654,404,5,"ca: add a test that uses an intermediate CA as the primary CA
+
+This test found a bug in the secondary. We were appending the root cert
+to the PEM, but that cert was already appended. This was failing
+validation in Vault here:
+https://github.com/hashicorp/vault/blob/sdk/v0.3.0/sdk/helper/certutil/types.go#L329
+
+Previously this worked because self signed certs have the same
+SubjectKeyID and AuthorityKeyID. So having the same self-signed cert
+repeated doesn't fail that check.
+
+However with an intermediate that is not self-signed, those values are
+different, and so we fail the check. A test I added in a previous commit
+should show that this continues to work with self-signed root certs as
+well."
+9b7468f99e503177aa08f01a4fdb3bea22609641,False,1,5,142,42,28.4,128,120,-8,0.0,1.0,1.0,16720,2710,598,10,ca/provider: remove ActiveRoot from Provider
+0ee456649f95c94b1ee961eb7ed5e01db90a0f97,False,1,2,169,161,84.5,15,406,391,0.20640569395017794,0.6761565836298933,0.99644128113879,4718,871,176,5,"connect: Support auth methods for the vault connect CA provider (#11573)
+
+* Support vault auth methods for the Vault connect CA provider
+* Rotate the token (re-authenticate to vault using auth method) when the token can no longer be renewed"
+411b6537ef7350a375797abbd2a4f9521a94aca9,False,1,2,20,13,10.0,13,81,68,0.4,0.98,0.22,4546,749,182,4,Add a test for token renewal
+d7329097b27577aab2cc148c8579bcf70d82b764,False,1,38,8128,3473,213.89473684210526,9364,129,-9235,0.5391894304588466,0.4004642028209248,0.12265666845206213,13235,2130,483,499,"Change CA Configure struct to pass Datacenter through (#6775)
+
+* Change CA Configure struct to pass Datacenter through
+
+* Remove connect/ca/plugin as we don't have immediate plans to use it.
+
+We still intend to one day but there are likely to be several changes to the CA provider interface before we do so it's better to rebuild from history when we do that work properly.
+
+* Rename PrimaryDC; fix endpoint in secondary DCs"
+e47d7eeddb93bac09b7e5e94231ef5fa17cc112b,False,1,79,14831,1197,187.73417721518987,453,23199,22746,0.34326964516592445,0.7695015084039649,0.8923286884068381,153864,24405,4945,600,"acl: adding support for kubernetes auth provider login (#5600)
+
+* auth providers
+* binding rules
+* auth provider for kubernetes
+* login/logout"
+848ad8535bad41e992ac349160f4bdb39433bb87,False,1,2,194,149,97.0,33,560,527,0.02997275204359673,0.4141689373297003,0.8065395095367848,11384,1982,388,13,"xds: ensure that dependent xDS resources are reconfigured during primary type warming (#10381)
+
+Updates to a cluster will clear the associated endpoints, and updates to
+a listener will clear the associated routes. Update the incremental xDS
+logic to account for this implicit cleanup so that we can finish warming
+the clusters and listeners.
+
+Fixes #10379"
+71d45a34601423abdfc0a64d44c6a55cf88fa2fc,False,1,16,1681,739,105.0625,904,3340,2436,0.3634069400630915,0.6479495268138801,0.7621451104100946,56487,9738,1700,151,"Support Incremental xDS mode (#9855)
+
+This adds support for the Incremental xDS protocol when using xDS v3. This is best reviewed commit-by-commit and will not be squashed when merged.
+
+Union of all commit messages follows to give an overarching summary:
+
+xds: exclusively support incremental xDS when using xDS v3
+
+Attempts to use SoTW via v3 will fail, much like attempts to use incremental via v2 will fail.
+Work around a strange older envoy behavior involving empty CDS responses over incremental xDS.
+xds: various cleanups and refactors that don't strictly concern the addition of incremental xDS support
+
+Dissolve the connectionInfo struct in favor of per-connection ResourceGenerators instead.
+Do a better job of ensuring the xds code uses a well configured logger that accurately describes the connected client.
+xds: pull out checkStreamACLs method in advance of a later commit
+
+xds: rewrite SoTW xDS protocol tests to use protobufs rather than hand-rolled json strings
+
+In the test we very lightly reuse some of the more boring protobuf construction helper code that is also technically under test. The important thing of the protocol tests is testing the protocol. The actual inputs and outputs are largely already handled by the xds golden output tests now so these protocol tests don't have to do double-duty.
+
+This also updates the SoTW protocol test to exclusively use xDS v2 which is the only variant of SoTW that will be supported in Consul 1.10.
+
+xds: default xds.Server.AuthCheckFrequency at use-time instead of construction-time"
+80c39f1083d68ab5f91c7fc78d66b0e21a09fb28,False,1,1,58,58,58.0,132,277,145,0.5299145299145299,1.0,0.8376068376068376,1504,281,48,8,"xds: adding more delta protocol tests (#10398)
+
+Fixes #10125"
+4f62a3b5285cef13f25d162f267b678e3b5c0d8e,False,1,6,365,230,60.833333333333336,76,1084,1008,0.16666666666666666,0.2548209366391185,0.9504132231404959,21421,3174,659,14,"Implement /v1/agent/health/service/<service name> endpoint (#3551)
+
+This endpoint aggregates all checks related to <service id> on the agent
+and return an appropriate http code + the string describing the worst
+check.
+
+This allows to cleanly expose service status to other component, hiding
+complexity of multiple checks.
+This is especially useful to use consul to feed a load balancer which
+would delegate health checking to consul agent.
+
+Exposing this endpoint on the agent is necessary to avoid a hit on
+consul servers and avoid decreasing resiliency (this endpoint will work
+even if there is no consul leader in the cluster)."
+634c72d22f656cb2b3dc9e7d346eb3f45f12516f,False,1,3,119,83,39.666666666666664,27,134,107,0.3488372093023256,0.08139534883720931,1.0,19817,3061,648,27,add path escape and unescape to path params
+6765c0d9656d5fb3da4b97aa3ea3c12a268b58c9,False,1,5,58,34,11.6,27,31,4,,,,12797,2082,353,26,Add api changes to agent endpoint for part 2 (#12150)
+a6d22efb49872eeb21543386908885592855a22e,False,1,15,101,40,6.733333333333333,38,75,37,0.0,0.8,1.0,53973,8870,1606,32,acl: some acl authz refactors for nodes (#10909)
+bf350224a0850e95906aa16dec91b60ca3bda4c4,False,1,1,6,6,6.0,3,3,0,,,,9294,1357,363,1,Avoid passing nil config pointer
+bbf599353492d97867bf62d3c2f7449cdc14ec8f,False,1,15,284,75,18.933333333333334,154,199,45,0.0,0.0,1.0,71559,10864,2266,54,Move static token resolution into the ACLResolver (#10013)
+097e1645e32502e988463b73a4f218b1057ce2d0,False,1,39,653,145,16.743589743589745,200,501,301,0.13714285714285715,0.0,0.9542857142857143,124361,19040,3624,103,agent: ensure that most agent behavior correctly respects partition configuration (#10880)
+7ea11c2f45a3e045ded8115a81f9c9d44a55d462,False,1,1,183,183,183.0,69,114,45,0.10714285714285714,0.0,1.0,5615,768,155,11,"dns: provide correct SOA and NS responses
+
+This patch changes the behavior of the DNS server as follows:
+
+* The SOA response contains the SOA record in the Answer section instead
+  of the Authority section. It also contains NS records in the Authority
+  and the corresponding A glue records in the Extra section.
+  In addition, CNAMEs are added to the Extra section to make the
+  MNAME of the SOA record resolvable.
+
+  AAAA glue records are not yet supported.
+
+* The NS response returns up to three random servers from the
+  consul cluster in the Answer section and the glue A
+  records in the Extra section.
+
+  AAAA glue records are not yet supported."
+436a02af31ad39014b837d3cf4d05161fec7fadb,False,1,1,133,133,133.0,70,90,20,1.0,1.0,1.0,10353,1475,203,11,dns: handle errors from dispatch
+f669bb7b0fd323f63a5f990102f1c27d9fe4d6fe,False,1,3,385,376,128.33333333333334,171,404,233,0.24242424242424243,0.8333333333333334,0.797979797979798,28016,4069,866,32,"Add support for DNS config hot-reload (#4875)
+
+The DNS config parameters `recursors` and `dns_config.*` are now hot
+reloaded on SIGHUP or `consul reload` and do not need an agent restart
+to be modified.
+Config is stored in an atomic.Value and loaded at the beginning of each
+request. Reloading only affects requests that start _after_ the
+reload. Ongoing requests are not affected. To match the current
+behavior the recursor handler is loaded and unloaded as needed on config
+reload."
+f17bf78bb1b5a4bfa6d019a4674c0c7feeb0c46e,False,1,1,2,2,2.0,1,1,0,,,,5558,759,157,1,dns: postmaster -> hostmaster
+98a35fbe698c7df70ae21b4f7310a67a476b2a9f,False,1,5,76,44,15.2,15,273,258,0.06542056074766354,0.3644859813084112,0.985981308411215,24653,3594,600,8,"dns: support alt domains for dns resolution (#5940)
+
+this adds an option for an alt domain to be used with dns while migrating to a new consul domain."
+5b2e5882b43f3fdf9e32543e0e42568d76d6c040,False,1,2,12,9,6.0,9,3,-6,0.0,0.0,0.0,5616,973,232,2,"acl: move check for Intention.DestinationName into Authorizer
+
+Follow up to https://github.com/hashicorp/consul/pull/10737#discussion_r680134445
+
+Move the check for the Intention.DestinationName into the Authorizer to remove the
+need to check what kind of Authorizer is being used.
+
+It sounds like this check is only for legacy ACLs, so is probably just a safeguard
+."
+1b44c1befabc9560f9e7c2582f3007bbcf20b0c5,False,1,1,6,6,6.0,1,34,33,0.0,0.88,1.0,625,109,22,1,agent/consul: creating intention must not have ID set
+ede14b7c54cba42d9a1376544ba2474c0d95a290,False,1,3,45,41,15.0,1,88,87,0.5,0.9807692307692307,0.5576923076923077,6246,1130,214,5,"xds: emit a labeled gauge of connected xDS streams by version (#10243)
+
+Fixes #10099"
+fc9b1a277d56f25cb26d795e662af7d3a1e3c6cc,False,1,16,545,326,34.0625,83,585,502,0.4087193460490463,0.6021798365122616,0.9346049046321526,53433,8279,1897,53,sync changes to oss files made in enterprise (#10670)
+f936ca5aea6a745dc1f649fa53180cd65cdd6e7a,False,1,5,431,240,86.2,21,426,405,0.5022222222222222,0.8311111111111111,0.8577777777777778,6282,997,203,33,"grpc: client conn pool and resolver
+
+Extracted from 936522a13c07e8b732b6fde61bba23d05f7b9a70
+
+Co-authored-by: Paul Banks <banks@banksco.de>"
+bad4d3ff7cfb3e09d7004bc835318049d91da666,False,1,3,259,174,86.33333333333333,109,152,43,1.0,1.0,1.0,2196,359,58,26,"grpc: redeuce dependencies, unexport, and add godoc
+
+Rename GRPCClient to ClientConnPool. This type appears to be more of a
+conn pool than a client. The clients receive the connections from this
+pool.
+
+Reduce some dependencies by adjusting the interface baoundaries.
+
+Remove the need to create a second slice of Servers, just to pick one and throw the rest away.
+
+Unexport serverResolver, it is not used outside the package.
+
+Use a RWMutex for ServerResolverBuilder, some locking is read-only.
+
+Add more godoc."
+229479335724ec3dcb54cca25380d7f76b0eda21,False,1,5,151,102,30.2,112,114,2,0.0,0.9047619047619048,0.9523809523809523,6244,992,195,17,"agent/grpc: use router.Manager to handle the rebalance
+
+The router.Manager is already rebalancing servers for other connection pools, so it can call into our resolver to do the same.
+This change allows us to remove the serf dependency from resolverBuilder, and remove Datacenter from the config.
+
+Also revert the change to refreshServerRebalanceTimer"
+8bcd5040c74cdc35c034d9319f37e92b47856718,False,1,2,30,17,15.0,34,105,71,0.2708333333333333,0.4166666666666667,0.9791666666666666,1723,278,45,3,"agent/grpc: Add an integration test for ClientPool with TLS
+
+Also deregister the resolver.Builder in tests."
+6adad711255dccc13263b82f8f5aba7a87d42d19,False,1,75,5612,474,74.82666666666667,681,9690,9009,0.2887662453266868,0.7439914545130852,0.8504539789923447,198005,31065,6029,319,"wan federation via mesh gateways (#6884)
+
+This is like a Möbius strip of code due to the fact that low-level components (serf/memberlist) are connected to high-level components (the catalog and mesh-gateways) in a twisty maze of references which make it hard to dive into. With that in mind here's a high level summary of what you'll find in the patch:
+
+There are several distinct chunks of code that are affected:
+
+* new flags and config options for the server
+
+* retry join WAN is slightly different
+
+* retry join code is shared to discover primary mesh gateways from secondary datacenters
+
+* because retry join logic runs in the *agent* and the results of that
+  operation for primary mesh gateways are needed in the *server* there are
+  some methods like `RefreshPrimaryGatewayFallbackAddresses` that must occur
+  at multiple layers of abstraction just to pass the data down to the right
+  layer.
+
+* new cache type `FederationStateListMeshGatewaysName` for use in `proxycfg/xds` layers
+
+* the function signature for RPC dialing picked up a new required field (the
+  node name of the destination)
+
+* several new RPCs for manipulating a FederationState object:
+  `FederationState:{Apply,Get,List,ListMeshGateways}`
+
+* 3 read-only internal APIs for debugging use to invoke those RPCs from curl
+
+* raft and fsm changes to persist these FederationStates
+
+* replication for FederationStates as they are canonically stored in the
+  Primary and replicated to the Secondaries.
+
+* a special derivative of anti-entropy that runs in secondaries to snapshot
+  their local mesh gateway `CheckServiceNodes` and sync them into their upstream
+  FederationState in the primary (this works in conjunction with the
+  replication to distribute addresses for all mesh gateways in all DCs to all
+  other DCs)
+
+* a ""gateway locator"" convenience object to make use of this data to choose
+  the addresses of gateways to use for any given RPC or gossip operation to a
+  remote DC. This gets data from the ""retry join"" logic in the agent and also
+  directly calls into the FSM.
+
+* RPC (`:8300`) on the server sniffs the first byte of a new connection to
+  determine if it's actually doing native TLS. If so it checks the ALPN header
+  for protocol determination (just like how the existing system uses the
+  type-byte marker).
+
+* 2 new kinds of protocols are exclusively decoded via this native TLS
+  mechanism: one for ferrying ""packet"" operations (udp-like) from the gossip
+  layer and one for ""stream"" operations (tcp-like). The packet operations
+  re-use sockets (using length-prefixing) to cut down on TLS re-negotiation
+  overhead.
+
+* the server instances specially wrap the `memberlist.NetTransport` when running
+  with gateway federation enabled (in a `wanfed.Transport`). The general gist is
+  that if it tries to dial a node in the SAME datacenter (deduced by looking
+  at the suffix of the node name) there is no change. If dialing a DIFFERENT
+  datacenter it is wrapped up in a TLS+ALPN blob and sent through some mesh
+  gateways to eventually end up in a server's :8300 port.
+
+* a new flag when launching a mesh gateway via `consul connect envoy` to
+  indicate that the servers are to be exposed. This sets a special service
+  meta when registering the gateway into the catalog.
+
+* `proxycfg/xds` notice this metadata blob to activate additional watches for
+  the FederationState objects as well as the location of all of the consul
+  servers in that datacenter.
+
+* `xds:` if the extra metadata is in place additional clusters are defined in a
+  DC to bulk sink all traffic to another DC's gateways. For the current
+  datacenter we listen on a wildcard name (`server.<dc>.consul`) that load
+  balances all servers as well as one mini-cluster per node
+  (`<node>.server.<dc>.consul`)
+
+* the `consul tls cert create` command got a new flag (`-node`) to help create
+  an additional SAN in certs that can be used with this flavor of federation."
+2273673500661cc706467c24b821c6d551d16a7e,False,1,3,29,21,9.666666666666666,9,209,200,0.37404580152671757,1.0,0.8702290076335878,2020,339,62,4,"grpc: restore integration tests for grpc client conn pool
+
+Add a fake rpc Listener"
+fcbb615aa03811c09aba9d7dccbaff766237b63b,False,1,3,10,6,3.3333333333333335,4,6,2,,,,5357,851,165,3,Cleans up some small things based on review feedback.
+8c596953b03a6bc405cde313833011caad709350,False,1,12,277,76,23.083333333333332,151,552,401,0.34195402298850575,1.0,0.9224137931034483,26068,4945,676,26,"agent: ensure that we always use the same settings for msgpack (#7245)
+
+We set RawToString=true so that []uint8 => string when decoding an interface{}.
+We set the MapType so that map[interface{}]interface{} decodes to map[string]interface{}.
+
+Add tests to ensure that this doesn't break existing usages.
+
+Fixes #7223"
+f14145e6d94541a46966f57e913d874ba80d0ef5,False,1,1,5,5,5.0,5,32,27,0.07692307692307693,0.8846153846153846,1.0,506,84,13,2,agent/grpc: always close the conn when dialing fails.
+33a7df333018c79087f1be092297402a312c571d,False,1,29,1688,358,58.206896551724135,450,1935,1485,0.32786885245901637,0.674863387978142,0.7595628415300546,76117,12006,2353,140,tls: auto_encrypt enables automatic RPC cert provisioning for consul clients (#5597)
+1fbc1d4777d26ba944e7755234db942fad276ff5,False,1,2,15,13,7.5,10,5,-5,1.0,0.4,1.0,3623,602,129,8,"pool: remove timeout parameter
+
+Timeout was never used in a meaningful way by callers, which is why it
+is now entirely internal to the pool."
+22572470956e2c2d5e2c5fd080bdceb39a566066,False,1,6,259,113,43.166666666666664,12,247,235,0.8942307692307693,0.8942307692307693,1.0,12227,2137,404,21,"server: add gRPC server for streaming events
+
+Includes a stats handler and stream interceptor for grpc metrics.
+
+Co-authored-by: Paul Banks <banks@banksco.de>"
+51549bd23283f2fdd0d2ad5fa63fa569bc5da33f,False,1,12,203,44,16.916666666666668,86,209,123,0.11538461538461539,0.14102564102564102,0.8205128205128205,26295,4321,899,37,rpc: oss changes for network area connection pooling (#7735)
+c8f35aea45af5d473e9b15349fc6552bcf9dda8b,False,1,1,10,10,10.0,4,6,2,0.0,0.0,1.0,1594,269,52,1,consul: don't close a nil connection
+82a132da603cf8b235bacc566920ae3a68679247,False,1,9,219,120,24.333333333333332,109,125,16,0.0,0.0,0.0,13905,2210,456,19,agent: move conn pool for muxed connections into separate pkg
+29e93f63382779457b627c3ad1948bbc3262580b,False,1,4,99,54,24.75,56,81,25,0.9444444444444444,1.0,0.5,3109,514,68,11,"grpc: fix a data race by using a static resolver
+
+We have seen test flakes caused by 'concurrent map read and map write', and the race detector
+reports the problem as well (prevent us from running some tests with -race).
+
+The root of the problem is the grpc expects resolvers to be registered at init time
+before any requests are made, but we were using a separate resolver for each test.
+
+This commit introduces a resolver registry. The registry is registered as the single
+resolver for the consul scheme. Each test uses the Authority section of the target
+(instead of the scheme) to identify the resolver that should be used for the test.
+The scheme is used for lookup, which is why it can no longer be used as the unique
+key.
+
+This allows us to use a lock around the map of resolvers, preventing the data race."
+5531678e9eb7c5548df8fa86e9e77a573c233e46,False,1,16,476,180,29.75,90,1165,1075,0.3878787878787879,0.8909090909090909,0.9494949494949495,49827,7972,1563,31,"Security fixes (#7182)
+
+* Mitigate HTTP/RPC Services Allow Unbounded Resource Usage
+
+Fixes #7159.
+
+Co-authored-by: Matt Keeler <mkeeler@users.noreply.github.com>
+Co-authored-by: Paul Banks <banks@banksco.de>"
+e2f2d4b0d7ca32e0a45fdda225cce0c5aa9b4ddb,False,1,2,11,9,5.5,10,19,9,1.0,1.0,0.0,1876,319,37,6,"[Streaming][bugfix] handle TLS signalisation when TLS is disabled on client side
+
+Tnis is an alternative to https://github.com/hashicorp/consul/pull/9494"
+421ecd32fc8fe9933cf50005eafc14705ffd45b1,False,1,280,46305,4293,165.375,8509,46604,38095,0.5745862884160756,0.7513002364066194,0.817080378250591,909731,172888,20511,2585,"Connect: allow configuring Envoy for L7 Observability (#5558)
+
+* Add support for HTTP proxy listeners
+
+* Add customizable bootstrap configuration options
+
+* Debug logging for xDS AuthZ
+
+* Add Envoy Integration test suite with basic test coverage
+
+* Add envoy command tests to cover new cases
+
+* Add tracing integration test
+
+* Add gRPC support WIP
+
+* Merged changes from master Docker. get CI integration to work with same Dockerfile now
+
+* Make docker build optional for integration
+
+* Enable integration tests again!
+
+* http2 and grpc integration tests and fixes
+
+* Fix up command config tests
+
+* Store all container logs as artifacts in circle on fail
+
+* Add retries to outer part of stats measurements as we keep missing them in CI
+
+* Only dump logs on failing cases
+
+* Fix typos from code review
+
+* Review tidying and make tests pass again
+
+* Add debug logs to exec test.
+
+* Fix legit test failure caused by upstream rename in envoy config
+
+* Attempt to reduce cases of bad TLS handshake in CI integration tests
+
+* bring up the right service
+
+* Add prometheus integration test
+
+* Add test for denied AuthZ both HTTP and TCP
+
+* Try ANSI term for Circle"
+098fd1797bb2bd65b1cebf1de9a613d75d993069,False,1,1,13,13,13.0,5,72,67,0.023255813953488372,0.023255813953488372,1.0,762,142,22,2,"command/kv: Add prefix option to kv import command
+
+Currently when data is imported via `consul kv import` it overwrites
+keys under the root key. Since `consul kv export` can retrieve data for
+the given prefix, i.e. part of the KV tree, importing it under root may
+be not what users want.
+
+To mirror prefix behavior from export this PR adds prefix feature to the
+import command that adds prefix to all keys that are imported."
+6fba82a4fa7b521af84b5967726a01332ea1e216,False,1,7,1660,821,237.14285714285714,795,875,80,0.75,0.625,1.0,23622,3911,663,45,connect: Add CAManager for synchronizing CA operations
+d9d4c492abb1f5ebf9675efe5e006e8bf5a811d2,False,1,10,336,245,33.6,111,587,476,0.4937888198757764,0.8385093167701864,0.9968944099378882,31493,5171,919,34,"Ensure that CA initialization does not block leader election.
+
+After fixing that bug I uncovered a couple more:
+
+Fix an issue where we might try to cross sign a cert when we never had a valid root.
+Fix a potential issue where reconfiguring the CA could cause either the Vault or AWS PCA CA providers to delete resources that are still required by the new incarnation of the CA."
+6b3416e4807a69ec975a7a9144a2c2f1ec6541a8,False,1,1,124,124,124.0,1,260,259,0.35384615384615387,0.558974358974359,0.841025641025641,1338,205,47,9,Add the Connect CA config to the state store
+2a26597769d2e64fc1fb8d28edd432d71d2b0ad6,False,1,1,67,67,67.0,1,66,65,0.0,0.0,0.0,5086,703,144,2,Give the service address in SRV lookup when it differs from the node's
+63534aca7e9b7b73d11cca34462ff7001a45d333,False,1,1,2,2,2.0,2,81,79,0.0,0.0,1.0,5086,703,144,1,Added tests for lookups on the 'addr.consul' domain
+d18a03b07f0b76f92f962154807aaddee447c750,False,1,1,21,21,21.0,12,21,9,0.75,0.75,0.875,1133,186,32,3,"connect/proxy: fix a number of problems with Listener
+
+We noticed that TestUpstreamListener would deadlock sometimes when run
+with the race detector. While debugging this issue I found and fixed the
+following problems.
+
+1. the net.Listener was not being closed properly when Listener.Stop was
+   called. This caused the Listener.Serve goroutine to run forever.
+   Fixed by storing a reference to net.Listener and closing it properly
+   when Listener.Stop is called.
+2. call connWG.Add in the correct place. WaitGroup.Add must be called
+   before starting a goroutine, not from inside the goroutine.
+3. Set metrics config EnableRuntimeMetrics to `false` so that we don't
+   start a background goroutine in each test for no reason. There is no
+   way to shutdown this goroutine, and it was an added distraction while
+   debugging these timeouts.
+5. two tests were calling require.NoError from a goroutine.
+   require.NoError calls t.FailNow, which MUST be called from the main
+   test goroutine. Instead use t.Errorf, which can be called from other
+   goroutines and will still fail the test.
+6. `assertCurrentGaugeValue` wass breaking out of a for loop, which
+   would cause the `RWMutex.RUnlock` to be missed. Fixed by calling
+   unlock before `break`.
+
+The core issue of a deadlock  was fixed by https://github.com/armon/go-metrics/pull/124."
+dc260f42fab408cb021620b2f60d9179ab96767d,False,1,2,109,106,54.5,6,207,201,0.2459016393442623,0.48360655737704916,0.5655737704918032,1658,278,51,8,Basic proxy active conns and bandwidth telemetry
+401221de5852432d742f2bdb1c4f17fb0d0e7362,False,1,266,83932,5698,315.5338345864662,40169,46339,6170,0.5758443045220378,0.7149398969662278,0.6176302232398397,1059102,196967,25756,933,"Allow users to configure either unstructured or JSON logging (#7130)
+
+* hclog Allow users to choose between unstructured and JSON logging"
+c01922d40a8716052c5b6379b506e127dbe9f3a7,False,1,2,66,64,33.0,24,58,34,0.2,1.0,1.0,2137,364,66,4,"Allow passing ALPN next protocols down to connect services. Fixes #4466. (#9920)
+
+* Allow passing ALPN next protocols down to connect services. Fixes #4466.
+
+* Update connect/proxy/proxy_test.go
+
+Co-authored-by: Paul Banks <banks@banksco.de>
+
+Co-authored-by: Paul Banks <banks@banksco.de>"
+f9496dc627d35fd3145ff55dd8f53a628963cce2,False,1,9,440,298,48.888888888888886,85,685,600,0.5352112676056338,0.7863849765258216,0.971830985915493,12732,2312,396,36,"sdk: add freelist tracking and ephemeral port range skipping to freeport
+
+This should cut down on test flakiness.
+
+Problems handled:
+
+- If you had enough parallel test cases running, the former circular
+approach to handling the port block could hand out the same port to
+multiple cases before they each had a chance to bind them, leading to
+one of the two tests to fail.
+
+- The freeport library would allocate out of the ephemeral port range.
+This has been corrected for Linux (which should cover CI).
+
+- The library now waits until a formerly-in-use port is verified to be
+free before putting it back into circulation."
+06f0f7921873b3cd234822e155e6937ea95a6114,False,1,12,152,68,12.666666666666666,46,159,113,0.6790123456790124,1.0,0.7530864197530864,49675,8292,1357,22,"Continue working through proxy and agent
+
+Rework/listeners, rename makeListener
+
+Refactor, tests pass
+
+Signed-off-by: Mark Anderson <manderson@hashicorp.com>"
+ec4e600aeb6c69ea509b10283e0e756b18ff7be9,False,1,1,19,19,19.0,12,114,102,0.2631578947368421,1.0,1.0,470,76,12,3,"connect/proxy: add a full proxy test, parallel"
+b909088500bbe843518ad6871c090a85378f811d,False,1,1,9,9,9.0,5,8,3,0.0,0.0,0.0,1853,253,68,1,http: error if near is used with streaming
+3c037d9b961128d762d01e4a3219158118f6b411,False,1,1,63,63,63.0,19,143,124,0.4716981132075472,0.9716981132075472,0.9716981132075472,1882,262,69,2,"Add ?ingress query parameter on /v1/health/connect
+
+Refactor boolean query parameter logic from ?passing value to re-use
+with ingress"
+91ab89dd484c8177a0bec4170c93c5a6189b8048,False,1,3,81,49,27.0,68,60,-8,0.18518518518518517,0.14814814814814814,0.14814814814814814,5737,680,82,6,"Move ingress param to a new endpoint (#8081)
+
+In discussion with team, it was pointed out that query parameters tend
+to be filter mechanism, and that semantically the ""/v1/health/connect""
+endpoint should return ""all healthy connect-enabled endpoints (e.g.
+could be side car proxies or native instances) for this service so I can
+connect with mTLS"".
+
+That does not fit an ingress gateway, so we remove the query parameter
+and add a new endpoint ""/v1/health/ingress"" that semantically means
+""all the healthy ingress gateway instances that I can connect to
+to access this connect-enabled service without mTLS"""
+f40b76af2d56f64c68d746cd441c62a21c33b95b,False,1,5,62,19,12.4,38,45,7,1.0,1.0,1.0,32135,4782,1022,11,"proxycfg: use rpcclient/health.Client instead of passing around cache name
+
+This should allow us to swap out the implementation with something other
+than `agent/cache` without making further code changes."
+bd44952c2e6138dd3f8471a09463abddce17b4c5,False,1,2,22,14,11.0,4,18,14,0.0,1.0,1.0,18807,2840,613,2,"streaming: disable streaming when requesting connect events
+
+Until the correct events are created for terminating gateways."
+1a764553c028be1078373fb51e71c71c4e87802a,False,1,3,17,9,5.666666666666667,14,3,-11,1.0,0.0,0.0,19368,2928,625,3,rpcclient: use streaming for connect health
+a2a8e9c7839ac90f34a2fc5df7de7f9f102c8494,False,1,41,3416,539,83.3170731707317,1915,7348,5433,0.25048076923076923,0.8088942307692307,0.8117788461538461,83014,12827,2556,203,"connect: intentions are now managed as a new config entry kind ""service-intentions"" (#8834)
+
+- Upgrade the ConfigEntry.ListAll RPC to be kind-aware so that older
+copies of consul will not see new config entries it doesn't understand
+replicate down.
+
+- Add shim conversion code so that the old API/CLI method of interacting
+with intentions will continue to work so long as none of these are
+edited via config entry endpoints. Almost all of the read-only APIs will
+continue to function indefinitely.
+
+- Add new APIs that operate on individual intentions without IDs so that
+the UI doesn't need to implement CAS operations.
+
+- Add a new serf feature flag indicating support for
+intentions-as-config-entries.
+
+- The old line-item intentions way of interacting with the state store
+will transparently flip between the legacy memdb table and the config
+entry representations so that readers will never see a hiccup during
+migration where the results are incomplete. It uses a piece of system
+metadata to control the flip.
+
+- The primary datacenter will begin migrating intentions into config
+entries on startup once all servers in the datacenter are on a version
+of Consul with the intentions-as-config-entries feature flag. When it is
+complete the old state store representations will be cleared. We also
+record a piece of system metadata indicating this has occurred. We use
+this metadata to skip ALL of this code the next time the leader starts
+up.
+
+- The secondary datacenters continue to run the old intentions
+replicator until all servers in the secondary DC and primary DC support
+intentions-as-config-entries (via serf flag). Once this condition it met
+the old intentions replicator ceases.
+
+- The secondary datacenters replicate the new config entries as they are
+migrated in the primary. When they detect that the primary has zeroed
+it's old state store table it waits until all config entries up to that
+point are replicated and then zeroes its own copy of the old state store
+table. We also record a piece of system metadata indicating this has
+occurred. We use this metadata to skip ALL of this code the next time
+the leader starts up."
+0f1fb24d19a5a54abe7def87ba0464f5730a3aa9,False,1,19,334,112,17.57894736842105,175,171,-4,1.0,0.0,0.125,53793,7452,1818,269,"state: convert the remaining functions to ReadTxn
+
+Required also converting some of the transaction functions to WriteTxn
+because TxnRO() called the same helper as TxnRW.
+
+This change allows us to return a memdb.Txn for read-only txn instead of
+wrapping them with state.txn."
+2ad516aeaf5fe460d8baf32298437ea4a59e9721,False,1,6,1099,515,183.16666666666666,550,1941,1391,0.07890365448504984,0.8372093023255814,0.909468438538206,11248,2024,463,47,do some initial config entry graph validation during writes (#6047)
+1eef096dfe65f395166c853bd0f2db1e09578d89,False,1,7,283,94,40.42857142857143,212,43465,43253,0.2777777777777778,0.5982905982905983,0.8589743589743589,16177,2836,508,37,"xds: version sniff envoy and switch regular expressions from 'regex' to 'safe_regex' on newer envoy versions (#8222)
+
+- cut down on extra node metadata transmission
+- split the golden file generation to compare all envoy version"
+cf3ec1cf5c5b192f331e229c360b2990d53582e5,False,1,54,1037,190,19.203703703703702,619,616,-3,,,,70554,11695,2436,126,golint: Rename fields and structs
+c07de09adc42eb9061f2d2e5920bb446c0852f87,False,1,2,120,102,60.0,0,120,120,0.13414634146341464,0.5853658536585366,1.0,436,100,16,6,Adding RPC and Monitor commands
+b012d8374e1189e07f83e77b7414804167fa682d,False,1,2,282,268,141.0,22,853,831,0.013888888888888888,0.8013888888888889,0.7930555555555555,24970,3810,721,11,support querying upstreams/downstreams from registrations
+cf7b7fcdd69e23a780f04fc031ec0f952dab8d93,False,1,5,208,142,41.6,132,281,149,0.056910569105691054,1.0,1.0,44846,6738,1474,22,Single DB txn for ServiceTopology and other PR comments
+164ce57db2d66f9e1ba61e67367534a0be9888eb,False,1,3,82,67,27.333333333333332,4,411,407,0.0764872521246459,0.9461756373937678,0.830028328611898,27093,3668,898,8,"Support ingress gateways in mesh viz endpoint (#8864)
+
+Co-authored-by: R.B. Boyer <rb@hashicorp.com>"
+7cff50a4df02be8c2a63233c4c821ef3fdb1982c,False,1,15,156,34,10.4,130,130,0,,,,23625,3794,747,50,agent: move agent/consul/agent to agent/metadata
+c01a3871c9b0f2f761a2766267a62c475039689e,False,1,22,1790,224,81.36363636363636,171,3361,3190,0.2298507462686567,0.3497512437810945,0.8024875621890547,39549,6347,1340,69,"Adds support for snapshots and restores. (#2396)
+
+* Updates Raft library to get new snapshot/restore API.
+
+* Basic backup and restore working, but need some cleanup.
+
+* Breaks out a snapshot module and adds a SHA256 integrity check.
+
+* Adds snapshot ACL and fills in some missing comments.
+
+* Require a consistent read for snapshots.
+
+* Make sure snapshot works if ACLs aren't enabled.
+
+* Adds a bit of package documentation.
+
+* Returns an empty response from restore to avoid EOF errors.
+
+* Adds API client support for snapshots.
+
+* Makes internal file names match on-disk file snapshots.
+
+* Adds DC and token coverage for snapshot API test.
+
+* Adds missing documentation.
+
+* Adds a unit test for the snapshot client endpoint.
+
+* Moves the connection pool out of the client for easier testing.
+
+* Fixes an incidental issue in the prepared query unit test.
+
+I realized I had two servers in bootstrap mode so this wasn't a good setup.
+
+* Adds a half close to the TCP stream and fixes panic on error.
+
+* Adds client and endpoint tests for snapshots.
+
+* Moves the pool back into the snapshot RPC client.
+
+* Adds a TLS test and fixes half-closes for TLS connections.
+
+* Tweaks some comments.
+
+* Adds a low-level snapshot test.
+
+This is independent of Consul so we can pull this out into a library
+later if we want to.
+
+* Cleans up snapshot and archive and completes archive tests.
+
+* Sends a clear error for snapshot operations in dev mode.
+
+Snapshots require the Raft snapshots to be readable, which isn't supported
+in dev mode. Send a clear error instead of a deep-down Raft one.
+
+* Adds docs for the snapshot endpoint.
+
+* Adds a stale mode and index feedback for snapshot saves.
+
+This gives folks a way to extract data even if the cluster has no
+leader.
+
+* Changes the internal format of a snapshot from zip to tgz.
+
+* Pulls in Raft fix to cancel inflight before a restore.
+
+* Pulls in new Raft restore interface.
+
+* Adds metadata to snapshot saves and a verify function.
+
+* Adds basic save and restore snapshot CLI commands.
+
+* Gets rid of tarball extensions and adds restore message.
+
+* Fixes an incidental bad link in the KV docs.
+
+* Adds documentation for the snapshot CLI commands.
+
+* Scuttle any request body when a snapshot is saved.
+
+* Fixes archive unit test error message check.
+
+* Allows for nil output writers in snapshot RPC handlers.
+
+* Renames hash list Decode to DecodeAndVerify.
+
+* Closes the client connection for snapshot ops.
+
+* Lowers timeout for restore ops.
+
+* Updates Raft vendor to get new Restore signature and integrates with Consul.
+
+* Bounces the leader's internal state when we do a restore."
+be7893082ccfc48d1ae985d1a5ae71c3605487d5,False,1,1,57,57,57.0,8,49,41,0.0,0.0,1.0,1905,305,76,4,consul: Refactor forward to hold RPC when no leader is known
+bb12368eaca74664a66e3d5fdaf0a7f8d2e50836,False,1,12,171,51,14.25,40,243,203,0.36752136752136755,0.29914529914529914,0.9914529914529915,34058,5421,706,13,"Makes RPC handling more robust when rolling servers. (#3561)
+
+* Adds client-side retry for no leader errors.
+
+This paves over the case where the client was connected to the leader
+when it loses leadership.
+
+* Adds a configurable server RPC drain time and a fail-fast path for RPCs.
+
+When a server leaves it gets removed from the Raft configuration, so it will
+never know who the new leader server ends up being. Without this we'd be
+doomed to wait out the RPC hold timeout and then fail. This makes things fail
+a little quicker while a sever is draining, and since we added a client retry
+AND since the server doing this has already shut down and left the Serf LAN,
+clients should retry against some other server.
+
+* Makes the RPC hold timeout configurable.
+
+* Reorders struct members.
+
+* Sets the RPC hold timeout default for test servers.
+
+* Bumps the leave drain time up to 5 seconds.
+
+* Robustifies retries with a simpler client-side RPC hold.
+
+* Reverts untended delete."
+b3b32dc0f66bdccba722e55e3dddccd2121430b2,False,1,1,198,198,198.0,12763,13105,342,1.0,1.0,1.0,6054,869,155,58,"ui: UI Release Merge (ui-staging merge) (#6527)
+
+## HTTPAdapter (#5637)
+
+## Ember upgrade 2.18 > 3.12 (#6448)
+
+### Proxies can no longer get away with not calling _super
+
+This means that we can't use create anymore to define dynamic methods.
+Therefore we dynamically make 2 extended Proxies on demand, and then
+create from those. Therefore we can call _super in the init method of
+the extended Proxies.
+
+### We aren't allowed to reset a service anymore
+
+We never actually need to now anyway, this is a remnant of the refactor
+from browser based confirmations. We fix it as simply as possible here
+but will revisit and remove the old browser confirm functionality at a
+later date
+
+### Revert classes to use ES5 style to workaround babel transp. probs
+
+Using a mixture of ES6 classes (and hence super) and arrow functions
+means that when babel transpiles the arrow functions down to ES5, a
+reference to this is moved before the call to super, hence causing a js
+error.
+
+Furthermore, we the testing environment no longer lets use use
+apply/call on the constructor.
+
+These errors only manifests during testing (only in the testing
+environment), the application itself runs fine with no problems without
+this change.
+
+Using ES5 style class definitions give us freedom to do all of the above
+without causing any errors, so we reverted these classes back to ES5
+class definitions
+
+### Skip test that seems to have changed due to a change in RSVP timing
+
+This test tests a usecase/area of the API that will probably never ever
+be used, it was more testing out the API. We've skipped the test for now
+as this doesn't affect the application itself, but left a note to come
+back here later to investigate further
+
+### Remove enumerableContentDidChange
+
+Initial testing looks like we don't need to call this function anymore,
+the function no longer exists
+
+### Rework Changeset.isSaving to take into account new ember APIs
+
+Setting/hanging a computedProperty of an instantiated object no longer
+works. Move to setting it on the prototype/class definition instead
+
+### Change how we detect whether something requires listening
+
+New ember API's have changed how you can detect whether something is a
+computedProperty or not. It's not immediately clear if its even possible
+now. Therefore we change how we detect whether something should be
+listened to or not by just looking for presence of `addEventListener`
+
+### Potentially temporary change of ci test scripts to ensure deps exist
+
+All our tooling scripts run through a Makefile (for people familiar with
+only using those), which then call yarn scripts which can be called
+independently (for people familar with only using yarn).
+
+The Makefile targets always check to make sure all the dependencies are
+installed before running anything that requires them (building, testing
+etc).
+
+The CI scripts/targets didn't follow this same route and called the yarn
+scripts directly (usually CI builds a cache of the dependencies first).
+
+For some reason this cache isn't doing what it usually does, and it
+looks as though, in CI, ember isn't installed.
+
+This commit makes the CI scripts consistently use the same method as all
+of the other tooling scripts (Makefile target > Install Deps if
+required > call yarn script). This should install the dependencies if
+for some reason the CI cache building doesn't complete/isn't successful.
+
+Potentially this commit may be reverted if, the root of the problem is
+elsewhere, although consistency is always good, so it might be a good
+idea to leave this commit as is even if we need to debug and fix things
+elsewhere.
+
+### Make test-parallel consistent with the rest of the tooling scripts
+
+As we are here making changes for CI purposes (making test-ci
+consistent), we spotted that test-parallel is also inconsistent and also
+the README manual instructions won't work without `ember` installed
+globally.
+
+This commit makes everything consistent and changes the manual
+instructions to use the local ember instance that gets installed via
+yarn
+
+### Re-wrangle catchable to fit with new ember 3.12 APIs
+
+In the upgrade from ember 3.8 > 3.12 the public interfaces for
+ComputedProperties have changed slightly. `meta` is no longer a public
+property of ComputedProperty but of a ComputedDecoratorImpl mixin
+instead.
+
+https://github.com/emberjs/ember.js/blob/7e4ba1096e3c2e3e0dde186d5ca52ff19cb8720a/packages/%40ember/-internals/metal/lib/computed.ts#L725
+
+There seems to be no way, by just using publically available
+methods, to replicate this behaviour so that we can create our own
+'ComputedProperty` factory via injecting the ComputedProperty class as
+we did previously.
+
+https://github.com/hashicorp/consul/blob/3f333bada181aaf6340523ca2268a28d1a7db214/ui-v2/app/utils/computed/factory.js#L1-L18
+
+Instead we dynamically hang our `Catchable` `catch` method off the
+instantiated ComputedProperty. In doing it like this `ComputedProperty`
+has already has its `meta` method mixed in so we don't have to manually
+mix it in ourselves (which doesn't seem possible)
+
+This functionality is only used during our work in trying to ensure
+our EventSource/BlockingQuery work was as 'ember-like' as possible (i.e.
+using the traditional Route.model hooks and ember-like Controller
+properties). Our ongoing/upcoming work on a componentized approach to
+data a.k.a `<DataSource />` means we will be able to remove the majority
+of the code involved here now that it seems to be under an amount of
+flux in ember.
+
+### Build bindata_assetfs.go with new UI changes"
+f9cf0eb36e2199b92e0fd9c131c1a3bebd4910c8,False,1,16,369,98,23.0625,860,2279,1419,0.23847262247838616,0.840057636887608,0.9827089337175793,52223,8244,1748,96,"Remaining ACL Unit Tests (#4852)
+
+* Add leader token upgrade test and fix various ACL enablement bugs
+
+* Update the leader ACL initialization tests.
+
+* Add a StateStore ACL tests for ACLTokenSet and ACLTokenGetBy* functions
+
+* Advertise the agents acl support status with the agent/self endpoint.
+
+* Make batch token upsert CAS’able to prevent consistency issues with token auto-upgrade
+
+* Finish up the ACL state store token tests
+
+* Finish the ACL state store unit tests
+
+Also rename some things to make them more consistent.
+
+* Do as much ACL replication testing as I can."
+20eefeea117dcd23e30dab942acd2cf007024d9e,False,1,6,95,46,15.833333333333334,50,185,135,0.0,0.7549019607843137,0.8529411764705882,33074,4856,1208,12,"acl: a role binding rule for a role that does not exist should be ignored (#5778)
+
+I wrote the docs under this assumption but completely forgot to actually
+enforce it."
+63b153df8c5a5cca22503ea149c02247d7b9ad7c,False,1,2,169,131,84.5,92,91,-1,,,,13232,1776,467,85,"store: convert methods that don't use their receiver to functions
+
+Making these functions allows them to be used without introducing
+an artificial dependency on the struct. Many of these will be called
+from streaming Event processors, which do not have a store.
+
+This change is being made ahead of the streaming work to get to reduce
+the size of the streaming diff."
+833211c14cfecd64e36ab238ca943ceb97acee37,False,1,6,92,28,15.333333333333334,23,266,243,0.05759162303664921,0.8952879581151832,0.9842931937172775,28788,4611,813,8,acl: allow auth methods created in the primary datacenter to optionally create global tokens (#7899)
+20088842417346311e60a501b9e2cf21d09147b8,False,1,16,776,298,48.5,397,397,0,,,,50148,6927,1704,358,"state: un-method funcs that don't use their receiver
+
+This change was mostly automated with the following
+
+First generate a list of functions with:
+
+  git grep -o 'Store) \([^(]\+\)(tx \*txn' ./agent/consul/state | awk '{print $2}' | grep -o '^[^(]\+'
+
+Then the list was curated a bit with trial/error to remove and add funcs
+as necessary.
+
+Finally the replacement was done with:
+
+  dir=agent/consul/state
+  file=${1-funcnames}
+
+  while read fn; do
+    echo ""$fn""
+    sed -i -e ""s/(s \*Store) $fn(/$fn(/"" $dir/*.go
+    sed -i -e ""s/s\.$fn(/$fn(/"" $dir/*.go
+    sed -i -e ""s/s\.store\.$fn(/$fn(/"" $dir/*.go
+  done < $file"
+52d7283cd6f56fc8d0921fca3241b2e4f3b6a828,False,1,3,182,140,60.666666666666664,134,260,126,0.0,0.07142857142857142,0.8928571428571429,8076,1181,212,55,"UI metrics provider dc (#9001)
+
+* Plumb Datacenter and Namespace to metrics provider in preparation for them being usable.
+
+* Move metrics loader/status to a new component and show reason for being disabled.
+
+* Remove stray console.log
+
+* Rebuild AssetFS to resolve conflicts
+
+* Yarn upgrade
+
+* mend"
+3aad4b5ab4152d364e291cc6b0b641057faed65d,False,1,2,35,29,17.5,22,63,41,0.325,1.0,1.0,23498,3576,779,5,"agent: configuration reload preserves check's statuses for services (#7345)
+
+This fixes issue #7318
+
+Between versions 1.5.2 and 1.5.3, a regression has been introduced regarding health
+of services. A patch #6144 had been issued for HealthChecks of nodes, but not for healthchecks
+of services.
+
+What happened when a reload was:
+
+1. save all healthcheck statuses
+2. cleanup everything
+3. add new services with healthchecks
+
+In step 3, the state of healthchecks was taken into account locally,
+so at step 3, but since we cleaned up at step 2, state was lost.
+
+This PR introduces the snap parameter, so step 3 can use information from step 1"
+864f7efffa349329d89141e1f7762413b2e475c2,False,1,2,35,29,17.5,22,63,41,0.325,1.0,1.0,23498,3576,779,5,"agent: configuration reload preserves check's statuses for services (#7345)
+
+This fixes issue #7318
+
+Between versions 1.5.2 and 1.5.3, a regression has been introduced regarding health
+of services. A patch #6144 had been issued for HealthChecks of nodes, but not for healthchecks
+of services.
+
+What happened when a reload was:
+
+1. save all healthcheck statuses
+2. cleanup everything
+3. add new services with healthchecks
+
+In step 3, the state of healthchecks was taken into account locally,
+so at step 3, but since we cleaned up at step 2, state was lost.
+
+This PR introduces the snap parameter, so step 3 can use information from step 1"
+606662c502d56b01473d49b650b8302a13118c96,False,1,5,119,89,23.8,17,306,289,0.17575757575757575,0.20606060606060606,1.0,2787,528,94,10,Add snapshot inspect subcommand (#2451)
+47c390025b77450cde9ad4cbc47d63b55caeda79,False,1,11,14,4,1.2727272727272727,122,771,649,0.0,1.0,1.0,5413,950,157,0,"Convert to Go Modules (#5517)
+
+* First conversion
+
+* Use serf 0.8.2 tag and associated updated deps
+
+* * Move freeport and testutil into internal/
+
+* Make internal/ its own module
+
+* Update imports
+
+* Add replace statements so API and normal Consul code are
+self-referencing for ease of development
+
+* Adapt to newer goe/values
+
+* Bump to new cleanhttp
+
+* Fix ban nonprintable chars test
+
+* Update lock bad args test
+
+The error message when the duration cannot be parsed changed in Go 1.12
+(ae0c435877d3aacb9af5e706c40f9dddde5d3e67). This updates that test.
+
+* Update another test as well
+
+* Bump travis
+
+* Bump circleci
+
+* Bump go-discover and godo to get rid of launchpad dep
+
+* Bump dockerfile go version
+
+* fix tar command
+
+* Bump go-cleanhttp"
+17dcbb1912246aa7d2e2a4ec5584e52e38603fea,False,1,3,224,108,74.66666666666667,92,837,745,1.0,1.0,1.0,1302,212,45,32,"Make freeport testing friendly
+
+This PR allows the caller to decide if they would like to have the
+calling test fail, have the caller panic on error, or handle the errors
+themselves."
+e5eeb0aa7c6145060538b71c8dd25b82fe9a8408,False,1,2,1431,1387,715.5,324,19686,19362,0.8243243243243243,0.9750293772032902,0.9553466509988249,12288,1772,342,193,"UI V2 (#4086)
+
+* Move settings to use the same service/route API as the rest of the app
+
+* Put some ideas down for unit testing on adapters
+
+* Favour `Model` over `Entity`
+
+* Move away from using `reopen` to using Mixins
+
+* Amend messages, comment/document some usage
+
+* Make sure the returns are consistent in normalizePayload, also
+
+Add some todo's in to remind me to think consider this further at a
+later date. For example, is normalizePayload to be a hook or an
+overridable method
+
+* Start stripping back the HTML to semantics
+
+* Use a variable rather than chaining
+
+* Remove unused helpers
+
+* Start picking through the new designs, start with listing pages
+
+* First draft HTML for every page
+
+* Making progress on the CSS
+
+* Keep plugging away at the catalog css
+
+* Looking at scrolling
+
+* Wire up filtering
+
+* Sort out filter counting, more or less done a few outstanding
+
+* Start knocking the forms into shape
+
+* Add in codemirror
+
+* Keep moving forwards with the form like layouts
+
+* Start looking at ACL editing page, add footer in
+
+* Pull the filters back in, look at an autoresizer for scroll views
+
+* First draft toggles
+
+* 2nd draft healthcheck icons
+
+* Tweak node healthcheck icons
+
+* Looking at healthcheck detail icons
+
+* Tweak the filter-bar and add selections to the in content tabs
+
+* Add ACL create, pill-like acl type highlight
+
+* Tweaking the main nav some more
+
+* Working on the filter-bar and freetext-filter
+
+* Masonry layout
+
+* Stick with `checks` instead of healthy/unhealthy
+
+* Fix up the filter numbers/counts
+
+* Use the thead for a measure
+
+* First draft tomography back in
+
+* First draft DC dropdown
+
+* Add a temporary create buttong to kv's
+
+* Move KV and ACL to use a create page
+
+* Move tags
+
+* Run through old tests
+
+* Injectable server
+
+* Start adding test attributes
+
+* Add some page objects
+
+* More test attributes and pages
+
+* Acl filter objects
+
+* Add a page.. page object
+
+* Clickable items in lists
+
+* Add rest/spread babel plugin, remove mirage for now
+
+* Add fix for ember-collection
+
+* Keep track of acl filters
+
+* ember-cli-page-object
+
+* ember-test-selectors
+
+* ui: update version of ui compile deps
+
+* Update static assets
+
+* Centralize radiogroup helper
+
+* Rejig KV's and begin to clean it up
+
+* Work around lack of Tags for the moment..
+
+* Some little css tweaks and start to remove possibles
+
+* Working on the dc page and incidentals
+
+1. Sort the datacenter-picker list
+2. Add a selected state to the datacenter-picker
+3. Make dc an {Name: dc}
+4. Add an env helper to get to 'env vars' from within templates
+
+* Click outside stuff for the datacenter-picker, is-active on nav
+
+* Make sure the dropdown CTA can be active
+
+* Bump ember add pluralize helper
+
+* Little try at sass based custom queries
+
+* Rejig tablular collection so it deals with resizing, actions
+
+1. WIP: start building actions dropdowns
+2. Move tabular collection to deal with resizing to rule out differences
+
+* First draft actions dropdowns
+
+* Add ports, selectable IP's
+
+* Flash messages, plus general cleanup/consistency
+
+1. Add ember-cli-flash for flash messages
+2. Move everything to get() instead of item.get
+3. Spotted a few things that weren't consistent
+
+* DOn't go lower than zero
+
+* First draft vertical menu
+
+* Missed a get, tweak dropmenu tick
+
+* Big cleanup
+
+1. this.get(), this.set() > get(), set()
+2. assign > {...{}, ...{}}
+3. Seperator > separator
+
+* WIP: settings
+
+* Moved things into a ui-v2 folder
+
+* Decide on a way to do the settings page whilst maintaining the url + dc's
+
+* Start some error pages
+
+* Remove base64 polyfill
+
+* Tie in settings, fix atob bug, tweak layout css
+
+* Centralize confirmations into a component
+
+* Allow switching between the old and new UI with the CONSUL_UI_BETA env var
+
+Currently all the assets are packaged into a single AssetFS and a prefix is configured to switch between the two.
+
+* Attempt at some updates to integrate the v2 ui build into the main infrastructure
+
+* Add redirect to index.html for unknown paths
+
+* Allow redictor to /index.html for new ui when using -ui-dir
+
+* Take ACLs to the correct place on save
+
+* First pass breadcrumbs
+
+* Remove datacenter selector on the index page
+
+* Tweak overall layout
+
+* Make buttons 'resets'
+
+* Tweak last DC stuff
+
+* Validations plus kv keyname viewing tweaks
+
+* Pull sessions back in
+
+* Tweak the env vars to be more reusable
+
+* Move isAnon to the view
+
+* No items and disabled acl css
+
+* ACL and KV details
+
+1. Unauthorized page
+2. Make sure the ACL is always selected when it needs it
+3. Check record deletion with a changeset
+
+* Few more acl tweaks/corrections
+
+* Add no items view to node > services
+
+* Tags for node > services
+
+* Make sure we have tags
+
+* Fix up the labels on the tomography graph
+
+* Add node link (agent) to kv sessions
+
+* Duplicate up `create` for KV 'root creation'
+
+* Safety check for health checks
+
+* Fix up the grids
+
+* Truncate td a's, fix kv columns
+
+* Watch for spaces in KV id's
+
+* Move actions to their own mixins for now at least
+
+* Link reset to settings incase I want to type it in
+
+* Tweak error page
+
+* Cleanup healthcheck icons in service listing
+
+* Centralize errors and make getting back easier
+
+* Nice numbers
+
+* Compact buttons
+
+* Some incidental css cleanups
+
+* Use 'Key / Value' for root
+
+* Tweak tomography layout
+
+* Fix single healthcheck unhealthy resource
+
+* Get loading screen ready
+
+* Fix healthy healthcheck tick
+
+* Everything in header starts white
+
+* First draft loader
+
+* Refactor the entire backend to use proper unique keys, plus..
+
+1. Make unique keys form dc + slug (uid)
+2. Fun with errors...
+
+* Tweak header colors
+
+* Add noopener noreferrer to external links
+
+* Add supers to setupController
+
+* Implement cloning, using ember-data...
+
+* Move the more expensive down the switch order
+
+* First draft empty record cleanup..
+
+* Add the cusomt store test
+
+* Temporarily use the htmlSafe prototype to remove the console warning
+
+* Encode hashes in urls
+
+* Go back to using title for errors for now
+
+* Start removing unused bulma
+
+* Lint
+
+* WIP: Start looking at failing tests
+
+* Remove single redirect test
+
+* Finish off error message styling
+
+* Add full ember-data cache invalidation to avoid stale data...
+
+* Add uncolorable warning icons
+
+* More info icon
+
+* Rearrange single service, plus tag printing
+
+* Logo
+
+* No quotes
+
+* Add a simple startup logo
+
+* Tweak healthcheck statuses
+
+* Fix border-color for healthchecks
+
+* Tweak node tabs
+
+* Catch 401 ACL errors and rethrow with the provided error message
+
+* Remove old acl unauth and error routes
+
+* Missed a super
+
+* Make 'All' refer to number of checks, not services
+
+* Remove ember-resizer, add autoprefixer
+
+* Don't show tomography if its not worth it, viewify it more also
+
+* Little model cleanup
+
+* Chevrons
+
+* Find a way to reliably set the class of html from the view
+
+* Consistent html
+
+* Make sure session id's are visible as long as possible
+
+* Fix single service check count
+
+* Add filters and searchs to the query string
+
+* Don't remember the selected tab
+
+* Change text
+
+* Eror tweaking
+
+* Use chevrons on all breadcrumbs even in kv's
+
+* Clean up a file
+
+* Tweak some messaging
+
+* Makesure the footer overlays whats in the page
+
+* Tweak KV errors
+
+* Move json toggle over to the right
+
+* feedback-dialog along with copy buttons
+
+* Better confirmation dialogs
+
+* Add git sha comment
+
+* Same title as old UI
+
+* Allow defaults
+
+* Make sure value is a string
+
+* WIP: Scrolling dropdowns/confirmations
+
+* Add to kv's
+
+* Remove set
+
+* First pass trace
+
+* Better table rows
+
+* Pull over the hashi code editor styles
+
+* Editor tweaks
+
+* Responsive tabs
+
+* Add number formatting to tomography
+
+* Review whats left todo
+
+* Lint
+
+* Add a coordinate ember data triplet
+
+* Bump in a v2.0.0
+
+* Update old tests
+
+* Get coverage working again
+
+* Make sure query keys are also encoded
+
+* Don't test console.error
+
+* Unit test some more utils
+
+* Tweak the size of the tabular collections
+
+* Clean up gitignore
+
+* Fix copy button rollovers
+
+* Get healthcheck 'icon icons' onto the text baseline
+
+* Tweak healthcheck padding and alignment
+
+* Make sure commas kick in in rtt, probably never get to that
+
+* Improve vertical menu
+
+* Tweak dropdown active state to not have a bg
+
+* Tweak paddings
+
+* Search entire string not just 'startsWith'
+
+* Button states
+
+* Most buttons have 1px border
+
+* More button tweaks
+
+* You can only view kv folders
+
+* CSS cleanup reduction
+
+* Form input states and little cleanup
+
+* More CSS reduction
+
+* Sort checks by importance
+
+* Fix click outside on datacenter picker
+
+* Make sure table th's also auto calculate properly
+
+* Make sure `json` isn't remembered in KV editing
+
+* Fix recursive deletion in KV's
+
+* Centralize size
+
+* Catch updateRecord
+
+* Don't double envode
+
+* model > item consistency
+
+* Action loading and ACL tweaks
+
+* Add settings dependencies to acl tests
+
+* Better loading
+
+* utf-8 base64 encode/decode
+
+* Don't hang off a prototype for htmlSafe
+
+* Missing base64 files...
+
+* Get atob/btoa polyfill right
+
+* Shadowy rollovers
+
+* Disabled button styling for primaries
+
+* autofocuses only onload for now
+
+* Fix footer centering
+
+* Beginning of 'notices'
+
+* Remove the isLocked disabling as we are letting you do what the API does
+
+* Don't forget the documentation link for sessions
+
+* Updates are more likely
+
+* Use exported constant
+
+* Dont export redirectFS and a few other PR updates
+
+* Remove the old bootstrap config which was used for the old UI skin
+
+* Use curlies for multiple properties"
+5934f803bfb54c1ceeeb6518398f1b82a726459f,False,1,66,3718,673,56.333333333333336,2724,4169,1445,0.3894500561167228,1.0,0.5342312008978676,171351,25986,5144,399,Sync of OSS changes to support namespaces (#6909)
+c329b4cb341793ba16b043dbf69a205c8e9a3bd9,False,1,1,48,48,48.0,17,83,66,0.96875,0.96875,0.96875,784,129,20,7,agent/cache: partition by DC/ACL token
+45e49f31de3b54fad31561d904bdd683ef4dcdec,False,1,2,49,47,24.5,32,27,-5,0.0,1.0,0.0,1868,286,56,4,"agent/cache: change behavior to return error rather than retry
+
+The cache behavior should not be to mask errors and retry. Instead, it
+should aim to return errors as quickly as possible. We do that here."
+fc5508f8a32d067af42e9575704e9117781b337b,False,1,2,23,16,11.5,12,11,-1,,,,1979,307,58,5,agent/cache: string through attempt rather than storing on the entry
+4f3b5647e5ed2ea782580d07350c551480a12365,False,1,1,4,4,4.0,2,2,0,,,,1575,240,44,4,agent/cache: change uint8 to uint
+88388d760dc5d34798e375e545c0604bb3b0416d,False,1,20,792,163,39.6,480,2183,1703,0.23484848484848486,0.7586580086580087,0.8831168831168831,37561,5918,800,32,"Support Agent Caching for Service Discovery Results (#4541)
+
+* Add cache types for catalog/services and health/services and basic test that caching works
+
+* Support non-blocking cache types with Cache-Control semantics.
+
+* Update API docs to include caching info for every endpoint.
+
+* Comment updates per PR feedback.
+
+* Add note on caching to the 10,000 foot view on the architecture page to make the new data path more clear.
+
+* Document prepared query staleness quirk and force all background requests to AllowStale so we can spread service discovery load across servers."
+96b9b95a19d593db46898f51a676779e2be1486e,False,1,3,231,122,77.0,26,413,387,0.27979274611398963,0.8134715025906736,0.35751295336787564,2927,468,114,9,Add cache.Notify to abstract watching for cache updates for types that support blocking semantics. (#4695)
+6c81f9da0d7f85011e23dd4243ff7b5b6b00189f,False,1,1,4,4,4.0,2,41,39,0.0,1.0,1.0,1568,238,69,2,Fix panic in Resolving service config when proxy-defaults isn't defined yet (#5769)
+f2ed4826805015d35ad786027d31c4245184dd67,False,1,5,445,266,89.0,57,1079,1022,0.061946902654867256,0.8103666245259166,0.93173198482933,8116,1585,308,28,Add RPC endpoints for config entry operations
+25f04fbd21f6a8cc63385cba80092c8c8b1223b2,False,1,8,87,49,10.875,149,415,266,0.0047169811320754715,0.8254716981132075,1.0,44371,6637,1390,7,"[Security] Add finer control over script checks (#4715)
+
+* Add -enable-local-script-checks options
+
+These options allow for a finer control over when script checks are enabled by
+giving the option to only allow them when they are declared from the local
+file system.
+
+* Add documentation for the new option
+
+* Nitpick doc wording"
+12216583a124e25de630fb8d3e96ed0c7b431142,False,1,42,6837,2261,162.78571428571428,6546,8849,2303,0.7710280373831776,1.0,1.0,70599,11166,1784,228,"New config parser, HCL support, multiple bind addrs (#3480)
+
+* new config parser for agent
+
+This patch implements a new config parser for the consul agent which
+makes the following changes to the previous implementation:
+
+ * add HCL support
+ * all configuration fragments in tests and for default config are
+   expressed as HCL fragments
+ * HCL fragments can be provided on the command line so that they
+   can eventually replace the command line flags.
+ * HCL/JSON fragments are parsed into a temporary Config structure
+   which can be merged using reflection (all values are pointers).
+   The existing merge logic of overwrite for values and append
+   for slices has been preserved.
+ * A single builder process generates a typed runtime configuration
+   for the agent.
+
+The new implementation is more strict and fails in the builder process
+if no valid runtime configuration can be generated. Therefore,
+additional validations in other parts of the code should be removed.
+
+The builder also pre-computes all required network addresses so that no
+address/port magic should be required where the configuration is used
+and should therefore be removed.
+
+* Upgrade github.com/hashicorp/hcl to support int64
+
+* improve error messages
+
+* fix directory permission test
+
+* Fix rtt test
+
+* Fix ForceLeave test
+
+* Skip performance test for now until we know what to do
+
+* Update github.com/hashicorp/memberlist to update log prefix
+
+* Make memberlist use the default logger
+
+* improve config error handling
+
+* do not fail on non-existing data-dir
+
+* experiment with non-uniform timeouts to get a handle on stalled leader elections
+
+* Run tests for packages separately to eliminate the spurious port conflicts
+
+* refactor private address detection and unify approach for ipv4 and ipv6.
+
+Fixes #2825
+
+* do not allow unix sockets for DNS
+
+* improve bind and advertise addr error handling
+
+* go through builder using test coverage
+
+* minimal update to the docs
+
+* more coverage tests fixed
+
+* more tests
+
+* fix makefile
+
+* cleanup
+
+* fix port conflicts with external port server 'porter'
+
+* stop test server on error
+
+* do not run api test that change global ENV concurrently with the other tests
+
+* Run remaining api tests concurrently
+
+* no need for retry with the port number service
+
+* monkey patch race condition in go-sockaddr until we understand why that fails
+
+* monkey patch hcl decoder race condidtion until we understand why that fails
+
+* monkey patch spurious errors in strings.EqualFold from here
+
+* add test for hcl decoder race condition. Run with go test -parallel 128
+
+* Increase timeout again
+
+* cleanup
+
+* don't log port allocations by default
+
+* use base command arg parsing to format help output properly
+
+* handle -dc deprecation case in Build
+
+* switch autopilot.max_trailing_logs to int
+
+* remove duplicate test case
+
+* remove unused methods
+
+* remove comments about flag/config value inconsistencies
+
+* switch got and want around since the error message was misleading.
+
+* Removes a stray debug log.
+
+* Removes a stray newline in imports.
+
+* Fixes TestACL_Version8.
+
+* Runs go fmt.
+
+* Adds a default case for unknown address types.
+
+* Reoders and reformats some imports.
+
+* Adds some comments and fixes typos.
+
+* Reorders imports.
+
+* add unix socket support for dns later
+
+* drop all deprecated flags and arguments
+
+* fix wrong field name
+
+* remove stray node-id file
+
+* drop unnecessary patch section in test
+
+* drop duplicate test
+
+* add test for LeaveOnTerm and SkipLeaveOnInt in client mode
+
+* drop ""bla"" and add clarifying comment for the test
+
+* split up tests to support enterprise/non-enterprise tests
+
+* drop raft multiplier and derive values during build phase
+
+* sanitize runtime config reflectively and add test
+
+* detect invalid config fields
+
+* fix tests with invalid config fields
+
+* use different values for wan sanitiziation test
+
+* drop recursor in favor of recursors
+
+* allow dns_config.udp_answer_limit to be zero
+
+* make sure tests run on machines with multiple ips
+
+* Fix failing tests in a few more places by providing a bind address in the test
+
+* Gets rid of skipped TestAgent_CheckPerformanceSettings and adds case for builder.
+
+* Add porter to server_test.go to make tests there less flaky
+
+* go fmt"
+46a96d9c42645b5262452febd21cc995a32bb3e2,False,1,3,54,20,18.0,26,72,46,0.65,1.0,1.0,1472,264,47,4,agent: Refactor script invoke
+70eb59c63e2205ede37fee56b84cfa21b3c15517,False,1,1,4,4,4.0,0,4,4,1.0,1.0,1.0,220,45,9,1,agent: Use SHELL if provided. Fixes #237.
+c49a15d0f34b21f5f09a36e7358f8ed67d4d2b52,False,1,7,262,73,37.42857142857143,227,241,14,,,,27407,4299,981,27,"agent: move structs into consul/structs pkg
+
+ * CheckDefinition
+ * ServiceDefinition
+ * CheckType"
+8ad66f4bea7cea597d26ec78f12e9fddf4e64505,False,1,4,77,38,19.25,190,361,171,0.23134328358208955,1.0,0.9477611940298507,17030,2595,582,4,"agent: support custom check id and name
+
+This patch adds support for a custom check id and name when
+registering a service.
+
+This is achieved by adding a CheckID and a Name field to the
+CheckType structure which is used to register checks with a
+service and when returning health check definitions.
+
+CheckDefinition is a superset of CheckType which duplicates
+some of the fields of CheckType. This patch decouples these
+two structures by removing the embedding of CheckType in
+CheckDefinition.
+
+Fixes #3047"

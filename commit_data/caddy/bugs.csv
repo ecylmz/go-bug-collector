@@ -1,0 +1,3508 @@
+sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message
+f20a8e7aa02034eddc48e7cc160813883a8935e2,False,1,1,2,2,2.0,1,1,0,,,,1516,424,29,1,cmd: replace deprecate func use (#5170)
+d605ebe75a2043199ba53022adaa20be680cf051,False,1,1,63,63,63.0,0,63,63,0.22950819672131148,1.0,1.0,1509,394,29,2,"cmd: add completion command (#4994)
+
+* cmd: add completion command
+
+* error check"
+53dd600b4de0c2b169f1eb4450a0f02950912524,False,1,2,69,60,34.5,33,36,3,0.0,0.952755905511811,1.0,2993,576,98,2,cmd: Built-in commands all use RegisterCommand (#2794)
+01be1b54a8c9b7e6ea52af8165c583d4d2ebe7e3,False,1,1,4,4,4.0,4,22,18,,,,1897,477,34,2,ci: install xcaddy to fix release flow (#6602)
+3ae07a73dc057c3a12486b78872c5e1391ec7cc9,False,1,5,438,129,87.6,4,649,645,0.2956989247311828,0.8145161290322581,0.9435483870967742,4900,798,214,26,"caddytls: clientauth: leaf verifier: make trusted leaf certs source pluggable (#6050)
+
+* Made trusted leaf certificates pluggable into the tls.client_auth.leaf
+module
+
+* Added leaf loaders modules: file, folder, pem aand storage
+
+* Cleaned implementation of leaf cert loader modules
+
+* Added tests for leaf certs file and folder loaders
+
+* cmd: fix the output of the `Usage` section (#6138)
+
+* core: OnExit hooks (#6128)
+
+* core: OnExit callbacks
+
+* core: Process-global OnExit callbacks
+
+* ci: bump golangci/golangci-lint-action from 3 to 4 (#6141)
+
+Bumps [golangci/golangci-lint-action](https://github.com/golangci/golangci-lint-action) from 3 to 4.
+- [Release notes](https://github.com/golangci/golangci-lint-action/releases)
+- [Commits](https://github.com/golangci/golangci-lint-action/compare/v3...v4)
+
+---
+updated-dependencies:
+- dependency-name: golangci/golangci-lint-action
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+
+* Added more leaf certificate loaders tests and cleaned up code
+
+* Modified leaf cert loaders json field names and cleaned up storage loader comment
+
+* Update modules/caddytls/leaffileloader.go
+
+* Update LeafStorageLoader certificates field name
+
+* Upgraded  protobuf version
+
+---------
+
+Signed-off-by: dependabot[bot] <support@github.com>
+Co-authored-by: Mohammed Al Sahaf <msaa1990@gmail.com>
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>"
+4181c79a8130a59c40c76437e15265452422ccb1,False,1,2,70,59,35.0,2,942,940,0.0,0.5277777777777778,0.9791666666666666,13206,2016,584,3,"httpcaddyfile: Add optional status code argument to `handle_errors` directive (#5965)
+
+Co-authored-by: Aziz Rmadi <azizrmadi@Azizs-MacBook-Air.local>"
+403732c433b816409e3525a9f49b4cc90abc2486,False,1,1,8,8,8.0,4,142,138,,,,1926,328,80,0,"httpcaddyfile: Reorder some directives (#4311)
+
+We realized we made some mistakes with the directive ordering, so we're making some minor adjustments.
+
+`abort` and `error` don't really make sense to be after other handler directives, because you would expect to be able to ""fail-fast"" and throw an error before falling through to some `file_server` or `respond` typically. So we're moving them up to just before `respond`, i.e. before the common handler directives. 
+
+This is also more consistent with our existing examples in the docs, which actually didn't work due to the directive ordering. See https://caddyserver.com/docs/caddyfile/directives/error#examples
+
+Also, `push` doesn't quite make sense to be after `handle`/`route`, since its job is to read from response headers to push additional resources if necessary, and `handle`/`route` may be terminal so push would not be reached if it was declared outside those. And also, it would make sense to be _before_ `templates` because a template _could_ add a `Link` header to the response dynamically."
+931656bd6868a87eef4814cc02b5125a907662bf,False,1,3,149,83,49.666666666666664,66,506,440,0.16524216524216523,0.5726495726495726,1.0,2343,396,84,5,"acmeserver: add policy field to define allow/deny rules (#5796)
+
+* acmeserver: support specifying the allowed challenge types
+
+* add caddyfile adapt tests
+
+* acmeserver: add `policy` field to define allow/deny rules
+
+* allow `omitempty` to work
+
+* add caddyfile support for `policy`
+
+* remove ""uri domain"" policy
+
+* fmt the files
+
+* add docs
+
+* do not support `CommonName`; the field is deprecated
+
+* r/DNSDomains/Domains/g
+
+* Caddyfile docs
+
+* add tests
+
+* move `Policy` to top of file"
+3248e4c89f510ad832bc9fb0ed6f6b945355304d,False,1,2,115,113,57.5,27,88,61,0.125,0.55,1.0,5394,865,207,7,logging: Add `zap.Option` support (#5944)
+e965b111cdf46109b4ed87e607e8dce5225105f4,False,1,3,1106,820,368.6666666666667,108,2409,2301,0.13652694610778443,0.8107784431137725,1.0,11103,1834,472,41,"tls: modularize trusted CA providers (#5784)
+
+* tls: modularize client authentication trusted CA
+
+* add `omitempty` to `CARaw`
+
+* docs
+
+* initial caddyfile support
+
+* revert anything related to leaf cert validation
+
+The certs are used differently than the CA pool flow
+
+* complete caddyfile unmarshalling implementation
+
+* Caddyfile syntax documentation
+
+* enhance caddyfile parsing and documentation
+
+Apply suggestions from code review
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>
+
+* add client_auth caddyfile tests
+
+* add caddyfile unmarshalling tests
+
+* fix and add missed adapt tests
+
+* fix rebase issue
+
+---------
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>"
+0c57facc67910a6b0994763ac8e6e55e693f20e4,False,1,2,84,81,42.0,0,84,84,0.9629629629629629,0.9629629629629629,1.0,5495,850,224,6,reverseproxy: Add upstreams healthy metrics (#4935)
+904a0fa368b7eacac3c7156ce4a1f6ced8f61f34,False,1,2,24,20,12.0,11,13,2,,,,6231,943,246,8,"reverse_proxy: re-add healthy upstreams metric (#6806)
+
+* reverse_proxy: re-add healthy upstreams metric
+
+Signed-off-by: Mohammed Al Sahaf <msaa1990@gmail.com>
+
+* lint
+
+Signed-off-by: Mohammed Al Sahaf <msaa1990@gmail.com>
+
+---------
+
+Signed-off-by: Mohammed Al Sahaf <msaa1990@gmail.com>"
+613d544a4775b831595f223028fee76b980aa003,False,1,1,9,9,9.0,1,8,7,0.0,0.0,0.0,5229,799,210,2,"reverseproxy: Accept EOF when buffering
+
+Before this change, a read of size (let's say) < 10, into a buffer of size 10, will return EOF because we're using CopyN to limit to the size of the buffer. That resulted in the body being read from later, which should only happen if it couldn't fit in the buffer.
+
+With this change, the body is properly NOT set when it can all fit in the buffer."
+4b119a475fa345e7d6eb44c71cdf7ab645bd381e,False,1,2,121,86,60.5,41,80,39,0.0,0.0,1.0,12609,1954,595,7,"reverseproxy: Don't buffer chunked requests (fix #5366) (#5367)
+
+* reverseproxy: Don't buffer chunked requests (fix #5366)
+
+Mostly reverts 845bc4d50b437995d574819850206e4b3db4040d (#5289)
+
+Adds warning for unsafe config.
+
+Deprecates unsafe properties in favor of simpler, safer designed ones.
+
+* Update modules/caddyhttp/reverseproxy/caddyfile.go
+
+Co-authored-by: Y.Horie <u5.horie@gmail.com>
+
+* Update modules/caddyhttp/reverseproxy/reverseproxy.go
+
+Co-authored-by: Y.Horie <u5.horie@gmail.com>
+
+* Update modules/caddyhttp/reverseproxy/reverseproxy.go
+
+Co-authored-by: Y.Horie <u5.horie@gmail.com>
+
+* Remove unused code
+
+---------
+
+Co-authored-by: Y.Horie <u5.horie@gmail.com>"
+845bc4d50b437995d574819850206e4b3db4040d,False,1,1,23,23,23.0,6,17,11,0.8,0.9,1.0,5387,820,222,4,"reverseproxy: Fix hanging for Transfer-Encoding: chunked (#5289)
+
+* Fixes #5236
+* enable request body buffering in reverse proxy
+  when the request header has Transfer-Encoding: chunked"
+361946eb0c08791ad16ebc3e82a79512895e650f,False,1,1,91,91,91.0,1,218,217,0.14035087719298245,0.14035087719298245,0.7280701754385965,3733,642,173,6,"reverseproxy: weighted_round_robin load balancing policy (#5579)
+
+* added weighted round robin algorithm to load balancer
+
+* added an adapt integration test for wrr and fixed a typo
+
+* changed args format to Caddyfile args convention
+
+* added provisioner and validator for wrr
+
+* simplified the code and improved doc"
+e5bbed10461f8baa3c75e4614edb8d44d3252bb5,False,1,1,73,73,73.0,45,61,16,0.2,1.0,0.0,3986,639,176,9,"caddyhttp: Refactor header matching
+
+This allows response matchers to benefit from the same matching logic
+as the request header matchers (mainly prefix/suffix wildcards)."
+09b2cbcf4d839adec91b189fea549d64a69e0595,False,1,13,660,219,50.76923076923077,202,536,334,0.17647058823529413,0.0,0.9803921568627451,45127,6898,1813,76,"caddyhttp: Add `MatchWithError` to replace SetVar hack (#6596)
+
+* caddyhttp: Add `MatchWithError` to replace SetVar hack
+
+* Error in IP matchers on TLS handshake not complete
+
+* Use MatchWithError everywhere possible
+
+* Move implementations to MatchWithError versions
+
+* Looser interface checking to allow fallback
+
+* CEL factories can return RequestMatcherWithError
+
+* Clarifying comment since it's subtle that an err is returned
+
+* Return 425 Too Early status in IP matchers
+
+* Keep AnyMatch signature the same for now
+
+* Apparently Deprecated can't be all-uppercase to get IDE linting
+
+* Linter"
+e4a22de9d1c4d7aa83126ee13e40b61e7b0e9df0,False,1,7,377,132,53.857142857142854,253,635,382,0.09195402298850575,0.09195402298850575,1.0,17123,2760,775,12,"reverseproxy: Add `handle_response` blocks to `reverse_proxy` (#3710) (#4021)
+
+* reverseproxy: Add `handle_response` blocks to `reverse_proxy` (#3710)
+
+* reverseproxy: complete handle_response test
+
+* reverseproxy: Change handle_response matchers to use named matchers
+
+reverseproxy: Add support for changing status code
+
+* fastcgi: Remove obsolete TODO
+
+We already have d.Err(""transport already specified"") in the reverse_proxy parsing code which covers this case
+
+* reverseproxy: Fix support for ""4xx"" type status codes
+
+* Apply suggestions from code review
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+
+* caddyhttp: Reorganize response matchers
+
+* reverseproxy: Reintroduce caddyfile.Unmarshaler
+
+* reverseproxy: Add comment mentioning Finalize should be called
+
+Co-authored-by: Maxime Soulé <btik-git@scoubidou.com>
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+cc63c5805e1587d7e5901deaad3f5bac944a2cf6,False,1,1,10,10,10.0,3,28,25,0.043478260869565216,0.8695652173913043,0.8695652173913043,4542,719,206,4,caddyhttp: Support placeholders in header matcher values (close #3916)
+9c0c71e5774593e15a555d5c88de0af011e46394,False,1,2,101,82,50.5,13,88,75,0.21153846153846154,0.21153846153846154,0.21153846153846154,8924,1336,338,3,"reverseproxy: Rewrite requests and responses for websocket over http2 (#6567)
+
+* reverse proxy: rewrite requests and responses for websocket over http2
+
+* delete protocol pseudo-header
+
+* modify cloned requests
+
+* set request variable to track if it's a h2 websocket
+
+* use request bodu
+
+* rewrite request body
+
+* use WebSocket instead of Websocket in the headers
+
+* use logger check for zap loggers
+
+* fix lint"
+4950ce485f7d931890fcfd2ee287b6df1b5db435,False,1,4,48,21,12.0,10,104,94,0.2631578947368421,1.0,0.8421052631578947,4170,674,149,6,"Part 1: Optimize using compiler's inliner (#2687)
+
+* optimized functions for inlining
+
+* added note regarding ResponseWriterWrapper
+
+* optimzed browseWrite* methods for FileServer
+
+* created benchmarks for comparison
+
+* creating browseListing instance in each function
+
+* created benchmarks for openResponseWriter
+
+* removed benchmarks of old implementations
+
+* implemented sync.Pool for byte buffers
+
+* using global sync.Pool for writing JSON/HTML"
+f5b4f268dc73078467f19faf6068cc8047cabc7f,False,1,4,347,286,86.75,0,347,347,0.42408376963350786,0.5287958115183246,0.9424083769633508,1492,272,52,17,"Implement encode middleware (#2)
+
+* Implement encode middleware
+
+* Add missing break; and add missing JSON struct field tag"
+584eba94a4e06af9ce7efc91fb914f84d7a6a48c,False,1,2,59,45,29.5,30,161,131,1.0,1.0,0.0,4556,776,192,3,httpcaddyfile: Allow named matchers in `route` blocks (#3632)
+2cac3c5491e6428441ecf668cc4f5a86e67ed9b3,False,1,2,178,92,89.0,71,109,38,0.9090909090909091,1.0,0.8181818181818182,8310,1196,354,7,"httpcaddyfile: fix placeholder shorthands in named routes (#5791)
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>"
+f7c1a51efb6d0e578c6f699b6f3498b5930cdd32,False,1,1,2,2,2.0,1,1,0,,,,1626,287,64,1,fastcgi: Redirect using original URI path (fix #5073)
+16724842d9b9096b800326d0b7667a4361552552,False,1,4,145,56,36.25,20,449,429,0.125,0.25,0.5892857142857143,17666,2618,805,6,"caddyhttp: Implement `auto_https prefer_wildcard` option (#6146)
+
+* Allow specifying multiple `auto_https` options
+
+* Implement `auto_https prefer_wildcard` option
+
+* Adapt tests, add mock DNS module for config testing
+
+* Rebase fix"
+e16a886814d8cd43d545de38a4d6b98313fb31cb,False,1,5,93,38,18.6,39,58,19,0.21428571428571427,0.21428571428571427,1.0,10895,1744,468,15,"caddytls: Eval replacer on automation policy subjects (#5459)
+
+Also renamed the field to SubjectsRaw, which can be considered a breaking change but I don't expect this to affect much."
+aa6c5fde07574b48593ddcbf95ca6988c2172b4a,False,1,2,131,127,65.5,79,52,-27,0.0,0.0,0.0,1865,329,74,5,"httpcaddyfile: Unify strip_prefix, strip_suffix, uri_replace directives (#3157)
+
+* rewrite: strip_prefix, strip_suffix, uri_replace -> uri (closes #3140)
+
+* Add period, to satisfy @whitestrake :) and my own OCD
+
+* Restore implied / prefix"
+b1a456cfe38e83eedb778032ed6739e7e3cbe8a4,False,1,2,98,95,49.0,3,95,92,0.46774193548387094,0.46774193548387094,1.0,1160,213,40,6,"rewrite: strip_prefix, strip_suffix, and uri_replace dirs (closes #2906)"
+2153a81ec85da99dcd33aa87ff0df5d286f00e9d,False,1,1,39,39,39.0,21,18,-3,1.0,1.0,0.0,667,138,21,1,forwardauth: Canonicalize header fields (fix #5038) (#5097)
+f6900fcf530e80c921dac8e4f09996cffce7f436,False,1,9,387,269,43.0,42,539,497,0.015463917525773196,0.07731958762886598,1.0,27922,4450,1241,18,reverseproxy: Support performing pre-check requests (#4739)
+0b6f7643569690b9a3defe989fb2e0c2607215ec,False,1,1,33,33,33.0,7,142,135,0.0,0.0,1.0,786,172,22,1,"forwardauth: Support renaming copied headers, block support (#4783)"
+41f5dd56e1b93ec815daa98dd1f1caa7f2087312,False,1,10,198,68,19.8,66,365,299,0.1926605504587156,0.29357798165137616,0.7477064220183486,20270,3256,777,31,"metrics: scope metrics to active config, add optional per-host metrics (#6531)
+
+* Add per host config
+
+* Pass host label when option is enabled
+
+* Test per host enabled
+
+* metrics: scope metrics per loaded config
+
+* doc and linter
+
+Signed-off-by: Mohammed Al Sahaf <msaa1990@gmail.com>
+
+* inject the custom registry into the admin handler
+
+Co-Authored-By: Dave Henderson <dhenderson@gmail.com>
+
+* remove `TODO` comment
+
+* fixes
+
+Signed-off-by: Mohammed Al Sahaf <msaa1990@gmail.com>
+
+* refactor to delay metrics admin handler provision
+
+Signed-off-by: Mohammed Al Sahaf <msaa1990@gmail.com>
+
+---------
+
+Signed-off-by: Mohammed Al Sahaf <msaa1990@gmail.com>
+Co-authored-by: Hussam Almarzooq <me@hussam.io>
+Co-authored-by: Dave Henderson <dhenderson@gmail.com>"
+74547f5bedafcb59fc25f14b43301f33a40f9416,False,1,5,38,17,7.6,8,30,22,0.25,0.25,0.3333333333333333,7767,1213,266,10,"caddyhttp: Make metrics opt-in (#5042)
+
+* caddyhttp: Make metrics opt-in
+
+Related to #4644
+
+* Make configurable in Caddyfile"
+cbf16f6d9eb77f37d6eb588ff3e54cfdfddecc21,False,1,8,339,113,42.375,29,464,435,0.28313253012048195,0.3795180722891566,0.5662650602409639,24645,3820,969,21,"caddyhttp: Implement named routes, `invoke` directive (#5107)
+
+* caddyhttp: Implement named routes, `invoke` directive
+
+* gofmt
+
+* Add experimental marker
+
+* Adjust route compile comments"
+10f85558ead15e119f8e9abd81c8ad55eb865f8b,False,1,3,989,481,329.6666666666667,70,1526,1456,0.4107946026986507,0.5907046476761619,0.7436281859070465,12093,1921,445,38,"Expose several Caddy HTTP Matchers to the CEL Matcher (#4715)
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>"
+ab885f07b844fd60adb9d49ed7884f3cd2d939a7,False,1,44,3727,542,84.70454545454545,232,4875,4643,0.20479159829340335,0.3285198555956679,0.9012143091565474,34928,5925,1384,155,"Implement config adapters and beginning of Caddyfile adapter
+
+Along with several other changes, such as renaming caddyhttp.ServerRoute
+to caddyhttp.Route, exporting some types that were not exported before,
+and tweaking the caddytls TLS values to be more consistent.
+
+Notably, we also now disable automatic cert management for names which
+already have a cert (manually) loaded into the cache. These names no
+longer need to be specified in the ""skip_certificates"" field of the
+automatic HTTPS config, because they will be skipped automatically."
+b893c8c5f856ba7399ed05c8de82fa5c8158ff00,False,1,3,75,52,25.0,40,135,95,0.0,0.8409090909090909,1.0,13035,1924,588,9,"caddyfile: Reject directives in the place of site addresses (#6104)
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>"
+c9b5e7f77b8aac7334d81c552c583af81ba1c400,False,1,2,112,81,56.0,41,90,49,1.0,1.0,1.0,3776,610,128,11,Fix http3 servers dying after reload (#4654)
+e3e8aabbcf65d37516bb97f9dc0f77df52f8cf55,False,1,7,854,626,122.0,292,562,270,0.36764705882352944,0.6617647058823529,0.6470588235294118,21489,3369,792,50,"core: Refactor and improve listener logic (#5089)
+
+* core: Refactor, improve listener logic
+
+Deprecate:
+- caddy.Listen
+- caddy.ListenTimeout
+- caddy.ListenPacket
+
+Prefer caddy.NetworkAddress.Listen() instead.
+
+Change:
+- caddy.ListenQUIC (hopefully to remove later)
+- caddy.ListenerFunc signature (add context and ListenConfig)
+
+- Don't emit Alt-Svc header advertising h3 over HTTP/3
+
+- Use quic.ListenEarly instead of quic.ListenEarlyAddr; this gives us
+more flexibility (e.g. possibility of HTTP/3 over UDS) but also
+introduces a new issue:
+https://github.com/lucas-clemente/quic-go/issues/3560#issuecomment-1258959608
+
+- Unlink unix socket before and after use
+
+* Appease the linter
+
+* Keep ListenAll"
+4b1a9b6cc1aa521e21289afa276d29952a97d8f3,False,1,18,1118,282,62.111111111111114,343,925,582,0.22088353413654618,0.23694779116465864,0.9357429718875502,53419,8373,2117,51,"core: Implement socket activation listeners (#6573)
+
+* caddy adapt for listen_protocols
+
+* adapt listen_socket
+
+* allow multiple listen sockets for port ranges and readd socket fd listen logic
+
+* readd logic to start servers according to listener protocols
+
+* gofmt
+
+* adapt caddytest
+
+* gosec
+
+* fmt and rename listen to listenWithSocket
+
+* fmt and rename listen to listenWithSocket
+
+* more consistent error msg
+
+* non unix listenReusableWithSocketFile
+
+* remove unused func
+
+* doc comment typo
+
+* nonosec
+
+* commit
+
+* doc comments
+
+* more doc comments
+
+* comment was misleading, cardinality did not change
+
+* addressesWithProtocols
+
+* update test
+
+* fd/ and fdgram/
+
+* rm addr
+
+* actually write...
+
+* i guess we doin' ""skip"": now
+
+* wrong var in placeholder
+
+* wrong var in placeholder II
+
+* update param name in comment
+
+* dont save nil file pointers
+
+* windows
+
+* key -> parsedKey
+
+* osx
+
+* multiple default_bind with protocols
+
+* check for h1 and h2 listener netw"
+8c0c1a7b8815866ac3b6c9cf100f18bf2f1bbd6d,False,1,1,4,4,4.0,1,3,2,0.0,0.0,1.0,1383,224,50,1,"cmd: Assume Caddyfile if name starts with Caddyfile
+
+And doesn't have .json extension -- in case someone names their
+JSON config something like Caddyfile.json, which is unconventional."
+15faeacb6065d2395a80a6a5f868149744f5de4a,False,1,1,15,15,15.0,3,12,9,0.0,0.0,0.0,2040,307,80,1,"cmd: fix auto-detetction of .caddyfile extension (#6356)
+
+* cmd: fix auto-detetction of .caddyfile extension
+
+Signed-off-by: Mohammed Al Sahaf <msaa1990@gmail.com>
+
+* move conditions around and add clarifying comment
+
+Signed-off-by: Mohammed Al Sahaf <msaa1990@gmail.com>
+
+* reject ambiguous config file name
+
+Signed-off-by: Mohammed Al Sahaf <msaa1990@gmail.com>
+
+---------
+
+Signed-off-by: Mohammed Al Sahaf <msaa1990@gmail.com>"
+185ed6fe7c14a88512d7cdcc308477a4f58cca4b,False,1,1,15,15,15.0,5,10,5,0.0,0.0,0.0,2018,305,76,1,"cmd: Assume Caddyfile based on filename prefix and suffix (#5919)
+
+This can be helpful if editors only consider file extensions for certain features.
+
+* added special case support for caddyfile suffix, case insensitive
+
+* Update cmd/main.go
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+
+* skip caddyfile adapter for registered file extensions
+
+---------
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+59cbb2c83a03b6fe352ae0b5d05581d9148a4d24,False,1,5,98,58,19.6,41,57,16,1.0,1.0,1.0,11836,1876,556,12,"caddytls,caddyhttp: Placeholders for some TLS and HTTP matchers (#6480)
+
+* Runtime placeholders for caddytls matchers (1/3):
+
+- remove IPs validation in UnmarshalCaddyfile
+
+* Runtime placeholders for caddytls matchers (2/3):
+
+- add placeholder replacement for IPs in Provision
+
+* Runtime placeholders for caddytls matchers (3/3):
+
+- add placeholder replacement for other strings
+
+* Runtime placeholders for caddyhttp matchers (1/1):
+
+- add placeholder replacement for IPs in Provision
+
+* Runtime placeholders for caddyhttp/caddytls matchers:
+
+- move PrivateRandesCIDR under internal"
+1c4a80766725de0147190c0ab329c4f634ca7f86,False,1,3,7,3,2.3333333333333335,41,40,-1,,,,14806,2297,673,0,chore: Upgrade some dependencies (#6221)
+8f9ffc587e622b6e48e9816fe69bbb9cff3073fe,False,1,1,14,14,14.0,0,17,17,0.5,0.5,0.5,1533,221,55,2,"fileserver: Add total file size to directory listing (#6003)
+
+* browse: Add total file size to directory listing
+
+* Apply suggestion to remove ""in ""
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+
+---------
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+6cc3cbbc697d80ae7112c589ce34032f821b4b47,False,1,2,23,13,11.5,190,659,469,0.5333333333333333,0.5333333333333333,0.5333333333333333,2724,382,85,2,"fileserver: New file browse template (#5427)
+
+* fileserver: New file browse template
+
+* Redo extension/icon logic; minor color tweaks
+
+* Fine-tune image display"
+ab0455922ae01bde1a7a5b3bf58eb993efc02db7,False,1,7,1094,377,156.28571428571428,281,1056,775,0.17974683544303796,0.30632911392405066,0.959493670886076,16596,2645,701,51,"reverseproxy: Dynamic upstreams (with SRV and A/AAAA support) (#4470)
+
+* reverseproxy: Begin refactor to enable dynamic upstreams
+
+Streamed here: https://www.youtube.com/watch?v=hj7yzXb11jU
+
+* Implement SRV and A/AAA upstream sources
+
+Also get upstreams at every retry loop iteration instead of just once
+before the loop. See #4442.
+
+* Minor tweaks from review
+
+* Limit size of upstreams caches
+
+* Add doc notes deprecating LookupSRV
+
+* Provision dynamic upstreams
+
+Still WIP, preparing to preserve health checker functionality
+
+* Rejigger health checks
+
+Move active health check results into handler-specific Upstreams.
+
+Improve documentation regarding health checks and upstreams.
+
+* Deprecation notice
+
+* Add Caddyfile support, use `caddy.Duration`
+
+* Interface guards
+
+* Implement custom resolvers, add resolvers to http transport Caddyfile
+
+* SRV: fix Caddyfile `name` inline arg, remove proto condition
+
+* Use pointer receiver
+
+* Add debug logs
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>"
+fb63e2e40ca34122849e63da85952246bf6bc6f1,False,1,4,353,350,88.25,0,617,617,0.3181818181818182,0.7121212121212122,1.0,3983,703,114,6,"caddyhttp: New experimental handler for intercepting responses (#6232)
+
+* feat: add generic response interceptors
+
+* fix: cs
+
+* rename intercept
+
+* add some docs
+
+* @francislavoie review (first round)
+
+* Update modules/caddyhttp/intercept/intercept.go
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>
+
+* shorthands: ir to resp
+
+* mark exported symbols as experimental
+
+---------
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>"
+101d3e740783581110340a68f0b0cbe5f1ab6dbb,False,1,2,120,65,60.0,2,426,424,0.13015873015873017,0.7714285714285715,1.0,1170,215,50,5,"logging: Customize log file permissions (#6314)
+
+Adding a ""mode"" option to overwrite the default logfile permissions.
+Default remains ""0600"" which is the one currently used by lumberjack."
+abf5ab340ed76792214ae80c62df7abe0ad1b8a8,False,1,6,163,119,27.166666666666668,47,116,69,0.34782608695652173,1.0,0.9130434782608695,5914,1020,207,16,caddyhttp: Improve ResponseRecorder to buffer headers
+8bae8f5f5a4e8dd7bf805093b320aadb752432d2,False,1,1,5,5,5.0,0,5,5,1.0,1.0,1.0,675,126,22,1,"http: Always set status code via response recorder
+
+Fixes panic if no upstream handler wrote anything to the response"
+7088605cc11c52c2777ab613dfc5c2a9816006e4,False,1,1,61,61,61.0,20,130,110,0.09615384615384616,0.8557692307692307,1.0,2118,322,86,2,"cmd: fix regression in auto-detect of Caddyfile (#6362)
+
+* cmd: fix regression in auto-detect of Caddyfile
+
+Signed-off-by: Mohammed Al Sahaf <msaa1990@gmail.com>
+
+* fix typo
+
+Co-authored-by: Git'Fellow <12234510+solracsf@users.noreply.github.com>
+
+* add tests
+
+* address review comments
+
+---------
+
+Signed-off-by: Mohammed Al Sahaf <msaa1990@gmail.com>
+Co-authored-by: Git'Fellow <12234510+solracsf@users.noreply.github.com>"
+e1f4b83ffaa861e8f383ba52108e6449b53217f2,False,1,1,2,2,2.0,1,1,0,,,,2027,305,77,1,cmd: Fix panic related to config filename (fix #5919)
+81413caea251a3ef9e3641d7b1b6e867572a2b1b,False,1,12,616,330,51.333333333333336,298,444,146,0.0,0.027210884353741496,1.0,35003,5632,1467,30,"caddytls: Upgrade ACMEz to v2; support ZeroSSL API; various fixes (#6229)
+
+* WIP: acmez v2, CertMagic, and ZeroSSL issuer upgrades
+
+* caddytls: ZeroSSLIssuer now uses ZeroSSL API instead of ACME
+
+* Fix go.mod
+
+* caddytls: Fix automation related to managers (fix #6060)
+
+* Fix typo (appease linter)
+
+* Fix HTTP validation with ZeroSSL API"
+8c2a72ad07578ceba74ce04a9cdc45f1c6e2faeb,False,1,1,30,30,30.0,43,3,-40,1.0,1.0,0.0,1446,229,49,5,matchers: Drop `forwarded` option from `remote_ip` matcher (#6085)
+750d0b83319ac0ea6b7f057b8270c19404c3d6fa,False,1,43,5683,1086,132.1627906976744,2874,2887,13,0.6785714285714286,1.0,0.0,71260,11649,2979,103,caddyfile: Normalize & flatten all unmarshalers (#6037)
+05e9974570a08df14b1162a1e98315d4ee9ec2ee,False,1,7,617,344,88.14285714285714,187,462,275,0.9029126213592233,1.0,0.8737864077669902,22444,3418,870,30,"caddyhttp: Determine real client IP if trusted proxies configured (#5104)
+
+* caddyhttp: Determine real client IP if trusted proxies configured
+
+* Support customizing client IP header
+
+* Implement client_ip matcher, deprecate remote_ip's forwarded option"
+bc453fa6ae36287c90d2bf6941cb686490090df2,False,1,4,56,33,14.0,21,132,111,0.16049382716049382,0.9012345679012346,0.9629629629629629,7259,1153,273,5,"reverseproxy: Correct alternate port for active health checks (#3693)
+
+* reverseproxy: construct active health-check transport from scratch (Fixes #3691)
+
+* reverseproxy: do upstream health-check on the correct alternative port
+
+* reverseproxy: add integration test for health-check on alternative port
+
+* reverseproxy: put back the custom transport for health-check http client
+
+* reverseproxy: cleanup health-check integration test
+
+* reverseproxy: fix health-check of unix socket upstreams
+
+* reverseproxy: skip unix socket tests on Windows
+
+* tabs > spaces
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>
+
+* make the linter (and @francislavoie) happy
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>
+
+* One more lint fix
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>"
+7cca291d62c910c0544f0c0169a8f0c81627e5d3,False,1,2,96,65,48.0,49,47,-2,0.0,0.0,0.0,4180,660,159,9,"reverse_proxy: Health checks: Don't cross the streams
+
+Fixes https://caddy.community/t/v2-health-checks-are-going-to-the-wrong-upstream/7084?u=matt
+
+... I think"
+3c9256a1bea79a542500c8d07a9fd06fa806a79e,False,1,2,30,23,15.0,1,86,85,0.0,0.0,0.8260869565217391,5920,945,284,2,"reverseproxy: Caddyfile health check headers, host header support (#3948)
+
+* reverse_proxy: 1.health check headers can be set through Caddyfile using health_headers directive; 2.health check header host can be set properly
+
+* reverse_proxy:
+replace example with syntax definition
+inline health_headers directive parse function
+
+* bugfix: change caddyfile_adapt testcase file from space to tab
+
+* reverseproxy: modify health_header value document as optional and add more test cases"
+75f797debdd6c4294497edba9889c6251a8542e7,False,1,3,54,20,18.0,6,123,117,0.0,0.0,0.8214285714285714,9616,1515,441,3,"reverseproxy: Implement health_uri, deprecate health_path, supports query (#4050)
+
+* reverseproxy: Implement health_uri, replaces health_path, supports query
+
+Also fixes a bug with `health_status` Caddyfile parsing , it would always only take the first character of the status code even if it didn't end with ""xx"".
+
+* reverseproxy: Rename to URI, named logger, warn in Provision (for JSON)"
+ccfb12347b1d2f65b279352116527df430e0fba6,False,1,3,383,220,127.66666666666667,74,309,235,0.47619047619047616,0.47619047619047616,1.0,4608,775,194,18,reverse_proxy: Implement active health checks
+184e8e9f713bf39e82f4677452998bb003de6e6d,False,1,7,322,165,46.0,167,281,114,0.2540983606557377,0.5491803278688525,0.9426229508196722,5470,950,183,17,"pki: Embedded ACME server (#3198)
+
+* pki: Initial commit of embedded ACME server (#3021)
+
+* reverseproxy: Support auto-managed TLS client certificates (#3021)
+
+* A little cleanup after today's review session"
+b6fe5d4b41d07e70a502ed58d40e8b0e75067db5,False,1,7,243,75,34.714285714285715,1,245,244,0.2608695652173913,0.2608695652173913,0.6608695652173913,16797,2641,740,10,"proxyprotocol: Add PROXY protocol support to `reverse_proxy`, add HTTP listener wrapper (#5424)
+
+Co-authored-by: WeidiDeng <weidi_deng@icloud.com>
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>"
+dc12bd974367b1c15e6b8f3c6b446a208ac3546f,False,1,4,212,82,53.0,42,176,134,0.09523809523809523,0.38095238095238093,0.9682539682539683,3538,595,125,9,"proxyprotocol: use github.com/pires/go-proxyproto (#5915)
+
+* proxyprotocol: use github.com/pires/go-proxyproto
+
+* Fix typo: r/generelly/generally
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>
+
+* add config options for `Deny` CIDR and fallback policy
+
+* use `netip` package & trust unix sockets
+
+---------
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>"
+7527c0170558ce7e31b79b7bc31dbf2f25afd983,False,1,5,218,138,43.6,55,205,150,0.0,0.40860215053763443,1.0,11044,1755,443,10,"v2: Implement Caddyfile enhancements (breaking changes) (#2960)
+
+* http: path matcher: exact match by default; substring matches (#2959)
+
+This is a breaking change.
+
+* caddyfile: Change ""matcher"" directive to ""@matcher"" syntax (#2959)
+
+* cmd: Assume caddyfile adapter for config files named Caddyfile
+
+* Sub-sort handlers by path matcher length (#2959)
+
+Caddyfile-generated subroutes have handlers, which are sorted first by
+directive order (this is unchanged), but within directives we now sort
+by specificity of path matcher in descending order (longest path first,
+assuming that longest path is most specific).
+
+This only applies if there is only one matcher set, and the path
+matcher in that set has only one path in it. Path matchers with two or
+more paths are not sorted like this; and routes with more than one
+matcher set are not sorted like this either, since specificity is
+difficult or impossible to infer correctly.
+
+This is a special case, but definitely a very common one, as a lot of
+routing decisions are based on paths.
+
+* caddyfile: New 'route' directive for appearance-order handling (#2959)
+
+* caddyfile: Make rewrite directives mutually exclusive (#2959)
+
+This applies only to rewrites in the top-level subroute created by the
+HTTP caddyfile."
+76c4cf5a56b4ee576001e649e72d6e7fdf730364,False,1,3,30,24,10.0,3,33,30,0.0,0.05263157894736842,1.0,9013,1389,410,4,"caddytls: Option to configure certificate lifetime (#6253)
+
+* Add option to configure certificate lifetime
+
+* Bump CertMagic dep to latest master commit
+
+* Apply suggestions and ran go mod tidy
+
+* Update modules/caddytls/acmeissuer.go
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+
+---------
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+0e2c7e1d35b287fc0e56d6db2951f791e09b5a37,False,1,8,139,91,17.375,38,115,77,0.0,0.0,1.0,21431,3501,840,14,"caddytls: Reuse certificate cache through reloads (#5623)
+
+* caddytls: Don't purge cert cache on config reload
+
+* Update CertMagic
+
+This actually avoids reloading managed certs from storage
+when already in the cache, d'oh.
+
+* Fix bug; re-implement HasCertificateForSubject
+
+* Update go.mod: CertMagic tag"
+99ffe9338837eff80def7e5d51c2a0e02f56abdb,False,1,4,58,33,14.5,38,23,-15,1.0,1.0,1.0,16153,2529,648,6,"logging: Fix `skip_hosts` with wildcards (#5102)
+
+Fix #4859"
+10db57027df6925c1afc82db1e7ddd0ff2cc53a2,False,1,2,140,87,70.0,34,106,72,0.0,0.0,0.7714285714285715,7633,1107,313,6,"caddyhttp: General improvements to access logging (#3301)
+
+* httpcaddyfile: Exclude access logs written to files from default log
+
+Even though any logs can just be ignored, most users don't seem to like
+configuring an access log to go to a file only to have it doubly appear
+in the default log.
+
+Related to:
+- #3294
+- https://caddy.community/t/v2-logging-format/7642/4?u=matt
+- https://caddy.community/t/caddyfile-questions/7651/3?u=matt
+
+* caddyhttp: General improvements to access log controls (fixes #3310)
+
+* caddyhttp: Move log config nil check higher
+
+* Rename LoggerName -> DefaultLoggerName"
+70953e873a559553e97c985a13db897ab9f573ff,False,1,3,154,93,51.333333333333336,62,249,187,0.06666666666666667,0.06666666666666667,1.0,12794,1858,449,8,"caddyhttp: Support multiple logger names per host (#6088)
+
+* caddyhttp: Support multiple logger names per host
+
+* Lint
+
+* Add adapt test
+
+* Implement ""string or array"" parsing, keep original `logger_names`
+
+* Rewrite adapter test to be more representative of the usecase"
+9ad0ebc956f4317111c12e2c5428acd18522f025,False,1,4,279,144,69.75,116,195,79,0.4875,1.0,1.0,8351,1431,321,9,"caddyhttp: Add 'skip_log' var to omit request from logs (#4691)
+
+* caddyhttp: Implement `skip_log` handler
+
+* Refactor to use vars middleware
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+e473ae6803a95a8e85ba867d1fa1d205d98b73d8,False,1,1,41,41,41.0,14,27,13,0.0,0.0,0.0,1983,301,74,1,"cmd: Adjust config load logs/errors (#6032)
+
+* cmd: Adjust config load logs/errors
+
+* Update cmd/main.go
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+
+---------
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+2d5a30b908d022d76c246a09154d1fc611695a17,False,1,1,42,42,42.0,9,33,24,0.0,0.0,0.0,1765,312,68,1,caddyhttp: Set Content-Type for static response (#4999)
+652460e03e11a037d9f86b09b3546c9e42733d2d,False,1,6,790,355,131.66666666666666,362,428,66,0.0,0.0,0.0,6510,1119,268,57,Some cleanup and godoc
+424ae0f420f478e1b38189fd6632d29e13df7eee,False,1,3,167,89,55.666666666666664,34,133,99,0.5072463768115942,0.5072463768115942,0.8405797101449275,15017,2328,677,11,"reverseproxy: Experimental streaming timeouts (#5567)
+
+* reverseproxy: WIP streaming timeouts
+
+* More verbose logging by using the child logger
+
+* reverseproxy: Implement streaming timeouts
+
+* reverseproxy: Refactor cleanup
+
+* reverseproxy: Avoid **time.Timer
+
+---------
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>"
+a17c3b568d635ea45deb204d06e251810e94a7d6,False,1,2,20,12,10.0,6,16,10,0.375,0.375,0.375,4754,744,193,4,reverseproxy: Minor logging improvements
+f259ed52bb3764ce4fd5d88f1712cb43247c2639,False,1,2,61,38,30.5,7,105,98,0.17543859649122806,0.17543859649122806,0.6491228070175439,8561,1438,333,7,"admin: support ETag on config endpoints (#4579)
+
+* admin: support ETags
+
+* support etags
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+cb849bd6648294feb42eac1081aece589f20eaf6,False,1,1,5,5,5.0,0,5,5,,,,2510,410,52,0,"caddyhttp: Disable draft versions of QUIC
+
+See comment in #4996"
+c79c08627d36e9871dedd3c7d8889d7d710134c2,False,1,5,252,84,50.4,191,210,19,0.5333333333333333,0.2,0.6222222222222222,10217,1633,366,13,caddyhttp: Enable HTTP/3 by default (#4707)
+29f57faa8679344fa40ea9b317d724f0604d5b40,False,1,2,71,68,35.5,1,263,262,0.5862068965517241,0.5862068965517241,0.9827586206896551,3717,590,154,4,"rewrite: `uri query` replace operation (#6165)
+
+* Implemented query replace oeration
+
+* Modified replace operation to use regexes in caddyfile
+
+* Added more tests to uri query operations"
+141872ed80d6323505e7543628c259fdae8506d3,False,1,50,422,52,8.44,625,244,-381,0.0,0.0,0.0,94990,14998,3737,200,"chore: Bump up to Go 1.19, minimum 1.18 (#4925)"
+b0d5c2c8ae076393e7a3ad59ce875027f4c29304,False,1,4,235,179,58.75,71,466,395,0.07563025210084033,0.6428571428571429,0.9117647058823529,7323,1202,344,11,"headers: Support default header values in Caddyfile with '?' (#3807)
+
+* implement default values for header directive
+
+closes #3804
+
+* remove `set_default` header op and rely on ""require"" handler instead
+
+This has the following advantages over the previous attempt:
+
+- It does not introduce a new operation for headers, but rather nicely
+  extends over an existing feature in the header handler.
+- It removes the need to specify the header as ""deferred"" because it is
+  already implicitely deferred by the use of the require handler. This
+  should be less confusing to the user.
+
+* add integration test for header directive in caddyfile
+
+* bubble up errors when parsing caddyfile header directive
+
+* don't export unnecessarily and don't canonicalize headers unnecessarily
+
+* fix response headers not passed in blocks
+
+* caddyfile: fix clash when using default header in block
+
+Each header is now set in a separate handler so that it doesn't clash
+with other headers set/added/deleted in the same block.
+
+* caddyhttp: New idle_timeout default of 5m
+
+* reverseproxy: fix random hangs on http/2 requests with server push (#3875)
+
+see https://github.com/golang/go/issues/42534
+
+* Refactor and cleanup with improvements
+
+* More specific link
+
+Co-authored-by: Matthew Holt <mholt@users.noreply.github.com>
+Co-authored-by: Денис Телюх <telyukh.denis@gmail.com>"
+2f684e42d5b8b78fe688b2f7e31d54d2333c0701,False,1,2,143,98,71.5,36,107,71,0.14814814814814814,0.14814814814814814,0.8518518518518519,3382,544,163,6,"reverse_proxy/headers: Expose header replacement ability in Caddyfile
+
+Adds header_up and header_down subdirectives to reverse_proxy"
+cc0c0cf03e3ebdd1377aaa0b8ad6c0b39e880955,False,1,2,65,57,32.5,5,352,347,0.5330396475770925,0.973568281938326,0.9955947136563876,5370,846,146,2,"caddyhttp: Security enhancements for client IP parsing (#5805)
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>"
+4ebf100f099021bbec7eaa5284fe18f5f72feeb4,False,1,1,16,16,16.0,0,16,16,0.75,0.75,1.0,1742,293,64,3,"encode: ignore flushing until after first write (#4318)
+
+* encode: ignore flushing until after first write (fix #4314)
+
+The first write will determine if encoding has to be done and will add an Content-Encoding. Until then Flushing has to be delayed so the Content-Encoding header can be added before headers and status code is written. (A passthrough flush would write header and status code)
+
+* Update modules/caddyhttp/encode/encode.go
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+19139307833fcb36d8af612dfc982b49032f259e,False,1,1,4,4,4.0,2,2,0,,,,1775,291,72,2,encode: Fix infinite recursion (#5672)
+b3f0cea2c31f6137cd1604ba31afffdbfc8b70ee,False,1,1,14,14,14.0,0,14,14,1.0,1.0,1.0,1758,289,71,1,encode: flush status code when hijacked. (#5419)
+cd486c25d168caf58f4b6fe5d3252df9432901ec,False,1,11,248,60,22.545454545454547,94,166,72,0.0,0.0,1.0,20554,3210,731,23,"caddyhttp: Make use of `http.ResponseController` (#5654)
+
+* caddyhttp: Make use of http.ResponseController
+
+Also syncs the reverseproxy implementation with stdlib's which now uses ResponseController as well https://github.com/golang/go/commit/2449bbb5e614954ce9e99c8a481ea2ee73d72d61
+
+* Enable full-duplex for HTTP/1.1
+
+* Appease linter
+
+* Add warning for builds with Go 1.20, so it's less surprising to users
+
+* Improved godoc for EnableFullDuplex, copied text from stdlib
+
+* Only wrap in encode if not already wrapped"
+e12c62e60b3f794630aed2fae37c4c6973e63bf4,False,1,1,48,48,48.0,8,40,32,0.3888888888888889,0.3888888888888889,0.16666666666666666,1408,216,56,3,file_server: Enforce URL canonicalization (closes #2741)
+e7a5a3850f09d26ddb035a8da4d233efc6a81581,False,1,1,6,6,6.0,1,5,4,0.0,0.0,1.0,2104,345,79,1,cmd: add ability to read config from stdin (#3898)
+5a0603ed72cead424a34b3bc5af3a5b1629ac187,False,1,5,118,43,23.6,24,94,70,0.0,0.0784313725490196,1.0,10218,1794,365,7,"Config auto-save; run --resume flag; update environ output (close #2903)
+
+Config auto-saving is on by default and can be disabled. The --environ
+flag (or environ subcommand) now print more useful information from
+Caddy and the runtime, including some nifty paths."
+5ebb7d496da765fd0263161cd306ecf86b609485,False,1,1,23,23,23.0,7,16,9,0.3333333333333333,0.3333333333333333,0.0,1837,277,71,3,cmd: Reduce spammy logs from --watch
+6e2fabb2a46812dee42842c13439e1a0238aa40b,False,1,3,124,92,41.333333333333336,14,110,96,0.2753623188405797,0.3333333333333333,1.0,5499,980,190,9,"cmd: Add --watch flag to start & run commands (closes #1806)
+
+Because, just for fun."
+258bc82b69ccb0f514fc62ec8ecd7273458ab2e4,False,1,4,204,65,51.0,126,123,-3,1.0,1.0,0.0,6615,1177,235,10,"cmd: Migrate to `spf13/cobra`, remove single-dash arg support (#4565)
+
+* cmd: migrate to spf13/cobra
+
+* add `manpage` command
+
+* limit Caddy tagline to root `help` only
+
+* hard-code the manpage section to 8"
+0a14f97e4944a1aadc5fa9e6e8569759a9f0b5ec,False,1,1,108,108,108.0,26,82,56,1.0,1.0,1.0,2065,332,96,11,"caddytls: Make peer certificate verification pluggable (#4389)
+
+* caddytls: Adding ClientCertValidator for custom client cert validations
+
+* caddytls: Cleanups for ClientCertValidator changes
+
+caddytls: Cleanups for ClientCertValidator changes
+
+* Update modules/caddytls/connpolicy.go
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>
+
+* Update modules/caddytls/connpolicy.go
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>
+
+* Update modules/caddytls/connpolicy.go
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>
+
+* Update modules/caddytls/connpolicy.go
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>
+
+* Update modules/caddytls/connpolicy.go
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+
+* Update modules/caddytls/connpolicy.go
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+
+* Unexported field Validators, corrected renaming of LeafVerificationValidator to LeafCertClientAuth
+
+* admin: Write proper status on invalid requests (#4569) (fix #4561)
+
+* Apply suggestions from code review
+
+* Register module; fix compilation
+
+* Add log for deprecation notice
+
+Co-authored-by: Roettges Florian <roettges.florian@scheidt-bachmann.de>
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+Co-authored-by: Alok Naushad <alokme123@gmail.com>"
+48598e1f2a370c2440b38f0b77e4d74748111b9a,False,1,1,184,184,184.0,39,237,198,0.040697674418604654,0.13372093023255813,1.0,3294,566,152,12,"reverseproxy: Add `fallback` for some policies, instead of always random (#5488)"
+7c48b5fdbbd1e4a71023328fdb33c48f3346046d,False,1,1,4,4,4.0,1,3,2,,,,774,221,66,1,caddyfile: Switch to slices.Equal for better performance (#6061)
+c0273f1f049aa66e4426023d8e43d68fbdbccbb6,False,1,2,76,74,38.0,1,145,144,0.0,0.5303030303030303,1.0,2041,464,140,2,caddyfile: Add heredoc support to `fmt` command (#6056)
+e1aa862e6a951d4dc9c0e89b6d42f7fea1c5aba7,False,1,3,99,77,33.0,4,549,545,0.2548262548262548,0.3166023166023166,1.0,2034,356,66,8,"acmeserver: support specifying the allowed challenge types (#5794)
+
+* acmeserver: support specifying the allowed challenge types
+
+* add caddyfile adapt tests
+
+* introduce basic acme_server test
+
+* skip acme test on unsuitable environments
+
+* skip integration tests of ACME
+
+* documentation
+
+* add negative-scenario test for mismatched allowed challenges
+
+* a bit more docs
+
+* fix tests for ACME challenges
+
+* appease the linter
+
+* skip ACME tests on s390x
+
+* enable ACME challenge tests on all machines
+
+* Apply suggestions from code review
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+
+---------
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+b82db994f39c6991d673a7ae9836f5454b1f9668,False,1,1,5,5,5.0,0,9,9,0.0,0.0,1.0,2416,408,117,1,"caddyfile: Add parse error on site address with trailing `{` (#4163)
+
+* caddyfile: Add parse error on site address in `{`
+
+This is an incredibly common mistake made by users, so we should catch it earlier in the parser and give a more friendly message. Often it ends up adapting but with mistakes, or erroring out later due to other site addresses being read as directives.
+
+There's not really ever a situation where a lone '{' is valid at the end of a site address (but I suppose there are edgecases where the user wants to use a path matcher where it ends specifically in `{`, but... why?), so this should be fine.
+
+* Update caddyconfig/caddyfile/parse.go"
+7c419d5349837b50c9d87be88fc438f8c4e475b9,False,1,2,89,86,44.5,120,124,4,0.0,1.0,1.0,2337,401,115,9,"caddyfile: Preprocess env vars in {$THIS} format (#2963)
+
+* transform a caddyfile with environment variables
+
+* support adapt time and runtime variables in the caddyfile
+
+* caddyfile: Pre-process environment variables before parsing
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+d74913f871414ddac9a3884fc6aef4492ee4f65f,False,1,1,7,7,7.0,0,7,7,0.0,0.0,1.0,2436,411,118,1,"caddyfile: Error on invalid site addresses containing comma (#4302)
+
+Some users forget to use a comma between their site addresses. This is invalid (commas aren't a valid character in domains) and later parts of the code like certificate automation will try to use this otherwise, which doesn't make sense. Best to error as early as possible.
+
+Example thread on the forums where this happened: https://caddy.community/t/simplify-caddyfile/13281/9"
+aad9f90cad23d709075073fd59214a51249de386,False,1,2,50,48,25.0,31,39,8,0.0,0.0,1.0,5217,799,215,6,"httpcaddyfile: Fix address parsing; don't infer port at parse-time
+
+Before, listener ports could be wrong because ParseAddress doesn't know
+about the user-configured HTTP/HTTPS ports, instead hard-coding port 80
+or 443, which could be wrong if the user changed them to something else.
+Now we defer port and scheme validation/inference to a later part of
+building the output JSON."
+cc8fb488d360f609d7e3aae773ec80c661505367,False,1,1,3,3,3.0,0,12,12,0.0,0.75,1.0,5991,834,249,1,httpcaddyfile: Improve error on matcher declared outside site block (#3431)
+c9980fd3671d873a7197a5ac4d6ac9d6b046abb6,False,1,43,2239,369,52.06976744186046,1073,1480,407,0.9301310043668122,1.0,1.0,30467,5152,1231,203,"Refactor Caddyfile adapter and module registration
+
+Use piles from which to draw config values.
+
+Module values can return their name, so now we can do two-way mapping
+from value to name and name to value; whereas before we could only map
+name to value. This was problematic with the Caddyfile adapter since
+it receives values and needs to know the name to put in the config."
+1e18afb5c862d62be130d563785de5c58f08ae8e,False,1,3,108,64,36.0,45,99,54,0.09090909090909091,0.09090909090909091,0.6363636363636364,10842,1614,452,5,"httpcaddyfile: Detect ambiguous site definitions (fix #4635)
+
+Previously, our ""duplicate key in server block"" logic was flawed because
+it did not account for the site's bind address. We defer this check to
+when the listener addresses have been assigned, but before we commit
+a server block to its listener.
+
+Also refined how network address parsing and joining works, which was
+necessary for a less convoluted fix."
+1c190b001b95e57d21dc63c01ae3c6de2a3fec57,False,1,4,256,176,64.0,101,155,54,0.5227272727272727,0.11363636363636363,1.0,10421,1540,442,10,"httpcaddyfile: Refactor site key parsing; detect conflicting schemes
+
+We now store the parsed site/server block keys with the server block,
+rather than parsing the addresses every time we read them.
+
+Also detect conflicting schemes, i.e. TLS and non-TLS cannot be served
+from the same server (natively -- modules could be built for it).
+
+Also do not add site subroutes (subroutes generated specifically from
+site blocks in the Caddyfile) that are empty."
+710824c3ce9f8084517e8ab099d57f9060f62061,False,1,1,40,40,40.0,23,17,-6,0.0,0.0,0.0,3436,531,136,4,"core: Embed net.UDPConn to gain optimizations (#5606)
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+99d47050e97a8ccac2aad3bda46be46d4fec85ed,False,1,3,47,36,15.666666666666666,13,36,23,1.0,1.0,0.0,3716,551,131,2,"core: Eliminate unnecessary shutdown delay on Unix (#5413)
+
+* core: Eliminate unnecessary shutdown delay on Unix
+
+Fix #5393, alternate to #5405
+
+* Comments, cleanup, adjust logs
+
+* Fix build constraint"
+119e8794bcbda80ca337c1bb6164718e1490cc4f,False,1,1,15,15,15.0,4,11,7,0.0,0.0,0.0,3507,541,140,1,"core: Skip `chmod` for abstract unix sockets (#5596)
+
+because those aren't real paths on the filesystem and thus can't be `chmod`ed"
+64a3218f5c7ba98a51c76065ed32ae860351e779,False,1,2,314,305,157.0,168,146,-22,0.9197530864197531,0.6851851851851852,0.9259259259259259,2287,393,83,11,"core: Simplify shared listeners, fix deadline bug
+
+When this listener code was first written, UsagePool didn't exist. We
+can simplify much of the wrapped listener logic by utilizing UsagePool.
+
+This also fixes a bug where new servers were able to clear deadlines
+set by old servers, even if the old server didn't get booted out of its
+Accept() call yet. And with the deadline cleared, they never would.
+(Sometimes. Based on reports and difficulty of reproducing the bug,
+this behavior was extremely rare.) I don't know why that happened
+exactly, maybe some polling mechanism in the kernel and if the timings
+worked out just wrong it would expose the bug.
+
+Anyway, now we ensure that only the closer that set the deadline is the
+same one that clears it, ensuring that old servers always return out of
+Accept(), because the deadline doesn't get cleared until they do.
+
+Of course, all this hinges on the hope that my suspicions in the middle
+of the night are correct and that kernels work the way I think they do
+in my head.
+
+Also minor enhancement to UsagePool where if a value errors upon
+construction (a very real possibility with listeners), it is removed from
+the pool. Not 100% sure the sync logic is correct there, or maybe we
+don't have to even put it in the pool until after construction, but it's
+subtle either way and I think this is safe... right?"
+9563666bfb93f1708b044c7b1e5d0aa91afd029a,False,1,2,27,18,13.5,13,14,1,1.0,1.0,0.75,3883,607,150,2,"Fix compile on Windows, hopefully"
+22927e278dc29c9d1804c20f483510ec569f23ed,False,1,1,64,64,64.0,3,156,153,0.12605042016806722,0.12605042016806722,0.8403361344537815,3484,535,138,3,"core: Add optional unix socket file permissions (#4741)
+
+* core: Add optional unix socket file permissions
+
+This commit also changes the default unix socket file permissions to `u=w,g=,o=` (octal: `0200`).
+It used to default to the shell's umask (usually `u=rwx,g=rx,o=rx`, octal: `0755`).
+
+`/run/caddy.sock` -> `/run/caddy.sock` with `0200` default perms
+`/run/caddy.sock|0222` -> `/run/caddy.sock` with `0222` perms
+
+`|` instead of `:` is used as a separator, to account for the `:` in Windows drive letters (e.g. `C:\absolute\path.sock`)
+
+Fun fact:
+The old unix(7) man page (pre Jun 2016) stated a socket needs both read and write perms.
+Turns out, only write perms are needed.
+Corrected in https://github.com/mkerrisk/man-pages/commit/7578ea2f85b272363d22680d69e7d32f0b59c83b
+Despite this, most implementations still default to read+write to this date.
+
+* Add cases with Windows paths to test
+
+* Require write perms for the owning user"
+7c82e265da8f90c1a1fee52c57af94587276ac56,False,1,3,196,174,65.33333333333333,70,126,56,0.8666666666666667,1.0,0.6888888888888889,9840,1484,299,15,"core: quic listener will manage the underlying socket by itself (#5749)
+
+* core: quic listener will manage the underlying socket by itself.
+
+* format code
+
+* rename sharedQUICTLSConfig to sharedQUICState, and it will now manage the number of active requests
+
+* add comment
+
+* strict unwrap type
+
+* fix unwrap
+
+* remove comment"
+ec3ac840cf09ec43b9130b41a46c07827b2ff0b6,False,1,1,27,27,27.0,0,27,27,,,,1821,297,12,0,"caddy: Support SetReadBuffer and SyscallConn for QUIC (fix #3998)
+
+Supersedes #3999"
+d3c3fa10bd72029720969cff0c29e2b79a1b2cdf,False,1,6,372,172,62.0,138,234,96,0.49074074074074076,0.0,0.6851851851851852,9071,1428,324,20,"core: Refactor listeners; use SO_REUSEPORT on Unix (#4705)
+
+* core: Refactor listeners; use SO_REUSEPORT on Unix
+
+Just an experiment for now
+
+* Fix lint by logging error
+
+* TCP Keepalive configuration (#4865)
+
+* initial attempt at TCP Keepalive configuration
+
+* core: implement tcp-keepalive for linux
+
+* move canSetKeepAlive interface
+
+* Godoc for keepalive server parameter
+
+* handle return values
+
+* log keepalive errors
+
+* Clean up after bad merge
+
+* Merge in pluggable network types
+
+From 1edc1a45e3aee1f7d86b68c3ddaf2fd16ba8ab73
+
+* Slight refactor, fix from recent merge conflict
+
+Co-authored-by: Karmanyaah Malhotra <karmanyaah.gh@malhotra.cc>"
+6cdcc2a78208b1d30b37fb06780160fcad48aab4,False,1,3,13,5,4.333333333333333,17,22,5,0.25,0.25,1.0,3435,534,60,3,"ci: Update to Go 1.21 (#5719)
+
+* ci: Update to Go 1.21
+
+* Bump quic-go to v0.37.4
+
+* Check EnableFullDuplex err
+
+* Linter bug suppression
+
+See https://github.com/timakin/bodyclose/issues/52
+
+---------
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>"
+7ee3ab7baa2165990d3fd358878d818154f7ee86,False,1,1,243,243,243.0,167,312,145,0.01652892561983471,0.7272727272727273,1.0,517,153,45,5,caddyfile: Formatter enhancements
+960150bb034dc9a549ee7289b1a4eb4abafeb30a,False,1,5,345,226,69.0,135,397,262,0.055900621118012424,0.0,1.0,8614,1417,332,17,caddyfile: Implement heredoc support (#5385)
+6e4c688ea7b9354fabad07c6bc5d7afa9c446691,False,1,1,36,36,36.0,14,22,8,1.0,1.0,0.0,2572,437,112,4,logging: Only colorize console output
+ae86f6dd91b471067082a48d14d94b868e07474c,False,1,1,29,29,29.0,11,18,7,1.0,1.0,1.0,2541,430,116,2,Use JSON format for logs if not interactive terminal
+6e4132eb89ccf399c97c9439f6f9ff9fcac21956,False,1,1,3,3,3.0,1,2,1,0.0,0.0,1.0,2570,438,112,1,logging: Colorize output in all cases of stdout/stderr
+1c8ea0082822fbc13cb6b86443b908f6a068f385,False,1,2,16,12,8.0,8,12,4,,,,3097,542,126,3,"go.mod: Migrate to golang.org/x/term (#4073)
+
+golang.org/x/crypto/ssh/terminal is deprecated in favor of golang.org/x/term
+
+See https://github.com/caddyserver/caddy/pull/4073/checks?check_run_id=2152150495
+Error: SA1019: package golang.org/x/crypto/ssh/terminal is deprecated: this package moved to golang.org/x/term.  (staticcheck)
+
+See https://github.com/caddyserver/caddy/pull/4073/checks?check_run_id=2152228516
+Error: SA1019: package golang.org/x/crypto/ssh/terminal is deprecated: this package moved to golang.org/x/term.  (staticcheck)
+
+Test: go test -count=1 './...'"
+3c90e370a49cafe7f58c7195187822ddc86ced4a,False,1,64,1944,257,30.375,627,1359,732,0.6952380952380952,0.3142857142857143,0.7714285714285715,64928,10798,2518,187,"v2: Module documentation; refactor LoadModule(); new caddy struct tags (#2924)
+
+This commit goes a long way toward making automated documentation of
+Caddy config and Caddy modules possible. It's a broad, sweeping change,
+but mostly internal. It allows us to automatically generate docs for all
+Caddy modules (including future third-party ones) and make them viewable
+on a web page; it also doubles as godoc comments.
+
+As such, this commit makes significant progress in migrating the docs
+from our temporary wiki page toward our new website which is still under
+construction.
+
+With this change, all host modules will use ctx.LoadModule() and pass in
+both the struct pointer and the field name as a string. This allows the
+reflect package to read the struct tag from that field so that it can
+get the necessary information like the module namespace and the inline
+key.
+
+This has the nice side-effect of unifying the code and documentation. It
+also simplifies module loading, and handles several variations on field
+types for raw module fields (i.e. variations on json.RawMessage, such as
+arrays and maps).
+
+I also renamed ModuleInfo.Name -> ModuleInfo.ID, to make it clear that
+the ID is the ""full name"" which includes both the module namespace and
+the name. This clarity is helpful when describing module hierarchy.
+
+As of this change, Caddy modules are no longer an experimental design.
+I think the architecture is good enough to go forward."
+309c1fec622c08bdc68a43de64fc0777f590d309,False,1,2,165,88,82.5,9,225,216,0.14705882352941177,0.11764705882352941,1.0,2469,384,105,6,"logging: Implement Caddyfile support for filter encoder (#3578)
+
+* logging: Implement Caddyfile support for filter encoder
+
+* logging: Add support for parsing IP masks from strings
+
+
+wip
+
+* logging: Implement Caddyfile support for ip_mask
+
+* logging: Get rid of unnecessary logic to allow strings, not that useful
+
+* logging: Add adapt test"
+b00dfd3965f400956c5bb5b388e9d54ef98052e5,False,1,31,2407,610,77.64516129032258,201,2234,2033,0.45429864253393665,0.5918552036199095,0.9248868778280543,29411,4982,1121,173,"v2: Logging! (#2831)
+
+* logging: Initial implementation
+
+* logging: More encoder formats, better defaults
+
+* logging: Fix repetition bug with FilterEncoder; add more presets
+
+* logging: DiscardWriter; delete or no-op logs that discard their output
+
+* logging: Add http.handlers.log module; enhance Replacer methods
+
+The Replacer interface has new methods to customize how to handle empty
+or unrecognized placeholders. Closes #2815.
+
+* logging: Overhaul HTTP logging, fix bugs, improve filtering, etc.
+
+* logging: General cleanup, begin transitioning to using new loggers
+
+* Fixes after merge conflict"
+3af15c0725605162dc8dad0c6ab241e2dc4553c6,False,1,1,13,13,13.0,12,9,-3,1.0,1.0,0.0,4011,642,178,2,"caddyhttp: Empty, not nil, query matcher matches empty query string"
+8b7d6a9ee8b7f62142df3516a9d9b96031be33fd,False,1,1,20,20,20.0,5,137,132,0.0,0.8712871287128713,1.0,3619,589,161,2,"v2: fixes query matcher parsing (#2901)
+
+* fixes query matcher parsing
+
+* return correct argument error when parsing query matcher"
+ddd690de4cc133bc728f765b2492ccb54f9d84ca,False,1,1,3,3,3.0,0,20,20,0.0,0.85,1.0,4052,645,178,1,caddyhttp: Support placeholders in query matcher (#3521)
+6621406fa8b44826477ba7cbe2ff6c5462048f8e,False,1,9,479,179,53.22222222222222,25,454,429,0.5869565217391305,0.6782608695652174,0.9652173913043478,3471,614,130,33,Very basic middleware and route matching functionality
+d9aded016cc2e1ba5d70bf953030be70d2c15681,False,1,1,5,5,5.0,0,47,47,0.0,0.0,1.0,1263,244,73,1,caddyfile: Allow heredoc blank lines (#6051)
+b44a22a9d45443aa736a04495dfe716b62b58adc,False,1,2,293,155,146.5,94,199,105,0.0,0.0,1.0,1212,217,53,10,"Performance improvements to Replacer implementation (placeholders) (#2674)
+
+Closes #2673"
+36a6c7daf0f45353efe860e254aa148b7574b04e,False,1,1,15,15,15.0,1,127,126,0.04201680672268908,0.9327731092436975,0.9327731092436975,927,143,39,1,"Rework Replacer loop to handle escaped braces (#3121)
+
+Fixes #3116
+
+* Rework Replacer loop to ignore escaped braces
+
+* Add benchmark tests for replacer
+
+* Optimise handling of escaped braces
+
+* Handle escaped closing braces
+
+* Remove additional check for closing brace
+
+This commit removes the additional check for input in which the closing
+brace appears before the opening brace. This check has been removed for
+performance reasons as it is deemed an unlikely edge case.
+
+* Check for escaped closing braces in placeholder name"
+22995e5655b3d5117743d98bf5c7ba8ed335a2c5,False,1,5,1050,403,210.0,207,843,636,0.2692307692307692,0.43162393162393164,0.41025641025641024,5350,1251,205,33,Implement most of browse; fix a couple obvious bugs; some cleanup
+64f8b557b1b1d4ca869ee7e0cba91f09e86883ef,False,1,1,1,1,1.0,29,70,41,0.21212121212121213,0.9696969696969697,1.0,1865,311,65,1,fileserver: Fix compression breaks using httpInclude (#4352) (#4358)
+3ba9e143a2fbfd6f8c882d5fae51f43099c0ad66,False,1,1,11,11,11.0,2,9,7,0.0,0.0,1.0,572,108,23,1,cli: Fix run and start when no config file is available
+6706c9225a8dcb976785bdf2c35eb151d54ac18c,False,1,8,599,413,74.875,13,1006,993,0.3092621664050236,0.8320251177394035,0.957613814756672,7357,1238,281,43,Implement templates handler; various minor cleanups and bug fixes
+aac1ccf12d0076ce7ae2b67ed9cbdf55dc99e14e,False,1,1,21,21,21.0,1,24,23,1.0,1.0,1.0,2475,456,111,1,"caddy: Add InstanceID() method
+
+Caddy can now generate and persist its own instance ID, a UUID that is stored in
+the data directory.
+
+This makes it possible to differentiate it from other instances in a cluster."
+c4472363579e26485fdfc01f4fd79b86d44acd86,False,1,2,277,272,138.5,2,458,456,0.3127413127413127,0.7644787644787645,0.6061776061776062,6541,982,229,15,"caddyhttp: Fix default SNI for default conn policy (#3141)
+
+* add integration tests
+
+* removed SNI test
+
+* remove integration test condition
+
+* minor edit
+
+* fix sni when using static certificates
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+ec14ccdd4075e46dd0235cc99ecfd92ed131c10a,False,1,2,31,30,15.5,12,109,97,0.25301204819277107,0.03614457831325301,1.0,1918,322,67,4,templates: fix inconsistent nested includes (#4452)
+1dfb11486eacc32af1003242023ddc4544823a31,False,1,2,71,63,35.5,8,215,207,0.0,0.0,1.0,4525,753,202,3,"httpcaddyfile: Add client_auth options to tls directive (#3335)
+
+* reading client certificate config from Caddyfile
+
+Signed-off-by: NWHirschfeld <Niclas@NWHirschfeld.de>
+
+* Update caddyconfig/httpcaddyfile/builtins.go
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>
+
+* added adapt test for parsing client certificate configuration from Caddyfile
+
+Signed-off-by: NWHirschfeld <Niclas@NWHirschfeld.de>
+
+* read client ca and leaf certificates from file https://github.com/caddyserver/caddy/pull/3335#discussion_r421633844
+
+Signed-off-by: NWHirschfeld <Niclas@NWHirschfeld.de>
+
+* Update modules/caddytls/connpolicy.go
+
+* Make review adjustments
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+569ecdbd02a3bdf8589f785cca022240973dea4d,False,1,1,13,13,13.0,3,85,82,0.0,0.0,0.0,6895,974,296,1,"httpcaddyfile: Ensure hosts to skip for logs can always be collected (#4258)
+
+* httpcaddyfile: ensure hosts to skip can always be collected
+
+Previously, some hosts that should be skipped in logging would
+be missed as the current logic would only collect them after
+encountering the first server that would log. This change makes sure
+the ServerLogConfig is initialized before iterating over the server
+blocks.
+
+* httpcaddyfile: add test case for skip hosts behavior"
+7ca5921a87c819f9848ccd7ec786aab0f896be72,False,1,3,117,39,39.0,94,74,-20,0.0,0.0,0.0,1342,223,25,10,"move common metrics-related funcs to internal package
+
+Signed-off-by: Dave Henderson <dhenderson@gmail.com>"
+8ec51bbede59e1fa6ac24de3607f6e7bb3e3a654,False,1,9,452,195,50.22222222222222,33,518,485,0.5298245614035088,0.9964912280701754,0.7929824561403509,9847,1616,346,36,"metrics: Initial integration of Prometheus metrics (#3709)
+
+Signed-off-by: Dave Henderson <dhenderson@gmail.com>"
+d16ede358a2ec049bda28bf37e79c9cfcaa64c29,False,1,4,64,52,16.0,41,62,21,1.0,0.9,1.0,5416,867,187,8,"metrics: Fix hidden panic while observing with bad exemplars (#3733)
+
+* metrics: Fixing panic while observing with bad exemplars
+
+Signed-off-by: Dave Henderson <dhenderson@gmail.com>
+
+* Minor cleanup
+
+The server is already added to the context. So, we can simply use that
+to get the server name, which is a field on the server.
+
+* Add integration test for auto HTTP->HTTPS redirects
+
+A test like this would have caught the problem in the first place
+
+Co-authored-by: Matthew Holt <mholt@users.noreply.github.com>"
+b1d456d8abf15616afb6c6893af90473b4941365,False,1,1,10,10,10.0,1,27,26,0.15789473684210525,0.0,0.6842105263157895,891,147,18,1,"metrics: Fix panic when headers aren't written (#3737)
+
+Signed-off-by: Dave Henderson <dhenderson@gmail.com>"
+881b826fb59a25102fd14ae3b420639479f2d6bf,False,1,2,68,40,34.0,48,20,-28,0.0,0.2857142857142857,0.14285714285714285,4014,627,159,4,reverseproxy: Pool copy buffers (minor optimization)
+58ab3a01a0d4b5f9e8bff56f623ceb906ff603b9,False,1,1,17,17,17.0,3,14,11,1.0,1.0,1.0,494,100,17,2,caddyhttp: Use LimitedReader for HTTPRedirectListener
+80d7a356b3443e0a994e5d6abfa6082ba3d5e6e7,False,1,2,119,114,59.5,0,119,119,0.44642857142857145,0.9821428571428571,1.0,2073,348,73,5,"caddyhttp: Redirect HTTP requests on the HTTPS port to https:// (#4313)
+
+* caddyhttp: Redirect HTTP requests on the HTTPS port to https://
+
+* Apply suggestions from code review
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+c8559c448537969376623be9d352949b59907b0e,False,1,1,21,21,21.0,1,20,19,0.0,0.0,1.0,3425,529,58,1,"caddyhttp: Use sync.Pool to reduce lengthReader allocations (#5848)
+
+* Use sync.Pool to reduce lengthReader allocations
+
+Signed-off-by: Harish Shan <140232061+perhapsmaple@users.noreply.github.com>
+
+* Add defer putLengthReader to prevent leak
+
+Signed-off-by: Harish Shan <140232061+perhapsmaple@users.noreply.github.com>
+
+* Cleanup in putLengthReader
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>
+
+---------
+
+Signed-off-by: Harish Shan <140232061+perhapsmaple@users.noreply.github.com>
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>"
+5c51c1db2ce450a3fa003834097ad010b3844673,False,1,2,118,76,59.0,29,342,313,0.0,0.0,0.8333333333333334,12529,1916,548,4,"httpcaddyfile: Allow `hostnames` & logger name overrides for log directive (#5643)
+
+* httpcaddyfile: Allow `hostnames` override for log directive
+
+* Implement access logger name overrides
+
+* Fix panic & default logger clobbering edgecase"
+5d97522d18da39cd3f9dd309774a5ad2c51f4c51,False,1,6,440,155,73.33333333333333,21,428,407,0.2062937062937063,0.22377622377622378,0.9545454545454546,10859,1772,451,23,"v2: 'log' directive for Caddyfile, and debug mode (#3052)
+
+* httpcaddyfile: Begin implementing log directive, and debug mode
+
+For now, debug mode just sets the log level for all logs to DEBUG
+(unless a level is specified explicitly).
+
+* httpcaddyfile: Finish 'log' directive
+
+Also rename StringEncoder -> SingleFieldEncoder
+
+* Fix minor bug in replacer (when vals are empty)"
+63afffc2e317579a5bc618d5441ac238127114a0,False,1,1,23,23,23.0,7,96,89,0.0,0.0,0.0,6390,897,266,1,httpcaddyfile: Proper log config with catch-all blocks (fix #3878)
+29452647d803aa1259b4430b52349ce7ac1495a4,False,1,2,24,22,12.0,8,16,8,,,,6066,905,155,2,"caddyhttp: Fix h3 shutdown (#5541)
+
+* swap h3server close and listener close, avoid quic-listener not closing
+
+* fix typo"
+808b05c3b47dc82d7e13fccee00a67c45a072a23,False,1,1,84,84,84.0,5,79,74,0.9761904761904762,1.0,0.9761904761904762,3360,523,133,4,"caddyhttp: Update quic's TLS configs after reload (#5517) (fix #4849)
+
+* fix http3 outdated certificates after config reload
+
+* delegate quic tls GetConfigForClient to another struct.
+
+* change type and method names
+fix lint
+
+---------
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+35f70c98fa1ea13882ee4f0406cd17f5545d0100,False,1,4,1423,799,355.75,682,961,279,0.2548076923076923,0.6346153846153846,0.1201923076923077,7353,1268,270,48,"core: Major refactor of admin endpoint and config handling
+
+Fixed several bugs and made other improvements. All config changes are
+now mediated by the global config state manager. It used to be that
+initial configs given at startup weren't tracked, so you could start
+caddy with --config caddy.json and then do a GET /config/ and it would
+return null. That is fixed, along with several other general flow/API
+enhancements, with more to come."
+b19946f6af75a00bb1f3d094a903224541a70fcd,False,1,1,5,5,5.0,1,4,3,0.0,0.0,1.0,3312,569,154,2,"reverseproxy: Optimize base case for least_conn and random_choose policies (#5487)
+
+When only a single request has the least amount of requests, there's no need to compute a random number, because the modulo of 1 will always be 0 anyways."
+9e6919550be5689628d0020ec14e90ea6f527716,False,1,7,407,233,58.142857142857146,209,198,-11,0.3125,0.0,0.0,6872,1452,187,25,"cmd: Expand cobra support, add short flags (#5379)
+
+* cmd: Expand cobra support
+
+* Convert commands to cobra, add short flags
+
+* Fix version command typo
+
+Co-authored-by: Emily Lange <git@indeednotjames.com>
+
+* Apply suggestions from code review
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+
+---------
+
+Co-authored-by: Emily Lange <git@indeednotjames.com>
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+abad9bc256eea7353b9959d066f5b7ea64990a22,False,1,2,45,41,22.5,18,27,9,0.0,0.0,0.0,4575,768,173,6,cmd: Fix reload with stdin (#4900)
+0006df60264e7fdc55fc1a0962109e8198fa9d71,False,1,3,1018,497,339.3333333333333,347,671,324,0.4375,0.29464285714285715,1.0,3050,589,104,30,"cmd: Refactor subcommands, add help, make them pluggable
+
+* cli: Change command structure, add help subcommand (#328)
+
+* cli: improve subcommand structure
+
+- make help command as normal subcommand
+- add flag usage message for each command
+
+* cmd: Refactor subcommands and command line help; make commands pluggable"
+3592e593990d8ae1ca6aec0f5a6d5a0cfa83cf4c,False,1,1,22,22,22.0,2,20,18,0.0,0.0,1.0,2896,466,111,1,cmd: adapt: Make --config flag optional when Caddyfile exists
+346c33b4d5f313bb2b864415e644ab56c5998e21,False,1,1,10,10,10.0,1,9,8,0.0,0.0,1.0,2941,480,114,1,"cmd: Log warning if --resume and --config used together
+
+There's nothing actually risky/dangerous in this situation, it's mostly
+an attempt to get the user's attention"
+5b36424cf056cc2063c708f0b68ba7cd68d23ac8,False,1,2,178,122,89.0,24,154,130,0.13793103448275862,0.13793103448275862,1.0,2826,538,91,8,"cmd: Add validate subcommand; list-modules --versions; some renaming
+
+Renames --config-adapter flag to --adapter, adapt-config command to
+adapt, --print-env flag to --environ, and --input flag to --config."
+508cf2aa228c42a0d1b9a0dbc4351a876e51b5d9,False,1,1,20,20,20.0,10,10,0,,,,3351,543,140,1,cmd: Create pidfile before config load (close #5477)
+4df56c77e380cdfec5e23862f7faa8bd843022e6,False,1,4,47,23,11.75,9,38,29,1.0,0.35,1.0,9356,1655,342,7,cmd: Add pidfile support (closes #3235)
+b88e2b6a497789307b0a12f9867cf2ac8088d73a,False,1,2,25,17,12.5,6,19,13,0.0,0.0,1.0,4087,753,140,2,"cmd: Allow `caddy fmt` to read from stdin (#3680)
+
+* Allow 'caddy fmt' to read from stdin
+
+* fmt: use '-' as the file name for reading from stdin
+
+* Minor adjustments
+
+Co-authored-by: Matthew Holt <mholt@users.noreply.github.com>"
+e6f6d3a4765565b09f95a29a2e75be34e1d70359,False,1,2,10,6,5.0,1,9,8,0.125,0.5,1.0,5418,948,179,3,"cmd: Add --envfile flag to `start` command (#4141)
+
+* add envfile in start cmd
+
+* fix commandfuncs
+
+* fix commandfuncs
+
+* fix cmdStart envfile from bool to string
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>"
+2c3657bb8a37ce9c644dc1889223e37ca9988148,False,1,2,168,139,84.0,61,107,46,0.047619047619047616,0.047619047619047616,1.0,2942,570,96,4,cmd: CLI improvements; add --validate to adapt command
+bd17eb205d6ac464c64eb888a6f4b57445b6c59c,False,1,35,289,44,8.257142857142858,199,256,57,0.0,0.28,0.96,56105,9113,2106,48,"ci: Use golangci's github action for linting (#3794)
+
+* ci: Use golangci's github action for linting
+
+Signed-off-by: Dave Henderson <dhenderson@gmail.com>
+
+* Fix most of the staticcheck lint errors
+
+Signed-off-by: Dave Henderson <dhenderson@gmail.com>
+
+* Fix the prealloc lint errors
+
+Signed-off-by: Dave Henderson <dhenderson@gmail.com>
+
+* Fix the misspell lint errors
+
+Signed-off-by: Dave Henderson <dhenderson@gmail.com>
+
+* Fix the varcheck lint errors
+
+Signed-off-by: Dave Henderson <dhenderson@gmail.com>
+
+* Fix the errcheck lint errors
+
+Signed-off-by: Dave Henderson <dhenderson@gmail.com>
+
+* Fix the bodyclose lint errors
+
+Signed-off-by: Dave Henderson <dhenderson@gmail.com>
+
+* Fix the deadcode lint errors
+
+Signed-off-by: Dave Henderson <dhenderson@gmail.com>
+
+* Fix the unused lint errors
+
+Signed-off-by: Dave Henderson <dhenderson@gmail.com>
+
+* Fix the gosec lint errors
+
+Signed-off-by: Dave Henderson <dhenderson@gmail.com>
+
+* Fix the gosimple lint errors
+
+Signed-off-by: Dave Henderson <dhenderson@gmail.com>
+
+* Fix the ineffassign lint errors
+
+Signed-off-by: Dave Henderson <dhenderson@gmail.com>
+
+* Fix the staticcheck lint errors
+
+Signed-off-by: Dave Henderson <dhenderson@gmail.com>
+
+* Revert the misspell change, use a neutral English
+
+Signed-off-by: Dave Henderson <dhenderson@gmail.com>
+
+* Remove broken golangci-lint CI job
+
+Signed-off-by: Dave Henderson <dhenderson@gmail.com>
+
+* Re-add errantly-removed weakrand initialization
+
+Signed-off-by: Dave Henderson <dhenderson@gmail.com>
+
+* don't break the loop and return
+
+* Removing extra handling for null rootKey
+
+* unignore RegisterModule/RegisterAdapter
+
+Co-authored-by: Mohammed Al Sahaf <msaa1990@gmail.com>
+
+* single-line log message
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+
+* Fix lint after a1808b0dbf209c615e438a496d257ce5e3acdce2 was merged
+
+Signed-off-by: Dave Henderson <dhenderson@gmail.com>
+
+* Revert ticker change, ignore it instead
+
+Signed-off-by: Dave Henderson <dhenderson@gmail.com>
+
+* Ignore some of the write errors
+
+Signed-off-by: Dave Henderson <dhenderson@gmail.com>
+
+* Remove blank line
+
+Signed-off-by: Dave Henderson <dhenderson@gmail.com>
+
+* Use lifetime
+
+Signed-off-by: Dave Henderson <dhenderson@gmail.com>
+
+* close immediately
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+
+* Preallocate configVals
+
+Signed-off-by: Dave Henderson <dhenderson@gmail.com>
+
+* Update modules/caddytls/distributedstek/distributedstek.go
+
+Co-authored-by: Mohammed Al Sahaf <msaa1990@gmail.com>
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+5ded580444e9258cb35a9c94192d3c1d63e7b74f,False,1,2,47,30,23.5,16,31,15,0.0,1.0,1.0,2516,636,58,4,cmd: Adjust documentation for commands (#5377)
+b32f265ecad60404c3818cc9d42e367a8e4eb7d4,False,1,32,121,16,3.78125,64,60,-4,0.0,0.14285714285714285,0.42857142857142855,83811,13429,3411,54,ci: Use gofumpt to format code (#5707)
+5805b3ca11492c2673180e707a643b24100a9e4a,False,1,2,10,6,5.0,3,7,4,0.0,0.0,1.0,3792,611,155,4,"cmd: `caddy fmt` return code is 1 if not formatted (#5297)
+
+* cmd: Fix caddy fmt if input isn't formatted
+
+* Fixes #5294
+* return exit 1 with an error message
+
+* cmd: Use formattingDifference for caddy fmt
+
+* #5294
+* expose caddyfile.formattingDifference"
+94b8d56096b2581d6739b057655e7b895c8fd3bb,False,1,2,17,9,8.5,2,15,13,0.09090909090909091,0.0,1.0,4876,968,169,3,"cmd: Add `--envfile` flag to `validate` command (#5350)
+
+Fixes https://github.com/caddyserver/caddy/issues/5346"
+d8135505d38ca872d507418d2017f4dbf352f06a,False,1,2,62,57,31.0,19,43,24,0.0,0.0,1.0,5298,842,216,4,"cmd: Require config for caddy validate (fix #5612) (#5614)
+
+* Require config for caddy validate - fixes #5612
+
+Signed-off-by: Pistasj <hi@pistasjis.net>
+
+* Try making adjacent Caddyfile check its own function
+
+Signed-off-by: Pistasj <hi@pistasjis.net>
+
+* add Francis' suggestion
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>
+
+* Refactor
+
+* Fix borked commit, sigh
+
+---------
+
+Signed-off-by: Pistasj <hi@pistasjis.net>
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>
+Co-authored-by: Matthew Holt <mholt@users.noreply.github.com>"
+c48fadc4a7655008d13076c7f757c36368e2ca13,False,1,18,102,15,5.666666666666667,84,71,-13,,,,38375,6337,1542,29,Move from deprecated ioutil to os and io packages (#4364)
+bbad6931e30a2e74b3f53fff797d1115cc9dd491,False,1,9,591,200,65.66666666666667,109,483,374,0.2544642857142857,0.53125,0.90625,18807,3207,687,32,"pki: Implement API endpoints for certs and `caddy trust` (#4443)
+
+* admin: Implement /pki/certificates/<id> API
+
+* pki: Lower ""skip_install_trust"" log level to INFO
+
+See https://github.com/caddyserver/caddy/issues/4058#issuecomment-976132935
+
+It's not necessary to warn about this, because this was an option explicitly configured by the user. Still useful to log, but we don't need to be so loud about it.
+
+* cmd: Export functions needed for PKI app, return API response to caller
+
+* pki: Rewrite `caddy trust` command to use new admin endpoint instead
+
+* pki: Rewrite `caddy untrust` command to support using admin endpoint
+
+* Refactor cmd and pki packages for determining admin API endpoint"
+3a1e0dbf47429f3ae7ddcbbd9acc3707b0ad0083,False,1,5,34,15,6.8,11,23,12,0.0,0.0,0.2222222222222222,20103,3112,911,5,httpcaddyfile: Deprecate paths in site addresses; use zap logs (#4728)
+f2ab7099db6d8386299796e6eef8e30f65b21bcc,False,1,3,90,42,30.0,33,57,24,0.0,0.0,1.0,7204,1323,251,6,"cmd: Prevent overwriting existing env vars with `--envfile` (#5803)
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>"
+62c9f2cf3e86f8aaea7a1583f09adb6b8007cfe6,False,1,3,83,68,27.666666666666668,1,82,81,0.01639344262295082,0.3442622950819672,1.0,6032,1073,212,5,"cmd: Add --envfile flag to run command (#3278)
+
+* run: Add the possibility to load an env file
+
+* run: change envfile flag var
+
+* run: do not ignore err values
+
+* Apply suggestions from code review
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+5fe69ac4ab8bb1da84fc80776548fcc16f89b1db,False,1,3,185,137,61.666666666666664,0,346,346,0.039711191335740074,0.6353790613718412,0.9783393501805054,4210,816,162,4,"cmd: Add `caddy fmt` command. (#3090)
+
+This takes the config file as input and formats it.
+Prints the result to stdout. Can write changes to
+file if `--write` flag is passed.
+
+Fixes #3020
+
+Signed-off-by: Vaibhav <vrongmeal@gmail.com>"
+bc3e44c1a6b16ec5a01c43888fd53264a9f6abad,False,1,1,4,4,4.0,2,2,0,,,,707,192,12,1,"cmd: adapt: Default --adapter value is ""caddyfile"""
+c8557dc00bd93ce8ecf0bb724856a320e129c71b,False,1,5,53,15,10.6,54,40,-14,0.8333333333333334,0.0,0.0,10626,1687,455,5,"caddyfile: Introduce basic linting and fmt check (#3923)
+
+* caddyfile: Introduce basic linting and fmt check
+
+This will help encourage people to keep their Caddyfiles tidy.
+
+* Remove unrelated tests
+
+I am not sure that testing the output of warnings here is quite the
+right idea; these tests are just for syntax and parsing success."
+026df7c5cb33331d223afc6a9599274e8c89dfd9,False,1,13,2947,846,226.69230769230768,888,2741,1853,0.3131868131868132,0.5467032967032966,0.8337912087912088,15296,2586,563,126,reverse_proxy: WIP refactor and support for FastCGI
+be7abda7d498272e360fe6fae18984c309533de3,False,1,2,78,69,39.0,20,58,38,0.6,0.0,0.0,3792,590,155,6,"reverse_proxy: Implement retry_match; by default only retry GET requests
+
+See https://caddy.community/t/http-proxy-and-non-get-retries/6304"
+d6bc9e0b5c748c999e30051bf04d622dbbb0a156,False,1,1,2,2,2.0,1,1,0,,,,4929,749,202,1,reverseproxy: Err 503 if all upstreams unavailable
+e2f913bb7f813ac2f79cd3644066eff3815accd4,False,1,3,92,79,30.666666666666668,45,47,2,0.0,0.0,0.0,5520,867,208,8,"reverseproxy: Minor fixes and cleanup
+
+Now use context cancellation to stop active health checker, which is
+simpler than and just as effective as using a separate stop channel."
+97ed9e111d04718583c8e0cd141a464c993e224a,False,1,3,88,41,29.333333333333332,27,61,34,0.0,0.0,0.5555555555555556,9924,1463,432,4,"httpcaddyfile: Add nil check to prevent panic, fix validation logic
+
+Panic would happen if an automation policy was specified in a singular
+server block that had no hostnames in its address. Definitely an edge
+case.
+
+Fixed a bug related to checking for server blocks with a host-less key
+that tried to make an automation policy. Previously if you had only two
+server blocks like "":443"" and another one at "":80"", the one at "":443""
+could not create a TLS automation policy because it thought it would
+interfere with TLS automation for the block at "":80"", but obviously that
+key doesn't enable TLS because it is on the HTTP port. So now we are a
+little smarter and count only non-HTTP-empty-hostname keys.
+
+Also fixed a bug so that a key like ""https://:1234"" is sure to have TLS
+enabled by giving it a TLS connection policy. (Relaxed conditions
+slightly; the previous conditions were too strict, requiring there to be
+a TLS conn policy already or a default SNI to be non-empty.)
+
+Also clarified a comment thanks to feedback from @Mohammed90"
+538ddb85876001976fa0c76f10b912c0870fe6d7,False,1,2,102,72,51.0,15,87,72,0.28125,0.28125,0.46875,3492,538,142,5,"reverseproxy: Enable response interception (#1447, #2920)
+
+It's a raw, low-level implementation for now, but it's very flexible.
+More sugar-coating can be added after error handling is more developed."
+7a99835dab64f7864186185761bbf5194216f8b6,False,1,3,93,39,31.0,33,60,27,0.0,0.0,0.0,4169,651,166,3,reverseproxy: Enable changing only the status code (close #2920)
+941eae5f615aeaf038f62002e673a7bf4886f1c7,False,1,2,61,36,30.5,5,64,59,0.0,0.0,1.0,9384,1475,446,2,"reverseproxy: allow specifying ip version for dynamic `a` upstream (#5401)
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>"
+8cc8f9fddd2ea717633528322e1bef938bee2415,False,1,1,2,2,2.0,0,2,2,0.0,0.0,1.0,7251,1039,316,1,"httpcaddyfile: Add a couple more placeholder shortcuts (#5015)
+
+This adds:
+- `{file.*}` -> `{http.request.uri.path.file.*}`
+- `{file_match.*}` -> `{http.matchers.file.*}`
+
+This is a follow-up to #4993 which introduces the new URI file placeholders, and a shortcut for using `file` matcher output.
+
+For example, where the `try_files` directive is a shortcut for this:
+
+```
+@try_files file <files...>
+rewrite @try_files {http.matchers.file.relative}
+```
+
+It could instead be:
+```
+@try_files file <files...>
+rewrite @try_files {file_match.relative}
+```"
+58970cae9265931a15be3b143e49a29931832106,False,1,1,1,1,1.0,0,1,1,0.0,0.0,1.0,7125,1011,307,1,httpcaddyfile: Add `{err.*}` placeholder shortcut (#4798)
+ea7e4b4024f34fd53f8b8f7b5effb353b36cf8e8,False,1,1,70,70,70.0,24,92,68,0.0,0.7627118644067796,1.0,5896,818,243,1,"httpcaddyfile: Shorthands for parameterized placeholders (#3305)
+
+* httpcaddyfile: Add shorthands for parameterized placeholders
+
+
+httpcaddyfile: Now with regexp instead
+
+
+httpcaddyfile: Allow dashes, gofmt
+
+
+httpcaddyfile: Compile regexp only once
+
+
+httpcaddyfile: Cleanup struct
+
+
+httpcaddyfile: Optimize the replacers, pull out of the loop
+
+
+httpcaddyfile: Add `{port}` shorthand
+
+* httpcaddyfile: Switch `r.` to `re.`"
+fa334c4bdf1c5e6c0014a36460d329c8d22cafb0,False,1,1,44,44,44.0,21,23,2,0.0,0.0,1.0,2652,375,90,1,Implement some shorthand placeholders for Caddyfile
+68d8ac9802c5e7bf5bf55d1a3c1db634edc93999,False,1,1,5,5,5.0,2,3,1,0.0,0.0,1.0,7141,1020,311,1,httpcaddyfile: Add `{cookie.*}` placeholder shortcut (#5001)
+a8bb4a665af358f61a7ac0eabac8df2110cb6a36,False,1,2,30,29,15.0,7,82,75,0.0,0.0,1.0,9042,1342,389,3,"httpcaddyfile: Add `{vars.*}` placeholder shortcut, reverse `vars` sort order (#4726)
+
+* httpcaddyfile: Add `{vars.*}` placeholder shortcut
+
+I'm yoinking this from my https://github.com/caddyserver/caddy/pull/4657 PR because I think we should get this in ASAP for v2.5.0 along with the new `vars` directive.
+
+* Sort vars by matchers in reverse"
+f7be0ee10131f25620a2f64af7e3ded43eae2049,False,1,2,89,84,44.5,28,61,33,0.6190476190476191,1.0,1.0,7484,1073,323,4,map: Prevent output destinations overlap with Caddyfile shorthands (#4657)
+dd26875ffcbec8b74234bdda64e019a8a20c37e2,False,1,1,2,2,2.0,1,1,0,,,,618,109,24,1,logging: Fix for IP filtering
+789efa5deef53071b57479d37e4022bf372c4eef,False,1,1,57,57,57.0,0,74,74,1.0,1.0,1.0,1932,341,79,6,logging: add a regexp filter (#4426)
+a1b417c832b4ab3dab9eaa9690e1d07672a949b8,False,1,1,80,80,80.0,13,100,87,0.23404255319148937,0.574468085106383,1.0,2184,383,91,11,"logging: add support for hashing data (#4434)
+
+* logging: add support for hashing data
+
+* Update modules/logging/filters.go
+
+Co-authored-by: wiese <wiese@users.noreply.github.com>
+
+* Update modules/logging/filters.go
+
+Co-authored-by: wiese <wiese@users.noreply.github.com>
+
+Co-authored-by: wiese <wiese@users.noreply.github.com>"
+0be3d995439245e8b4069fd3bddcd4b8ef9194d4,False,1,1,38,38,38.0,1,37,36,1.0,1.0,1.0,2360,410,97,5,"logging: Implement rename filter, changes field key names (#4745)"
+68c5c71659109b10226f10873f7dc67102b9dc14,False,1,3,527,306,175.66666666666666,197,330,133,0.4155844155844156,1.0,0.7662337662337663,5968,1055,199,15,"cmd: New `add-package` and `remove-package` commands (#4226)
+
+* adding package command
+
+* add-package command name
+
+* refactoring duplicate code
+
+* fixed by review
+
+* fixed by review
+
+* remove-package command
+
+* commands in different files, common utils
+
+* fix add, remove, upgrade packages in 1 file
+
+* copyright and downloadPath moved
+
+* refactor
+
+* downloadPath do no export
+
+* adding/removing multiple packages
+
+* addPackages/removePackages, comments, command-desc
+
+* add-package, process case len(args) == 0
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>"
+ea58d519078916d4cf273628653e348befbaf6c0,False,1,1,83,83,83.0,24,171,147,0.42016806722689076,0.5126050420168067,1.0,2557,442,106,5,"logging: Perform filtering on arrays of strings (where possible) (#5101)
+
+* logging: Perform filtering on arrays of strings (where possible)
+
+* Add test for ip_mask filter
+
+* Oops, need to continue when it's not an IP
+
+* Test for invalid IPs"
+f5a13a4ab4e1dd1066fa81fb044127ae18c4f001,False,1,1,3,3,3.0,0,3,3,0.0,0.0,1.0,1361,224,67,1,replacer: Add HTTP time format (#5458)
+a3ae146cbdf2cfbdbdf5feea52e8bf407cce2b31,False,1,1,8,8,8.0,0,8,8,0.0,0.0,0.0,2923,384,103,1,"fileserver: Reject non-GET/HEAD requests (close #5166) (#5167)
+
+* fileserver: Reject non-GET/HEAD requests (close #5166)
+
+* Set Allow header according to RFC 9110 10.2.1"
+e338648fed3263200dfd6abc9f8100c6f1c0eb67,False,1,1,40,40,40.0,8,32,24,0.0,0.05263157894736842,1.0,873,176,26,3,"reverseproxy: Support repeated --to flags in command (#4693)
+
+* feat: Multiple 'to' upstreams in reverse-proxy cmd
+
+* Repeat --to for multiple upstreams, rather than comma-separating in a single flag
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+75b690d248c7681dd974f6179c98a363af417a25,False,1,3,83,41,27.666666666666668,15,173,158,0.0,0.0,1.0,9410,1506,460,4,"reverseproxy: Expand port ranges to multiple upstreams in CLI + Caddyfile (#5494)
+
+* reverseproxy: Expand port ranges to multiple upstreams in CLI + Caddyfile
+
+* Add clarifying comment"
+d0556929a4a574ea67be4c1ca2a2741b0f7a52c2,False,1,1,2,2,2.0,1,1,0,,,,933,186,27,1,"reverseproxy: fix upstream scheme handling in command (#5088)
+
+e338648fed3263200dfd6abc9f8100c6f1c0eb67 introduced multiple upstream
+addresses. A comment notes that mixing schemes isn't supported and
+therefore the first valid scheme is supposed to be used.
+
+Fixes setting the first scheme.
+
+fixes #5087"
+536c28d4dc4b048d710bd37903857f0de15ab3c5,False,1,3,29,13,9.666666666666666,18,255,237,0.0,0.0,1.0,3819,600,163,8,"core: Support Windows absolute paths for UDS proxy upstreams (#5114)
+
+* added some tests for parseUpstreamDialAddress
+
+Test 4 fails because it produces ""[[::1]]:80"" instead of ""[::1]:80""
+
+* support absolute windows path in unix reverse proxy address
+
+* make IsUnixNetwork public, support +h2c and reuse it
+* add new tests"
+c83d40ccd43c8692061732974bd02fb388acd425,False,1,1,105,105,105.0,47,58,11,0.0,0.0,1.0,3486,552,145,2,"reverse_proxy, php_fastcgi: Fix upstream parsing regression (fix #3101)"
+d058dee11d7cfcf0b711f0378d10c9e5cabc8982,False,1,4,253,112,63.25,119,134,15,1.0,0.0,0.0,7309,1185,360,7,"reverseproxy: Refactor dial address parsing, augment command parsing (#4616)"
+8bc05e598da0068358a2876c45f92f2c77455341,False,1,3,206,142,68.66666666666667,18,313,295,0.10407239819004525,0.5701357466063348,1.0,4129,693,192,7,"caddyfile: Implement variadics for import args placeholders (#5249)
+
+* implement variadic placeholders
+imported snippets reflect actual lines in file
+
+* add import directive line number for imported snippets
+add tests for parsing
+
+* add realfile field to help debug import cycle detection.
+
+* use file field to reflect import chain
+
+* Switch syntax, deprecate old syntax, refactoring
+
+- Moved the import args handling to a separate file
+- Using {args[0:1]} syntax now
+- Deprecate {args.*} syntax
+- Use a replacer map for better control over the parsing
+- Add plenty of warnings when invalid placeholders are detected
+- Renaming variables, cleanup comments for readability
+- More tests to cover edgecases I could think of
+- Minor cleanup to snippet tracking in tokens, drop a redundant boolean field in tokens
+
+---------
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>"
+c77a6bea66b30ea88cd991671bf67669c80ffcdd,False,1,2,50,35,25.0,14,36,22,1.0,1.0,1.0,2916,462,98,6,"reverseproxy: Log status code and byte count for websockets (#5140)
+
+* log response size for websocket request
+
+* record size when using hijack bufio.Writer"
+2e4c09155a750895a306f8900a6d5f4597db5287,False,1,1,2,2,2.0,1,1,0,,,,3661,587,147,1,"cmd: Fix unix socket addresses for admin API requests (#4742)
+
+Fixes a regression in c2327161f725c820826587381f37d651a2b9736d"
+996af0915dfc597fc6aad82e99578fed58d0f87d,False,1,1,94,94,94.0,33,61,28,0.0,0.0,0.0,3137,510,123,5,cmd: Support admin endpoint on unix socket (#3320)
+f5dce84a7028d1b116db7fead27ff8b2506baf78,False,1,1,27,27,27.0,0,27,27,0.0,0.0,0.0,5174,787,212,1,reverseproxy: Ignore context cancel in stream mode (#4952)
+f783290f40febd3eef2a299911ad95bab4d2b414,False,1,8,360,241,45.0,41,319,278,0.11374407582938388,0.2985781990521327,1.0,17920,2997,626,21,caddyhttp: Implement `caddy respond` command (#4870)
+9cde71552576dcc724eff38dee42879c927b72ec,False,1,4,42,19,10.5,31,15,-16,0.0,0.0,0.0,6962,1122,336,6,"caddyfile: Track import name instead of modifying filename (#5540)
+
+* Merge branch 'master' into import_file_stack
+
+* remove space in log key"
+134b8056444d8f417c0eb4163809f9659ffc3317,False,1,2,65,58,32.5,2,77,75,0.5714285714285714,0.5714285714285714,1.0,4419,723,221,3,"caddyfile: Prevent bad block opening tokens (#4655)
+
+* caddyfile: Prevent bad block opening tokens
+
+* Clarifying comments"
+0830fbad0347ead1dbea60e664556b263e44653f,False,1,8,398,130,49.75,183,237,54,0.0,0.0,0.0,9872,1630,372,31,"Reconcile upstream dial addresses and request host/URL information
+
+My goodness that was complicated
+
+Blessed be request.Context
+
+Sort of"
+22055c5e0f07cf8865c148b8139d221123988aad,False,1,1,2,2,2.0,1,1,0,,,,1431,242,48,1,reverseproxy: Fix https active health checks #3450 (#3451)
+7a4548c5823e85bab0a2e2f40a3ea00f64ce8552,False,1,6,127,59,21.166666666666668,65,68,3,1.0,1.0,1.0,14611,2320,530,11,Some hotfixes for beta 16
+2d056fbe66849f041a233a0d961639fae3835cbb,False,1,16,1396,359,87.25,118,1278,1160,0.4126984126984127,0.5365079365079365,0.9555555555555556,9070,1619,325,63,"Initial commit of Storage, TLS, and automatic HTTPS implementations"
+db4293cb5fce33b467b50ef77698f69a4a066215,False,1,2,23,13,11.5,0,23,23,0.0,0.0,1.0,3309,523,161,1,"reverse_proxy: Add flush_interval to caddyfile syntax (#1460)
+
+Also add godoc for Caddyfile syntax for file_server"
+2a8c458ffedf886af9542541ea1b1de62370929d,False,1,2,6,4,3.0,3,3,0,,,,12346,1924,584,3,reverseproxy: Parse humanized byte size (fix #5095)
+223cbe3d0b50487117c785f0755bb80a9ee65010,False,1,7,131,73,18.714285714285715,23,117,94,0.0,0.0,0.875,28476,4445,1198,8,caddyhttp: Add server-level `trusted_proxies` config (#5103)
+5333c3528bd2badf1676efcced322d151e3706c8,False,1,1,14,14,14.0,9,9,0,1.0,1.0,0.0,5019,797,260,1,"reverseproxy: Fix incorrect `health_headers` Caddyfile parsing (#4485)
+
+Fixes #4481"
+e02117cb8a2b0b6dbd3dbb1de4d1569ff63ca617,False,1,4,107,73,26.75,29,78,49,0.0,1.0,1.0,10962,1742,461,5,"reverse_proxy: Add support for SRV backends (#3180)
+
+* reverse_proxy: Begin SRV lookup support (WIP)
+
+* reverse_proxy: Finish adding support for SRV-based backends (#3179)"
+4a223f52038cb77bbf97ca3f3345550dea4e12d8,False,1,1,33,33,33.0,19,37,18,,,,6371,1007,331,1,reverseproxy: Fix Caddyfile support for `replace_status` (#4754)
+2459c292a4d6fb0552eb9be3cecd955093ed853b,False,1,13,155,75,11.923076923076923,60,97,37,0.0,0.8181818181818182,1.0,11930,2005,542,18,caddyfile: Improve Dispenser.NextBlock() to support nesting
+5b878d5bd36a6628095997c4f32e7df5366621f7,False,1,1,14,14,14.0,5,9,4,0.0,0.0,1.0,2941,457,144,2,reverseproxy: Accept integer values for flush_interval (fix #2996)
+ef6e53bb5f521e4d400849b79bc72e89fe2a7484,False,1,5,61,32,12.2,18,167,149,0.0,0.8095238095238095,1.0,9197,1568,420,6,"core: Add support for `d` duration unit (#3323)
+
+* caddy: Add support for `d` duration unit
+
+* Improvements to ParseDuration; add unit tests
+
+Co-authored-by: Matthew Holt <mholt@users.noreply.github.com>"
+87a1f228b4c48db7bdab694cf0fd1c76243f29f3,False,1,1,79,79,79.0,45,56,11,0.0,0.0,1.0,5108,809,264,2,reverseproxy: Move status replacement intercept to `replace_status` (#4300)
+50e62d06bcbc6b6486b382a22c633772443cfb6d,False,1,3,555,486,185.0,10,545,535,0.06313131313131314,0.06313131313131314,1.0,3994,630,198,6,reverse_proxy: Caddyfile integration (and fix blocks in Dispenser)
+5ef76ff3e6e73282deb59df8b1a14bb966de36be,False,1,3,89,69,29.666666666666668,9,80,71,0.16279069767441862,0.6511627906976745,1.0,9510,1495,438,6,"reverseproxy: Response buffering & configurable buffer size
+
+Proxy response bodies can now be buffered, and the size of the request body and
+response body buffer can be limited. Any remaining content that doesn't fit in the
+buffer will remain on the wire until it can be read; i.e. bodies are not truncated,
+even if the buffer is not big enough.
+
+This fulfills a customer requirement. This was made possible by their sponsorship!"
+260982b2dfc2cbf30c9b6e3a06f54e589344fc41,False,1,1,135,135,135.0,5,130,125,1.0,1.0,0.0,3396,541,143,2,"reverse_proxy: Allow use of URL to specify scheme
+
+This makes it more convenient to configure quick proxies that use HTTPS
+but also introduces a lot of logical complexity. We have to do a lot of
+verification for consistency and errors.
+
+Path and query string is not supported (i.e. no rewriting).
+
+Scheme and port can be inferred from each other if HTTP(S)/80/443.
+If omitted, defaults to HTTP.
+
+Any explicit transport config must be consistent with the upstream
+schemes, and the upstream schemes must all match too.
+
+But, this change allows a config that used to require this:
+
+    reverse_proxy example.com:443 {
+        transport http {
+            tls
+        }
+    }
+
+to be reduced to this:
+
+    reverse_proxy https://example.com
+
+which is really nice syntactic sugar (and is reminiscent of Caddy 1)."
+f0216967dca12831b1aac351fc8c4bfcea148697,False,1,9,227,54,25.22222222222222,139,88,-51,1.0,1.0,0.0,16936,2700,796,13,"caddyfile: Refactor unmarshaling of module tokens
+
+Eliminates a fair amount of repeated code"
+7d1f7771c9961dc6607a6ac5894b9c3195c25fcf,False,1,3,194,103,64.66666666666667,69,189,120,0.30303030303030304,0.36363636363636365,0.6666666666666666,17958,2806,813,8,"reverseproxy: Implement retry count, alternative to try_duration (#4756)
+
+* reverseproxy: Implement retry count, alternative to try_duration
+
+* Add Caddyfile support for `retry_match`
+
+* Refactor to deduplicate matcher parsing logic
+
+* Fix lint"
+c50094fc9d34099efd705700e6d2efa2fa065412,False,1,2,210,187,105.0,23,243,220,0.19607843137254902,0.19607843137254902,1.0,9169,1436,437,6,reverseproxy: Implement trusted proxies for `X-Forwarded-*` headers (#4507)
+4cd7ae35b3ec3d882168cef669974a2c3aab3618,False,1,1,6,6,6.0,0,8,8,0.0,0.0,1.0,3684,590,192,1,reverseproxy: Add `buffer_requests` option to `reverse_proxy` directive (#3710)
+514eef33fe6ea4e52438e62f73c8f3c0aadd45db,False,1,1,24,24,24.0,1,98,97,0.21052631578947367,0.6578947368421053,1.0,1144,172,35,6,caddyhttp: Add support to resolve DN in CEL expression (#3608)
+81ee34e9623c3ac630f46c81a26e7823d0b2bf7b,False,1,2,24,21,12.0,7,150,143,1.0,1.0,1.0,8867,1313,378,3,httpcaddyfile: Fix sorting edgecase for nested `handle_path` (#4477)
+754fe4f7b4dddbfc7a8ee7fee405cee057da858e,False,1,4,69,43,17.25,20,49,29,1.0,1.0,1.0,13023,1967,541,6,"httpcaddyfile: Fix sorting of repeated directives
+
+Fixes #5037"
+79cbe7bfd06565d0e7ab0717119f78960ed54c08,False,1,3,75,66,25.0,7,87,80,0.19047619047619047,0.5952380952380952,0.9523809523809523,6880,1181,295,6,"httpcaddyfile: Add 'vars' directive
+
+See discussion in #4650"
+be53e432fcac0a9b9accbc36885304639e8ca70b,False,1,1,13,13,13.0,1,12,11,0.0,0.0,1.0,2487,399,108,1,caddytls: Relax the warning for on-demand (#5384)
+a7af7c486e5240da974e02b7dfee9d265aaa654a,False,1,1,76,76,76.0,34,42,8,1.0,1.0,1.0,1164,212,34,3,caddytls: Allow on-demand w/o ask for internal-only
+faf67b10670a14c24ce601be703dfb65f07ffa45,False,1,2,26,14,13.0,19,13,-6,1.0,1.0,0.0,2483,433,92,3,"tls: Make the on-demand rate limiter actually work
+
+This required a custom rate limiter implementation in CertMagic"
+1960a0dc117dd30fb507b390ddf93b2ef371b9ad,False,1,7,205,126,29.285714285714285,45,244,199,0.1935483870967742,0.7290322580645161,1.0,18991,2954,729,15,httpserver: Configurable shutdown delay (#4906)
+9bdd6caa0bcced5caf30872548700277f2db1877,False,1,1,69,69,69.0,0,155,155,0.1693548387096774,0.5241935483870968,1.0,820,128,29,4,"v2: Implement RegExp Vars Matcher (#2997)
+
+* implement regexp var matcher
+
+* use subtests pattern for tests
+
+* be more consistent with naming: MatchVarRE -> MatchVarsRE, var_regexp -> vars_regexp"
+fb9d874fa91c796fdb1c6cb32ab3246e63d38af9,False,1,2,27,19,13.5,54,57,3,1.0,0.0,0.0,2728,502,148,2,caddyfile: Export Tokenize function for lexing (#3549)
+f976451d19aea6db42d08ff8cf6e760176f94acb,False,1,2,36,32,18.0,7,29,22,0.0,1.0,1.0,1261,205,47,4,"Disallow unknown fields (strict unmarshal) when loading modules
+
+This makes it faster and easier to detect broken configurations, but
+is a slight performance hit on config loads since we have to re-encode
+the decoded struct back into JSON without the module name's key"
+1228dd7d93b59409fd844400b9c114be267df3a3,False,1,2,52,51,26.0,13,39,26,0.0,0.0,0.0,3705,590,150,2,"reverse_proxy: Allow buffering of client requests
+
+This is a bad idea, but some backends apparently require it. See
+discussion in #176."
+f5e104944ea48e776580a0a9ebbd02fca33d659f,False,1,1,137,137,137.0,61,76,15,0.0,1.0,1.0,3768,580,157,6,"reverseproxy: Make shallow-ish clone of the request (#4551)
+
+* reverseproxy: Make shallow-ish clone of the request
+
+* Refactor request cloning into separate function
+
+Co-authored-by: Matthew Holt <mholt@users.noreply.github.com>"
+b4f4fcd437c2f9816f9511217bde703679808679,False,1,3,28,20,9.333333333333334,360,272,-88,0.09905660377358491,0.17452830188679244,1.0,3042,508,107,2,Migrate some selection policy tests over to v2
+40b193fb791e241dec630a37167aac576375bc96,False,1,1,29,29,29.0,41,46,5,1.0,1.0,1.0,2289,394,110,1,"reverseproxy: Improve hashing LB policies with HRW (#4724)
+
+* reverseproxy: Improve hashing LB policies with HRW
+
+Previously, if a list of upstreams changed, hash-based LB policies
+would be greatly affected because the hash relied on the position of
+upstreams in the pool. Highest Random Weight or ""rendezvous"" hashing
+is apparently robust to pool changes. It runs in O(n) instead of
+O(log n), but n is very small usually.
+
+* Fix bug and update tests"
+9a7756c6e4b4ddb945bede3ddb2dfbf241208915,False,1,2,105,104,52.5,3,102,99,0.38,0.9,1.0,1288,217,45,7,"caddyauth: Cache basicauth results (fixes #3462) (#3465)
+
+Cache capacity is currently hard-coded at 1000 with random eviction.
+It is enabled by default from Caddyfile configurations because I assume
+this is the most common preference."
+6512832f9f3904209ccb3c305e38ebde108083fb,False,1,2,21,15,10.5,0,21,21,0.05,0.3,1.0,4816,885,166,3,cmd: Add `--diff` option for `caddy fmt` (#4695)
+fac35db9dcbf23af7ffad885bf072e3fbbaa7e71,False,1,1,2,2,2.0,7,7,0,,,,6671,1054,280,0,"go.mod: Update quic-go to v0.31.0
+
+And fix a comment typo"
+6f8fe01da170f6e4be09f85ea952c3e0d89f64db,False,1,2,61,51,30.5,111,149,38,0.0,1.0,0.0,2469,359,74,12,"caddypki: Use go.step.sm/crypto to generate the PKI (#5217)
+
+This commit replaces the use of github.com/smallstep/cli to generate the
+root and intermediate certificates and uses go.step.sm/crypto instead.
+
+It also upgrades the version of github.com/smallstep/certificates to the
+latest version."
+e51e56a4944622c0a2c7d19da4bb6b9bb07c1973,False,1,8,334,190,41.75,100,269,169,0.0,0.3577981651376147,0.42201834862385323,11965,1933,495,25,"httpcaddyfile: Fix nested blocks; add handle directive; refactor
+
+The fix that was initially put forth in #2971 was good, but only for
+up to one layer of nesting. The real problem was that we forgot to
+increment nesting when already inside a block if we saw another open
+curly brace that opens another block (dispenser.go L157-158).
+
+The new 'handle' directive allows HTTP Caddyfiles to be designed more
+like nginx location blocks if the user prefers. Inside a handle block,
+directives are still ordered just like they are outside of them, but
+handler blocks at a given level of nesting are mutually exclusive.
+
+This work benefitted from some refactoring and cleanup."
+348cb798e26a056bd40f5ec7c0d8f440d7b6cc0b,False,1,1,15,15,15.0,4,11,7,0.0,0.0,1.0,2424,410,104,1,"httpcaddyfile: Allow php_fastcgi to be used in route directive
+
+Fixes
+https://caddy.community/t/v2-help-to-set-up-a-yourls-instance/7260/22"
+fec7fa8bfda713e8042b9bbf9a480c7792b78c41,False,1,12,1207,299,100.58333333333333,258,994,736,0.21070234113712374,0.39464882943143814,1.0,7661,1337,308,56,Implement most of static file server; refactor and improve Replacer
+66476d8c8f6010f19fb65bac7758c6fd2824e231,False,1,2,108,78,54.0,5,103,98,0.5254237288135594,0.5254237288135594,0.9152542372881356,6867,1060,273,8,"reverseproxy: Close hijacked conns on reload/quit (#4895)
+
+* reverseproxy: Close hijacked conns on reload/quit
+
+We also send a Close control message to both ends of
+WebSocket connections. I have tested this many times in
+my dev environment with consistent success, although
+the variety of scenarios was limited.
+
+* Oops... actually call Close() this time
+
+* CloseMessage --> closeMessage
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>
+
+* Use httpguts, duh
+
+* Use map instead of sync.Map
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>"
+9d4ed3a3236df06e54c80c4f6633b66d68ad3673,False,1,5,83,40,16.6,134,131,-3,1.0,1.0,0.0,7013,1068,244,7,caddyhttp: Refactor and export SanitizedPathJoin for use in fastcgi (#4207)
+b1480eb52f8e3dd621798e2b74b4e3e47bacc9f5,False,1,1,20,20,20.0,10,122,112,,,,1009,182,32,1,fastcgi: Fix php_fastcgi matcher regression (#3512)
+23cc26d585bfbbe06ae8d2f46fa64956e368baac,False,1,3,126,49,42.0,41,85,44,0.48484848484848486,1.0,0.48484848484848486,7695,1202,301,7,"httpcaddyfile: 'handle_errors' directive
+
+Not sure I love the name of the directive; might change it later."
+5bd96a6ac22849cd9fbbaae5285f0161e272b8e4,False,1,1,11,11,11.0,6,17,11,0.0,0.0,1.0,1093,194,53,1,httpcaddyfile: Support explicitly turning off `strict_sni_host` (#4592)
+a66f461201ae2b7e724b3067f74019bdf44f834e,False,1,2,148,105,74.0,46,102,56,0.21212121212121213,0.21212121212121213,1.0,4619,685,172,5,"caddyfile: Sort site subroutes by key specificity, and make exclusive
+
+In the v1 Caddyfile, only the first matching site definition would be
+used, so setting these `Terminal: true` ensures that only the first
+matching one is used in v2, too.
+
+We also have to sort by key specificity... Caddy 1 had a special data
+structure for selecting the most specific site definition, but we don't
+have that structure in v2, so we need to sort by length (of host and
+path, separately). For blocks where more than one key is present, we
+choose the longest host and path (independently, need not be from same
+key) by which to sort."
+2a127ac3d1650052f39e93f277e1dfd8c7c730e4,False,1,3,186,87,62.0,26,414,388,0.09036144578313253,0.5421686746987951,1.0,12308,1903,538,7,"caddyconfig: add global option for configuring loggers (#4028)
+
+This change is aimed at enhancing the logging module within the
+Caddyfile directive to allow users to configure logs other than the HTTP
+access log stream, which is the current capability of the Caddyfile [1].
+The intent here is to leverage the same syntax as the server log
+directive at a global level, so that similar customizations can be added
+without needing to resort to a JSON-based configuration.
+
+Discussion for this approach happened in the referenced issue.
+
+Closes https://github.com/caddyserver/caddy/issues/3958
+
+[1] https://caddyserver.com/docs/caddyfile/directives/log"
+96bb3659299ae5ef28ffb3f9a23e16417c570924,False,1,1,8,8,8.0,4,32,28,,,,2868,406,144,1,httpcaddyfile: Take into account host scheme/port (fix #4113)
+28fdf64dc510472ccd9e6d46eb149d19cd70919a,False,1,5,131,46,26.2,39,186,147,0.0,0.6470588235294118,0.9663865546218487,12639,1945,520,7,"httpcaddyfile, caddytls: Multiple edge case fixes; add tests
+
+- Create two default automation policies; if the TLS app is used in
+  isolation with the 'automate' certificate loader, it will now use
+  an internal issuer for internal-only names, and an ACME issuer for
+  all other names by default.
+- If the HTTP Caddyfile adds an 'automate' loader, it now also adds an
+  automation policy for any names in that loader that do not qualify
+  for public certificates so that they will be issued internally. (It
+  might be nice if this wasn't necessary, but the alternative is to
+  either make auto-HTTPS logic way more complex by scanning the names in
+  the 'automate' loader, or to have an automation policy without an
+  issuer switch between default issuer based on the name being issued
+  a certificate - I think I like the latter option better, right now we
+  do something kind of like that but at a level above each individual
+  automation policies, we do that switch only when no automation
+  policies match, rather than when a policy without an issuer does
+  match.)
+- Set the default LoggerName rather than a LoggerNames with an empty
+  host value, which is now taken literally rather than as a catch-all.
+- hostsFromKeys, the function that gets a list of hosts from server
+  block keys, no longer returns an empty string in its resulting slice,
+  ever."
+1e0cdc54f86cb29eca14af13aaa3ccfb07d46a20,False,1,14,127,49,9.071428571428571,24,105,81,1.0,1.0,0.6511627906976745,1143,217,58,10,"core: Windows service integration (#4790)
+
+Co-authored-by: Matthew Holt <mholt@users.noreply.github.com>"
+25d2b4bf2927bf69ddce582d33339ef7d13cb6bf,False,1,4,255,163,63.75,146,245,99,0.11864406779661017,0.05084745762711865,1.0,6339,1036,248,7,map: Reimplement; multiple outputs; optimize
+48d723c07c52d76755ee323581a20777699f1557,False,1,1,128,128,128.0,76,52,-24,0.2727272727272727,0.2727272727272727,0.0,1677,277,65,6,"encode: Fix Accept-Ranges header; HEAD requests  (#5039)
+
+* fix encode handler header manipulation
+also avoid implementing ReadFrom because it breaks when io.Copied to directly
+
+* strconv.Itoa should be tried as a last resort
+WriteHeader during Close"
+3cfefeb0f71d54f1d9a76a63be7b97d0943c88ef,False,1,5,307,235,61.4,658,1084,426,0.11616161616161616,0.12626262626262627,0.9797979797979798,11591,1764,503,12,"httpcaddyfile: Configure servers via global options (#3836)
+
+* httpcaddyfile: First pass at implementing server options
+
+* httpcaddyfile: Add listener wrapper support
+
+* httpcaddyfile: Sort sbaddrs to make adapt output more deterministic
+
+* httpcaddyfile: Add server options adapt tests
+
+* httpcaddyfile: Windows line endings lol
+
+* caddytest: More windows line endings lol (sorry Matt)
+
+* Update caddyconfig/httpcaddyfile/serveroptions.go
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+
+* httpcaddyfile: Reword listener address ""matcher""
+
+* Apply suggestions from code review
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+
+* httpcaddyfile: Deprecate experimental_http3 option (moved to servers)
+
+* httpcaddyfile: Remove validation step, no longer needed
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+2762f8f058803e3bb1c55636df78b815b1d70439,False,1,1,194,194,194.0,65,129,64,0.0,0.4883720930232558,1.0,1634,282,63,2,"caddyhttp: New algorithm for auto HTTP->HTTPS redirects (fix #3127) (#3128)
+
+It's still not perfect but I think it should be more correct for
+slightly more complex configs. Might still fall apart for complex
+configs that use on-demand TLS or at a large scale (workarounds are
+to just implement your own redirects, very easy to do anyway)."
+d789596bc0b014c99d75c00fe8e55c40ee3d58e3,False,1,2,60,31,30.0,14,69,55,0.23076923076923078,1.0,1.0,4273,697,175,3,"caddyhttp: Implement better logic for inserting the HTTP->HTTPS redirs (#4033)
+
+* caddyhttp: Implement better logic for inserting the HTTP->HTTPS redirs
+
+* caddyhttp: Add integration test"
+1c443beb9c87b42d1d018f72e36ac9b15fdfccdc,False,1,3,169,73,56.333333333333336,59,110,51,0.0,1.0,0.0,1129,198,30,13,"caddyhttp: ResponseRecorder type for middlewares to buffer responses
+
+Unfortunately, templates and markdown require buffering the full
+response before it can be processed and written to the client"
+41c7bd27b495ab9b5edca7afb0cf99d5e1b52944,False,1,4,64,36,16.0,1,63,62,0.0,0.5925925925925926,0.8888888888888888,8334,1342,357,5,"httpserver: Add experimental H2C support (#3289)
+
+* reverse_proxy: Initial attempt at H2C transport/client support (#3218)
+
+I have not tested this yet
+
+* Experimentally enabling H2C server support (closes #3227)
+
+See also #3218
+
+I have not tested this
+
+* reverseproxy: Clean up H2C transport a bit
+
+* caddyhttp: Update godoc for h2c server; clarify experimental status
+
+* caddyhttp: Fix trailers when recording responses (fixes #3236)
+
+* caddyhttp: Tweak h2c config settings and docs"
+d0b608af3178bc674936f4b1c6cce00591ebbf09,False,1,5,295,121,59.0,2,632,630,0.4507462686567164,0.8776119402985074,0.9671641791044776,3135,557,113,16,"tracing: New OpenTelemetry module (#4361)
+
+* opentelemetry: create a new module
+
+* fix imports
+
+* fix test
+
+* Update modules/caddyhttp/opentelemetry/README.md
+
+Co-authored-by: Dave Henderson <dhenderson@gmail.com>
+
+* Update modules/caddyhttp/opentelemetry/README.md
+
+Co-authored-by: Dave Henderson <dhenderson@gmail.com>
+
+* Update modules/caddyhttp/opentelemetry/README.md
+
+Co-authored-by: Dave Henderson <dhenderson@gmail.com>
+
+* Update modules/caddyhttp/opentelemetry/tracer.go
+
+Co-authored-by: Dave Henderson <dhenderson@gmail.com>
+
+* rename error ErrUnsupportedTracesProtocol
+
+* replace spaces with tabs in the test data
+
+* Update modules/caddyhttp/opentelemetry/README.md
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>
+
+* Update modules/caddyhttp/opentelemetry/README.md
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>
+
+* replace spaces with tabs in the README.md
+
+* use default values for a propagation and exporter protocol
+
+* set http attributes with helper
+
+* simplify code
+
+* Cleanup modules/caddyhttp/opentelemetry/README.md
+
+Co-authored-by: Dave Henderson <dhenderson@gmail.com>
+
+* Update link in README.md
+
+Co-authored-by: Dave Henderson <dhenderson@gmail.com>
+
+* Update documentation in README.md
+
+Co-authored-by: Dave Henderson <dhenderson@gmail.com>
+
+* Update link to naming spec in README.md
+
+Co-authored-by: Dave Henderson <dhenderson@gmail.com>
+
+* Rename module from opentelemetry to tracing
+
+Co-authored-by: Dave Henderson <dhenderson@gmail.com>
+
+* Rename span_name to span
+
+Co-authored-by: Dave Henderson <dhenderson@gmail.com>
+
+* Rename span_name to span
+
+Co-authored-by: Dave Henderson <dhenderson@gmail.com>
+
+* Simplify otel resource creation
+
+Co-authored-by: Dave Henderson <dhenderson@gmail.com>
+
+* handle extra attributes
+
+Co-authored-by: Dave Henderson <dhenderson@gmail.com>
+
+* update go.opentelemetry.io/otel/semconv to 1.7.0
+
+Co-authored-by: Dave Henderson <dhenderson@gmail.com>
+
+* update go.opentelemetry.io/otel version
+
+* remove environment variable handling
+
+* always use tracecontext,baggage as propagators
+
+* extract tracer name into variable
+
+* rename OpenTelemetry to Tracing
+
+* simplify resource creation
+
+* update go.mod
+
+* rename package from opentelemetry to tracing
+
+* cleanup tests
+
+* update Caddyfile example in README.md
+
+* update README.md
+
+* fix test
+
+* fix module name in README.md
+
+* fix module name in README.md
+
+* change names in README.md and tests
+
+* order imports
+
+* remove redundant tests
+
+* Update documentation README.md
+
+Co-authored-by: Dave Henderson <dhenderson@gmail.com>
+
+* Fix grammar
+
+Co-authored-by: Dave Henderson <dhenderson@gmail.com>
+
+* Update comments
+
+Co-authored-by: Dave Henderson <dhenderson@gmail.com>
+
+* Update comments
+
+Co-authored-by: Dave Henderson <dhenderson@gmail.com>
+
+* update go.sum
+
+* update go.sum
+
+* Add otelhttp instrumentation, update OpenTelemetry libraries.
+
+* Use otelhttp instrumentation for instrumenting HTTP requests.
+
+This change uses context.WithValue to inject the next handler into the
+request context via a ""nextCall"" carrier struct, and pass it on to a
+standard Go HTTP handler returned by otelhttp.NewHandler. The
+underlying handler will extract the next handler from the context,
+call it and pass the returned error to the carrier struct.
+
+* use zap.Error() for the error log
+
+* remove README.md
+
+* update dependencies
+
+* clean up the code
+
+* change comment
+
+* move serveHTTP method from separate file
+
+* add syntax to the UnmarshalCaddyfile comment
+
+* go import the file
+
+* admin: Write proper status on invalid requests (#4569) (fix #4561)
+
+* update dependencies
+
+Co-authored-by: Dave Henderson <dhenderson@gmail.com>
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>
+Co-authored-by: Vibhav Pant <vibhavp@gmail.com>
+Co-authored-by: Alok Naushad <alokme123@gmail.com>
+Co-authored-by: Cedric Ziel <cedric@cedric-ziel.com>"
+a5ebec00419f77bb408f67c360b4a09c5884109d,False,1,16,383,168,23.9375,199,184,-15,1.0,1.0,1.0,16987,2745,590,32,"http: Change routes to sequential matcher evaluation (#2967)
+
+Previously, all matchers in a route would be evaluated before any
+handlers were executed, and a composite route of the matching routes
+would be created. This made rewrites especially tricky, since the only
+way to defer later matchers' evaluation was to wrap them in a subroute,
+or to invoke a ""rehandle"" which often caused bugs.
+
+Instead, this new sequential design evaluates each route's matchers then
+its handlers in lock-step; matcher-handlers-matcher-handlers...
+
+If the first matching route consists of a rewrite, then the second route
+will be evaluated against the rewritten request, rather than the original
+one, and so on.
+
+This should do away with any need for rehandling.
+
+I've also taken this opportunity to avoid adding new values to the
+request context in the handler chain, as this creates a copy of the
+Request struct, which may possibly lead to bugs like it has in the past
+(see PR #1542, PR #1481, and maybe issue #2463). We now add all the
+expected context values in the top-level handler at the server, then
+any new values can be added to the variable table via the VarsCtxKey
+context key, or just the GetVar/SetVar functions. In particular, we are
+using this facility to convey dial information in the reverse proxy.
+
+Had to be careful in one place as the middleware compilation logic has
+changed, and moved a bit. We no longer compile a middleware chain per-
+request; instead, we can compile it at provision-time, and defer only the
+evaluation of matchers to request-time, which should slightly improve
+performance. Doing this, however, we take advantage of multiple function
+closures, and we also changed the use of HandlerFunc (function pointer)
+to Handler (interface)... this led to a situation where, if we aren't
+careful, allows one request routed a certain way to permanently change
+the ""next"" handler for all/most other requests! We avoid this by making
+a copy of the interface value (which is a lightweight pointer copy) and
+using exclusively that within our wrapped handlers. This way, the
+original stack frame is preserved in a ""read-only"" fashion. The comments
+in the code describe this phenomenon.
+
+This may very well be a breaking change for some configurations, however
+I do not expect it to impact many people. I will make it clear in the
+release notes that this change has occurred."
+a379fa4c6c5d58aa6b812bb21a879ce0944c1ccb,False,1,2,74,54,37.0,2,72,70,0.1590909090909091,0.1590909090909091,0.8181818181818182,9139,1453,440,6,reverseproxy: Implement read & write timeouts for HTTP transport (#4905)
+8887adb027982e844965b4707b8595cee5845d54,False,1,1,117,117,117.0,0,163,163,0.43010752688172044,0.43010752688172044,1.0,1693,302,70,6,"logging: add a filter for cookies (#4425)
+
+* feat(logging): add a filter for cookies
+
+* Improve godoc and add validation"
+72541f1cb81a97466afcdf0a6164367c499a9f81,False,1,1,3,3,3.0,1,2,1,,,,2447,399,52,0,caddyhttp: Set `http.error.message` to the HandlerError message (#4971)
+e84e19a04eefccc743f0d397efe49ff42626f4b3,False,1,2,46,32,23.0,8,38,30,0.0,1.0,1.0,2692,452,91,3,"templates: Add custom template function registration (#4757)
+
+* Add custom template function registration
+
+* Rename TemplateFunctions to CustomFunctions
+
+* Add documentation
+
+* Document CustomFunctions interface
+
+* Preallocate custom functions map list
+
+* Fix interface name in error message"
+a437206643f35a84dea280c99e7e9555fc8df697,False,1,1,18,18,18.0,7,35,28,0.0,0.8148148148148148,1.0,1316,212,55,1,headers: Canonicalize case in replace (fix #4330)
+0bcd02d5f669869b0c79c00ea3c5a3f6a7072b20,False,1,1,34,34,34.0,3,51,48,0.0,0.47619047619047616,1.0,1478,234,65,1,headers: Support wildcards for delete ops (close #4830) (#4831)
+2fd22139c6b7b6055ae53c77d56278fce38d1195,False,1,1,75,75,75.0,20,55,35,0.14285714285714285,1.0,1.0,1283,207,53,5,"headers: Ability to mutate request headers including http.Request.Host
+
+Also a few bug fixes"
+c09e86fddc8a6c0da59fd62a186cab1482faae2a,False,1,1,160,160,160.0,23,137,114,0.6428571428571429,0.6428571428571429,1.0,1159,193,50,13,"headers: Add ability to replace substrings in header fields
+
+This will probably be useful so the proxy can rewrite header values."
+65195a726d9ceff4bbf870b7baa7eff20cf35381,False,1,7,161,71,23.0,34,133,99,0.0,0.0,0.0,4119,696,158,16,Implement rewrite middleware; fix middleware stack bugs
+1136e2cfeed5cc06a0811d39c2560c06f9dd74a2,False,1,4,1085,562,271.25,0,1085,1085,0.40491803278688526,0.5295081967213114,0.760655737704918,4266,751,164,45,Add reverse proxy
+c7d6c4cbb951f7db87fc5aebf8382aeeca6c9f1d,False,1,4,359,190,89.75,5,419,414,0.27058823529411763,0.4647058823529412,0.611764705882353,13807,2192,632,16,"reverseproxy: copy_response and copy_response_headers for handle_response routes (#4391)
+
+* reverseproxy: New `copy_response` handler for `handle_response` routes
+
+Followup to #4298 and #4388.
+
+This adds a new `copy_response` handler which may only be used in `reverse_proxy`'s `handle_response` routes, which can be used to actually copy the proxy response downstream. 
+
+Previously, if `handle_response` was used (with routes, not the status code mode), it was impossible to use the upstream's response body at all, because we would always close the body, expecting the routes to write a new body from scratch.
+
+To implement this, I had to refactor `h.reverseProxy()` to move all the code that came after the `HandleResponse` loop into a new function. This new function `h.finalizeResponse()` takes care of preparing the response by removing extra headers, dealing with trailers, then copying the headers and body downstream.
+
+Since basically what we want `copy_response` to do is invoke `h.finalizeResponse()` at a configurable point in time, we need to pass down the proxy handler, the response, and some other state via a new `req.WithContext(ctx)`. Wrapping a new context is pretty much the only way we have to jump a few layers in the HTTP middleware chain and let a handler pick up this information. Feels a bit dirty, but it works.
+
+Also fixed a bug with the `http.reverse_proxy.upstream.duration` placeholder, it always had the same duration as `http.reverse_proxy.upstream.latency`, but the former was meant to be the time taken for the roundtrip _plus_ copying/writing the response.
+
+* Delete the ""Content-Length"" header if we aren't copying
+
+Fixes a bug where the Content-Length will mismatch the actual bytes written if we skipped copying the response, so we get a message like this when using curl:
+
+```
+curl: (18) transfer closed with 18 bytes remaining to read
+```
+
+To replicate:
+
+```
+{
+	admin off
+	debug
+}
+
+:8881 {
+	reverse_proxy 127.0.0.1:8882 {
+		@200 status 200
+		handle_response @200 {
+			header Foo bar
+		}
+	}
+}
+
+:8882 {
+	header Content-Type application/json
+	respond `{""hello"": ""world""}` 200
+}
+```
+
+* Implement `copy_response_headers`, with include/exclude list support
+
+* Apply suggestions from code review
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+b092061591d673d5a886881531df2b39cd7722e3,False,1,1,39,39,39.0,12,27,15,0.0,0.0,0.0,3618,556,151,1,reverseproxy: Prevent copying the response if a response handler ran (#4388)
+b6e96fa3c5fcb7601142b8ad569793a1b9c2c5eb,False,1,2,29,20,14.5,1,33,32,0.0,0.0,1.0,8600,1376,418,2,"reverseproxy: Skip TLS for certain configured ports (#4843)
+
+* Make reverse proxy TLS server name replaceable for SNI upstreams.
+
+* Reverted previous TLS server name replacement, and implemented thread safe version.
+
+* Move TLS servername replacement into it's own function
+
+* Moved SNI servername replacement into httptransport.
+
+* Solve issue when dynamic upstreams use wrong protocol upstream.
+
+* Revert previous commit.
+
+Old commit was: Solve issue when dynamic upstreams use wrong protocol upstream.
+Id: 3c9806ccb63e66bdcac8e1ed4520c9d135cb011d
+
+* Added SkipTLSPorts option to http transport.
+
+* Fix typo in test config file.
+
+* Rename config option as suggested by Matt
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+
+* Update code to match renamed config option.
+
+* Fix typo in config option name.
+
+* Fix another typo that I missed.
+
+* Tests not completing because of apparent wrong ordering of options.
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+2c1b66315620fda3311f9bdffd0867de1c71dc9e,False,1,4,411,244,102.75,291,120,-171,0.0,0.0,1.0,7615,1208,345,20,reverseproxy: Remove NTLM transport; refactor and improve docs
+c82fe91104efbbe62826510579ea57fd54c55f8c,False,1,1,41,41,41.0,2,39,37,0.07692307692307693,1.0,1.0,1931,314,68,2,"reverseproxy: Dynamic ServerName for TLS upstreams (#4836)
+
+* Make reverse proxy TLS server name replaceable for SNI upstreams.
+
+* Reverted previous TLS server name replacement, and implemented thread safe version.
+
+* Move TLS servername replacement into it's own function
+
+* Moved SNI servername replacement into httptransport.
+
+* Solve issue when dynamic upstreams use wrong protocol upstream.
+
+* Revert previous commit.
+
+Old commit was: Solve issue when dynamic upstreams use wrong protocol upstream.
+Id: 3c9806ccb63e66bdcac8e1ed4520c9d135cb011d
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+8e515289cbde97fb7ac18a3d035e03f8d0c8befe,False,1,3,296,234,98.66666666666667,25,271,246,0.7413793103448276,1.0,0.9224137931034483,4625,735,182,18,reverse_proxy: Add support for NTLM
+1b7ff5d76c7a3c67b6e0f9b51af78d1b227fdea3,False,1,2,7,6,3.5,1,58,57,0.0,0.2,1.0,3897,624,177,2,httpcaddyfile: Add `default_bind` global option (#4531)
+7dfd69cdc5966ae454e35cd6e976686131bfda8d,False,1,18,52,6,2.888888888888889,26,28,2,,,,26399,4229,1064,22,"chore: make the linter happier (#3245)
+
+* chore: make the linter happier
+
+* chore: remove reference to maligned linter in .golangci.yml"
+7c28ecb5f487e24a982a10cb5c5a77dc03c38db1,False,1,2,2,1,1.0,0,2,2,0.0,0.0,1.0,7907,1141,320,1,"httpcaddyfile: Add certificate_pem placeholder short, add to godoc (#3846)
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>"
+cbb045a121464527d85cce1b56250480b0515f9a,False,1,3,5,3,1.6666666666666667,0,5,5,0.0,0.0,1.0,10651,1589,450,2,"caddyhttp: Placeholder for client cert in DER + base64 format (#4241)
+
+* client.certificate_pem_encoded in base64 format
+
+* base64-encoding without pem encoding;naming change
+
+* fix cert.Raw instead of block.bytes"
+c0f827e0bdbd779be5430d76a4eee99fc2153baf,False,1,1,13,13,13.0,5,8,3,0.0,0.0,1.0,4011,601,156,1,"httpcaddyfile: Add {remote} shorthand placeholders
+
+Also sort the list"
+ab32440b2121c5a8cf36e1eea1b7347f0386c2dc,False,1,1,1,1,1.0,0,1,1,0.0,0.0,1.0,6899,975,296,1,"httpcaddyfile: Add shortcut for proxy hostport placeholder (#4263)
+
+* httpcaddyfile: Add shortcut for proxy hostport placeholder
+
+I've noticed that it's a pretty common pattern to write a proxy like this, when needing to proxy over HTTPS:
+
+```
+reverse_proxy https://example.com {
+	header_up Host {http.reverse_proxy.upstream.hostport}
+}
+```
+
+I find it pretty hard to remember the exact placeholder to use for this, and I continually need to refer to the docs when I need it. I think a simple fix for this is to add another Caddyfile placeholder for this one to shorten it:
+
+```
+reverse_proxy https://example.com {
+	header_up Host {proxy_hostport}
+}
+```
+
+* Switch the shortcut name"
+b0a491aec808652dfd65910ee192ab88c07ac99d,False,1,5,151,104,30.2,17,214,197,0.1292517006802721,0.6054421768707483,1.0,10149,1583,382,8,"Expose TLS placeholders (#2982)
+
+* caddytls: Add CipherSuiteName and ProtocolName functions
+
+The cipher_suites.go file is derived from a commit to the Go master
+branch that's slated for Go 1.14.  Once Go 1.14 is released, this file
+can be removed.
+
+* caddyhttp: Use commonLogEmptyValue in common_log replacer
+
+* caddyhttp: Add TLS placeholders
+
+* caddytls: update unsupportedProtocols
+
+Don't export unsupportedProtocols and update its godoc to mention that
+it's used for logging only.
+
+* caddyhttp: simplify getRegTLSReplacement signature
+
+getRegTLSReplacement should receive a string instead of a pointer.
+
+* caddyhttp: Remove http.request.tls.client.cert replacer
+
+The previous behavior of printing the raw certificate bytes was ported
+from Caddy 1, but the usefulness of that approach is suspect.  Remove
+the client cert replacer from v2 until a use case is presented.
+
+* caddyhttp: Use tls.CipherSuiteName from Go 1.14
+
+Remove ported version of CipherSuiteName in the process."
+2eda21ec6d44fa2f57e72ef0f02ea29c902d871d,False,1,4,11,5,2.75,9,2,-7,1.0,1.0,0.0,8222,1274,302,4,"http: Remove {...query_string} placeholder, in favor of {...query}
+
+I am not sure if the query_string one is necessary or useful yet. We
+can always add it later if needed."
+271b5af14894a8cca5fc6aa6f1c17823a1fb5ff3,False,1,4,701,344,175.25,297,404,107,0.7872340425531915,0.7872340425531915,1.0,5492,895,201,13,"http: Refactor automatic HTTPS (fixes #2972)
+
+This splits automatic HTTPS into two phases. The first provisions the
+route matchers and uses them to build the domain set and configure
+auto HTTP->HTTPS redirects. This happens before the rest of the
+provisioning does.
+
+The second phase takes place at the beginning of the app start. It
+attaches pointers to the tls app to each server, and begins certificate
+management for the domains that were found in the first phase."
+78e381b29f64c07a0572a172ff5f89876e8d84db,False,1,2,202,189,101.0,70,132,62,0.49019607843137253,1.0,1.0,1924,353,59,16,"caddypki: Refactor /pki/ admin endpoints
+
+Remove /pki/certificates/<ca> endpoint and split into two endpoints:
+
+- GET /pki/ca/<id> to get CA info and certs in JSON format
+- GET /pki/ca/<id>/certificates to get cert in PEM chain"
+a60da8e7ab76a890566ce8047b92a7576a027e18,False,1,1,20,20,20.0,11,9,-2,,,,1481,254,56,2,Simplify the logic in the previous commit
+0afbab866794448fc0fe8b6cd6a299d7a078c2f1,False,1,1,8,8,8.0,0,63,63,0.0,0.0,1.0,1774,303,73,2,"httpcaddyfile: Improve directive sorting logic (#3658)
+
+* httpcaddyfile: Flip `root` directive sort order
+
+* httpcaddyfile: Sort directives with any matcher before those with none
+
+* httpcaddyfile: Generalize reverse sort directives, improve logic
+
+* httpcaddyfile: Fix ""spelling"" issue
+
+* httpcaddyfile: Turns out the second change precludes the first
+
+
+httpcaddyfile: Delete test that no longer makes sense
+
+* httpcaddyfile: Shorten logic
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+57a708d189cfe4ccc20ae92df95dd35e52a434a8,False,1,11,523,208,47.54545454545455,158,450,292,0.4407894736842105,0.32894736842105265,0.9144736842105263,23411,3647,1004,35,"caddytls: Support external certificate Managers (like Tailscale) (#4541)
+
+Huge thank-you to Tailscale (https://tailscale.com) for making this change possible!
+This is a great feature for Caddy and Tailscale is a great fit for a standard implementation.
+
+* caddytls: GetCertificate modules; Tailscale
+
+* Caddyfile support for get_certificate
+
+Also fix AP provisioning in case of empty subject list (persist loaded
+module on struct, much like Issuers, to surive reprovisioning).
+
+And implement start of HTTP cert getter, still WIP.
+
+* Update modules/caddytls/automation.go
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>
+
+* Use tsclient package, check status for name
+
+* Implement HTTP cert getter
+
+And use reuse CertMagic's PEM functions for private keys.
+
+* Remove cache option from Tailscale getter
+
+Tailscale does its own caching and we don't need the added complexity...
+for now, at least.
+
+* Several updates
+
+- Option to disable cert automation in auto HTTPS
+- Support multiple cert managers
+- Remove cache feature from cert manager modules
+- Minor improvements to auto HTTPS logging
+
+* Run go mod tidy
+
+* Try to get certificates from Tailscale implicitly
+
+Only for domains ending in .ts.net.
+
+I think this is really cool!
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>"
+d06d0e79f839a26ab2cf81b00ba2d180623c57a9,False,1,14,105,24,7.5,62,73,11,0.5,0.5,0.5,25724,4261,1021,28,"go.mod: Upgrade CertMagic to v0.16.0
+
+Includes several breaking changes; code base updated accordingly.
+
+- Added lots of context arguments
+- Use fs.ErrNotExist
+- Rename ACMEManager -> ACMEIssuer; CertificateManager -> Manager"
+012d235314fcc2a27302d00ee6f53459e54c0eb8,False,1,1,2,2,2.0,1,99,98,,,,1926,328,80,1,"httpcaddyfile: Empty tls policy for internal http localhost (#4398)
+
+* test: replicated empty tls automation policy issue
+
+* fix: empty tls policy for an http:// endpoint running on a non-standard http port"
+e42514ad4af007799374aeb6eeea3bd884aac55b,False,1,2,845,433,422.5,409,436,27,1.0,1.0,1.0,2296,376,86,18,caddyhttp: Clean up; move some code around
+f976aa744385b097239a7323af4dec11f83bc949,False,1,3,73,68,24.333333333333332,8,65,57,0.24,0.24,1.0,1023,178,35,5,"Merged in deadlines (pull request #1)
+
+Cleanly fake-close listeners
+
+* WIP debugging listener deadlines
+
+* Fix listener deadlines"
+4e9fbee1e2ef39ff56bdfb19126a9b1a8a841eb4,False,1,9,9,1,1.0,18,33,15,,,,556,98,25,0,"ci: Build on Go 1.18, bump actions versions (#4637)
+
+* ci: Build on Go 1.18, bump actions versions
+
+* Revert linter version bump for now
+
+* Try linter again"
+52305618dfc4289e5a3cfcf848450500ef8fa21c,False,1,1,17,17,17.0,5,44,39,0.0,0.8205128205128205,1.0,454,120,34,1,caddyfile: Support backticks as quotes (closes #2591) (#3242)
+93c99f67342504efe9f6b58a734aaec3929fe785,False,1,1,16,16,16.0,1,15,14,1.0,1.0,1.0,407,70,18,2,"map: Support numeric and bool types with Caddyfile
+
+Based on caddyserver/website#221"
+6a4d638c1e62caf834a73ac4e3fcfc25bc32eedb,False,1,2,224,221,112.0,3,228,225,0.49038461538461536,0.6538461538461539,1.0,4647,754,196,15,"caddyhttp: Implement CEL matcher (see #3051) (#3155)
+
+* caddyhttp: Implement CEL matcher (see #3051)
+
+CEL (Common Expression Language) is a very fast, flexible way to express
+complex logic, useful for matching requests when the conditions are not
+easy to express with JSON.
+
+This matcher may be considered experimental even after the 2.0 release.
+
+* Improve CEL module docs"
+ef8a372a1ce8ed8630bbe227349783c5a74c69b2,False,1,2,36,27,18.0,11,25,14,0.0,1.0,1.0,1003,175,44,5,map: Bug fixes; null literal with hyphen in Caddyfile
+0fc47e8357af5ccd6f800819722229b1a279e5b5,False,1,2,33,24,16.5,14,23,9,0.0,0.0,1.0,968,167,41,3,map: Apply default if mapped output is nil
+ecac03cdcb6cceae743aac16faca7f32e5da1607,False,1,1,76,76,76.0,25,55,30,0.0,0.0,1.0,1122,183,44,2,"caddyhttp: Enhance vars matcher (#4433)
+
+* caddyhttp: Enhance vars matcher
+
+Enable ""or"" logic for multiple values.
+Fall back to checking placeholders if not a var name.
+
+* Fix tests (thanks @mohammed90 !)"
+e73b117332a5606a986ee7e03e6f4b0cea7871c9,False,1,3,86,57,28.666666666666668,12,74,62,0.3235294117647059,0.3235294117647059,0.3235294117647059,4434,711,186,7,reverse_proxy: Ability to mutate headers; set upstream placeholders
+6e0849d4c2855375b66974f85eb9840d05197694,False,1,2,153,149,76.5,63,208,145,0.38738738738738737,0.38738738738738737,0.0,5692,906,250,25,"reverseproxy: Implement cookie hash selection policy (#3809)
+
+* add CookieHashSelection for session affinity
+
+* add CookieHashSelection for session affinity
+
+* register module
+
+* reverse_proxy: Add and fix cookie lb_policy
+
+* reverse_proxy: Manage hmac.write error on cookie hash selection
+
+* reverse_proxy: fix some comments
+
+* reverse_proxy: variable `cookieValue` is inside the else block
+
+* reverse_proxy: Abstract duplicate nuanced logic of reservoir sampling into a function
+
+* reverse_proxy: Set a default secret is indeed useless
+
+* reverse_proxy: add configuration syntax for cookie lb_policy
+
+* reverse_proxy: doc typo and improvement
+
+Co-authored-by: utick <123liuqingdong@163.com>"
+246a31aacd7159acc009ff6d6497596a96533f73,False,1,1,13,13,13.0,3,10,7,0.8,0.8,0.8,3202,483,129,2,"reverseproxy: Restore request's original host and header (fix #3509)
+
+We already restore them within the retry loop, but after successful
+proxy we didn't reset them, so as handlers bubble back up, they would
+see the values used for proxying.
+
+Thanks to @ziddey for identifying the cause."
+1e31be8de0d1d5587348619225456a793cb30f7f,False,1,5,242,157,48.4,134,112,-22,0.0,1.0,0.0,8505,1346,368,18,"reverse_proxy: Allow dynamic backends (closes #990 and #1539)
+
+This PR enables the use of placeholders in an upstream's Dial address.
+
+A Dial address must represent precisely one socket after replacements.
+
+See also #998 and #1639."
+f73f55dba745a8a527202b87fdd3ff88fa9f40b1,False,1,1,14,14,14.0,0,14,14,0.3333333333333333,0.3333333333333333,0.3333333333333333,3660,562,151,2,"reverseproxy: Sanitize scheme and host on incoming requests (#4237)
+
+* caddyhttp: Sanitize scheme and host on incoming requests
+
+* reverseproxy: Sanitize the URL scheme and host before proxying
+
+* Apply suggestions from code review
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+ce5a0934a89aabf1bc145ed0100df5f889b7dd74,False,1,2,8,4,4.0,4,4,0,,,,5777,927,254,3,reverseproxy: Fix round robin data race (#4038)
+6722ae3a835702073682e020d8736140fc04538e,False,1,3,29,22,9.666666666666666,6,23,17,0.5,0.5,0.75,7197,1140,296,6,"reverseproxy: Add duration/latency placeholders (close #4012) (#4013)
+
+* reverseproxy: Add duration/latency placeholders (close #4012) (and #2268)
+
+Adds 4 placeholders, one is actually outside reverse proxy though:
+
+{http.request.duration} is how long since the server decoded the HTTP request (headers).
+{http.reverse_proxy.upstream.latency} is how long it took a proxy upstream to write the response header.
+{http.reverse_proxy.upstream.duration} is total time proxying to the upstream, including writing response body to client.
+{http.reverse_proxy.duration} is total time spent proxying, including selecting an upstream and retries.
+
+Obviously, most of these are only useful at the end of a request, like when writing response headers or logs.
+
+See also: https://caddy.community/t/any-equivalent-of-request-time-and-upstream-header-time-from-nginx/11418
+
+* Add new placeholders to documentation"
+39db06d9c4bdf6bb793916225b8915bf777642b4,False,1,1,146,146,146.0,15,131,116,0.4,1.0,1.0,2206,380,99,8,Implement IP/CIDR matcher and Not (negated) matcher
+fbd6560976dc73052bd5d3277869912de68f6731,False,1,2,56,29,28.0,14,42,28,0.0,0.0,0.0,3656,504,121,2,"fileserver: Only redirect if filename not rewritten (fix #4205)
+
+This is the more correct implementation of  23dadc0d86dd75dad7559c25f20c9641bc7bc30f (#4179)... I think. This commit effectively undoes the revert in 8848df9c5d372a559d01512b7a4ef00e38867b55, but with corrections to the logic.
+
+We *do* need to use the original request path (the path the browser knows) for redirects, since they are external, and rewrites are only internal.
+
+However, if the path was rewritten to a non-canonical path, we should not redirect to canonicalize that, since rewrites are intentional by the site owner. Canonicalizing the path involves modifying only the suffix (base element, or filename) of the path. Thus, if a rewrite involves only the prefix (like how handle_path strips a path prefix), then we can (hopefully!) safely redirect using the original URI since the filename was not rewritten.
+
+So basically, if rewrites modify the filename, we should not canonicalize those requests. If rewrites only modify another part of the path (commonly a prefix), we should be OK to redirect."
+2d1f7b9da8ec23be10639e557536e029dedf83f6,False,1,1,18,18,18.0,7,11,4,0.0,0.0,1.0,2070,344,89,1,caddyhttp: Auto-redirects from all bind addresses (fix #3443)
+d55fa68902519a4603565b15aea8ea31e454434c,False,1,1,8,8,8.0,2,6,4,0.0,0.0,1.0,1746,283,59,1,"http: Only log handler errors >= 500
+
+Errors in the 4xx range are client errors, and they don't need to be
+entered into the server's error logs. 4xx errors are still recorded in
+the access logs at the error level."
+eead337324593ef5cd30ebce2be26da84de00787,False,1,1,4,4,4.0,0,4,4,0.0,0.0,1.0,2183,353,50,1,"caddyhttp: Log non-500 handler errors at debug level (#4429)
+
+Fixes #4428
+
+It's best to still log handler errors at debug level so that they're hidden by default, but still accessible if additional details are necessary."
+66863aad3beb480a26664c77b73eb2ff7fcab754,False,1,8,657,236,82.125,96,579,483,0.2929936305732484,0.2961783439490446,0.9394904458598726,15197,2462,648,43,"caddytls: Add support for ZeroSSL; add Caddyfile support for issuers (#3633)
+
+* caddytls: Add support for ZeroSSL; add Caddyfile support for issuers
+
+Configuring issuers explicitly in a Caddyfile is not easily compatible
+with existing ACME-specific parameters such as email or acme_ca which
+infer the kind of issuer it creates (this is complicated now because
+the ZeroSSL issuer wraps the ACME issuer)... oh well, we can revisit
+that later if we need to.
+
+New Caddyfile global option:
+
+    {
+        cert_issuer <name> ...
+    }
+
+Or, alternatively, as a tls subdirective:
+
+    tls {
+        issuer <name> ...
+    }
+
+For example, to use ZeroSSL with an API key:
+
+    {
+        cert_issuser zerossl API_KEY
+    }
+
+For now, that still uses ZeroSSL's ACME endpoint; it fetches EAB
+credentials for you. You can also provide the EAB credentials directly
+just like any other ACME endpoint:
+
+    {
+        cert_issuer acme {
+            eab KEY_ID MAC_KEY
+        }
+    }
+
+All these examples use the new global option (or tls subdirective). You
+can still use traditional/existing options with ZeroSSL, since it's
+just another ACME endpoint:
+
+    {
+        acme_ca  https://acme.zerossl.com/v2/DV90
+        acme_eab KEY_ID MAC_KEY
+    }
+
+That's all there is to it. You just can't mix-and-match acme_* options
+with cert_issuer, because it becomes confusing/ambiguous/complicated to
+merge the settings.
+
+* Fix broken test
+
+This test was asserting buggy behavior, oops - glad this branch both
+discovers and fixes the bug at the same time!
+
+* Fix broken test (post-merge)
+
+* Update modules/caddytls/acmeissuer.go
+
+Fix godoc comment
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>
+
+* Add support for ZeroSSL's EAB-by-email endpoint
+
+Also transform the ACMEIssuer into ZeroSSLIssuer implicitly if set to
+the ZeroSSL endpoint without EAB (the ZeroSSLIssuer is needed to
+generate EAB if not already provided); this is now possible with either
+an API key or an email address.
+
+* go.mod: Use latest certmagic, acmez, and x/net
+
+* Wrap underlying logic rather than repeating it
+
+Oops, duh
+
+* Form-encode email info into request body for EAB endpoint
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>"
+bde3823b76b457a933e684cd096ca84fc6378997,False,1,1,21,21,21.0,573,592,19,1.0,0.0,0.0,2397,369,78,2,caddytest: Refactor Caddyfile adapt tests to separate files (#3398)
+5c8b502964457646ada348c6bc8ba7180771b7ca,False,1,1,25,25,25.0,9,16,7,0.5,0.5,1.0,1247,189,30,2,"fastcgi: Set SERVER_SOFTWARE, _NAME, and _PORT properly (fixes #2952)"
+956f01163d150b70aa3d5fc418ba9f150bd25c24,False,1,2,112,104,56.0,2,202,200,0.26490066225165565,0.9072847682119205,1.0,2489,362,93,8,"caddytls: Implement remote IP connection matcher (#4123)
+
+* caddytls: Implement remote IP connection matcher
+
+* Implement IP range negation
+
+If both Ranges and NotRanges are specified, both must match."
+0fc97211abd46098f5953fc6b152aa891060fca5,False,1,1,19,19,19.0,6,45,39,0.0,1.0,1.0,3457,562,150,2,"http: Make path matcher case-insensitive
+
+Adds tests for both the path matcher and host matcher for case
+insensitivity.
+
+If case sensitivity is required for the path, a regexp matcher can
+be used instead.
+
+This is the v2 equivalent fix of PR #2882."
+7c7ef8d40e3af35444d522debc95451c04666615,False,1,2,12,10,6.0,10,10,0,,0.0,1.0,7078,1074,287,5,"http: Shorten regexp matcher placeholders; allow ""=/"" for simple matcher"
+284fb3a98cae2e6e6ca79327988230a3a916996a,False,1,3,174,72,58.0,61,133,72,0.64,0.0,1.0,4037,708,177,14,"Allow multiple matcher sets in routes (OR'ed together)
+
+Also export MatchRegexp in case other matcher modules find it useful.
+Add comments to the exported matchers."
+e7457b43e4703080ae8713ada798ce3e20b83690,False,1,1,42,42,42.0,4,72,68,0.17391304347826086,0.5,1.0,4543,717,206,2,caddyhttp: Sanitize the path before evaluating path matchers (#4407)
+7c68809f4e13a7ac7c9e216a69410e7c1966c1df,False,1,3,34,22,11.333333333333334,18,16,-2,0.0,0.0,1.0,10214,1610,467,3,"reverseproxy: Fix overwriting of max_idle_conns_per_host (closes #4201)
+
+Also split the Caddyfile subdirective keepalive_idle_conns into two properties so the conns and conns_per_host can be set separately.
+
+This is technically a breaking change, but probably anyone who this breaks already had a broken config anyway, and silently fixing it won't help them fix their configs."
+42b7134ffa3bf3e9e86514c82407979c2627a5ab,False,1,2,61,48,30.5,9,52,43,0.3333333333333333,0.3333333333333333,1.0,3204,548,126,3,"caddytls: Configurable storage clean interval
+
+Can drastically reduce costs on storage backends where scans are expensive.
+
+Also reduced default interval to 24h.
+
+See https://github.com/silinternational/certmagic-storage-dynamodb/issues/18"
+c131339c5cda3a541223fde4a714aab55de13b9a,False,1,2,50,44,25.0,12,38,26,0.6842105263157895,0.6842105263157895,1.0,7814,1308,309,4,"admin: Implement load_interval to pull config on a timer (#4246)
+
+* feat: implement a simple timer to pull config
+
+mostly referenced to the issue
+
+re #4106
+
+* Update admin.go
+
+use `caddy.Duration`
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+
+* Update caddy.go
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+
+* Update admin.go
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>
+
+* fix: sync load config when no pull interval provided
+
+try not to make break change
+
+* fix: change PullInterval to LoadInterval
+
+* fix: change pull_interval to load_interval
+
+* Update caddy.go
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>"
+5a19db5dc2db7c02d0f99630a07a64cacb7f7b44,False,1,18,1431,334,79.5,175,1292,1117,0.3706896551724138,0.5241379310344828,0.8,23232,3801,832,63,"v2: Implement 'pki' app powered by Smallstep for localhost certificates (#3125)
+
+* pki: Initial commit of PKI app (WIP) (see #2502 and #3021)
+
+* pki: Ability to use root/intermediates, and sign with root
+
+* pki: Fix benign misnamings left over from copy+paste
+
+* pki: Only install root if not already trusted
+
+* Make HTTPS port the default; all names use auto-HTTPS; bug fixes
+
+* Fix build - what happened to our CI tests??
+
+* Fix go.mod"
+bf50d7010a26468791f4397c0f0c4f9a8ed1d6a2,False,1,7,132,47,18.857142857142858,21,111,90,0.0,0.14,1.0,10394,1547,409,11,"acmeserver: Support custom CAs from Caddyfile
+
+The HTTP Caddyfile adapter can now configure the PKI app, and the acme_server directive can now be used to specify a custom CA used for issuing certificates. More customization options can follow later as needed."
+e3324aa6de6c6f8f9fc14757025bb15de4801dde,False,1,1,22,22,22.0,1,126,125,0.0,0.0,1.0,6197,867,259,2,"httpcaddyfile: Ensure handle_path is sorted equally to handle (#3676)
+
+* httpcaddyfile: Ensure handle_path is sorted as equal to handle
+
+* httpcaddyfile: Make mutual exclusivity grouping deterministic (I hope)
+
+* httpcaddyfile: Add comment linking to the issue being fixed
+
+* httpcaddyfile: Typo fix, comment clarity
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+
+* Update caddyconfig/httpcaddyfile/httptype.go
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+33c70f418f780f8e9524c73fbf4bbdbdbb9d7500,False,1,3,20,11,6.666666666666667,3,62,59,0.0851063829787234,0.0851063829787234,0.851063829787234,4625,668,167,3,"fileserver: properly handle escaped/non-ascii paths (#4332)
+
+* fileserver: properly handle escaped/non-ascii paths
+
+* fileserver: tests: accommodate Windows hate of colons in files names"
+b8cba62643abf849411856bd92c42b59b98779f4,False,1,31,1778,252,57.354838709677416,616,1942,1326,0.1776937618147448,0.3856332703213611,0.9489603024574669,37654,6397,1472,85,"Refactor for CertMagic v0.10; prepare for PKI app
+
+This is a breaking change primarily in two areas:
+ - Storage paths for certificates have changed
+ - Slight changes to JSON config parameters
+
+Huge improvements in this commit, to be detailed more in
+the release notes.
+
+The upcoming PKI app will be powered by Smallstep libraries."
+ecd5eeab3857a0d6903a85bf52183171bda1920c,False,1,3,31,23,10.333333333333334,331,357,26,0.0,0.0,1.0,2738,453,82,2,go.mod: Update direct dependencies
+5fda9610f907482497a7b32abb2ab2f85a4e6906,False,1,2,93,75,46.5,24,69,45,1.0,1.0,1.0,2533,427,88,7,"templates: Add 'import' action (#4321)
+
+Related to (closed) Issue #2094 on template inheritance. This PR adds a new function called ""import"" which works like ""include"", except it only takes one argument and passes it to the referenced file to be used as ""."" in that file.
+
+* Update tplcontext.go
+
+Add {{ render ""/path/to/file.ext"" $data }} via funcRender
+
+* Update tplcontext.go
+
+* Refactor funcInclude, add funcImport to enable {{block}} and {{template}}
+
+* Fix funcImport return of nil showing up in html
+
+* Update godocs for  and"
+d3a025994466c3d055fc3fc62bbb048c76f3e1c2,False,1,2,27,20,13.5,6,21,15,0.3076923076923077,0.0,0.0,2514,350,78,2,"fileserver: Fix displayed file size if it is symlink (#4354)
+
+* Fix file size if it is symlink
+
+* change the variable name for readability"
+05656a60b3b089ce1735a1ebb02539cca9f68fb4,False,1,2,23,21,11.5,1,90,89,0.0,0.0,1.0,4881,749,230,2,"httpcaddyfile: Don't add HTTP hosts to TLS APs (fix #4176 and fix #4198)
+
+In the Caddyfile, hosts specified for HTTP sockets (either scheme is ""http"" or it is on the HTTP port) should not be used as subjects in TLS automation policies (APs)."
+7243454a96d6dcbe504af7287de1e68ab4b80c83,False,1,1,161,161,161.0,39,306,267,0.0,0.0,1.0,1009,182,32,1,"fastcgi: `php_fastcgi` subdirectives to override shortcut behaviour (#3255)
+
+* fastcgi: Add new php_fastcgi subdirectives to override the shortcut
+
+* fastcgi: Support ""index off"" to disable redir and try_files
+
+* fastcgi: Remove whitespace to satisfy linter
+
+* fastcgi: Run gofmt
+
+* fastcgi: Make a new dispenser instead of using rewind
+
+* fastcgi: Some fmt
+
+* fastcgi: Add a couple adapt tests
+
+* fastcgi: Clean up for loops
+
+* fastcgi: Move adapt tests to separate files"
+c7efb0307d425eb533885e314518c370a06763da,False,1,4,65,43,16.25,33,270,237,0.012875536480686695,0.871244635193133,1.0,7409,1171,281,5,"reverseproxy: Fix dial placeholders, SRV, active health checks (#3780)
+
+* reverseproxy: Fix dial placeholders, SRV, active health checks
+
+Supercedes #3776
+Partially reverts or updates #3756, #3693, and #3695
+
+* reverseproxy: add integration tests
+
+Co-authored-by: Mohammed Al Sahaf <msaa1990@gmail.com>"
+8ae0d6a509fd1b871457cf742369af04346933a8,False,1,4,239,199,59.75,66,519,453,0.05121951219512195,0.5219512195121951,0.9585365853658536,2581,430,105,17,caddyhttp: Implement better HTTP matchers including regexp; add tests
+6a14e2c2a8881d5e90f1ee363ec4662a3f87402b,False,1,8,238,113,29.75,386,97,-289,1.0,0.3611111111111111,1.0,12660,2075,539,15,"caddytls: Replace lego with acmez (#3621)
+
+* Replace lego with acmez; upgrade CertMagic
+
+* Update integration test"
+f9b54454a19e2b070159ce8d2af76d819658244e,False,1,2,22,14,11.0,10,12,2,0.0,0.0,0.0,3676,506,121,2,"fileserver: Redirect within the original URL (#4179)
+
+This commit changes the file_server directive to redirect using the
+original request's URL instead of the possibly trimmed URL. This should
+make file_server work with handle_path.
+
+This fix is taken from mholt's comment in
+https://caddy.community/t/file-servers-on-different-paths-not-working/11698/11."
+b01bb275b395643542ceca4fbc82bedea8e43937,False,1,1,4,4,4.0,0,8,8,0.0,0.5714285714285714,1.0,1942,325,89,1,"caddyhttp: New placeholder for PEM of client certificate (#3662)
+
+* Fix-3585: added placeholder for a PEM encoded value of the certificate
+
+* Update modules/caddyhttp/replacer.go
+
+Change type of block and empty headers removed
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+
+* fixed tests
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+eb8625f7744ba5e72b51549adc086e45313267cb,False,1,9,539,177,59.888888888888886,212,331,119,1.0,1.0,1.0,6587,1106,248,34,Add error & subroute handlers; weakString; other minor handler changes
+db4f1c02772dfd1f50bd745b322be1b60c72ac41,False,1,1,295,295,295.0,130,301,171,0.2,0.8857142857142857,1.0,2514,365,127,5,"httpcaddyfile: Revise automation policy generation (#3824)
+
+* httpcaddyfile: Revise automation policy generation
+
+This should fix a frustrating edge case where wildcard subjects are
+used, which potentially get shadowed by more specific versions of
+themselves; see the new tests for an example. This change is motivated
+by an actual customer requirement.
+
+Although all the tests pass, this logic is incredibly complex and
+nuanced, and I'm worried it is not correct. But it took me about 4 days
+to get this far on a solution. I did my best.
+
+* Fix typo"
+8d038ca515ffaa4d37dca05a95181203b2db64e7,False,1,3,92,81,30.666666666666668,39,119,80,0.10714285714285714,0.0,1.0,3540,579,157,8,"fileserver: Improve and clarify file hiding logic (#3844)
+
+* fileserver: Improve and clarify file hiding logic
+
+* Oops, forgot to run integration tests
+
+* Make this one integration test OS-agnostic
+
+* See if this appeases the Windows gods
+
+* D'oh"
+3f6283b385642c56f34b479d1275095379b062d3,False,1,2,28,16,14.0,0,140,140,0.0,0.0,0.4166666666666667,3355,489,128,2,"fileserver: Add status code override (#4076)
+
+After reading a question about the `handle_response` feature of `reverse_proxy`, I realized that we didn't have a way of serving an arbitrary file with a status code other than 200. This is an issue in situations where you want to serve a custom error page in routes that are not errors, like the aforementioned `handle_response`, where you may want to retain the status code returned by the proxy but write a response with content from a file.
+
+This feature is super simple, basically if a status code is configured (can be a status code number, or a placeholder string) then that status will be written out before serving the file - if we write the status code first, then the stdlib won't write its own (only the first HTTP status header wins)."
+fdf2a77feb53cb9dd6de772f811e96a5f6b2d2c4,False,1,1,33,33,33.0,8,168,160,0.0,0.0,1.0,2222,375,111,1,"caddyfile: Add args on imports (#3423)
+
+* caddyfile: Add support for args on imports
+
+* caddyfile: Add more import args tests"
+8420a2f250cf467a06c0081cb47a8f73b70e7f3f,False,1,3,74,47,24.666666666666668,47,33,-14,0.0,0.0,0.0,6093,935,264,16,Clean up Dispenser and filename handling a bit
+fc7340e11aa9ca6326909aedfd36bb2c5b53d2a8,False,1,10,840,386,84.0,241,599,358,0.004629629629629629,0.0,1.0,18180,2948,752,23,"httpcaddyfile: Many tls-related improvements including on-demand support
+
+Holy heck this was complicated"
+160d19999982c4facd32c4bddced5a7dc91e8a40,False,1,3,48,36,16.0,100,103,3,0.0,0.0,1.0,6485,1028,241,6,"caddytest: Update Caddyfile tests for formatting, HTTP-only blocks
+
+Previous commit improved the Caddyfile adapter so it doesn't unnecessarily add names to ""skip"" in ""auto_https"" when the server is already HTTP-only.
+
+This commit updates the tests to reflect that change, while also fixing the Caddyfile formatting in many of the tests.
+
+We also print the line number of the divergence between input and formatted version in Caddyfile adapt warnings - very useful for finding initial formatting problems."
+5ae1a5617c4bb1deef22cb3658ee581bb7dbf367,False,1,3,56,44,18.666666666666668,188,342,154,0.20202020202020202,0.21212121212121213,1.0,3147,534,130,5,"caddyhttp: Add split_path to file matcher (used by php_fastcgi) (#3302)
+
+* matcher: Add `split_path` option to file matcher; used in php_fastcgi
+
+* matcher: Skip try_files split if not the final part of the filename
+
+* matcher: Add MatchFile tests
+
+* matcher: Clarify SplitPath godoc"
+b95b87381a282e1fe57295d145b71645d7801f07,False,1,2,99,85,49.5,35,165,130,0.14285714285714285,0.14285714285714285,0.9142857142857143,2794,455,122,6,"fileserver: Fix try_files for directories; windows fix (#3684)
+
+* fileserver: Fix try_files for directories, windows fix
+
+* fileserver: Add new file type placeholder, refactoring, tests
+
+* fileserver: Review cleanup
+
+* fileserver: Flip the return args order"
+1e8af2732946e39fe2821c8a63c2c9746d1672fc,False,1,1,16,16,16.0,8,8,0,0.0,0.0,1.0,1357,209,34,1,fastcgi: Account for lack of split path configuration (fix #3221)
+3b9eae70c9cc680792cdc86513f74f7cc49f43b1,False,1,1,3,3,3.0,1,2,1,0.0,0.0,0.0,3371,510,137,1,"reverseproxy: Change 500 error to 502 for lookup_srv config (#3771)
+
+Fixes #3763"
+d55d50b3b3a9a8e842bb25e1ee8468587cd346f4,False,1,1,7,7,7.0,0,7,7,0.0,0.0,1.0,3305,501,135,1,"reverseproxy: Enforce port range size of 1 at provision (#3695)
+
+* reverse_proxy: ensure upstream address has port range of only 1
+
+* reverse_proxy: don't log the error if upstream range size is more than 1"
+6722426f1a9e6c8a5fb0bbcafd4b5f99cad2b070,False,1,1,34,34,34.0,9,128,119,0.0,0.8849557522123894,1.0,3457,523,143,1,"reverseproxy: allow no port for SRV; fix regression in d55d50b (#3756)
+
+* reverseproxy: fix breakage in handling SRV lookup introduced by 3695
+
+* reverseproxy: validate against incompatible config options with lookup_srv
+
+* reverseproxy: add integration test cases for validations involving lookup_srv
+
+* reverseproxy: clarify the reason for skipping an iteration
+
+* grammar.. Oxford comma
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>
+
+Co-authored-by: Francis Lavoie <lavofr@gmail.com>
+
+Fixes #3753"
+6db3615547b8911ac81dc2b23c1ed8bedbef0fdb,False,1,1,13,13,13.0,4,27,23,0.0,0.75,1.0,4012,645,178,2,"caddyhttp: Enable matching empty query string
+
+Caddyfile syntax: query """"
+
+Or a nil matcher in the JSON should also match an empty query string.
+
+See https://caddy.community/t/v2-match-empty-query/8708?u=matt"
+966d5e6b42fc6da3da8bd39dd6ceceb8f1da3999,False,1,1,11,11,11.0,1,38,37,0.0,0.0,1.0,4116,652,179,1,caddyhttp: Merge header matchers in Caddyfile (#3832)
+aa9c3eb7324461c0dd4f1dd28e767d0b8d0d7ec3,False,1,1,3,3,3.0,0,116,116,0.0,0.0,1.0,3693,593,193,2,"reverseproxy: default to port 80 for upstreams in Caddyfile (#3772)
+
+* reverseproxy: default to port 80 for port-less upstream dial addresses
+
+* reverseproxy: replace integration test with an adapter test
+
+Fixes #3761"
+8c5d00b2bc815c182e1a510be6dddc128949bf23,False,1,3,193,115,64.33333333333333,59,186,127,0.023255813953488372,0.023255813953488372,1.0,4872,836,202,6,"httpcaddyfile: New `handle_path` directive (#3281)
+
+* caddyconfig: WIP implementation of handle_path
+
+* caddyconfig: Complete the implementation - h.NewRoute was key
+
+* caddyconfig: Add handle_path integration test
+
+* caddyhttp: Use the path matcher as-is, strip the trailing *, update test"
+490cd02f826b00e52b6503b61436b8c7444fc30e,False,1,1,74,74,74.0,39,35,-4,1.0,1.0,0.0,3999,598,156,1,"httpcaddyfile: Make root directive mutually exclusive
+
+See https://caddy.community/t/caddyfile-and-v2/6766/22?u=matt"
+bdf92ee84efa6b623698450553cb5509f1cfb66d,False,1,3,12,7,4.0,6,6,0,,,,1442,284,61,2,Minor tweaks
+95d944613bffce1cee3783568ae229e116168ba4,False,1,18,172,108,9.555555555555555,134,128,-6,1.0,1.0,1.0,20851,3281,793,58,"Export Replacer and use concrete type instead of interface
+
+The interface was only making things difficult; a concrete pointer is
+probably best."
+aaacab1bc3790e3a207ae5d70ca6559cac265bff,False,1,2,131,115,65.5,50,159,109,0.34615384615384615,0.34615384615384615,1.0,3494,600,148,9,"Sanitize paths in static file server; some cleanup
+
+Also remove AutomaticHTTPSError for now"
+4bd949652564eff8ccfc50f105f0d35f0af26402,False,1,1,16,16,16.0,2,14,12,1.0,1.0,1.0,860,160,40,1,"Fix Schrodinger's file existence check in file matcher
+
+See: https://stackoverflow.com/a/12518877/1048862
+
+For example, trying to check the existence of ""/www/index.php/index.php""
+fails but not with an os.IsNotExist()-type error. So we have to assume
+that a file that cannot be successfully stat'ed at all does not exist."
+97ace2a39e058f435d4e6adbee874eaabb42e45d,False,1,1,42,42,42.0,15,27,12,,,,868,161,40,3,File matcher enforces trailing-slash convention to match dirs/files
+2f91b44587fe487b6a05c1c7e56833247e4b8c79,False,1,1,5,5,5.0,10,27,17,0.0,0.6,1.0,421,113,27,1,"v2: Make tests work on Windows (#2782)
+
+* file_server: Make tests work on Windows
+
+* caddyfile: Fix escaping when character is not escapable
+
+We only escape certain characters depending on inside or outside of
+quotes (mainly newlines and quotes). We don't want everyone to have to
+escape Windows file paths like C:\\Windows\\... but we can't drop the
+\ either if it's just C:\Windows\..."
+735c86658d058512f5d86408e18e3c81c32788d1,False,1,3,41,24,13.666666666666666,14,27,13,0.0,0.0,0.0,2195,709,70,3,"fileserver: Enable browse pagination with offset parameter (#3542)
+
+* Update browse.go
+
+* Update browselisting.go
+
+* Update browsetpl.go
+
+* fix linter err
+
+* Update modules/caddyhttp/fileserver/browse.go
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+
+* Update modules/caddyhttp/fileserver/browselisting.go
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+
+* Update browsetpl.go
+
+change from -> offset
+
+* Update browse.go
+
+* Update browselisting.go
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+0cf592fa2e0d2fff8e9379095bbe17f7c8cbd4f2,False,1,2,147,146,73.5,1,146,145,0.04411764705882353,0.04411764705882353,1.0,1265,220,36,2,New 'php_fastcgi' directive for convenient PHP+FastCGI reverse proxy
+cef6e098bb278d50cb2f45f57ed40b3af47d6a74,False,1,2,27,17,13.5,6,21,15,1.0,1.0,1.0,2169,371,72,2,Refactor ExtractMatcherSet()
+5bde8d705b9c9cae6751ccf95b7b8acfc1bbb7f5,False,1,1,45,45,45.0,3,42,39,0.0,0.0,1.0,478,95,13,2,"cmd: hash-password: Support reading from stdin (#3373)
+
+Closes #3365 
+
+* http: Add support in hash-password for reading from terminals/stdin
+
+* FIXUP: Run gofmt -s
+
+* FIXUP
+
+* FIXUP: Apply suggestions from code review
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>
+
+* FIXUP
+
+Co-authored-by: Matt Holt <mholt@users.noreply.github.com>"
+b780f0f49b191a6724b7ec54aa62a97d23977231,False,1,6,277,82,46.166666666666664,37,242,205,0.47560975609756095,1.0,1.0,2562,495,100,18,Standardize exit codes and improve shutdown handling; update gitignore
+26e559662d677062874afed9775f660f1f5f9c1e,False,1,1,2,2,2.0,1,88,87,0.0,1.0,1.0,5886,825,253,1,"httpcaddyfile: Support single-line matchers (#3263)
+
+* httpcaddyfile: Support single-line matchers
+
+* httpcaddyfile: Add single-line matcher test
+
+* httpcaddyfile: Add a matcher syntax adapt test"
+15bf9c196c5972051f40ebadf50811bd06e328dd,False,1,7,39,15,5.571428571428571,13,76,63,0.06521739130434782,0.9130434782608695,1.0,15499,2438,685,10,"caddyfile: Refactor; NewFromNextSegment(); fix repeated matchers
+
+Now multiple instances of the same matcher can be used within a named
+matcher without overwriting previous ones."
+a3cfe437b1d27fa0eb20d112de7c257cb25e4ea7,False,1,1,2,2,2.0,4,24,20,0.0,1.0,1.0,3819,625,173,1,"caddyhttp: Support single-line not matcher (#3228)
+
+* caddyhttp: Support single-line not matcher shortcut
+
+* caddyhttp: Some tests, I guess"
+7b4aa108c7d67416bf68574da6c5a43899715b3d,False,1,1,37,37,37.0,1,36,35,0.0,0.0,1.0,3389,553,148,1,caddyhttp: 'not' matcher: Support Caddyfile unmarshaling
+14f9662f9cc0f93e88d5efbbaf10de79070bea93,False,1,8,48,16,6.0,23,25,2,1.0,1.0,1.0,8424,1406,337,10,"Various fixes/tweaks to HTTP placeholder variables and file matching
+
+- Rename http.var.* -> http.vars.* to be more consistent
+- Prefixing a path matcher with * now invokes simple suffix matching
+- Handlers and matchers that need a root path default to {http.vars.root}
+- Clean replacer output on the file matcher's file selection suffix"
+758269124ef5d6d83cb4e8d8eeb095f5b025250e,False,1,2,222,188,111.0,94,128,34,0.3181818181818182,0.0,1.0,5017,794,240,3,reverseproxy: Fix host and port on requests; fix Caddyfile parser
+210d0cf7f1040c1372a79869b8b279a92a52baf5,False,1,3,129,119,43.0,20,109,89,0.06896551724137931,0.3448275862068966,1.0,2423,428,83,8,Implement custom cert selection policies; optimize matching for SNI
+91da965a3957edb7d3d87d91e06e0cd9e33860ec,False,1,2,31,29,15.5,1,89,88,0.0,1.0,1.0,4665,853,214,2,"Disable warning for insecure CA if located on private network. (#1599)
+
+* Disable warning for insecure CA if located on private network.
+ * Add IsPrivateNetwork function
+ * Add tests
+
+Signed-off-by: Jonas Östanbäck <jonas.ostanback@gmail.com>
+
+* Add more testcases
+
+Signed-off-by: Jonas Östanbäck <jonas.ostanback@gmail.com>
+
+* Rename IsPrivateNetwork -> IsInternal
+
+Signed-off-by: Jonas Östanbäck <jonas.ostanback@gmail.com>"

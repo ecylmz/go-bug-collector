@@ -1,0 +1,269 @@
+sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message
+9c0b92259737c0baf886619517c3222626c2a247,False,1,4,66,31,16.5,32,34,2,0.0,0.0,0.0,4858,795,165,16,fix: overlapping logs and menu navigation (#11765)
+fd532a37e7a57024fa50de15735439513da91b02,False,1,2,10,6,5.0,7,3,-4,0.0,0.0,0.0,310,68,17,2,fix(desktop): remove overly-aggressive feature flag check (#11748)
+922422a53922e21e4e3e5717b81066a74d065dc1,False,1,1,25,25,25.0,7,18,11,0.0,0.0,1.0,7394,1169,273,2,"fix: do not try to create file shares for non-directories
+
+When creating automatic file shares, ignore any non-directory
+bind mounts, e.g. for an individual (normal) file or a special
+type like a Unix socket (`/var/run/docker.sock`).
+
+Additionally, there's no need to create a directory if one
+does not exist, the API will handle that. However, the check
+for existence remains so that `create_host_path: false`
+mounts can be ignored.
+
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+ff20b641c7f1cce588faea476fbd1a6fdd953b36,False,1,3,47,21,15.666666666666666,21,26,5,1.0,1.0,1.0,4044,652,130,8,"Does not start keyboard manager if there is no tty
+
+Signed-off-by: Joana Hrotko <joana.hrotko@docker.com>"
+d688d3bf22f262445a9c61aa98250c1b3f830657,False,1,1,4,4,4.0,3,1,-2,1.0,1.0,0.0,531,103,19,1,"fix(tracing): batch span exports to prevent blocking
+
+This was a bad configuration (my fault) that meant each span was
+exported synchronously, as it ended. That can cause weird behavior
+such as stuttering/blocking.
+
+There's really no reason to NOT use the batch processor, it's the
+recommended way to configure it. In the future, it might make sense
+to tune the intervals based on the fact that Compose is a CLI vs
+a long-running server app, but we handle flushing out on exit
+already, so it's not a huge deal.
+
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+792afb8d13e5d4db5e0f05d27c936c99a28a5c6d,False,1,1,1,1,1.0,0,1,1,0.0,1.0,0.0,3131,494,122,1,"build: use correct values for proxy variables (#10908)
+
+clone variable before we capture a pointer
+
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+0363d9260afef4bcc32479c1930766e8ce0cf83c,False,1,1,10,10,10.0,9,3,-6,1.0,1.0,0.0,830,150,31,1,"fix local image removal when `compose down` is ran with `--project-name` (#10558)
+
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+caad72713ba81b1fe9548bec3092b3257253708d,False,1,3,177,84,59.0,53,182,129,0.8676470588235294,0.8676470588235294,0.7941176470588235,3563,546,126,10,"up: handle various attach use cases better
+
+By default, `compose up` attaches to all services (i.e.
+shows log output from every associated container). If
+a service is specified, e.g. `compose up foo`, then
+only `foo`'s logs are tailed. The `--attach-dependencies`
+flag can also be used, so that if `foo` depended upon
+`bar`, then `bar`'s logs would also be followed. It's
+also possible to use `--no-attach` to filter out one
+or more services explicitly, e.g. `compose up --no-attach=noisy`
+would launch all services, including `noisy`, and would
+show log output from every service _except_ `noisy`.
+Lastly, it's possible to use `up --attach` to explicitly
+restrict to a subset of services (or their dependencies).
+
+How these flags interact with each other is also worth
+thinking through.
+
+There were a few different connected issues here, but
+the primary issue was that running `compose up foo` was
+always attaching dependencies regardless of `--attach-dependencies`.
+
+The filtering logic here has been updated so that it
+behaves predictably both when launching all services
+(`compose up`) or a subset (`compose up foo`) as well
+as various flag combinations on top of those.
+
+Notably, this required making some changes to how it
+watches containers. The logic here between attaching
+for logs and monitoring for lifecycle changes is
+tightly coupled, so some changes were needed to ensure
+that the full set of services being `up`'d are _watched_
+and the subset that should have logs shown are _attached_.
+(This does mean faking the attach with an event but not
+actually doing it.)
+
+While handling that, I adjusted the context lifetimes
+here, which improves error handling that gets shown to
+the user and should help avoid potential leaks by getting
+rid of a `context.Background()`.
+
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+1fdbcb6255479d3955d07ebe699b7baaeb805b32,False,1,11,331,129,30.09090909090909,242,340,98,1.0,0.0,1.0,22576,3673,735,40,"build: pass BuildOptions around explicitly & fix multi-platform issues
+
+The big change here is to pass around an explicit `*BuildOptions` object
+as part of Compose operations like `up` & `run` that may or may not do
+builds. If the options object is `nil`, no builds whatsoever will be
+attempted.
+
+Motivation is to allow for partial rebuilds in the context of an `up`
+for watch. This was broken and tricky to accomplish because various parts
+of the Compose APIs mutate the `*Project` for convenience in ways that
+make it unusable afterwards. (For example, it might set `service.Build = nil`
+because it's not going to build that service right _then_. But we might
+still want to build it later!)
+
+NOTE: This commit does not actually touch the watch logic. This is all
+      in preparation to make it possible.
+
+As part of this, a bunch of code moved around and I eliminated a bunch
+of partially redundant logic, mostly around multi-platform. Several
+edge cases have been addressed as part of this:
+ * `DOCKER_DEFAULT_PLATFORM` was _overriding_ explicitly set platforms
+   in some cases, this is no longer true, and it behaves like the Docker
+   CLI now
+ * It was possible for Compose to build an image for one platform and
+   then try to run it for a different platform (and fail)
+ * Errors are no longer returned if a local image exists but for the
+   wrong platform - the correct platform will be fetched/built (if
+   possible).
+
+Because there's a LOT of subtlety and tricky logic here, I've also tried
+to add an excessive amount of explanatory comments.
+
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+407a0d5b531787443531473d87040b43eabc6f78,False,1,3,174,110,58.0,82,105,23,0.0,1.0,1.0,1216,221,47,9,"up: fix various race/deadlock conditions on exit (#10934)
+
+If running `up` in foreground mode (i.e. not `-d`),
+when exiting via `Ctrl-C`, Compose stops all the
+services it launched directly as part of that `up`
+command.
+
+In one of the E2E tests (`TestUpDependenciesNotStopped`),
+this was occasionally flaking because the stop
+behavior was racy: the return might not block on
+the stop operation because it gets added to the
+error group in a goroutine. As a result, it was
+possible for no services to get terminated on exit.
+
+There were a few other related pieces here that
+I uncovered and tried to fix while stressing this.
+For example, the printer could cause a deadlock if
+an event was sent to it after it stopped.
+
+Also, an error group wasn't really appropriate here;
+each goroutine is a different operation for printing,
+signal-handling, etc. If one part fails, we don't
+actually want printing to stop, for example. This has
+been switched to a `multierror.Group`, which has the
+same API but coalesces errors instead of canceling a
+context the moment the first one fails and returning
+that single error.
+
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+c350f80d4b182e1787099e1c86ff46defc150381,False,1,1,27,27,27.0,11,16,5,0.0,0.0,1.0,4486,646,159,4,"up: do not warn on successful optional dependency complete (#10870)
+
+If an optional dependency exits successfully (exit code of 0),
+with a service condition of `service_completed_successfully`,
+don't log a warning.
+
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+be22bc735a1a5a629b7580da3bf0b1d5bb3603cd,False,1,1,16,16,16.0,40,29,-11,0.0,0.0,0.0,4105,610,151,1,"network: fix random missing network when service has more than one
+
+As part of the fix for #10668, the logic was adjusted so that the
+default (highest-priority) network is used in the `ContainerCreate`,
+and then the remaining networks are connected via calls to
+`NetworkConnect` before starting the container.
+
+Unfortunately, `ServiceConfig::NetworksByPriority` is neither
+deterministic nor stable when networks have the same priority.
+
+It's non-deterministic because the order of networks from parsing
+YAML is random, since they are loaded into a Go map (which have
+random iteration order). Additionally, it's not using a `SortStable`
+in `compose-go`, so even if the load order was predictable, it
+still might produce different results.
+
+While I look at improving `compose-go` here to prevent this from
+tripping us up in the future, this fix looks at _all_ networks for
+a service and ignores the ""default"" one now. Before, it would
+always skip the first one in the slice since that _should_ have
+been the ""default"".
+
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+ff3984e6093672ede542f842148996b36f7d1fab,False,1,2,10,6,5.0,5,5,0,0.0,0.0,0.0,619,113,19,1,"otel: fix initialization / error-handling (#10717)
+
+* If there's no `otel` key (or the value is `null`) in the config,
+  don't return an error
+* Propagate error from the exporter instead of panicking
+
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+b304c4e1547e0e9119a74207ae1661967e2986aa,False,1,1,9,9,9.0,3,6,3,0.5,0.5,0.5,463,80,15,2,"stop containers after termination
+
+Signed-off-by: TP-O <letranphong2k1@gmail.com>"
+9ef173a3aca1e2411f43b8348ac72fe8d144063e,False,1,1,16,16,16.0,6,10,4,0.0,0.0,1.0,1355,228,51,2,"log: fix race on container kill (#10459)
+
+If we go to inspect a container that we got an event for and it
+no longer exists on the server, handle clean up without erroring
+out.
+
+Fixes #10373.
+
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+a842522f4966948514f9cd372a7073da02a87bc6,False,1,1,3,3,3.0,2,1,-1,,,,1601,248,63,1,"use filepath instead of path to check if the dockerfile path is abolute or not
+
+Signed-off-by: Guillaume Lours <guillaume.lours@docker.com>"
+113fb6732dc254884507ddbbe0faaa198728603e,False,1,2,30,23,15.0,533,59,-474,1.0,1.0,1.0,8562,1317,274,6,"schema: add support for tmpfs.mode in mount definition (#10031)
+
+See compose-spec/compose-go#325 for the acutal spec change. This
+propagates it to the Engine API object and adds an E2E test via
+Cucumber 🥒
+
+Fixes #9873.
+
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+2e7644ff21f9ca0ea6fb5e8d41d4f6af32cd7e20,False,1,1,2,2,2.0,1,1,0,,,,1139,201,41,1,"use api.Separator to print right image names
+
+Signed-off-by: windforce17 <wzcboss@qq.com>"
+616777eb4ad4d1101622d6727d9b7adaeb7943bb,False,1,1,67,67,67.0,20,93,73,0.6027397260273972,1.0,1.0,1864,287,63,11,"deps: fix race condition during graph traversal (#9878)
+
+Keep track of visited nodes to prevent visiting a service multiple
+times. This is possible when a service depends on multiple others,
+as an attempt could be made to visit it from multiple parents.
+
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+a95cc4074a38a65c02e349ef284a9a4f28e2a0cc,False,1,1,12,12,12.0,21,3,-18,0.36363636363636365,0.36363636363636365,0.0,2130,327,63,4,"Remove support for `DOCKER_HOST` in `.env` files (#9871)
+
+Revert ""Merge pull request #9817 from ulyssessouza/apply-newly-loaded-envvars""
+
+This reverts commit 126cb988c6f0c00a2a9887b8a39dc0907daec289, reversing
+changes made to b80222fb077436f2d4fcc62b3765d3a493891632.
+
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+61845dd7816cec9d42c715c8b157f88dfe78fd54,False,1,3,35,21,11.666666666666666,26,290,264,0.09289617486338798,0.8087431693989071,0.8415300546448088,2235,446,32,3,"logs: filter to services from current Compose file (#9811)
+
+* logs: filter to services from current Compose file
+
+When using the file model, only attach to services
+referenced in the active Compose file.
+
+For example, let's say you have `compose-base.yaml`
+and `compose.yaml`, where the former only has a
+subset of the services but are both run as part of
+the same named project.
+
+Project based command:
+```
+docker compose -p myproj logs
+```
+This should return logs for active services based
+on the project name, regardless of Compose file
+state on disk.
+
+File based command:
+```
+docker compose --file compose-base.yaml logs
+```
+This should return logs for ONLY services that are
+defined in `compose-base.yaml`. Any other services
+are considered 'orphaned' within the context of the
+command and should be ignored.
+
+See also #9705.
+
+Fixes #9801.
+
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+bbaaa6a9de8c4f54b2db85ae86c592638a94d83b,False,1,3,80,68,26.666666666666668,9,186,177,0.2543859649122807,1.0,1.0,2892,431,107,8,"config: case-insensitive env vars on Windows (#9438)
+
+Signed-off-by: IKEDA Yasuyuki <devld@ikedam.jp>"
+765c071c89cf2ec8ef35bf628c570d89e2154ce7,False,1,3,116,66,38.666666666666664,3,203,200,0.4519230769230769,1.0,0.8365384615384616,832,141,22,9,"up: do not stop dependency containers (#9701)
+
+This keeps parity with v1, where only the containers explicitly
+passed to `up` are torn down when `Ctrl-C` is hit, so any
+dependencies that got launched (or orphan containers hanging
+around) should not be touched.
+
+Fixes #9696.
+
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
