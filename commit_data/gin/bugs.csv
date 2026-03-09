@@ -1,10 +1,10 @@
-sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message
-1f6304ca259f5d8b7e419c1f56b70a66e4fc37dd,False,1,6,258,173,43.0,133,125,-8,0.0,0.0,0.0,6758,1080,293,11,Cleaning up performance branch
-6c6d97ba2e7eeaf78e20fc4344b21c4e057e2a9a,False,1,6,28,12,4.666666666666667,13,15,2,,,,8137,1238,297,12,remove hardcode instead of http status value (#1411)
-f7376f7c7fc73e2fdd30623f413f87a32e73baa2,False,1,1,48,48,48.0,21,27,6,1.0,1.0,1.0,1968,310,62,3,combine var and use tmp var (#1108)
+sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message,commit_timestamp
+1f6304ca259f5d8b7e419c1f56b70a66e4fc37dd,False,1,6,258,173,43.0,133,125,-8,0.0,0.0,0.0,6758,1080,293,11,Cleaning up performance branch,1428402158
+6c6d97ba2e7eeaf78e20fc4344b21c4e057e2a9a,False,1,6,28,12,4.666666666666667,13,15,2,,,,8137,1238,297,12,remove hardcode instead of http status value (#1411),1530004892
+f7376f7c7fc73e2fdd30623f413f87a32e73baa2,False,1,1,48,48,48.0,21,27,6,1.0,1.0,1.0,1968,310,62,3,combine var and use tmp var (#1108),1506610477
 1660995a04f579b4e0d5683ff45e1af4c2a50346,False,1,1,16,16,16.0,8,8,0,,,,128,24,5,1,"Adjust the position of some functions (#3385)
 
-Co-authored-by: fredhan <fredhan@futunn.com>"
+Co-authored-by: fredhan <fredhan@futunn.com>",1673936634
 36b0dede4b8c4a67d92c4107cebc5a068364321d,False,1,1,6,6,6.0,3,8,5,1.0,1.0,1.0,5727,820,235,2,"fix(context): check handler is nil (#3413)
 
 * fixed #3404 2022-11-23
@@ -28,9 +28,9 @@ Signed-off-by: Bo-Yi Wu <appleboy.tw@gmail.com>
 ---------
 
 Signed-off-by: Bo-Yi Wu <appleboy.tw@gmail.com>
-Co-authored-by: Bo-Yi Wu <appleboy.tw@gmail.com>"
-dc4337261068402e037614671cadf380d00deca1,False,1,3,600,292,200.0,292,308,16,,,0.0,2459,370,84,30,Splitting source code in different files
-2915fa0ffedb73c8cc979c144f7ce4b046006db8,False,1,7,989,556,141.28571428571428,172,909,737,0.11333333333333333,0.10888888888888888,0.8111111111111111,6334,1033,282,23,"Zero allocation router, first commit"
+Co-authored-by: Bo-Yi Wu <appleboy.tw@gmail.com>",1715583341
+dc4337261068402e037614671cadf380d00deca1,False,1,3,600,292,200.0,292,308,16,,,0.0,2459,370,84,30,Splitting source code in different files,1405534443
+2915fa0ffedb73c8cc979c144f7ce4b046006db8,False,1,7,989,556,141.28571428571428,172,909,737,0.11333333333333333,0.10888888888888888,0.8111111111111111,6334,1033,282,23,"Zero allocation router, first commit",1427830746
 3ac729dc4a497d360a23b9d7e766c622b3c99f51,False,1,1,52,52,52.0,35,119,84,1.0,1.0,0.5652173913043478,3238,511,110,3,"feat(gin): support http3 using quic-go/quic-go (#3210)
 
 * experimental support http3
@@ -79,8 +79,8 @@ Signed-off-by: Bo-Yi Wu <appleboy.tw@gmail.com>
 ---------
 
 Signed-off-by: Bo-Yi Wu <appleboy.tw@gmail.com>
-Co-authored-by: Bo-Yi Wu <appleboy.tw@gmail.com>"
-3fe928994b7ba7ed16b0c5114ca82a9dafa7a974,False,1,3,135,117,45.0,52,120,68,0.22388059701492538,0.5671641791044776,0.5223880597014925,11914,1841,488,7,Update the code logic for latestNode in tree.go (#2897)
+Co-authored-by: Bo-Yi Wu <appleboy.tw@gmail.com>",1715217426
+3fe928994b7ba7ed16b0c5114ca82a9dafa7a974,False,1,3,135,117,45.0,52,120,68,0.22388059701492538,0.5671641791044776,0.5223880597014925,11914,1841,488,7,Update the code logic for latestNode in tree.go (#2897),1634961537
 62749f0db4aa5ee1045779b457fe1f28a553f467,False,1,1,10,10,10.0,0,26,26,1.0,1.0,1.0,4496,633,186,1,"Add context.HandlerNames() (#1729)
 
 * Add context.HandlerNames()
@@ -95,21 +95,21 @@ Add tests for HandlerNames
 
 * Fix HandlerNames test
 
-* Simplify test"
+* Simplify test",1551154540
 ef687e0db2947ddae312cb21bc2cdb8925611714,False,1,1,7,7,7.0,1,14,13,0.0,0.0,1.0,189,60,11,1,"feat: automatically SetMode to TestMode when run go test. (#3139)
 
-related issue: https://github.com/gin-gonic/gin/issues/3134"
-a4e947a356add617b5022c31f6dc28e5b78849fe,False,1,1,10,10,10.0,4,6,2,,,,168,53,10,1,update:SetMode function (#2321)
-ea962038e151598b9c564aed2e2d544d1541780e,False,1,3,22,14,7.333333333333333,12,10,-2,0.0,0.0,0.0,1139,200,37,4,Cosmetic changes
+related issue: https://github.com/gin-gonic/gin/issues/3134",1652490695
+a4e947a356add617b5022c31f6dc28e5b78849fe,False,1,1,10,10,10.0,4,6,2,,,,168,53,10,1,update:SetMode function (#2321),1587047518
+ea962038e151598b9c564aed2e2d544d1541780e,False,1,3,22,14,7.333333333333333,12,10,-2,0.0,0.0,0.0,1139,200,37,4,Cosmetic changes,1428402443
 5d3f30cfc81f9109850fa9043a19783cbbde68a5,False,1,1,3,3,3.0,0,7,7,0.0,1.0,1.0,159,50,9,1,"Make """" mode being the same as debug mode (#1250)
 
 Not setting mode explicitly sets gin into debug mode, but it does not
-make it possible to retrieve gin mode as Debug since it's set to """"."
+make it possible to retrieve gin mode as Debug since it's set to """".",1519348173
 435a76b735db28b6223b323d30503de51c637b89,False,1,7,320,299,45.714285714285715,143,411,268,0.4915254237288136,1.0,1.0,5128,839,200,42,"chore(ci): update dependencies (#2827)
 
 Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
-Co-authored-by: Matthieu MOREL <mmorel-35@users.noreply.github.com>"
-2bde107686759098e2d64273bc79d1a0216a4500,False,1,33,286,88,8.666666666666666,174,214,40,,,0.0,19487,3254,776,162,test support go1.18 (#2990)
+Co-authored-by: Matthieu MOREL <mmorel-35@users.noreply.github.com>",1629359191
+2bde107686759098e2d64273bc79d1a0216a4500,False,1,33,286,88,8.666666666666666,174,214,40,,,0.0,19487,3254,776,162,test support go1.18 (#2990),1647826997
 c19aa0598b6bab47f498e68ebc60ceafded8631f,False,1,3,29,23,9.666666666666666,1,109,108,1.0,1.0,0.7346938775510204,3746,587,156,3,"feat(context): add BindQuery func (#1029)
 
 * feat(context): add BindQuery func, only parse/bind the query string params.
@@ -118,20 +118,20 @@ c19aa0598b6bab47f498e68ebc60ceafded8631f,False,1,3,29,23,9.666666666666666,1,109
 
 * docs(readme): fix import.
 
-* docs(readme): separate import"
+* docs(readme): separate import",1500450605
 4bfae4c8c8f7764cc587022ba6d9d2fd18e6c47d,False,1,2,55,52,27.5,11,142,131,0.42592592592592593,0.7592592592592593,0.8981481481481481,625,136,25,3,"Support binding for slice/array obj [Rewrite] (#2302)
 
 Co-authored-by: thinkerou <thinkerou@gmail.com>
-Co-authored-by: Bo-Yi Wu <appleboy.tw@gmail.com>"
-a06d546f5c2e853b07fde5a41b1fff102829b116,False,1,1,7,7,7.0,1,6,5,0.0,0.0,0.0,3771,627,171,1,prettify error message for catch-all conflict with existing path segment (#2934)
-1d0f938f28d7e592623264591605dc22ac141cc5,False,1,1,2,2,2.0,1,14,13,1.0,1.0,1.0,3405,574,159,1,Fix insufficient slice check (#2755)
+Co-authored-by: Bo-Yi Wu <appleboy.tw@gmail.com>",1609681414
+a06d546f5c2e853b07fde5a41b1fff102829b116,False,1,1,7,7,7.0,1,6,5,0.0,0.0,0.0,3771,627,171,1,prettify error message for catch-all conflict with existing path segment (#2934),1638062777
+1d0f938f28d7e592623264591605dc22ac141cc5,False,1,1,2,2,2.0,1,14,13,1.0,1.0,1.0,3405,574,159,1,Fix insufficient slice check (#2755),1624598521
 2dd31930060c978a84507571f7a3106afbf9673b,False,1,1,13,13,13.0,3,38,35,0.0,0.6896551724137931,1.0,4578,646,191,1,"Support negotiation wildcards, fix #391 (#1112)
 
 * support negotiation wildcards, fix #391
 
-* fix typo"
-f3a6b69fd00d7dba9e7cdb726d3c0fc513259834,False,1,1,3,3,3.0,2,1,-1,,,,3419,582,164,0,Delete unused static const (#2830)
-1e417c7a50f5b33db31d161c8212a8fb7a5971b2,False,1,2,22,12,11.0,7,15,8,1.0,1.0,1.0,2805,442,100,5,Refactors Context allocation
+* fix typo",1551405794
+f3a6b69fd00d7dba9e7cdb726d3c0fc513259834,False,1,1,3,3,3.0,2,1,-1,,,,3419,582,164,0,Delete unused static const (#2830),1629419904
+1e417c7a50f5b33db31d161c8212a8fb7a5971b2,False,1,2,22,12,11.0,7,15,8,1.0,1.0,1.0,2805,442,100,5,Refactors Context allocation,1427308397
 d17270dd90c488308de3102d6951946ca0a5911f,False,1,3,591,573,197.0,282,393,111,0.2898550724637681,0.463768115942029,0.0,10341,1600,422,14,"Sync route tree to httprouter latest code (#2368)
 
 * update tree
@@ -190,10 +190,10 @@ Signed-off-by: Bo-Yi Wu <appleboy.tw@gmail.com>
 
 * refactor
 
-Signed-off-by: Bo-Yi Wu <appleboy.tw@gmail.com>"
-58b5e158709f7ea39db09ef28684f77042728e40,False,1,2,32,24,16.0,14,18,4,0.0,1.0,1.0,3509,565,129,3,Adds ForwardedByClientIP option
-ac0ad2fed865d40a0adc1ac3ccaadc3acff5db4b,False,1,9,112,43,12.444444444444445,615,775,160,1.0,1.0,1.0,4252,709,177,24,Improves unit tests
-61ba9db5af23da0f11d5f68bced9ccc5a417859b,False,1,1,13,13,13.0,54,88,34,0.9411764705882353,1.0,1.0,51,11,1,1,Make CreateTestContext public without importing net/http/httptest
+Signed-off-by: Bo-Yi Wu <appleboy.tw@gmail.com>",1589088145
+58b5e158709f7ea39db09ef28684f77042728e40,False,1,2,32,24,16.0,14,18,4,0.0,1.0,1.0,3509,565,129,3,Adds ForwardedByClientIP option,1433677873
+ac0ad2fed865d40a0adc1ac3ccaadc3acff5db4b,False,1,9,112,43,12.444444444444445,615,775,160,1.0,1.0,1.0,4252,709,177,24,Improves unit tests,1428454715
+61ba9db5af23da0f11d5f68bced9ccc5a417859b,False,1,1,13,13,13.0,54,88,34,0.9411764705882353,1.0,1.0,51,11,1,1,Make CreateTestContext public without importing net/http/httptest,1474424211
 417b142703594c1a7dff030e67c38e1dfec9f1fc,False,1,1,19,19,19.0,4,64,60,0.4222222222222222,1.0,0.9333333333333333,1205,162,34,4,"feat: add StaticFileFS (#2749)
 
 * RouterGroup.StaticFileFS added
@@ -202,25 +202,25 @@ add StaticFileFS ad README
 * fix Static content mistake
 
 * update README `tab`
-improve StaticFile and StaticFileFS code, use staticFileHandler"
+improve StaticFile and StaticFileFS code, use staticFileHandler",1647568343
 bfc8ca285eb46dad60e037d57c545cd260636711,False,1,2,155,82,77.5,22,391,369,0.18518518518518517,0.7916666666666666,1.0,7717,1153,300,7,"feat(engine): add trustedproxies and remoteIP (#2632)
 
 Co-authored-by: Søren L. Hansen <soren@linux2go.dk>
 Co-authored-by: Bo-Yi Wu <appleboy.tw@gmail.com>
 Co-authored-by: thinkerou <thinkerou@gmail.com>
-Co-authored-by: Javier Provecho Fernandez <javiertitan@gmail.com>"
-d4ca9a0fb1211108f0a893634ee01b0006890c16,False,1,1,88,88,88.0,30,172,142,0.0,0.6363636363636364,0.8677685950413223,3432,586,164,1,fix #2762 (#2767)
-1c2aa59b20c8cff5b3c601708afe22100eac25e6,False,1,1,3,3,3.0,1,17,16,0.5,0.9375,0.9375,3733,622,171,1,fix the misplacement of adding slashes (#2847)
+Co-authored-by: Javier Provecho Fernandez <javiertitan@gmail.com>",1617680245
+d4ca9a0fb1211108f0a893634ee01b0006890c16,False,1,1,88,88,88.0,30,172,142,0.0,0.6363636363636364,0.8677685950413223,3432,586,164,1,fix #2762 (#2767),1626994695
+1c2aa59b20c8cff5b3c601708afe22100eac25e6,False,1,1,3,3,3.0,1,17,16,0.5,0.9375,0.9375,3733,622,171,1,fix the misplacement of adding slashes (#2847),1635243329
 f3de8132c5d955784deeadb9bcf5752e9fdf0d8c,False,1,1,113,113,113.0,67,111,44,0.0,1.0,1.0,3265,549,154,4,"Add mixed param and non-param paths (port of httprouter#329) (#2663)
 
-Co-authored-by: Bo-Yi Wu <appleboy.tw@gmail.com>"
-0a192fb0fa0127eac08cf24c624b92048ed823f6,False,1,10,97,49,9.7,86,1477,1391,0.40931372549019607,0.6262254901960784,0.9607843137254902,3922,641,139,14,Tons of unit tests
-5f76ba2022fdc3ebf06cc3349d3fc7645ef5aab5,False,1,2,6,4,3.0,5,5,0,,,,3495,563,130,2,Context.Engine renamed to Context.engine
+Co-authored-by: Bo-Yi Wu <appleboy.tw@gmail.com>",1617677348
+0a192fb0fa0127eac08cf24c624b92048ed823f6,False,1,10,97,49,9.7,86,1477,1391,0.40931372549019607,0.6262254901960784,0.9607843137254902,3922,641,139,14,Tons of unit tests,1428574502
+5f76ba2022fdc3ebf06cc3349d3fc7645ef5aab5,False,1,2,6,4,3.0,5,5,0,,,,3495,563,130,2,Context.Engine renamed to Context.engine,1432254253
 0a55865c3fc4c2b30dce86dfa9cff7654ba9bc74,False,1,1,67,67,67.0,43,197,154,0.10555555555555556,1.0,1.0,3418,583,164,1,"fix #2786 (#2796)
 
 * update match rule
 
-* add comments"
+* add comments",1627265274
 2921582d11d517dff4cf0226bfbcd8bc7c63d536,False,1,1,29,29,29.0,3,44,41,0.0,0.36363636363636365,0.36363636363636365,3401,574,158,1,"Fix conflict between param and exact path (#2706)
 
 * Fix conflict between param and exact path
@@ -241,31 +241,31 @@ Signed-off-by: Yue Yang <g1enyy0ung@gmail.com>
 
 * Fix panic
 
-Signed-off-by: Yue Yang <g1enyy0ung@gmail.com>"
-b1872ec3697b9a61c2a5135ac706094b18e355e5,False,1,2,47,25,23.5,12,130,118,0.32978723404255317,0.7127659574468085,0.0,4451,735,194,4,The url.RawPath used when engine.UseRawPath is set to true. (#810)
+Signed-off-by: Yue Yang <g1enyy0ung@gmail.com>",1621389936
+b1872ec3697b9a61c2a5135ac706094b18e355e5,False,1,2,47,25,23.5,12,130,118,0.32978723404255317,0.7127659574468085,0.0,4451,735,194,4,The url.RawPath used when engine.UseRawPath is set to true. (#810),1488277781
 35e33d3638f9b5a1246dd9c72a99740f5ad4b43b,False,1,3,97,72,32.333333333333336,46,117,71,0.2857142857142857,0.7619047619047619,0.8095238095238095,9576,1453,391,7,"Hold matched route full path in the Context (#1826)
 
 * Return nodeValue from getValue method
 
 * Hold route full path in the Context
 
-* Add small example"
-ce2201c39214775ddfff8f79549473d64160aa39,False,1,2,25,18,12.5,19,75,56,1.0,1.0,1.0,2317,406,94,3,router.Run() can be called without parameters. #405
-c6544855d7244db15858cbc0bb200da5efa45b83,False,1,1,61,61,61.0,28,33,5,0.0,0.0,0.16666666666666666,2921,485,138,4,tree: sync httprouter update (#2171)
-c1719f7e2063acd931be65aae2c8bad27f2fc137,False,1,1,6,6,6.0,2,6,4,0.0,0.0,1.0,2140,335,80,1,Use only the ip part of request RemoteAddr
+* Add small example",1558830021
+ce2201c39214775ddfff8f79549473d64160aa39,False,1,2,25,18,12.5,19,75,56,1.0,1.0,1.0,2317,406,94,3,router.Run() can be called without parameters. #405,1439734791
+c6544855d7244db15858cbc0bb200da5efa45b83,False,1,1,61,61,61.0,28,33,5,0.0,0.0,0.16666666666666666,2921,485,138,4,tree: sync httprouter update (#2171),1575801308
+c1719f7e2063acd931be65aae2c8bad27f2fc137,False,1,1,6,6,6.0,2,6,4,0.0,0.0,1.0,2140,335,80,1,Use only the ip part of request RemoteAddr,1435776501
 c115074d773cb135f8c647992e792b91ad3bb3d9,False,1,1,11,11,11.0,5,6,1,,,,2593,408,96,1,"Use X-Forwarded-For before X-Real-Ip
 
-Nginx uses X-Real-Ip with its IP instead of the client's IP. Therefore, we should use X-Forwarded-For *before* X-Real-Ip"
+Nginx uses X-Real-Ip with its IP instead of the client's IP. Therefore, we should use X-Forwarded-For *before* X-Real-Ip",1483458185
 211c48f0408804fdbc3b698cf53243da9699c376,False,1,2,4,2,2.0,2,2,0,,,,3842,580,159,3,"refactor: using requestHeader internal func (#1083)
 
 * refactor: using requestHeader internal func.
 
 * update
 
-Signed-off-by: Bo-Yi Wu <appleboy.tw@gmail.com>"
-7e58c80a7c8e299183d947cd78affb8f60fbb5de,False,1,3,21,8,7.0,0,30,30,0.0,0.6666666666666666,1.0,4141,669,149,3,Fix #723
-8035359102b5384ad1f860675c85c0238b06b6e3,False,1,1,10,10,10.0,7,3,-4,1.0,1.0,0.0,3738,546,153,1,use strings.Split instead of strings.IndexByte (#1406)
-9a4ecc87d6f8272b8e2450f9c0ab12d3e814521f,False,1,4,25,13,6.25,16,9,-7,0.0,0.0,0.0,5555,846,209,3,format some codes style (#1165)
+Signed-off-by: Bo-Yi Wu <appleboy.tw@gmail.com>",1503741767
+7e58c80a7c8e299183d947cd78affb8f60fbb5de,False,1,3,21,8,7.0,0,30,30,0.0,0.6666666666666666,1.0,4141,669,149,3,Fix #723,1481030881
+8035359102b5384ad1f860675c85c0238b06b6e3,False,1,1,10,10,10.0,7,3,-4,1.0,1.0,0.0,3738,546,153,1,use strings.Split instead of strings.IndexByte (#1406),1529683738
+9a4ecc87d6f8272b8e2450f9c0ab12d3e814521f,False,1,4,25,13,6.25,16,9,-7,0.0,0.0,0.0,5555,846,209,3,format some codes style (#1165),1510464291
 521d06c81d5e49a004473daa81b71e1d34fe7a05,False,1,4,49,18,12.25,31,158,127,0.75,1.0,1.0,5871,880,247,8,"support bind uri param (#1612)
 
 * support bind uri (1)
@@ -288,12 +288,12 @@ Signed-off-by: Bo-Yi Wu <appleboy.tw@gmail.com>"
 
 * add coverage
 
-* fix warning"
-cd6e95f0e4e05e3266e3e90f56a2501e3500e7f6,False,1,1,21,21,21.0,2,19,17,1.0,1.0,1.0,1365,225,50,2,Unix sockets support
-393a63f3b020df89d42695064443760c7d0a0dc8,False,1,1,5,5,5.0,8,25,17,0.0,1.0,1.0,2181,343,70,1,Fix 'errcheck' linter warnings (#2093)
-2e5a7196cce94e085625d166e7f2cf9f99a1edf0,False,1,1,3,3,3.0,2,1,-1,0.0,0.0,0.0,4744,672,192,1,use url.URL.Query instead of parsing query (#2063)
-2ff2b19e14420de970264012e1bcdf91929725b4,False,1,1,4,4,4.0,2,2,0,,,,651,123,35,1,fix accept incoming network connections (#2216)
-0cbf290302ae06b647989effaf5e5a23028670d7,False,1,1,7,7,7.0,15,12,-3,0.0,0.0,0.0,779,138,28,1,use encode replace json marshal increase json encoder speed (#1546)
+* fix warning",1542850188
+cd6e95f0e4e05e3266e3e90f56a2501e3500e7f6,False,1,1,21,21,21.0,2,19,17,1.0,1.0,1.0,1365,225,50,2,Unix sockets support,1431989108
+393a63f3b020df89d42695064443760c7d0a0dc8,False,1,1,5,5,5.0,8,25,17,0.0,1.0,1.0,2181,343,70,1,Fix 'errcheck' linter warnings (#2093),1572155939
+2e5a7196cce94e085625d166e7f2cf9f99a1edf0,False,1,1,3,3,3.0,2,1,-1,0.0,0.0,0.0,4744,672,192,1,use url.URL.Query instead of parsing query (#2063),1569290517
+2ff2b19e14420de970264012e1bcdf91929725b4,False,1,1,4,4,4.0,2,2,0,,,,651,123,35,1,fix accept incoming network connections (#2216),1583544062
+0cbf290302ae06b647989effaf5e5a23028670d7,False,1,1,7,7,7.0,15,12,-3,0.0,0.0,0.0,779,138,28,1,use encode replace json marshal increase json encoder speed (#1546),1558482530
 0d50ce859745354fa83dcf2bf4c972abed25e53b,False,1,1,224,224,224.0,123,314,191,0.8896551724137931,0.8896551724137931,0.31724137931034485,1432,236,70,7,"refactor(form_mapping.go): mapping ptr, struct and map (#1749)
 
 * refactor(form_mapping.go): mapping ptr, struct and map
@@ -304,36 +304,36 @@ cd6e95f0e4e05e3266e3e90f56a2501e3500e7f6,False,1,1,21,21,21.0,2,19,17,1.0,1.0,1.
 * struct fields mapped like json.Unmarshal
 * map fields mapped like json.Unmarshal
 
-* fix after @thinkerou review"
-8c2401829041c89ddd6d89a0820acdd19a53855e,False,1,3,40,32,13.333333333333334,0,114,114,0.35,1.0,1.0,4226,639,167,3,Add Jsonp Support to Context (#1333)
-b056a34bdc2aa45256c4f5bdad306c35ec70c37e,False,1,8,98,45,12.25,83,122,39,0.0,0.0,0.9230769230769231,8493,1306,328,20,fix errcheck warnings (#1739)
+* fix after @thinkerou review",1551595183
+8c2401829041c89ddd6d89a0820acdd19a53855e,False,1,3,40,32,13.333333333333334,0,114,114,0.35,1.0,1.0,4226,639,167,3,Add Jsonp Support to Context (#1333),1524714739
+b056a34bdc2aa45256c4f5bdad306c35ec70c37e,False,1,8,98,45,12.25,83,122,39,0.0,0.0,0.9230769230769231,8493,1306,328,20,fix errcheck warnings (#1739),1547775173
 ad53619b15fda20df57c16cf19fe83f4a428cefa,False,1,1,8,8,8.0,3,17,14,0.0,1.0,1.0,537,92,21,3,"Don't log requests (#1370)
 
 Fixes #1331
 
 HTTP logging leaks sensitive request information.
 
-This PR removes HTTP request logging during panics."
+This PR removes HTTP request logging during panics.",1537686923
 65a65c2edd4e86f96634a553f07a25c38f2b1c75,False,1,1,8,8,8.0,1,7,6,1.0,1.0,1.0,504,87,20,4,"add gin panic time log (#1270)
 
 * add gin pinic time log
 
-* Update recovery.go"
+* Update recovery.go",1521528171
 7afb3238a3b703864c785ce626e0c7330a9c559b,False,1,2,8,6,4.0,3,5,2,1.0,1.0,1.0,2118,360,78,4,"Improves Recovery middleware:
 
 - request context
-- red colouring"
+- red colouring",1453829756
 b97ccf3a43d2901d295870b5876277bf478a4909,False,1,1,12,12,12.0,2,25,23,1.0,1.0,1.0,1110,149,31,2,"Router: Route StaticFS() not found to Router's NoRoute() (#1663)
 
-Closes #1220"
+Closes #1220",1543244511
 7ec82ee8944579c533425bb6826bcb12b5860ecd,False,1,1,4,4,4.0,4,4,0,,,,662,112,27,3,"recovery: fix issue about syscall import on google app engine (#1640)
 
 * recovery: fix issue about syscall import on google app engine
 
 * add ToLower()
 
-* the whole error message"
-37854ee10f7161843c338d9a9fa87f9398aacbbe,False,1,1,34,34,34.0,5,69,64,0.2619047619047619,0.2619047619047619,1.0,642,112,27,3,Fix panic stack trace being printed during recovery of broken pipe (#1089) (#1259)
+* the whole error message",1542849464
+37854ee10f7161843c338d9a9fa87f9398aacbbe,False,1,1,34,34,34.0,5,69,64,0.2619047619047619,0.2619047619047619,1.0,642,112,27,3,Fix panic stack trace being printed during recovery of broken pipe (#1089) (#1259),1541482820
 647535cd9b780b6ccbeccfedfba36896e1a1da37,False,1,1,48,48,48.0,1,121,120,0.5074626865671642,1.0,1.0,4115,585,169,5,"Support map as query string or post form parameters (#1383)
 
 * support query map
@@ -348,15 +348,15 @@ Closes #1220"
 
 * remove duplicate code
 
-* remove comment"
-9366e33ffc2d89df1a5254716e1d26d0991b5a2a,False,1,1,41,41,41.0,0,73,73,0.5471698113207547,1.0,1.0,2487,392,93,1,Implement QueryArray and PostArray methods
+* remove comment",1533528431
+9366e33ffc2d89df1a5254716e1d26d0991b5a2a,False,1,1,41,41,41.0,0,73,73,0.5471698113207547,1.0,1.0,2487,392,93,1,Implement QueryArray and PostArray methods,1459298930
 834a2ec64ca1ce077e4bdeb5edec019df1c01e71,False,1,1,18,18,18.0,2,40,38,1.0,1.0,1.0,364,80,15,2,"feat: add go version judge when print debug warning log (#1572)
 
 * feat: add go version judge when print debug warning log
 
 * remove invalid statement
 
-* use one const"
+* use one const",1537940951
 0cb7c44abc8280411ee5ab3cc67ff63aaee2bf3f,False,1,2,7,6,3.5,0,25,25,1.0,1.0,1.0,2203,372,76,2,"Print warning log when user create one engine using gin.Default in debug mode (#1121)
 
 * empty string check
@@ -365,34 +365,34 @@ Closes #1220"
 
 * fix unit test error
 
-* fix unit test error"
-2b3aa5173898ed07d45c9a16994d3d259f368431,False,1,2,19,18,9.5,1,18,17,1.0,1.0,1.0,1864,333,72,2,Template debugging
-b690611c381a2c9765ac7cdbd6588da7714c4790,False,1,4,60,29,15.0,16,99,83,0.7377049180327869,1.0,1.0,2194,358,78,9,Better debug logging + unit tests
+* fix unit test error",1506657537
+2b3aa5173898ed07d45c9a16994d3d259f368431,False,1,2,19,18,9.5,1,18,17,1.0,1.0,1.0,1864,333,72,2,Template debugging,1438615692
+b690611c381a2c9765ac7cdbd6588da7714c4790,False,1,4,60,29,15.0,16,99,83,0.7377049180327869,1.0,1.0,2194,358,78,9,Better debug logging + unit tests,1431135283
 61592134625e0fca1b2de7c22107a01684e8b130,False,1,2,8,6,4.0,23,23,0,,,,604,108,27,2,"unify test data (#1417)
 
-mkdir a test data dir."
+mkdir a test data dir.",1534088311
 c00f21ff239822d013b80e54bd403fbc08a0b5ff,False,1,1,3,3,3.0,54,64,10,1.0,1.0,1.0,239,64,14,1,"add go version prerequisite and debug warning (#1394)
 
 * add go version prerequisite and debug warning
 
 * merge duplicate content
 
-* remove duplicate content"
+* remove duplicate content",1530010603
 e2adae90033ee85ec093b181089a722a8fa541f1,False,1,1,12,12,12.0,21,8,-13,0.0,0.0,0.0,136,28,9,2,"Solution for Google App Engine?
 
-https://cloud.google.com/appengine/docs/go/logs/"
-07f1bf0e63512fbf9c7d7984d235a399eb916244,False,1,1,8,8,8.0,74,86,12,0.8787878787878788,1.0,1.0,260,66,11,2,feat: replace debug log with fmt package. (#1560)
-1183c1ca8fd78a3e1fae4f16224d6d62d91b1cdb,False,1,1,2,2,2.0,2,3,1,1.0,1.0,1.0,472,82,19,3,Fixed recovery unit tests
-9b7e7bdce6e073d47635d57fbacfb3205cb3127e,False,1,1,21,21,21.0,0,57,57,1.0,1.0,1.0,127,28,4,3,Add tests for context.Stream (#1433)
-37b6f6c179c229bed87a87ea54144293281fb822,False,1,2,73,41,36.5,61,150,89,0.06896551724137931,0.9655172413793104,1.0,2690,444,103,17,Fixing new errors API
-4d315f474bd777a7feb489c84ef2e5e5a3355e9c,False,1,3,56,24,18.666666666666668,59,173,114,1.0,1.0,1.0,2887,458,106,3,More unit tests
-d4413b6e91c2bb034ce51f2b669d690b4edee887,False,1,10,666,299,66.6,299,367,68,1.0,1.0,0.0,4410,717,171,34,Refactors binding module
-5f2f8d9cb443a2c31babfbaf7980370995522d5f,False,1,1,5,5,5.0,46,73,27,,,,2118,331,79,0,Better documentation
+https://cloud.google.com/appengine/docs/go/logs/",1432422017
+07f1bf0e63512fbf9c7d7984d235a399eb916244,False,1,1,8,8,8.0,74,86,12,0.8787878787878788,1.0,1.0,260,66,11,2,feat: replace debug log with fmt package. (#1560),1537336620
+1183c1ca8fd78a3e1fae4f16224d6d62d91b1cdb,False,1,1,2,2,2.0,2,3,1,1.0,1.0,1.0,472,82,19,3,Fixed recovery unit tests,1453832921
+9b7e7bdce6e073d47635d57fbacfb3205cb3127e,False,1,1,21,21,21.0,0,57,57,1.0,1.0,1.0,127,28,4,3,Add tests for context.Stream (#1433),1533595472
+37b6f6c179c229bed87a87ea54144293281fb822,False,1,2,73,41,36.5,61,150,89,0.06896551724137931,0.9655172413793104,1.0,2690,444,103,17,Fixing new errors API,1432305555
+4d315f474bd777a7feb489c84ef2e5e5a3355e9c,False,1,3,56,24,18.666666666666668,59,173,114,1.0,1.0,1.0,2887,458,106,3,More unit tests,1428495889
+d4413b6e91c2bb034ce51f2b669d690b4edee887,False,1,10,666,299,66.6,299,367,68,1.0,1.0,0.0,4410,717,171,34,Refactors binding module,1427817070
+5f2f8d9cb443a2c31babfbaf7980370995522d5f,False,1,1,5,5,5.0,46,73,27,,,,2118,331,79,0,Better documentation,1436059590
 fb7448f081196b9c86cade4f58b663cab2207025,False,1,2,12,8,6.0,1,18,17,1.0,1.0,1.0,263,74,13,2,"feat(binding): add UseNumber() in gin.Context.BindJSON() (#997) close #368
 
 * resolve #368 add option to UseNumber() in gin.Context.BindJSON()
 
-* add test"
+* add test",1499675615
 e23842ecab161390b6b537c1c906d7e713f07db0,False,1,3,12,4,4.0,7,12,5,,,,1104,203,46,0,"fix json sort the map keys
 
-Signed-off-by: Bo-Yi Wu <appleboy.tw@gmail.com>"
+Signed-off-by: Bo-Yi Wu <appleboy.tw@gmail.com>",1499509149

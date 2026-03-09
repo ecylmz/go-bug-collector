@@ -1,4 +1,4 @@
-sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message
+sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message,commit_timestamp
 167a8b5e9421e0ab51fbf44c5621632f4a1a90c5,False,1,74,1441,188,19.472972972972972,1321,1889,568,0.08376963350785341,0.3298429319371728,1.0,61644,10604,2027,172,"🚀 Feature: Add and apply more stricter golangci-lint linting rules (#2286)
 
 * golangci-lint: add and apply more stricter linting rules
@@ -7,7 +7,7 @@ sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_fi
 
 * github: use official golangci-lint CI linter
 
-* Add editorconfig and gitattributes file"
+* Add editorconfig and gitattributes file",1674806497
 077968abec338e73e8fb4241a49bf4b6f7128609,False,1,9,995,433,110.55555555555556,1423,2305,882,0.0,0.0,1.0,21904,3412,511,23,"[v3 Maintenance]: Consolidate and Document Core Changes in v3 (#2934)
 
 * [v3 Maintenance]: Consolidate and Document Core Changes in v3
@@ -52,8 +52,8 @@ sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_fi
 
 * [v3 Maintenance]: Consolidate and Document Core Changes in v3
 
-* [v3 Maintenance]: Consolidate and Document Core Changes in v3"
-30a704b5f94fd8746cea60982fb7b395d9a82371,False,1,3,35,13,11.666666666666666,8,97,89,0.7547169811320755,1.0,0.9811320754716981,547,100,17,3,👷 improve test coverage
+* [v3 Maintenance]: Consolidate and Document Core Changes in v3",1713853099
+30a704b5f94fd8746cea60982fb7b395d9a82371,False,1,3,35,13,11.666666666666666,8,97,89,0.7547169811320755,1.0,0.9811320754716981,547,100,17,3,👷 improve test coverage,1594888956
 c964fda009401ff37948a39da1ec7f427653c741,False,1,3,85,67,28.333333333333332,2243,2188,-55,1.0,0.5857142857142857,0.5857142857142857,1137,180,35,1,"v3(tests): use testify for assertion (#2036)
 
 * replace
@@ -68,8 +68,8 @@ c964fda009401ff37948a39da1ec7f427653c741,False,1,3,85,67,28.333333333333332,2243
 
 * fix
 
-* rewrite"
-da85c85c14ab3f98b29b46e65b4cc54c4642c711,False,1,3,15,6,5.0,13,54,41,0.5405405405405406,1.0,1.0,4950,731,168,3,🧪 Increase test coverage: 96%
+* rewrite",1661147830
+da85c85c14ab3f98b29b46e65b4cc54c4642c711,False,1,3,15,6,5.0,13,54,41,0.5405405405405406,1.0,1.0,4950,731,168,3,🧪 Increase test coverage: 96%,1594827810
 845a7f8b8e7e0a0794eb5fc5a05a0030fd730a46,False,1,5,216,181,43.2,102,209,107,0.8157894736842105,0.8026315789473685,0.9078947368421053,11136,1787,386,8,"🧹 chore: Improve Performance of Fiber Router (#3261)
 
 * Initial improvements
@@ -92,7 +92,7 @@ da85c85c14ab3f98b29b46e65b4cc54c4642c711,False,1,3,15,6,5.0,13,54,41,0.540540540
 
 * Simplify test logic
 
-* Simplify test"
+* Simplify test",1735497274
 bd20e90e6ba87dbe6f27b81b895e53d22860489e,False,1,4,245,141,61.25,34,389,355,0.9759036144578314,0.9879518072289156,1.0,8860,1338,312,10,":sparkles: feature: add initial support for hooks (#1777)
 
 * Add initial support for hooks.
@@ -150,15 +150,15 @@ Co-authored-by: hi019 <65871571+hi019@users.noreply.github.com>
 * remove ctx from hooks.
 
 Co-authored-by: hi019 <65871571+hi019@users.noreply.github.com>
-Co-authored-by: wernerr <rene@gofiber.io>"
+Co-authored-by: wernerr <rene@gofiber.io>",1646897715
 709e0952e2d312c0bb68e1fb9c501b39afd16db0,False,1,4,339,165,84.75,171,176,5,0.3754646840148699,0.2527881040892193,0.0,7351,1040,164,26,":sparkles: v3 (feature): router interface changes (#2176)
 
 * Add(methods []string, path string, handlers ...Handler) Router
 
 * - proposed Router interface changes
 
-Co-authored-by: rocketlaunchr-cto <rocketlaunchr.cloud@gmail.com>"
-e3282f64085423e48cf5424910fb0652d80e198c,False,1,4,32,18,8.0,29,86,57,1.0,1.0,1.0,12552,1859,257,3,:recycle: v3 (enhancement): replace `c.Hostname()` -> `c.Host()` & add `c.Hostname()` that returns host without port
+Co-authored-by: rocketlaunchr-cto <rocketlaunchr.cloud@gmail.com>",1667288743
+e3282f64085423e48cf5424910fb0652d80e198c,False,1,4,32,18,8.0,29,86,57,1.0,1.0,1.0,12552,1859,257,3,:recycle: v3 (enhancement): replace `c.Hostname()` -> `c.Host()` & add `c.Hostname()` that returns host without port,1662478986
 64c1771c2687f66dd231eb8939ecd0f3c13541a0,False,1,7,390,159,55.714285714285715,1097,1501,404,1.0,1.0,0.9692307692307692,11936,1753,163,65,"🔥 Feature: Add Req and Res API (#2894)
 
 * 🔥 feat: add Req and Res interfaces
@@ -182,8 +182,8 @@ Responses. There are two goals to this change:
 
 ---------
 
-Co-authored-by: Juan Calderon-Perez <835733+gaby@users.noreply.github.com>"
-ec5d66e7a8e517a3685da49ca8947f1f4c60e641,False,1,59,13460,1192,228.135593220339,15595,25900,10305,0.3718773373223635,0.581301421091997,0.887060583395662,67851,10277,2369,529,⚡ v2
+Co-authored-by: Juan Calderon-Perez <835733+gaby@users.noreply.github.com>",1741158103
+ec5d66e7a8e517a3685da49ca8947f1f4c60e641,False,1,59,13460,1192,228.135593220339,15595,25900,10305,0.3718773373223635,0.581301421091997,0.887060583395662,67851,10277,2369,529,⚡ v2,1599988811
 ec48a76f14914bbac38a992a25f2cbc91643999a,False,1,14,439,101,31.357142857142858,811,1713,902,0.30217669654289375,0.9052496798975672,0.9551856594110115,14468,2165,431,39,"V2 to v3 merge (#2864)
 
 * Update pull_request_template.md
@@ -505,18 +505,18 @@ Co-authored-by: Juan Calderon-Perez <835733+gaby@users.noreply.github.com>
 Co-authored-by: Juan Calderon-Perez <jgcalderonperez@protonmail.com>
 Co-authored-by: Jongmin Kim <kjongmin26@gmail.com>
 Co-authored-by: Giovanni Rivera <rivera.giovanni271@gmail.com>
-Co-authored-by: Renan Bastos <renanbastos.tec@gmail.com>"
-2eeb40273c463820bb155622961cbbccac9b801a,False,1,5,613,368,122.6,413,287,-126,0.7450980392156863,0.3627450980392157,0.0,9578,1616,368,26,v1.8.0
-a82da6bef74b85daec552c232638db5e984f1d4e,False,1,1,7,7,7.0,1,9,8,1.0,1.0,1.0,4971,724,67,0,Check index to avoid slice bounds out of range panic
-0e2e04b9ba0a8546d054bb688c7db93a1995e5d2,False,1,1,34,34,34.0,12,22,10,0.0,1.0,1.0,415,76,17,2,add fasthttp.LBClient to the proxy middleware
-8c49028a394d68e4d4f587c187279fbc86ed8007,False,1,1,55,55,55.0,30,35,5,0.25,0.25,1.0,459,84,19,2,Refactor basicauth middleware
+Co-authored-by: Renan Bastos <renanbastos.tec@gmail.com>",1709191799
+2eeb40273c463820bb155622961cbbccac9b801a,False,1,5,613,368,122.6,413,287,-126,0.7450980392156863,0.3627450980392157,0.0,9578,1616,368,26,v1.8.0,1582763503
+a82da6bef74b85daec552c232638db5e984f1d4e,False,1,1,7,7,7.0,1,9,8,1.0,1.0,1.0,4971,724,67,0,Check index to avoid slice bounds out of range panic,1592363060
+0e2e04b9ba0a8546d054bb688c7db93a1995e5d2,False,1,1,34,34,34.0,12,22,10,0.0,1.0,1.0,415,76,17,2,add fasthttp.LBClient to the proxy middleware,1612469051
+8c49028a394d68e4d4f587c187279fbc86ed8007,False,1,1,55,55,55.0,30,35,5,0.25,0.25,1.0,459,84,19,2,Refactor basicauth middleware,1602519725
 3fbc1470c646c1782b496dd55646cc3c024ce940,False,1,1,50,50,50.0,2,95,93,0.0,1.0,1.0,5437,779,47,1,"🏀 Support splitting in QueryParser
 
-Co-Authored-By: Nathaniel Peiffer <nathaniel@peiffer.com.au>"
-861e5d21fbdfcf1759a274a3becfa5d9cf9a173c,False,1,1,9,9,9.0,7,32,25,0.0,1.0,1.0,5527,803,50,0,🐛 Fix unexpected result when `QueryParser` parse slice data type (#1238)
+Co-Authored-By: Nathaniel Peiffer <nathaniel@peiffer.com.au>",1600596953
+861e5d21fbdfcf1759a274a3becfa5d9cf9a173c,False,1,1,9,9,9.0,7,32,25,0.0,1.0,1.0,5527,803,50,0,🐛 Fix unexpected result when `QueryParser` parse slice data type (#1238),1616613177
 20cba2604b6d58369921e91261a8e99f3c09b1d0,False,1,3,25,12,8.333333333333334,12,13,1,1.0,1.0,1.0,5490,997,173,3,"🔌 Add IPv6 support
 
-Co-Authored-By: kiyon <kiyonlin@163.com>"
+Co-Authored-By: kiyon <kiyonlin@163.com>",1594691638
 10d6f69a89390397aa5dd23f4f7352ea05638f9e,False,1,9,395,295,43.888888888888886,245,861,616,0.5571428571428572,0.8785714285714286,1.0,15533,2369,371,12,":sparkles: v3 (feature): new redirection methods (#2014)
 
 * :sparkles: v3 (feature): new redirection methods
@@ -579,7 +579,7 @@ Co-Authored-By: kiyon <kiyonlin@163.com>"
 
 * improve message parsing & test case
 
-Co-authored-by: René Werner <rene@gofiber.io>"
+Co-authored-by: René Werner <rene@gofiber.io>",1663913854
 08d9fda6318664b312ce96caf044548d93d67598,False,1,9,504,272,56.0,263,953,690,0.0,0.7148014440433214,1.0,13375,2118,242,12,":sparkles: enhancement: use msgp for flash message encoding/decoding (#3099)
 
 * enhancement: use msgp for flash message encoding/decoding
@@ -599,7 +599,7 @@ Co-authored-by: René Werner <rene@gofiber.io>"
 ---------
 
 Co-authored-by: Juan Calderon-Perez <835733+gaby@users.noreply.github.com>
-Co-authored-by: René <rene@gofiber.io>"
+Co-authored-by: René <rene@gofiber.io>",1724942716
 870f9427a224a976f435ce497b6a9871b5714e61,False,1,1,15,15,15.0,7,17,10,0.625,0.625,1.0,2244,339,89,2,":zap: Optimize App.buildTree() (#1809)
 
 * :zap: Optimize App.buildTree()
@@ -608,7 +608,7 @@ Co-authored-by: René <rene@gofiber.io>"
 - Reduces reads from maps
 - Increases sorting speed
 
-* :watch: Add Benchmark_Startup_Process()"
+* :watch: Add Benchmark_Startup_Process()",1646676090
 156b81c768ec3e9e8b4cfdf6a37040fa8daa0e07,False,1,7,320,146,45.714285714285715,302,649,347,0.6771300448430493,0.8609865470852018,0.9237668161434978,17176,2582,418,19,":bug: bug: improve mounting behavior  (#2120)
 
 * :bug: bug: fix mounting doesn't work if when to declare it before routes
@@ -635,7 +635,7 @@ Co-authored-by: René <rene@gofiber.io>"
 
 * make some tasks
 
-* make some tasks"
+* make some tasks",1666677104
 df87a82d5a650ab63c8772419a05d976d59c1d76,False,1,1,9,9,9.0,32,101,69,0.46875,1.0,0.859375,1020,145,37,1,"🐛 Fix mount route positioning (#2463)
 
 * 🐛 [Bug-fix]: Wrong handlers execution order in some mount cases #2460
@@ -646,8 +646,8 @@ df87a82d5a650ab63c8772419a05d976d59c1d76,False,1,1,9,9,9.0,32,101,69,0.46875,1.0
 
 * [Bug-fix]: Wrong handlers execution order in some mount cases #2460
 
-* [Bug-fix]: Wrong handlers execution order in some mount cases #2460"
-2c6ffb7972dbb348162a370872c88e07383e79d0,False,1,1,5,5,5.0,0,71,71,0.0,0.9259259259259259,0.9259259259259259,2224,329,87,1,Fix: register static file routing with trailing slash (#1556)
+* [Bug-fix]: Wrong handlers execution order in some mount cases #2460",1684313465
+2c6ffb7972dbb348162a370872c88e07383e79d0,False,1,1,5,5,5.0,0,71,71,0.0,0.9259259259259259,0.9259259259259259,2224,329,87,1,Fix: register static file routing with trailing slash (#1556),1633424111
 b94870d8865b47e5b7bf3c843a4d48adb2b14e88,False,1,1,7,7,7.0,2,93,91,0.0,0.9571428571428572,1.0,2199,325,85,2,"Fix: static file routing path rewrite. (#1538)
 
 * Fix: static file routing path rewrite.
@@ -656,7 +656,7 @@ b94870d8865b47e5b7bf3c843a4d48adb2b14e88,False,1,1,7,7,7.0,2,93,91,0.0,0.9571428
 
 * Update: change os.CreateTemp to ioutil.TempFile for go1.14
 
-* Update: optimize test cases."
+* Update: optimize test cases.",1633085508
 878c9549d87af6f8ed75b0f54a0081f2ff1ccc9e,False,1,5,126,74,25.2,65,123,58,0.13157894736842105,0.631578947368421,1.0,17471,2785,417,12,"Feat: Register custom methods (#2107)
 
 * Implementing register custom methods
@@ -679,32 +679,32 @@ b94870d8865b47e5b7bf3c843a4d48adb2b14e88,False,1,1,7,7,7.0,2,93,91,0.0,0.9571428
 
 Co-authored-by: Rafi Muhammad <rafi.muhammad@mekari.com>
 Co-authored-by: RW <rene@gofiber.io>
-Co-authored-by: Muhammed Efe Çetin <efectn@protonmail.com>"
+Co-authored-by: Muhammed Efe Çetin <efectn@protonmail.com>",1668151410
 65e0ce285a374fed0a89260db37bf41576975510,False,1,4,189,128,47.25,46,193,147,0.20754716981132076,0.6415094339622641,0.9150943396226415,9655,1687,290,15,"🐛 [Bug-Fix]: Mounted subapps don't work correctly if parent app attached … (#2331)
 
-* 🐛 [Bug]: Mounted subapps don't work correctly if parent app attached additional middlewares after mounting (v2.40.1 bug) #2233"
+* 🐛 [Bug]: Mounted subapps don't work correctly if parent app attached additional middlewares after mounting (v2.40.1 bug) #2233",1681388344
 056c6808afa454c9d0afed0a78c592385563029e,False,1,3,34,18,11.333333333333334,23,15,-8,1.0,0.36363636363636365,0.36363636363636365,6449,968,224,5,"Use atomic instead of mutex when counting the route handler. (#1314)
 
 * use atomic instead of mutex when counting
 
-* 📒 router: fix typo error"
-945b61d1c3f1313c31048d629215763ec566775c,False,1,4,96,72,24.0,24,96,72,0.17647058823529413,0.1568627450980392,1.0,12246,1974,281,8,🌵hybrid routing with tree and fast router
-42755c30e6b29fa589fad82b615de397e036648e,False,1,2,29,22,14.5,22,57,35,0.6153846153846154,0.7692307692307693,1.0,5593,873,198,3,⚡ Accelerate start process for many routes #1081
+* 📒 router: fix typo error",1620230034
+945b61d1c3f1313c31048d629215763ec566775c,False,1,4,96,72,24.0,24,96,72,0.17647058823529413,0.1568627450980392,1.0,12246,1974,281,8,🌵hybrid routing with tree and fast router,1597002795
+42755c30e6b29fa589fad82b615de397e036648e,False,1,2,29,22,14.5,22,57,35,0.6153846153846154,0.7692307692307693,1.0,5593,873,198,3,⚡ Accelerate start process for many routes #1081,1611489741
 8e91e848da55463a01e75db634ead19b4ecdc50a,False,1,1,265,265,265.0,102,163,61,0.0,0.75,0.7857142857142857,1180,206,52,10,"Fix case sensitivity params
 
 - Improve performance
 - Remove allocations
 - Return case sensitive params
 
-Co-Authored-By: RW <renewerner87@googlemail.com>"
-df3c48a7341de56e6b9c58018d0f1adc978ed1e2,False,1,4,100,75,25.0,52,81,29,0.37037037037037035,1.0,1.0,12180,1976,282,8,🌵hybrid routing with tree and fast router
-174eb0e33da8f1438558283edb574bb0c6e4880e,False,1,3,145,100,48.333333333333336,67,117,50,0.358974358974359,0.7692307692307693,0.8717948717948718,4921,733,170,8,🚀 compress same route's handler and sort routes when registering
-a1148391ea4eac8dc3ddd40afa67c1c288fee14b,False,1,1,256,256,256.0,149,283,134,0.6444444444444445,1.0,0.7777777777777778,1346,217,66,10,🚀 improve routing behavior
+Co-Authored-By: RW <renewerner87@googlemail.com>",1590218975
+df3c48a7341de56e6b9c58018d0f1adc978ed1e2,False,1,4,100,75,25.0,52,81,29,0.37037037037037035,1.0,1.0,12180,1976,282,8,🌵hybrid routing with tree and fast router,1597049498
+174eb0e33da8f1438558283edb574bb0c6e4880e,False,1,3,145,100,48.333333333333336,67,117,50,0.358974358974359,0.7692307692307693,0.8717948717948718,4921,733,170,8,🚀 compress same route's handler and sort routes when registering,1595252581
+a1148391ea4eac8dc3ddd40afa67c1c288fee14b,False,1,1,256,256,256.0,149,283,134,0.6444444444444445,1.0,0.7777777777777778,1346,217,66,10,🚀 improve routing behavior,1596674165
 033184938cd87f0221e0ff54387586505c800dee,False,1,1,53,53,53.0,13,80,67,0.5357142857142857,1.0,1.0,1645,263,88,6,"🚀 new possibility to escape special routing parameters (#1280)
 
 * 🚀 new possibility to escape special routing parameters, which gives the possibility to follow the google api design guide https://cloud.google.com/apis/design/custom_methods
 
-* 🚀 new possibility to escape special routing parameters, which gives the possibility to follow the google api design guide https://cloud.google.com/apis/design/custom_methods"
+* 🚀 new possibility to escape special routing parameters, which gives the possibility to follow the google api design guide https://cloud.google.com/apis/design/custom_methods",1618256724
 e9849b758d0afaaf700f52ef76372bc41d373412,False,1,3,185,133,61.666666666666664,65,673,608,0.8151515151515152,1.0,1.0,7183,1135,302,15,"🔥 feat: Add support for iterator methods to Fiber client (#3228)
 
 * chore: simplify parserRequestBodyFile logic
@@ -737,10 +737,10 @@ Co-authored-by: coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.git
 
 Co-authored-by: Juan Calderon-Perez <835733+gaby@users.noreply.github.com>
 Co-authored-by: coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-Co-authored-by: René <rene@gofiber.io>"
+Co-authored-by: René <rene@gofiber.io>",1733823563
 f668537c02db71d71d17202e3b420c2896ef3a6b,False,1,5,25,10,5.0,42,31,-11,1.0,0.0,0.0,8289,1220,355,7,"chore: Bump golangci-lint to v1.60.3 (#3119)
 
-Bump golangci-lint to v1.60.3"
+Bump golangci-lint to v1.60.3",1725284339
 57744ebbe8f95ee65855f4611b93dd0f2c7b18ae,False,1,14,402,109,28.714285714285715,152,1339,1187,0.20159453302961275,0.9760820045558086,1.0,9095,1489,264,69,":bug: bug: fix EnableSplittingOnParsers is not functional (#3231)
 
 * :bug: bug: fix EnableSplittingOnParsers is not functional
@@ -765,7 +765,7 @@ Bump golangci-lint to v1.60.3"
 
 * split reset and putting steps
 
-* fix linter"
+* fix linter",1735127594
 f08ebf433534ed3a41442b10aafdbaa8e2dcf23e,False,1,2,41,33,20.5,82,107,25,1.0,1.0,1.0,9396,1385,129,5,"🐛 fix: Nil pointer dereference with Must Bind binding (#3171)
 
 * Fix nil pointer dereference with Must Bind binding error
@@ -803,8 +803,8 @@ Added a requested clarification
 
 ---------
 
-Co-authored-by: Juan Calderon-Perez <835733+gaby@users.noreply.github.com>"
-1991d8db32e60c30359fb423d3cade1f149ee290,False,1,8,3344,871,418.0,2582,3884,1302,0.0,0.017857142857142856,0.9321428571428572,9987,1684,388,101,🎉 Official v1 Release
+Co-authored-by: Juan Calderon-Perez <835733+gaby@users.noreply.github.com>",1732531896
+1991d8db32e60c30359fb423d3cade1f149ee290,False,1,8,3344,871,418.0,2582,3884,1302,0.0,0.017857142857142856,0.9321428571428572,9987,1684,388,101,🎉 Official v1 Release,1582304863
 a458bd344cd4e821b64ad9fb8180f62331b17165,False,1,49,1144,518,23.346938775510203,1437,1911,474,1.0,0.0,0.0,36561,6016,1348,171,":sparkles: v3 (feature): convert fiber.Ctx type to interface (#1928)
 
 * :sparkles: v3: convert fiber.Ctx type to interface
@@ -815,8 +815,8 @@ a458bd344cd4e821b64ad9fb8180f62331b17165,False,1,49,1144,518,23.346938775510203,
 
 * update comments.
 
-* fix something"
-046b4a9d4e65ce57cd56d42670ec64ac332a25b1,False,1,5,896,451,179.2,460,436,-24,0.0,0.0,0.0,13238,1964,301,14,Adding a generator to generate the CTX interface (#3024)
+* fix something",1657691309
+046b4a9d4e65ce57cd56d42670ec64ac332a25b1,False,1,5,896,451,179.2,460,436,-24,0.0,0.0,0.0,13238,1964,301,14,Adding a generator to generate the CTX interface (#3024),1717396642
 c9b7b1aefb9edb9f8b570736891791195360a495,False,1,2,19,14,9.5,19,82,63,0.18181818181818182,0.9090909090909091,1.0,1314,219,43,2,"🔥 Add Cache Invalidation Option to Cache Middleware (#3036)
 
 * Add an option to invalidate cache
@@ -837,7 +837,7 @@ c9b7b1aefb9edb9f8b570736891791195360a495,False,1,2,19,14,9.5,19,82,63,0.18181818
 
 ---------
 
-Co-authored-by: RW <rene@gofiber.io>"
+Co-authored-by: RW <rene@gofiber.io>",1719410568
 f8b490f89ee5a58108f7902ff5b02e5006f2802d,False,1,2,79,46,39.5,56,328,272,0.0,1.0,0.9736842105263158,7822,1211,261,2,"🔥 Feature: Add TestConfig to app.Test() for configurable testing (#3161)
 
 * 🔥 Feature: Add thread-safe reading from a closed testConn
@@ -891,7 +891,7 @@ Fixes #3149
 
 ---------
 
-Co-authored-by: Juan Calderon-Perez <835733+gaby@users.noreply.github.com>"
+Co-authored-by: Juan Calderon-Perez <835733+gaby@users.noreply.github.com>",1732261418
 58677d5c8644eae4474ba5d5d0f283cbf0a9ae21,False,1,3,15,8,5.0,6,83,77,1.0,1.0,1.0,11320,1698,166,2,"feat: Add Drop method to DefaultCtx for silent connection termination (#3257)
 
 * Add Drop method to DefaultCtx and remove redundant checks
@@ -934,7 +934,7 @@ Clarified the `Drop` method's behavior, specifying that it closes the connection
 
 * Refactor response header setting in middleware.
 
-Replaced the direct header setting with the `Set` method for consistency and improved clarity. Removed a test case checking for a panic on closed response body as it is no longer applicable."
+Replaced the direct header setting with the `Set` method for consistency and improved clarity. Removed a test case checking for a panic on closed response body as it is no longer applicable.",1734938441
 59d3eb0762cb44f40897f6b061d11221c499cfc1,False,1,1,10,10,10.0,17,242,225,0.0,1.0,1.0,9125,1303,104,2,":bug: fix bug parse custom header (#2638)
 
 * :bug: fix bug parse custom header
@@ -943,14 +943,14 @@ Replaced the direct header setting with the `Set` method for consistency and imp
 
 ---------
 
-Co-authored-by: Khúc Ngọc Huy <huykn0710@gmail.com>"
+Co-authored-by: Khúc Ngọc Huy <huykn0710@gmail.com>",1695139226
 941ada9f05b7884163f5403743a8642844ccfc82,False,1,1,14,14,14.0,2,36,34,0.0,0.32142857142857145,1.0,7807,1133,309,5,"Fix cannot process array of values in `application/x-www-form-urlencoded` request (#1873)
 
 * Renamed parseQuery to parseParamSquareBrackets
 
 * Added square brackets processing for `application/x-www-form-urlencoded`
 
-* Added test cases for Array of form values"
+* Added test cases for Array of form values",1650795936
 a51ec9bc69b639ca1805f655ba49db1a9da091e6,False,1,1,78,78,78.0,21,297,276,0.15555555555555556,1.0,1.0,6863,986,261,4,":fire: Feature: Add ReqHeaderParser. (#1721)
 
 * Add ReqHeaderParser.
@@ -963,7 +963,7 @@ Co-authored-by: RW <rene@gofiber.io>
 
 * Revert collectVisitAllData
 
-Co-authored-by: RW <rene@gofiber.io>"
+Co-authored-by: RW <rene@gofiber.io>",1643053297
 cb06bc5f4cf27ae8abbfac227b8f4b558d97cf69,False,1,1,21,21,21.0,4,25,21,0.0,1.0,1.0,9549,1371,114,0,"🩹 Fix: handle un-matched open brackets in the query params (#3121)
 
 * Add logic for counting open brackets
@@ -972,7 +972,7 @@ cb06bc5f4cf27ae8abbfac227b8f4b558d97cf69,False,1,1,21,21,21.0,4,25,21,0.0,1.0,1.
 
 * update increment/decrement syntax with ++/--
 
-* Update UT to remove duplicate"
+* Update UT to remove duplicate",1725602522
 e70b2e28d66473ab6ad0d69f788dd2a6009c247e,False,1,1,41,41,41.0,3,216,213,0.059602649006622516,0.8807947019867549,1.0,9391,1335,113,2,"Cookie parser (#2656)
 
 * prep for branching
@@ -993,9 +993,9 @@ e70b2e28d66473ab6ad0d69f788dd2a6009c247e,False,1,1,41,41,41.0,3,216,213,0.059602
 
 ---------
 
-Co-authored-by: René Werner <rene.werner@verivox.com>"
-44bfdc3d6b661454a52233829eb2d8777b595ef1,False,1,1,40,40,40.0,0,103,103,0.0,0.5432098765432098,1.0,7573,1103,301,3,:adhesive_bandage: Allow parsing of square bracket query param (#1818)
-c2749c36c2a17c6f06866ef45d5c43c3d43bd21a,False,1,17,78,18,4.588235294117647,99,107,8,0.0,1.0,1.0,20376,3092,475,19,:construction_worker: v3 (ci): fix some linter warnings
+Co-authored-by: René Werner <rene.werner@verivox.com>",1697100255
+44bfdc3d6b661454a52233829eb2d8777b595ef1,False,1,1,40,40,40.0,0,103,103,0.0,0.5432098765432098,1.0,7573,1103,301,3,:adhesive_bandage: Allow parsing of square bracket query param (#1818),1647936836
+c2749c36c2a17c6f06866ef45d5c43c3d43bd21a,False,1,17,78,18,4.588235294117647,99,107,8,0.0,1.0,1.0,20376,3092,475,19,:construction_worker: v3 (ci): fix some linter warnings,1675971225
 26cc477500ccf6fbbedc981d24f1add971628fa6,False,1,21,163,27,7.761904761904762,198,760,562,0.48056537102473496,0.9222614840989399,0.9893992932862191,29006,4678,739,17,"🔥 feat: Add support for CBOR encoding (#3173)
 
 * feat(cbor): allow encoding response bodies in cbor
@@ -1036,8 +1036,8 @@ c2749c36c2a17c6f06866ef45d5c43c3d43bd21a,False,1,17,78,18,4.588235294117647,99,1
 
 Co-authored-by: Juan Calderon-Perez <835733+gaby@users.noreply.github.com>
 Co-authored-by: M. Efe Çetin <efectn@protonmail.com>
-Co-authored-by: RW <rene@gofiber.io>"
-41866cd3dd370826162f58d3e16e5e8751cf5110,False,1,19,154,36,8.105263157894736,143,237,94,0.2222222222222222,0.14285714285714285,0.9365079365079365,22230,3424,541,27,:construction_worker: v3 (ci): fix some linter warnings
+Co-authored-by: RW <rene@gofiber.io>",1733047430
+41866cd3dd370826162f58d3e16e5e8751cf5110,False,1,19,154,36,8.105263157894736,143,237,94,0.2222222222222222,0.14285714285714285,0.9365079365079365,22230,3424,541,27,:construction_worker: v3 (ci): fix some linter warnings,1678113339
 eacde70294be2ca277f6125e62cc1ea04907f2e3,False,1,16,1029,274,64.3125,1184,2513,1329,0.0,1.0,0.6352941176470588,17794,2702,454,59,":sparkles: v3 (feature): initial support for binding (#1981)
 
 * :sparkles: v3 (feature): initial support for binding
@@ -1089,7 +1089,7 @@ embed bind into the ctx
 * :sparkles: v3 (feature): initial support for binding
 - fix doc problems
 
-Co-authored-by: wernerr <rene@gofiber.io>"
+Co-authored-by: wernerr <rene@gofiber.io>",1659942968
 16f9056f5fa5f2c295d19b40b002d3300d4fb482,False,1,13,102,22,7.846153846153846,120,122,2,,,,15569,2399,342,33,"🐛 fix: Improve naming convention for Context returning functions (#3193)
 
 * Rename UserContext() to Context(). Rename Context() to RequestCtx()
@@ -1100,7 +1100,7 @@ Co-authored-by: wernerr <rene@gofiber.io>"
 
 ---------
 
-Co-authored-by: M. Efe Çetin <efectn@protonmail.com>"
+Co-authored-by: M. Efe Çetin <efectn@protonmail.com>",1731510739
 0b5a7d0425a609b443215866f57f7b7151a6756f,False,1,6,478,153,79.66666666666667,0,898,898,0.4,0.5544554455445545,0.9762376237623762,4571,902,160,16,"🚀 Feature: Add idempotency middleware (#2253)
 
 * middleware: add idempotency middleware
@@ -1127,7 +1127,7 @@ Co-authored-by: M. Efe Çetin <efectn@protonmail.com>"
 
 The real ""strings.ToLower"" still needs to be used when storing the data.
 
-* middleware/idempotency: safe-copy body"
+* middleware/idempotency: safe-copy body",1672991177
 e3232c1505184ddae0c8666c65c08a51dc08d5ad,False,1,9,1328,353,147.55555555555554,425,2797,2372,0.5220522052205221,1.0,0.9891989198919892,6665,1179,240,37,"feat!(middleware/session): re-write session middleware with handler (#3016)
 
 * feat!(middleware/session): re-write session middleware with handler
@@ -1316,7 +1316,7 @@ Co-authored-by: coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.git
 Co-authored-by: Renan Bastos <renanbastos.tec@gmail.com>
 Co-authored-by: coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 Co-authored-by: Juan Calderon-Perez <835733+gaby@users.noreply.github.com>
-Co-authored-by: René <rene@gofiber.io>"
+Co-authored-by: René <rene@gofiber.io>",1729838190
 f29f39b1b3f640b29a1df5e315b126ca24b67ba7,False,1,2,124,89,62.0,67,395,328,0.2723735408560311,0.5953307392996109,1.0,12637,2037,241,5,"fix: Decompress request body when multi Content-Encoding sent on request headers (#2555)
 
 * :wrench: feat: Decode body in order when sent a list on content-encoding
@@ -1343,7 +1343,7 @@ Also, with the previous fix to problems detected by tests, it becomes really har
 
 * :rocket: perf: Came back with Header.VisitAll, to improve speed
 
-* :page_with_curl: docs: Update Context docs"
+* :page_with_curl: docs: Update Context docs",1691335417
 b38be4bcb348991e0e6c1bc98382f9d8b47da730,False,1,9,3820,1021,424.44444444444446,2432,7885,5453,0.6908156111240944,0.9520916101892966,0.9682168731011919,14010,2212,541,317,"✨ v3 (feature): client refactor (#1986)
 
 * ✨ v3: Move the client module to the client folder and fix the error
@@ -1588,15 +1588,15 @@ b38be4bcb348991e0e6c1bc98382f9d8b47da730,False,1,9,3820,1021,424.44444444444446,
 Co-authored-by: Muhammed Efe Çetin <efectn@protonmail.com>
 Co-authored-by: René Werner <rene.werner@verivox.com>
 Co-authored-by: Joey <fenny@gofiber.io>
-Co-authored-by: René <rene@gofiber.io>"
+Co-authored-by: René <rene@gofiber.io>",1709538554
 25e399213c11d23783ea583340f1282e5b27db86,False,1,16,879,263,54.9375,196,1381,1185,0.18416030534351144,0.4675572519083969,1.0,14111,2367,511,33,"chore: Add support for go1.23 and golangci-lint v1.60.1 (#3101)
 
 * Bump min go to 1.22, bump golangci-lint to v1.60.1, regenerate all msgp
 
 * Fix golanci-lint issues
 
-* Fix golanci-lint issues"
-406ab3177f489610ccaf39ed1bf8e776ac61299b,False,1,1,2,2,2.0,1,1,0,,,,896,126,35,1,v3: fix undefined function
+* Fix golanci-lint issues",1723619644
+406ab3177f489610ccaf39ed1bf8e776ac61299b,False,1,1,2,2,2.0,1,1,0,,,,896,126,35,1,v3: fix undefined function,1659943311
 1607d872d9a825c1d99cf4894c429c2765cb01b6,False,1,1,40,40,40.0,32,238,206,0.4148936170212766,0.9946808510638298,1.0,910,154,42,4,"fix(middleware/cors): Categorize requests correctly (#2921)
 
 * fix(middleware/cors): categorise requests correctly
@@ -1611,7 +1611,7 @@ Co-authored-by: René <rene@gofiber.io>"
 
 * test(middleware/cors): cover additiona test cases
 
-* refactor(middleware/cors): origin validation and normalization"
+* refactor(middleware/cors): origin validation and normalization",1710943049
 f0cd3b44b086544a37886232d0530601f2406c23,False,1,2,160,99,80.0,88,402,314,0.2863636363636364,0.9545454545454546,1.0,1057,180,54,6,"Merge pull request from GHSA-fmg4-x8pw-hjhg
 
 * Enforce Wildcard Origins with AllowCredentials check
@@ -1626,22 +1626,22 @@ f0cd3b44b086544a37886232d0530601f2406c23,False,1,2,160,99,80.0,88,402,314,0.2863
 
 ---------
 
-Co-authored-by: René Werner <rene@gofiber.io>"
+Co-authored-by: René Werner <rene@gofiber.io>",1708523253
 86a9b05d0995f77833912ff3e811b98fd51d376a,False,1,2,84,56,42.0,1,83,82,0.0,0.328125,1.0,6751,1294,221,3,"Update c.Fresh(#311) (#317)
 
 * update: ctx.BodyParser
 
 * add #311
 
-* Update utils.go"
-a2c71e548ee63e87bc8cb0382bfeb30c0e22ec5a,False,1,5,602,188,120.4,0,1578,1578,0.4062850729517396,0.611672278338945,0.9337822671156004,2530,406,108,27,"v3: include adopter, helmet, keyauth, redirect, rewrite middlewares into the codebase (https://github.com/gofiber/fiber/issues/1828)"
+* Update utils.go",1588095862
+a2c71e548ee63e87bc8cb0382bfeb30c0e22ec5a,False,1,5,602,188,120.4,0,1578,1578,0.4062850729517396,0.611672278338945,0.9337822671156004,2530,406,108,27,"v3: include adopter, helmet, keyauth, redirect, rewrite middlewares into the codebase (https://github.com/gofiber/fiber/issues/1828)",1655822219
 ccf16117c0ad42374e201d4ef8990a19754f030b,False,1,2,32,28,16.0,30,45,15,,,,1047,183,41,1,"ci: Update golangci-lint to v1.55.2 (#2817)
 
-ci: bump golangci-lint to 1.55.2"
+ci: bump golangci-lint to 1.55.2",1706604797
 059c0e33ed8ad5b7094f8045f9ad772a3ec20399,False,1,6,104,34,17.333333333333332,60,77,17,0.0,1.0,1.0,12714,1861,246,9,"🎨 Style: Clean up errcheck config
 
 Globally ignore several methods that always return nil error.
-Disable revive and gosec rules for error checking in favor of errcheck."
+Disable revive and gosec rules for error checking in favor of errcheck.",1707510239
 7926e5bf4da03e54f62d27d53229d35b264cba8e,False,1,1,114,114,114.0,74,144,70,0.2631578947368421,1.0,1.0,534,103,22,3,"Merge pull request from GHSA-98j2-3j3p-fw2v
 
 * fix: token injection vulnerability GHSA-98j2-3j3p-fw2v
@@ -1668,11 +1668,11 @@ The code changes in `session_test.go` fix the session freshness check by updatin
 
 * chore: Revert session freshness behavior
 
-The code changes in `session_test.go` fix the session freshness check by updating the assertions for `sess.Fresh()` and `sess.ID()`. The previous assertions were incorrect and have been corrected to ensure the session ID remains the same and the session is not fresh."
-418d82e4d19e3e41f1446d92278132df3555acf9,False,1,2,13,9,6.5,5,8,3,0.0,0.5,1.0,1106,193,36,2,🩹 fix test
-45d64da9fabd3c3d66161fa4549308598aa09161,False,1,2,9,5,4.5,5,4,-1,,,,1106,193,36,2,🍿 move mutex
-c71da35ddbf6e3a15e65d0b341bba83464a19771,False,1,2,6,4,3.0,3,3,0,,,,1377,237,46,3,"🐛 fix: even error we gonna to unlock it, else it will went deadlock (#1248)"
-7a2e99bc8c02998c95db10b5246dee9556284b94,False,1,2,4,2,2.0,6,6,0,,,,3964,642,73,1,prepare release v3.0.0-beta.3
+The code changes in `session_test.go` fix the session freshness check by updating the assertions for `sess.Fresh()` and `sess.ID()`. The previous assertions were incorrect and have been corrected to ensure the session ID remains the same and the session is not fresh.",1719386261
+418d82e4d19e3e41f1446d92278132df3555acf9,False,1,2,13,9,6.5,5,8,3,0.0,0.5,1.0,1106,193,36,2,🩹 fix test,1606404986
+45d64da9fabd3c3d66161fa4549308598aa09161,False,1,2,9,5,4.5,5,4,-1,,,,1106,193,36,2,🍿 move mutex,1606426415
+c71da35ddbf6e3a15e65d0b341bba83464a19771,False,1,2,6,4,3.0,3,3,0,,,,1377,237,46,3,"🐛 fix: even error we gonna to unlock it, else it will went deadlock (#1248)",1617140409
+7a2e99bc8c02998c95db10b5246dee9556284b94,False,1,2,4,2,2.0,6,6,0,,,,3964,642,73,1,prepare release v3.0.0-beta.3,1719397078
 b53802a5cb4dd3e96cb2e0048dc679ad6e9e6014,False,1,1,115,115,115.0,75,145,70,0.2857142857142857,1.0,1.0,535,103,22,3,"Merge pull request from GHSA-98j2-3j3p-fw2v
 
 * fix: token injection vulnerability GHSA-98j2-3j3p-fw2v
@@ -1699,7 +1699,7 @@ The code changes add functionality to save the newly generated session ID in the
 
 The code changes in `session_test.go` fix the session freshness check by updating the assertions for `sess.Fresh()` and `sess.ID()`. The previous assertions were incorrect and have been corrected to ensure the session ID remains the same and the session is not fresh.
 
-* chore: Update session.Get method signature to use fiber.Ctx instead of *fiber.Ctx"
+* chore: Update session.Get method signature to use fiber.Ctx instead of *fiber.Ctx",1719386261
 21ede5954c60e11ab03db337b1a3cc11a086a044,False,1,3,195,188,65.0,34,545,511,0.47478991596638653,0.907563025210084,1.0,12693,1919,147,3,":sparkles: v3 (feature): add configuration support to c.SendFile() (#3017)
 
 * :sparkles: v3 (feature): add configuration support to c.SendFile()
@@ -1732,7 +1732,7 @@ The code changes in `session_test.go` fix the session freshness check by updatin
 
 ---------
 
-Co-authored-by: Juan Calderon-Perez <835733+gaby@users.noreply.github.com>"
+Co-authored-by: Juan Calderon-Perez <835733+gaby@users.noreply.github.com>",1719774922
 e4b3b5c70899d62db42d82b318beb583a4fefe91,False,1,8,458,163,57.25,390,114,-276,0.44680851063829785,0.44680851063829785,0.0,15169,2319,302,25,"Improve interface for custom logger func (#2225)
 
 * - logger: fix custom tag
@@ -1745,8 +1745,8 @@ e4b3b5c70899d62db42d82b318beb583a4fefe91,False,1,8,458,163,57.25,390,114,-276,0.
 - use real bytebufferpool dependency instead of the internal
 
 * - logger: fix custom tag
-- use real bytebufferpool dependency instead of the internal"
-075dfc5a8ac932cb202823afed5ac414cee8ebb2,False,1,1,3,3,3.0,0,44,44,1.0,1.0,0.9210526315789473,2051,199,47,2,optimize: set byteSent log to 0 when use SetBodyStreamWriter (#2239)
+- use real bytebufferpool dependency instead of the internal",1668781976
+075dfc5a8ac932cb202823afed5ac414cee8ebb2,False,1,1,3,3,3.0,0,44,44,1.0,1.0,0.9210526315789473,2051,199,47,2,optimize: set byteSent log to 0 when use SetBodyStreamWriter (#2239),1669882766
 154e4f820183fd509b291cfc41577fd1f6341a83,False,1,3,464,222,154.66666666666666,200,333,133,0.9,1.0,0.0,2351,382,92,9,":sparkles: v3 (feature): refactor logger middleware (#1979)
 
 * :sparkles: v3 (feature): refactor logger middleware
@@ -1763,10 +1763,10 @@ e4b3b5c70899d62db42d82b318beb583a4fefe91,False,1,8,458,163,57.25,390,114,-276,0.
 
 - fix ToC.
 
-* merge"
+* merge",1662376542
 3b982aa3f62eff9e6645e1a1363a7c4c7f4d2c20,False,1,1,6,6,6.0,145,145,0,,,,3054,493,107,3,"refactor: Rename ""ClientNew"" Function to ""New"" (#2896)
 
-Co-authored-by: Juan Calderon-Perez <835733+gaby@users.noreply.github.com>"
+Co-authored-by: Juan Calderon-Perez <835733+gaby@users.noreply.github.com>",1709825009
 8c3f81e2b71ed303d250fc7b9f2fa68e32ed65cd,False,1,48,896,94,18.666666666666668,687,693,6,0.0,1.0,1.0,53128,8565,1780,9,"v3: Use Named Fields Instead of Positional and Align Structures to Reduce Memory Usage (#3079)
 
 * Use composites for internal structures. Fix alignment of structures across Fiber
@@ -1787,14 +1787,14 @@ Co-authored-by: Juan Calderon-Perez <835733+gaby@users.noreply.github.com>"
 
 * Remove warning from using positional fields
 
-* Update router.go"
-142e6e53bee65ad306b245ef8ee38ac9bc715ebd,False,1,3,49,35,16.333333333333332,10,39,29,0.07407407407407407,0.07407407407407407,1.0,2256,359,80,7,🩹 fix #1055
+* Update router.go",1721716665
+142e6e53bee65ad306b245ef8ee38ac9bc715ebd,False,1,3,49,35,16.333333333333332,10,39,29,0.07407407407407407,0.07407407407407407,1.0,2256,359,80,7,🩹 fix #1055,1607269404
 9be8eedcc6fab76c7c3c66679bc098c20acd97e0,False,1,4,105,51,26.25,23,82,59,0.5,0.9,1.0,1897,311,67,8,"🩹 fix cache mw
 
-Co-Authored-By: RW <7063188+ReneWerner87@users.noreply.github.com>"
+Co-Authored-By: RW <7063188+ReneWerner87@users.noreply.github.com>",1605614598
 55960e86c3616b918011587d7cb13a97bad8f02f,False,1,1,12,12,12.0,1,31,30,0.8,0.8,1.0,591,106,19,2,"📦 add cache-control option
 
-Co-Authored-By: Tom <tom@tdpain.net>"
+Co-Authored-By: Tom <tom@tdpain.net>",1601573854
 aa229287cfeeb2002534cb6145b50f7798f76b3e,False,1,5,312,165,62.4,92,348,256,0.43312101910828027,0.9681528662420382,0.8980891719745223,3895,638,146,18,"🔥 Feature: Add max size to cache (#1892)
 
 * Cache middleware size limit
@@ -1805,7 +1805,7 @@ aa229287cfeeb2002534cb6145b50f7798f76b3e,False,1,5,312,165,62.4,92,348,256,0.433
 
 * Count body sizes instead of entries
 
-* Update cache/readme"
+* Update cache/readme",1652165426
 1cddc56f134f8a80289fb8bc9b682c05f7012458,False,1,4,150,105,37.5,7,200,193,0.14473684210526316,0.39473684210526316,1.0,3415,555,120,9,"✨ Cache middleware: Store e2e headers. (#1807)
 
 * ✨ Cache middleware: Store e2e headers.
@@ -1847,7 +1847,7 @@ not interested in this feature.
 - use set instead of add for the headers
 - copy value from the headers -> prevent problems with mutable values
 
-Co-authored-by: wernerr <rene@gofiber.io>"
+Co-authored-by: wernerr <rene@gofiber.io>",1646731084
 bca01cc9cc4ccff8b37a858a00cb55976afbc98f,False,1,2,27,16,13.5,0,90,90,0.46296296296296297,0.8703703703703703,1.0,860,143,26,3,"🔥 Feature: add cache header to show cache status (#1368)
 
 * add cache header to show cache status
@@ -1860,10 +1860,10 @@ bca01cc9cc4ccff8b37a858a00cb55976afbc98f,False,1,2,27,16,13.5,0,90,90,0.46296296
 
 use constants in test
 
-Co-authored-by: RW <rene@gofiber.io>"
-323d9d89cc9f323bd865be24827c713855a12fd6,False,1,13,838,121,64.46153846153847,317,549,232,0.9588235294117647,1.0,0.711764705882353,5658,959,208,70,🩹 fix manager logic
-ad06443a7a805ca949f99659d72073f797e0ee7a,False,1,1,2,2,2.0,1,1,0,,,,575,101,18,2,🧨 add public to max age header
-08a2e7a82dae426e554b6926554d40010899d504,False,1,1,10,10,10.0,5,43,38,0.2727272727272727,1.0,1.0,556,81,17,2,ajust cache middleware config.Next position
+Co-authored-by: RW <rene@gofiber.io>",1623574323
+323d9d89cc9f323bd865be24827c713855a12fd6,False,1,13,838,121,64.46153846153847,317,549,232,0.9588235294117647,1.0,0.711764705882353,5658,959,208,70,🩹 fix manager logic,1606113522
+ad06443a7a805ca949f99659d72073f797e0ee7a,False,1,1,2,2,2.0,1,1,0,,,,575,101,18,2,🧨 add public to max age header,1602007803
+08a2e7a82dae426e554b6926554d40010899d504,False,1,1,10,10,10.0,5,43,38,0.2727272727272727,1.0,1.0,556,81,17,2,ajust cache middleware config.Next position,1611627973
 c187c6a2f5d5e71bfc9ac799f7f8f1ab187aa8a4,False,1,1,19,19,19.0,1,176,175,0.22321428571428573,0.9732142857142857,1.0,1050,166,36,3,"🚀 [Feature]: Cache-Control: no-cache (#2159)
 
 * Added noCache field
@@ -1914,8 +1914,8 @@ Check if the request header Cache-Control contains no-cache
 
 * patch-1
 
-* patch-1"
-b9efc76722f9ff2e0a7d52d9f98116f4eb635674,False,1,1,12,12,12.0,2,10,8,0.0,0.0,1.0,674,96,20,2,Fix cache mutex lock (#1764)
+* patch-1",1666340911
+b9efc76722f9ff2e0a7d52d9f98116f4eb635674,False,1,1,12,12,12.0,2,10,8,0.0,0.0,1.0,674,96,20,2,Fix cache mutex lock (#1764),1644569332
 d411ec10d6d7d4646288d914d28e4f9ba871c85f,False,1,1,7,7,7.0,3,65,62,0.1346153846153846,1.0,1.0,659,93,20,2,"added HEAD method to caching (#1730)
 
 * added HEAD method to caching
@@ -1931,9 +1931,9 @@ d411ec10d6d7d4646288d914d28e4f9ba871c85f,False,1,1,7,7,7.0,3,65,62,0.13461538461
 correct comment
 
 Co-authored-by: Jesse Quinn <jesse.quinn@zpesystems.com>
-Co-authored-by: RW <rene@gofiber.io>"
-9a650b8d2a3e98b5e274fa3386d9741dba3ead9f,False,1,1,2,2,2.0,4,88,84,0.1791044776119403,1.0,1.0,470,88,15,2,"Fix issue with expiration, increase coverage"
-0078bf5b014b444a9dff4637884d1600e97200a4,False,1,1,122,122,122.0,0,122,122,0.39215686274509803,0.39215686274509803,1.0,413,76,11,3,📦 cache mw
+Co-authored-by: RW <rene@gofiber.io>",1643038606
+9a650b8d2a3e98b5e274fa3386d9741dba3ead9f,False,1,1,2,2,2.0,4,88,84,0.1791044776119403,1.0,1.0,470,88,15,2,"Fix issue with expiration, increase coverage",1601500890
+0078bf5b014b444a9dff4637884d1600e97200a4,False,1,1,122,122,122.0,0,122,122,0.39215686274509803,0.39215686274509803,1.0,413,76,11,3,📦 cache mw,1600982116
 4c68e0242dc12b9071b74b6c516eab6f4c4d3c62,False,1,10,99,39,9.9,73,79,6,0.0,0.0,1.0,26747,4225,687,12,"ci: address multiple lint rules (#2869)
 
 * ci: explicitly disable tagalign
@@ -1950,22 +1950,22 @@ and []byte.
 
 This linter encourages replacing several functions from the fmt package
 with faster alternatives. While fixing issues, I also added a few
-exported error types rather than returning a naked errors.New()."
-0088a6900aa92c9cff362c2ef51e99a49cfb90a1,False,1,1,13,13,13.0,36,96,60,0.5813953488372093,1.0,1.0,1218,214,54,4,🍱 improve logger performance
+exported error types rather than returning a naked errors.New().",1708349590
+0088a6900aa92c9cff362c2ef51e99a49cfb90a1,False,1,1,13,13,13.0,36,96,60,0.5813953488372093,1.0,1.0,1218,214,54,4,🍱 improve logger performance,1600236460
 9c98a1fb37c29673032562d1569d904daae06273,False,1,1,20,20,20.0,17,75,58,0.875,0.9464285714285714,1.0,8313,1199,333,1,"🐛 bug: Case sensitivity for parameters in GetRouteURL (#2010)
 
 * 🐛 bug: Case sensitivity for parameters in GetRouteURL
 
-* ✏️ perf: error spell"
+* ✏️ perf: error spell",1661325379
 83731cef85c130eba7c0b1997318fde86b11f22f,False,1,2,56,40,28.0,24,139,115,0.0,0.32894736842105265,1.0,1850,309,62,2,"fix(middleware/session): mutex for thread safety (#3049)
 
 * fix(middleware/session): mutex for thread safety
 
 * chore: Remove extra release and acquire ctx calls in session_test.go
 
-* feat: Remove unnecessary session mutex lock in decodeSessionData function"
-0fdd7df0f92c48508cc8193b1cfae3bbe5dbad08,False,1,3,132,76,44.0,64,104,40,0.0,0.6666666666666666,1.0,952,401,29,5,:bar_chart: add refresh period to monitor mw (#1898)
-af1a143b356c27007bedbc386845e98bf82daba7,False,1,1,47,47,47.0,20,27,7,1.0,1.0,1.0,405,74,8,4,🩹 fix data race
+* feat: Remove unnecessary session mutex lock in decodeSessionData function",1719690429
+0fdd7df0f92c48508cc8193b1cfae3bbe5dbad08,False,1,3,132,76,44.0,64,104,40,0.0,0.6666666666666666,1.0,952,401,29,5,:bar_chart: add refresh period to monitor mw (#1898),1652681747
+af1a143b356c27007bedbc386845e98bf82daba7,False,1,1,47,47,47.0,20,27,7,1.0,1.0,1.0,405,74,8,4,🩹 fix data race,1601360616
 ac4ce21d9cf35ce56fefd347a198b10232a595ae,False,1,96,9305,1363,96.92708333333333,9594,98,-9496,0.6368130823350446,0.5124548393230652,0.08290549534131965,50369,8695,1658,351,"🐛 Bug: Fix issues introduced in linting PR (#2319)
 
 * internal: revert linting changes
@@ -1988,8 +1988,8 @@ Fix the errorenous error checking introduced in 167a8b5e9421e0ab51fbf44c5621632f
 
 ---------
 
-Co-authored-by: René Werner <rene@gofiber.io>"
-9856573d418d9e959a3165dc20795f45e9814734,False,1,1,2,2,2.0,1,2,1,1.0,,,479,85,8,2,🩹 update monitor test case
+Co-authored-by: René Werner <rene@gofiber.io>",1675349860
+9856573d418d9e959a3165dc20795f45e9814734,False,1,1,2,2,2.0,1,2,1,1.0,,,479,85,8,2,🩹 update monitor test case,1601394413
 4ab862970609feeae08b33d17983b076f92e7254,False,1,1,36,36,36.0,15,513,498,0.2787286063569682,0.9975550122249389,1.0,738,132,33,2,"fix(middleware/cors): Validation of multiple Origins (#2883)
 
 * fix: allow origins check
@@ -2012,7 +2012,7 @@ fixes #2882
 
 * test(cors/middleware): add more benchmarks
 
-(cherry picked from commit d456e7d82ee087d5b2a5df5d4ab35f19c6397aae)"
+(cherry picked from commit d456e7d82ee087d5b2a5df5d4ab35f19c6397aae)",1709296240
 7fa8b2d4acf8a96b18df42a6f05b7b940d39b045,False,1,2,208,160,104.0,171,540,369,0.3333333333333333,0.9634703196347032,0.8493150684931506,1222,196,62,6,"chore(middleware/cors): Merge changes from v2 (#2922)
 
 * fix(middleware/cors): Handling and wildcard subdomain matching (#2915)
@@ -2109,7 +2109,7 @@ Co-authored-by: coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.git
 
 ---------
 
-Co-authored-by: coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>"
+Co-authored-by: coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>",1710833539
 1aac6f618b6bd3e159d2449acb4232a2170b976b,False,1,2,214,166,107.0,170,331,161,0.0,0.8275862068965517,0.0,1251,203,64,7,"fix(middleware/cors): Handling and wildcard subdomain matching (#2915)
 
 * fix: allow origins check
@@ -2186,7 +2186,7 @@ Co-authored-by: coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.git
 
 ---------
 
-Co-authored-by: coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>"
+Co-authored-by: coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>",1710679396
 d456e7d82ee087d5b2a5df5d4ab35f19c6397aae,False,1,1,36,36,36.0,15,513,498,0.2787286063569682,0.9975550122249389,1.0,742,133,33,2,"fix(middleware/cors): Validation of multiple Origins (#2883)
 
 * fix: allow origins check
@@ -2207,7 +2207,7 @@ fixes #2882
 
 * chore: refactor validate and normalize
 
-* test(cors/middleware): add more benchmarks"
+* test(cors/middleware): add more benchmarks",1709285471
 5406560033b64097eecd4116d0fb2bc1b79300ee,False,1,2,13,9,6.5,45,345,300,0.597444089456869,1.0,1.0,4137,845,169,2,":broom: chore: make most tests parallel (#2299)
 
 * :broom: chore: make most tests parallel
@@ -2216,14 +2216,14 @@ fixes #2882
 
 * revert some tests
 
-* revert some tests"
+* revert some tests",1673796097
 28d9abb71b4bf4d0eb01b3b5914fa9d5bac6d47c,False,1,2,145,86,72.5,85,93,8,1.0,1.0,0.0,11735,1898,202,8,"Fix #2383, accepts mimeType (#2386)
 
 * Fix #2383, accepts mimeType
 
 * Fix #2383, accepts mimeType
 
-* Fix #2383, accepts mimeType"
+* Fix #2383, accepts mimeType",1679925341
 e719fa00bfae935fd711981e660fc06059f764da,False,1,5,654,203,130.8,1370,1591,221,0.0,1.0,1.0,11341,1979,371,16,"Use param support + optimizations (#361)
 
 * Benchmark workflow
@@ -2360,14 +2360,14 @@ Co-authored-by: ReneWerner87 <renewerner87@googlemail.com>
 Co-authored-by: Vic Shóstak <vikkyshostak@gmail.com>
 Co-authored-by: József Sallai <jozsef@sallai.me>
 Co-authored-by: Thomas van Vugt <thomasvvugt@users.noreply.github.com>
-Co-authored-by: Nifty255 <nifty255@users.noreply.github.com>"
+Co-authored-by: Nifty255 <nifty255@users.noreply.github.com>",1589304244
 63cfbf4bc24a6c4878490441708fda6d718bad53,False,1,1,423,423,423.0,434,101,-333,0.18803418803418803,0.0,0.13675213675213677,2376,495,72,18,"Replace utils with gofiber/utils
 
-Co-Authored-By: RW <renewerner87@googlemail.com>"
-acf427c4bb637d67dbc55cb685294601464e8e93,False,1,1,2,2,2.0,1,55,54,0.1111111111111111,1.0,1.0,2043,198,47,2,chore: TagLatency match gin-gonic/gin format
+Co-Authored-By: RW <renewerner87@googlemail.com>",1590219021
+acf427c4bb637d67dbc55cb685294601464e8e93,False,1,1,2,2,2.0,1,55,54,0.1111111111111111,1.0,1.0,2043,198,47,2,chore: TagLatency match gin-gonic/gin format,1691692045
 06ef450a8af7d13484712693c57f45a409f7dde5,False,1,2,71,48,35.5,78,128,50,0.48484848484848486,0.48484848484848486,1.0,1539,245,49,4,":rocket: Add DisableColors to set the default output format (#2493)
 
-Add DisableColor for default logger format"
+Add DisableColor for default logger format",1685964045
 e8f8cb647b6400260e2c70ad380f97cc8f4f99c8,False,1,8,997,437,124.625,702,447,-255,1.0,1.0,0.21311475409836064,3896,472,102,33,":sparkles: Add customTags in logger middleware Config (#2188)
 
 * :sparkles: Add customTags in logger middleware Config
@@ -2382,8 +2382,8 @@ e8f8cb647b6400260e2c70ad380f97cc8f4f99c8,False,1,8,997,437,124.625,702,447,-255,
 
 * improve logger performance
 
-Co-authored-by: René Werner <rene@gofiber.io>"
-1fac52a42af3f9a4981de71e27b4edd6090dac31,False,1,1,7,7,7.0,6,202,196,0.24731182795698925,1.0,1.0,606,113,25,2,🩹 Fix: CORS middleware should use the defined AllowedOriginsFunc config when AllowedOrigins is empty (#2771)
+Co-authored-by: René Werner <rene@gofiber.io>",1668773443
+1fac52a42af3f9a4981de71e27b4edd6090dac31,False,1,1,7,7,7.0,6,202,196,0.24731182795698925,1.0,1.0,606,113,25,2,🩹 Fix: CORS middleware should use the defined AllowedOriginsFunc config when AllowedOrigins is empty (#2771),1703252917
 b50d91d58ecdff2a330bf07950244b6c4caf65b1,False,1,7,379,214,54.142857142857146,74,793,719,0.35377358490566035,0.9127358490566038,0.8561320754716981,2285,403,87,24,"Merge pull request from GHSA-94w9-97p3-p368
 
 * feat: improved csrf with session support
@@ -2432,7 +2432,7 @@ b50d91d58ecdff2a330bf07950244b6c4caf65b1,False,1,7,379,214,54.142857142857146,74
 
 * feat: use UUIDv4
 
-* test: swap in UUIDv4 here too"
+* test: swap in UUIDv4 here too",1697028102
 8c3916dbf4ad2ed427d02c6eb63ae8b2fa8f019a,False,1,3,52,28,17.333333333333332,26,266,240,0.09411764705882353,1.0,1.0,1417,227,53,12,"Merge pull request from GHSA-94w9-97p3-p368
 
 * feat: improved csrf with session support
@@ -2506,13 +2506,13 @@ b50d91d58ecdff2a330bf07950244b6c4caf65b1,False,1,7,379,214,54.142857142857146,74
 * test: add referer edge cases
 
 And call ctx.Request.Reset() and
-ctx.Response.Reset() before re-using ctx."
+ctx.Response.Reset() before re-using ctx.",1697439990
 ec96d161a0c5083834e844939ad61e88aa68fd75,False,1,2,13,7,6.5,7,120,113,0.5121951219512195,1.0,1.0,1060,193,41,2,"Fix csrf middleware behavior with header key lookup (#2063)
 
-* 🐛 [Bug]: Strange CSRF middleware behavior with header KeyLookup configuration #2045"
+* 🐛 [Bug]: Strange CSRF middleware behavior with header KeyLookup configuration #2045",1661863711
 b634ba0a58315308f488a4a5a920d46f095465fc,False,1,1,6,6,6.0,4,4,0,,,,525,100,18,2,"fix cors * behavior #2338 (#2339)
 
-🐛- fix cors * behavior #2338"
+🐛- fix cors * behavior #2338",1676928994
 866d5b7628efcc38f25fb5479fe7aeb720de95d3,False,1,1,26,26,26.0,43,143,100,0.075,0.35,1.0,581,111,23,2,"✨ feat(cors): Added new 'AllowOriginsFunc' function. (#2394)
 
 * ✨ feat(cors): Added new 'AllowOriginsFunc' function.
@@ -2523,9 +2523,9 @@ b634ba0a58315308f488a4a5a920d46f095465fc,False,1,1,6,6,6.0,4,4,0,,,,525,100,18,2
 
 ---------
 
-Co-authored-by: RW <rene@gofiber.io>"
-e6d6fbe5a83262d4a7262f03a1bbceca9105a80d,False,1,1,5,5,5.0,10,29,19,0.8333333333333334,0.8333333333333334,1.0,610,113,25,2,:sparkles: middleware: cors: allow disabling caching in preflight requests (#2649)
-51ea636b60727af37851a28315b7c0a199f79883,False,1,1,8,8,8.0,960,303,-657,,,,285,73,10,0,improved the config section of the middleware readme´s (#2552)
+Co-authored-by: RW <rene@gofiber.io>",1681201469
+e6d6fbe5a83262d4a7262f03a1bbceca9105a80d,False,1,1,5,5,5.0,10,29,19,0.8333333333333334,0.8333333333333334,1.0,610,113,25,2,:sparkles: middleware: cors: allow disabling caching in preflight requests (#2649),1695819984
+51ea636b60727af37851a28315b7c0a199f79883,False,1,1,8,8,8.0,960,303,-657,,,,285,73,10,0,improved the config section of the middleware readme´s (#2552),1690210010
 ce2d087394dc74dbe45e6c9f9bb263ae6f105a26,False,1,6,179,49,29.833333333333332,53,326,273,0.7361963190184049,0.9386503067484663,0.9815950920245399,1969,333,69,21,"Improve memory storage (#2162)
 
 * improve memory storage code and performance
@@ -2538,9 +2538,9 @@ ce2d087394dc74dbe45e6c9f9bb263ae6f105a26,False,1,6,179,49,29.833333333333332,53,
 
 * improve memory storage code and performance
 
-* improve memory storage code and performance"
-3308a32a3aacc08aede663a4634525d7fed74884,False,1,2,13,8,6.5,8,35,27,0.15,1.0,1.0,991,181,30,9,📦 Change default configuration and add test for custom store
-8dd663175e5a09cd66a639647de11c6018dcb935,False,1,5,820,365,164.0,0,823,823,0.29668411867364747,0.5095986038394416,0.9773123909249564,3911,651,134,32,💼 introduce sessions
+* improve memory storage code and performance",1666189362
+3308a32a3aacc08aede663a4634525d7fed74884,False,1,2,13,8,6.5,8,35,27,0.15,1.0,1.0,991,181,30,9,📦 Change default configuration and add test for custom store,1603710715
+8dd663175e5a09cd66a639647de11c6018dcb935,False,1,5,820,365,164.0,0,823,823,0.29668411867364747,0.5095986038394416,0.9773123909249564,3911,651,134,32,💼 introduce sessions,1604687576
 281e2f00463d7c7947cc37344ddab9d2dff3409d,False,1,4,390,331,97.5,336,714,378,0.7132867132867133,1.0,1.0,6146,983,205,17,":sparkles: v3 (feature): merge Listen methods & ListenConfig (#1930)
 
 * :sparkles: v3: new Start method for app
@@ -2585,15 +2585,15 @@ ce2d087394dc74dbe45e6c9f9bb263ae6f105a26,False,1,6,179,49,29.833333333333332,53,
 
 * Add retry logic to tests
 
-Co-authored-by: René Werner <rene@gofiber.io>"
+Co-authored-by: René Werner <rene@gofiber.io>",1662616625
 892b23bd461279580b69c08a3897f3355b703abc,False,1,1,11,11,11.0,1,35,34,0.13636363636363635,0.8636363636363636,1.0,495,93,20,1,":sparkles: Add custom data property to favicon middleware config (#2579)
 
 * Add custom data property to favicon middleware
 
 * Update favicon middleware docs
 
-* Fix formatting"
-8334eb1f9ec0f7113a971742a6aeec0576cb0744,False,1,3,234,133,78.0,284,133,-151,0.44144144144144143,0.16216216216216217,0.05405405405405406,1373,251,52,16,🏬 clean storage in limiter
+* Fix formatting",1692277493
+8334eb1f9ec0f7113a971742a6aeec0576cb0744,False,1,3,234,133,78.0,284,133,-151,0.44144144144144143,0.16216216216216217,0.05405405405405406,1373,251,52,16,🏬 clean storage in limiter,1603782773
 8e89949381ee60f186ebd8346f88b63433df99fb,False,1,2,16,14,8.0,67,111,44,1.0,1.0,1.0,560,113,21,2,"🚀 Configure proxy.Balancer with custom timeout #1362 (#1364)
 
 * 🚀 new possibility to escape special routing parameters, which gives the possibility to follow the google api design guide https://cloud.google.com/apis/design/custom_methods
@@ -2602,7 +2602,7 @@ Co-authored-by: René Werner <rene@gofiber.io>"
 
 * 🚀 Configure proxy.Balancer with custom timeout or client #1362
 
-* 🚀 Configure proxy.Balancer with custom timeout or client #1362"
+* 🚀 Configure proxy.Balancer with custom timeout or client #1362",1622818443
 bb9ac8feaff56429ab3e1e67e26eef3046b17ae6,False,1,2,27,15,13.5,17,73,56,0.0,1.0,1.0,4638,710,161,5,":bug:  Fix expiration time in cache middleware (#1881)
 
 * :bug: Fix: Expiration time in cache middleware
@@ -2616,7 +2616,7 @@ now instead of default Expiration only
 - speed up the cache tests
 - fix race conditions in client and client tests
 
-Co-authored-by: wernerr <rene@gofiber.io>"
+Co-authored-by: wernerr <rene@gofiber.io>",1651398226
 9dabf96ddcc685d001f50d0584a4e31f997c2ea5,False,1,6,129,76,21.5,158,177,19,0.0,0.0,1.0,16327,2495,390,21,"Bump golangci-lint to v1.56.1 (#2842)
 
 * Update linter.yml
@@ -2631,7 +2631,7 @@ Co-authored-by: wernerr <rene@gofiber.io>"
 
 * Refactor CopyContextToFiberContext
 
-* Update adaptor.go"
+* Update adaptor.go",1707808995
 562d15db863248fe4d249b76560843c3a29511d3,False,1,1,12,12,12.0,4,58,54,0.5121951219512195,1.0,1.0,3315,541,43,0,":rocket: Feature: Public ShutdownWithContext (#2407)
 
 * feat: public shutdown with context
@@ -2640,14 +2640,14 @@ Co-authored-by: wernerr <rene@gofiber.io>"
 
 * chore: revert spacing changes
 
-* test: app shutdown with context"
+* test: app shutdown with context",1681045683
 4103f9463dce7fe658a4eaf360142426b9070615,False,1,5,1012,425,202.4,623,739,116,0.0625,0.0,0.0,7347,1137,269,22,":sparkles: feature: customizable colors (#1977)
 
 * :sparkles: feature: customizable colors
 
 * :sparkles: feature: customizable colors
 
-* :sparkles: feature: customizable colors"
+* :sparkles: feature: customizable colors",1659335077
 9b3662eae0e348892e28780b001ec146bc33be36,False,1,3,199,111,66.33333333333333,102,296,194,0.4576271186440678,0.5423728813559322,1.0,1912,342,66,5,"🔥 Customize the source of session_id (#1159)
 
 * 🔥 Feature: Define KeyLookup configuration (#1110)
@@ -2656,8 +2656,8 @@ Co-authored-by: wernerr <rene@gofiber.io>"
 
 * 🔥 Feature: Allow session ID to be obtained from different sources (#1110)
 
-* 📚 Doc: Add Source configuration (#1110)"
-370cc8bdb65b05f811f9bd7175f96849b5cabdb9,False,1,1,14,14,14.0,22,24,2,,,,3501,554,51,0,🚀 v3 Feature: Make app.Test accept a time.Duration timeout (#2269)
+* 📚 Doc: Add Source configuration (#1110)",1622249305
+370cc8bdb65b05f811f9bd7175f96849b5cabdb9,False,1,1,14,14,14.0,22,24,2,,,,3501,554,51,0,🚀 v3 Feature: Make app.Test accept a time.Duration timeout (#2269),1709625579
 dc038d8233b486960a87d30253d4a888e376ff0b,False,1,1,47,47,47.0,16,246,230,0.9695121951219512,1.0,0.823170731707317,1239,181,43,6,"Feature: Add DoRedirects, DoTimeout and DoDeadline to Proxy middleware (#2332)
 
 * Add support for DoRedirects
@@ -2680,10 +2680,10 @@ Signed-off-by: Juan Calderon-Perez <jgcalderonperez@protonmail.com>
 
 ---------
 
-Signed-off-by: Juan Calderon-Perez <jgcalderonperez@protonmail.com>"
-f26d9b1d4e6383e31cd03e9a387fd83008da10ad,False,1,29,58,2,2.0,42,44,2,,,,28389,4481,861,0,v3 (deps): update to use gofiber/utils/v2 (#2184)
-8fe458011d1ad03c60a377b3d71de12449ed7984,False,1,7,356,102,50.857142857142854,160,356,196,0.7578947368421053,0.8,1.0,2392,405,89,22,📦 add mapstore
-573853d44047bd4c7809a13c2f1e8b89f569825a,False,1,1,3,3,3.0,0,3,3,1.0,1.0,1.0,516,90,21,1,🔍 add len check
+Signed-off-by: Juan Calderon-Perez <jgcalderonperez@protonmail.com>",1677247740
+f26d9b1d4e6383e31cd03e9a387fd83008da10ad,False,1,29,58,2,2.0,42,44,2,,,,28389,4481,861,0,v3 (deps): update to use gofiber/utils/v2 (#2184),1667223893
+8fe458011d1ad03c60a377b3d71de12449ed7984,False,1,7,356,102,50.857142857142854,160,356,196,0.7578947368421053,0.8,1.0,2392,405,89,22,📦 add mapstore,1605868987
+573853d44047bd4c7809a13c2f1e8b89f569825a,False,1,1,3,3,3.0,0,3,3,1.0,1.0,1.0,516,90,21,1,🔍 add len check,1605208450
 a0645af1ed365a7fbfd605f3ad880ee9336ad2e3,False,1,2,32,16,16.0,8,24,16,0.3333333333333333,0.3333333333333333,0.9166666666666666,1064,186,43,6,"Fix and optimize memory storage (#2207)
 
 * internal/memory: cache timestamp
@@ -2700,7 +2700,7 @@ This fixes a TOCTOU problem between a mutex rlock and a mutex lock.
 
 This fixes a TOCTOU problem between a mutex rlock and a mutex lock.
 
-* internal/storage: move costly operations outside of locked area"
+* internal/storage: move costly operations outside of locked area",1668410463
 c3ae06608b68302e91eba2f338efa65a1cac8b13,False,1,1,8,8,8.0,13,75,62,0.34782608695652173,1.0,1.0,1135,165,38,2,"🐛 fix(middleware/logger): default latency output format (#2580)
 
 * fix: default logger formater latency
@@ -2711,9 +2711,9 @@ c3ae06608b68302e91eba2f338efa65a1cac8b13,False,1,1,8,8,8.0,13,75,62,0.3478260869
 
 Trying to make windows CI pass....
 
-* test: fix windows sleep issue"
-f1197940359ae4d5e219921125f76f331b3d815a,False,1,4,18,7,4.5,140,139,-1,,,,17061,2579,636,4,"v3: replace io/ioutil by io and os, update version constant"
-de912755f75c40fa034a90b4e3980d76ef895641,False,1,8,351,112,43.875,128,277,149,0.2967032967032967,0.4835164835164835,1.0,6061,1016,220,34,📦 update session
+* test: fix windows sleep issue",1692275639
+f1197940359ae4d5e219921125f76f331b3d815a,False,1,4,18,7,4.5,140,139,-1,,,,17061,2579,636,4,"v3: replace io/ioutil by io and os, update version constant",1654097662
+de912755f75c40fa034a90b4e3980d76ef895641,False,1,8,351,112,43.875,128,277,149,0.2967032967032967,0.4835164835164835,1.0,6061,1016,220,34,📦 update session,1605532964
 8889cea116a8f62a1f87185fcdb851c8774d403c,False,1,1,23,23,23.0,2,62,60,0.48717948717948717,1.0,1.0,3261,532,43,0,"feat: add ShutdownWithTimeout function (#2228)
 
 * add ShutdownWithTimeout function
@@ -2725,12 +2725,12 @@ de912755f75c40fa034a90b4e3980d76ef895641,False,1,8,351,112,43.875,128,277,149,0.
 * test: add Test_App_ShutdownWithTimeout
 
 Co-authored-by: rocketlaunchr-cto <rocketlaunchr.cloud@gmail.com>
-Co-authored-by: kinggo <lilong.21@bytedance.com>"
+Co-authored-by: kinggo <lilong.21@bytedance.com>",1671464443
 e6feb3682758941d1a65d3c3d9c5744b8a55c0e0,False,1,6,429,139,71.5,120,431,311,0.29411764705882354,0.5240641711229946,1.0,2589,441,90,16,"feat: add sliding window as option for limiter middleware (#1580)
 
 - Add the options to use your own middleware(should be more modular over time).
 - Add the Sliding window option(see #1247)
-- A little bit better polished version of #1247."
+- A little bit better polished version of #1247.",1634541233
 7b7dcf29f79f185416325b62fad8cedf0b800b07,False,1,28,165,24,5.892857142857143,154,156,2,0.0,0.3333333333333333,0.0,29551,4840,1104,29,":recycle: Tidy up the codebase (#1613)
 
 * run gofmt
@@ -2763,7 +2763,7 @@ e6feb3682758941d1a65d3c3d9c5744b8a55c0e0,False,1,6,429,139,71.5,120,431,311,0.29
 
 * Fix AssertEqual
 
-* Remove t.Helper() to fix go1.14.15"
+* Remove t.Helper() to fix go1.14.15",1636095603
 6249bc48bcc9359e48cd5fb826a00ba485def6f0,False,1,2,136,84,68.0,1,359,358,0.6376811594202898,0.7318840579710145,1.0,387,82,20,6,":sparkles: feat: add liveness and readiness checks (#2509)
 
 * :sparkles: feat: add liveness and readiness checkers
@@ -2812,7 +2812,7 @@ e6feb3682758941d1a65d3c3d9c5744b8a55c0e0,False,1,6,429,139,71.5,120,431,311,0.29
 
 Co-authored-by: Muhammed Efe Cetin <efectn@protonmail.com>
 Co-authored-by: Juan Calderon-Perez <835733+gaby@users.noreply.github.com>
-Co-authored-by: Juan Calderon-Perez <jgcalderonperez@protonmail.com>"
+Co-authored-by: Juan Calderon-Perez <jgcalderonperez@protonmail.com>",1704302038
 738e062d5bde6128c6c9d6d4a4a24842432f325c,False,1,1,16,16,16.0,0,86,86,1.0,1.0,1.0,8023,1158,90,0,"Addition of Locals Function with Go Generics as an Alternative to c.Locals (#2813)
 
 * Add type-specific local value handling with generics in Ctx
@@ -2833,14 +2833,14 @@ Added documentation to explain the new version of the Locals method that uses Go
 
 ---------
 
-Co-authored-by: Deza Farras Tsany <deza.ftsany@gmail.com>"
-d00f0b834830f7d57f194e59519f3604201e5068,False,1,1,27,27,27.0,4,101,97,0.4423076923076923,1.0,1.0,1241,197,40,1,✨ feat: add Reset method to Session struct in session middleware (#2654)
+Co-authored-by: Deza Farras Tsany <deza.ftsany@gmail.com>",1706523991
+d00f0b834830f7d57f194e59519f3604201e5068,False,1,1,27,27,27.0,4,101,97,0.4423076923076923,1.0,1.0,1241,197,40,1,✨ feat: add Reset method to Session struct in session middleware (#2654),1696252775
 d7b36cde54a0a5f96f0fb0fe0e9030bd506f1305,False,1,1,2,2,2.0,5,6,1,0.0,1.0,1.0,133,33,5,0,":bug: requestid.Config.ContextKey is interface{} (#2369)
 
 requestid.Config.ContextKey is interface{}
 
 Consistent with c.Locals(key inteface{}, ...).
-Fixes #2356"
+Fixes #2356",1678819030
 c7c37d9b504f530a23ee1b03df872e8e0f17002f,False,1,9,829,163,92.11111111111111,110,3191,3081,0.29959040374488005,0.6904622586307783,0.9648917495611469,3206,549,134,31,":recycle: refactor: merge some external middlewares to core (#2453)
 
 * :recycle: refactor: merge adaptor, helmet, keyauth, redirect, rewrite middlewares to core
@@ -2851,10 +2851,10 @@ c7c37d9b504f530a23ee1b03df872e8e0f17002f,False,1,9,829,163,92.11111111111111,110
 
 * fix linting issues
 
-* update"
-687717f113b6220c97584700e3ecf1cc1c34a3e9,False,1,10,562,94,56.2,245,317,72,1.0,0.8888888888888888,1.0,2974,557,121,10,🛠 separate config
-8bd50de610daea2c43eb8eb1aa8d24c47e255add,False,1,11,754,143,68.54545454545455,393,546,153,0.803921568627451,1.0,1.0,8158,1538,322,17,🧹 housekeeping
-053dfd383d93e6bc139c083884ad273ed4695312,False,1,2,365,254,182.5,174,199,25,0.0,0.0,1.0,1163,199,43,9,🩹 fix crsf middleware
+* update",1683698509
+687717f113b6220c97584700e3ecf1cc1c34a3e9,False,1,10,562,94,56.2,245,317,72,1.0,0.8888888888888888,1.0,2974,557,121,10,🛠 separate config,1605099796
+8bd50de610daea2c43eb8eb1aa8d24c47e255add,False,1,11,754,143,68.54545454545455,393,546,153,0.803921568627451,1.0,1.0,8158,1538,322,17,🧹 housekeeping,1605099267
+053dfd383d93e6bc139c083884ad273ed4695312,False,1,2,365,254,182.5,174,199,25,0.0,0.0,1.0,1163,199,43,9,🩹 fix crsf middleware,1605104735
 adcf92dec1f1299d029fcdb962dfec582f10f52d,False,1,6,474,149,79.0,0,894,894,0.40159045725646125,0.558648111332008,0.9761431411530815,4530,906,160,16,"🚀 Feature: Add idempotency middleware (v2 backport) (#2288)
 
 * 🚀 Feature: Add idempotency middleware (#2253)
@@ -2885,10 +2885,10 @@ The real ""strings.ToLower"" still needs to be used when storing the data.
 
 * middleware/idempotency: safe-copy body
 
-* middleware/idempotency: backport to v2"
+* middleware/idempotency: backport to v2",1673595530
 28be17f929cfa7d3c27dd292fc3956f2f9882e22,False,1,1,2,2,2.0,6,5,-1,1.0,0.0,0.0,131,33,5,0,"Revert "":bug: requestid.Config.ContextKey is interface{} (#2369)"" (#2742)
 
-This reverts commit d7b36cde"
+This reverts commit d7b36cde",1701092149
 2374cad3cd109d3bf33f5863e6eb14c32de1882e,False,1,1,2,2,2.0,28,28,0,,,,651,130,28,0,"📄 docs: improve csrf docs (#2726)
 
 * docs: improve csrf docs
@@ -2911,11 +2911,11 @@ This reverts commit d7b36cde"
 
 * docs: patterns
 
-* docs: improve phrasing of pattern options"
-db10fd233e855208b8235a38b10617b60288243d,False,1,1,3,3,3.0,0,3,3,0.0,1.0,1.0,546,101,20,1,👷 set cors's default values
+* docs: improve phrasing of pattern options",1700134471
+db10fd233e855208b8235a38b10617b60288243d,False,1,1,3,3,3.0,0,3,3,0.0,1.0,1.0,546,101,20,1,👷 set cors's default values,1600242359
 c4d2876d64590bb6ddfbcc9c21253c927f35dbca,False,1,1,4,4,4.0,4,44,40,0.125,1.0,1.0,591,111,24,2,"🐛 fix(cors): Changed condition for 'AllowOriginsFunc' (#2423)
 
-🐛 fix(cors): Changed condition for 'AllowOriginsFunc' to check against default config value of 'AllowOrigins'"
+🐛 fix(cors): Changed condition for 'AllowOriginsFunc' to check against default config value of 'AllowOrigins'",1682077073
 5316f0823db2a36326f379772a26ceca4d64565d,False,1,2,269,141,134.5,46,344,298,0.45408163265306123,0.4744897959183674,1.0,9097,1353,150,2,"🚀 Make IP validation 2x faster (#2158)
 
 * 🚀 Make IP vallidation 2x faster
@@ -2926,7 +2926,7 @@ c4d2876d64590bb6ddfbcc9c21253c927f35dbca,False,1,1,4,4,4.0,4,44,40,0.125,1.0,1.0
 
 * change test assert function
 
-That was a surprise that testing style in gofiber/utils and in gofiber/fiber/utils are different 😳"
+That was a surprise that testing style in gofiber/utils and in gofiber/fiber/utils are different 😳",1666087163
 b9e93ccd4abfcdb8efd7dc352d9320071ce7c898,False,1,1,4,4,4.0,6,376,370,0.1875,0.9930555555555556,1.0,437,65,12,2,"Fix Sliding Window limiter when SkipSuccessfulRequests/SkipFailedRequests is used. (#2484)
 
 * Fix Sliding Window limiter when SkipSuccessfulRequests/SkipFailedRequests is used.
@@ -2937,14 +2937,14 @@ b9e93ccd4abfcdb8efd7dc352d9320071ce7c898,False,1,1,4,4,4.0,6,376,370,0.1875,0.99
 
 ---------
 
-Co-authored-by: Oleg Bakumenko <Bakumenko.Oleg@wb.ru>"
+Co-authored-by: Oleg Bakumenko <Bakumenko.Oleg@wb.ru>",1685599231
 d736d3a64433385b0fc0189e16a36a2f4facb67d,False,1,1,2,2,2.0,5,48,43,0.0,1.0,1.0,3345,551,46,1,":bug: bug: fix path checking on route naming (#2676)
 
 * :bug: bug: fix path checking on route naming
 
 * fix several tests
 
-* fix several tests"
+* fix several tests",1697439773
 c955d76f5d45a251fde2197deef59a6ec07e6aa1,False,1,3,70,39,23.333333333333332,21,121,100,0.125,0.3611111111111111,1.0,6620,1036,154,4,":bug: bug: fix middleware naming and returned values of group methods (#2477)
 
 * Bug fix: route names not updating
@@ -2963,12 +2963,12 @@ c955d76f5d45a251fde2197deef59a6ec07e6aa1,False,1,3,70,39,23.333333333333332,21,1
 
 ---------
 
-Co-authored-by: Muhammed Efe Çetin <efectn@protonmail.com>"
+Co-authored-by: Muhammed Efe Çetin <efectn@protonmail.com>",1685962851
 c3b151a1fe058abd91650cdd905e63dbf2409165,False,1,1,22,22,22.0,1,36,35,1.0,1.0,1.0,9021,1302,106,0,"🔥 Feature: add queryBool parser (#2329)
 
 * 🔥 Feature: add queryBool parser
 
-* 🩹 pass linter"
+* 🩹 pass linter",1675953189
 c42af6d2ca374c3e209a0e18bde7a5bd1276483b,False,1,1,22,22,22.0,2,92,90,0.2361111111111111,1.0,1.0,7899,1142,312,1,":sparkles: feature: support adding queries to RedirectToRoute (#1858)
 
 * Support adding queries for RedirectToRoute method.
@@ -2977,8 +2977,8 @@ c42af6d2ca374c3e209a0e18bde7a5bd1276483b,False,1,1,22,22,22.0,2,92,90,0.23611111
 
 * ✨ feature: support adding queries to RedirectToRoute
 
-Co-authored-by: wernerr <rene@gofiber.io>"
-5175222c03cf81eef64fbe25adc7a154ad396789,False,1,1,31,31,31.0,52,6,-46,1.0,0.0,0.0,5002,734,67,0,🚀 remove `&` to improve ctx.JSON(😭)
+Co-authored-by: wernerr <rene@gofiber.io>",1650029559
+5175222c03cf81eef64fbe25adc7a154ad396789,False,1,1,31,31,31.0,52,6,-46,1.0,0.0,0.0,5002,734,67,0,🚀 remove `&` to improve ctx.JSON(😭),1594456552
 fefc5338347dacf29b007584b1f0e4f515a0799e,False,1,17,531,205,31.235294117647058,42,865,823,0.5267175572519084,0.9211195928753181,1.0,18045,3118,582,79,"🚀 Add Logger interface and fiberlog (#2499)
 
 * add log for fiber
@@ -3005,7 +3005,7 @@ Co-authored-by: Tomás Warynyca <41587659+tomaswarynyca@users.noreply.github.com
 
 ---------
 
-Co-authored-by: Tomás Warynyca <41587659+tomaswarynyca@users.noreply.github.com>"
+Co-authored-by: Tomás Warynyca <41587659+tomaswarynyca@users.noreply.github.com>",1687760217
 937713e41e7a7967e9465f3a1ab126699efefd2a,False,1,5,781,509,156.2,30,1116,1086,0.30364963503649633,0.47737226277372263,1.0,11070,1673,429,38,":sparkles: feature: bind support for render (#1754)
 
 * Bind support for Render.
@@ -3038,7 +3038,7 @@ Co-authored-by: hi019 <65871571+hi019@users.noreply.github.com>
 
 Co-authored-by: hi019 <65871571+hi019@users.noreply.github.com>
 Co-authored-by: wernerr <rene.werner@verivox.com>
-Co-authored-by: wernerr <rene@gofiber.io>"
+Co-authored-by: wernerr <rene@gofiber.io>",1644702744
 82d103941660342d8c5f6aea87b7f0fbbd45cba3,False,1,2,25,20,12.5,0,83,83,0.5932203389830508,0.8813559322033898,1.0,11306,1693,409,2,"✨feature: Pass all locals to ctx.Render (#1693)
 
 * ✨feature: Pass all locals to ctx.Render
@@ -3051,8 +3051,8 @@ The option PassLocalsToViews is set to disabled by default
 
 * Added a check to see if the ctx bind already contains the value
 
-* Added a test for ctx render with locals and binds."
-da1877f16c77fae54e4fac6cb32f8dbaec45d1c1,False,1,1,1,1,1.0,2,11,9,0.0,1.0,1.0,5663,807,50,0,🏗️ chore: enable decoder's ZeroEmpty by default (#1285)
+* Added a test for ctx render with locals and binds.",1643009386
+da1877f16c77fae54e4fac6cb32f8dbaec45d1c1,False,1,1,1,1,1.0,2,11,9,0.0,1.0,1.0,5663,807,50,0,🏗️ chore: enable decoder's ZeroEmpty by default (#1285),1621259196
 1dea615ddf636a7ffb786d1225a929e357e986d2,False,1,2,13,7,6.5,10,80,70,0.17307692307692307,1.0,1.0,12488,1858,150,2,":fire: add config to enable splitting by comma in parsers (#2560)
 
 * :fire: add config to enable splitting by comma in parsers
@@ -3063,7 +3063,7 @@ da1877f16c77fae54e4fac6cb32f8dbaec45d1c1,False,1,1,1,1,1.0,2,11,9,0.0,1.0,1.0,56
 
 optimize if statements, remove escape char support
 
-* update"
+* update",1692603842
 2e7e879d6f69902d06b4759a5f31a083968faa40,False,1,1,16,16,16.0,1,159,158,0.803030303030303,1.0,1.0,2241,324,73,4,"feature: allow preloaded certs with prefork (#2351)
 
 * allow preloaded certs with prefork
@@ -3088,7 +3088,7 @@ optimize if statements, remove escape char support
 
 ---------
 
-Co-authored-by: RW <rene@gofiber.io>"
+Co-authored-by: RW <rene@gofiber.io>",1678100621
 c08568e247a0847fac0a496cee007c9b6072f1ad,False,1,1,18,18,18.0,3,55,52,0.2962962962962963,0.14814814814814814,1.0,1105,175,35,2,"🔥 feat: expiration per session (#1363)
 
 * feat(middlewares): expiration per session
@@ -3097,12 +3097,12 @@ c08568e247a0847fac0a496cee007c9b6072f1ad,False,1,1,18,18,18.0,3,55,52,0.29629629
 
 * docs(middlewares): session
 
-* chore: apply suggestions from code review"
+* chore: apply suggestions from code review",1623580759
 8a605c67d1313ad10a8dd22f9ab8c661c352645a,False,1,1,28,28,28.0,15,15,0,,,,8608,1250,104,4,":adhesive_bandage: bug: use `app.getString, app.GetBytes` instead of `utils.UnsafeString, utils.UnsafeBytes` in `ctx.go` (#2297)
 
 * :adhesive_bandage: bug: use `app.getString, app.GetBytes` instead of `utils.UnsafeString, utils.UnsafeBytes` in `ctx.go`
 
-* fix Test_Client_Debug"
+* fix Test_Client_Debug",1673787413
 2703e92c5d7774743b160519158e713dcfcb0e8d,False,1,2,36,28,18.0,1,81,80,0.034482758620689655,1.0,1.0,8533,1409,148,2,"✨ Added decompression cases for Body function (#1402)
 
 * Added decompression cases for Body function
@@ -3129,7 +3129,7 @@ improve performance
 
 * Update helpers.go
 
-Co-authored-by: RW <rene@gofiber.io>"
+Co-authored-by: RW <rene@gofiber.io>",1624513641
 d87065f5f2e81e47642da8bcb4d81ea088ca88d5,False,1,1,29,29,29.0,0,165,165,0.04918032786885246,1.0,1.0,8886,1267,92,1,"🚀 FEATURE: add queries function (#2475)
 
 * 🚀 FEATURE: add queries method
@@ -3183,8 +3183,8 @@ This reverts commit 28febf9e602bb13f0761169c26f264e4687da660.
 ---------
 
 Co-authored-by: cmd777 <83428931+cmd777@users.noreply.github.com>
-Co-authored-by: leonklingele <git@leonklingele.de>"
-3d39b82aad8be450cfbdc5352cdb36f5a9d76bd9,False,1,2,12,8,6.0,4,8,4,0.0,0.0,1.0,1378,222,50,3,logger: adjustment for the new Done function - use nil instead of empty func
+Co-authored-by: leonklingele <git@leonklingele.de>",1686549117
+3d39b82aad8be450cfbdc5352cdb36f5a9d76bd9,False,1,2,12,8,6.0,4,8,4,0.0,0.0,1.0,1378,222,50,3,logger: adjustment for the new Done function - use nil instead of empty func,1668774237
 5e37126352ec03935aef2866d1e9c2d2c63d3b71,False,1,2,24,14,12.0,9,15,6,0.0,0.0,1.0,2037,336,87,4,"Improvements for logger middleware (#1645)
 
 * Add NO_COLOR compatibility.
@@ -3193,8 +3193,8 @@ Co-authored-by: leonklingele <git@leonklingele.de>"
 
 * Fix coloring with custom formats.
 
-* Fix tests."
-291fb6e444e8c6d058fd7d27a7c96e4b869d6b86,False,1,1,16,16,16.0,6,29,23,0.1111111111111111,1.0,1.0,620,95,25,4,:bug: bug: fix mounting when mount prefix is `/` (#2227)
+* Fix tests.",1638775296
+291fb6e444e8c6d058fd7d27a7c96e4b869d6b86,False,1,1,16,16,16.0,6,29,23,0.1111111111111111,1.0,1.0,620,95,25,4,:bug: bug: fix mounting when mount prefix is `/` (#2227),1668950802
 61b449606716cb1da1a78f9ffaf81d5395ca61b2,False,1,2,16,14,8.0,6,28,22,1.0,1.0,1.0,5801,1089,130,2,"Track Configured Values (#2221)
 
 * WIP: Use Parent Error Handler on Mount
@@ -3205,10 +3205,10 @@ Co-authored-by: leonklingele <git@leonklingele.de>"
 
 * Move to copy of config as configured
 
-* Apply the same trick to customMethod"
+* Apply the same trick to customMethod",1668510791
 f114aad4290bfbb1c6e86e7be4947dce4f4616f9,False,1,1,112,112,112.0,0,112,112,1.0,1.0,1.0,670,71,15,2,"Separate group file
 
-Co-Authored-By: RW <renewerner87@googlemail.com>"
+Co-Authored-By: RW <renewerner87@googlemail.com>",1590218826
 68d3b773bc41836669f77c1a5a6ae4017c29e4f4,False,1,6,55,32,9.166666666666666,3,600,597,0.0,0.9791666666666666,1.0,14126,2327,497,6,"Add route naming feature. (#1650)
 
 * Add route naming feature.
@@ -3221,7 +3221,7 @@ Co-Authored-By: RW <renewerner87@googlemail.com>"
 
 * Fix race conditions.
 
-* Update READMEs."
+* Update READMEs.",1640696644
 581af0052dd4534b3291b45f40f31d920f6f9084,False,1,3,62,35,20.666666666666668,29,40,11,1.0,1.0,0.75,6158,949,224,6,":bug: bug: fix naming of routes inside groups (#2199)
 
 * :bug: bug: fix naming of routes inside groups
@@ -3230,35 +3230,35 @@ Co-Authored-By: RW <renewerner87@googlemail.com>"
 
 * bug: fix naming of routes inside groups
 
-Co-authored-by: René Werner <rene@gofiber.io>"
-2aef5f8e0132ee20275ec4657846708ba479597e,False,1,2,27,15,13.5,5,114,109,0.2,0.9333333333333333,1.0,708,127,24,2,"limiter middleware new options: SkipFailedRequests, SkipSuccessfulRequests (#1542)"
+Co-authored-by: René Werner <rene@gofiber.io>",1668006196
+2aef5f8e0132ee20275ec4657846708ba479597e,False,1,2,27,15,13.5,5,114,109,0.2,0.9333333333333333,1.0,708,127,24,2,"limiter middleware new options: SkipFailedRequests, SkipSuccessfulRequests (#1542)",1632816629
 9c37b4c1c5679bf0d03f2bd441799acc3f100fb2,False,1,1,25,25,25.0,10,48,38,0.20689655172413793,0.8620689655172413,1.0,409,66,13,2,"Fix limit middleware skip options (#1568)
 
 * fix limit middleware skip options
 
 * fix limiter middleware remaining count
 
-* used constant StatusBadRequest instead of int 400"
+* used constant StatusBadRequest instead of int 400",1633969897
 d8961a7ed9adadda6876536edd3db72abf0669a3,False,1,1,32,32,32.0,9,37,28,0.0,0.5789473684210527,1.0,5504,796,50,1,"🐛 Fix (*Ctx).Accepts
 
 Co-authored-by: Fenny <fenny@gofiber.io>
-Co-authored-by: navossoc <navossoc@gmail.com>"
+Co-authored-by: navossoc <navossoc@gmail.com>",1603562773
 d59282db20685ae42c5adf67ec6f2706b0dd461f,False,1,1,306,306,306.0,124,182,58,0.5590551181102362,0.35170603674540685,0.0,4379,641,66,13,"Improve performance
 
 - Move ctx pool to *App
 - Improve performance on most methods
 - Introduce gofiber/utils
 
-Co-Authored-By: RW <renewerner87@googlemail.com>"
-b9bdc0d4a83238223bd77651981cfa4f3dfc0a15,False,1,3,179,126,59.666666666666664,90,166,76,0.4,1.0,1.0,4883,731,166,8,🚀 compress same route's handler
-09116ae22be7e9fa7e792b419c279e29eebf588a,False,1,2,25,23,12.5,9,16,7,0.0,0.0,1.0,4572,841,135,2,Add 405 Support
-b872361da9dbfd4faee78180c4354f23ecdfe660,False,1,4,348,146,87.0,193,163,-30,0.625,0.625,0.0,8163,1291,329,28,Strong type app.METHODS
-44d739496d5f5791a2afbed4c1fca6d83edfe8fc,False,1,3,57,30,19.0,9,69,60,0.12195121951219512,1.0,1.0,6027,1069,186,4,Add 405 Method Not Allowed
+Co-Authored-By: RW <renewerner87@googlemail.com>",1590218790
+b9bdc0d4a83238223bd77651981cfa4f3dfc0a15,False,1,3,179,126,59.666666666666664,90,166,76,0.4,1.0,1.0,4883,731,166,8,🚀 compress same route's handler,1595266194
+09116ae22be7e9fa7e792b419c279e29eebf588a,False,1,2,25,23,12.5,9,16,7,0.0,0.0,1.0,4572,841,135,2,Add 405 Support,1592729223
+b872361da9dbfd4faee78180c4354f23ecdfe660,False,1,4,348,146,87.0,193,163,-30,0.625,0.625,0.0,8163,1291,329,28,Strong type app.METHODS,1582794626
+44d739496d5f5791a2afbed4c1fca6d83edfe8fc,False,1,3,57,30,19.0,9,69,60,0.12195121951219512,1.0,1.0,6027,1069,186,4,Add 405 Method Not Allowed,1592666808
 8ea25a79b9cd8dd4810abc5ee6df48667f9eadd7,False,1,5,927,462,185.4,457,1583,1126,0.7411444141689373,0.8937329700272479,1.0,11204,1987,379,25,"💥 v1.9.4 (#341)
 
 * Update router.go
 
-Co-authored-by: Fenny <fenny@protonmail.com>"
+Co-authored-by: Fenny <fenny@protonmail.com>",1588872501
 7c83e38757558e70dcc6c5d0a2a5db19683e2a81,False,1,1,47,47,47.0,86,167,81,0.7166666666666667,1.0,0.75,128,26,6,4,"🔥 Update: add timeout context middleware (#2090)
 
 * 🔥 Feature: add timeoutcontext middleware
@@ -3279,16 +3279,16 @@ Co-authored-by: Fenny <fenny@protonmail.com>"
 
 * rename sample code title on timeout middleware
 
-Co-authored-by: RW <rene@gofiber.io>"
-c5792a3953447f41086f41cb35e0b190e3320c4f,False,1,1,13,13,13.0,7,49,42,0.36,1.0,1.0,207,41,8,2,📦 Add the request ID to locals
+Co-authored-by: RW <rene@gofiber.io>",1663336982
+c5792a3953447f41086f41cb35e0b190e3320c4f,False,1,1,13,13,13.0,7,49,42,0.36,1.0,1.0,207,41,8,2,📦 Add the request ID to locals,1603307652
 89fdbcf036da5461d778a4030bc5642dbcd3e1b8,False,1,5,28,9,5.6,10,18,8,,,,2824,485,125,5,"Improve errors handling (#1381)
 
 * replace `fmt.Errorf` to `errors.New`
 
-* changed once `Sprintf` to `Join`"
-ecdda95e15b883c2ad137e8e66062b7daf0bc6ab,False,1,6,475,185,79.16666666666667,104,457,353,0.22134387351778656,0.23715415019762845,0.9762845849802372,3113,554,119,20,💼 implement Storage
-67dfa179030d6e44d0190437b7ee803de96e2d38,False,1,5,657,396,131.4,1,663,662,0.512396694214876,0.6584022038567493,1.0,8601,1492,104,34,📦 vendor fwd
-66d2e7deda2586eaa4e3724390e33edab8b07d30,False,1,3,219,135,73.0,79,337,258,0.2318181818181818,0.5681818181818182,1.0,1343,244,49,11,📦 Switch to fiber.Storage and msgp
+* changed once `Sprintf` to `Join`",1623575502
+ecdda95e15b883c2ad137e8e66062b7daf0bc6ab,False,1,6,475,185,79.16666666666667,104,457,353,0.22134387351778656,0.23715415019762845,0.9762845849802372,3113,554,119,20,💼 implement Storage,1603848587
+67dfa179030d6e44d0190437b7ee803de96e2d38,False,1,5,657,396,131.4,1,663,662,0.512396694214876,0.6584022038567493,1.0,8601,1492,104,34,📦 vendor fwd,1603755238
+66d2e7deda2586eaa4e3724390e33edab8b07d30,False,1,3,219,135,73.0,79,337,258,0.2318181818181818,0.5681818181818182,1.0,1343,244,49,11,📦 Switch to fiber.Storage and msgp,1603747530
 2517944c80e7f02aeac49889c552493f88ba43c6,False,1,2,315,297,157.5,12,563,551,0.05454545454545454,0.5909090909090909,0.9886363636363636,5527,1068,249,5,":sparkles: feature: route constraints  (#1998)
 
 * Segment parameters constraints and determining it's type
@@ -3323,8 +3323,8 @@ ecdda95e15b883c2ad137e8e66062b7daf0bc6ab,False,1,6,475,185,79.16666666666667,104
 Co-authored-by: wernerr <rene@gofiber.io>
 
 Co-authored-by: Mohab Abd El-Dayem <mohab.m.mohamed@gmail.com>
-Co-authored-by: RW <rene@gofiber.io>"
-7be78406cb72cc36252c2e7ff4f477572e05953a,False,1,15,891,245,59.4,2,949,947,0.7266811279826464,0.7093275488069414,0.9761388286334056,4153,656,138,51,🔐 use uuid v4 in session
+Co-authored-by: RW <rene@gofiber.io>",1660629950
+7be78406cb72cc36252c2e7ff4f477572e05953a,False,1,15,891,245,59.4,2,949,947,0.7266811279826464,0.7093275488069414,0.9761388286334056,4153,656,138,51,🔐 use uuid v4 in session,1606743070
 7609117cec68f23c74f0489d412d5bcc610dd718,False,1,9,36,12,4.0,23,23,0,,,,21798,3408,837,16,"Improved some conditions  (#1386)
 
 * simplify `u <= (1<<7)-1` to `u < (1 << 7)`
@@ -3359,32 +3359,32 @@ Co-authored-by: RW <rene@gofiber.io>"
 
 * Update store.go
 
-Co-authored-by: RW <rene@gofiber.io>"
+Co-authored-by: RW <rene@gofiber.io>",1623960239
 9dfdea45c174cc8bb95af39636db22f9e211f7ed,False,1,14,115,37,8.214285714285714,72,43,-29,1.0,0.6666666666666666,0.3333333333333333,15423,2355,556,10,":broom: :bug: fix some warnings, go-ole on mac os (#2280)
 
 * :broom: fix some warnings
 
-* :bug: fix go-ole on mac os"
+* :bug: fix go-ole on mac os",1672575398
 691d2e6ad5c565eea26676a04064cf99fd515b84,False,1,10,61,17,6.1,206,201,-5,,,,30052,4550,891,20,":wastebasket: deprecate: go 1.14 & go 1.15 support deprecation (#2172)
 
 * :wastebasket: deprecate: go 1.14 & go 1.15 support deprecation
 https://github.com/valyala/fasthttp/pull/1379
 
-* fix tests"
-ea6cca7a0549de73c011a5370c41f38b6d627d70,False,1,21,6866,1363,326.95238095238096,0,6976,6976,0.3258687258687259,0.4674388674388674,0.8906048906048906,32332,5300,1014,219,🎫 add msgp
+* fix tests",1666777910
+ea6cca7a0549de73c011a5370c41f38b6d627d70,False,1,21,6866,1363,326.95238095238096,0,6976,6976,0.3258687258687259,0.4674388674388674,0.8906048906048906,32332,5300,1014,219,🎫 add msgp,1603671124
 3242e5b151ae84d66b77b31318deedbabc6d5c3f,False,1,1,4,4,4.0,2,2,0,,,,5486,796,50,1,"🚀 allow incase-sensitive ctypes in bodyparser
 
-Co-Authored-By: Mones Zarrugh <11161902+moneszarrugh@users.noreply.github.com>"
-51986b2e7c183e4b9fe11318be0b232fcbc79a68,False,1,1,569,569,569.0,0,1205,1205,0.7817258883248731,0.9124365482233503,0.9670050761421319,2118,355,80,44,🔥 Fiber Client poc
-d6f717148ae30e0ecfa1bf6ba4e7fe781951e3eb,False,1,5,52,30,10.4,15,39,24,1.0,1.0,1.0,9711,1636,208,13,🛠 correct convert naming
-d6d831e2b114cede70fb040536845b2b35f9dc64,False,1,4,19,7,4.75,10,9,-1,,,,12049,1950,274,8,👷 fix lint
+Co-Authored-By: Mones Zarrugh <11161902+moneszarrugh@users.noreply.github.com>",1607644772
+51986b2e7c183e4b9fe11318be0b232fcbc79a68,False,1,1,569,569,569.0,0,1205,1205,0.7817258883248731,0.9124365482233503,0.9670050761421319,2118,355,80,44,🔥 Fiber Client poc,1613639200
+d6f717148ae30e0ecfa1bf6ba4e7fe781951e3eb,False,1,5,52,30,10.4,15,39,24,1.0,1.0,1.0,9711,1636,208,13,🛠 correct convert naming,1601202137
+d6d831e2b114cede70fb040536845b2b35f9dc64,False,1,4,19,7,4.75,10,9,-1,,,,12049,1950,274,8,👷 fix lint,1606715353
 aef7ea53b32aa336b7c41cb1ca1a5faa816be784,False,1,2,77,46,38.5,49,80,31,0.0,0.631578947368421,1.0,5697,1089,253,4,":bug: bug: fix route constraints problems (#2033)
 
 * :bug: bug: fix route constraints problems
 
 * escape support for data
 
-* exactLen -> len"
+* exactLen -> len",1661516166
 eee279bdb3850c1e9365c94776a3eaf898d19e37,False,1,2,41,27,20.5,33,100,67,0.19148936170212766,1.0,1.0,11134,1662,402,3,"Fix using IP ranges in config.TrustedProxies (#1607) (#1614)
 
 * Fix using IP ranges in config.TrustedProxies (#1607)
@@ -3397,40 +3397,40 @@ eee279bdb3850c1e9365c94776a3eaf898d19e37,False,1,2,41,27,20.5,33,100,67,0.191489
 
 * Update test
 
-Co-authored-by: RW <rene@gofiber.io>"
+Co-authored-by: RW <rene@gofiber.io>",1640971959
 cdbcfbec17ac49421dae5ed8225532b5f52ce79d,False,1,2,32,21,16.0,1,72,71,1.0,1.0,1.0,4519,708,147,3,"🔥 Feature: add IP ranges support to config.TrustedProxies (#1602)
 
 * feat: add IP ranges support to config.TrustedProxies
 
-* Added config example to README and moved IncrementIPRange to utils."
-d3c212208613089a82434c1c1bb67ee757c31529,False,1,1,7,7,7.0,1,10,9,0.5714285714285714,1.0,1.0,881,111,27,1,Fix route naming when to use group in group. (#1736)
+* Added config example to README and moved IncrementIPRange to utils.",1635374799
+d3c212208613089a82434c1c1bb67ee757c31529,False,1,1,7,7,7.0,1,10,9,0.5714285714285714,1.0,1.0,881,111,27,1,Fix route naming when to use group in group. (#1736),1643466361
 ee65ea5babbfd8dd7b15c8f626a08f728f8cf99e,False,1,75,34195,4855,455.93333333333334,39148,15,-39133,0.8822771067987515,0.8426516487990229,0.784299090785724,16491,2489,609,751,":broom: Use encoding/json (#1851)
 
 * remove goccy/go-json
 
-* fix tests."
-637f0c1bba3ef6800d1267af4ad63667ba5a8807,False,1,1,14,14,14.0,1,37,36,0.36666666666666664,1.0,1.0,797,99,24,1,Fix: error handler of app and its sub apps not saved when mounted in group (#1649)
-f1710ea1b648956eb87e163ec6bace4dcfb40ae4,False,1,1,2,2,2.0,1,20,19,1.0,1.0,1.0,611,71,18,1,fix the unnecessary pass through for routes with groups
-2cfc1b15462f3ab418b526dd5fdeec99f905602d,False,1,4,21,8,5.25,9,12,3,0.0,0.0,1.0,6959,1200,223,4,"👷 Extract ""USE"" to a global const variable"
+* fix tests.",1649839533
+637f0c1bba3ef6800d1267af4ad63667ba5a8807,False,1,1,14,14,14.0,1,37,36,0.36666666666666664,1.0,1.0,797,99,24,1,Fix: error handler of app and its sub apps not saved when mounted in group (#1649),1640696735
+f1710ea1b648956eb87e163ec6bace4dcfb40ae4,False,1,1,2,2,2.0,1,20,19,1.0,1.0,1.0,611,71,18,1,fix the unnecessary pass through for routes with groups,1592556855
+2cfc1b15462f3ab418b526dd5fdeec99f905602d,False,1,4,21,8,5.25,9,12,3,0.0,0.0,1.0,6959,1200,223,4,"👷 Extract ""USE"" to a global const variable",1594569262
 95abdacba071c788f72bee02673b41c65c0e3004,False,1,3,34,19,11.333333333333334,6,147,141,0.1590909090909091,1.0,1.0,11098,1641,420,3,":sparkles: feature: add XML to context. (#2003)
 
 * :sparkles: feature: add XML to context.
 
-* Update app.go"
-f9e6ea81034e80ca09dd5de2ce8891454a871f92,False,1,3,23,9,7.666666666666667,13,10,-3,1.0,1.0,1.0,4814,728,166,4,🖇 Cleanup router chaining
+* Update app.go",1660629935
+f9e6ea81034e80ca09dd5de2ce8891454a871f92,False,1,3,23,9,7.666666666666667,13,10,-3,1.0,1.0,1.0,4814,728,166,4,🖇 Cleanup router chaining,1595158586
 4d65e88a2c3d0d3ec6be46feb2c7996bd710ec61,False,1,1,6,6,6.0,0,6,6,0.0,0.0,1.0,5071,787,171,1,"Spliting dump request to add Query (#1909)
 
-Spliting []dump into dumps, and editing the dump[1] to = req.URL.String(), so we can tests itens that depends on querys from the request."
+Spliting []dump into dumps, and editing the dump[1] to = req.URL.String(), so we can tests itens that depends on querys from the request.",1655051581
 e49880c5d6ac4abee7d5a0fbda857ebef01bc21f,False,1,1,5,5,5.0,58,71,13,1.0,1.0,1.0,2127,309,71,2,":art: Fix padding around app name in startup message when containing non-ascii characters (#1987)
 
 * Fix padding around app name in startup message when it contains non-ascii characters
 
 * fix conflict, allow ending space only for odd length strings
 
-* move startup message tests to listen_test.go"
+* move startup message tests to listen_test.go",1659349009
 ea129d02ab4cf3eb73db905e6cf27d13832aea9a,False,1,2,106,67,53.0,4,102,98,0.2916666666666667,0.125,1.0,1744,307,83,5,"🎨 add colors to default format
 
-Co-Authored-By: Yuil Tripathee <28005756+YuilTripathee@users.noreply.github.com>"
+Co-Authored-By: Yuil Tripathee <28005756+YuilTripathee@users.noreply.github.com>",1601404810
 4f7816774b85edf70d54e2a65c9669734a385f9f,False,1,2,10,6,5.0,3,7,4,0.0,0.0,1.0,2325,359,80,3,":art: Add black colors to default overriding function (#1993)
 
 * Fix padding around app name in startup message when it contains non-ascii characters
@@ -3439,13 +3439,13 @@ Co-Authored-By: Yuil Tripathee <28005756+YuilTripathee@users.noreply.github.com>
 
 * move startup message tests to listen_test.go
 
-* add black color to defaultColors overriding function, fix (again) padding in startupMessage"
-a09daabfee8df2e55c735e20acff026ff95b056f,False,1,7,22,8,3.142857142857143,11,11,0,,,,20676,3333,634,0,⚡ move utils to internal
-0dc67e80d2e420edcda9d89204c65d9bbeaa6d25,False,1,5,82,50,16.4,58,60,2,0.0,0.0,1.0,17818,2830,480,15,"Moves .getBytes and .getString from package variable to App instance variable, avoiding data race when creating a new App."
+* add black color to defaultColors overriding function, fix (again) padding in startupMessage",1659442994
+a09daabfee8df2e55c735e20acff026ff95b056f,False,1,7,22,8,3.142857142857143,11,11,0,,,,20676,3333,634,0,⚡ move utils to internal,1600068288
+0dc67e80d2e420edcda9d89204c65d9bbeaa6d25,False,1,5,82,50,16.4,58,60,2,0.0,0.0,1.0,17818,2830,480,15,"Moves .getBytes and .getString from package variable to App instance variable, avoiding data race when creating a new App.",1620246266
 b1b490645e1de65ed999f458757b91a2f2248f32,False,1,12,1313,205,109.41666666666667,1300,38,-1262,0.4465065502183406,0.31222707423580787,0.0,1636,285,52,115,"Fix session middleware (#1235)
 
-encoding/gob for session middleware"
-e1078f87167eb2beb0a341638f2af91b6150c3f2,False,1,14,1744,365,124.57142857142857,458,1412,954,0.719047619047619,0.9507936507936507,0.9396825396825397,11588,1405,325,125,🩹 fix #1030
+encoding/gob for session middleware",1616754295
+e1078f87167eb2beb0a341638f2af91b6150c3f2,False,1,14,1744,365,124.57142857142857,458,1412,954,0.719047619047619,0.9507936507936507,0.9396825396825397,11588,1405,325,125,🩹 fix #1030,1606388743
 adcb1f2bf1531eefae05895bb6fb2331837de8da,False,1,3,61,44,20.333333333333332,26,84,58,0.0,0.05714285714285714,1.0,12740,2026,490,7,"v3: fix benchmark results (#1982)
 
 * v3: fix benchmark results
@@ -3460,9 +3460,9 @@ adcb1f2bf1531eefae05895bb6fb2331837de8da,False,1,3,61,44,20.333333333333332,26,8
 
 * fix some benchmarks
 
-Co-authored-by: wernerr <rene@gofiber.io>"
-dfa24a09587731cdb3ee529b09df956dbd12e13f,False,1,1,10,10,10.0,1,64,63,0.5087719298245614,1.0,1.0,7948,1143,315,1,add: params parse (#1964)
-495d1b7cbf4930a309820cd60e8aebf25e77628f,False,1,1,29,29,29.0,16,13,-3,1.0,1.0,0.0,5276,769,46,1,🚀 improve ctx.BodyParser performance
+Co-authored-by: wernerr <rene@gofiber.io>",1659873181
+dfa24a09587731cdb3ee529b09df956dbd12e13f,False,1,1,10,10,10.0,1,64,63,0.5087719298245614,1.0,1.0,7948,1143,315,1,add: params parse (#1964),1657021511
+495d1b7cbf4930a309820cd60e8aebf25e77628f,False,1,1,29,29,29.0,16,13,-3,1.0,1.0,0.0,5276,769,46,1,🚀 improve ctx.BodyParser performance,1594821656
 a9b66b328efc5013bece3e65f0e05018a01bcd5d,False,1,1,32,32,32.0,21,23,2,,,,6298,909,236,5,"♻️ Option to overide form decoder setting - Rename function (#1555)
 
 * 🔥 add function to overide form decoder setting
@@ -3477,7 +3477,7 @@ a9b66b328efc5013bece3e65f0e05018a01bcd5d,False,1,1,32,32,32.0,21,23,2,,,,6298,90
 
 BodyParserType > ParserType
 bodyParserConfig > parserConfig
-BodyParserConfig > ParserConfig"
+BodyParserConfig > ParserConfig",1633329444
 35e38db7715879cd2b68c44340dc296757c752c9,False,1,1,41,41,41.0,3,92,89,0.4894810659186536,0.6297335203366059,1.0,6298,909,236,3,"🔥 Add function to override form decoder setting (#1100)
 
 * 🔥 add function to overide form decoder setting
@@ -3486,11 +3486,11 @@ BodyParserConfig > ParserConfig"
 
 🚨 Test : Test_Ctx_BodyParser_WithSetBodyParserDecoder
 
-* 🔥 Use decoder builder function with default setting on init decoderPool"
+* 🔥 Use decoder builder function with default setting on init decoderPool",1633069926
 69596c03b908d9419a93a06f2bc4c9fdb6d2b75f,False,1,1,13,13,13.0,0,33,33,1.0,1.0,1.0,4518,654,64,0,"Add io.Reader support
 
-Co-Authored-By: Roman Kredentser <shareed2k@gmail.com>"
-e72ea32dd2515014d01b4094c47449dc8c42ba93,False,1,1,39,39,39.0,16,39,23,0.4090909090909091,0.9545454545454546,1.0,3030,511,168,4,:bug: bug: fix regex constraints (#2059)
+Co-Authored-By: Roman Kredentser <shareed2k@gmail.com>",1591016025
+e72ea32dd2515014d01b4094c47449dc8c42ba93,False,1,1,39,39,39.0,16,39,23,0.4090909090909091,0.9545454545454546,1.0,3030,511,168,4,:bug: bug: fix regex constraints (#2059),1661841658
 d9257c2c1d400c1fcc251184ccf32e985f1ce104,False,1,1,73,73,73.0,33,311,278,0.5423728813559322,0.8389830508474576,1.0,367,59,12,4,"🚀 [Feature]: add envvar expose middleware (#2054)
 
 * add envvar expose middleware
@@ -3515,9 +3515,9 @@ d9257c2c1d400c1fcc251184ccf32e985f1ce104,False,1,1,73,73,73.0,33,311,278,0.54237
 
 * remove path variable from config, update readme, add new test case
 
-Co-authored-by: RW <rene@gofiber.io>"
-16ac0e5ef11c4827b3d74e915862b09c03f9188b,False,1,4,2539,874,634.75,0,5361,5361,0.5648271276595744,0.78125,0.9557845744680851,11341,1977,370,43,Add benchmark charts
-71e4485c221a7479be0ccff515f4140a233b3c11,False,1,1,4,4,4.0,2,2,0,,,,2588,551,91,1,update code to return prefix on empty path
+Co-authored-by: RW <rene@gofiber.io>",1661841013
+16ac0e5ef11c4827b3d74e915862b09c03f9188b,False,1,4,2539,874,634.75,0,5361,5361,0.5648271276595744,0.78125,0.9557845744680851,11341,1977,370,43,Add benchmark charts,1589324064
+71e4485c221a7479be0ccff515f4140a233b3c11,False,1,1,4,4,4.0,2,2,0,,,,2588,551,91,1,update code to return prefix on empty path,1609130516
 6272d759ebe1c21755713d529f842665a7993eb9,False,1,3,52,40,17.333333333333332,23,87,64,0.3055555555555556,0.9444444444444444,1.0,1268,228,45,13,"🚀 [Feature]: middleware/csrf custom extractor (#2052)
 
 * feat(middleware/csrf): allow custom Extractor
@@ -3526,13 +3526,13 @@ Co-authored-by: RW <rene@gofiber.io>"
 
 * docs: add comma
 
-* docs: update KeyLookup docs"
-66ee4de7d82803fd63d8c20f246f3b3a8e4e460f,False,1,3,90,40,30.0,68,75,7,0.0,0.0,1.0,1462,262,55,4,🕊 rename token to key
-b8cb100e283aee977cbf4a5558634b877e61fdb6,False,1,1,2,2,2.0,1,53,52,0.09375,1.0,1.0,721,125,28,2,⚡ v2
-1ad5a618cb0da239c41a218d3b06029556e7e571,False,1,1,6,6,6.0,12,20,8,0.0,1.0,1.0,408,86,15,0,make default handler to private. fix testcase for invalid token and empty token.
-b46185e1b028f77edbf88876fd9c4e6e5f4e2833,False,1,2,15,13,7.5,26,33,7,1.0,0.0,1.0,6129,1118,210,3,👷 Fix hardcode tls to startupMessage in app.Listener
-0ec0f50cfd1644560ca6fcf1e5d9bd57aefd328f,False,1,3,29,21,9.666666666666666,18,27,9,0.0,0.0,0.0,6648,1208,229,6,🔥 Add network option
-00dbdd5fb31bc274acdcf55b3f410de1bd7f4339,False,1,2,11,7,5.5,16,23,7,,,,6103,1114,209,1,👷 Add network type constant
+* docs: update KeyLookup docs",1661705867
+66ee4de7d82803fd63d8c20f246f3b3a8e4e460f,False,1,3,90,40,30.0,68,75,7,0.0,0.0,1.0,1462,262,55,4,🕊 rename token to key,1605115193
+b8cb100e283aee977cbf4a5558634b877e61fdb6,False,1,1,2,2,2.0,1,53,52,0.09375,1.0,1.0,721,125,28,2,⚡ v2,1600055237
+1ad5a618cb0da239c41a218d3b06029556e7e571,False,1,1,6,6,6.0,12,20,8,0.0,1.0,1.0,408,86,15,0,make default handler to private. fix testcase for invalid token and empty token.,1611373167
+b46185e1b028f77edbf88876fd9c4e6e5f4e2833,False,1,2,15,13,7.5,26,33,7,1.0,0.0,1.0,6129,1118,210,3,👷 Fix hardcode tls to startupMessage in app.Listener,1614069617
+0ec0f50cfd1644560ca6fcf1e5d9bd57aefd328f,False,1,3,29,21,9.666666666666666,18,27,9,0.0,0.0,0.0,6648,1208,229,6,🔥 Add network option,1612677313
+00dbdd5fb31bc274acdcf55b3f410de1bd7f4339,False,1,2,11,7,5.5,16,23,7,,,,6103,1114,209,1,👷 Add network type constant,1612755317
 744e4da3ef6f934cd0acc87a1486d6f5daecb1b8,False,1,2,83,46,41.5,21,129,108,0.041666666666666664,0.7916666666666666,1.0,489,332,19,3,"add some parameters to config for supporting #1936 (#1956)
 
 * add some parameters to config for supporting #1936
@@ -3543,8 +3543,8 @@ b46185e1b028f77edbf88876fd9c4e6e5f4e2833,False,1,2,15,13,7.5,26,33,7,1.0,0.0,1.0
 
 * lint
 
-Co-authored-by: Muhammed Efe Çetin <efectn@protonmail.com>"
-29be6691c5d24b77e2a099e196e95319ace177cd,False,1,3,584,539,194.66666666666666,600,313,-287,0.0,0.0,1.0,831,401,24,4,:bar_chart: add page title to monitor mw (#1893)
+Co-authored-by: Muhammed Efe Çetin <efectn@protonmail.com>",1657020872
+29be6691c5d24b77e2a099e196e95319ace177cd,False,1,3,584,539,194.66666666666666,600,313,-287,0.0,0.0,1.0,831,401,24,4,:bar_chart: add page title to monitor mw (#1893),1651757268
 3bb4b7ed41ec1f163e1ee460268b068b733e5cdb,False,1,2,18,16,9.0,8,45,37,1.0,1.0,1.0,9518,1399,402,1,"Fix GetLocationFromRoute bug for optional params (#1922)
 
 * Add Global Layout for view render
@@ -3610,7 +3610,7 @@ The optional and greedy params were not fetched correctly
 The optional and greedy params were not fetched correctly
 
 Co-authored-by: RW <rene@gofiber.io>
-Co-authored-by: hi019 <65871571+hi019@users.noreply.github.com>"
+Co-authored-by: hi019 <65871571+hi019@users.noreply.github.com>",1653998293
 505e4d77a7cc6f1cb7f2d68c029c7dd989f89b27,False,1,3,98,50,32.666666666666664,2,228,226,0.6616915422885572,0.6616915422885572,1.0,12572,1898,472,3,"[FEATURE REQUEST] - Add RedirectToRoute and RedirectBack (#1750)
 
 * Add Global Layout for view render
@@ -3651,7 +3651,7 @@ Co-authored-by: hi019 <65871571+hi019@users.noreply.github.com>"
 
 * remove println and adjust condition to > 0
 
-Co-authored-by: RW <rene@gofiber.io>"
+Co-authored-by: RW <rene@gofiber.io>",1644393765
 af339a851f619be8f787dfd5a82c1e745d112ec1,False,1,1,7,7,7.0,1,20,19,1.0,1.0,1.0,7420,1074,290,1,"Change name to get URL from  (#1831)
 
 * Add Global Layout for view render
@@ -3701,7 +3701,7 @@ af339a851f619be8f787dfd5a82c1e745d112ec1,False,1,1,7,7,7.0,1,20,19,1.0,1.0,1.0,7
 Co-authored-by: hi019 <65871571+hi019@users.noreply.github.com>
 
 Co-authored-by: RW <rene@gofiber.io>
-Co-authored-by: hi019 <65871571+hi019@users.noreply.github.com>"
+Co-authored-by: hi019 <65871571+hi019@users.noreply.github.com>",1647936810
 2edcf95f57104c5c43bb44531b0563c476c7e1e7,False,1,3,60,37,20.0,11,111,100,0.4696969696969697,0.8939393939393939,0.8939393939393939,13329,1970,494,4,"✨ update: tls.ClientHelloInfo in Ctx (#2011)
 
 * Update go.mod
@@ -3729,23 +3729,23 @@ Co-authored-by: hi019 <65871571+hi019@users.noreply.github.com>"
 * remove unnecessary ctx field.
 
 Co-authored-by: RW <rene@gofiber.io>
-Co-authored-by: Muhammed Efe Çetin <efectn@protonmail.com>"
-b5402e0f3830a6eaf7e71fbeb30c4e3929939ac9,False,1,1,46,46,46.0,23,26,3,0.6666666666666666,1.0,1.0,3688,568,132,9,👷 Add SetResponse to set custom response for full control of response
-2772af030e63aade0a1eb04e4b33beacd07d5804,False,1,1,9,9,9.0,5,22,17,1.0,1.0,1.0,3728,574,134,2,👷 handle pre errors for Struct
-bc9651d58bafdabb1a4e49c1b2259325b2541c39,False,1,1,51,51,51.0,47,10,-37,0.45454545454545453,0.3181818181818182,0.0,3680,563,131,8,👷 Remove custom request and export agent request
-7c5fac67cf796dfb6fef25ea13f50d4a6e92ab8c,False,1,1,55,55,55.0,23,32,9,,,,2897,473,107,2,👷 Improve doc
-4ebd887faa649619b0e22a2049b8aa80b10418c9,False,1,1,3,3,3.0,0,6,6,1.0,1.0,1.0,5248,765,46,0,"🩹 when X-Forwarded-For is empty, ctx.Ips() should not return any(even empty) ip"
-f95ca9a9ff2c653d8836db0c4bc0cd1c41353e98,False,1,1,23,23,23.0,8,15,7,,,,5195,766,70,0,🚀 improve ctx.Ips performance
-4662dd8219683ecfc1de5f559334522408f3a282,False,1,1,106,106,106.0,212,280,68,0.2696629213483146,0.0,0.0,495,88,18,5,🩹 fix proxy middleware
-e3d258655f60210d5d1fb77299e9239e588e988f,False,1,1,16,16,16.0,0,50,50,0.4117647058823529,1.0,1.0,555,95,24,2,Fix: incorrect scheme on proxy.Do (#1762) (#1765)
-edd89de2d687e24ed23105427bb450a1c9580698,False,1,10,179,50,17.9,311,2,-309,0.46846846846846846,0.4009009009009009,0.0,13147,2259,474,14,v3: remove deprecations
+Co-authored-by: Muhammed Efe Çetin <efectn@protonmail.com>",1660889962
+b5402e0f3830a6eaf7e71fbeb30c4e3929939ac9,False,1,1,46,46,46.0,23,26,3,0.6666666666666666,1.0,1.0,3688,568,132,9,👷 Add SetResponse to set custom response for full control of response,1613956404
+2772af030e63aade0a1eb04e4b33beacd07d5804,False,1,1,9,9,9.0,5,22,17,1.0,1.0,1.0,3728,574,134,2,👷 handle pre errors for Struct,1613959598
+bc9651d58bafdabb1a4e49c1b2259325b2541c39,False,1,1,51,51,51.0,47,10,-37,0.45454545454545453,0.3181818181818182,0.0,3680,563,131,8,👷 Remove custom request and export agent request,1613954334
+7c5fac67cf796dfb6fef25ea13f50d4a6e92ab8c,False,1,1,55,55,55.0,23,32,9,,,,2897,473,107,2,👷 Improve doc,1613802708
+4ebd887faa649619b0e22a2049b8aa80b10418c9,False,1,1,3,3,3.0,0,6,6,1.0,1.0,1.0,5248,765,46,0,"🩹 when X-Forwarded-For is empty, ctx.Ips() should not return any(even empty) ip",1595598788
+f95ca9a9ff2c653d8836db0c4bc0cd1c41353e98,False,1,1,23,23,23.0,8,15,7,,,,5195,766,70,0,🚀 improve ctx.Ips performance,1594799950
+4662dd8219683ecfc1de5f559334522408f3a282,False,1,1,106,106,106.0,212,280,68,0.2696629213483146,0.0,0.0,495,88,18,5,🩹 fix proxy middleware,1601223845
+e3d258655f60210d5d1fb77299e9239e588e988f,False,1,1,16,16,16.0,0,50,50,0.4117647058823529,1.0,1.0,555,95,24,2,Fix: incorrect scheme on proxy.Do (#1762) (#1765),1644691384
+edd89de2d687e24ed23105427bb450a1c9580698,False,1,10,179,50,17.9,311,2,-309,0.46846846846846846,0.4009009009009009,0.0,13147,2259,474,14,v3: remove deprecations,1654008631
 8853190031b86bb7ea7148954eaf55818d3bb4d6,False,1,1,8,8,8.0,0,71,71,1.0,1.0,1.0,6965,1003,265,1,"🔥 Feature: Add ability to restart route handling (#1739)
 
 * 🔥 Feature: Add ability to restart route handling
 
 * Change test names
 
-Co-authored-by: RW <rene@gofiber.io>"
+Co-authored-by: RW <rene@gofiber.io>",1643897386
 c0c14671ba844d44c2f02473a87b1e7989e32311,False,1,11,564,136,51.27272727272727,3,676,673,0.5081967213114754,0.8079625292740047,1.0,3735,667,112,41,"Add one minute load avg for monitor. (#1530)
 
 Fix CI/CD errors.
@@ -3754,7 +3754,7 @@ Fix Windows.
 
 Fix Windows.
 
-Fix golint error."
+Fix golint error.",1632292184
 8ab5c657c68360fb8c69e35fc9c85277c1531b26,False,1,1,13,13,13.0,3,16,13,0.7142857142857143,0.7142857142857143,1.0,3717,581,120,1,"🔥 FEATURE: Allow adding App Name to customizing the startup message (#1418)
 
 * Add Global Layout for view render
@@ -3771,9 +3771,9 @@ Fix golint error."
 
 * Add test for AppName
 
-Co-authored-by: RW <rene@gofiber.io>"
-27cd8ad9c5b48a5ef0eb13a3ac6cb9911c89b422,False,1,1,4,4,4.0,19,41,22,1.0,1.0,1.0,2579,401,88,1,👷 improve app and prefork test cases
-65a57d194a09ad48d3dae9b95f0ff9b0cfb319de,False,1,1,10,10,10.0,5,5,0,,,,861,142,27,1,fix: set cookie order
+Co-authored-by: RW <rene@gofiber.io>",1626417851
+27cd8ad9c5b48a5ef0eb13a3ac6cb9911c89b422,False,1,1,4,4,4.0,19,41,22,1.0,1.0,1.0,2579,401,88,1,👷 improve app and prefork test cases,1600131744
+65a57d194a09ad48d3dae9b95f0ff9b0cfb319de,False,1,1,10,10,10.0,5,5,0,,,,861,142,27,1,fix: set cookie order,1606890856
 c450072f4a490355dffc31f5cc36036a2383b1c7,False,1,5,399,214,79.8,32,422,390,0.5097276264591439,0.5447470817120622,0.6264591439688716,13945,2093,511,22,":bug: fix: mounted app views (#1749)
 
 * Fix mounted app views.
@@ -3786,7 +3786,7 @@ Co-authored-by: RW <rene@gofiber.io>
 
 * Add test case for group-with-mount, remove unnecessary lines.
 
-Co-authored-by: RW <rene@gofiber.io>"
+Co-authored-by: RW <rene@gofiber.io>",1644155925
 587f3ae9df4bb410ef7985469fdfdb771afcbfd8,False,1,3,106,102,35.333333333333336,28,155,127,0.2755102040816326,0.9897959183673469,1.0,7817,1209,285,7,"Support for sub fiber's error handlers (#1560)
 
 - Mounted fiber and its sub apps error handlers are now saved a new
@@ -3795,27 +3795,27 @@ Co-authored-by: RW <rene@gofiber.io>"
   error handler to user on any given context
 - Error handler match logic based on request path <=> prefix accuracy
 - Typo fixes
-- Tests"
-b517de85ec80e7873d9a1c3e61a463fbf084a5e7,False,1,1,11,11,11.0,7,14,7,0.0,1.0,1.0,559,80,18,2,🐛 update expiration for expired entry (#1228)
+- Tests",1633435400
+b517de85ec80e7873d9a1c3e61a463fbf084a5e7,False,1,1,11,11,11.0,7,14,7,0.0,1.0,1.0,559,80,18,2,🐛 update expiration for expired entry (#1228),1615964924
 f9d5f787af9f35c9aa31063a49e63ffe6b973947,False,1,2,20,12,10.0,4,63,59,0.8333333333333334,0.8333333333333334,1.0,910,149,27,2,"Feature: [Cache] add ExpirationGenerator for generate custom Expiration (#1618)
 
 * Feature: [Cache] add ExpirationGenerator for generate custom Expiration
 
 * fix: add document and code snippet for README
 
-Co-authored-by: dj <github@djunny.com>"
-c34ca83c064dac867d109cad5372d0ef381aff32,False,1,3,58,44,19.333333333333332,34,97,63,1.0,1.0,1.0,3810,587,136,5,👷 Add JSONEncoder and JSONDecoder
-59b12fbcb205c5bddeefef4dc44a13d2c23886a6,False,1,1,36,36,36.0,3,57,54,0.0,0.8205128205128205,1.0,414,78,15,2,fix: lookup cookie in response header (#1191)
+Co-authored-by: dj <github@djunny.com>",1636626638
+c34ca83c064dac867d109cad5372d0ef381aff32,False,1,3,58,44,19.333333333333332,34,97,63,1.0,1.0,1.0,3810,587,136,5,👷 Add JSONEncoder and JSONDecoder,1613810713
+59b12fbcb205c5bddeefef4dc44a13d2c23886a6,False,1,1,36,36,36.0,3,57,54,0.0,0.8205128205128205,1.0,414,78,15,2,fix: lookup cookie in response header (#1191),1614615936
 712b585b9d3b5c86a43242ad291333c924b396ac,False,1,8,1027,505,128.375,1008,1050,42,0.5517241379310345,0.0,0.5517241379310345,3640,647,136,42,"🪓 Code separation for utils (🧹clean code)
 
 Co-authored-by: Fenny <fenny@gofiber.io>
-Co-authored-by: Kiyon <kiyon@gofiber.io>"
+Co-authored-by: Kiyon <kiyon@gofiber.io>",1600071802
 a828c5d0e88cfd7d1600b07066a11045587fdb47,False,1,1,4,4,4.0,2,2,0,,,,1481,238,79,1,"🪓 Code separation for utils (🧹clean code)
 
 Co-authored-by: Fenny <fenny@gofiber.io>
-Co-authored-by: Kiyon <kiyon@gofiber.io>"
-d89207831d079dab0fc798a3eb685c5671b05b91,False,1,2,30,28,15.0,0,66,66,0.6382978723404256,1.0,1.0,7011,1093,67,1,:bug: Fix: ctx.BodyParser was not able to parse vendor specific content type (#1506)
-a21897d0de4df44f487e400f00199eb37653988b,False,1,1,24,24,24.0,9,15,6,1.0,1.0,1.0,2066,473,56,7,🔨 Define return Addr in Test
+Co-authored-by: Kiyon <kiyon@gofiber.io>",1600072235
+d89207831d079dab0fc798a3eb685c5671b05b91,False,1,2,30,28,15.0,0,66,66,0.6382978723404256,1.0,1.0,7011,1093,67,1,:bug: Fix: ctx.BodyParser was not able to parse vendor specific content type (#1506),1629647594
+a21897d0de4df44f487e400f00199eb37653988b,False,1,1,24,24,24.0,9,15,6,1.0,1.0,1.0,2066,473,56,7,🔨 Define return Addr in Test,1593940141
 5ba78cd24a854a0a6873bdd36807bebe642985f5,False,1,2,58,33,29.0,2,164,162,0.3068181818181818,0.9545454545454546,1.0,9642,1433,175,1,"🔥 Feature: Add TrustedProxies feature (#1397)
 
 * 🔥 Feature: Add TrustedProxies feature
@@ -3828,7 +3828,7 @@ Add TrustedProxies feature to prevent HTTP header spoofing.
 
 * Update app.go
 
-Co-authored-by: hi019 <65871571+hi019@users.noreply.github.com>"
+Co-authored-by: hi019 <65871571+hi019@users.noreply.github.com>",1625033025
 9eaa8b0c735601923116e1cd8dfb5ffaaf66aaeb,False,1,79,39575,5058,500.9493670886076,5768,39076,33308,0.07037305739050746,0.11061896215968536,0.12608347015922716,229562,34373,7872,912,"Change default json lib. (#1563)
 
 * Change default json lib.
@@ -3839,17 +3839,17 @@ Co-authored-by: hi019 <65871571+hi019@users.noreply.github.com>"
 
 * Ignore linter for UnmarshalFieldError.
 
-* update"
-26c29e248ff03396e9c6972ebb1bef6f573f0b59,False,1,1,3,3,3.0,0,18,18,1.0,1.0,1.0,6157,882,56,0,Restore original URL after sending file (#1553)
+* update",1633933686
+26c29e248ff03396e9c6972ebb1bef6f573f0b59,False,1,1,3,3,3.0,0,18,18,1.0,1.0,1.0,6157,882,56,0,Restore original URL after sending file (#1553),1633069847
 391ae594d847f14556713fb617f697b4c746c578,False,1,1,2,2,2.0,1,10,9,1.0,1.0,1.0,349,57,19,1,"fix: `utils.Trim` should trim all string content (#1775)
 
 * fix: `utils.Trim` should trim all string content
 
 * add empty string input
 
-* better fix"
-34ac8311439b958075a419b438f422e5303220de,False,1,3,79,54,26.333333333333332,40,61,21,1.0,1.0,1.0,9212,1383,214,1,Add json formatting
-80e222093df013e7a16d5cfaed0241cdbc358a19,False,1,1,1,1,1.0,10,28,18,0.0,0.9333333333333333,1.0,2783,415,93,1,🍤 improve app test coverage
+* better fix",1644822075
+34ac8311439b958075a419b438f422e5303220de,False,1,3,79,54,26.333333333333332,40,61,21,1.0,1.0,1.0,9212,1383,214,1,Add json formatting,1593714398
+80e222093df013e7a16d5cfaed0241cdbc358a19,False,1,1,1,1,1.0,10,28,18,0.0,0.9333333333333333,1.0,2783,415,93,1,🍤 improve app test coverage,1594711421
 7cf1886df5f6041449ca082701c05bb5eb13100e,False,1,1,40,40,40.0,33,20,-13,1.0,0.0,0.0,4688,731,158,6,"Fix NewErrors() and Improve NewError() (#1728)
 
 * fix new errors
@@ -3868,29 +3868,29 @@ Co-authored-by: hi019 <65871571+hi019@users.noreply.github.com>"
 
 * added comment line
 
-* refactor: Sprintf changed with Sprint"
-5fe95c2579b8beeeb262654ac1abe278cbf2a2dc,False,1,1,23,23,23.0,0,32,32,0.2692307692307692,1.0,1.0,4668,732,157,1,:sparkles:feat: add function NewErrors to create multiple new errors (#1701)
-9c2a36be178901f49bfd4749d98a89f1a661e4c5,False,1,1,166,166,166.0,100,66,-34,1.0,1.0,0.0,2399,370,87,7,Add Prefork support for Windows
-185222400139de9c4ef0a0901294e346d916333a,False,1,1,14,14,14.0,0,43,43,1.0,1.0,1.0,27,8,0,0,Expose internal errors. (#1387)
-f79fb58278f4de6cd6b4e75ecf199ee89ab04f77,False,1,2,44,26,22.0,7,37,30,0.0,0.0,1.0,7441,1099,158,2,Add layout support in Render
-15987a26777685816cc28bfa7652c3d6ceaaffd9,False,1,4,14,4,3.5,23,23,0,,,,4822,771,162,4,♻️ Refactor: remove use of deprecated functions (#1474)
-83937bec52b27bc90b6bf49d246c354a13ce8ac8,False,1,2,85,83,42.5,38,63,25,1.0,1.0,0.3333333333333333,6299,965,235,2,Move template engines to middleware
-e414c4a83e75f3f79d2fffec2f24203bed1a3ea1,False,1,3,34,18,11.333333333333334,2,32,30,1.0,1.0,1.0,5438,803,191,2,🗻 able to mount sub-apps
+* refactor: Sprintf changed with Sprint",1643283670
+5fe95c2579b8beeeb262654ac1abe278cbf2a2dc,False,1,1,23,23,23.0,0,32,32,0.2692307692307692,1.0,1.0,4668,732,157,1,:sparkles:feat: add function NewErrors to create multiple new errors (#1701),1641820954
+9c2a36be178901f49bfd4749d98a89f1a661e4c5,False,1,1,166,166,166.0,100,66,-34,1.0,1.0,0.0,2399,370,87,7,Add Prefork support for Windows,1592831570
+185222400139de9c4ef0a0901294e346d916333a,False,1,1,14,14,14.0,0,43,43,1.0,1.0,1.0,27,8,0,0,Expose internal errors. (#1387),1623833902
+f79fb58278f4de6cd6b4e75ecf199ee89ab04f77,False,1,2,44,26,22.0,7,37,30,0.0,0.0,1.0,7441,1099,158,2,Add layout support in Render,1591957797
+15987a26777685816cc28bfa7652c3d6ceaaffd9,False,1,4,14,4,3.5,23,23,0,,,,4822,771,162,4,♻️ Refactor: remove use of deprecated functions (#1474),1628229396
+83937bec52b27bc90b6bf49d246c354a13ce8ac8,False,1,2,85,83,42.5,38,63,25,1.0,1.0,0.3333333333333333,6299,965,235,2,Move template engines to middleware,1584905518
+e414c4a83e75f3f79d2fffec2f24203bed1a3ea1,False,1,3,34,18,11.333333333333334,2,32,30,1.0,1.0,1.0,5438,803,191,2,🗻 able to mount sub-apps,1601112265
 cb5f2f7eaba99e3277e610053af9a85cd4896c2a,False,1,2,11,6,5.5,1,32,31,1.0,1.0,0.7647058823529411,9350,1390,168,0,"🔥 Add Global ViewLayout (#1384)
 
 * Add Global Layout for view render
 
 * Add test case for Views Layout
 
-* Update ctx_test.go"
-f04ddd41ff85d4d455706afb65cf57c25e57597d,False,1,10,692,148,69.2,406,362,-44,1.0,0.3058823529411765,1.0,148201,21128,5199,24,Fix goccy/go-json for go1.18-beta1. (#1673)
+* Update ctx_test.go",1623661849
+f04ddd41ff85d4d455706afb65cf57c25e57597d,False,1,10,692,148,69.2,406,362,-44,1.0,0.3058823529411765,1.0,148201,21128,5199,24,Fix goccy/go-json for go1.18-beta1. (#1673),1640740349
 10aa7f7f3b7ccbf8136cbcc4ce4eb447e848c24e,False,1,18,6689,1780,371.6111111111111,4084,3310,-774,1.0,1.0,0.7411300919842313,165349,23967,5698,274,"Update goccy/go-json to 0.8.1 (#1644)
 
 * Update goccy/go-json to 0.8.1
 
 * Fix linter.
 
-* Update error.go"
+* Update error.go",1638775497
 bff8843abd95b2fad8eb0fc421f0612da582db52,False,1,3,220,88,73.33333333333333,0,472,472,0.36981132075471695,0.9169811320754717,1.0,855,144,32,8,"🔥 Feature: Add encrypt cookies middleware (#1343)
 
 * 🔥 Feature: Add encrypt cookies middleware
@@ -3913,14 +3913,14 @@ bff8843abd95b2fad8eb0fc421f0612da582db52,False,1,3,220,88,73.33333333333333,0,47
 
 * Update README.md
 
-Co-authored-by: hi019 <65871571+hi019@users.noreply.github.com>"
-19e6a4429d1f9b6ae5f818c4b66a7357c78e58e4,False,1,2,21,14,10.5,4,68,64,0.9318181818181818,0.9318181818181818,1.0,1204,214,45,3,add custom error func for csrf middleware
-839c8f14473185dcd88b10b083bc32e4f2a09a3f,False,1,1,2,2,2.0,1,17,16,1.0,1.0,1.0,694,82,21,1,👷 fix group.Mount
-2b72fd21621aab982f1e70dc905e31c246478610,False,1,1,2,2,2.0,1,13,12,1.0,1.0,1.0,2113,311,82,2,🩹 ignore trailing slash with static directories
-53d79ca070bdf2173cc8009e36f0bd9fd1b08915,False,1,1,8,8,8.0,3,5,2,1.0,0.0,1.0,1223,204,51,2,fix static routing for index.html
+Co-authored-by: hi019 <65871571+hi019@users.noreply.github.com>",1629700311
+19e6a4429d1f9b6ae5f818c4b66a7357c78e58e4,False,1,2,21,14,10.5,4,68,64,0.9318181818181818,0.9318181818181818,1.0,1204,214,45,3,add custom error func for csrf middleware,1611341147
+839c8f14473185dcd88b10b083bc32e4f2a09a3f,False,1,1,2,2,2.0,1,17,16,1.0,1.0,1.0,694,82,21,1,👷 fix group.Mount,1601742971
+2b72fd21621aab982f1e70dc905e31c246478610,False,1,1,2,2,2.0,1,13,12,1.0,1.0,1.0,2113,311,82,2,🩹 ignore trailing slash with static directories,1600631325
+53d79ca070bdf2173cc8009e36f0bd9fd1b08915,False,1,1,8,8,8.0,3,5,2,1.0,0.0,1.0,1223,204,51,2,fix static routing for index.html,1591212949
 c78a5013c0031086f2da493e756b3dccd509a62a,False,1,1,116,116,116.0,32,84,52,0.0,0.0,0.0,963,169,42,4,"update sendfile
 
-Co-Authored-By: Renan Bastos <renanbastos.tec@gmail.com>"
+Co-Authored-By: Renan Bastos <renanbastos.tec@gmail.com>",1603859827
 21c9fb49367b3f96fe2c1aa0f860733507191a58,False,1,1,28,28,28.0,13,51,38,0.0,0.625,1.0,1014,177,45,2,"🔥 Add `PathPrefix` parameter to `filesystem` middleware (#1326)
 
 See #1308
@@ -3931,8 +3931,8 @@ that is prepended to any filepath being read from
 
 Intended to be used with Go 1.16's `embed.FS` type.
 
-Signed-off-by: Tom <tom@tdpain.net>"
-1e0d4d3b1c67c6a0a4df357f8653583be5f63b42,False,1,1,4,4,4.0,2,18,16,0.0,1.0,1.0,6062,874,56,0,🐛 fix parse gzipped body (#1458)
+Signed-off-by: Tom <tom@tdpain.net>",1620802681
+1e0d4d3b1c67c6a0a4df357f8653583be5f63b42,False,1,1,4,4,4.0,2,18,16,0.0,1.0,1.0,6062,874,56,0,🐛 fix parse gzipped body (#1458),1627624922
 8616b41517fb565d28f756eaca37fa4b7416a75c,False,1,1,16,16,16.0,0,41,41,1.0,1.0,1.0,5723,818,50,0,"🔥 Adding user context (#1341)
 
 * Adding user context
@@ -3945,11 +3945,11 @@ Signed-off-by: Tom <tom@tdpain.net>"
 
 * Update ctx.go
 
-Co-authored-by: RW <rene@gofiber.io>"
-25c5e4c26484633d1277d320836800c134c1b781,False,1,1,2,2,2.0,1,1,0,,,,3626,580,118,1,"fixed host=="""" to ""0.0.0.0"" from ""127.0.0.1"""
-015de85e307948b305366ca1c657064b6cb7d340,False,1,6,176,52,29.333333333333332,68,160,92,1.0,1.0,1.0,3945,671,137,24,💼 update session
-e25206458d37419e3bcaea5fecc56d6be65b15f7,False,1,3,24,13,8.0,10,80,70,0.6333333333333333,1.0,1.0,1089,194,31,5,🧪 add session test
-27baab0ea084e5d4232292653619ef3f1655202a,False,1,3,41,38,13.666666666666666,37,97,60,1.0,1.0,1.0,1154,204,34,2,🧨 introduce destroy
+Co-authored-by: RW <rene@gofiber.io>",1621831612
+25c5e4c26484633d1277d320836800c134c1b781,False,1,1,2,2,2.0,1,1,0,,,,3626,580,118,1,"fixed host=="""" to ""0.0.0.0"" from ""127.0.0.1""",1615272679
+015de85e307948b305366ca1c657064b6cb7d340,False,1,6,176,52,29.333333333333332,68,160,92,1.0,1.0,1.0,3945,671,137,24,💼 update session,1604688237
+e25206458d37419e3bcaea5fecc56d6be65b15f7,False,1,3,24,13,8.0,10,80,70,0.6333333333333333,1.0,1.0,1089,194,31,5,🧪 add session test,1605204710
+27baab0ea084e5d4232292653619ef3f1655202a,False,1,3,41,38,13.666666666666666,37,97,60,1.0,1.0,1.0,1154,204,34,2,🧨 introduce destroy,1605288614
 2f05108351f0e591feb2b1818084d245b08421c6,False,1,1,10,10,10.0,5,12,7,0.0,0.0,1.0,372,60,16,2,"fix pprof redirect path (#1330)
 
 * 📒:fix redirect path
@@ -3958,12 +3958,12 @@ e25206458d37419e3bcaea5fecc56d6be65b15f7,False,1,3,24,13,8.0,10,80,70,0.63333333
 
 * 📚:use constant instead of number
 
-* 🔥:TrimRight instead of TrimSuffix"
-d2727f1fe8516038eec5f49ca0f82272a894afcb,False,1,1,1,1,1.0,1,88,87,1.0,1.0,1.0,343,55,15,2,👷 improve pprof test cases
-0e7b9dacb14155a3865bf932753ecad7a8aa9d25,False,1,4,85,65,21.25,20,215,195,0.0,0.0,1.0,2953,533,117,5,🧬 Update filesystem readme
-0fe30ac72254f2f5fb40c9ad02637fce9914a95e,False,1,2,14,10,7.0,5,10,5,,,,405,92,15,2,🌀 introduce RegisterType
-52292babba1acc21518b5f0b5c30c345750d813b,False,1,2,7,4,3.5,3,4,1,0.0,1.0,1.0,1129,190,33,1,🩹 fix race condition
-19bee02563c8a9b4193a0ca0bcb58e352faa01ad,False,1,4,19,6,4.75,6,13,7,1.0,1.0,1.0,3538,472,88,4,🩹 draft for #1051
-9e87cb7c17bc834588ffe96d01658c8aa402cde9,False,1,1,2,2,2.0,1,1,0,,,,1649,195,40,2,✏ update msg
-e0122f261c5d3a3f861c041f58e21ed1155f7aa4,False,1,1,3,3,3.0,3,7,4,0.0,1.0,1.0,5486,793,50,0,:bug: queryparser: query args count based condition removed
-2f202af06d21671e5f075e76705e0e72b7eba91b,False,1,1,12,12,12.0,6,6,0,0.0,0.0,1.0,1283,227,57,1,🩹 fix error handling in logger
+* 🔥:TrimRight instead of TrimSuffix",1621421227
+d2727f1fe8516038eec5f49ca0f82272a894afcb,False,1,1,1,1,1.0,1,88,87,1.0,1.0,1.0,343,55,15,2,👷 improve pprof test cases,1600134665
+0e7b9dacb14155a3865bf932753ecad7a8aa9d25,False,1,4,85,65,21.25,20,215,195,0.0,0.0,1.0,2953,533,117,5,🧬 Update filesystem readme,1595477172
+0fe30ac72254f2f5fb40c9ad02637fce9914a95e,False,1,2,14,10,7.0,5,10,5,,,,405,92,15,2,🌀 introduce RegisterType,1607269028
+52292babba1acc21518b5f0b5c30c345750d813b,False,1,2,7,4,3.5,3,4,1,0.0,1.0,1.0,1129,190,33,1,🩹 fix race condition,1606389545
+19bee02563c8a9b4193a0ca0bcb58e352faa01ad,False,1,4,19,6,4.75,6,13,7,1.0,1.0,1.0,3538,472,88,4,🩹 draft for #1051,1606992992
+9e87cb7c17bc834588ffe96d01658c8aa402cde9,False,1,1,2,2,2.0,1,1,0,,,,1649,195,40,2,✏ update msg,1607269172
+e0122f261c5d3a3f861c041f58e21ed1155f7aa4,False,1,1,3,3,3.0,3,7,4,0.0,1.0,1.0,5486,793,50,0,:bug: queryparser: query args count based condition removed,1603691301
+2f202af06d21671e5f075e76705e0e72b7eba91b,False,1,1,12,12,12.0,6,6,0,0.0,0.0,1.0,1283,227,57,1,🩹 fix error handling in logger,1601385232

@@ -1,19 +1,19 @@
-sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message
+sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message,commit_timestamp
 26820219cd7b448b10dc5d7f567b1a8857102f60,False,1,1,22,22,22.0,11,61,50,0.0,1.0,1.0,752,143,19,1,"cli: ensure acl token read -self works (#16445)
 
 Fixes a regression in #16044
 
-The consul acl token read -self cli command should not require an -accessor-id because typically the persona invoking this would not already know the accessor id of their own token."
-dcdf2fc6bade4262a11256dbd0f0f56aae732f8a,False,1,2,50,27,25.0,17,140,123,0.05154639175257732,0.5567010309278351,0.8969072164948454,6403,1071,241,13,Update Vault CA provider namespace configuration (#19095)
+The consul acl token read -self cli command should not require an -accessor-id because typically the persona invoking this would not already know the accessor id of their own token.",1677603509
+dcdf2fc6bade4262a11256dbd0f0f56aae732f8a,False,1,2,50,27,25.0,17,140,123,0.05154639175257732,0.5567010309278351,0.8969072164948454,6403,1071,241,13,Update Vault CA provider namespace configuration (#19095),1696945980
 edda4f8bf9268f3017ae0c385765e8af4a274136,False,1,1,4,4,4.0,2,2,0,,,,665,120,15,0,"[NET-3700] add `omitempty` to api prepared query targets (#18184)
 
 add `omitempty` to api prepared query targets
 
 Manual backport of c2bbe67714ee7c603447e18c25ad391b8de6226e.
 
-Co-authored-by: Nick Irvine <115657443+nfi-hashicorp@users.noreply.github.com>"
-366bd6f89f365c118c271c5aba1eb032adcc5faf,False,1,1,49,49,49.0,20,78,58,0.019230769230769232,0.8653846153846154,1.0,3217,589,122,3,ext-authz Envoy extension: support `localhost` as a valid target URI. (#17821)
-9289e680d6dfc91996135ef35855c5d69861675d,False,1,1,12,12,12.0,3,9,6,0.0,0.0,0.0,4458,735,174,1,OSS merge: Update error handling login when applying extensions (#17740)
+Co-authored-by: Nick Irvine <115657443+nfi-hashicorp@users.noreply.github.com>",1689782229
+366bd6f89f365c118c271c5aba1eb032adcc5faf,False,1,1,49,49,49.0,20,78,58,0.019230769230769232,0.8653846153846154,1.0,3217,589,122,3,ext-authz Envoy extension: support `localhost` as a valid target URI. (#17821),1687380162
+9289e680d6dfc91996135ef35855c5d69861675d,False,1,1,12,12,12.0,3,9,6,0.0,0.0,0.0,4458,735,174,1,OSS merge: Update error handling login when applying extensions (#17740),1686762280
 81d7cc41dcebd30a59e5c92c77728e5a3d9b2f9d,False,1,1,24,24,24.0,9,155,146,0.0,0.9712230215827338,1.0,860,133,43,3,"Use proxy address for default check (#14433)
 
 When a sidecar proxy is registered, a check is automatically added.
@@ -23,12 +23,12 @@ if the proxy is up.
 
 This worked in most cases because the proxy ran on the same IP as the
 underlying service but it's not guaranteed and so the proper default
-address should be the proxy's address."
+address should be the proxy's address.",1662066215
 a76f63a6953a651ceb1b1f7cfdf695f5be54b23d,False,1,3,33,18,11.0,5,33,28,0.0,0.0,1.0,18844,2904,484,1,"config: prevent top-level `verify_incoming` enabling mTLS on gRPC port (#13118)
 
 Fixes #13088
 
-This is a backwards-compatibility bug introduced in 1.12."
+This is a backwards-compatibility bug introduced in 1.12.",1652886957
 597448da4790aeae270e7fda74d355c6fc96756e,False,1,2,53,47,26.5,27,238,211,0.1419753086419753,0.9814814814814815,0.9629629629629629,6988,1228,278,3,"server: ensure that central service config flattening properly resets the state each time (#10239)
 
 The prior solution to call reply.Reset() aged poorly since newer fields
@@ -37,10 +37,10 @@ blocking query loops on the server to blend replies.
 
 This could manifest as a service-defaults protocol change from
 default=>http not reverting back to default after the config entry
-reponsible was deleted."
+reponsible was deleted.",1621005704
 319a0a08cdc57a9d771cf413a12ec1b668663f91,False,1,2,6,4,3.0,3,105,102,0.46808510638297873,1.0,1.0,642,117,16,2,"Fix incorrect severity syslog messages (#12079)
 
-Co-authored-by: Evan Culver <eculver@hashicorp.com>"
+Co-authored-by: Evan Culver <eculver@hashicorp.com>",1649976660
 922619dfc33572c4f6076fae7e7dce0ec5fe450c,False,1,1,42,42,42.0,25,107,82,0.2,0.78,0.92,3915,641,152,5,"Fix leaked Vault LifetimeRenewers (#12607)
 
 * Fix leaked Vault LifetimeRenewers
@@ -65,27 +65,27 @@ backoff time of 1 second or less.
 
 * Swap out bool for atomic.Unit32 in test
 
-* Provide some extra clarification in comment and changelog"
+* Provide some extra clarification in comment and changelog",1648479496
 6e6cd928a22d03d670089fc1c7a2f66af235d318,False,1,1,14,14,14.0,8,44,36,0.4838709677419355,1.0,1.0,6570,832,232,4,"Parse datacenter from request (#12370)
 
 * Parse datacenter from request
-- Parse the value of the datacenter from the create/delete requests for AuthMethods and BindingRules so that they can be created in and deleted from the datacenters specified in the request."
+- Parse the value of the datacenter from the create/delete requests for AuthMethods and BindingRules so that they can be created in and deleted from the datacenters specified in the request.",1645134087
 89bd1f57b5832c8a1061989a0f396adec2d50163,False,1,1,6,6,6.0,19,18,-1,1.0,1.0,0.0,3452,614,146,1,"xds: allow only one outstanding delta request at a time (#12236)
 
 Fixes #11876
 
-This enforces that multiple xDS mutations are not issued on the same ADS connection at once, so that we can 100% control the order that they are applied. The original code made assumptions about the way multiple in-flight mutations were applied on the Envoy side that was incorrect."
+This enforces that multiple xDS mutations are not issued on the same ADS connection at once, so that we can 100% control the order that they are applied. The original code made assumptions about the way multiple in-flight mutations were applied on the Envoy side that was incorrect.",1644338208
 f5d816dacef1ffa015a378645253b072b39c8cd8,False,1,6,87,34,14.5,46,41,-5,,,,18237,3037,529,40,"Remove incorrect usage of url.PathEscape (#12184)
 
 When r.toHTTP is called, http.Request is built with the path
 already escaped. This removes all calls to url.PathEscape that
-would have led to double-escaped URLs."
-5f5720837b2922f486808db47b5f66d23d7c6061,False,1,2,46,42,23.0,23,26,3,1.0,1.0,0.0,10486,1569,425,4,acl: ensure that the agent recovery token is properly partitioned (#11782)
-0c94095dfd7cd633cd7d57e2ff3306681b642819,False,1,2,15,13,7.5,1,17,16,1.0,1.0,1.0,1253,164,41,2,acl: fix bug in 'consul members' filtering with partitions (#11263)
-8eb5915f7d7614b1be29fe3a4a0f63ec9d0ce8b1,False,1,1,29,29,29.0,15,33,18,0.4166666666666667,0.75,0.3333333333333333,10493,1490,205,7,Fixing SOA record to use alt domain when alt domain in use (#10431)
+would have led to double-escaped URLs.",1643130906
+5f5720837b2922f486808db47b5f66d23d7c6061,False,1,2,46,42,23.0,23,26,3,1.0,1.0,0.0,10486,1569,425,4,acl: ensure that the agent recovery token is properly partitioned (#11782),1639005115
+0c94095dfd7cd633cd7d57e2ff3306681b642819,False,1,2,15,13,7.5,1,17,16,1.0,1.0,1.0,1253,164,41,2,acl: fix bug in 'consul members' filtering with partitions (#11263),1634134696
+8eb5915f7d7614b1be29fe3a4a0f63ec9d0ce8b1,False,1,1,29,29,29.0,15,33,18,0.4166666666666667,0.75,0.3333333333333333,10493,1490,205,7,Fixing SOA record to use alt domain when alt domain in use (#10431),1633445247
 ca73abdea1f1af3c7a6fb973228c0649a2d4e6df,False,1,2,11,8,5.5,5,47,42,0.0,1.0,1.0,5849,1016,242,2,"acl: fix intention:*:write checks (#11061)
 
-This is a partial revert of #10793"
+This is a partial revert of #10793",1631808525
 b2d17ac4487983b49b006928601d296d7466d2a2,False,1,2,134,131,67.0,54,260,206,0.14925373134328357,0.7014925373134329,0.7910447761194029,5490,991,219,6,"xds: fix representation of incremental xDS subscriptions (#10987)
 
 Fixes #10563
@@ -99,17 +99,17 @@ same time.
 
 The fix separates these two jobs. When all of the resources for a subscription
 are removed we continue to track the subscription until envoy explicitly
-unsubscribes"
-5fe613dd05b05ed0d9e5d0bc3cf1b96368d00e73,False,1,1,6,6,6.0,2,7,5,0.0,1.0,0.0,2025,378,74,1,xds: ensure the active streams counters are 64 bit aligned on 32 bit systems (#11085)
+unsubscribes",1632236336
+5fe613dd05b05ed0d9e5d0bc3cf1b96368d00e73,False,1,1,6,6,6.0,2,7,5,0.0,1.0,0.0,2025,378,74,1,xds: ensure the active streams counters are 64 bit aligned on 32 bit systems (#11085),1632154031
 5b6d96d27d80dbff40073e9775f2a2c187cc90c4,False,1,9,328,114,36.44444444444444,185,591,406,0.23389830508474577,0.7593220338983051,1.0,17351,2924,550,29,"grpc: ensure that streaming gRPC requests work over mesh gateway based wan federation (#10838)
 
-Fixes #10796"
+Fixes #10796",1629840524
 6dc5096143bd7dcc0c978dd30a410e9766157968,False,1,1,2,2,2.0,1,39,38,0.0,1.0,1.0,1516,335,53,1,"cli: Use admin bind address in self_admin cluster (#10757)
 
 Configure the self_admin cluster to use the admin bind address
 provided when starting Envoy.
 
-Fixes #10747"
+Fixes #10747",1628700952
 1ee8655bfc4292db69086558da4246949f5422cf,False,1,1,4,4,4.0,2,5,3,,,,763,144,22,1,"cli: Fix broken KV import on Windows (#10820)
 
 Consul 1.10 (PR #9792) introduced the ability to specify a prefix when
@@ -124,19 +124,19 @@ This commit replaces filepath.Join() with path.Join() which uses a
 forward slash as the delimiter, providing consistent key join behavior
 across supported operating systems.
 
-Fixes #10583"
+Fixes #10583",1628631725
 d451cf261c3e68c63dd3136802bc806a785eda9f,False,1,1,2,2,2.0,1,39,38,0.0,1.0,1.0,1998,427,58,1,"cli: Use admin bind address in self_admin cluster (#10757)
 
 Configure the self_admin cluster to use the admin bind address
 provided when starting Envoy.
 
-Fixes #10747"
+Fixes #10747",1628615880
 e41d6ee60f072c9b07c858a65ae1c02a3d7ac5ab,False,1,1,3,3,3.0,1,54,53,0.0,0.9523809523809523,0.9523809523809523,2111,467,61,1,"cli: Use admin bind address in self_admin cluster (#10757)
 
 Configure the self_admin cluster to use the admin bind address
 provided when starting Envoy.
 
-Fixes #10747"
+Fixes #10747",1628554232
 b49503682319b25734e198c77954b6ff5b8d41e1,False,1,1,24,24,24.0,8,19,11,0.75,0.75,1.0,6640,1088,271,3,"defer setting the state before returning to avoid  stuck in `INITIALIZING` state (#10630)
 
 * defer setting the state before returning to avoid being stuck in `INITIALIZING` state
@@ -149,7 +149,7 @@ b49503682319b25734e198c77954b6ff5b8d41e1,False,1,1,24,24,24.0,8,19,11,0.75,0.75,
 
 * update comment to reflect state transition
 
-Co-authored-by: Daniel Nephin <dnephin@hashicorp.com>"
+Co-authored-by: Daniel Nephin <dnephin@hashicorp.com>",1628189479
 c6859b3fb07031e3ea1fcd0230bacb070315d93d,False,1,1,6,6,6.0,5,12,7,1.0,1.0,0.0,2448,354,83,1,"config raft apply silent error (#10657)
 
 * return an error when the index is not valid
@@ -162,7 +162,7 @@ c6859b3fb07031e3ea1fcd0230bacb070315d93d,False,1,1,6,6,6.0,5,12,7,1.0,1.0,0.0,24
 
 * fix comment
 
-* add changelog"
+* add changelog",1626964347
 a64c9a3e62e4269db304961efda992780b9833a0,False,1,1,23,23,23.0,20,121,101,0.0,1.0,0.8734177215189873,10411,1473,198,1,"return an empty record when asked for an addr dns with type other then A, AAAA and ANY (#10401)
 
 * return an invalid record when asked for an addr dns with type other then A and AAAA
@@ -215,12 +215,12 @@ Co-authored-by: Daniel Nephin <dnephin@hashicorp.com>
 
 * fix compilation error
 
-Co-authored-by: Daniel Nephin <dnephin@hashicorp.com>"
+Co-authored-by: Daniel Nephin <dnephin@hashicorp.com>",1624581884
 ca0a58ff71eb7e4bbdd82f45663fd9680a796349,False,1,2,59,46,29.5,21,94,73,0.5,0.8913043478260869,1.0,1880,312,57,5,"connect/proxy: fixes logic bug preventing builtin/native proxy from starting upstream listeners (#10486)
 
 Fixes #10480
 
-Also fixed a data race in the `connect/proxy` package that was unearthed by the tests changed for this bugfix."
+Also fixed a data race in the `connect/proxy` package that was unearthed by the tests changed for this bugfix.",1624564954
 848ad8535bad41e992ac349160f4bdb39433bb87,False,1,2,194,149,97.0,33,560,527,0.02997275204359673,0.4141689373297003,0.8065395095367848,11384,1982,388,13,"xds: ensure that dependent xDS resources are reconfigured during primary type warming (#10381)
 
 Updates to a cluster will clear the associated endpoints, and updates to
@@ -228,12 +228,12 @@ a listener will clear the associated routes. Update the incremental xDS
 logic to account for this implicit cleanup so that we can finish warming
 the clusters and listeners.
 
-Fixes #10379"
+Fixes #10379",1623709227
 e494313e7b7c46f474514893f08836f0b9d70508,False,1,3,25,16,8.333333333333334,22,75,53,0.825,1.0,0.9,20636,3074,679,4,"api: ensure v1/health/ingress/:service endpoint works properly when streaming is enabled (#9967)
 
 The streaming cache type for service health has no way to handle v1/health/ingress/:service queries as there is no equivalent topic that would return the appropriate data.
 
-Ensure that attempts to use this endpoint will use the old cache-type for now so that they return appropriate data when streaming is enabled."
+Ensure that attempts to use this endpoint will use the old cache-type for now so that they return appropriate data when streaming is enabled.",1617646980
 39e4ae25acc570eee879fa05faca424b8d8cafdb,False,1,1,18,18,18.0,2,254,252,0.27472527472527475,0.489010989010989,1.0,5352,890,224,1,"connect: connect CA Roots in the primary datacenter should use a SigningKeyID derived from their local intermediate (#9428)
 
 This fixes an issue where leaf certificates issued in primary
@@ -246,12 +246,12 @@ intermediateCA and always failing. This doesn't apply to the Consul
 built-in CA provider because there is no intermediate in use in the
 primary DC.
 
-This is reminiscent of #6513"
+This is reminiscent of #6513",1612811931
 fa4b0854fb01437251bf04a042d0cca47b036042,False,1,1,20,20,20.0,10,41,31,0.0,1.0,1.0,3117,467,93,10,"state: ensure we unblock intentions queries upon the upgrade to config entries (#9062)
 
 1. do a state store query to list intentions as the agent would do over in `agent/proxycfg` backing `agent/xds`
 2. upgrade the database and do a fresh `service-intentions` config entry write
-3. the blocking query inside of the agent cache in (1) doesn't notice (2)"
+3. the blocking query inside of the agent cache in (1) doesn't notice (2)",1604003311
 d0f74cd1e8e5a2a0708b4bd186edf69f41195a94,False,1,2,22,15,11.0,50,71,21,0.8,1.0,0.26666666666666666,7134,1202,266,3,"connect: fix bug in preventing some namespaced config entry modifications (#8601)
 
 Whenever an upsert/deletion of a config entry happens, within the open
@@ -264,7 +264,7 @@ If a single discovery chain evaluation references two config entries
 with the same kind and name in different namespaces then sometimes the
 upsert/deletion would be falsely rejected. It does not appear as though
 this bug would've let invalid writes through to the state store so the
-correction does not require a cleanup phase."
+correction does not require a cleanup phase.",1599061639
 397019d970273b2812be17bec99db231108b2340,False,1,1,1,1,1.0,22,0,-22,,,,57,136,0,0,"xds: revert setting set_node_on_first_message_only to true when generating envoy bootstrap config (#8440)
 
 When consul is restarted and an envoy that had already sent
@@ -273,7 +273,7 @@ new process it doesn't respect the setting and never populates
 DiscoveryRequest.Node for the life of the new consul process due to this
 bug: https://github.com/envoyproxy/envoy/issues/9682
 
-Fixes #8430"
+Fixes #8430",1596657624
 7c4cc71131a2faa2870306119f411a8e67a025b3,False,1,1,43,43,43.0,5,63,58,0.3488372093023256,0.0,0.8837209302325582,1510,335,53,2,"Fix envoy bootstrap logic to not append multiple self_admin clusters (#8371)
 
 Previously, the envoy bootstrap config would blindly copy the self_admin
@@ -281,15 +281,15 @@ cluster into the list of static clusters when configuring either
 ReadyBindAddr, PrometheusBindAddr, or StatsBindAddr.
 
 Since ingress gateways always configure the ReadyBindAddr property,
-users ran into this case much more often than previously."
+users ran into this case much more often than previously.",1595527928
 dda3e6879146adac2ab992f60510e023aa6b7a2c,False,1,1,11,11,11.0,5,74,69,0.08333333333333333,0.625,1.0,534,107,17,1,"fix monitor to only start the monitor in json format when requested (#10358)
 
 * fix monitor to only start the monitor in json format when requested
 
 * add release notes
 
-* add test to validate json format when requested"
-7e1d7803b8b33b22796a7aac3cdf2bcbc3acd69f,False,1,1,4,4,4.0,1,119,118,0.2,1.0,1.0,4136,795,169,1,agent: ensure we hash the non-deprecated upstream fields on ServiceConfigRequest (#10240)
+* add test to validate json format when requested",1623082128
+7e1d7803b8b33b22796a7aac3cdf2bcbc3acd69f,False,1,1,4,4,4.0,1,119,118,0.2,1.0,1.0,4136,795,169,1,agent: ensure we hash the non-deprecated upstream fields on ServiceConfigRequest (#10240),1621005348
 e50019b0922cfc6ba9a1f277df9efaf19d080c41,False,1,1,57,57,57.0,19,181,162,0.0,0.890625,0.890625,18502,2395,601,2,"Update topology mapping Refs on all proxy instance deletions (#9589)
 
 * Insert new upstream/downstream mapping to persist new Refs
@@ -306,26 +306,26 @@ e50019b0922cfc6ba9a1f277df9efaf19d080c41,False,1,1,57,57,57.0,19,181,162,0.0,0.8
 
 * Tweak changelog entry
 
-Co-authored-by: Paul Banks <banks@banksco.de>"
+Co-authored-by: Paul Banks <banks@banksco.de>",1611155846
 85e5da53d52e58212c68716c4672b4a1f21a120c,False,1,3,37,29,12.333333333333334,12,76,64,0.35135135135135137,1.0,1.0,5307,867,211,3,"Special case the error returned when we have a Raft leader but are not tracking it in the ServerLookup (#9487)
 
 This can happen when one other node in the cluster such as a client is unable to communicate with the leader server and sees it as failed. When that happens its failing status eventually gets propagated to the other servers in the cluster and eventually this can result in RPCs returning “No cluster leader” error.
 
-That error is misleading and unhelpful for determing the root cause of the issue as its not raft stability but rather and client -> server networking issue. Therefore this commit will add a new error that will be returned in that case to differentiate between the two cases."
+That error is misleading and unhelpful for determing the root cause of the issue as its not raft stability but rather and client -> server networking issue. Therefore this commit will add a new error that will be returned in that case to differentiate between the two cases.",1609787123
 d921690bfe9af37d51b1254c317f4c270d89f2d9,False,1,4,66,54,16.5,58,288,230,0.22043010752688172,0.8817204301075269,0.946236559139785,23702,3481,611,11,"acl: global tokens created by auth methods now correctly replicate to secondary datacenters (#9351)
 
 Previously the tokens would fail to insert into the secondary's state
 store because the AuthMethod field of the ACLToken did not point to a
-known auth method from the primary."
+known auth method from the primary.",1607548949
 237a7a0da0c80540a37156947a8907c5219d356f,False,1,1,4,4,4.0,0,7,7,0.0,0.0,1.0,6259,1043,200,1,"server: ensure that we also shutdown network segment serf instances on server shutdown (#8786)
 
-This really only matters for unit tests, since typically if an agent shuts down its server, it follows that up by exiting the process, which would also clean up all of the networking anyway."
-e170c4e3c80aff5bf0a15c70be335f8c3055dfde,False,1,2,34,23,17.0,13,38,25,0.0,0.8095238095238095,0.9523809523809523,23506,3587,780,4,[backport/1.7.x] agent: when enable_central_service_config is enabled ensure agent reload doesn't revert check state to critical (#8748)
+This really only matters for unit tests, since typically if an agent shuts down its server, it follows that up by exiting the process, which would also clean up all of the networking anyway.",1601501023
+e170c4e3c80aff5bf0a15c70be335f8c3055dfde,False,1,2,34,23,17.0,13,38,25,0.0,0.8095238095238095,0.9523809523809523,23506,3587,780,4,[backport/1.7.x] agent: when enable_central_service_config is enabled ensure agent reload doesn't revert check state to critical (#8748),1601049161
 7eef25daf579a8091b322db3a8abefbbe9a52585,False,1,2,34,23,17.0,13,39,26,0.0,0.8095238095238095,0.9523809523809523,20252,3095,661,4,"agent: when enable_central_service_config is enabled ensure agent reload doesn't revert check state to critical (#8747)
 
-Likely introduced when #7345 landed."
-b9899677917b59292f296647a2cd9165370b3fb1,False,1,3,246,123,82.0,15,323,308,0.624,0.672,0.752,1411,258,48,13,cli: ensure that 'snapshot save' is fsync safe and also only writes to the requested file on success (#7698)
-5f1518c37c031337bed02bb1454df375f2cb4989,False,1,5,236,108,47.2,144,327,183,0.0,0.9777777777777777,0.9777777777777777,2562,398,95,31,cli: fix usage of gzip.Reader to better detect corrupt snapshots during save/restore (#7697)
+Likely introduced when #7345 landed.",1600982644
+b9899677917b59292f296647a2cd9165370b3fb1,False,1,3,246,123,82.0,15,323,308,0.624,0.672,0.752,1411,258,48,13,cli: ensure that 'snapshot save' is fsync safe and also only writes to the requested file on success (#7698),1587767687
+5f1518c37c031337bed02bb1454df375f2cb4989,False,1,5,236,108,47.2,144,327,183,0.0,0.9777777777777777,0.9777777777777777,2562,398,95,31,cli: fix usage of gzip.Reader to better detect corrupt snapshots during save/restore (#7697),1587766736
 abb1603a867ecae1a7a05ea81b8fdf8745c69b03,False,1,2,18,11,9.0,1,314,313,0.42560553633217996,0.9792387543252595,0.9480968858131488,13849,1720,421,5,"Restore a few more service-kind index updates so blocking in ServiceDump works in more cases (#6948)
 
 Restore a few more service-kind index updates so blocking in ServiceDump works in more cases
@@ -336,7 +336,7 @@ unblocking.
 Also adds a ServiceDump state store test and also fix a watch bug with the
 normal dump.
 
-Follow-on from #6916"
+Follow-on from #6916",1576772137
 dbc48ea3f7c725c4f0b359752c734f62e78517c9,False,1,1,94,94,94.0,36,59,23,0.0,0.0,0.0,2362,351,83,5,"Fixes race condition in Agent Cache (#5796)
 
 * Fix race condition during a cache get
@@ -358,19 +358,19 @@ The first commit still allowed for the following scenario:
 
 * comment mentioning the reading from entries.
 
-* use cacheHit consistently"
-6c81f9da0d7f85011e23dd4243ff7b5b6b00189f,False,1,1,4,4,4.0,2,41,39,0.0,1.0,1.0,1568,238,69,2,Fix panic in Resolving service config when proxy-defaults isn't defined yet (#5769)
+* use cacheHit consistently",1557224149
+6c81f9da0d7f85011e23dd4243ff7b5b6b00189f,False,1,1,4,4,4.0,2,41,39,0.0,1.0,1.0,1568,238,69,2,Fix panic in Resolving service config when proxy-defaults isn't defined yet (#5769),1556802741
 7bd85792b2b2a46997b67d189dab72a4c1f9c507,False,1,1,13,13,13.0,23,78,55,0.2692307692307692,0.8461538461538461,1.0,7444,929,220,1,"config: do not clobber multiple check and service definitions
 
 This patch ensures that multiple files with single 'check' or 'service'
-definitions result in the combination of them."
+definitions result in the combination of them.",1506414258
 6852dec3f2578ff5f188c6be2b60289b7934d596,False,1,3,61,24,20.333333333333332,19,43,24,1.0,1.0,1.0,668,112,20,3,"agent: Fix script quoting on windows (#1875)
 
 This patch fixes the quoting for executing scripts on windows
 and splits the platform dependent code.
 
-Fixes #1875"
+Fixes #1875",1501686081
 e4b11682bc8d9cd7b9d6624b5a80be7cec50973e,False,1,3,516,487,172.0,5,913,908,0.4783861671469741,0.6023054755043228,1.0,2498,405,90,30,"Fixes broken HTTP header and method for health checks. (#3178)
 
 * Fixes broken HTTP header and method for health checks.
-* Adds a fuzz utility and test to make sure copy is complete."
+* Adds a fuzz utility and test to make sure copy is complete.",1498205748

@@ -1,0 +1,11 @@
+go-bug-collector
+Copyright 2026 go-bug-collector contributors
+
+Code in this repository is licensed under Apache-2.0.
+Datasets and documentation in this repository are licensed under CC BY 4.0.
+
+If you use this repository in academic work, please provide attribution and
+cite the repository and the associated study in your paper, thesis, report,
+or derivative dataset documentation.
+
+See CITATION.cff for the preferred citation entry and README.md for scope.

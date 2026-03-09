@@ -1,4 +1,4 @@
-sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message
+sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message,commit_timestamp
 8c69455c37966e6686f9f8486b2ecf95ef809229,False,1,3,108,65,36.0,182,257,75,0.14285714285714285,0.461038961038961,0.7792207792207793,25511,3544,858,5,"sync: don't set dir modtimes if already set
 
 Before this change, directory modtimes (and metadata) were always synced from
@@ -20,7 +20,7 @@ DirsEqual, consistent with how object metadata is synced (only when objects are
 unequal for reasons other than metadata).
 
 To sync dir modtimes and metadata unconditionally (the previous behavior), use
---ignore-times."
+--ignore-times.",1709805431
 3a50f35df9ff8e4fa9a3e0745c9997f28991d086,False,1,4,254,169,63.5,45,469,424,0.2831858407079646,0.4424778761061947,0.4247787610619469,2970,540,117,10,"sync: report list of synced paths to file -- see #7282
 
 Allows rclone sync to accept the same output file flags as rclone check,
@@ -47,7 +47,7 @@ is most useful as a predictor of what SHOULD happen to each file
 (which may or may not match what actually DID.)
 
 Only rclone sync is currently supported -- support for copy and move may be
-added in the future."
+added in the future.",1705780208
 c0968a0987e15027513ff6fe1728c9e61245a154,False,1,4,477,369,119.25,11,791,780,0.13417190775681342,0.5870020964360587,0.5471698113207547,24452,3623,803,36,"operations: add logger to log list of sync results -- fixes #7282
 
 Logger instruments the Sync routine with a status report for each file pair,
@@ -60,10 +60,10 @@ io.Writers to be written to. Possible uses include:
 - receive results as JSON when calling sync from an internal function
 - predict the post-sync state of the destination
 
-For usage examples, see bisync.WriteResults() or sync.SyncLoggerFn()"
+For usage examples, see bisync.WriteResults() or sync.SyncLoggerFn()",1705780208
 617534112be3db5b2063ad473d9e9247fe77def8,False,1,1,1,1,1.0,1,24,23,0.2,0.2,1.0,7712,1141,230,0,"sync: fix directory modification times not being set
 
-Co-authored-by: nielash <nielronash@gmail.com>"
+Co-authored-by: nielash <nielronash@gmail.com>",1714735758
 f5f86786b27290964d3b6b29790f1d245f66aa1d,False,1,5,163,122,32.6,14,504,490,0.08208955223880597,0.6194029850746269,0.9776119402985075,10845,1762,324,4,"sync: implement directory sync for mod times and metadata
 
 Directory mod times are synced by default if the backend is capable
@@ -73,8 +73,8 @@ and the backend is capable.
 This updates the bisync golden tests also which were affected by
 --dry-run setting of directory modtimes.
 
-Fixes #6685"
-4e07a72dc7f9cdd2b458f5c0f382f00147a0bd9b,False,1,4,11,5,2.75,4,62,58,0.0,0.8648648648648649,0.8648648648648649,26601,3775,889,3,fs: Implement --no-update-dir-modtime to disable setting modification times on dirs
+Fixes #6685",1709137574
+4e07a72dc7f9cdd2b458f5c0f382f00147a0bd9b,False,1,4,11,5,2.75,4,62,58,0.0,0.8648648648648649,0.8648648648648649,26601,3775,889,3,fs: Implement --no-update-dir-modtime to disable setting modification times on dirs,1709832024
 013c563293a0939e1767bc56fadee1dc89d54434,False,1,14,1118,336,79.85714285714286,224,1529,1305,0.42400881057268724,0.7995594713656388,0.8920704845814978,48026,8168,1594,67,"lib/transform: add transform library and --name-transform flag
 
 lib/transform adds the transform library, supporting advanced path name
@@ -97,7 +97,7 @@ all	Transform the entire path for files and directories
 
 Example syntax:
 --name-transform file,prefix=ABC
---name-transform dir,prefix=DEF"
+--name-transform dir,prefix=DEF",1749054247
 b4216648e46adebb394a63372124b71cdf41e414,False,1,10,843,309,84.3,3243,5469,2226,0.1813285457809695,0.14721723518850988,0.6606822262118492,33101,4755,1209,48,"bisync: full support for comparing checksum, size, modtime - fixes #5679 fixes #5683 fixes #5684 fixes #5675
 
 Before this change, bisync could only detect changes based on modtime, and
@@ -146,14 +146,14 @@ different passwords.)
 Additionally, all of the above are now considered during the final --check-sync
 for much-improved accuracy (before this change, it only compared filenames!)
 
-Many other details are explained in the included docs."
+Many other details are explained in the included docs.",1705784886
 0dd0d6a13e1e9f56d6f270de0bcd213e4319dec4,False,1,5,246,102,49.2,53,513,460,0.21929824561403508,0.5,0.5,8179,1332,277,16,"bisync: Add support for --create-empty-src-dirs - Fixes #6109
 
 Sync creation and deletion of empty directories.
 https://forum.rclone.org/t/bisync-bugs-and-feature-requests/37636#:~:text=3.%20Bisync%20should%20create/delete%20empty%20directories%20as%20sync%20does%2C%20when%20%2D%2Dcreate%2Dempty%2Dsrc%2Ddirs%20is%20passed
 
 Also fixed an issue causing --resync to erroneously delete empty folders and duplicate files unique to Path2
-https://forum.rclone.org/t/bisync-bugs-and-feature-requests/37636#:~:text=2.%20%2D%2Dresync%20deletes%20data%2C%20contrary%20to%20docs"
+https://forum.rclone.org/t/bisync-bugs-and-feature-requests/37636#:~:text=2.%20%2D%2Dresync%20deletes%20data%2C%20contrary%20to%20docs",1691857461
 9cf783677ed0ac6483bf2b3e7f72734f297dd60e,False,1,4,21,12,5.25,24,71,47,0.5,0.5,0.375,9783,1462,359,6,"bisync: support files with unknown length, including Google Docs - fixes #5696
 
 Before this change, bisync intentionally ignored Google Docs (albeit in a
@@ -206,7 +206,7 @@ skip them.) To work around this, use the default (modtime and size) instead of
 To ignore Google Docs entirely, use `--drive-skip-gdocs`.
 
 Nearly all of the Google Docs logic is outsourced to the Drive backend, so
-future changes should also be supported by bisync."
+future changes should also be supported by bisync.",1705780208
 4025f42bd9b6b755a828f59285c0e6321462b349,False,1,6,387,186,64.5,54,394,340,0.3879310344827586,0.3577586206896552,0.5517241379310345,18587,2618,626,25,"bisync: Graceful Shutdown, --recover from interruptions without --resync - fixes #7470
 
 Before this change, bisync had no mechanism to gracefully cancel a sync early
@@ -269,7 +269,7 @@ leaving partially-written files on one side, which may be confused for real
 files on the next run. Note also that in the event of an abrupt interruption, a
 lock file will be left behind to block concurrent runs. You will need to delete
 it before you can proceed with the next run (or wait for it to expire on its
-own, if using --max-lock.)"
+own, if using --max-lock.)",1705786288
 978cbf9360bb2f894baa8e6922fc7c856c1125c5,False,1,5,552,253,110.4,76,664,588,0.232,0.192,0.16,9944,1541,357,27,"bisync: generate final listing from sync results, not relisting -- fixes #5676
 
 Before this change, if there were changes to sync, bisync listed each path
@@ -287,11 +287,11 @@ simply learn about those changes next time and handle them on the next run.
 Additionally, this also makes --check-sync usable again.
 
 For further discussion, see:
-https://forum.rclone.org/t/bisync-bugs-and-feature-requests/37636#:~:text=5.%20Final%20listings%20should%20be%20created%20from%20initial%20snapshot%20%2B%20deltas%2C%20not%20full%20re%2Dscans%2C%20to%20avoid%20errors%20if%20files%20changed%20during%20sync"
+https://forum.rclone.org/t/bisync-bugs-and-feature-requests/37636#:~:text=5.%20Final%20listings%20should%20be%20created%20from%20initial%20snapshot%20%2B%20deltas%2C%20not%20full%20re%2Dscans%2C%20to%20avoid%20errors%20if%20files%20changed%20during%20sync",1705780208
 b14269fd23a309e86b5e0d019501cb897a83ba6a,False,1,3,54,27,18.0,15,43,28,0.0,0.5909090909090909,0.5909090909090909,7806,1135,244,6,"bisync: add support for --retries-sleep - fixes #7555
 
 Before this change, bisync supported --retries but not --retries-sleep.
-This change adds support for --retries-sleep."
+This change adds support for --retries-sleep.",1707762294
 44637dcd7fe1b4328cc9e6d73966f556c8747562,False,1,3,22,11,7.333333333333333,0,22,22,0.6923076923076923,0.8461538461538461,0.15384615384615385,5810,890,168,3,"bisync: high-level retries if --resilient
 
 Before this change, bisync had no ability to retry in the event of sync errors.
@@ -314,12 +314,12 @@ direction still fails after our final retry, we abort and do NOT continue in
 the other direction, to prevent the messy dest from polluting the source. If
 the first direction succeeds, we do then allow retries in the other direction.
 
-The number of retries is controllable by --retries (default 3)"
+The number of retries is controllable by --retries (default 3)",1705780208
 6210e22ab585eccdf27c12642d342056459e2e6e,False,1,13,1786,455,137.3846153846154,0,3057,3057,0.2383107088989442,0.2996480643539467,0.5977878330819507,8624,1515,306,65,"bisync: implementation #5164
 
 Fixes #118
 
-Co-authored-by: Chris Nelson <stuff@cjnaz.com>"
+Co-authored-by: Chris Nelson <stuff@cjnaz.com>",1635789627
 6d6dc00abba2bbc7f6e87a141387c36bc0a3f0a4,False,1,4,193,123,48.25,75,1791,1716,0.6781609195402298,0.6781609195402298,1.0,9308,1424,313,17,"bisync: rollback listing on error
 
 Before this change, bisync had no mechanism for ""retrying"" a file again next
@@ -330,10 +330,10 @@ all times. In a low-confidence situation, bisync can revert a given file row
 back to its state at the end of the last known successful sync, ensuring that
 any subsequent changes will be re-noticed on the next run.
 This can potentially be helpful for a dynamically changing file system, where
-files may be changing quickly while bisync is working with them."
-f995ece64d419e4b4dcda57748718b67dde46601,False,1,1,7,7,7.0,0,7,7,1.0,1.0,1.0,112,24,3,2,bisync: fix io.PipeWriter not getting closed on tests
-5994fcfed8f968a4a952b8e6b477ebcaeb9979bf,False,1,1,11,11,11.0,4,37,33,0.15,1.0,0.7,896,147,37,2,fs/cache: add PutErr to add an fs.Fs with an fs.ErrorIsFile error to the cache
-0b8689dc28038193ded573a57689a465d3870b46,False,1,1,54,54,54.0,6,92,86,0.19402985074626866,0.6268656716417911,0.7164179104477612,725,139,27,3,rc: Add GetFsNamedFileOK to get an fs which could also be a file
+files may be changing quickly while bisync is working with them.",1705780208
+f995ece64d419e4b4dcda57748718b67dde46601,False,1,1,7,7,7.0,0,7,7,1.0,1.0,1.0,112,24,3,2,bisync: fix io.PipeWriter not getting closed on tests,1712541326
+5994fcfed8f968a4a952b8e6b477ebcaeb9979bf,False,1,1,11,11,11.0,4,37,33,0.15,1.0,0.7,896,147,37,2,fs/cache: add PutErr to add an fs.Fs with an fs.ErrorIsFile error to the cache,1709223701
+0b8689dc28038193ded573a57689a465d3870b46,False,1,1,54,54,54.0,6,92,86,0.19402985074626866,0.6268656716417911,0.7164179104477612,725,139,27,3,rc: Add GetFsNamedFileOK to get an fs which could also be a file,1709223702
 8d5bc7f28b8459a0e04fdbfd2dca43c5d9ec4555,False,1,1,18,18,18.0,7,48,41,0.0,0.8076923076923077,0.8076923076923077,441,77,18,1,"fs/cache: fix moveto/copyto remote:file remote:file2
 
 Before this change, if the cache was given a source `remote:file` it
@@ -354,8 +354,8 @@ This was broken in
 Which was released in v1.52.0
 
 The fix is to make a new cache entry for `remote:` with no error
-attached in the case that the original call returned `fs.ErrorIsFile`."
-a10fbf16ea3296eccad201f642a861b8839730d3,False,1,1,7,7,7.0,0,23,23,1.0,1.0,1.0,613,102,25,1,fs/cache: add ClearConfig method to clear all remotes based on Config #4811
+attached in the case that the original call returned `fs.ErrorIsFile`.",1593683736
+a10fbf16ea3296eccad201f642a861b8839730d3,False,1,1,7,7,7.0,0,23,23,1.0,1.0,1.0,613,102,25,1,fs/cache: add ClearConfig method to clear all remotes based on Config #4811,1615836127
 d0f8b4f479856ac4ea23c60527514d5bade6a4ff,False,1,1,16,16,16.0,8,8,0,,,,718,123,27,3,"fs/cache: fix recreation of backends after they have expired
 
 Before this change, on the first attempt to create a backend we used a
@@ -366,7 +366,7 @@ remap cache) which would fail because it was now `name{XXXX}:`
 This change makes sure that whenever we create a backend we always use
 the non-canonicalized string.
 
-See: https://forum.rclone.org/t/connection-string-inconsistencies-on-beta/23171"
+See: https://forum.rclone.org/t/connection-string-inconsistencies-on-beta/23171",1617126390
 c0c74003f2d77058548d5f3320e9f25cda9bffa0,False,1,4,58,31,14.5,19,119,100,0.5789473684210527,0.9824561403508771,0.9824561403508771,5387,789,149,17,"fs/cache: add --fs-cache-expire-duration to control the fs cache
 
 This commit makes the previously statically configured fs cache configurable.
@@ -374,7 +374,7 @@ This commit makes the previously statically configured fs cache configurable.
 It introduces two parameters `--fs-cache-expire-duration` and
 `--fs-cache-expire-interval` to control the caching of the items.
 
-It also adds new interfaces to lib/cache to set these."
+It also adds new interfaces to lib/cache to set these.",1617104807
 4c98360356be75f456f9c57f6d5a05f437801ffc,False,1,1,61,61,61.0,19,116,97,0.43283582089552236,0.6865671641791045,0.7910447761194029,414,72,17,7,"fs/cache: Add Pin and Unpin and canonicalised lookup
 
 Before this change we stored cached Fs under the config string the
@@ -389,7 +389,7 @@ so the users can look up Fs under the names they passed to rclone too.
 
 This change along with Pin and Unpin is necessary so we can look up
 the Fs in use reliably in the `backend/command` remote control
-interface."
+interface.",1588349505
 87ec26001f399cd1fe728a98d78c1b6ec4f0d322,False,1,1,66,66,66.0,0,99,99,0.21818181818181817,0.6181818181818182,0.6181818181818182,250,42,9,3,"local: add server-side copy with xattrs on macOS (part-fix #1710)
 
 Before this change, macOS-specific metadata was not preserved by rclone, even for
@@ -415,12 +415,12 @@ and Spotlight params.
 When server-side ""clone"" is not available (for example, on non-APFS volumes), it
 falls back to server-side ""copy"" (still preserving metadata but using more disk
 storage.) It is only used when both remotes are local (and not wrapped by other
-remotes, such as crypt.) The behavior of local on non-mac systems is unchanged."
+remotes, such as crypt.) The behavior of local on non-mac systems is unchanged.",1723732598
 bd5199910b484fcc68742a180c9ec27ee9168d6f,False,1,2,252,250,126.0,104,148,44,0.0,0.925,0.925,7447,1374,202,3,"local: --local-no-clone flag to disable cloning for server-side copies
 
 This flag allows users to disable the reflink cloning feature and instead force
 ""deep"" copies, for certain use cases where data redundancy is preferable. It is
-functionally equivalent to using `--disable Copy` on local."
+functionally equivalent to using `--disable Copy` on local.",1723732598
 b91c349cd53480148a7e70602b3606677dab866d,False,1,2,13,11,6.5,1,75,74,0.0,1.0,1.0,11376,1884,329,2,"local: fix hash invalidation which caused errors with local crypt mount
 
 Before this fix if a file was updated, but to the same length and
@@ -447,8 +447,8 @@ This fix clears the hash cache for Update and Remove.
 It also puts a src and destination in the crypt message to make future
 debugging easier.
 
-Fixes #4031"
-ae887ad042f83bf7c983b779a44e85f496ff8de6,False,1,1,84,84,84.0,20,64,44,0.3076923076923077,0.0,0.3076923076923077,11278,1688,338,4,jottacloud: set metadata on server side copy and move - fixes #7900
+Fixes #4031",1637755774
+ae887ad042f83bf7c983b779a44e85f496ff8de6,False,1,1,84,84,84.0,20,64,44,0.3076923076923077,0.0,0.3076923076923077,11278,1688,338,4,jottacloud: set metadata on server side copy and move - fixes #7900,1718291976
 68f09986999824d247d084f3aed81ec957cd0a93,False,1,6,644,450,107.33333333333333,164,1304,1140,0.17587939698492464,0.23618090452261306,0.36432160804020103,19128,2644,667,26,"bisync: add options to auto-resolve conflicts - fixes #7471
 
 Before this change, when a file was new/changed on both paths (relative to the
@@ -602,12 +602,12 @@ For example, for behavior equivalent to the previous default, use:
 
 ```
 [--conflict-resolve none] --conflict-loser pathname --conflict-suffix .path
-```"
+```",1705789021
 ab430054225dde09cdb4c8ae3cfa2a8221716789,False,1,13,476,64,36.61538461538461,208,268,60,0.0,0.0,0.7761194029850746,44931,7546,1559,62,"Make NewObject return an error
   * make it return an error
   * make a canonical error fs.ErrorNotFound
   * make a test for it
-  * remove logs/debugs of error"
+  * remove logs/debugs of error",1467100317
 73beae147f4d2673fe61ae1085667e29062d4b23,False,1,1,7,7,7.0,4,7,3,0.0,0.0,0.0,7252,1151,253,1,"webdav: Fix modtime on server side copy for owncloud and nextcloud
 
 Before this change a server side copy did not preserve the modtime.
@@ -618,7 +618,7 @@ the `X-Oc-Mtime` header.
 This patch sets the modtime explicitly after a server side copy if the
 `X-Oc-Mtime` wasn't accepted.
 
-This problem was discovered in the integration tests."
+This problem was discovered in the integration tests.",1687807408
 0cac5d67abc048a8bfad7487e52a40ae7b35ff87,False,1,2,26,13,13.0,1101,1118,17,0.0,1.0,0.5714285714285714,3148,507,118,3,"bisync: introduce terminal colors
 
 This introduces a few basic color codings to make the terminal output more
@@ -626,7 +626,7 @@ readable (and more fun). Rclone's standard --color flag is supported.
 (AUTO|NEVER|ALWAYS)
 
 Only a few lines have colors right now -- more will probably be added in
-future versions."
+future versions.",1705780208
 810644e8735330db1cbd70745802284e8624b423,False,1,6,173,104,28.833333333333332,156,706,550,0.0,0.0,0.7307692307692307,13575,1871,441,18,"bisync: add --resync-mode for customizing --resync - fixes #5681
 
 Before this change, the path1 version of a file always prevailed during
@@ -706,7 +706,7 @@ although the `path1` and `path2` options typically produce a similar result.)
 specified. Similarly, all `--resync-mode` options (except `none`) imply
 `--resync`, so it is not necessary to use both the `--resync` and
 `--resync-mode` flags simultaneously -- either one is sufficient without the
-other."
+other.",1705789021
 57624629d6b43177846fd64b3e252d1ad364bec4,False,1,2,9,6,4.5,755,1064,309,0.15508021390374332,0.46524064171123,0.893048128342246,1372,204,46,3,"bisync: account for differences in backend features on integration tests - see #5679
 
 Before this change, integration tests often could not be run on backends with
@@ -714,13 +714,13 @@ differing features from the local system that goldenized them. In particular,
 differences in modtime precision, checksum support, and encoding would cause
 false positives. After this change, the tests more accurately account for the
 features of the backend being tested, which allows us to see true positives
-more clearly, and more meaningfully assess whether a backend is supported."
+more clearly, and more meaningfully assess whether a backend is supported.",1705780208
 7f744033d8eae0fa916c3207e05cf56d7708fd09,False,1,2,84,79,42.0,50,64,14,1.0,1.0,0.0,6385,1084,196,10,"onedrive: Removed upload cutoff and always do session uploads
 
 Set modtime on copy
 
 
-Added versioning issue to OneDrive documentation"
+Added versioning issue to OneDrive documentation",1521145091
 1473de3f040af01c0d554cc6f6490c826bbbf3fa,False,1,4,1340,951,335.0,69,2093,2024,0.31313131313131315,0.5289256198347108,0.689623507805326,22215,3581,702,68,"onedrive: add metadata support
 
 This change adds support for metadata on OneDrive. Metadata (including
@@ -776,7 +776,7 @@ TIP: to see the metadata and permissions for any file or folder, run:
 rclone lsjson remote:path --stat -M --onedrive-metadata-permissions read
 
 See the OneDrive backend docs for a table of all the supported metadata
-properties."
+properties.",1709909334
 2bebbfaded9139921a919f1b384bf4f736c85d4f,False,1,1,22,22,22.0,176,59314,59138,0.3274336283185841,0.0,0.6991150442477876,14264,2055,556,6,"bisync: add to integration tests - fixes #7665
 
 This change officially adds bisync to the nightly integration tests for all
@@ -806,28 +806,28 @@ limitations that are unsolvable for the time being:
 - #3262 drive is sometimes aware of trashed files/folders when it shouldn't be
 - #6199 dropbox can't handle emojis and certain other characters
 - #4590 onedrive API has longstanding bug for conflictBehavior=replace in
-	server-side copy/move"
+	server-side copy/move",1711551014
 c789436580bc6729e2d95c2f32c5a272e69b4835,False,1,2,625,624,312.5,0,717,717,0.6620879120879121,0.7060439560439561,0.5714285714285714,3025,495,90,45,"The memory backend
 
-This is a bucket based remote"
-b5f1bebc5267f88c231408cc47ccf27ddee1c7b9,False,1,4,34,16,8.5,2,32,30,0.0,0.7727272727272727,1.0,16973,2624,331,11,fs: add renames statistic for file and directory renames
-e1032f693f59b1ed9eae0969b4b3b5e64ac57590,False,1,1,79,79,79.0,0,79,79,1.0,1.0,1.0,269,51,10,7,fs: add DirWrapper for wrapping Directory-s with optional methods
+This is a bucket based remote",1579344068
+b5f1bebc5267f88c231408cc47ccf27ddee1c7b9,False,1,4,34,16,8.5,2,32,30,0.0,0.7727272727272727,1.0,16973,2624,331,11,fs: add renames statistic for file and directory renames,1585588948
+e1032f693f59b1ed9eae0969b4b3b5e64ac57590,False,1,1,79,79,79.0,0,79,79,1.0,1.0,1.0,269,51,10,7,fs: add DirWrapper for wrapping Directory-s with optional methods,1709031379
 4b358ff43ba941e34b1c66134b756b4e8a484822,False,1,2,942,941,471.0,0,1304,1304,0.40328697850821743,0.6573957016434893,0.6485461441213654,4560,771,179,35,"combine: backend to combine multiple remotes in one directory tree
 
-Fixes #5600"
-0297542f6bce63736bc03b7165b0657c79957aba,False,1,6,75,21,12.5,0,75,75,0.9622641509433962,1.0,1.0,39656,6027,1046,8,"cache,chunker,combine,compress,crypt,hasher,union: implement DirSetModTime (if supported by wrapped remote)"
+Fixes #5600",1654696645
+0297542f6bce63736bc03b7165b0657c79957aba,False,1,6,75,21,12.5,0,75,75,0.9622641509433962,1.0,1.0,39656,6027,1046,8,"cache,chunker,combine,compress,crypt,hasher,union: implement DirSetModTime (if supported by wrapped remote)",1709136544
 831d1df67f1e712d18fa8c1103d117754bd26bf5,False,1,4,25,7,6.25,178,164,-14,,,,8529,1305,313,1,"docs: factor large docs into separate .md files to make them easier to maintain.
 
-We then use the go embed command to embed them back into the binary."
+We then use the go embed command to embed them back into the binary.",1699892829
 1c4e33d4adc4be6452f7464cad94699e0023d3d4,False,1,3,22,18,7.333333333333333,1,217,216,0.3177570093457944,0.8317757009345794,0.6355140186915887,6189,933,138,1,"vfs: add flag --vfs-case-insensitive for windows/macOS mounts
 
 rclone mount when run on Windows & macOS will now default to `--vfs-case-insensitive`.
-This means that"
+This means that",1567629048
 676277e2552597fdc7cfb4a9d57f52e20712212a,False,1,1,38,38,38.0,0,38,38,,,,6,447,0,0,"docs: move FUSE-T docs from auto generated file to source file
 
 Docs commited in wrong place in
 
-c0a5283416e93590 docs: rclone mount on macOS with macFUSE and  FUSE-T"
+c0a5283416e93590 docs: rclone mount on macOS with macFUSE and  FUSE-T",1678797454
 92187a3b333215fd8c7035bb4bab6c8f15294866,False,1,1,21,21,21.0,0,21,21,0.6111111111111112,0.6111111111111112,0.6111111111111112,1134,192,49,2,"cmount: fix unicode issues with accented characters on macOS
 
 This adds
@@ -835,27 +835,27 @@ This adds
     -o modules=iconv,from_code=UTF-8,to_code=UTF-8-MAC
 
 To the mount options if it isn't already present which fixes mounting
-issues on macOS with accented characters in the finder."
+issues on macOS with accented characters in the finder.",1613056399
 9933d6c07135926d904ccc3aec10c21e356a9cdc,False,1,1,22,22,22.0,4,77,73,0.0,1.0,0.49056603773584906,3429,504,27,0,"check: respect --no-unicode-normalization and --ignore-case-sync for --checkfile
 
 Before this change, --no-unicode-normalization and --ignore-case-sync
 were respected for rclone check but not for rclone check --checkfile,
 causing them to give different results.
 
-This change adds support for --checkfile so that the behavior is consistent."
+This change adds support for --checkfile so that the behavior is consistent.",1705780208
 e43b5ce5e59b5717a9819ff81805dd431f710c10,False,1,208,3217,126,15.466346153846153,1695,1673,-22,0.24907521578298397,0.28976572133168926,0.6214549938347719,544590,88298,16691,677,"Remove github.com/pkg/errors and replace with std library version
 
 This is possible now that we no longer support go1.12 and brings
 rclone into line with standard practices in the Go world.
 
 This also removes errors.New and errors.Errorf from lib/errors and
-prefers the stdlib errors package over lib/errors."
+prefers the stdlib errors package over lib/errors.",1636286010
 1ebbc74f1d62457aea660b9e4378cc085c0dd25e,False,1,2,65,59,32.5,17,48,31,0.18181818181818182,0.0,0.2727272727272727,523,84,12,3,"nfsmount: compile for all unix oses, add --sudo and fix error/option handling
 
 - make compile on all unix OSes - this will make the docs appear on linux and rclone.org!
 - add --sudo flag for using with mount
 - improve error reporting
-- fix option handling"
+- fix option handling",1701773093
 f7f465182832fe4448b1b638088bb8e96a8af029,False,1,5,134,68,26.8,69,441,372,0.18556701030927836,0.18556701030927836,0.3711340206185567,11746,1785,421,10,"bisync: handle unicode and case normalization consistently - mostly-fixes #7270
 
 Before this change, Bisync sometimes normalized NFD to NFC and sometimes
@@ -870,11 +870,11 @@ There were three main places where Bisync should have normalized, but didn't:
 
 After this change, 1 and 3 are resolved, and bisync supports
 --no-unicode-normalization and --ignore-case-sync in the same way as sync.
-2 will be addressed in a future update."
+2 will be addressed in a future update.",1705780208
 5ca61ab70543abf740999b874ed65ec3ffc890cf,False,1,1,81,81,81.0,64,279,215,0.0,0.54,0.0,1928,314,63,2,"bisync: equality check before renaming (leave identical files alone)
 
 Improved detection of false positive change conflicts (identical files are now left alone instead of renamed)
-https://forum.rclone.org/t/bisync-bugs-and-feature-requests/37636#:~:text=1.%20Identical%20files%20should%20be%20left%20alone%2C%20even%20if%20new/newer/changed%20on%20both%20sides"
+https://forum.rclone.org/t/bisync-bugs-and-feature-requests/37636#:~:text=1.%20Identical%20files%20should%20be%20left%20alone%2C%20even%20if%20new/newer/changed%20on%20both%20sides",1691857461
 98f539de8f91192e68f8252ad1641747950570e1,False,1,6,324,145,54.0,153,242,89,0.6081081081081081,0.43243243243243246,0.33783783783783783,12605,1941,467,23,"bisync: refactor normalization code, fix deltas - fixes #7270
 
 Refactored the case / unicode normalization logic to be much more efficient,
@@ -882,7 +882,7 @@ Refactored the case / unicode normalization logic to be much more efficient,
  doing lots of for loops and re-normalizing strings we had already normalized
  earlier. Now, we leave the normalizing entirely to March and avoid
  re-transforming later, which seems to make a large difference in terms of
- performance."
+ performance.",1705780208
 9c96c13a35633cb032a04ccea57f1a256b6e86cd,False,1,4,182,117,45.5,373,261,-112,0.35294117647058826,1.0,0.7941176470588235,9615,1452,363,10,"bisync: optimize --resync performance -- partially addresses #5681
 
 Before this change, --resync was handled in three steps, and needed to do a lot
@@ -893,14 +893,14 @@ efficiently, by reducing the three steps to two and letting ci.IgnoreExisting
 do the work instead of reinventing the wheel.
 
 The behavior and sync order remain unchanged for now -- just faster (but see
-the ongoing lively discussions about potential future changes in #5681!)"
+the ongoing lively discussions about potential future changes in #5681!)",1705780208
 50df8cec9ca00996a7a79369894cfc99c9867e35,False,1,5,390,312,78.0,0,391,391,0.5701357466063348,0.6470588235294118,0.7692307692307693,5752,833,165,26,"lib/kv: add key-value database api #5587
 
 Add bolt-based key-value database support.
 
 Quick API description:
-https://github.com/rclone/rclone/pull/5587#issuecomment-942174768"
-f102ef216103636b44a8445fa1ead7a270e2029f,False,1,5,1308,508,261.6,0,1424,1424,0.39691289966923926,0.5689084895259096,0.7287761852260198,7591,1137,231,46,hasher: add hasher backend #5587
+https://github.com/rclone/rclone/pull/5587#issuecomment-942174768",1634746314
+f102ef216103636b44a8445fa1ead7a270e2029f,False,1,5,1308,508,261.6,0,1424,1424,0.39691289966923926,0.5689084895259096,0.7287761852260198,7591,1137,231,46,hasher: add hasher backend #5587,1634746314
 0374ea2c795be1e99caa8fb310897ceaed59966a,False,1,2,52,38,26.0,30,29,-1,0.0,0.0,0.0,7865,1182,232,5,"Use jwt-go (golang-jwt) instead of deprecated jws (x/oauth2/jws)
 
 golang.org/x/oauth2/jws is deprecated: this package is not intended for public use and
@@ -908,17 +908,17 @@ might be removed in the future. It exists for internal use only. Please switch t
 JWS package or copy this package into your own source tree.
 
 github.com/golang-jwt/jwt/v4 seems to be a good alternative, and was already
-an implicit dependency."
-70c6b01f54f270964e7d563d86b1e0c3295fed10,False,1,2,64,62,32.0,1,112,111,0.0,0.46987951807228917,1.0,3019,520,93,2,fs: Higher units for ETA - fixes #3221
+an implicit dependency.",1679851250
+70c6b01f54f270964e7d563d86b1e0c3295fed10,False,1,2,64,62,32.0,1,112,111,0.0,0.46987951807228917,1.0,3019,520,93,2,fs: Higher units for ETA - fixes #3221,1561979359
 67132ecaec2089dffeb0225d0b879f2c53200823,False,1,1,20,20,20.0,4,26,22,0.0,0.7142857142857143,0.5,4144,640,132,2,"accounting: avoid negative ETA values for very slow speeds
 
 Integer overflow would lead to ETA such as ""-255y7w4h11m22s966ms"",
 as reported in #6381. Now the value will be clipped at the maximum
-""292y24w3d23h47m16s"", and it will be shown as infinity."
-2aa264b33cb098f37eaeea43a87feec36b391ad0,False,1,3,1019,789,339.6666666666667,0,1312,1312,0.32582322357019067,0.5944540727902946,0.6793760831889082,5136,852,130,43,smb: backend to support SMB - fixes #2042
-5f71d186b20b34f0ef53f6295027dab42ed91b25,False,1,2,303,166,151.5,111,329,218,0.0,0.0,0.6461538461538462,12721,1945,364,26,seafile: implement 2FA
-c754e89906543cfb4f155201f7f8030f62cf122e,False,1,6,2678,1247,446.3333333333333,0,3291,3291,0.2731798382078407,0.6185438705662726,0.492221530802738,13326,2147,365,83,seafile: New backend for seafile server
-00c6642fad9c04965601fe75d23b370406acdaa9,False,1,1,13,13,13.0,16,119,103,0.11702127659574468,1.0,1.0,6251,1009,232,1,seafile: fix 2fa state machine
+""292y24w3d23h47m16s"", and it will be shown as infinity.",1675528148
+2aa264b33cb098f37eaeea43a87feec36b391ad0,False,1,3,1019,789,339.6666666666667,0,1312,1312,0.32582322357019067,0.5944540727902946,0.6793760831889082,5136,852,130,43,smb: backend to support SMB - fixes #2042,1664550657
+5f71d186b20b34f0ef53f6295027dab42ed91b25,False,1,2,303,166,151.5,111,329,218,0.0,0.0,0.6461538461538462,12721,1945,364,26,seafile: implement 2FA,1589985995
+c754e89906543cfb4f155201f7f8030f62cf122e,False,1,6,2678,1247,446.3333333333333,0,3291,3291,0.2731798382078407,0.6185438705662726,0.492221530802738,13326,2147,365,83,seafile: New backend for seafile server,1588786402
+00c6642fad9c04965601fe75d23b370406acdaa9,False,1,1,13,13,13.0,16,119,103,0.11702127659574468,1.0,1.0,6251,1009,232,1,seafile: fix 2fa state machine,1631965499
 94dbfa4ea660b92712036fea1ee4f5b52102ed9b,False,1,24,2271,460,94.625,939,1369,430,0.521311475409836,0.15081967213114755,0.5147540983606558,135157,21342,4107,100,"fs: change Config callback into state based callback #3455
 
 This is a very large change which turns the post Config function in
@@ -929,23 +929,23 @@ The existing config logic has been converted, but it is quite
 complicated and folloup commits will likely be needed to fix it!
 
 Follow up commits will add a command line and API based way of using
-this configuration system."
+this configuration system.",1620997664
 f50f353b5d7e76d8f666ac1383f5c23021b6ea34,False,1,3,173,136,57.666666666666664,34,191,157,0.2247191011235955,0.43820224719101125,0.9550561797752809,7154,1142,271,17,"local: always use UNC paths on Windows - fixes #124, fixes #130, fixes #90
 
   * Convert all paths to UNC paths on Windows.
   * Update local filesystem to always use UNC paths.
   * Change tests, so they can work with Windows character replacements.
   * Remove ""/"" suffix on paths.
-  * Always use path/filepath"
-a571c1fb46f531fb88409129f31c245c5f9274d3,False,1,1,54,54,54.0,27,27,0,,,,10239,1516,305,14,jottacloud: refactor naming of different api urls
+  * Always use path/filepath",1442257083
+a571c1fb46f531fb88409129f31c245c5f9274d3,False,1,1,54,54,54.0,27,27,0,,,,10239,1516,305,14,jottacloud: refactor naming of different api urls,1654703797
 9f40cb114a2c751c5821205c25fb373cc6dee1a8,False,1,1,53,53,53.0,34,19,-15,1.0,1.0,1.0,10209,1521,306,4,"Revert ""jottacloud: always store username in config and use it to avoid initial api request""
 
 This reverts commit 9dbed02329456c71d2052a6365041deda94bc020.
 
-See: #6309"
+See: #6309",1658769789
 01340acad24bc07f8716c0924d6ecfdfca20f1be,False,1,1,151,151,151.0,54,212,158,0.2692307692307692,0.2692307692307692,0.0673076923076923,10239,1516,305,8,"jottacloud: add support for upload to custom device and mountpoint
 
-See #5926"
+See #5926",1654703797
 b4091f282aeeeeb96195cdd4e52b64ac738cdb15,False,1,1,326,326,326.0,86,433,347,0.17,0.45,0.775,9030,1501,266,17,"sftp: add support for about and hashsum on windows server
 
 Windows shells like cmd and powershell needs to use different quoting/escaping
@@ -960,26 +960,26 @@ shell is powershell.
 
 See #5763
 
-Fixes #5758"
+Fixes #5758",1654715693
 e57553930fdd06d092a2515929eae5f026942f2f,False,1,1,119,119,119.0,63,56,-7,0.0,0.0,0.0,8386,1237,235,9,"jottacloud: fix legacy auth with state based config system
 
-...also some minor cleanup"
-10ed4557771949b623946fb6c73ba4270b9800cf,False,1,5,1181,820,236.2,0,1226,1226,0.4893964110929853,0.7536704730831973,0.7797716150081566,6685,1188,207,54,New backend: Jottacloud
-6f4b86e5694048be89639cc5ae9f6fc0aef7f342,False,1,2,82,55,41.0,21,61,40,0.5,0.5833333333333334,1.0,7437,1205,202,8,jottacloud: use new api for retrieving internal username - fixes #3434
-acc9dadcdccddf6575a1a928492be19823e1ec90,False,1,2,448,300,224.0,226,222,-4,0.0,1.0,0.0,7541,1210,205,13,jottacloud: refactor configuration and minor cleanup
+...also some minor cleanup",1620997664
+10ed4557771949b623946fb6c73ba4270b9800cf,False,1,5,1181,820,236.2,0,1226,1226,0.4893964110929853,0.7536704730831973,0.7797716150081566,6685,1188,207,54,New backend: Jottacloud,1533896074
+6f4b86e5694048be89639cc5ae9f6fc0aef7f342,False,1,2,82,55,41.0,21,61,40,0.5,0.5833333333333334,1.0,7437,1205,202,8,jottacloud: use new api for retrieving internal username - fixes #3434,1565716694
+acc9dadcdccddf6575a1a928492be19823e1ec90,False,1,2,448,300,224.0,226,222,-4,0.0,1.0,0.0,7541,1210,205,13,jottacloud: refactor configuration and minor cleanup,1565869616
 58a531a203abe7cb6dac91832e16e81f64c8e0ab,False,1,18,885,116,49.166666666666664,439,448,9,0.5,0.5,0.0,87839,13617,2666,344,"rest: add context propagation to rest library #3257
 
 This fixes up the calling and propagates the contexts for the backends
-which use lib/rest."
-c34f11a92faeb50c15ce3949269af66c5466e69a,False,1,3,710,542,236.66666666666666,0,710,710,0.3699788583509514,0.5052854122621564,0.828752642706131,3354,610,128,34,rclone ncdu for exploring a remote with a text based user interface.
-4a5cbf2a19ebf0489bbc6654f7e0972cffa23440,False,1,1,22,22,22.0,6,16,10,0.6,1.0,0.4,4133,714,177,2,cmd/ncdu: fix out of range panic in delete
-c41814fd2d25edb083e0f510ace169e3e7ac7c58,False,1,1,164,164,164.0,40,124,84,0.3157894736842105,0.3007518796992481,0.0,9546,1419,280,12,backend:jottacloud change api used by ListR ( --fast-list )
+which use lib/rest.",1568068027
+c34f11a92faeb50c15ce3949269af66c5466e69a,False,1,3,710,542,236.66666666666666,0,710,710,0.3699788583509514,0.5052854122621564,0.828752642706131,3354,610,128,34,rclone ncdu for exploring a remote with a text based user interface.,1497545057
+4a5cbf2a19ebf0489bbc6654f7e0972cffa23440,False,1,1,22,22,22.0,6,16,10,0.6,1.0,0.4,4133,714,177,2,cmd/ncdu: fix out of range panic in delete,1618608003
+c41814fd2d25edb083e0f510ace169e3e7ac7c58,False,1,1,164,164,164.0,40,124,84,0.3157894736842105,0.3007518796992481,0.0,9546,1419,280,12,backend:jottacloud change api used by ListR ( --fast-list ),1638364897
 b218bc5bed99f04edf67c37f4fc1ec79bba5f03c,False,1,1,25,25,25.0,1,24,23,0.5714285714285714,0.5714285714285714,1.0,4068,704,172,2,"ncdu: add empty folder flag into ncdu browser
 
 Implemented empty folder flag for ncdu browser interface. If there is
 empty folder in the list the flag e is prepended before size. If there
 is no empty folder this flag is ommited. It has the same behaviour as
-original ncdu browser. (https://dev.yorhel.nl/ncdu/man)"
+original ncdu browser. (https://dev.yorhel.nl/ncdu/man)",1609176346
 87c201c92a5b3caf0a7c9711a2b1fc3423f478e9,False,1,2,49,30,24.5,13,36,23,0.0,0.38095238095238093,0.7142857142857143,5338,901,211,7,"ncdu: fix issue where dir size is summed when file sizes are -1
 
 Some backends may not provide size for all objects, and instead
@@ -988,8 +988,8 @@ with strange results. With this commit rclone ncdu will consider
 negative sizes as zero, but add a new prefix flag '~' with a
 description that indicates the shown size is inaccurate.
 
-Fixes #6084"
-774efeabf015c60a312c8de496579711a9c1248a,False,1,1,21,21,21.0,8,13,5,0.0,0.3333333333333333,1.0,4199,721,178,4,ncdu: introduce key u to toggle human-readable
+Fixes #6084",1651000372
+774efeabf015c60a312c8de496579711a9c1248a,False,1,1,21,21,21.0,8,13,5,0.0,0.3333333333333333,1.0,4199,721,178,4,ncdu: introduce key u to toggle human-readable,1630396647
 f7fe1d766b686078fb429710852a0cf6bdd08179,False,1,2,64,44,32.0,24,40,16,0.0,0.0,0.9230769230769231,4996,842,193,8,"cmd/ncdu: highlight read errors instead of aborting - fixes #4014
 
 When a directory cannot be walk-ed because of a permissions error
@@ -1001,19 +1001,19 @@ Previously, the error would cause ncdu to abort.
 Now, directories with unreadable sub-directories are displayed in yellow and
 a message warns that the total may be underestimated.
 
-Unreadable directories themselves are displayed in red along with the error message"
+Unreadable directories themselves are displayed in red along with the error message",1609164492
 e00bf3d723c636633474629968046342e599e15e,False,1,1,68,68,68.0,22,46,24,0.05,0.05,1.0,3833,655,156,4,"ncdu: add sort by average size in directory
 
 Add keyboard shortcut 'A' which sort by average size in directory.
 
 If files/folders have same avgSize sort by actual size
 
-Fixes: #4699"
+Fixes: #4699",1603805318
 f89ff3872d81844d4d3a9b961cc780c95caeb727,False,1,1,81,81,81.0,32,49,17,0.06666666666666667,0.13333333333333333,1.0,3908,671,160,4,"ncdu: add toggle option for average size in directory - key 'a'
 
 Add toggle option to show average size in directory. This toggle
-function is for ncdu and is binded to key 'a'."
-5601652d653e4431eb7b2fd77d475c3079992f08,False,1,1,12,12,12.0,6,6,0,,,,4072,704,173,1,ncdu: add ! (errror) and . (unreadable) file flags to go with e (empty)
+function is for ncdu and is binded to key 'a'.",1604072034
+5601652d653e4431eb7b2fd77d475c3079992f08,False,1,1,12,12,12.0,6,6,0,,,,4072,704,173,1,ncdu: add ! (errror) and . (unreadable) file flags to go with e (empty),1609176346
 b22c4c43077f5ac3fb7aeb129afec7ea2e1a024a,False,1,3,415,408,138.33333333333334,227,1141,914,0.40865384615384615,0.9519230769230769,0.9230769230769231,3630,633,144,31,"http: fix, tidy and rework ready for release
 
   * Fix remaining problems
@@ -1022,26 +1022,26 @@ b22c4c43077f5ac3fb7aeb129afec7ea2e1a024a,False,1,3,415,408,138.33333333333334,22
   * Add single file operations
   * Add MimeType reading for objects
   * Add documentation
-  * Note go1.7+ is required to build"
+  * Note go1.7+ is required to build",1497990434
 e2f47ecdeb0fb28e48b51605cc7b1c21f10bd870,False,1,83,1452,223,17.49397590361446,1052,1084,32,0.0,1.0,1.0,297466,49512,8186,80,"docs: punctuation cleanup
 
-See #5538"
-5e0a30509cd6cbe94354eacf10ff6041314b0695,False,1,1,64,64,64.0,10,71,61,0.35294117647058826,0.6666666666666666,0.8627450980392157,2727,468,101,7,http: add --http-headers flag for setting arbitrary headers
-bcac8fdc8377af57e2f29bc30b5626052ceb3981,False,1,11,51,12,4.636363636363637,34,17,-17,1.0,0.5625,0.25,53828,9412,1654,20,Use http.NewRequestWithContext where possible after go1.13 minimum version
+See #5538",1634763379
+5e0a30509cd6cbe94354eacf10ff6041314b0695,False,1,1,64,64,64.0,10,71,61,0.35294117647058826,0.6666666666666666,0.8627450980392157,2727,468,101,7,http: add --http-headers flag for setting arbitrary headers,1565629464
+bcac8fdc8377af57e2f29bc30b5626052ceb3981,False,1,11,51,12,4.636363636363637,34,17,-17,1.0,0.5625,0.25,53828,9412,1654,20,Use http.NewRequestWithContext where possible after go1.13 minimum version,1612374087
 b783f09fc6961e82f0bfb9dff2126c24dae891c9,False,1,1,53,53,53.0,22,31,9,0.0,0.0,0.4444444444444444,3468,638,162,3,"config: show default and example values in correct input syntax instead of quoted and escaped golang string syntax
 
-See #5551"
+See #5551",1642341458
 6a9ae3201232f5761fc7603ceb158c29637b2454,False,1,4,1438,684,359.5,1076,1134,58,,,,6518,1216,290,64,"config: split up main file more and move tests into correct packages
 
 This splits config.go into ui.go for the user interface functions and
 authorize.go for the implementation of `rclone authorize`.
 
 It also moves the tests into the correct places (including one from
-obscure which was in the wrong place)."
+obscure which was in the wrong place).",1615483766
 3a2f748aebfe4763c375de45ff18584e8c7a886b,False,1,2,174,168,87.0,67,117,50,1.0,1.0,0.6538461538461539,9967,1526,351,16,"vfs: ensure names used in cache path are legal on current os
 
-Fixes #5360"
-78a9e7440aca190c609f8d8127cc9be1f9fe6202,False,1,20,2586,671,129.3,170,2716,2546,0.5621531631520533,0.8362930077691454,0.7780244173140954,14724,2196,516,151,union: Implement multiple writable remotes
+Fixes #5360",1629396890
+78a9e7440aca190c609f8d8127cc9be1f9fe6202,False,1,20,2586,671,129.3,170,2716,2546,0.5621531631520533,0.8362930077691454,0.7780244173140954,14724,2196,516,151,union: Implement multiple writable remotes,1584814284
 8243ff8bc88c5d8593c66aca10c03bfec17f5965,False,1,20,565,189,28.25,280,550,270,0.5103092783505154,0.8711340206185567,0.9536082474226805,52293,8323,1540,75,"accounting: isolate stats to groups
 
 Introduce stats groups that will isolate accounting for logically
@@ -1054,7 +1054,7 @@ used by default if no group is specified. This is operating mode for CLI
 usage which is just fire and forget operation.
 
 For running rclone as rc http server each request will create it's own
-group. Also there is an option to specify your own group."
+group. Also there is an option to specify your own group.",1564321699
 5c49096e116e4776f2f298992e2b92deecc37531,False,1,1,2,2,2.0,6,19,13,0.0,0.8,1.0,1417,340,47,1,"acounting: fix incorrect speed and transferTime in core/stats
 
 Before this change the code which summed up the existing transfers
@@ -1070,37 +1070,37 @@ problem.
 
 This was only a problem over the rc.
 
-Fixes #4569"
-c2600f9e4d9f02b21d6e6104aaf5b456e0a19710,False,1,1,1,1,1.0,0,4,4,0.0,0.75,1.0,1515,352,47,1,stats: fix missing computation of transferQueueSize when summing up statistics group - fixes #5749
+Fixes #4569",1600167678
+c2600f9e4d9f02b21d6e6104aaf5b456e0a19710,False,1,1,1,1,1.0,0,4,4,0.0,0.75,1.0,1515,352,47,1,stats: fix missing computation of transferQueueSize when summing up statistics group - fixes #5749,1636126380
 95ee14bb2c518d701a0e360c870f149293f7738a,False,1,1,382,382,382.0,0,823,823,0.5025466893039049,0.833616298811545,0.865874363327674,1646,297,53,20,"feat: Add lib/http
-lib/http provides an abstraction for a central http server that services can bind routes to"
-df451e1e702a852cbf476161ab8d25e19399a83f,False,1,1,10,10,10.0,2,8,6,0.0,1.0,1.0,5312,860,175,3,ftp: add --ftp-close-timeout flag for use with awkward ftp servers #3984
+lib/http provides an abstraction for a central http server that services can bind routes to",1619646855
+df451e1e702a852cbf476161ab8d25e19399a83f,False,1,1,10,10,10.0,2,8,6,0.0,1.0,1.0,5312,860,175,3,ftp: add --ftp-close-timeout flag for use with awkward ftp servers #3984,1615911442
 41876dd66987a209b54346066d2db6378a5decc0,False,1,2,149,132,74.5,46,130,84,0.6666666666666666,0.9090909090909091,0.8333333333333334,12803,1898,494,11,"touch: add support for touching files in directory, with options for recursive, filtering and dry-run/interactive
 
-Fixes #5301"
+Fixes #5301",1634750697
 67fae720d715a792dd8b5aa0f02332d2b21d393b,False,1,1,35,35,35.0,0,35,35,0.0,1.0,1.0,1444,267,46,1,"serve dlna: add more builtin mime types to cover standard audio/video
 
 Add a minimal number of mime types to augment go's built in types
 for environments which don't have access to a mime.types file (eg
 Termux on android)
 
-Fixes #3475"
+Fixes #3475",1566563448
 6337cc70d320868f47995fdf89290dd845f9b47d,False,1,2,90,84,45.0,12,78,66,0.2692307692307692,0.7692307692307693,0.7692307692307693,3064,512,99,8,"dlna: support for external srt subtitles
 
 Allows for filename.srt, filename.en.srt, etc., to be automatically associated with video.mp4 (or whatever) when playing over dlna.
 
 This is the ""modern"" method, which I've verified to work on VLC and in LG webOS 2.  There is a vendor specific mechanism for Samsung that I havn't been able to get working on my F series.
 
-Also made some minor corrections to logging and container IDs."
-9049bb62cac19058da7e4ca133c2aae67d8002d6,False,1,2,236,217,118.0,79,506,427,0.4452054794520548,0.684931506849315,0.952054794520548,20444,2855,321,11,"chunker: prevent chunk corruption, survive meta-like input"
-7aa2b4191c5a90ba82ac905ee89bec1ad023ad8d,False,1,1,687,687,687.0,393,689,296,0.12371134020618557,1.0,0.5876288659793815,9118,1429,70,13,chunker: reservations for future extensions
+Also made some minor corrections to logging and container IDs.",1570360736
+9049bb62cac19058da7e4ca133c2aae67d8002d6,False,1,2,236,217,118.0,79,506,427,0.4452054794520548,0.684931506849315,0.952054794520548,20444,2855,321,11,"chunker: prevent chunk corruption, survive meta-like input",1570959826
+7aa2b4191c5a90ba82ac905ee89bec1ad023ad8d,False,1,1,687,687,687.0,393,689,296,0.12371134020618557,1.0,0.5876288659793815,9118,1429,70,13,chunker: reservations for future extensions,1570959826
 35a4de20305d91a52148459542fc1aff719acf7b,False,1,1,65,65,65.0,12,134,122,0.26153846153846155,1.0,0.8769230769230769,10875,1703,96,2,"chunker: fix case-insensitive NewObject, test metadata detection #4902
 
 - fix test case FsNewObjectCaseInsensitive (PR #4830)
 - continue PR #4917, add comments in metadata detection code
 - add warning about metadata detection in user documentation
 - change metadata size limits, make room for future development
-- hide critical chunker parameters from command line"
+- hide critical chunker parameters from command line",1610306964
 59dba1de8896ff45e21ed613025e503838e12a7a,False,1,3,1888,1873,629.3333333333334,4,2084,2080,0.15611814345991562,0.40717299578059074,0.6919831223628692,19913,2823,300,18,"chunker: implementation + required fstest patch
 
 Note: chunker implements many irrelevant methods (UserInfo, Disconnect etc),
@@ -1152,8 +1152,8 @@ Change list:
 - robust cleanup of temporary chunks in Put
 - linear download strategy (no read-ahead, feature)
 - fix unexpected EOF in the box multipart uploader
-- throw error if destination ignores data"
-41ba1bba2bf53aa1385beeb50c6afdd0bd7e5aa4,False,1,1,241,241,241.0,216,394,178,0.07692307692307693,0.9230769230769231,0.9230769230769231,10392,1614,91,9,chunker: reduce length of temporary suffix
+- throw error if destination ignores data",1569325512
+41ba1bba2bf53aa1385beeb50c6afdd0bd7e5aa4,False,1,1,241,241,241.0,216,394,178,0.07692307692307693,0.9230769230769231,0.9230769230769231,10392,1614,91,9,chunker: reduce length of temporary suffix,1575910592
 9cc8ff4dd48dedcaf4bab25b94985758d3ad9c86,False,1,1,224,224,224.0,53,317,264,0.06493506493506493,0.7662337662337663,0.935064935064935,11481,1829,106,6,"chunker: partially implement no-rename transactions (#4675)
 
 Some storage providers e.g. S3 don't have an efficient rename operation.
@@ -1169,21 +1169,21 @@ We implement the new approach for uploads (Put operations).
 The chunker Move operation still uses the rename operation of
 underlying backend. Filling this gap is left for a later PR.
 
-Co-authored-by: Ivan Andreev <ivandeex@gmail.com>"
-910c80bd027848e1c90d78b6455e56912533ebbf,False,1,1,189,189,189.0,95,166,71,0.16363636363636364,0.9090909090909091,1.0,9907,1532,84,5,chunker: option to hash all files
-4ad62ec0166300a5d96a459bcd1c3b742a554ddf,False,1,2,196,119,98.0,0,196,196,0.8235294117647058,0.8235294117647058,0.8725490196078431,915,152,30,13,lib/http: Add authentication middleware with basic auth implementation
+Co-authored-by: Ivan Andreev <ivandeex@gmail.com>",1614509357
+910c80bd027848e1c90d78b6455e56912533ebbf,False,1,1,189,189,189.0,95,166,71,0.16363636363636364,0.9090909090909091,1.0,9907,1532,84,5,chunker: option to hash all files,1570959826
+4ad62ec0166300a5d96a459bcd1c3b742a554ddf,False,1,2,196,119,98.0,0,196,196,0.8235294117647058,0.8235294117647058,0.8725490196078431,915,152,30,13,lib/http: Add authentication middleware with basic auth implementation,1619646855
 4ea7c7aa47c64a0506a61728161bb1b53d5d3c0b,False,1,1,38,38,38.0,3,58,55,0.0,0.8775510204081632,1.0,5358,804,163,4,"crypt: add option to not encrypt data #1077 (#2981)
 
-Co-authored-by: Ivan Andreev <ivandeex@gmail.com>"
+Co-authored-by: Ivan Andreev <ivandeex@gmail.com>",1613522437
 77e55b82651c7877e1ec1c0fdaff65ed168c1353,False,1,2,34,24,17.0,4,67,63,0.1388888888888889,0.1388888888888889,1.0,11633,1713,161,2,"hashsum: Add flag --base64 flag - fixes #3663
 
 This flag can be used to output QuickXorHash in the same format as MS
-Graph API."
+Graph API.",1579541398
 78c3a5ccfa48effcafb9d1ef7ead6ca37daeb363,False,1,18,671,235,37.27777777777778,131,811,680,0.4393939393939394,0.39826839826839827,0.974025974025974,47645,8031,1663,72,"Add support for multiple hash types.
 
 Add support for multiple hash types with negotiation of common hash types for comparison.
 
-Manually rebased version of #277 (see discussion there)"
+Manually rebased version of #277 (see discussion there)",1452515973
 c8cfa43ccca1142349a91da7d5f781743134f8cf,False,1,6,276,152,46.0,75,319,244,0.2962962962962963,0.3950617283950617,0.8641975308641975,12748,1964,475,27,"Add a download flag to hashsum and related commands to force rclone to download and hash files locally
 
 This commit modifies the operations.hashSum function by adding an alternate code path. This code path is triggered by passing downloadFlag = True. When activated, rclone will download files from the remote and hash them locally. downloadFlag = False preserves the existing behavior of using the remote to retrieve the hash.
@@ -1192,12 +1192,12 @@ This commit modifies HashLister to support the new hashSum method as well as con
 
 The unit test operations_test.TestHashSums is modified to support this change and test the download functionality.
 
-The command functions hashsum, md5sum, sha1sum, and dbhashsum are modified to support this change.  A download flag has been added and an output-file flag has been added.  The output-file flag writes hashes to a file instead of stdout to avoid the need to redirect stdout."
+The command functions hashsum, md5sum, sha1sum, and dbhashsum are modified to support this change.  A download flag has been added and an output-file flag has been added.  The output-file flag writes hashes to a file instead of stdout to avoid the need to redirect stdout.",1609083644
 daf449b5f253d084c47e96a2995669d8f6db31da,False,1,12,1447,360,120.58333333333333,0,1864,1864,0.31220657276995306,0.5226917057902973,0.7496087636932708,7033,1228,273,54,"cmd/serve: add serve docker command (#5415)
 
 Fixes #4750
 
-Co-authored-by: Ivan Andreev <ivandeex@gmail.com>"
+Co-authored-by: Ivan Andreev <ivandeex@gmail.com>",1625950569
 35c210d36f28d94f3b41b696b2e9784c7ac2c7a7,False,1,1,240,240,240.0,92,265,173,0.06153846153846154,0.0,1.0,2586,451,91,21,"ftp: fix remaining issues to make tests work
 
   * fix root
@@ -1205,28 +1205,28 @@ Co-authored-by: Ivan Andreev <ivandeex@gmail.com>"
   * fix path munging
   * fix recursive dir loops after update
   * use fs.Trace and comment out debugs
-  * re-arrange and supplement docs"
-f122808d867039b7982108a022eb68870b3709f1,False,1,10,162,90,16.2,66,96,30,0.08333333333333333,0.25,0.0,71774,11410,2344,30,fs: add names to each config parameter so we can override them #3455
-b2f4f52b642ed6b9d70849156e93145d16956a9f,False,1,4,105,43,26.25,53,52,-1,1.0,0.4444444444444444,0.0,11423,1804,392,31,vfs cache: make logging consistent and remove some debug logging
+  * re-arrange and supplement docs",1495136976
+f122808d867039b7982108a022eb68870b3709f1,False,1,10,162,90,16.2,66,96,30,0.08333333333333333,0.25,0.0,71774,11410,2344,30,fs: add names to each config parameter so we can override them #3455,1620997664
+b2f4f52b642ed6b9d70849156e93145d16956a9f,False,1,4,105,43,26.25,53,52,-1,1.0,0.4444444444444444,0.0,11423,1804,392,31,vfs cache: make logging consistent and remove some debug logging,1594053173
 d8462109788ecfe29854c4c00a02313333d31d54,False,1,61,322,20,5.278688524590164,227,231,4,1.0,1.0,0.0,304578,48550,8893,152,"fs: Add context to NewFs #3257 #4685
 
 This adds a context.Context parameter to NewFs and related calls.
 
 This is necessary as part of reading config from the context -
-backends need to be able to read the global config."
+backends need to be able to read the global config.",1604945154
 2e21c58e6a6c69be8c2c46cda157d977388687c5,False,1,76,1375,200,18.092105263157894,847,1128,281,0.0,0.7009803921568627,0.0392156862745098,321013,51430,9991,252,"fs: deglobalise the config #4685
 
 This is done by making fs.Config private and attaching it to the
 context instead.
 
 The Config should be obtained with fs.GetConfig and fs.AddConfig
-should be used to get a new mutable config that can be changed."
+should be used to get a new mutable config that can be changed.",1606408812
 917cb4acb37131625bbbffa5f14208f150dcaa25,False,1,7,2826,858,403.7142857142857,1606,2355,749,0.5061425061425061,0.5626535626535627,0.918918918918919,14376,2227,505,158,"vfs: implement partial reads in --vfs-cache-mode full
 
 This allows reads to only read part of the file and it keeps on disk a
 cache of what parts of each file have been loaded.
 
-File data itself is kept in sparse files."
+File data itself is kept in sparse files.",1593514896
 4f8ee736b1132be541d5e67ed94b96895b22f501,False,1,1,9,9,9.0,2,7,5,0.0,0.0,0.0,3382,524,118,1,"vfs: make cache dir absolute before using it to fix path too long errors
 
 If --cache-dir is passed in as a relative path, then rclone will not
@@ -1235,8 +1235,8 @@ file names longer than 260 chars will fail when stored in the cache.
 
 This patch makes the --cache-dir path absolute before using it.
 
-See: https://forum.rclone.org/t/handling-of-long-paths-on-windows-260-characters/20913"
-18be4ad10d114bf0ca914dc551cd68af169ad6af,False,1,1,2,2,2.0,1,1,0,,,,3621,558,127,1,vfs: fix issue where empty dirs would build up in cache meta dir
+See: https://forum.rclone.org/t/handling-of-long-paths-on-windows-260-characters/20913",1607680851
+18be4ad10d114bf0ca914dc551cd68af169ad6af,False,1,1,2,2,2.0,1,1,0,,,,3621,558,127,1,vfs: fix issue where empty dirs would build up in cache meta dir,1629396890
 c665201b85483da1e6eceff18844d9d1741943e2,False,1,6,632,365,105.33333333333333,145,652,507,0.2262295081967213,0.24918032786885247,0.9540983606557377,13618,2158,495,36,"vfs: support synchronous cache space recovery upon ENOSPC
 
 This patch provides the support of synchronous cache space recovery
@@ -1277,24 +1277,24 @@ IOs. Rclone does not empty a write cache item until the file data
 is written back to the backend upon close. Allowing more cache
 space to be consumed by dirty cache items when the cache space is
 already running low would increase the risk of exhausting the cache
-space in a way that the vfs mount becomes unreadable."
+space in a way that the vfs mount becomes unreadable.",1598386326
 459cc70a50a61f20b336586678695cae207815c0,False,1,1,9,9,9.0,2,7,5,0.0,0.0,0.0,3399,528,119,1,"vfs: fix invalid cache path on windows when using :backend: as remote
 
 The initial ':' is included in the ad-hoc remote name, but is illegal character
 in Windows path. Replacing it with '^', which is legal in filesystems but illegal
 in regular remote names, so name conflict is avoided.
 
-Fixes #4544"
+Fixes #4544",1612023495
 e1d34ef427a229334e54b27f6eed8dc9c77f93aa,False,1,4,254,73,63.5,186,68,-118,0.922077922077922,0.961038961038961,0.0,3333,739,124,17,"mount: factor Mount into mountlib and tidy signal handling
 
 This factors common code from mount, cmount and mount2 into mountlib.
 
-It also uses atexit for unregistering the mount."
+It also uses atexit for unregistering the mount.",1595506118
 221dfc38825769a4911ed5b21e1760d3adf9bc88,False,1,8,1098,574,137.25,508,608,100,1.0,0.10084033613445378,1.0,2885,895,93,22,"mountlib: refactor before adding serve docker (#5415)
 
-Co-authored-by: Ivan Andreev <ivandeex@gmail.com>"
-737aed8412c28641fcd82755b74346b00e9e1cd9,False,1,1,42,42,42.0,7,35,28,0.36363636363636365,0.36363636363636365,0.9090909090909091,4527,724,167,6,Ensure items in srcEmptyDirs are actually empty
-dcc74fa404b1882236d991c3e4e03efeb8e352b7,False,1,1,22,22,22.0,8,60,52,0.07317073170731707,1.0,1.0,4693,756,176,3,move: fix delete-empty-src-dirs flag to delete all empty dirs on move - fixes #2372
+Co-authored-by: Ivan Andreev <ivandeex@gmail.com>",1625950569
+737aed8412c28641fcd82755b74346b00e9e1cd9,False,1,1,42,42,42.0,7,35,28,0.36363636363636365,0.36363636363636365,0.9090909090909091,4527,724,167,6,Ensure items in srcEmptyDirs are actually empty,1528106474
+dcc74fa404b1882236d991c3e4e03efeb8e352b7,False,1,1,22,22,22.0,8,60,52,0.07317073170731707,1.0,1.0,4693,756,176,3,move: fix delete-empty-src-dirs flag to delete all empty dirs on move - fixes #2372,1531820074
 b709f73aabcdb778aa49f6021938680c0afe15fc,False,1,2,438,430,219.0,229,209,-20,0.0,0.42857142857142855,1.0,8470,1401,280,14,"onedrive: rework to support Microsoft Graph
 
 The initial work on this was done by Oliver Heyme with updates from
@@ -1315,20 +1315,20 @@ Cnly:
 * Fix unchecked err
 
 Co-authored-by: Oliver Heyme <olihey@googlemail.com>
-Co-authored-by: Cnly <minecnly@gmail.com>"
-8a2d1dbe24fde2970aa8e643db9c36e8ace966c3,False,1,2,73,42,36.5,14,59,45,0.0,0.6,0.0,7606,1226,213,5,jottacloud: add support whitelabel versions
-92fa30a7874c51cff64ec050db90598a82f11916,False,1,2,71,62,35.5,40,31,-9,1.0,1.0,0.0,6515,1077,181,4,jottacloud: resume/deduplication fixups
-d51501938a355f95dd79995f52a59fc1509f1049,False,1,3,105,80,35.0,25,87,62,0.125,0.22916666666666666,1.0,5688,947,178,9,jottacloud: add link sharing support
-9db51117dc468fc358c99fb4985fcf2aa4f27831,False,1,1,6,6,6.0,3,3,0,,,,124,15,1,1,vfs: docs: add note on os specific option
+Co-authored-by: Cnly <minecnly@gmail.com>",1535900785
+8a2d1dbe24fde2970aa8e643db9c36e8ace966c3,False,1,2,73,42,36.5,14,59,45,0.0,0.6,0.0,7606,1226,213,5,jottacloud: add support whitelabel versions,1577975853
+92fa30a7874c51cff64ec050db90598a82f11916,False,1,2,71,62,35.5,40,31,-9,1.0,1.0,0.0,6515,1077,181,4,jottacloud: resume/deduplication fixups,1548588731
+d51501938a355f95dd79995f52a59fc1509f1049,False,1,3,105,80,35.0,25,87,62,0.125,0.22916666666666666,1.0,5688,947,178,9,jottacloud: add link sharing support,1536395937
+9db51117dc468fc358c99fb4985fcf2aa4f27831,False,1,1,6,6,6.0,3,3,0,,,,124,15,1,1,vfs: docs: add note on os specific option,1609163974
 6fa74340a0964af2704f8b874e09c541e15e4e8d,False,1,9,619,474,68.77777777777777,7,811,804,0.14583333333333334,0.4337121212121212,0.625,6141,1134,254,24,"cmd: rclone selfupdate (#5080)
 
 Implements self-update command
 Fixes #548
-Fixes #5076"
+Fixes #5076",1615491570
 23a0d4a1e62085e8a868855b0cf3791efcb23cee,False,1,6,140,58,23.333333333333332,89,119,30,0.37037037037037035,1.0,1.0,17382,2764,622,14,"config: fix issues with memory-only config file paths
-Fixes #5222"
-edfe183ba2f95120062596c98f23fe91e615b6f7,False,1,5,316,114,63.2,92,240,148,0.08421052631578947,0.09473684210526316,0.6526315789473685,10457,1586,310,23,fshttp: add DSCP support with --dscp for QoS with differentiated services
-1fe2460e38b5aa6bec7134075f169fbb24212e35,False,1,4,26,13,6.5,1,25,24,0.23076923076923078,0.23076923076923078,1.0,3653,646,169,3,selfupdate: abort if updating would discard fuse semantics
+Fixes #5222",1618244239
+edfe183ba2f95120062596c98f23fe91e615b6f7,False,1,5,316,114,63.2,92,240,148,0.08421052631578947,0.09473684210526316,0.6526315789473685,10457,1586,310,23,fshttp: add DSCP support with --dscp for QoS with differentiated services,1612981758
+1fe2460e38b5aa6bec7134075f169fbb24212e35,False,1,4,26,13,6.5,1,25,24,0.23076923076923078,0.23076923076923078,1.0,3653,646,169,3,selfupdate: abort if updating would discard fuse semantics,1616442924
 ef5c212f9bf84d8b173707e03ea55bdc0ef12fac,False,1,6,84,30,14.0,13,71,58,0.3448275862068966,1.0,1.0,4945,1033,177,8,"version: show build tags and type of executable
 
 This patch modifies the output of `rclone version`.
@@ -1340,17 +1340,17 @@ was linked as a static or dynamic executable.
 The new `go/tags` line shows a space separated list of build tags.
 
 The info about linking and build tags is also added to the output
-of the `core/version` RC endpoint."
-2bdbf00fa35f7ef5393027bae23840bf093b45e8,False,1,2,42,27,21.0,12,30,18,1.0,1.0,0.0,2458,434,115,1,selfupdate: add instructions on reverting the update (#5141)
+of the `core/version` RC endpoint.",1616442924
+2bdbf00fa35f7ef5393027bae23840bf093b45e8,False,1,2,42,27,21.0,12,30,18,1.0,1.0,0.0,2458,434,115,1,selfupdate: add instructions on reverting the update (#5141),1616098276
 e92cb9e8f81301b47a189502518af6a6f210bd03,False,1,7,288,189,41.142857142857146,23,265,242,0.4918032786885246,0.6311475409836066,0.9918032786885246,6078,1150,206,19,"mount: more user friendly mounting as network drive on windows
 Add --network-mode option to activate mounting as network drive without having to set volume prefix.
 Add support for automatic drive letter assignment (not specific to network drive mounting).
 Allow full network share unc path in --volname, which will also implicitely activate network drive mounting.
-Allow full network share unc path as mountpoint, which will also implicitely activate network drive mounting, and the specified path will be used as volume prefix and the remote will be mounted on an automatically assigned drive letter instead."
-b39fa54ab22e2fa551a6693c90e2d3c90e2d6fd4,False,1,2,20,10,10.0,11,9,-2,,,,2224,631,82,2,mount: allow mounting to root directory on windows
+Allow full network share unc path as mountpoint, which will also implicitely activate network drive mounting, and the specified path will be used as volume prefix and the remote will be mounted on an automatically assigned drive letter instead.",1609163974
+b39fa54ab22e2fa551a6693c90e2d3c90e2d6fd4,False,1,2,20,10,10.0,11,9,-2,,,,2224,631,82,2,mount: allow mounting to root directory on windows,1612817723
 e5aa92c9222d8d999c9bd0a20c2b6074aab43f5a,False,1,1,170,170,170.0,14,163,149,0.25806451612903225,0.25806451612903225,0.9032258064516129,8016,1300,95,4,"dropbox: add polling support - fixes #2949
 
-This implements polling support for the Dropbox backend. The Dropbox SDK dependency had to be updated due to an auth issue, which was fixed on Jan 12 2021. A secondary internal Dropbox service was created to handle unauthorized SDK requests, as is necessary when using the ListFolderLongpoll function/endpoint. The config variable was renamed to cfg to avoid potential conflicts with the imported config package."
+This implements polling support for the Dropbox backend. The Dropbox SDK dependency had to be updated due to an auth issue, which was fixed on Jan 12 2021. A secondary internal Dropbox service was created to handle unauthorized SDK requests, as is necessary when using the ListFolderLongpoll function/endpoint. The config variable was renamed to cfg to avoid potential conflicts with the imported config package.",1614159211
 fa0a1e7261f5981e5f9734e2fbda38236eeeba40,False,1,1,17,17,17.0,2,15,13,0.0,0.0,1.0,7253,1415,177,1,"s3: fix role_arn, credential_source, ...
 
 When the env_auth option is enabled, the AWS SDK's session constructor
@@ -1365,12 +1365,12 @@ config will be completely ignored.
 
 (The conditional creation and configuration of the stscreds Credential
 provider is complicated enough that it is not worth re-creating that
-logic.)"
+logic.)",1541681903
 bc4282e49ed7b4b7b3a01d6c6d518f15da4e80ee,False,1,2,1348,1347,674.0,0,1428,1428,0.3855165069222577,0.6379126730564431,0.919062832800852,6890,1035,208,25,"compress: added experimental compression remote - implements #2098, #1356, #675
 
 This remote implements transparent compression using gzip. Uses JSON as a for storing metadata.
 
-Co-authored-by: id01 <gaviniboom@gmail.com>"
+Co-authored-by: id01 <gaviniboom@gmail.com>",1605231119
 ccecfa9cb1cbc8da7e88974a8f29c86b67c202a7,False,1,1,299,299,299.0,312,303,-9,0.0,0.0,1.0,8818,1387,63,2,"chunker: finish meta-format before release
 
 changes:
@@ -1385,7 +1385,7 @@ changes:
 
 note:
 wdmrcompat used to write file name in the metadata, so maximum metadata
-size was 1K; removing it allows to cap size by 200 bytes now."
+size was 1K; removing it allows to cap size by 200 bytes now.",1569405813
 847625822fd5a65b4b9bc7714474c4c99d11623c,False,1,1,232,232,232.0,86,146,60,1.0,1.0,1.0,10766,1681,96,1,"chunker: improve detection of incompatible metadata #4917
 
 Before this patch chunker required that there is at least one
@@ -1395,7 +1395,7 @@ Now if chunker finds at least one potential temporary or control
 chunk, it marks found files as a suspected composite object.
 When later rclone tries a concrete operation on the object,
 it performs postponed metadata read and decides: is this a native
-composite object, incompatible metadata or just garbage."
-ba1daea07263f1e4b65898141cc3e9a0425e8803,False,1,5,2959,2378,591.8,0,3270,3270,0.23251748251748253,0.46503496503496505,0.6468531468531469,13836,2433,380,83,mailru: backend for mail.ru
-18c7549770d283bf6c5b04e1c8736ae7b33108a5,False,1,2,11,9,5.5,3,8,5,0.0,0.0,1.0,12456,2101,341,1,mailru: fix invalid timestamp on corrupted files (fixes #4229)
-d8239e01941b69fcdef2a62fad8791c393a058ec,False,1,1,43,43,43.0,38,5,-33,1.0,1.0,0.5714285714285714,11865,1925,332,4,mailru: remove deprecated protocol quirks
+composite object, incompatible metadata or just garbage.",1610304915
+ba1daea07263f1e4b65898141cc3e9a0425e8803,False,1,5,2959,2378,591.8,0,3270,3270,0.23251748251748253,0.46503496503496505,0.6468531468531469,13836,2433,380,83,mailru: backend for mail.ru,1568062576
+18c7549770d283bf6c5b04e1c8736ae7b33108a5,False,1,2,11,9,5.5,3,8,5,0.0,0.0,1.0,12456,2101,341,1,mailru: fix invalid timestamp on corrupted files (fixes #4229),1601122350
+d8239e01941b69fcdef2a62fad8791c393a058ec,False,1,1,43,43,43.0,38,5,-33,1.0,1.0,0.5714285714285714,11865,1925,332,4,mailru: remove deprecated protocol quirks,1601123912

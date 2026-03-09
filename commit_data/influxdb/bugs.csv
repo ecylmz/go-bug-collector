@@ -1,12 +1,12 @@
-sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message
+sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message,commit_timestamp
 f738344a81a913d8d93541423e7f29267f4f7735,False,1,6,488,447,81.33333333333333,266,941,675,0.0,0.8,0.9689655172413794,42806,6264,1285,25,"fix: limit number of concurrent optimized compactions (#26319) (#26358)
 
 Co-authored-by: Geoffrey Wossum <gwossum@influxdata.com>
 Co-authored-by: davidby-influx <dbyrne@influxdata.com>
-Closes: #26315"
+Closes: #26315",1746564990
 2a0353ffd2405da54f3ddd990d118d5ab4bb3136,False,1,6,621,420,103.5,2048,2586,538,0.0,0.0,0.9913793103448276,46858,6701,1577,39,"fix: reduce excessive CPU usage during compaction planning (#26432) (#26468)
 
-Co-authored-by: Geoffrey Wossum <gwossum@influxdata.com>"
+Co-authored-by: Geoffrey Wossum <gwossum@influxdata.com>",1748383209
 66f4dbeaadb4f8e3da5538dfef62bc7380a1a198,False,1,6,488,447,81.33333333333333,266,941,675,0.0,0.8,0.9689655172413794,42806,6264,1285,25,"fix: limit number of concurrent optimized compactions (#26319)
 
 Limit number of concurrent optimized compactions so that level compactions do not get starved. Starved level compactions result in a sudden increase in disk usage.
@@ -15,13 +15,13 @@ Add [data] max-concurrent-optimized-compactions for configuring maximum number o
 
 Co-authored-by: davidby-influx <dbyrne@influxdata.com>
 Co-authored-by: devanbenz <devandbenz@gmail.com>
-Closes: #26315"
+Closes: #26315",1746564159
 1fbe3190807467691b0c189b7316af172fd358c7,False,1,6,621,420,103.5,2048,2586,538,0.0,0.0,0.9913793103448276,46863,6701,1577,39,"fix: reduce excessive CPU usage during compaction planning (#26432)
 
-Co-authored-by: devanbenz <devandbenz@gmail.com>"
+Co-authored-by: devanbenz <devandbenz@gmail.com>",1748382920
 92efddbfbe4033118e357439d58da2d555c4740a,False,1,241,114532,13529,475.23651452282155,2,178666,178664,0.30846486283352126,0.5421552048102217,0.9186020293122886,581037,86374,16639,4248,"chore(tsdb): Initial commit of tsdb package
 
-* pulls in 1.x tsdb, compiles and passes test"
+* pulls in 1.x tsdb, compiles and passes test",1596471443
 1f66b3110efb691935ddde0d060800291c20ef5d,False,1,3,316,251,105.33333333333333,384,240,-144,0.9594594594594594,0.0,0.006756756756756757,36828,5565,508,2,"fix: upgrade influxql to latest version & fix predicate handling for show tag values metaqueries (#22500)
 
 * feat: Add WITH KEY to show tag keys
@@ -34,7 +34,7 @@ Co-authored-by: devanbenz <devandbenz@gmail.com>"
 
 * chore: add TODO for moving flux tests to flux repo
 
-Co-authored-by: Sam Arnold <sarnold@influxdata.com>"
+Co-authored-by: Sam Arnold <sarnold@influxdata.com>",1631898843
 1542d2404f604d1eb2e8d46c23157972ac564788,False,1,6,659,222,109.83333333333333,109,855,746,0.5158102766798419,0.7628458498023716,0.8063241106719368,3702,620,89,29,"feat: new recovery subcommand allows creating recovery user/token (#22590)
 
 * feat: influxd recovery-cli allows creating recovery user/token
@@ -53,7 +53,7 @@ Co-authored-by: Daniel Moran <danxmoran@gmail.com>
 
 * chore: revert onboarding refactor
 
-Co-authored-by: Daniel Moran <danxmoran@gmail.com>"
+Co-authored-by: Daniel Moran <danxmoran@gmail.com>",1633538256
 725794ef28adc38a47992c5984aa16bff924adcc,False,1,3,125,111,41.666666666666664,31,209,178,0.06896551724137931,1.0,0.9310344827586207,15465,2337,323,2,"feat: show measurement database and retention policy wildcards (#22396)
 
 * feat: show measurement database and retention policy wildcards
@@ -64,7 +64,7 @@ Closes #22390
 
 * test: this commit fails tests with empty database
 
-* fix: show measurements with one empty database"
+* fix: show measurements with one empty database",1633454415
 b970e359dca7f139a43ae2e9ddff189e65b946f9,False,1,13,578,325,44.46153846153846,248,420,172,0.32592592592592595,0.7407407407407407,1.0,71609,10616,1803,54,"feat: remaining storage metrics from OSS engine (#22938)
 
 * fix: simplify disk size tracking
@@ -83,7 +83,7 @@ b970e359dca7f139a43ae2e9ddff189e65b946f9,False,1,13,578,325,44.46153846153846,24
 
 * chore: fix go vet
 
-* fix: review comments"
+* fix: review comments",1638453706
 b72848d43626c353717260f5026fbe7671b7580d,False,1,3,804,525,268.0,187,873,686,0.3161764705882353,0.5147058823529411,0.9448529411764706,34108,4968,876,29,"feat: optimize saving changes to fields.idx (#23701) (#23728)
 
 Instead of writing out the complete fields.idx
@@ -95,7 +95,7 @@ closes https://github.com/influxdata/influxdb/issues/23653
 
 (cherry picked from commit 80c10c8c04d44afb709f7db84b5580fbb475fe3f)
 
-closes https://github.com/influxdata/influxdb/issues/23703"
+closes https://github.com/influxdata/influxdb/issues/23703",1663269314
 df448c654bc3262776916431aa3990e09227b223,False,1,4,220,93,55.0,1,295,294,0.05357142857142857,0.05357142857142857,0.5803571428571429,37006,5387,811,2,"feat(tsi): optimize series iteration (#22316)
 
 When using queries like 'select count(_seriesKey) from bigmeasurement`, we
@@ -103,14 +103,14 @@ should iterate over the tsi structures to serve the query instead of loading
 all the series into memory up front.
 
 
-Co-authored-by: Sam Arnold <sarnold@influxdata.com>"
+Co-authored-by: Sam Arnold <sarnold@influxdata.com>",1630072763
 eb1dd047062029e25311cfb8b429d1b27c2fb23f,False,1,4,305,221,76.25,168,325,157,0.3541666666666667,0.4583333333333333,0.9635416666666666,30961,4554,786,14,"fix: prevent differing field types in the same shard (#26025) (#26403)
 
 Co-authored-by: davidby-influx <72418212+davidby-influx@users.noreply.github.com>
 fix: lock MeasurementFields while validating (#25998)
 closes https://github.com/influxdata/influxdb/issues/23756
 fix: switch MeasurementFields from atomic.Value to sync.Map (#26022)
-closes https://github.com/influxdata/influxdb/issues/26001"
+closes https://github.com/influxdata/influxdb/issues/26001",1747072343
 4dd2d7cc7fa9c639a59a4629628ce50e5d68df9d,False,1,5,49,31,9.8,16,91,75,0.2916666666666667,0.7291666666666666,0.2708333333333333,14460,2440,131,4,"fix: hard limit on field size while parsing line protocol  (#22311)
 
 Per https://docs.influxdata.com/influxdb/v2.0/reference/syntax/line-protocol/#string
@@ -118,8 +118,8 @@ we only support 64KB, but 1MB is a more realistic practical limit. Before this c
 no enforcement of field value size.
 
 
-Co-authored-by: Sam Arnold <sarnold@influxdata.com>"
-4ca5174744aa856c9e8f78a2c21f0d65269653a5,False,1,1,15,15,15.0,3,12,9,0.0,0.0,0.0,8614,1370,349,1,feat: Add error joins/returns (#25996) (#26000) (#26398)
+Co-authored-by: Sam Arnold <sarnold@influxdata.com>",1630072877
+4ca5174744aa856c9e8f78a2c21f0d65269653a5,False,1,1,15,15,15.0,3,12,9,0.0,0.0,0.0,8614,1370,349,1,feat: Add error joins/returns (#25996) (#26000) (#26398),1747066742
 7b1763e791bc9a93d9bac80e721958d75dfdaccc,False,1,1,124,124,124.0,42,150,108,0.23728813559322035,0.23728813559322035,0.7627118644067796,10070,1536,78,0,"fix(tsdb): minimize lock contention when adding new fields or measurements (#21228)
 
 fields.idx frequent writes cause lock contention and fields.idx is recreated
@@ -132,7 +132,7 @@ Test verification of correct behavior by checking the fields.idx
 file matches the in-memory copy after heavily parallel measurement addition.
 
 
-Co-authored-by: davidby-influx <72418212+davidby-influx@users.noreply.github.com>"
+Co-authored-by: davidby-influx <72418212+davidby-influx@users.noreply.github.com>",1618510108
 e9e0f744fa892ce2f7936ff8f2bcbf286938c6a0,False,1,8,405,175,50.625,121,694,573,0.4988814317673378,0.9932885906040269,0.9642058165548099,61663,9088,1771,22,"fix: prevent retention service from hanging (#25121)
 
 Fix issue that can cause the retention service to hang waiting on a
@@ -159,7 +159,7 @@ This is a port of ad68ec8 from master-1.x to main-2.x.
 
 closes: #25118
 (cherry picked from commit b4bd607eefe4af3c38a73a5883866a66daecd7db)
-(cherry picked from commit cb8cfe3510cf6e147be7277cea1ba6ae2b74839b)"
+(cherry picked from commit cb8cfe3510cf6e147be7277cea1ba6ae2b74839b)",1719863000
 a78729b2ff5d7bca967efac8e63a2a6aed7b9e51,False,1,2,73,62,36.5,48,62,14,0.6666666666666666,0.6666666666666666,0.0,25856,3830,882,19,"chore: add logging to compaction (#21707) (#21900)
 
 Compaction logging will generate intermediate information on
@@ -170,7 +170,7 @@ Closes https://github.com/influxdata/influxdb/issues/21704
 
 (cherry picked from commit 73bdb2860e303702ef00be3c91bec8be92906589)
 
-Closes https://github.com/influxdata/influxdb/issues/21706"
+Closes https://github.com/influxdata/influxdb/issues/21706",1626885801
 b0ea3b66758a0718b7094627bd60d049d28a6ad8,False,1,17,774,231,45.529411764705884,41,1136,1095,0.47473200612557426,0.8973966309341501,0.9678407350689127,30599,4461,818,71,"feat: backup and restore sqlite database (#21584)
 
 * feat: new metadata backup endpoint
@@ -185,21 +185,21 @@ b0ea3b66758a0718b7094627bd60d049d28a6ad8,False,1,17,774,231,45.529411764705884,4
 
 * fix: use read lock instead of write lock on kv during backup
 
-* fix: use filepath.Join for temp dirs"
+* fix: use filepath.Join for temp dirs",1622675273
 77081081b50da337daba7445484a92e4466ecd01,False,1,4,394,155,98.5,0,472,472,0.36656891495601174,0.841642228739003,0.8651026392961877,2082,383,66,24,"feat: port check-schema and merge-schema from 1.x (#23921)
 
 * feat: add check-schema and merge-schema commands to influx inspect
 
 * chore: fix linting
 
-* fix: add warning if fields.idxl is encountered"
+* fix: add warning if fields.idxl is encountered",1669045190
 daaf8665bb036b0629be4282394b46eeaef0efc6,False,1,2,16,14,8.0,5,11,6,0.0,0.25,1.0,6485,1008,168,3,"fix: several minor quality issues (#23667)
 
 * fix: invalid assign to nil pointer
 
 * fix: close some files that were being left open
 
-* fix: lint"
+* fix: lint",1661284486
 7ad612b0d779f392d1997056ff961a9fc487bfe7,False,1,1,33,33,33.0,5,121,116,0.2604166666666667,0.2708333333333333,0.9895833333333334,9817,1558,397,5,"fix: discard excessive errors (#22379) (#22391)
 
 The tsmBatchKeyIterator discards excessive errors to avoid
@@ -211,7 +211,7 @@ closes https://github.com/influxdata/influxdb/issues/22328
 
 (cherry picked from commit e53f75e06d0d2576e6db0175fe96c486014663a0)
 
-closes https://github.com/influxdata/influxdb/issues/22381"
+closes https://github.com/influxdata/influxdb/issues/22381",1630706256
 903d30d65894cd282eae91c4026e39fe57a7b538,False,1,5,47,24,9.4,1217,992,-225,1.0,0.46226415094339623,0.0,21989,3284,752,11,"test: use `T.TempDir` to create temporary test directory (#23258)
 
 * test: use `T.TempDir` to create temporary test directory
@@ -291,18 +291,18 @@ Signed-off-by: Eng Zer Jun <engzerjun@gmail.com>
 
 ---------
 
-Signed-off-by: Eng Zer Jun <engzerjun@gmail.com>"
+Signed-off-by: Eng Zer Jun <engzerjun@gmail.com>",1679430131
 a1d0b52897e762d917f3f9038f473d3d97e697bf,False,1,1,2,2,2.0,1,1,0,,0.0,,417,62,13,1,"Allow lower priority compactions to use excess capacity
 
 If there is a backlog of level 3 and 4 compacitons, but few level 1
-and 2 compactions, allow them to use some excess capacity."
-db204f3eb7b96ac3bb643b0e6decca125437ce84,False,1,6,138,79,23.0,47,100,53,0.11428571428571428,0.2,0.9714285714285714,27214,4065,881,10,Default concurrent compactions to 50% of available cores
+and 2 compactions, allow them to use some excess capacity.",1507126304
+db204f3eb7b96ac3bb643b0e6decca125437ce84,False,1,6,138,79,23.0,47,100,53,0.11428571428571428,0.2,0.9714285714285714,27214,4065,881,10,Default concurrent compactions to 50% of available cores,1506019691
 377c40f122daeb73b3f06a00512b2cc918355c86,False,1,1,414,414,414.0,192,223,31,1.0,1.0,0.0,8353,1181,251,10,"Add stats for active compactions
 
 Unify logic around compaction execution to a single place.
 
 Also report on the error stats that we track. Previously they were not
-emitted in the stats output."
+emitted in the stats output.",1476825141
 0264966f5c374ab2a444654c69721433ae77f647,False,1,2,171,105,85.5,33,370,337,0.05653710247349823,0.3392226148409894,1.0,12627,1912,460,3,"Add index optimize planning step
 
 For larger datasets, it's possible for shards to get into a state where
@@ -322,7 +322,7 @@ file containing the full series data for that shard and a subset of the
 total set of keys in the shard.
 
 This allows a shard to only store a series key once in the shard reducing
-storage size as well allows a shard to only load each key once at startup."
+storage size as well allows a shard to only load each key once at startup.",1468517556
 ae821f4e2d3253b4d74863ec1a1e01fbcfa4d981,False,1,6,380,259,63.333333333333336,110,370,260,0.5842696629213483,0.4943820224719101,0.8876404494382022,27800,4102,886,23,"Rework compaction scheduling
 
 This changes the compaction scheduling to better utilize the available
@@ -334,7 +334,7 @@ at the prior level are running more quickly, a large backlog could accumlate.
 
 This now moves the planning to a single goroutine that plans each level in
 succession and starts as many groups as it can.  When one group finishes,
-the planning will start the next group for the level."
+the planning will start the next group for the level.",1507049293
 85842503bee003a7bb7025f9924f6fcb13b6d8ac,False,1,2,23,16,11.5,8,15,7,0.8571428571428571,1.0,0.0,17759,2557,566,7,"Fix deadlock in engine/measurement fields
 
 The OnReplace func ends up trying to acquire locks on MeasurementFields.  When
@@ -346,21 +346,21 @@ to disable compactions.  This creates a deadlock.
 To fix this, the OnReplace callback is moved to a function param to allow only Replace
 calls as part of a compaction to invoke it as opposed to both snapshotting and compactions.
 
-Fixes #8713"
+Fixes #8713",1502923420
 71071ed67a19d533fb6a685e2790c217314319c9,False,1,2,164,162,82.0,78,86,8,0.0,0.0,1.0,20065,2808,566,17,"Add compaction backlog stat
 
 This gives an indication as to whether compactions are backed up
-or not."
-a74d296200485f644a028d10942613d222283b4d,False,1,8,46,16,5.75,22,26,4,1.0,1.0,1.0,40673,5935,1238,11,"use underscore vs period, fix doc comment, add database name to CQ"
+or not.",1507049294
+a74d296200485f644a028d10942613d222283b4d,False,1,8,46,16,5.75,22,26,4,1.0,1.0,1.0,40673,5935,1238,11,"use underscore vs period, fix doc comment, add database name to CQ",1519664923
 96e44cac735baa4d7a4d40ee4f9ff9e9658a2b59,False,1,3,114,51,38.0,243,641,398,0.14545454545454545,0.9922077922077922,0.8545454545454545,28237,4082,949,27,"fix: PlanOptimize is running too frequently (#26211)
 
 PlanOptimize is being checked far too frequently. This PR is the simplest change that can be made in order to ensure that PlanOptimize is not being ran too much. To alleviate the frequency I've added a lastWrite parameter to PlanOptimize and added an additional test that mocks the edge cause out in the wild that led to this PR.
 
-Previously in test cases for PlanOptimize I was not checked to see if certain cases would be picked up by Plan I've adjusted a few of the existing test cases after modifying Plan and PlanOptimize to have the same lastWrite time."
+Previously in test cases for PlanOptimize I was not checked to see if certain cases would be picked up by Plan I've adjusted a few of the existing test cases after modifying Plan and PlanOptimize to have the same lastWrite time.",1744132949
 2d85ff1d09c13a666ed3bd04b2197ea98655d845,False,1,2,125,109,62.5,116,145,29,0.8333333333333334,1.0,0.0,21849,3272,753,18,"Adjust compaction planning
 
 Increase level 1 min criteria, fix only fast compactions getting run,
-and fix very large generations getting included in optimize plans."
+and fix very large generations getting included in optimize plans.",1513316494
 d8bcbd894c10efcb00df439ab73c03f1d26abfaf,False,1,3,43,25,14.333333333333334,32,201,169,0.1953125,0.9921875,0.90625,26969,3958,909,8,"feat: Add CompactPointsPerBlock config opt (#26100)
 
 * feat: Add CompactPointsPerBlock config opt
@@ -370,7 +370,7 @@ to 10,000. We had discovered that with the points per block set to
 100,000 compacted TSM files were increasing. After modifying the
 points per block to 10,000 we noticed that the file sizes decreased.
 The value has been set as a parameter that can be adjusted by administrators
-this allows there to be some tuning if compression problems are encountered."
+this allows there to be some tuning if compression problems are encountered.",1741208346
 f04105bedecf42eaa5ec6e0f3c6d629f6a995f36,False,1,3,112,82,37.333333333333336,208,664,456,0.015873015873015872,1.0,0.955026455026455,26504,3911,898,7,"feat: Modify optimized compaction to cover edge cases (#25594)
 
 * feat: Modify optimized compaction to cover edge cases
@@ -384,7 +384,7 @@ cases that were not previously accounted for:
 many fragmented files (under 2 GB and under aggressive
 point per block count)
 
-closes https://github.com/influxdata/influxdb/issues/25666"
+closes https://github.com/influxdata/influxdb/issues/25666",1736887869
 7d3efe1e9e9f6efa92a41da1fc225886362d41a2,False,1,2,68,44,34.0,73,149,76,0.05555555555555555,0.0,1.0,26567,3918,924,4,"fix: avoid compaction queue stats flutter. (#22195)
 
 When the compaction planner runs, if it cannot acquire
@@ -394,15 +394,15 @@ engine statistics for compactions queues to zero,
 which is incorrect. Instead, use the length of pending
 files which would have been returned.
 
-closes https://github.com/influxdata/influxdb/issues/22138"
-25206c729c138ad5bb15e56d6f95bc05cf099894,False,1,6,578,313,96.33333333333333,202,964,762,0.07881773399014778,0.2561576354679803,0.9688013136288999,13320,2065,354,35,Add compactor type
-52bec1f7f6c0014b6f86720d65d6226d70fe82c2,False,1,2,44,38,22.0,25,31,6,1.0,1.0,1.0,3500,593,140,7,Change TSM file naming to generation-sequence.tsm
+closes https://github.com/influxdata/influxdb/issues/22138",1629130867
+25206c729c138ad5bb15e56d6f95bc05cf099894,False,1,6,578,313,96.33333333333333,202,964,762,0.07881773399014778,0.2561576354679803,0.9688013136288999,13320,2065,354,35,Add compactor type,1448380207
+52bec1f7f6c0014b6f86720d65d6226d70fe82c2,False,1,2,44,38,22.0,25,31,6,1.0,1.0,1.0,3500,593,140,7,Change TSM file naming to generation-sequence.tsm,1449255093
 8c2ff02ede9197086efd525ad52763defacbd05e,False,1,2,497,399,248.5,309,188,-121,1.0,1.0,0.5483870967741935,1618,249,46,20,"fix(influx-tools): Reimplement compact-shard using tsm1.Compactor
 
 * utilizes `tsm1.Compactor#CompactFull` to fully compact the specified
   shard
 * the WAL is unmodified
-* added `-verbose` option to show progress as TSM files are opened"
+* added `-verbose` option to show progress as TSM files are opened",1530549937
 b4bd607eefe4af3c38a73a5883866a66daecd7db,False,1,9,403,165,44.77777777777778,119,696,577,0.5011037527593819,0.9337748344370861,0.9646799116997793,63695,9241,1849,21,"fix: prevent retention service from hanging (#25055)
 
 * fix: prevent retention service from hanging
@@ -427,14 +427,14 @@ delete the shards, which can be observed in the logs for manual
 intervention. Other shards can still be deleted by the retention service
 even if a shard is stuck with readers.
 
-closes: #25054"
-0dc539344122bf661741de4e7a994280bedc5b6c,False,1,3,6,2,2.0,259,259,0,,,,20923,3007,653,4,tsm/cache: Remove unused function parameter
+closes: #25054",1718294837
+0dc539344122bf661741de4e7a994280bedc5b6c,False,1,3,6,2,2.0,259,259,0,,,,20923,3007,653,4,tsm/cache: Remove unused function parameter,1528928557
 06226d6fd399ac4fae07494c8e411fb8a9335d47,False,1,1,18,18,18.0,3,29,26,0.0,0.2,1.0,6624,1126,298,2,"Handle orphan lower level TSM files during full planning
 
 Some files seem to get orphan behind higher levels.  This causes
 the compactions to get blocked as the lowere level files will not
 get picked up by their lower level planners.  This allows the full
-plan to identify them and pull them into their plans."
+plan to identify them and pull them into their plans.",1507126394
 3d1c0cd9812e2f6b86c50ed131889e7828d95991,False,1,2,97,82,48.5,118,188,70,0.0,0.4166666666666667,1.0,15732,2361,589,9,"Don't return compaction plans for files already part of a plan
 
 The compactor prevents the same file from being compacted by different
@@ -442,12 +442,12 @@ compaction runs, but it can result in warning errors in the logs that
 are confusing.
 
 This adds compaction plan tracking to the planner so that files are
-only part of one plan at a given time."
-0eb6564e7921e661d37f9de4c180770418f3e01d,False,1,3,17,8,5.666666666666667,1,17,16,0.4444444444444444,1.0,0.4444444444444444,23101,3447,778,2,Add extension point to swap out the compaction planner
+only part of one plan at a given time.",1493850717
+0eb6564e7921e661d37f9de4c180770418f3e01d,False,1,3,17,8,5.666666666666667,1,17,16,0.4444444444444444,1.0,0.4444444444444444,23101,3447,778,2,Add extension point to swap out the compaction planner,1521669060
 0ee58c208aac4ff8e47d213a9df9a3fe0f0c504e,False,1,1,31,31,31.0,13,18,5,0.0,0.5,1.0,8482,1201,258,3,"Switch time.Sleep to time.Ticker
 
-Avoids an allocation when calling time.Sleep"
-fd2a409ea3a55d5f7b3712c4543658c54d9bc9e4,False,1,3,192,149,64.0,48,346,298,0.0,0.5248868778280543,1.0,7791,1198,167,6,Skip decoding blocks that are already full
+Avoids an allocation when calling time.Sleep",1479251635
+fd2a409ea3a55d5f7b3712c4543658c54d9bc9e4,False,1,3,192,149,64.0,48,346,298,0.0,0.5248868778280543,1.0,7791,1198,167,6,Skip decoding blocks that are already full,1450381625
 800970490a715d2b6eb5a0a7fed7fb4e9707af5d,False,1,2,60,35,30.0,61,90,29,1.0,1.0,0.18181818181818182,26009,3788,886,10,"fix: move aside TSM file on errBlockRead (#25839)
 
 The error type check for errBlockRead was incorrect,
@@ -456,15 +456,15 @@ that error was encountered. Use errors.Join,
 errors.Is, and errors.As to correctly unwrap multiple
 errors.
 
-Closes https://github.com/influxdata/influxdb/issues/25838"
-425a5e5f1757f6e7c81544306a44fb29773db748,False,1,1,90,90,90.0,43,48,5,0.0,0.25,1.0,14442,2036,423,13,tsm1: prevent WaitGroup race
-4a03469662e14d83ff3ba1dfb0a42ccaa149e50e,False,1,6,438,198,73.0,134,373,239,0.1,0.0,0.8933333333333333,15823,2486,555,38,Integrate TSM compaction into dev engine
+Closes https://github.com/influxdata/influxdb/issues/25838",1737571591
+425a5e5f1757f6e7c81544306a44fb29773db748,False,1,1,90,90,90.0,43,48,5,0.0,0.25,1.0,14442,2036,423,13,tsm1: prevent WaitGroup race,1516212491
+4a03469662e14d83ff3ba1dfb0a42ccaa149e50e,False,1,6,438,198,73.0,134,373,239,0.1,0.0,0.8933333333333333,15823,2486,555,38,Integrate TSM compaction into dev engine,1449074723
 97e0d496a67a8d86180c251234177287c7a74b06,False,1,4,80,50,20.0,1,178,177,0.171875,0.484375,1.0,29396,4429,761,6,"Add capability to force a full compaction
 
 This adds the capability to the engine to force a full compaction
 to be scheduled.  When called, it snapshots any data in the cache,
 aborts running compactions and prevents level plans from returning
-level plans."
+level plans.",1510755267
 e974165d252a1904b5ede5b88104301b32842b81,False,1,2,159,93,79.5,113,176,63,0.39622641509433965,0.9622641509433962,0.9433962264150944,11953,1837,449,8,"fix: do not leak file handles from Compactor.write (#25725)
 
 There are a number of code paths in Compactor.write which
@@ -472,8 +472,8 @@ on error can lead to leaked file handles to temporary files.
 This, in turn, prevents the removal of the temporary files until
 InfluxDB is rebooted, releasing the file handles.
 
-closes https://github.com/influxdata/influxdb/issues/25724"
-1610ae57271fcfbbd276842542428e3c2ae0eafc,False,1,1,17,17,17.0,5,102,97,0.03571428571428571,0.03571428571428571,1.0,6493,1099,290,6,Don't return tsm files part of a compaction plan
+closes https://github.com/influxdata/influxdb/issues/25724",1735944221
+1610ae57271fcfbbd276842542428e3c2ae0eafc,False,1,1,17,17,17.0,5,102,97,0.03571428571428571,0.03571428571428571,1.0,6493,1099,290,6,Don't return tsm files part of a compaction plan,1507049293
 73bdb2860e303702ef00be3c91bec8be92906589,False,1,3,79,66,26.333333333333332,49,66,17,0.5454545454545454,0.5454545454545454,0.0,28123,4161,970,20,"chore: add logging to compaction (#21707)
 
 Compaction logging will generate intermediate information on 
@@ -482,8 +482,8 @@ improve some of the anti-entropy messages related to compaction.
 
 This will also apply to `influx_tools compact`
 
-Closes https://github.com/influxdata/influxdb/issues/21704"
-35a64dee993ea1855dcb5bfe0d43548b7a74172b,False,1,3,82,34,27.333333333333332,98,115,17,1.0,1.0,0.0,29402,4375,1035,19,Inject tsm file naming.
+Closes https://github.com/influxdata/influxdb/issues/21704",1623882524
+35a64dee993ea1855dcb5bfe0d43548b7a74172b,False,1,3,82,34,27.333333333333332,98,115,17,1.0,1.0,0.0,29402,4375,1035,19,Inject tsm file naming.,1526316398
 e9313876ab3377849ee803644de962f8cb9519f8,False,1,42,3769,1292,89.73809523809524,438,3997,3559,0.054524361948955914,0.24477958236658934,0.8990719257540604,185523,27340,2730,226,"EXPLAIN ANALYZE
 
 * Introduces EXPLAIN ANALYZE command, which
@@ -511,36 +511,36 @@ additional documentation and remove unused API
 
 use influxdb/pkg/testing/assert
 
-remove testify reference"
+remove testify reference",1508511697
 9a2357c2c036012190e0cf9dea951063d58cad03,False,1,38,1840,335,48.421052631578945,2849,2962,113,0.9310344827586207,1.0,0.5862068965517241,252441,37257,4589,133,"Separate the query engine into a separate package
 
 This change provides a clear separation between the query engine
 mechanics and the query language so that the language can be parsed and
-dealt with separate from the query engine itself."
+dealt with separate from the query engine itself.",1502908723
 5149774e223d7d588d7f2e2641f292a3b98350ec,False,1,1,15,15,15.0,3,12,9,0.0,0.0,0.0,8777,1376,350,1,"feat: Add error joins/returns (#25996) (#26000)
 
 This pr adds err handling for branch that did not specify os file removal errors
 previously. This is part of EAR #5819.
 
-(cherry picked from commit 306a184a8dfc76a27a0214186895ede25b5a5f0e)"
+(cherry picked from commit 306a184a8dfc76a27a0214186895ede25b5a5f0e)",1739375780
 1833475c098512cec95f87503be6873cadeec557,False,1,2,24,13,12.0,12,12,0,1.0,1.0,0.0,15979,2397,599,2,"Fix TSM tmp files leaking
 
 TMP files could leak when compactions failed for various reasons. They
 were also being deleted inadvertently when compactions were disabled causing
-other errors to be reported in the logs."
-c54a3da0cada5c7cc0f60a38c588fd9d5077c357,False,1,6,128,48,21.333333333333332,69,228,159,0.3902439024390244,0.0,1.0,16676,2463,525,14,Implement delete series/measurement
+other errors to be reported in the logs.",1495486278
+c54a3da0cada5c7cc0f60a38c588fd9d5077c357,False,1,6,128,48,21.333333333333332,69,228,159,0.3902439024390244,0.0,1.0,16676,2463,525,14,Implement delete series/measurement,1449245426
 306a184a8dfc76a27a0214186895ede25b5a5f0e,False,1,1,15,15,15.0,3,12,9,0.0,0.0,0.0,8852,1389,351,1,"feat: Add error joins/returns (#25996)
 
 This pr adds err handling for branch that did not specify os file removal errors
-previously. This is part of EAR #5819."
+previously. This is part of EAR #5819.",1739297725
 e265d150be231ba61c9780230329d9e248a5ed9e,False,1,1,6,6,6.0,0,7,7,0.0,0.0,0.0,6080,1031,281,1,"Fix leaking tmp file when large compaction aborted
 
 If a large compaction was running and was aborted. It could would leave
 some tmp files around for files that it had fully written.  The current
 active file was cleaned up, but already completed ones would not.  This
-would occur when a TSM file needed to rollover due to size."
-0748d28986b1d16159c0b75cf25265276ff844f7,False,1,1,28,28,28.0,0,28,28,0.5833333333333334,1.0,1.0,5819,985,269,3,Ensure tmp files cleaned up when compaction disabled
-101af8998770489b337375c1db5ae4f94757fade,False,1,1,25,25,25.0,19,15,-4,0.4,0.0,0.0,5732,975,267,4,Update CHANGELOG
+would occur when a TSM file needed to rollover due to size.",1503356697
+0748d28986b1d16159c0b75cf25265276ff844f7,False,1,1,28,28,28.0,0,28,28,0.5833333333333334,1.0,1.0,5819,985,269,3,Ensure tmp files cleaned up when compaction disabled,1499195063
+101af8998770489b337375c1db5ae4f94757fade,False,1,1,25,25,25.0,19,15,-4,0.4,0.0,0.0,5732,975,267,4,Update CHANGELOG,1499268941
 8711e2d6cc64682f77215af1377dc58f9545bb0c,False,1,4,305,221,76.25,168,325,157,0.3541666666666667,0.4583333333333333,0.9635416666666666,30961,4554,786,14,"fix: prevent differing field types in the same shard (#26025)
 
 * fix: lock MeasurementFields while validating (#25998)
@@ -564,8 +564,8 @@ from a mutex and atomic.Value to a sync.Map
 
 (cherry picked from commit b617eb24a767c9adfcfd490e0d543bd5924c2052)
 
-closes https://github.com/influxdata/influxdb/issues/26001"
-2def219f093c35b5d82b90cab692f5df15133cf5,False,1,1,574,574,574.0,440,573,133,0.0,0.0,1.0,8215,1280,71,25,Refactor Shard to further protect Engine
+closes https://github.com/influxdata/influxdb/issues/26001",1739564890
+2def219f093c35b5d82b90cab692f5df15133cf5,False,1,1,574,574,574.0,440,573,133,0.0,0.0,1.0,8215,1280,71,25,Refactor Shard to further protect Engine,1506357810
 5a20a835a55d9bd77810b1d47a0699dee18c42b9,False,1,3,160,123,53.333333333333336,95,247,152,0.20754716981132076,0.3270440251572327,0.9622641509433962,30544,4398,808,5,"fix: lock MeasurementFields while validating (#25998)
 
 There was a window where a race between writes with
@@ -573,14 +573,14 @@ differing types for the same field were being validated.
 Lock the  MeasurementFields struct during field
 validation to avoid this.
 
-closes https://github.com/influxdata/influxdb/issues/23756"
+closes https://github.com/influxdata/influxdb/issues/23756",1739475214
 743946fafbad7414ae67297889b1188f8608a9bc,False,1,8,370,159,46.25,128,578,450,0.31343283582089554,0.6626865671641791,1.0,35458,5252,1007,18,"models: Add FieldIterator type
 
 The FieldIterator is used to scan over the fields of a point, providing
 information, and delaying parsing/decoding the value until it is needed.
 This change uses this new type to avoid the allocation of a map for the
 fields which is then thrown away as soon as the points get converted
-into columns within the datastore."
+into columns within the datastore.",1475533821
 ff1270dfeb32de5e9f322b7f6a323784ba454894,False,1,3,60,24,20.0,178,34,-144,0.8706896551724138,0.29310344827586204,0.0,26274,3820,852,4,"Fix dropping fields created data corruption
 
 The Point is intended to be immutable after being parsed since it
@@ -589,20 +589,20 @@ corrupted data can result if one goroutine is delete the field
 while another is marshaling the underlying byte slices.
 
 To avoid this, the shard will just skip invalid fields and series
-instead of trying to mutate them by deleting them."
+instead of trying to mutate them by deleting them.",1491591522
 29a62e4f74b3cd22a708e849e5eec4b310d532db,False,1,3,188,113,62.666666666666664,58,130,72,0.0,0.06521739130434782,0.9347826086956522,10388,1610,91,4,"Add FieldValidator to allow custom validations on measurements
 
 No appreciable changes in benchmark results. It seems like this
 function is less than 4% of cpu time in the write workloads in the
-benchmarks at least."
+benchmarks at least.",1524536487
 6d22e69ef178abfeb546c736e367312989bbd49e,False,1,4,44,31,11.0,54,96,42,0.0,1.0,0.16666666666666666,12269,1927,119,3,"fix: hard limit on field size while parsing line protocol (#21843)
 
 Per https://docs.influxdata.com/enterprise_influxdb/v1.9/write_protocols/line_protocol_reference/
 we only support 64KB, but 1MB is a more realistic practical limit. Before this commit there was
 no enforcement of field value size.
 
-Closes #21841"
-d91e6eabac9cb89be9630efb7e54169cd1cf3d32,False,1,5,172,74,34.4,76,132,56,0.0,1.0,0.0,27152,4032,669,14,Add max-values-per-tag to inmem index.
+Closes #21841",1626297069
+d91e6eabac9cb89be9630efb7e54169cd1cf3d32,False,1,5,172,74,34.4,76,132,56,0.0,1.0,0.0,27152,4032,669,14,Add max-values-per-tag to inmem index.,1486404853
 80c10c8c04d44afb709f7db84b5580fbb475fe3f,False,1,4,812,531,203.0,187,872,685,0.36900369003690037,0.5129151291512916,0.948339483394834,34201,4901,926,32,"feat: optimize saving changes to fields.idx (#23701)
 
 Instead of writing out the complete fields.idx
@@ -610,11 +610,11 @@ file when it changes, write out incremental
 changes that will be applied to the file on
 close and startup.
 
-closes https://github.com/influxdata/influxdb/issues/23653"
+closes https://github.com/influxdata/influxdb/issues/23653",1663186449
 8097e817f61a186807b7e6d9a24400787aae0f2c,False,1,2,18,14,9.0,7,15,8,0.0,0.0,1.0,13926,2063,284,3,"prefix partial write errors with `partial write:`
 
 NOTE: parser errors (via http API) are also transformed into
-PartialWriteError"
+PartialWriteError",1493402414
 bbecb3f03d2123cd73e1cafe947c5b3d3afc6067,False,1,3,183,138,61.0,65,179,114,0.036585365853658534,0.0,0.9390243902439024,14130,2115,325,6,"Drop points that would execeed limits
 
 This changes the behavior of the max-series-per-database and
@@ -624,42 +624,42 @@ batch would fail and return and 500 error to the client.
 
 This now will write the allow points and return a `partial write`
 error indicating some of the points were dropped, how many were
-dropped and one of the problem measureent and tags."
-4c202eea09aa5a475f2b5f702bf266ca548adcb4,False,1,1,5,5,5.0,0,7,7,,,,7727,1183,132,0,Re-check field type under write lock.
+dropped and one of the problem measureent and tags.",1476121335
+4c202eea09aa5a475f2b5f702bf266ca548adcb4,False,1,1,5,5,5.0,0,7,7,,,,7727,1183,132,0,Re-check field type under write lock.,1488559663
 b617eb24a767c9adfcfd490e0d543bd5924c2052,False,1,2,155,108,77.5,79,86,7,1.0,1.0,1.0,13044,1930,266,9,"fix: switch MeasurementFields from atomic.Value to sync.Map (#26022)
 
 Simplify and speed up synchronization for
 MeasurementFields structures by switching
-from a mutex and atomic.Value to a sync.Map"
+from a mutex and atomic.Value to a sync.Map",1739494405
 5f576331d3aea40b9ee03d54c248cfe5ee3a2b1e,False,1,3,78,69,26.0,66,54,-12,0.0,0.0,0.0,30186,4359,808,4,"chore: refactor field creation for maintainability
 
 Address review comments in the port work of the
 field creation. Also fixes one bug in returning the wrong
-error."
+error.",1739916011
 dd1c03081501b49d54c428b49650c024bc1a9f55,False,1,2,6,4,3.0,19,19,0,,,,22366,3267,448,1,"Remove limit count param on fields
 
-It's not used anymore."
-0e715b5b74a4a04faf7c67f2d5e9847239f35471,False,1,1,62,62,62.0,39,23,-16,,,,7260,1108,80,0,Reduce lock contention on MeasurementFields
+It's not used anymore.",1511374654
+0e715b5b74a4a04faf7c67f2d5e9847239f35471,False,1,1,62,62,62.0,39,23,-16,,,,7260,1108,80,0,Reduce lock contention on MeasurementFields,1492712922
 7c9ff604133715ea483635882bb1a76406be8c3d,False,1,1,106,106,106.0,67,39,-28,,,,9599,1465,75,0,"tsdb/shard: reduce measurement field copying
 
 Removes cloning measurement fields on writes, instead atomically swaps out
 measurement field sets when fields are added (with new overhead of copying
-existing fields whenever a new one is added)."
+existing fields whenever a new one is added).",1541209757
 98a76a11a0a67c1ef670e13e222a8278bfc68523,False,1,4,222,93,55.5,1,297,296,0.05357142857142857,0.05357142857142857,0.5803571428571429,35339,5113,832,2,"feat(tsi): optimize series iteration
 
 When using queries like 'select count(_seriesKey) from bigmeasurement`, we
 should iterate over the tsi structures to serve the query instead of loading
 all the series into memory up front.
 
-Closes #20543"
-c3ab88a7152278d5f70f88738e1792870b0e7ed8,False,1,2,1078,588,539.0,530,566,36,0.09090909090909091,0.12121212121212122,1.0,8421,1216,236,28,Make the metadata index shared across shards while keeping field types and encoding local to each shard.
+Closes #20543",1611602851
+c3ab88a7152278d5f70f88738e1792870b0e7ed8,False,1,2,1078,588,539.0,530,566,36,0.09090909090909091,0.12121212121212122,1.0,8421,1216,236,28,Make the metadata index shared across shards while keeping field types and encoding local to each shard.,1432418767
 96c0ecf618794eae0530a385a1f0e19b4039f7af,False,1,4,110,100,27.5,25,85,60,0.23076923076923078,0.0,0.6923076923076923,37363,5377,948,8,"Improve startup time of `inmem` index
 
 This commit improves the startup time when using the `inmem` index by
 ensuring that the series are created in the index and series file in
 batches of 10000, rather than individually.
 
-Fixes #9486."
+Fixes #9486.",1519738380
 3f4c5a55852dd6e46c802b4dd1518662480c75fb,False,1,5,263,169,52.6,147,134,-13,0.9354838709677419,1.0,1.0,24002,3568,617,29,"Fix race on measurementFields
 
 Both Shard and Engine had the same reference to the measurementField map,
@@ -675,12 +675,12 @@ Fixing the measurementFields map race created a new race on the internal
 fields map.  This is now unexported and protected via MeasurementFields
 exported funcs.
 
-Fixes #6188"
+Fixes #6188",1459558621
 837a9804cfc5dd6391fd2bb705d941fa279fee7d,False,1,26,1344,188,51.69230769230769,449,932,483,0.5511811023622047,0.8267716535433071,1.0,95729,14472,2444,112,"Refactoring the monitor service to avoid expvar
 
 Truncate the time interval output of the monitor service to be on even
 time intervals rather than on every minute based on the start time. This
-normalizes the output from the monitor service."
+normalizes the output from the monitor service.",1467908038
 fe3af66c54ff00400acdbe4d73ff66485d34fd91,False,1,1,124,124,124.0,42,147,105,0.21052631578947367,0.21052631578947367,0.7894736842105263,10004,1525,68,0,"fix(tsdb): minimize lock contention when adding new fields or measurements (#20504)
 
 fields.idx frequent writes cause lock contention and fields.idx is recreated
@@ -692,17 +692,17 @@ in memory and when the new file is being renamed.
 Test verification of correct behavior by checking the fields.idx
 file matches the in-memory copy after heavily parallel measurement addition.
 
-Fixes https://github.com/influxdata/influxdb/issues/20500"
+Fixes https://github.com/influxdata/influxdb/issues/20500",1610728305
 ca8b0ca143409d1a65106631ba9bc2a786406f58,False,1,1,15,15,15.0,7,8,1,0.0,0.0,0.0,5872,880,58,1,"Optimize locking in CreateFieldIfNotExists
 
-Also remove some dead code that is no longer relevant with tsm."
+Also remove some dead code that is no longer relevant with tsm.",1459565080
 eb92c997cd14351df93dce69a036e8c7ae1300c7,False,1,5,144,64,28.8,61,255,194,0.5170068027210885,0.782312925170068,0.5374149659863946,38664,5611,883,15,"feat: Ingress metrics by measurement
 
 Partial implementation of https://github.com/influxdata/influxdb/issues/20612
 
-Implements per-measurement points written metric. Next step: Also support per-login."
-d54a9550689e018bb4b96264d71275ce4450ec5e,False,1,2,29,23,14.5,6,95,89,0.0,0.0,0.9411764705882353,9595,1452,181,3,allow partial writes on field conflicts
-e5dbc18d0bd54b441c6f5339a87bc05d4189170c,False,1,2,24,20,12.0,12,12,0,,,,9472,1480,81,2,remove bool return param from dataTypeFromModelsFieldType
+Implements per-measurement points written metric. Next step: Also support per-login.",1612299508
+d54a9550689e018bb4b96264d71275ce4450ec5e,False,1,2,29,23,14.5,6,95,89,0.0,0.0,0.9411764705882353,9595,1452,181,3,allow partial writes on field conflicts,1485197686
+e5dbc18d0bd54b441c6f5339a87bc05d4189170c,False,1,2,24,20,12.0,12,12,0,,,,9472,1480,81,2,remove bool return param from dataTypeFromModelsFieldType,1524671304
 cb8cfe3510cf6e147be7277cea1ba6ae2b74839b,False,1,8,405,175,50.625,121,694,573,0.4988814317673378,0.9932885906040269,0.9642058165548099,61663,9088,1771,22,"fix: prevent retention service from hanging (#25077)
 
 * fix: prevent retention service from hanging (#25055)
@@ -730,7 +730,7 @@ even if a shard is stuck with readers.
 This is a port of ad68ec8 from master-1.x to main-2.x.
 
 closes: #25076
-(cherry picked from commit b4bd607eefe4af3c38a73a5883866a66daecd7db)"
+(cherry picked from commit b4bd607eefe4af3c38a73a5883866a66daecd7db)",1719250042
 84c4f676b040ce8d197977c99a82e6566d4096ce,False,1,6,354,149,59.0,13,419,406,0.4763636363636364,0.7927272727272727,0.8690909090909091,12983,2060,345,22,"feat: add type conflict checker to influx_inspect (#23616)
 
 adds two commands ""check-schema"" and
@@ -739,7 +739,7 @@ These test for field type conflicts
 in all fields.idx beneath a directory
 and merges the derived schemas if
 ""check-schema"" has been run multiple
-times on different directories"
+times on different directories",1660149418
 86734e7fcdbd454d3298ebe0fc559fdf4323dac4,False,1,2,48,40,24.0,24,89,65,0.11538461538461539,0.11538461538461539,1.0,21627,3006,883,12,"fix(storage): Don't panic when length of source slice is too large
 
 StringArrayEncodeAll will panic if the total length of strings
@@ -756,7 +756,7 @@ progress under the following condition:
 The observable effect of this is errors in the logs indicating a
 compaction failure.
 
-Fixes #13687"
+Fixes #13687",1559693101
 e53f75e06d0d2576e6db0175fe96c486014663a0,False,1,1,33,33,33.0,5,121,116,0.2604166666666667,0.2708333333333333,0.9895833333333334,9817,1558,397,5,"fix: discard excessive errors (#22379)
 
 The tsmBatchKeyIterator discards excessive errors to avoid
@@ -764,7 +764,7 @@ out-of-memory crashes when compacting very corrupt files.
 Any error beyond DefaultMaxSavedErrors (100) will be
 discarded instead of appended to the error slice.
 
-closes https://github.com/influxdata/influxdb/issues/22328"
+closes https://github.com/influxdata/influxdb/issues/22328",1630685465
 042128b948d0a5c91c72ba9ddc857db9fb53fedd,False,1,5,320,250,64.0,146,238,92,0.28888888888888886,0.37777777777777777,0.9333333333333333,34886,4921,1184,27,"fix(tsdb): Replace panic with error while de/encoding corrupt data
 
 fixes #17440
@@ -772,39 +772,39 @@ fixes #17440
 While encoding or decoding corrupt data, the current behaviour is to `panic`.
 This commit replaces the `panic` with `error` to be propagated up to the calling `iterator`.
 To avoid overwriting other `error`, iterators now wraps a `TSMErrors` which contains ALL the encountered errors.
-TSMErrors itself implements `Error()`, the returned string contains all the error msgs, separated by "","" delimiter."
+TSMErrors itself implements `Error()`, the returned string contains all the error msgs, separated by "","" delimiter.",1585767071
 f1d26652e91e94e050c4904818d023fe5d6701c3,False,1,3,49,36,16.333333333333332,9,44,35,0.3684210526315789,0.42105263157894735,0.9473684210526315,33196,4854,1155,10,"fix(storage): skip TSM files with block read errors (#15885)
 
 * fix(storage): skip TSM files with block read errors
 
 When we find a bad TSM file during compaction, propagate the error up and move
 the bad file aside. The engine will disregard the file so the next compaction
-will not hit the same error."
+will not hit the same error.",1576278339
 ded6e40d47cba48a8c8abd78adefb79e5edb13a8,False,1,1,11,11,11.0,15,2,-13,1.0,0.4,0.0,5375,877,237,1,"Remove lastPlanCheck var
 
 This causes full compactions to not run if the server is running, but
-after a restart they do run."
+after a restart they do run.",1469559505
 3c130cd39c2f66ce52656c32444337281e055888,False,1,1,12,12,12.0,1,11,10,1.0,1.0,1.0,2580,382,76,2,"Expose TSMWriter.Flush
 
 Allows flushing the writer so we don't always need to close and
-re-open the file handle."
-94aba64b8813be37b3c56cc35b9e4294b829a9de,False,1,1,181,181,181.0,110,89,-21,0.8947368421052632,0.0,0.21052631578947367,2835,414,87,9,Re-use index entries slice when writing TSM index
-70817350b7e66938bc5dbd8a482264394f375b69,False,1,2,41,29,20.5,0,41,41,1.0,0.4642857142857143,1.0,9538,1549,388,4,Ensure temp index files are cleaned up on error
-be662a585376c3e80f28c6c77d723cf8f06afa6f,False,1,3,56,50,18.666666666666668,25,41,16,0.0,0.7692307692307693,0.7692307692307693,22638,3158,920,6,Fix TSM index maxtime modification
-f2bcf9d9ab8ccd6660310a6f6b6ac86cb6ee3f48,False,1,1,12,12,12.0,9,5,-4,1.0,1.0,0.0,4730,756,211,2,Code review fixes
+re-open the file handle.",1493409650
+94aba64b8813be37b3c56cc35b9e4294b829a9de,False,1,1,181,181,181.0,110,89,-21,0.8947368421052632,0.0,0.21052631578947367,2835,414,87,9,Re-use index entries slice when writing TSM index,1506019696
+70817350b7e66938bc5dbd8a482264394f375b69,False,1,2,41,29,20.5,0,41,41,1.0,0.4642857142857143,1.0,9538,1549,388,4,Ensure temp index files are cleaned up on error,1507049294
+be662a585376c3e80f28c6c77d723cf8f06afa6f,False,1,3,56,50,18.666666666666668,25,41,16,0.0,0.7692307692307693,0.7692307692307693,22638,3158,920,6,Fix TSM index maxtime modification,1540827871
+f2bcf9d9ab8ccd6660310a6f6b6ac86cb6ee3f48,False,1,1,12,12,12.0,9,5,-4,1.0,1.0,0.0,4730,756,211,2,Code review fixes,1463606756
 9f102adabeba5e67431277ed185b9ce8eb6ee6bf,False,1,2,45,29,22.5,1,93,92,0.15873015873015872,0.15873015873015872,1.0,14302,2140,532,8,"Abort BlockIterator iteration if deletes detected
 
 This fixes a potential bug where the BlockIterator would skip blocks
 if the underlying TSMReader had deletes on it concurrently.  This
 could possibly occur due to changes in 91eb9de3 that now use the
 existing TSMReaders from the FileStore instead of creating new ones
-during compaction."
+during compaction.",1508372197
 29e4287fd29e7bfb2d0c1c51322432af701225fb,False,1,2,34,29,17.0,11,23,12,0.8571428571428571,0.8571428571428571,1.0,16027,2404,601,6,"Preven masking root errors when compactions are in progress
 
 The root error when creating a tmp file when writing a snapshot
 was hidden making it difficult to determine why snapshots were
-failing."
-7388eb949965a31d5e228e0a349957270e6e2c30,False,1,3,125,115,41.666666666666664,245,211,-34,1.0,1.0,0.2978723404255319,3816,547,111,10,Use disk when writing TSM index
+failing.",1495562976
+7388eb949965a31d5e228e0a349957270e6e2c30,False,1,3,125,115,41.666666666666664,245,211,-34,1.0,1.0,0.2978723404255319,3816,547,111,10,Use disk when writing TSM index,1505165365
 9f2a422039a3a1d3f536724c51cb73bbeeccbb23,False,1,2,46,35,23.0,4,42,38,0.6363636363636364,0.6363636363636364,1.0,10283,1658,415,5,"Use disk based TSM index more selectively
 
 The disk based temp index for writing a TSM file was used for
@@ -816,11 +816,11 @@ the index to the final file.
 This switches when to use the index based on the estimated size of
 the new index that will be written.  This isn't exact, but seems to
 work kick in at higher cardinality and larger compactions when it
-is necessary to avoid OOMs."
+is necessary to avoid OOMs.",1512593143
 eff71cbe237064514538daea0749e427b6b66ee3,False,1,2,21,13,10.5,4,106,102,0.2,0.48,1.0,7159,1119,284,3,"Rollover to new TSM file when max blocks exceeded
 
-Fixes #6406"
-f2a681c4cf550dac7dfa7a18c137d560ac688ee6,False,1,1,14,14,14.0,5,9,4,0.0,0.0,0.0,2974,433,92,3,Unconditionally remove file when calling Remove
+Fixes #6406",1463606755
+f2a681c4cf550dac7dfa7a18c137d560ac688ee6,False,1,1,14,14,14.0,5,9,4,0.0,0.0,0.0,2974,433,92,3,Unconditionally remove file when calling Remove,1507049357
 91eb9de341473aeb2137c7a77957b161d74595b3,False,1,2,49,36,24.5,22,73,51,0.7105263157894737,0.7105263157894737,1.0,12602,2023,538,6,"Use existing TSMReader from file store during compactions
 
 Compactions would create their own TSMReaders for simplicity. With
@@ -828,14 +828,14 @@ very high cardinality compactions, creating the reader and indirectIndex
 can start to use a significant amount of memory.
 
 This changes the compactions to use a reader that is already allocated
-and managed by the FileStore."
+and managed by the FileStore.",1505165365
 a38c95ec85820a89fc2ff1b18141a59d15e628a1,False,1,7,482,277,68.85714285714286,176,573,397,0.0,0.3047945205479452,0.958904109589041,18082,2725,603,27,"Update compactions to run concurrently
 
 This has a few changes in it (unfortuantely).  The main change is to run compactions
 concurrently.  While implementing this, a few query and performance bugs showed up that
-are also fixed by this commit."
-59a57d8f7337ca5a3ff2373b0ad2ff1766ddb1ea,False,1,1,49,49,49.0,10,53,43,0.40625,0.40625,1.0,2720,449,107,4,Convert CacheKeyIterator to return encoded blocks
-928aef04cdf9680a15126e840adb393dc5520c4d,False,1,2,1778,1188,889.0,1356,1374,18,,,,6894,983,219,105,Split data_file.go into reader.go and writer.go
+are also fixed by this commit.",1450918871
+59a57d8f7337ca5a3ff2373b0ad2ff1766ddb1ea,False,1,1,49,49,49.0,10,53,43,0.40625,0.40625,1.0,2720,449,107,4,Convert CacheKeyIterator to return encoded blocks,1450289777
+928aef04cdf9680a15126e840adb393dc5520c4d,False,1,2,1778,1188,889.0,1356,1374,18,,,,6894,983,219,105,Split data_file.go into reader.go and writer.go,1450289776
 a4e5446ddd358b5c8d44dbe5fb2c1347eb4fa412,False,1,1,10,10,10.0,3,7,4,1.0,1.0,1.0,3976,662,172,2,"Return error when TSM writer close returns one
 
 The TSM writer uses a bufio.Writer that needs to be flushed before
@@ -843,7 +843,7 @@ it's closed.  If the flush fails for some reason, the error is not
 handled by the defer and the compactor continues on as if all is good.
 This can create files with truncated indexes or zero-length TSM files.
 
-Fixes #5889"
+Fixes #5889",1458594036
 756421ec4a5aeea994603175e73941e461c2b69a,False,1,2,66,35,33.0,7,203,196,0.061224489795918366,0.5578231292517006,1.0,7401,1177,312,2,"Look for fully compacted block in addition to max size during compaction
 
 Some data shapes would cause files to grow larger than the max size more
@@ -852,7 +852,7 @@ at times.  Some datasets that could make this happen are very large keys or
 very large numbers of keys (10M).  When this happened, multiple max sized
 files would accumulate but the blocks would not be full.  When the shard went
 cold for writes, these files would get recompacted down to the optimal size, but
-a lot of space would be wasted in the mean time."
+a lot of space would be wasted in the mean time.",1452205122
 e05cc9667ef838bfb3736e73dfd6451670744992,False,1,1,8,8,8.0,2,6,4,,,,17339,2391,412,2,"fix: /api/v2/delete - user nil sources field, do not set measurement db or rp (#24223)
 
 * fix: do not set measurement db or rp in V2 delete (#24141)
@@ -880,12 +880,12 @@ closes https://github.com/influxdata/influxdb/issues/24144
 
 (cherry picked from commit f365bb7e3a9c5e227dbf66d84adf674d3d127176)
 
-closes https://github.com/influxdata/influxdb/issues/24146"
+closes https://github.com/influxdata/influxdb/issues/24146",1683131856
 2fe52d8edc124057c75658fd3238c4074feb6404,False,1,3,179,164,59.666666666666664,0,300,300,0.11857707509881422,0.5573122529644269,1.0,16572,2300,506,8,"fix: implement v2/api/delete (#23247)
 
 Support to V2 delete api
 
-Does not support deletion by field, only by tag value, time, and measurement."
+Does not support deletion by field, only by tag value, time, and measurement.",1648759214
 c35321b470b319738b8e7bfaf04f693597d4691a,False,1,3,104,79,34.666666666666664,1,239,238,0.4022346368715084,0.7206703910614525,0.9832402234636871,14060,2293,270,6,"feat: add `--pid-file` option to write PID files (#25474)
 
 Add `--pid-file` option to write PID files on startup. The PID filename
@@ -895,7 +895,7 @@ Example: `influxd --pid-file /var/lib/influxd/influxd.pid`
 
 PID files are automatically removed when the influxd process is shutdown.
 
-Closes: 25473"
+Closes: 25473",1729801181
 619eb1cae68689854b4e1489cd123c7490147458,False,1,2,140,116,70.0,40,165,125,0.5495495495495496,1.0,1.0,12881,1911,473,13,"fix: restore in-memory Manifest on write error (#23552) (#23578)
 
 Do not update the `FileSet` or `activeLogFile` field in the in-memory
@@ -906,7 +906,7 @@ closes https://github.com/influxdata/influxdb/issues/23553
 
 (cherry picked from commit a8732dcf524053c972fcfabb38f528e7ef3eba5a)
 
-closes https://github.com/influxdata/influxdb/issues/23554"
+closes https://github.com/influxdata/influxdb/issues/23554",1658771589
 12fff64760fb6e16e8dca1583214f6a1634d37dd,False,1,4,170,122,42.5,47,232,185,0.0,0.2987012987012987,0.7272727272727273,23034,3402,799,19,"fix: make TSI index compact old and too-large log files (#22334)
 
 *  TSI index should compact old or too-large log files
@@ -914,7 +914,7 @@ closes https://github.com/influxdata/influxdb/issues/23554"
 * Add extra logging when disk size test fails
 
 
-Co-authored-by: Sam Arnold <sarnold@influxdata.com>"
+Co-authored-by: Sam Arnold <sarnold@influxdata.com>",1630362468
 2a062608ae5e00050ae623cf7df65e87b9fdd693,False,1,1,113,113,113.0,68,70,2,0.0,1.0,1.0,7422,1116,262,23,"fix: update broken flux and perf tests (2.7) (#24619)
 
 * fix: update broken flux and perf tests (main-2.x) (#24617)
@@ -946,7 +946,7 @@ time range.
 
 ---------
 
-Co-authored-by: Phil Bracikowski <13472206+philjb@users.noreply.github.com>"
+Co-authored-by: Phil Bracikowski <13472206+philjb@users.noreply.github.com>",1706734013
 5a599383f1ace429830712d55087f32f699d359e,False,1,2,147,143,73.5,72,81,9,1.0,1.0,1.0,12909,1918,474,28,"fix(tsi1/partition/test): fix data races in test code (#57) (#25336)
 
 * fix(tsi1/partition/test): fix data races in test code
@@ -956,7 +956,7 @@ method for MaxLogFileSize which allows unexporting that value and
 MaxLogFileAge. There are actually two places locks were needed in test
 code. The behavior of production code is unchanged.
 
-(cherry picked from commit f0235c4daf4b97769db932f7346c1d3aecf57f8f)"
+(cherry picked from commit f0235c4daf4b97769db932f7346c1d3aecf57f8f)",1726523460
 ee51e5c54c7acd61aac1f77d1f4330dc0d434512,False,1,1,107,107,107.0,62,83,21,0.9130434782608695,1.0,1.0,7484,1115,260,24,"fix(tsi1/partition/test): fix data race in test code (#25298)
 
 * feat: add hook for optimizing series reads based on authorizer (#25207)
@@ -969,30 +969,30 @@ ee51e5c54c7acd61aac1f77d1f4330dc0d434512,False,1,1,107,107,107.0,62,83,21,0.9130
 
 ---------
 
-Co-authored-by: Geoffrey Wossum <gwossum@influxdata.com>"
+Co-authored-by: Geoffrey Wossum <gwossum@influxdata.com>",1725988033
 0af22b5992d34049bee49b14365f7016a1ad1c1e,False,1,1,480,480,480.0,240,240,0,,,,6223,932,210,106,"Partition receiver rename
 
-Got tired of referring to Index Partitions as `i` instead of `p`."
+Got tired of referring to Index Partitions as `i` instead of `p`.",1530826080
 92d38414f2eb51753e53797ff2294f022eaa4305,False,1,3,23,12,7.666666666666667,7,25,18,0.0,1.0,1.0,10612,1626,392,6,"Add adjustable TSI log file size.
 
 This commit adds the `max-index-log-file-size` configuration flag so
 that users can restrict the maximum size of log files before compaction.
 The default limit was also lowered from `5MB` to `1MB`. The original
-size was set before we partitioned the index so the change reflects this."
-745b1973a8b1180883df50bb8faea6ebae9c01db,False,1,11,777,630,70.63636363636364,183,1026,843,0.5230263157894737,0.6019736842105263,0.9917763157894737,43349,6020,1348,55,tsi compaction
+size was set before we partitioned the index so the change reflects this.",1522691279
+745b1973a8b1180883df50bb8faea6ebae9c01db,False,1,11,777,630,70.63636363636364,183,1026,843,0.5230263157894737,0.6019736842105263,0.9917763157894737,43349,6020,1348,55,tsi compaction,1483636537
 1755b8f6d28bb24634830ec90c376c777b3cec79,False,1,2,12,9,6.0,1,12,11,0.0,1.0,1.0,14617,2144,491,3,"fix: TSI logfile race (#22338)
 
 modTime should be protected by the read lock.
 
-Fixes #22337"
+Fixes #22337",1630359817
 a8732dcf524053c972fcfabb38f528e7ef3eba5a,False,1,2,134,110,67.0,39,163,124,0.4,1.0,1.0,13271,1950,485,12,"fix: restore in-memory Manifest on write error (#23552)
 
 Do not update the `FileSet` or `activeLogFile` field in the in-memory
 Partition structure if the Manifest file is not correctly saved to
 the disk.
 
-closes https://github.com/influxdata/influxdb/issues/23553"
-7a55735562d8f5a86844a43da1dc8ef618535144,False,1,3,47,44,15.666666666666666,19,28,9,0.7142857142857143,0.7142857142857143,0.0,8756,1267,329,8,Add option to set LogFile compaction size
+closes https://github.com/influxdata/influxdb/issues/23553",1658347155
+7a55735562d8f5a86844a43da1dc8ef618535144,False,1,3,47,44,15.666666666666666,19,28,9,0.7142857142857143,0.7142857142857143,0.0,8756,1267,329,8,Add option to set LogFile compaction size,1518040333
 b64c2c3dcf1a5766fd671ea8ee3caa544e65611f,False,1,12,178,114,14.833333333333334,76,208,132,0.0,0.15702479338842976,0.6528925619834711,24961,3738,866,17,"fix: tsi index should compact old or too-large log files (#21943)
 
 * fix: tsi index should compact old log files that are too large
@@ -1001,8 +1001,8 @@ b64c2c3dcf1a5766fd671ea8ee3caa544e65611f,False,1,12,178,114,14.833333333333334,7
 
 * chore: update changelog
 
-* fix: review comments"
-2ac811e57e0e922b3e25d08881dc1e49ee18654b,False,1,1,13,13,13.0,3,10,7,0.5,0.5,1.0,6258,938,212,3,close objects without swallowing errors
+* fix: review comments",1627335615
+2ac811e57e0e922b3e25d08881dc1e49ee18654b,False,1,1,13,13,13.0,3,10,7,0.5,0.5,1.0,6258,938,212,3,close objects without swallowing errors,1530909922
 4ef4fe9aef0a75f1058e493bd7c26434f40f8b0a,False,1,1,15,15,15.0,4,11,7,1.0,1.0,1.0,7666,1103,252,2,"fix(tsi1): Acquire a lock when modifying measurement map
 
 This patch protects an internal map for concurrent use.
@@ -1025,8 +1025,8 @@ can't be inlined.  Below is the output of build with ""-m -m -m"" gcflags:
 
 The performace impact of the additional function call should be
 negligable and is outwieghed by the safety and simplicity of using
-defer."
-d42abde8363dbe4d130d7937bde90ca468b200f0,False,1,17,2403,713,141.35294117647058,688,2063,1375,0.38354806739345887,0.5213082259663032,0.9841427155599604,55949,8708,1990,128,refactor(services/storage): Enhanced group support for Read RPC
+defer.",1598892774
+d42abde8363dbe4d130d7937bde90ca468b200f0,False,1,17,2403,713,141.35294117647058,688,2063,1375,0.38354806739345887,0.5213082259663032,0.9841427155599604,55949,8708,1990,128,refactor(services/storage): Enhanced group support for Read RPC,1527705140
 343cd2e120f173f5e3d4be7106b7649b8dec339e,False,1,2,53,43,26.5,252,327,75,0.18518518518518517,0.5308641975308642,1.0,89955,13831,707,2,"Fix time zone shifts when the shift happens on a time zone boundary
 
 When a time zone shift happened at the edge of a time bucket, the logic
@@ -1038,13 +1038,13 @@ not exist when shifting forwards). The correct buckets should have been
 12 AM to 2 AM for the first bucket of the day and 3 AM to 4 AM for the
 second (since 2 AM to 3 AM does not exist).
 
-This also modifies the tests to use table tests and sub tests."
+This also modifies the tests to use table tests and sub tests.",1501043763
 06102ba3d4c936b9c2b365ce38ce6cfafafdf167,False,1,1,96,96,96.0,54,42,-12,0.5,0.5,0.0,2045,301,60,14,"fix(tasks): reduce memory allocations in scheduler
 
 This will reduce memory allocations in the scheduler by removing
 unneccessary delete/replace actions on the btree that is used as an
-internal priority queue."
-3fd94cbb6978f6de390f4300d1bf4a0acfe74a9d,False,1,4,798,486,199.5,219,1091,872,0.3821376281112738,0.3967789165446559,0.9004392386530015,3846,647,110,57,feat(task): new scheduler now with more tests
+internal priority queue.",1581089450
+3fd94cbb6978f6de390f4300d1bf4a0acfe74a9d,False,1,4,798,486,199.5,219,1091,872,0.3821376281112738,0.3967789165446559,0.9004392386530015,3846,647,110,57,feat(task): new scheduler now with more tests,1571079745
 4cb36d53017ee59d5c797551c4e3cccfd8abb274,False,1,2,43,29,21.5,5,38,33,0.6666666666666666,0.6666666666666666,1.0,12159,1782,541,3,"Add key sanitization to deletetsm
 
 This commit adds the `-sanitize` flag to `influx_inspect deletetsm`
@@ -1055,13 +1055,13 @@ Usage:
 
 ```sh
 $ influx_inspect deletetsm -sanitize PATH
-```"
-8c9d179a9415793f78ab3fd6805ea4d3b6f71372,False,1,3,166,153,55.333333333333336,3,163,160,0.16346153846153846,0.16346153846153846,1.0,1166,242,45,5,Add 'influx_inspect deletetsm'
+```",1525115193
+8c9d179a9415793f78ab3fd6805ea4d3b6f71372,False,1,3,166,153,55.333333333333336,3,163,160,0.16346153846153846,0.16346153846153846,1.0,1166,242,45,5,Add 'influx_inspect deletetsm',1524155768
 286c8f4c093a8afd1e4deca345e9c4fb3f57dd57,False,1,7,62,26,8.857142857142858,95,103,8,0.0,0.8571428571428571,1.0,44630,6550,794,11,"Return to original DELETE/DROP SERIES semantics
 
-This reverts commit 59afd8cc9055023e611bb52b5a1d0059bb3eb262."
-8600e2e036eba4e4ca476a4e57a887a4e6f3d3de,False,1,3,39,26,13.0,13,31,18,0.0,0.9230769230769231,0.8461538461538461,9737,1466,363,7,"Add shard group ""DeletedAt"" timestamps"
-d54d32b9d4c6bc529abf5b2e0bb4eebe793c3937,False,1,2,34,30,17.0,0,102,102,0.0,0.0,1.0,5742,866,212,2,prune shards in meta data
+This reverts commit 59afd8cc9055023e611bb52b5a1d0059bb3eb262.",1516017630
+8600e2e036eba4e4ca476a4e57a887a4e6f3d3de,False,1,3,39,26,13.0,13,31,18,0.0,0.9230769230769231,0.8461538461538461,9737,1466,363,7,"Add shard group ""DeletedAt"" timestamps",1433479612
+d54d32b9d4c6bc529abf5b2e0bb4eebe793c3937,False,1,2,34,30,17.0,0,102,102,0.0,0.0,1.0,5742,866,212,2,prune shards in meta data,1480612936
 2ea2abb00110bcc2ba1cade29cb46fb2f85ec286,False,1,2,66,64,33.0,48,39,-9,1.0,0.0,0.0,1851,230,53,6,"Remove possibility of race when dropping shards
 
 Fixes #8819.
@@ -1091,7 +1091,7 @@ that's 30 minutes.
 In the case where the shards to be removed would have removed the last
 occurences of some series, then it's possible that if the database was already at its
 maximum series limit (or tag limit for that matter), no further new series
-can be inserted."
+can be inserted.",1509030913
 0b7c56bcd86905bfaa020bfb6e85ef0d1a70a5bd,False,1,41,365,22,8.902439024390244,238,217,-21,1.0,0.3125,0.125,125035,18536,3144,93,"Update the zap logger dependency
 
 The previous sha was taken from a revision on a devel branch that I
@@ -1103,13 +1103,13 @@ constructing the base logger.
 
 The 1.0 version of zap changed the format of the default console logger
 so this change moves over to this new logger instead of attempting to
-retain backwards compatibility with the old format."
-b7e7de24d6a71fe6a0b999dbf1ae3c51e099ad13,False,1,14,325,125,23.214285714285715,142,212,70,0.0,0.0,0.0,86716,12575,2035,39,refactor: separate coarse and fine permission interfaces (#20996)
-37f9a886b77aef752c34d1cc36a01c2be37a97da,False,1,1,32,32,32.0,1,31,30,0.07692307692307693,0.07692307692307693,0.8076923076923077,632,103,22,3,Retention service now deletes shards
-a37fca1199ace62bd8db8d847e714bad11ecef39,False,1,1,139,139,139.0,0,139,139,1.0,1.0,0.8681318681318682,1176,134,31,31,Add Store mock
+retain backwards compatibility with the old format.",1510352836
+b7e7de24d6a71fe6a0b999dbf1ae3c51e099ad13,False,1,14,325,125,23.214285714285715,142,212,70,0.0,0.0,0.0,86716,12575,2035,39,refactor: separate coarse and fine permission interfaces (#20996),1616421153
+37f9a886b77aef752c34d1cc36a01c2be37a97da,False,1,1,32,32,32.0,1,31,30,0.07692307692307693,0.07692307692307693,0.8076923076923077,632,103,22,3,Retention service now deletes shards,1433477242
+a37fca1199ace62bd8db8d847e714bad11ecef39,False,1,1,139,139,139.0,0,139,139,1.0,1.0,0.8681318681318682,1176,134,31,31,Add Store mock,1509025650
 d1a1e4b66705b31565c7290e77860fac480d2c03,False,1,5,50,18,10.0,0,50,50,1.0,1.0,1.0,39407,5611,873,3,"chore: restore ImportShard
 
-This reverts commit d14acea44de623f74d638b4fd768218f4fca5fdd."
+This reverts commit d14acea44de623f74d638b4fd768218f4fca5fdd.",1607353260
 d135aecf021ffe3dcfa5c56916f6b24fb8a06f2f,False,1,18,463,111,25.72222222222222,116,453,337,1.0,1.0,1.0,67539,9926,1947,45,"Generate trace logs for a number of significant influx operations
 
 * tsdb Store.Open traces all events related to opening files
@@ -1125,10 +1125,10 @@ d135aecf021ffe3dcfa5c56916f6b24fb8a06f2f,False,1,18,463,111,25.72222222222222,11
 * TSI log file compaction
     * op_name: index.tsi.compact_log_file
 * TSI level compaction
-    * op.name: index.tsi.compact_to_level"
+    * op.name: index.tsi.compact_to_level",1519250929
 a0b2195d6baa7c8afdabca3f058381de4fe7884b,False,1,10,762,350,76.2,127,943,816,0.0,0.13129496402877697,0.6906474820143885,39845,5899,945,36,"Pulled in backup-relevant code for review (#9193)
 
-for issue #8879"
+for issue #8879",1512664520
 dd3baf6d4a2307fda737614fb095a5498882cad5,False,1,12,144,47,12.0,75,155,80,1.0,0.7333333333333333,0.0,37088,5375,793,27,"feat: measurement metrics by login (#20687)
 
 After turning on authentication and both forms of ingress metrics:
@@ -1162,10 +1162,10 @@ Only by login:
 ""ingress:1"": {""name"":""ingress"",""tags"":{""login"":""admin""},""values"":{""pointsWritten"":1,""valuesWritten"":1}},
 ""ingress:2"": {""name"":""ingress"",""tags"":{""login"":""telegraf""},""values"":{""pointsWritten"":3547,""valuesWritten"":28246}},
 
-Notice writes by users 'telegraf', '_systemuser_monitor', and 'admin'."
+Notice writes by users 'telegraf', '_systemuser_monitor', and 'admin'.",1612457573
 2bbd96768d9204c7cc5516ef01ac5b2efe22282f,False,1,23,464,56,20.17391304347826,165,493,328,0.2288135593220339,0.0,0.9067796610169492,79370,11877,2371,78,"Update logging calls to take advantage of structured logging
 
-Includes a style guide that details the basics of how to log."
+Includes a style guide that details the basics of how to log.",1519142659
 7bd3f89d181fdb789e87f9380961f42d7790de5c,False,1,6,327,226,54.5,180,583,403,0.38557993730407525,0.43573667711598746,0.877742946708464,20056,3001,775,15,"fix: prevent retention service creating orphaned shard files (#24530)
 
 * fix: prevent retention service creating orphaned shard files
@@ -1179,8 +1179,8 @@ This can cause excessive disk space usage for some users.
 This corrects that by requiring shards files be deleted before they can be removed
 from the meta store.
 
-fixes: #24529"
-67c10424357f49c373a4123b36cb3d84946c7f58,False,1,1,92,92,92.0,651,468,-183,1.0,1.0,0.0,13294,1976,479,9,More work
+fixes: #24529",1704391168
+67c10424357f49c373a4123b36cb3d84946c7f58,False,1,1,92,92,92.0,651,468,-183,1.0,1.0,0.0,13294,1976,479,9,More work,1455122426
 eec80692c46c6b11f488ff642998e09570149753,False,1,20,15520,13021,776.0,4079,12087,8008,0.26585094549499444,0.37374860956618466,0.9399332591768632,218865,32219,4446,124,"Taught tsm1 storage engine how to read and write uint64 values
 
 * introduced UnsignedValue type
@@ -1190,20 +1190,20 @@ eec80692c46c6b11f488ff642998e09570149753,False,1,20,15520,13021,776.0,4079,12087
 * unsigned support to model, cursors and write points
 
 NOTE: there is no support to create unsigned points, as the line
-protocol has not been modified."
-00806de9b83fd650a9422964c74a154ef6401dfc,False,1,18,3868,1081,214.88888888888889,1627,3887,2260,0.4864864864864865,0.7481872116018458,0.8562953197099539,77223,11411,2027,241,refactor query engine
-0e1910cb9202d7ea0d1fd91f92edc47545a499f9,False,1,1,60,60,60.0,127,309,182,0.0481283422459893,0.5721925133689839,1.0,13882,2040,507,9,More work on improving the iterator unit tests
-7de2dcd3d9255d22b52b89e556479fd7ded6ab37,False,1,4,32,16,8.0,13,23,10,0.0,1.0,0.42857142857142855,26980,3752,795,8,TSM: TSMReader.Close blocks until reads complete
-c119f9a8461a0e19e277f9de887407b4a484e017,False,1,1,16,16,16.0,5,11,6,1.0,1.0,1.0,6591,948,236,1,Close TSMReaders from FileStore.Close after releasing FileStore mutex
+protocol has not been modified.",1500912202
+00806de9b83fd650a9422964c74a154ef6401dfc,False,1,18,3868,1081,214.88888888888889,1627,3887,2260,0.4864864864864865,0.7481872116018458,0.8562953197099539,77223,11411,2027,241,refactor query engine,1455122425
+0e1910cb9202d7ea0d1fd91f92edc47545a499f9,False,1,1,60,60,60.0,127,309,182,0.0481283422459893,0.5721925133689839,1.0,13882,2040,507,9,More work on improving the iterator unit tests,1455122426
+7de2dcd3d9255d22b52b89e556479fd7ded6ab37,False,1,4,32,16,8.0,13,23,10,0.0,1.0,0.42857142857142855,26980,3752,795,8,TSM: TSMReader.Close blocks until reads complete,1525121163
+c119f9a8461a0e19e277f9de887407b4a484e017,False,1,1,16,16,16.0,5,11,6,1.0,1.0,1.0,6591,948,236,1,Close TSMReaders from FileStore.Close after releasing FileStore mutex,1526573556
 09da18c08ecfc48fec016e6b050321d0198d28f3,False,1,3,2349,1031,783.0,3,2772,2769,0.16188149053145998,0.28772144166157604,0.9871716554673182,26238,3672,1050,74,"Add TSM batch key iterator
 
 The batch focussed TSM key iterator iterates TSM blocks, decoding and
 merging blocks where appropriate using the the batch focussed
-approaches."
+approaches.",1539688092
 0ab423c7ffb2136887858e4d215b4dbc75285425,False,1,2,184,144,92.0,9,358,349,0.3287671232876712,0.5205479452054794,0.9863013698630136,3521,498,108,15,"Initial FileStore implementation
 
 Provides functionality to load a directory of TSM files (or add them manually)
-as well as reading blocks of values for individual key and times."
+as well as reading blocks of values for individual key and times.",1447688692
 36a33bcb9f31f2a9e5615989b6140bd1d13c4cc8,False,1,3,603,580,201.0,281,518,237,0.6554621848739496,0.7310924369747899,0.9159663865546218,6482,904,232,21,"feat(tsdb): Teach storage how to only decode timestamps from a block
 
 TimestampArray.Contains(min,max) API performs a binary search to
@@ -1212,13 +1212,13 @@ determine if timestamps exist for the given time interval.
 It also implements Exclude to drop timestamps that have been tombstoned.
 
 DecodeTimestampArrayBlock decodes only the timestamps of the provided
-block."
-992884ab6ca594abad15c7aaed953d2963e189e5,False,1,17,9365,2717,550.8823529411765,1,10093,10092,0.43177366702937975,0.5949945593035909,0.932752992383025,46763,6817,1192,367,initial import of tsdb package
-b1283bc998b86be3e3133d5773baf59d945920be,False,1,8,4109,1643,513.625,2006,2422,416,1.0,1.0,1.0,46075,6382,1818,607,build: fix 'go generate' and regenerate the universe (#21089)
+block.",1555629558
+992884ab6ca594abad15c7aaed953d2963e189e5,False,1,17,9365,2717,550.8823529411765,1,10093,10092,0.43177366702937975,0.5949945593035909,0.932752992383025,46763,6817,1192,367,initial import of tsdb package,1538391799
+b1283bc998b86be3e3133d5773baf59d945920be,False,1,8,4109,1643,513.625,2006,2422,416,1.0,1.0,1.0,46075,6382,1818,607,build: fix 'go generate' and regenerate the universe (#21089),1617114734
 a8f3c8ed5b5af23b6769d08add768fbc8fd9d284,False,1,3,304,178,101.33333333333333,0,304,304,0.49122807017543857,0.6140350877192983,0.9239766081871345,1363,242,45,18,"import-tools: minimal storage API to read shard data efficiently
 
 * this implementation produces a cursor per shard to permit the export
-  tool to distinguish field type conflicts"
+  tool to distinguish field type conflicts",1524186355
 8edf7a4e2f9b048178338580af15916e15c0afdd,False,1,5,246,205,49.2,173,819,646,0.3574561403508772,1.0,1.0,11435,1445,329,18,"fix(storage): cursor requests are [start, stop] instead of [start, stop) (#21347)
 
 * fix: backport tsdb fix for window pushdowns
@@ -1241,15 +1241,15 @@ Co-authored-by: Sam Arnold <sarnold@influxdata.com>
 
 * chore: fix formatting
 
-Co-authored-by: Jonathan A. Sternberg <jonathan@influxdata.com>"
+Co-authored-by: Jonathan A. Sternberg <jonathan@influxdata.com>",1619810791
 4e62c3f795a61c99647477464329cac59bdf0628,False,1,1,2,2,2.0,1,1,0,,,,423,65,10,1,"fix(tsm1): return boolean array iterator for booleans
 
-booleans are still not strings."
+booleans are still not strings.",1535391135
 a2154f143cb5abc347b29b167e2efbe8778a0341,False,1,21,10522,4232,501.04761904761904,1169,15220,14051,0.2680965147453083,0.634666941637451,0.947102495359868,106175,16731,3560,496,"feat(storage): add support for window aggregate queries (#21107)
 
 * feat: add cursors and readers for window aggregates
 * fix: backport fix + tests for race condition in flux tag cache
-* test: port 2.x test for array_cursor"
+* test: port 2.x test for array_cursor",1617213097
 31501c9dcf504e761dbccedd3bdfebc912bec8a4,False,1,45,15800,4690,351.1111111111111,314,19300,18986,0.3178085972538467,0.5507486372731664,0.938384047471193,117728,18281,4281,708,"Upgrade flux to the latest version and remove the platform dependency
 
 This integrates the influxdb 1.x series to the latest version of Flux
@@ -1260,7 +1260,7 @@ so the dependency is unneeded.
 The flux functions specific to 1.x have been moved to the same structure
 that flux changed to with having a `stdlib` directory instead of a
 `functions` directory. It also adds a `databases()` function that
-returns the databases from the meta client."
+returns the databases from the meta client.",1554393309
 910d0fe5e6425ffe6ab79ea3dfaf778051f2cf44,False,1,18,3196,1415,177.55555555555554,27,3813,3786,0.24956822107081175,0.40025906735751293,0.8514680483592401,57454,7972,1801,165,"feat(tsm1): ArrayCursor interfaces and implementations
 
 Array cursors are enabled for storage RPC calls
@@ -1271,7 +1271,7 @@ tsm1:
 
 storage:
 
-* Abstractions to easily switch to Array cursors"
+* Abstractions to easily switch to Array cursors",1531756537
 030adf4bd55c17b7d5e028e76125e7c7cd133945,False,1,1,74,74,74.0,16,58,42,0.5882352941176471,0.5882352941176471,0.5882352941176471,10307,1464,244,12,"tsdb: don't allow deletes to a database in mixed index mode
 
 TSI1 and inmem indexes have different properties during deletes.
@@ -1291,7 +1291,7 @@ the series file, causing all sorts of misbehavior.
 Rather than continue curling ourselves into a ball to try to fix
 this unsupported mode, give a helpful error message to the user
 that they must run their database in a non-mixed index mode to
-allow deletes."
+allow deletes.",1542849518
 ceb3abd11826d13b62afc3c15d4ff0ce657ef438,False,1,3,84,63,28.0,31,130,99,0.06944444444444445,0.0,1.0,18315,2748,291,5,"Remove series when shard rolls over
 
 Series should only be removed from the series file when they're no
@@ -1300,13 +1300,13 @@ rollover, the series local to the shard are checked against all other
 series in the database.
 
 Series that are no longer present in any other shards' bitsets, are then
-marked as deleted in the series file."
+marked as deleted in the series file.",1516118300
 f52de2d1e7098c3fb4612cd133ce19edf7ef7be5,False,1,1,35,35,35.0,3,32,29,0.5238095238095238,0.5238095238095238,1.0,9924,1408,232,2,"Ensure orphaned series removed from inmem index
 
 This commit ensures that any orphaned series (series that are to be
 removed and no longer are referenced anywhere in the database) are
-removed from the `inmem` index when a shard is dropped."
-26c18ac0a59e9cc7ffc1f655dce7a28aeab06e0a,False,1,102,15254,3387,149.54901960784315,20855,2330,-18525,0.6734326018808777,0.3785266457680251,0.09467084639498433,77032,11729,1844,757,chore: Converging on 1.x tsdb
+removed from the `inmem` index when a shard is dropped.",1534860035
+26c18ac0a59e9cc7ffc1f655dce7a28aeab06e0a,False,1,102,15254,3387,149.54901960784315,20855,2330,-18525,0.6734326018808777,0.3785266457680251,0.09467084639498433,77032,11729,1844,757,chore: Converging on 1.x tsdb,1596471648
 776667279733519972dbc27fe559c1d8ffd5864a,False,1,5,106,65,21.2,44,372,328,0.20346320346320346,1.0,0.9264069264069265,11387,1438,327,18,"fix(storage): cursor requests are [start, stop] instead of [start, stop) (#21318)
 
 The cursors were previously [start, stop) to be consistent with how flux
@@ -1316,13 +1316,13 @@ behavior so that it is now [start, stop] everywhere and the conversion
 from [start, stop) to [start, stop] is performed when doing the cursor
 request to get the next cursor.
 
-Co-authored-by: Sam Arnold <sarnold@influxdata.com>"
-b7ac9f07be2b668be419bb77293570216be0988e,False,1,5,3507,3291,701.4,1149,5979,4830,0.24396077493422627,0.7015068165510644,0.986127720640995,21825,3423,681,111,feat: aggregate array cursors
-8e0328af74d133d7ad448b7e2056ae495e5ab700,False,1,4,1404,727,351.0,171,1629,1458,0.2683134582623509,0.7308347529812607,0.959114139693356,56510,9656,2371,65,feat(storage/reads): add window agg result set
+Co-authored-by: Sam Arnold <sarnold@influxdata.com>",1619799306
+b7ac9f07be2b668be419bb77293570216be0988e,False,1,5,3507,3291,701.4,1149,5979,4830,0.24396077493422627,0.7015068165510644,0.986127720640995,21825,3423,681,111,feat: aggregate array cursors,1603491208
+8e0328af74d133d7ad448b7e2056ae495e5ab700,False,1,4,1404,727,351.0,171,1629,1458,0.2683134582623509,0.7308347529812607,0.959114139693356,56510,9656,2371,65,feat(storage/reads): add window agg result set,1602621133
 bec12ab1b44684f8b9a76abb8c07ab7be6791297,False,1,1,30,30,30.0,12,24,12,0.0,0.0,1.0,18198,2854,565,6,"fix: Continue reading until itrs is empty, even for nil cursors
 
-Closes #20035"
-fbe85ef548e6d2fdd77435a36432028e9b13e7e9,False,1,6,3540,2699,590.0,657,3940,3283,0.25881768504719327,0.5727769498261301,0.8817685047193244,47163,6674,1197,131,feat: enable window pushdowns
+Closes #20035",1605632793
+fbe85ef548e6d2fdd77435a36432028e9b13e7e9,False,1,6,3540,2699,590.0,657,3940,3283,0.25881768504719327,0.5727769498261301,0.8817685047193244,47163,6674,1197,131,feat: enable window pushdowns,1604106578
 810833f33fbf79409165462dab10bf6e3aee2fa2,False,1,36,22597,10835,627.6944444444445,11036,12774,1738,0.24179829890643986,0.40789793438639127,0.9291616038882139,93759,14415,3223,496,"chore: refactor reads service and make it consumable externally
 
 This pulls in the code that allows doing reads with flux into the
@@ -1353,12 +1353,12 @@ cleaner way.
 
 There's still some dependencies on both github.com/influxdata/influxql
 and github.com/influxdata/influxdb/logger that we can hopefully remove
-in future refactorings."
+in future refactorings.",1539100273
 8ad6e1726523475011fd02c3a596ae0cc847c329,False,1,1,11,11,11.0,2,9,7,0.5,0.5,1.0,10869,1588,288,3,"chore: add additional error logging when deleting shard (#24038)
 
 * chore: add additional error logging when deleting shard
 
-* chore: better logging message"
+* chore: better logging message",1675951825
 7ca4e644f160d06c7470cad8c4d83e5ded3923c1,False,1,35,7769,2644,221.97142857142856,3232,7887,4655,0.28581081081081083,0.7908783783783784,0.9858108108108108,95093,15276,3405,457,"Update flux version to v0.33.2 (#14208)
 
 The flux in influxdb has been upgraded to use v0.33.2. A lot of
@@ -1382,11 +1382,11 @@ update. The patch is mostly meant to document exactly what changed
 during the copy over to help ensure we don't forget things when adapting
 the interfaces.
 
-Add a patch file to hopefully make this easier in the future"
+Add a patch file to hopefully make this easier in the future",1561661522
 32aa970eba8a77b59b51c01354c0a23db19a19e9,False,1,12,5083,4310,423.5833333333333,1351,4831,3480,0.27566320645905423,0.5074971164936563,0.988081507112649,86718,14014,3265,266,"feat: mean,count aggregation for WindowAggregate pushdown in enterprise (#21291)
 
 We support only one aggregate list [mean,count]. All other aggregates
-still must be single-element lists."
+still must be single-element lists.",1619721013
 7c2be6e7800c8790eedce74db86eee0dc7a28ea3,False,1,6,688,208,114.66666666666667,439,698,259,0.06280193236714976,0.15942028985507245,0.7439613526570048,10511,1662,191,34,"feat: Port 1.x retention policy enforcement service
 
 Configuration of the check interval is available via
@@ -1395,7 +1395,7 @@ Configuration of the check interval is available via
 --storage-retention-check-interval
 ```
 
-Closes #19309"
+Closes #19309",1599672726
 f74c69c5e4a9c865c204949f3bb85cf58c56c7b6,False,1,46,570,77,12.391304347826088,352,395,43,1.0,1.0,1.0,207696,30543,4393,9,"chore: update to go 1.20 (#24088)
 
 * build: upgrade to go 1.19
@@ -1420,19 +1420,19 @@ https://tip.golang.org/doc/comment
 
 ---------
 
-Co-authored-by: DStrand1 <dstrandboge@influxdata.com>"
-1c2d68b0cbcc8b2e70ab883ef332d26da2d81b9b,False,1,11,13,3,1.1818181818181819,20,152,132,,,,1357,233,53,0,build: upgrade to go1.17 (#22363)
-82d1123e787d9562c14f872d234d43a6641b3478,False,1,53,228,10,4.30188679245283,485,353,-132,0.46153846153846156,1.0,0.46153846153846156,122512,18934,3422,53,build: upgrade to Go 1.18.1 (#23252)
-1fe9abd66f480ac047590e8dcc1c1d947cb4b7d5,False,1,1,8,8,8.0,5,22,17,0.0,0.0,1.0,795,124,25,1,Delete deleted shards in retention service.
-33623c1fa9785a269127ed55b9193d845e30dc8f,False,1,2,32,17,16.0,7,25,18,0.8571428571428571,0.8571428571428571,1.0,6059,930,183,3,Revert back to original approach
+Co-authored-by: DStrand1 <dstrandboge@influxdata.com>",1675970075
+1c2d68b0cbcc8b2e70ab883ef332d26da2d81b9b,False,1,11,13,3,1.1818181818181819,20,152,132,,,,1357,233,53,0,build: upgrade to go1.17 (#22363),1630526942
+82d1123e787d9562c14f872d234d43a6641b3478,False,1,53,228,10,4.30188679245283,485,353,-132,0.46153846153846156,1.0,0.46153846153846156,122512,18934,3422,53,build: upgrade to Go 1.18.1 (#23252),1649881467
+1fe9abd66f480ac047590e8dcc1c1d947cb4b7d5,False,1,1,8,8,8.0,5,22,17,0.0,0.0,1.0,795,124,25,1,Delete deleted shards in retention service.,1522255454
+33623c1fa9785a269127ed55b9193d845e30dc8f,False,1,2,32,17,16.0,7,25,18,0.8571428571428571,0.8571428571428571,1.0,6059,930,183,3,Revert back to original approach,1483635519
 bece8fed2ae86e77204b3cbbd617f49d64e81441,False,1,1,16,16,16.0,5,11,6,0.0,0.0,1.0,675,110,22,2,"Better retention enforcement logging
 
-Fixes issue #4727."
+Fixes issue #4727.",1447118544
 0341bc35328c22b6bb4965413e4cbb61ab602da1,False,1,2,53,48,26.5,26,27,1,0.0,0.0,1.0,5705,893,196,4,"Update meta client and retention service.
 
 * Remove VisitRetentionPolicies from meta client.
-* Update retention enforcer to run on every data node."
-ced79acac5ed533f88decbc14a0f428fc0caf298,False,1,10,152,49,15.2,197,100,-97,0.9428571428571428,1.0,0.22857142857142856,24217,3643,658,13,Remove redundant error return from (Client) Database(name string) and (Client) Databases()
+* Update retention enforcer to run on every data node.",1453408113
+ced79acac5ed533f88decbc14a0f428fc0caf298,False,1,10,152,49,15.2,197,100,-97,0.9428571428571428,1.0,0.22857142857142856,24217,3643,658,13,Remove redundant error return from (Client) Database(name string) and (Client) Databases(),1462053878
 b775ad3d5decc6208a442d6e4f4e702c6592eba7,False,1,8,83,27,10.375,66,1480,1414,0.21808014911463186,0.3000931966449208,0.9431500465983225,10138,1555,275,14,"Expand unit test code coverage in services that were undercovered
 
 This expands code coverage for the following packages:
@@ -1440,7 +1440,7 @@ This expands code coverage for the following packages:
 * services/precreator (31.6% -> 83.8%)
 * services/retention (83.0% -> 84.9%)
 * services/snapshotter (0.0% -> 82.1%)
-* tcp (48.7% -> 60.0%)"
+* tcp (48.7% -> 60.0%)",1511905475
 5976e41d54a9a8afbe21742a7538928d92136e9f,False,1,17,147,58,8.647058823529411,538,727,189,0.9289340101522843,0.0,0.07614213197969544,118185,15108,3380,33,"feat: upgrade flux to v0.188.0 (#23911)
 
 * feat: upgrade flux to 0.171.0
@@ -1563,28 +1563,28 @@ Co-authored-by: davidby-influx <dbyrne@influxdata.com>
 Co-authored-by: Markus Westerlind <marwes91@gmail.com>
 Co-authored-by: Sean Brickley <sean@wabr.io>
 Co-authored-by: Jonathan A. Sternberg <jonathan@influxdata.com>
-Co-authored-by: Christopher M. Wolff <chris.wolff@influxdata.com>"
-1b738d3991d2792be08b94aac91d258dc67fcaac,False,1,3,149,64,49.666666666666664,39,188,149,0.034482758620689655,0.6724137931034483,1.0,2781,463,106,6,Allow customizing the unix socket group and permissions created by the server
-6a66b5faf0ac1c8441e61589fab61dae416d7f15,False,1,16,90,14,5.625,85,46,-39,0.463768115942029,0.0,1.0,40179,6039,1367,17,Cleanup services package
+Co-authored-by: Christopher M. Wolff <chris.wolff@influxdata.com>",1668543627
+1b738d3991d2792be08b94aac91d258dc67fcaac,False,1,3,149,64,49.666666666666664,39,188,149,0.034482758620689655,0.6724137931034483,1.0,2781,463,106,6,Allow customizing the unix socket group and permissions created by the server,1522957212
+6a66b5faf0ac1c8441e61589fab61dae416d7f15,False,1,16,90,14,5.625,85,46,-39,0.463768115942029,0.0,1.0,40179,6039,1367,17,Cleanup services package,1516560757
 ba1c573115359b5fbde570b324f31ad925bf49d5,False,1,5,46,24,9.2,106,261,155,0.39849624060150374,0.42606516290726815,1.0,11969,1769,432,15,"chore: upgrade flux to v0.159.0 (#23192)
 
 * chore: upgrade flux to v0.159.0
 
-* chore: skip flux database connection tests"
-e5a41f7796e4adf2076a327c1eaa9089875399e0,False,1,8,157,45,19.625,157,305,148,0.5230769230769231,0.3230769230769231,1.0,61094,9194,1831,12,DROP SHARD
+* chore: skip flux database connection tests",1647355783
+e5a41f7796e4adf2076a327c1eaa9089875399e0,False,1,8,157,45,19.625,157,305,148,0.5230769230769231,0.3230769230769231,1.0,61094,9194,1831,12,DROP SHARD,1457996395
 f05df2a263e36b6cf783c45a1a6a2a7e0e82b468,False,1,1,6,6,6.0,9,22,13,0.0,0.0,1.0,5019,747,187,1,"Fix panic when pruning shard groups
 
 * Fix #7812 - Panic when pruning shard groups
 
-* Update CHANGELOG.md"
-fab9adb361b3b220344e4d9116684195380e6023,False,1,5,139,99,27.8,3,136,133,0.7567567567567568,1.0,0.7972972972972973,7747,1181,249,10,Hook in actual retention service
-8d878fff91be51f98c0385072f105121cce4b348,False,1,24,448,119,18.666666666666668,154,339,185,0.7719298245614035,0.7982456140350878,0.9210526315789473,36749,5894,1015,83,buildable meta -> services/meta
-e05d4fdeeb447727dce397a8b5e34d4d6e50a2f7,False,1,7,245,144,35.0,201,46,-155,0.5625,0.0,0.09375,26165,3651,733,23,intermediate
-636a27e77f00f0faeff186c8b6b005d79da7c424,False,1,24,2893,455,120.54166666666667,5716,3729,-1987,0.6244239631336406,0.1271889400921659,0.0,19573,3098,556,180,build(flux): update Flux to v0.64.0
-de1f9a373693f7b001d491dc2e7c15050f7f432f,False,1,10,265,105,26.5,534,601,67,1.0,1.0,1.0,31770,4662,1152,43,refactor tsdb tests into test package
-a4bef3a4bc9a10c470975049e7a70d30e50313c5,False,1,4,21,13,5.25,44,65,21,0.875,0.875,1.0,24275,3506,779,5,Refactoring delete tests
-ceefa7f7b08838657474c40eb099fa2f81970da1,False,1,1,127,127,127.0,34,93,59,0.5882352941176471,0.058823529411764705,0.9019607843137255,11308,1630,513,8,"Improve MakeKey, HashKey performance"
-288c5217e81d2df7edaf050f554c300eba71bd6b,False,1,4,114,86,28.5,37,77,40,0.25806451612903225,0.0,0.0,13565,1966,477,25,Fix tsi1 tools.
+* Update CHANGELOG.md",1484146600
+fab9adb361b3b220344e4d9116684195380e6023,False,1,5,139,99,27.8,3,136,133,0.7567567567567568,1.0,0.7972972972972973,7747,1181,249,10,Hook in actual retention service,1433462542
+8d878fff91be51f98c0385072f105121cce4b348,False,1,24,448,119,18.666666666666668,154,339,185,0.7719298245614035,0.7982456140350878,0.9210526315789473,36749,5894,1015,83,buildable meta -> services/meta,1453408112
+e05d4fdeeb447727dce397a8b5e34d4d6e50a2f7,False,1,7,245,144,35.0,201,46,-155,0.5625,0.0,0.09375,26165,3651,733,23,intermediate,1510244313
+636a27e77f00f0faeff186c8b6b005d79da7c424,False,1,24,2893,455,120.54166666666667,5716,3729,-1987,0.6244239631336406,0.1271889400921659,0.0,19573,3098,556,180,build(flux): update Flux to v0.64.0,1583957864
+de1f9a373693f7b001d491dc2e7c15050f7f432f,False,1,10,265,105,26.5,534,601,67,1.0,1.0,1.0,31770,4662,1152,43,refactor tsdb tests into test package,1437584826
+a4bef3a4bc9a10c470975049e7a70d30e50313c5,False,1,4,21,13,5.25,44,65,21,0.875,0.875,1.0,24275,3506,779,5,Refactoring delete tests,1516017630
+ceefa7f7b08838657474c40eb099fa2f81970da1,False,1,1,127,127,127.0,34,93,59,0.5882352941176471,0.058823529411764705,0.9019607843137255,11308,1630,513,8,"Improve MakeKey, HashKey performance",1520897037
+288c5217e81d2df7edaf050f554c300eba71bd6b,False,1,4,114,86,28.5,37,77,40,0.25806451612903225,0.0,0.0,13565,1966,477,25,Fix tsi1 tools.,1512774753
 9e69bdbef5f735a335f717ebf85fcb80a7990428,False,1,1,25,25,25.0,15,20,5,1.0,1.0,1.0,9458,1349,427,2,"Fixes issue #8199
 
 Benchmarks
@@ -1598,8 +1598,8 @@ BenchmarkMarshal-8     4              2              -50.00%
 
 benchmark              old bytes     new bytes     delta
 BenchmarkMarshal-8     416           256           -38.46%
-```"
-94ee5a5f2dfc5f08bb079a5520c1c6a70e052f68,False,1,1,8,8,8.0,3,29,26,0.0,0.9230769230769231,1.0,1813,285,66,1,fix csv decoder bug where empty tag values cause an array index panic
+```",1490474016
+94ee5a5f2dfc5f08bb079a5520c1c6a70e052f68,False,1,1,8,8,8.0,3,29,26,0.0,0.9230769230769231,1.0,1813,285,66,1,fix csv decoder bug where empty tag values cause an array index panic,1555972563
 28cea4d957010e3a3c9dddc3041c54d61fbb6db3,False,1,7,1922,928,274.57142857142856,12,2357,2345,0.35718216840946615,0.7738029719317556,0.6527242707760044,9340,1594,275,78,"feat(platform): add generic kv store
 
 Co-authored-by: Leonardo Di Donato <leodidonato@gmail.com>
@@ -1675,13 +1675,13 @@ fix(testing): add concurrnent update test to the kv.Store contract tests
 
 test(platform): fix example kv service tests
 
-dep(platform): make platform tidy"
-b35479640a0f6f854c3ffef7cd2b7a59f368ff3c,False,1,2,570,566,285.0,1,2632,2631,0.4331450094161959,0.6064030131826742,0.615819209039548,10287,1515,208,27,refactor: move checks service to new package (#18671)
-739d12bc00b9801b85a9f9454df7b4db62d3cfda,False,1,4,202,109,50.5,88,119,31,0.0,1.0,0.25,7144,1201,183,23,fix(http): convert source errors
-af4f8e40f7cdc6ccb6a53a238eb9f0d8bf8c22c7,False,1,2,56,54,28.0,1,55,54,0.0,1.0,0.0,7852,1454,184,3,fix(kv): Ensure UpdateUser cleans up the index when updating names.
-5aeca082c83e6d9470bbcd6d9d5529eeea907b8a,False,1,24,1045,337,43.541666666666664,720,713,-7,0.3333333333333333,1.0,0.0,90208,15832,1586,130,chore: update staticcheck and fix newly identified lint checks (#18737)
-6ca7c68e2ef2a5dcda83840aaa45000cc74e78ae,False,1,5,818,335,163.6,304,616,312,0.27692307692307694,1.0,0.0,20063,3339,462,68,fix(http): convert dashboard errors
-dd85de0e78801df20abd5f97749a81ffaf42a0ea,False,1,3,131,113,43.666666666666664,16,120,104,0.0,0.3146067415730337,0.48314606741573035,15049,2621,249,9,fix: add quotation marks to bucket name validation (#19222)
+dep(platform): make platform tidy",1545167328
+b35479640a0f6f854c3ffef7cd2b7a59f368ff3c,False,1,2,570,566,285.0,1,2632,2631,0.4331450094161959,0.6064030131826742,0.615819209039548,10287,1515,208,27,refactor: move checks service to new package (#18671),1593201135
+739d12bc00b9801b85a9f9454df7b4db62d3cfda,False,1,4,202,109,50.5,88,119,31,0.0,1.0,0.25,7144,1201,183,23,fix(http): convert source errors,1546533481
+af4f8e40f7cdc6ccb6a53a238eb9f0d8bf8c22c7,False,1,2,56,54,28.0,1,55,54,0.0,1.0,0.0,7852,1454,184,3,fix(kv): Ensure UpdateUser cleans up the index when updating names.,1588196778
+5aeca082c83e6d9470bbcd6d9d5529eeea907b8a,False,1,24,1045,337,43.541666666666664,720,713,-7,0.3333333333333333,1.0,0.0,90208,15832,1586,130,chore: update staticcheck and fix newly identified lint checks (#18737),1593215649
+6ca7c68e2ef2a5dcda83840aaa45000cc74e78ae,False,1,5,818,335,163.6,304,616,312,0.27692307692307694,1.0,0.0,20063,3339,462,68,fix(http): convert dashboard errors,1544729806
+dd85de0e78801df20abd5f97749a81ffaf42a0ea,False,1,3,131,113,43.666666666666664,16,120,104,0.0,0.3146067415730337,0.48314606741573035,15049,2621,249,9,fix: add quotation marks to bucket name validation (#19222),1596659445
 623224614e118b92eced311dc6f6c024fd9ab538,False,1,7,934,374,133.42857142857142,326,716,390,0.034722222222222224,0.9791666666666666,0.1423611111111111,21502,3868,415,47,"feat(kv): random ids without comma, space, backslash for org and bucket
 
 At times snowflake id generation would create org and bucket IDs with
@@ -1703,7 +1703,7 @@ purposes.
 
 ... because now org and bucket ids are checked for previous existence
 transactionally in the key-value stores.  If the ID does already exist
-then we try to generate a new key up to 100 times."
+then we try to generate a new key up to 100 times.",1567925405
 5015297d409520bd84ea69eb2a2507ee31d9aaa5,False,1,287,933,14,3.250871080139373,871,586,-285,0.8,0.8,0.8,425665,67671,9517,3,"fix: more expressive errors (#22448)
 
 * fix: more expressive errors
@@ -1712,7 +1712,7 @@ Closes #22446
 
 * fix: server only logging for untyped errors
 
-* chore: fix formatting"
+* chore: fix formatting",1631560355
 b590259a97d706bfa7c9ca98a128c3852d56fcd8,False,1,1,56,56,56.0,17,73,56,0.0,0.0975609756097561,1.0,720,152,34,3,"fix(platform): check for (*platform.Error)(nil) in error functions
 
 As of https://github.com/influxdata/platform/pull/2192 a panic was
@@ -1733,7 +1733,7 @@ check will fail and the `e, ok := err.(*Error); ok && e.Code != """"` will
 succeed and panic on `e.Code`, as `e` is nil.
 
 This panic could have been avoided if all methods returned `error`
-instead of `*platform.Error`."
+instead of `*platform.Error`.",1546617746
 7b2e1228691790b4e2f9e4b53f1a474a10eb428b,False,1,49,1671,354,34.10204081632653,1358,1267,-91,0.030303030303030304,0.0,0.30303030303030304,138880,20360,3729,356,"refactor: refactor for tasks backport (#21117)
 
 * chore: remove dead code
@@ -1746,7 +1746,7 @@ instead of `*platform.Error`."
 
 * chore: run formatter
 
-* chore: fix up import ordering with gci"
+* chore: fix up import ordering with gci",1617820975
 9873ccd6578de90b89a2f96d12429afbea7e380a,False,1,10,493,243,49.3,146,917,771,0.5160680529300568,0.9111531190926276,0.8449905482041588,9177,1301,243,36,"feat: remote write function for replications (#22942)
 
 * feat: remote write function for replications
@@ -1755,9 +1755,9 @@ instead of `*platform.Error`."
 
 * chore: only set gzip heading for non-empty requests
 
-* fix: address review feedback"
-8d15d7036075c6c7c4d96f12f656f38463a37d34,False,1,16,490,189,30.625,232,355,123,0.0,1.0,0.336,25993,4418,597,57,fix(http): convert auth errors
-0b90767a31be0a79d40d05a150c335d4756ed74c,False,1,5,164,114,32.8,2,166,164,0.9736842105263158,1.0,0.5,4407,709,74,7,feat(http): add renew session
+* fix: address review feedback",1638308022
+8d15d7036075c6c7c4d96f12f656f38463a37d34,False,1,16,490,189,30.625,232,355,123,0.0,1.0,0.336,25993,4418,597,57,fix(http): convert auth errors,1542414634
+0b90767a31be0a79d40d05a150c335d4756ed74c,False,1,5,164,114,32.8,2,166,164,0.9736842105263158,1.0,0.5,4407,709,74,7,feat(http): add renew session,1547654855
 8ca2989717bb3db9e0bfcafe4e2d1e367826f285,False,1,18,990,403,55.0,670,1114,444,0.7250859106529209,0.8006872852233677,0.45017182130584193,58356,9651,1468,132,"feat(dashboards): isolate service in own package (#19852)
 
 feat(dashboard): add owner ID to dashboard model
@@ -1777,8 +1777,8 @@ chore(dashboards): port tests from http package into new service transport packa
 
 chore(launcher): use dashboard transport package client in launcher tests
 
-chore(kv): remove now defunkt dashboard service implementations"
-5cbe74630ec5a364fe1eafb29ed3a31a79764b80,False,1,20,2079,815,103.95,1454,1400,-54,1.0,1.0,1.0,64191,11967,1117,85,chore(tenant): make tenant and kv both conform with harness (#19266)
+chore(kv): remove now defunkt dashboard service implementations",1604505182
+5cbe74630ec5a364fe1eafb29ed3a31a79764b80,False,1,20,2079,815,103.95,1454,1400,-54,1.0,1.0,1.0,64191,11967,1117,85,chore(tenant): make tenant and kv both conform with harness (#19266),1597157802
 8a1d7ba1baa04ce7656ce9496e14f2851cfdcd37,False,1,18,1831,581,101.72222222222223,747,2195,1448,0.2734513274336283,0.7646017699115044,0.8929203539823009,53960,8130,1550,146,"Labels v2 (#11198)
 
 * WIP first-class endpoint for labels
@@ -1851,7 +1851,7 @@ chore(kv): remove now defunkt dashboard service implementations"
 
 * fix swagger indentation
 
-* update swagger"
+* update swagger",1547838216
 5c63c2163d361d583eeb96b3513e2e2fbb8ff28f,False,1,11,1643,625,149.36363636363637,1,2984,2983,0.2540016849199663,0.6550126368997473,0.7291491154170177,16673,2647,398,71,"feat(authorization): Create a v1 authorization service
 
 This service is a private API for managing authorization tokens
@@ -1860,19 +1860,19 @@ for v1 API requests.
 Note that this commit does not hook up the service to the v1
 `/query` and `/write`, which will occur in a subsequent PR.
 
-Closes #19812"
-b91d7785791a8a5e88c783b60375edee19f62a47,False,1,9,318,87,35.333333333333336,35,314,279,0.1945945945945946,0.3837837837837838,0.5297297297297298,19580,3038,700,23,feat: resource log
+Closes #19812",1603812370
+b91d7785791a8a5e88c783b60375edee19f62a47,False,1,9,318,87,35.333333333333336,35,314,279,0.1945945945945946,0.3837837837837838,0.5297297297297298,19580,3038,700,23,feat: resource log,1579802646
 ff6b55aca4d7ccba78e31582fae77e8f2201d983,False,1,4,201,109,50.25,418,602,184,0.8079470198675497,0.6291390728476821,0.8741721854304636,13423,2297,172,8,"feat(flux): allow values of 0 to disable controller limits (#21127)
 
 
 
-Co-authored-by: Sam Arnold <sarnold@influxdata.com>"
+Co-authored-by: Sam Arnold <sarnold@influxdata.com>",1617656307
 1a66ca3900bee8b0a807fddaa2808426936d0edb,False,1,11,2044,479,185.8181818181818,7,2593,2586,0.32439678284182305,0.7785522788203754,0.8369973190348525,14750,2226,366,91,"feat(tenant): Add in api elements to tenant service (#17447)
 
 Co-authored-by: Alirie Gray <alirie.gray@gmail.com>
 
-Co-authored-by: Alirie Gray <alirie.gray@gmail.com>"
-8740a6986729547b4b39b8d65b50cc32dad67c97,False,1,2,385,378,192.5,168,217,49,0.08092485549132948,1.0,0.10404624277456648,2636,556,28,3,add failing tests
+Co-authored-by: Alirie Gray <alirie.gray@gmail.com>",1585320982
+8740a6986729547b4b39b8d65b50cc32dad67c97,False,1,2,385,378,192.5,168,217,49,0.08092485549132948,1.0,0.10404624277456648,2636,556,28,3,add failing tests,1545337647
 6f7dc947751288879b50442d4564def5918ce8e4,False,1,1,9,9,9.0,17,65,48,0.15384615384615385,0.9230769230769231,0.9230769230769231,1408,224,41,3,"feat: write detailed logs from EDR failures (#24496) (#24497)
 
 To assist debugging of write failures
@@ -1885,27 +1885,27 @@ closes https://github.com/influxdata/influxdb/issues/24481
 
 (cherry picked from commit 0ccd35c2537df50d447ed181981de581d68ac10f)
 
-closes https://github.com/influxdata/influxdb/issues/24482"
-831fc8697b6a4671a9b65687db28c9ea8213a01d,False,1,7,474,208,67.71428571428571,197,346,149,0.1958041958041958,1.0,0.0,12310,2046,225,38,fix(http): convert user errors
-19b0470ed7a187627a37717a952d56fefb426c0a,False,1,9,918,319,102.0,18,1128,1110,0.6184012066365008,0.8582202111613876,0.9984917043740573,16674,2615,374,67,feat: integrated sqlite db for metadata (#21543)
+closes https://github.com/influxdata/influxdb/issues/24482",1701378334
+831fc8697b6a4671a9b65687db28c9ea8213a01d,False,1,7,474,208,67.71428571428571,197,346,149,0.1958041958041958,1.0,0.0,12310,2046,225,38,fix(http): convert user errors,1544577086
+19b0470ed7a187627a37717a952d56fefb426c0a,False,1,9,918,319,102.0,18,1128,1110,0.6184012066365008,0.8582202111613876,0.9984917043740573,16674,2615,374,67,feat: integrated sqlite db for metadata (#21543),1621959127
 21c80f3e934a9ac134e64c209a2dd4072ee9bb16,False,1,4,975,832,243.75,34,1796,1762,0.3112980769230769,0.6790865384615384,0.8798076923076923,7625,1303,93,16,"refactor(query/control): move the controller from flux to influxdb (#13991)
 
 The controller implementation is primarily used by influxdb so it
 shouldn't be part of the flux repository. This copies the code from flux
-to influxdb so it can be removed from the next flux release."
-60c3af7929a82a526f6206281a4d323650d828ea,False,1,4,8,2,2.0,4,80,76,1.0,1.0,1.0,3162,373,80,4,fix(tenant): include pagination options in middlewares (#17835)
+to influxdb so it can be removed from the next flux release.",1559138674
+60c3af7929a82a526f6206281a4d323650d828ea,False,1,4,8,2,2.0,4,80,76,1.0,1.0,1.0,3162,373,80,4,fix(tenant): include pagination options in middlewares (#17835),1587587516
 00afd95cb7cca048dcf7c15fbf1430d5a0724f93,False,1,407,9918,293,24.36855036855037,6914,7962,1048,,,,675318,106821,16649,2704,"refactor: automated move of errors and id from root to kit (#21101)
 
 
 
-Co-authored-by: Sam Arnold <sarnold@influxdata.com>"
-2b602bfcfe6cf78ce339212d28715f758b1b8253,False,1,6,609,227,101.5,217,456,239,0.0,1.0,0.23430962343096234,14086,2402,342,47,fix(http): convert org errors endpoint
+Co-authored-by: Sam Arnold <sarnold@influxdata.com>",1617127802
+2b602bfcfe6cf78ce339212d28715f758b1b8253,False,1,6,609,227,101.5,217,456,239,0.0,1.0,0.23430962343096234,14086,2402,342,47,fix(http): convert org errors endpoint,1544112313
 609970c0de505c150bf57ed99496723fc1190e54,False,1,16,1177,227,73.5625,87,1391,1304,0.660377358490566,0.7389937106918238,0.6132075471698113,26994,5002,555,70,"feat(tenant): Add in service functions and business logic (#17296)
 
 * feat(tenant): Add in service functions and business logic
 
 Built on top of the crud layer of the system we should now have additional service logic.
-The addition of service layer should allow for us to verify similar functionality to the kv system."
+The addition of service layer should allow for us to verify similar functionality to the kv system.",1584472980
 3429e8d0c6753e7f1dab6b080397580a5ba94205,False,1,58,2576,672,44.41379310344828,2069,4656,2587,0.3054635761589404,0.6903973509933775,0.8526490066225165,121178,20742,2496,197,"feat(auth): rewrite authorization service (#2157)
 
 * feat(view-token-overlay): add view token overlay
@@ -1960,13 +1960,13 @@ The addition of service layer should allow for us to verify similar functionalit
 
 * fix: unsaved rebase
 
-* test(idpe): add ids to Authorizations for log tests"
-18d5d8c2f32e839c04ee806eaa11f6da5f7a6f6e,False,1,1,59,59,59.0,0,59,59,0.42857142857142855,1.0,1.0,253,44,9,4,feat(influxd): Add errors.List to simplify capturing a list of errors
-6db9acc95110ef7561c3bddc30b4c3f2d25dcbda,False,1,6,489,212,81.5,236,366,130,0.3283582089552239,1.0,0.1417910447761194,15874,2794,380,48,"Revert ""Revert ""convert /buckets endpoint error to platform error """""
-6527987b8094fdce0e7f9d604e0990c334035a76,False,1,1,195,195,195.0,34,165,131,0.096,1.0,0.112,2928,556,29,6,chore(platform/testing): macro platform testing accounts for org ID now
-31a2ed1fbb0925474bcc18dfa32f278c923791f3,False,1,4,165,46,41.25,72,172,100,0.0,1.0,0.03614457831325301,15852,3089,235,8,feat(testing): add service testing helpers
-4cabda439ee175889fbbc2aac6b55dce20e69c7a,False,1,5,310,119,62.0,113,213,100,0.7319587628865979,1.0,0.5463917525773195,6408,1140,141,32,fix(http): convert scraper target error
-50367777508337e9629b6356cbd3cd92ff3f34c9,False,1,5,161,85,32.2,74,96,22,1.0,1.0,0.0,5043,845,130,17,use new error library
+* test(idpe): add ids to Authorizations for log tests",1546038139
+18d5d8c2f32e839c04ee806eaa11f6da5f7a6f6e,False,1,1,59,59,59.0,0,59,59,0.42857142857142855,1.0,1.0,253,44,9,4,feat(influxd): Add errors.List to simplify capturing a list of errors,1553052902
+6db9acc95110ef7561c3bddc30b4c3f2d25dcbda,False,1,6,489,212,81.5,236,366,130,0.3283582089552239,1.0,0.1417910447761194,15874,2794,380,48,"Revert ""Revert ""convert /buckets endpoint error to platform error """"",1543602460
+6527987b8094fdce0e7f9d604e0990c334035a76,False,1,1,195,195,195.0,34,165,131,0.096,1.0,0.112,2928,556,29,6,chore(platform/testing): macro platform testing accounts for org ID now,1547581181
+31a2ed1fbb0925474bcc18dfa32f278c923791f3,False,1,4,165,46,41.25,72,172,100,0.0,1.0,0.03614457831325301,15852,3089,235,8,feat(testing): add service testing helpers,1536977329
+4cabda439ee175889fbbc2aac6b55dce20e69c7a,False,1,5,310,119,62.0,113,213,100,0.7319587628865979,1.0,0.5463917525773195,6408,1140,141,32,fix(http): convert scraper target error,1545055699
+50367777508337e9629b6356cbd3cd92ff3f34c9,False,1,5,161,85,32.2,74,96,22,1.0,1.0,0.0,5043,845,130,17,use new error library,1545119944
 f862f8cb1fbb1f69d0bada642bb7bd1bd80c7381,False,1,2,46,40,23.0,17,85,68,1.0,1.0,1.0,4431,653,142,3,"fix(storage): Detect need for descending cursor in WindowAggregate (#21140)
 
 * fix(storage): Detect need for descending cursor in WindowAggregate
@@ -1979,11 +1979,11 @@ Co-authored-by: Phil Bracikowski <pbracikowski+git@influxdata.com>
 
 * chore: rename testcase and fix comments
 
-Co-authored-by: Phil Bracikowski <pbracikowski+git@influxdata.com>"
-486e25a46f6b6573e448588df763fc648ffb660d,False,1,1,65,65,65.0,36,29,-7,0.986046511627907,0.2558139534883721,0.7302325581395349,1407,251,2,5,feat(testing): session tests  consider platform errors now
-7f4ddabe8a0184e9a43f8fe9fdf5a8d8679db6cc,False,1,29,1785,501,61.55172413793103,157,3774,3617,0.3136932192231731,0.8248847926267281,0.7574061882817643,37275,5824,985,131,refactor: add new label package (#18078)
-4cd8a48c39989c111b63c97346725bb9d12529ca,False,1,5,167,151,33.4,8,451,443,0.06844106463878327,0.8859315589353612,0.9239543726235742,2438,518,69,7,feat(errors): add errors lib
-781fa0e84650275543ffa062536929440cf9d8f6,False,1,8,13,2,1.625,178,194,16,,,,7249,1139,236,1,chore: add goimports
+Co-authored-by: Phil Bracikowski <pbracikowski+git@influxdata.com>",1617661987
+486e25a46f6b6573e448588df763fc648ffb660d,False,1,1,65,65,65.0,36,29,-7,0.986046511627907,0.2558139534883721,0.7302325581395349,1407,251,2,5,feat(testing): session tests  consider platform errors now,1545382583
+7f4ddabe8a0184e9a43f8fe9fdf5a8d8679db6cc,False,1,29,1785,501,61.55172413793103,157,3774,3617,0.3136932192231731,0.8248847926267281,0.7574061882817643,37275,5824,985,131,refactor: add new label package (#18078),1590085819
+4cd8a48c39989c111b63c97346725bb9d12529ca,False,1,5,167,151,33.4,8,451,443,0.06844106463878327,0.8859315589353612,0.9239543726235742,2438,518,69,7,feat(errors): add errors lib,1536374747
+781fa0e84650275543ffa062536929440cf9d8f6,False,1,8,13,2,1.625,178,194,16,,,,7249,1139,236,1,chore: add goimports,1611947212
 8e4fdceccb06611d08e694f97e1cdfa075953bd0,False,1,10,1448,418,144.8,0,2636,2636,0.22233300099700898,0.467098703888335,0.20687936191425724,6791,1127,269,60,"feat(tenant): Build the crud actions for the new tenant service (#17171)
 
 * feat(tenant): Build the crud actions for the new tenant service
@@ -1991,7 +1991,7 @@ Co-authored-by: Phil Bracikowski <pbracikowski+git@influxdata.com>"
 To faciliate the isolation of domain specific systems we need to have a
 isolated CRUD action system that we can layer business logic on top.
 
-Co-authored-by: George <me@georgemac.com>"
+Co-authored-by: George <me@georgemac.com>",1583951493
 96d84b9126dd2d7bac78a0504e4805e28e4503ee,False,1,74,2336,290,31.56756756756757,1624,1813,189,0.0,1.0,0.41397849462365593,220018,38042,4325,192,"refactor: migrator and introduce Store.(Create|Delete)Bucket (#18570)
 
 * refactor: migrator and introduce Store.(Create|Delete)Bucket
@@ -2000,8 +2000,8 @@ feat: kvmigration internal utility to create / managing kv store migrations
 
 fix: ensure migrations applied in all test cases
 
-* chore: update kv and migration documentation"
-f392f1bab01b40db77e9fa3f7b182c9b497833de,False,1,4,307,243,76.75,21,290,269,0.0,0.9664179104477612,0.11940298507462686,12988,2295,272,12,fix(bolt): fix auth status update error
+* chore: update kv and migration documentation",1593601700
+f392f1bab01b40db77e9fa3f7b182c9b497833de,False,1,4,307,243,76.75,21,290,269,0.0,0.9664179104477612,0.11940298507462686,12988,2295,272,12,fix(bolt): fix auth status update error,1546622494
 eabba6986d0547dcc7637b6c4be06e46318d548b,False,1,25,3369,622,134.76,4,4064,4060,0.30111524163568776,0.6603159851301115,0.6854089219330854,16055,2611,437,148,"migrate(platform): move public dependencies into platform
 
 migrate(context): move context package to platform
@@ -2030,8 +2030,8 @@ dep: add dependencies
 
 migrate(platform): remove consumer.go
 
-migrate(platform): make secret things private again"
-11019d2aa7ad625af929f1e045512bab50637bd8,False,1,2,39,30,19.5,3,54,51,0.5526315789473685,0.02631578947368421,0.9210526315789473,2283,372,88,6,fix: check that user IDs are not in use in user create (#23705)
+migrate(platform): make secret things private again",1526332373
+11019d2aa7ad625af929f1e045512bab50637bd8,False,1,2,39,30,19.5,3,54,51,0.5526315789473685,0.02631578947368421,0.9210526315789473,2283,372,88,6,fix: check that user IDs are not in use in user create (#23705),1663084851
 f654b5966258322ba41433c6ee16d34ca8bc4197,False,1,25,4861,725,194.44,314,4793,4479,0.29672830725462307,0.8312944523470839,0.5314366998577524,40627,6762,1001,224,"feat(platform): add boltdb implementation of services
 
 feat(platform): add id to authorization
@@ -2139,15 +2139,15 @@ fix(cmd/idp): normalize auth subcommand output
 
 feat(cmd/idp): add support for delete organiztion command
 
-migrate(idp): move ifql subcommand of idp to platform"
-0ae8bebd755cf4aa579b9c38e6ea4792dfdbe53a,False,1,583,2596,78,4.452830188679245,2363,2352,-11,1.0,1.0,0.6666666666666666,888924,139058,24561,3,refactor: rewrite imports to include the /v2 suffix for version 2
+migrate(idp): move ifql subcommand of idp to platform",1526911702
+0ae8bebd755cf4aa579b9c38e6ea4792dfdbe53a,False,1,583,2596,78,4.452830188679245,2363,2352,-11,1.0,1.0,0.6666666666666666,888924,139058,24561,3,refactor: rewrite imports to include the /v2 suffix for version 2,1585935560
 d705841a00ec37184818aca618f82501a2b81560,False,1,2,19,12,9.5,0,120,120,0.2708333333333333,0.7708333333333334,0.8958333333333334,2428,418,105,1,"feat: error when creating v1 auth with a nonexistent bucket id (#23422)
 
 * feat: error when creating v1 auth with a nonexistent bucket id
 
 * fix: only check for buckets
 
-* refactor: test cleanup for clarity"
+* refactor: test cleanup for clarity",1655149948
 cbd04f28840a000349273e1373180fdf6c79917a,False,1,8,93,31,11.625,112,111,-1,1.0,,1.0,23763,4035,482,11,"refactor: http error serialization matches the new error schema (#15196)
 
 The http error schema has been changed to simplify the outward facing
@@ -2186,9 +2186,9 @@ humans read it. The human readable message usually gives more context
 and a message like with the code acting as a prefix is generally not
 desired. But, the code plays a very important role in helping to
 identify categories of errors and so it is very important as part of the
-return response."
-2c0916addf8704754f77043832468995eb09fa4b,False,1,30,2459,579,81.96666666666667,405,2847,2442,0.4292059966685175,0.7162687395891172,0.7362576346474181,76874,12133,1681,137,refactor: create new token package (#17874)
-419b0cf76b65d4eca19f116015932a62c7c6f65f,False,1,14,276,91,19.714285714285715,19,262,243,0.5224719101123596,0.6797752808988764,1.0,30540,4395,901,34,feat: Implement full restore
+return response.",1568905607
+2c0916addf8704754f77043832468995eb09fa4b,False,1,30,2459,579,81.96666666666667,405,2847,2442,0.4292059966685175,0.7162687395891172,0.7362576346474181,76874,12133,1681,137,refactor: create new token package (#17874),1588258341
+419b0cf76b65d4eca19f116015932a62c7c6f65f,False,1,14,276,91,19.714285714285715,19,262,243,0.5224719101123596,0.6797752808988764,1.0,30540,4395,901,34,feat: Implement full restore,1604595901
 bfb865cd72aca16f780053880154f04493e90e95,False,1,6,180,143,30.0,1,760,759,0.3452566096423017,0.9720062208398134,0.9020217729393468,4212,724,141,14,"feat(influxdb): authorize org service operations
 
 feat(influxdb): add unauthorized error code
@@ -2201,7 +2201,7 @@ feat(authorizer): add org service that authorizes actions to a wrapped org servi
 
 feat(http): use authorized org service in org handler
 
-feat(authorizer): rename Authorize to IsAllowed"
+feat(authorizer): rename Authorize to IsAllowed",1547667717
 b836ab9c179db40ca3c14699e928d2f04c2fd79b,False,1,23,984,293,42.78260869565217,26,966,940,0.34576271186440677,0.5983050847457627,0.8661016949152542,41753,6389,1267,55,"feat(storage): implement backup and restore (#16504)
 
 * feat(backup): `influx backup` creates data backup
@@ -2240,8 +2240,8 @@ Additionally adds some logging for errors when fetching backup files.
 
 * fix: small review feedback
 
-Co-authored-by: tmgordeeva <tanya@influxdata.com>"
-a6d4dc250ca341b28fd59f2fb45305341720b9c6,False,1,1,33,33,33.0,1,110,109,0.125,0.8541666666666666,0.125,2276,365,97,2,feat: list-bucket API supports pagination when filtering by org (#22674)
+Co-authored-by: tmgordeeva <tanya@influxdata.com>",1579645365
+a6d4dc250ca341b28fd59f2fb45305341720b9c6,False,1,1,33,33,33.0,1,110,109,0.125,0.8541666666666666,0.125,2276,365,97,2,feat: list-bucket API supports pagination when filtering by org (#22674),1634249368
 338e0587d069d6d21359c17ca735c95520617f8a,False,1,14,1121,398,80.07142857142857,342,943,601,0.5173267326732673,1.0,0.41336633663366334,34836,5730,852,65,"fix(platform): nest view beneath dashboard cell
 
 feat(platform): add functional options for platform errors
@@ -2250,7 +2250,7 @@ fix(testing): set dashboard ids properly in dashboard tests
 
 feat(bolt): add dashboard specific views
 
-fix(bolt): delete view when cell is removed or dashboard is deleted"
+fix(bolt): delete view when cell is removed or dashboard is deleted",1546989073
 0ccd35c2537df50d447ed181981de581d68ac10f,False,1,1,9,9,9.0,17,65,48,0.15384615384615385,0.9230769230769231,0.9230769230769231,1408,224,41,3,"feat: write detailed logs from EDR failures (#24496)
 
 To assist debugging of write failures
@@ -2259,14 +2259,14 @@ write only the HTTP status code to
 the log. Also include any messages
 returned by the write recipient.
 
-closes https://github.com/influxdata/influxdb/issues/24481"
+closes https://github.com/influxdata/influxdb/issues/24481",1701372713
 bdc882f6cef98e36addca05666edad5e9a7f2d97,False,1,13,765,194,58.84615384615385,8,1186,1178,0.5032175032175032,0.7850707850707851,0.9086229086229086,10776,1701,286,52,"feat(session): Build out a new session service (#17950)
 
 This new session service has the ability to work independant of other systems
 it relies on having its own store type which should allow us to be more flexible
 then using the built in kv system.
 
-I have included an in mem session store."
+I have included an in mem session store.",1589231051
 c40ad64604f6be9a30ee864a6a34bd1c3ed15fc2,False,1,2,59,47,29.5,5,56,51,1.0,1.0,1.0,2051,348,66,1,"feat(security): set SameSite=strict on session cookie (#23723)
 
 * feat(security): set SameSite=strict on session cookie
@@ -2286,27 +2286,27 @@ Also add a comment to SetCORS() lack of Access-Control-Allow-Credentials
 as a reminder that its omission is intentional for defense in depth on
 when to attach the cookie to a request.
 
-* chore: mention that Lax sends the cookie with other safe HTTP methods"
-6f5c81f0dcf8d408e4ab0337a3b64b2307f0bb1d,False,1,3,507,412,169.0,0,684,684,0.24421052631578946,0.38526315789473686,0.8463157894736842,2456,416,77,12,feat(inspect): add verify-seriesfile to 2.x
-edcb3910220a8eb2a366282efd2406ad44234778,False,1,1,16,16,16.0,3,57,54,0.19047619047619047,0.19047619047619047,1.0,1954,299,82,4,Improve series segment recovery.
-eab6333c2710ba6c0da209f5745c251356831e9a,False,1,1,2,2,2.0,1,1,0,,,,1902,290,79,1,Fix SeriesSegment replay.
-56980b0d24808de7b5c497c2231cd11c4594f50a,False,1,6,1538,780,256.3333333333333,657,1315,658,0.6083333333333333,0.7291666666666666,0.8604166666666667,16567,2320,471,103,Segment series file
-ac4dc91c649b28409c6a98ee0d004a67ef34e8fa,False,1,7,1427,665,203.85714285714286,569,875,306,0.9223300970873787,0.9223300970873787,0.7621359223300971,21739,3049,623,79,Partition series file.
+* chore: mention that Lax sends the cookie with other safe HTTP methods",1663273819
+6f5c81f0dcf8d408e4ab0337a3b64b2307f0bb1d,False,1,3,507,412,169.0,0,684,684,0.24421052631578946,0.38526315789473686,0.8463157894736842,2456,416,77,12,feat(inspect): add verify-seriesfile to 2.x,1566496862
+edcb3910220a8eb2a366282efd2406ad44234778,False,1,1,16,16,16.0,3,57,54,0.19047619047619047,0.19047619047619047,1.0,1954,299,82,4,Improve series segment recovery.,1530032204
+eab6333c2710ba6c0da209f5745c251356831e9a,False,1,1,2,2,2.0,1,1,0,,,,1902,290,79,1,Fix SeriesSegment replay.,1515115682
+56980b0d24808de7b5c497c2231cd11c4594f50a,False,1,6,1538,780,256.3333333333333,657,1315,658,0.6083333333333333,0.7291666666666666,0.8604166666666667,16567,2320,471,103,Segment series file,1514573865
+ac4dc91c649b28409c6a98ee0d004a67ef34e8fa,False,1,7,1427,665,203.85714285714286,569,875,306,0.9223300970873787,0.9223300970873787,0.7621359223300971,21739,3049,623,79,Partition series file.,1515598405
 3e7a01b1db31cf6a70e5c9de820d2d9aef73c09e,False,1,4,695,317,173.75,365,459,94,0.0,0.0,0.0,1964,338,64,18,"refactor verify_seriesfile
 
 - some style changes
 - export and make usable the verify functions
 - make smaller functions for verification
-- change the flags to be more intuitive"
-9ad2b5388145083ab9b3687ae3d0e79b9c203baf,False,1,7,117,64,16.714285714285715,54,91,37,1.0,1.0,0.8518518518518519,45512,6488,1108,15,intermediate
-ce6004243cdd8d79cdedaae0185d740fa74e9a10,False,1,14,630,302,45.0,241,713,472,0.08611111111111111,0.7722222222222223,0.4722222222222222,13866,2384,292,31,add(gather): add writer interface
-0652effb78cd0a34f7263343e35b1e170c3c07ac,False,1,5,137,47,27.4,14,123,109,0.0,0.0,0.3333333333333333,21530,3175,771,17,Interrupt TSI & Series File Compactions
+- change the flags to be more intuitive",1524701420
+9ad2b5388145083ab9b3687ae3d0e79b9c203baf,False,1,7,117,64,16.714285714285715,54,91,37,1.0,1.0,0.8518518518518519,45512,6488,1108,15,intermediate,1510244313
+ce6004243cdd8d79cdedaae0185d740fa74e9a10,False,1,14,630,302,45.0,241,713,472,0.08611111111111111,0.7722222222222223,0.4722222222222222,13866,2384,292,31,add(gather): add writer interface,1547230158
+0652effb78cd0a34f7263343e35b1e170c3c07ac,False,1,5,137,47,27.4,14,123,109,0.0,0.0,0.3333333333333333,21530,3175,771,17,Interrupt TSI & Series File Compactions,1517333657
 2cb97146f0080af101c2d031e735b89986855033,False,1,3,29,16,9.666666666666666,8,83,75,0.35,0.16666666666666666,1.0,7513,1108,266,6,"Fix series file tombstoning.
 
 This commit fixes an issue with the series file compaction process
 where tombstones are lost after compaction and series existence
 checks are not correct. This commit also fixes some smaller flushing
-issues within the series file that mainly related to testing."
+issues within the series file that mainly related to testing.",1538749405
 823f63d62535c09bf47492960e5a78ce5c245cd9,False,1,2,134,110,67.0,39,163,124,0.4,1.0,1.0,13271,1950,485,12,"fix: restore in-memory Manifest on write error (#23552) (#23577)
 
 Do not update the `FileSet` or `activeLogFile` field in the in-memory
@@ -2317,10 +2317,10 @@ closes https://github.com/influxdata/influxdb/issues/23553
 
 (cherry picked from commit a8732dcf524053c972fcfabb38f528e7ef3eba5a)
 
-closes https://github.com/influxdata/influxdb/issues/23555"
+closes https://github.com/influxdata/influxdb/issues/23555",1658358334
 d01ea614650b8682e9f3097115333c380981ad93,False,1,1,63,63,63.0,6,140,134,0.19548872180451127,0.706766917293233,1.0,16444,2248,476,3,"feat: stub out bucket members, owners, and labels (#23294)
 
-For the V2 buckets API, stub out the unsupportable endpoints."
+For the V2 buckets API, stub out the unsupportable endpoints.",1650912121
 ce40acb2985ee7f27fa6197e2cafd8a846bcf7f3,False,1,4,561,471,140.25,11,1046,1035,0.14016489988221437,0.5406360424028268,0.9658421672555948,20775,2896,615,12,"feat: partial /v2/api/buckets support: create, delete, list, retrieve, update (#23284)
 
 Partially implements the /v2/api/buckets
@@ -2331,27 +2331,27 @@ GET for retrieving one bucket
 PATCH for modifying a bucket
 
 See here for API details:
-https://docs.influxdata.com/influxdb/cloud/api/#tag/Buckets"
+https://docs.influxdata.com/influxdb/cloud/api/#tag/Buckets",1650584179
 2aa446bf24c12b8b9a6fb996856c0e99010496a5,False,1,1,8,8,8.0,0,21,21,0.058823529411764705,0.058823529411764705,0.7647058823529411,2327,335,83,2,"fix #8638: inspect shouldn't err on missing file
 
 influx_inspect walks the data and wal directories building a list of
 files to export. It then opens, reads, and exports each. If the file was
 deleted between the time it was added to the list and the time the
 inspect tool attempts to read it, the file is now skipped without
-emitting an error."
+emitting an error.",1504101543
 29ce031fc2da63dd1c5ec63fc72fb7b26463ce85,False,1,5,719,261,143.8,0,910,910,0.43915343915343913,0.8095238095238095,0.9188712522045855,3673,593,124,44,"influx-tools/export: driver for reshaping and exporting data
 
 The only file require in Enterprise is a reimplementation of main.go,
-the server.Interface and server.MetaClient interfaces."
+the server.Interface and server.MetaClient interfaces.",1524186355
 f5da0f50f4cdbacf03f935a84d35cdc09b1c9e8d,False,1,2,31,20,15.5,3,44,41,0.0,1.0,1.0,15790,2380,329,1,"fix: Optimize SHOW FIELD KEY CARDINALITY (#23871)
 
 Use the _fieldKeys system iterator
 
-closes https://github.com/influxdata/influxdb/issues/23840"
+closes https://github.com/influxdata/influxdb/issues/23840",1667925130
 c14b0e81b7d719acc117c0a83c2ee60a5e2c1641,False,1,6,323,136,53.833333333333336,67,368,301,0.304,0.288,1.0,24696,3546,507,22,"Save field types to speed up startup
 
 This persists the field types in a shard to avoid having to scan
-all the TSM files at startup."
+all the TSM files at startup.",1511374654
 0913276ff0f33d1639a14cb49c971772232b5af3,False,1,1,64,64,64.0,2,62,60,0.42857142857142855,1.0,1.0,313,54,14,4,"fix: use copy when a rename spans volumes (#23785)
 
 When a file rename fails with EXDEV
@@ -2361,7 +2361,7 @@ file and delete the original instead
 Differs from master branch by overwriting
 existing files instead of erring.
 
-closes https://github.com/influxdata/influxdb/issues/22997"
+closes https://github.com/influxdata/influxdb/issues/22997",1665593427
 00edb77253ad28a8bf6265cb1bbef3667189907c,False,1,1,28,28,28.0,1,27,26,0.0,0.0,1.0,7146,1072,251,2,"fix: create TSI MANIFEST files atomically (#23539) (#23546)
 
 When a MANIFEST file is created in TSI, it
@@ -2374,7 +2374,7 @@ closes https://github.com/influxdata/influxdb/issues/23536
 
 (cherry picked from commit 061cf55f2ac6c918b219d15e659bd51416d1c52b)
 
-closes https://github.com/influxdata/influxdb/issues/23538"
+closes https://github.com/influxdata/influxdb/issues/23538",1657815191
 a9df3f8a7c9315dffa97a174980e1b551fb2d2ba,False,1,4,94,44,23.5,51,99,48,0.17391304347826086,0.4782608695652174,1.0,15689,2313,505,8,"fix: fully clean up partially opened TSI (#23430) (#23454)
 
 When one partition in a TSI fails to open, all previously opened
@@ -2385,16 +2385,16 @@ closes https://github.com/influxdata/influxdb/issues/23427
 
 (cherry picked from commit d3db48e93d561c0125d6a1fab146fd0ded20fedc)
 
-closes https://github.com/influxdata/influxdb/issues/23432"
+closes https://github.com/influxdata/influxdb/issues/23432",1655232556
 e62efaf751b851e6c610c2229a10b70730bfb338,False,1,1,8,8,8.0,0,9,9,0.16666666666666666,0.16666666666666666,1.0,6891,1033,238,2,"fix: old tsl files should be compacted without new writes (#22006)
 
 * fix: old tsl files should be compacted wihout new writes
 
-* chore: update changelog.md"
+* chore: update changelog.md",1627925783
 ffe54d02394d91204c3d440f7cccbba6e1f1582a,False,1,1,153,153,153.0,76,77,1,0.0,0.5,1.0,6276,942,212,5,"Revert ""Resolve deadlock""
 
-This reverts commit 681f22b07853097fc6fd54aa3337f609e83b580e."
-c1c98223ec8d642405a6a3cf9f572d5a6384e85c,False,1,8,1550,773,193.75,1030,1075,45,0.7651515151515151,0.7575757575757576,0.9242424242424242,33819,4699,954,39,Fix and optimize tsi1 FileSet.
+This reverts commit 681f22b07853097fc6fd54aa3337f609e83b580e.",1531199154
+c1c98223ec8d642405a6a3cf9f572d5a6384e85c,False,1,8,1550,773,193.75,1030,1075,45,0.7651515151515151,0.7575757575757576,0.9242424242424242,33819,4699,954,39,Fix and optimize tsi1 FileSet.,1483636632
 07ee889eb37ba7ff8a0a08bbf10c4d3b58af9efc,False,1,4,94,44,23.5,39,80,41,0.17391304347826086,0.4782608695652174,1.0,16094,2356,517,8,"fix: fully clean up partially opened TSI (#23430) (#23446)
 
 When one partition in a TSI fails to open, all previously opened
@@ -2405,7 +2405,7 @@ closes https://github.com/influxdata/influxdb/issues/23427
 
 (cherry picked from commit d3db48e93d561c0125d6a1fab146fd0ded20fedc)
 
-closes https://github.com/influxdata/influxdb/issues/23431"
+closes https://github.com/influxdata/influxdb/issues/23431",1655149894
 05a0b540ddc9eb6444eac0ebf33c09fb67e79c21,False,1,1,28,28,28.0,1,27,26,0.0,0.0,1.0,7193,1071,249,2,"fix: create TSI MANIFEST files atomically (#23539) (#23575)
 
 When a MANIFEST file is created in TSI, it
@@ -2418,22 +2418,22 @@ closes https://github.com/influxdata/influxdb/issues/23536
 
 (cherry picked from commit 061cf55f2ac6c918b219d15e659bd51416d1c52b)
 
-closes https://github.com/influxdata/influxdb/issues/23537"
+closes https://github.com/influxdata/influxdb/issues/23537",1658352081
 7aa9de508d645a75deedab4f1ea2e4743df41c06,False,1,5,466,283,93.2,426,723,297,1.0,0.9841269841269841,1.0,12790,1849,439,110,"Initial refactor of tsi1.Index
 
 This commit carries out the initial refactor of the tsi1.Index into
 tsi1.Partition. We then create a new tsi1.Index that will be an
-abstraction over a collection of Partitions."
-077cbba0e8d248f1e85b46973e7ecc7332b38e5b,False,1,2,83,72,41.5,60,83,23,0.6875,0.9375,1.0,9467,1364,333,12,Fix index tests
-1003db006763688d81eb13cad50db1e8db652074,False,1,3,261,234,87.0,100,161,61,0.7727272727272727,0.75,0.9545454545454546,13030,1877,454,22,"Add active log file tracking, time-based compaction."
-bf132004a374a999cc088e6a401d3804fe1d4fd6,False,1,3,127,85,42.333333333333336,46,81,35,0.10526315789473684,1.0,1.0,10287,1481,358,15,Implement basic partition layout
-8e62e8d3bdc2c8318742929b0b45b5f36a6319c2,False,1,1,15,15,15.0,7,113,106,0.04819277108433735,0.04819277108433735,1.0,6785,951,216,1,Fix TSI log file recovery.
-2a81351992b9727c4384fd98c80448b10cffb69e,False,1,10,1319,590,131.9,583,1108,525,1.0,0.8641975308641975,0.0,34302,4871,1009,82,Implement tsdb.Index interface on tsi1.Index.
-992e65158862583789a8a1ee0a0c0d86fd30970a,False,1,6,472,358,78.66666666666667,24,548,524,0.4789272030651341,0.7241379310344828,0.9885057471264368,8088,1152,226,36,Add tsi1.Log.
-d13afa8f479f8c2c76313f1e6c4e5c110a8d4ec5,False,1,8,467,199,58.375,174,363,189,0.0,0.0,0.3684210526315789,21650,2995,689,42,Iterator refactoring
-dffd12319cf7021eaa479f4f5611c6b9b1a25b86,False,1,1,38,38,38.0,11,36,25,0.0,0.0,1.0,9657,1370,439,2,Add point.UnmarshalBinary() bounds checking.
-0574163566453eb119fee1efa67e5e3a00e6ae2e,False,1,42,193,14,4.595238095238095,259,190,-69,0.0,1.0,0.42857142857142855,132614,20274,4147,55,build: upgrade to go1.18 (#23250)
-3ae799b3a50528f567fb5b297ffb3b620111083f,False,1,2,154,78,77.0,56,98,42,0.4230769230769231,0.4230769230769231,0.9230769230769231,9751,1405,347,7,WIP Fix build
+abstraction over a collection of Partitions.",1510244876
+077cbba0e8d248f1e85b46973e7ecc7332b38e5b,False,1,2,83,72,41.5,60,83,23,0.6875,0.9375,1.0,9467,1364,333,12,Fix index tests,1513113935
+1003db006763688d81eb13cad50db1e8db652074,False,1,3,261,234,87.0,100,161,61,0.7727272727272727,0.75,0.9545454545454546,13030,1877,454,22,"Add active log file tracking, time-based compaction.",1483636632
+bf132004a374a999cc088e6a401d3804fe1d4fd6,False,1,3,127,85,42.333333333333336,46,81,35,0.10526315789473684,1.0,1.0,10287,1481,358,15,Implement basic partition layout,1510244917
+8e62e8d3bdc2c8318742929b0b45b5f36a6319c2,False,1,1,15,15,15.0,7,113,106,0.04819277108433735,0.04819277108433735,1.0,6785,951,216,1,Fix TSI log file recovery.,1520286552
+2a81351992b9727c4384fd98c80448b10cffb69e,False,1,10,1319,590,131.9,583,1108,525,1.0,0.8641975308641975,0.0,34302,4871,1009,82,Implement tsdb.Index interface on tsi1.Index.,1483635643
+992e65158862583789a8a1ee0a0c0d86fd30970a,False,1,6,472,358,78.66666666666667,24,548,524,0.4789272030651341,0.7241379310344828,0.9885057471264368,8088,1152,226,36,Add tsi1.Log.,1483635644
+d13afa8f479f8c2c76313f1e6c4e5c110a8d4ec5,False,1,8,467,199,58.375,174,363,189,0.0,0.0,0.3684210526315789,21650,2995,689,42,Iterator refactoring,1483636309
+dffd12319cf7021eaa479f4f5611c6b9b1a25b86,False,1,1,38,38,38.0,11,36,25,0.0,0.0,1.0,9657,1370,439,2,Add point.UnmarshalBinary() bounds checking.,1488394885
+0574163566453eb119fee1efa67e5e3a00e6ae2e,False,1,42,193,14,4.595238095238095,259,190,-69,0.0,1.0,0.42857142857142855,132614,20274,4147,55,build: upgrade to go1.18 (#23250),1648761477
+3ae799b3a50528f567fb5b297ffb3b620111083f,False,1,2,154,78,77.0,56,98,42,0.4230769230769231,0.4230769230769231,0.9230769230769231,9751,1405,347,7,WIP Fix build,1510244917
 ea104596f0450975662204a07bf50828fd8ba38e,False,1,1,46,46,46.0,6,107,101,0.6515151515151515,0.9545454545454546,1.0,6301,918,213,5,"Implement TSI index versioning
 
 This commit adds a basic TSI versioning scheme, by adding a Version field
@@ -2444,21 +2444,21 @@ files, and thus will be deemed incomatible with the current version.
 
 Users with existing TSI indexes will be able to remove them, and convert the
 resulting inmem indexes to the current version of a TSI index using the
-influx_inspect tooling."
-04818c78599b611d090696885246d2d26982980e,False,1,18,2746,2463,152.55555555555554,11,5490,5479,0.3737948084054388,0.6585908529048208,0.9159456118665018,32936,4812,1313,83,Initial import of models package
+influx_inspect tooling.",1506099579
+04818c78599b611d090696885246d2d26982980e,False,1,18,2746,2463,152.55555555555554,11,5490,5479,0.3737948084054388,0.6585908529048208,0.9159456118665018,32936,4812,1313,83,Initial import of models package,1538391799
 d3db48e93d561c0125d6a1fab146fd0ded20fedc,False,1,4,94,44,23.5,39,80,41,0.17391304347826086,0.4782608695652174,1.0,16094,2356,517,8,"fix: fully clean up partially opened TSI (#23430)
 
 When one partition in a TSI fails to open, all previously opened
 partitions should be cleaned up, and remaining partitions 
 should not be opened
 
-closes https://github.com/influxdata/influxdb/issues/23427"
+closes https://github.com/influxdata/influxdb/issues/23427",1654885889
 d747e7ec4e81c18a3cb591141800f2fa201c50d2,False,1,14,321,61,22.928571428571427,342,452,110,0.21621621621621623,0.33783783783783783,0.0,65722,9730,1563,78,"feat: add config parameters to toggle WAL concurrency and timeouts (#21621)
 
 * feat: add context parameter to Take() method on fixed limiter
 * refactor: plumb context through to uses of Take()
 * test: update tests to pass context as needed
-* feat: add config toggles for setting WAL write concurrency & timeout"
+* feat: add config toggles for setting WAL write concurrency & timeout",1623251033
 ea018dfc216da552b7b8e63817cfef40ef56f79d,False,1,1,2,2,2.0,65,302,237,,,,510,85,19,0,"build(flux): update flux to v0.132.0 (#22592)
 
 * build(flux): update flux to v0.132.0
@@ -2466,7 +2466,7 @@ ea018dfc216da552b7b8e63817cfef40ef56f79d,False,1,1,2,2,2.0,65,302,237,,,,510,85,
 * chore: suppress staticcheck for use of deprecated proto package
 
 This package will be upgraded by this PR:
-https://github.com/influxdata/influxdb/pull/22571"
+https://github.com/influxdata/influxdb/pull/22571",1632869536
 46ed9bc4fb9964e2e464daa7bba17a945e45ad75,False,1,2,18,17,9.0,1456,308,-1148,0.0,1.0,1.0,143,30,5,0,"feat: switch to using go modules for building
 
 This updates the dependency manager to use go modules instead of dep so
@@ -2479,28 +2479,28 @@ vendor directory because it no longer exists. This change creates a
 `tools.go` file with the revisions of the tools we use that are currently
 in the `required` section of `Gopkg.toml`. We are currently in other
 discussions to modify how we handle tool dependency management, but this
-change does not change that."
-fb0db04bc1f3bd7b5639eb07a3f54d76108d1a70,False,1,23,1756,495,76.34782608695652,12,3281,3269,0.4471111111111111,0.6657777777777778,0.964,41716,6014,1622,113,Initial import pkg package
-0136c7e63d32021c71972970df5d8af39701575f,False,1,2,368,366,184.0,0,619,619,0.35634743875278396,0.6481069042316259,0.6414253897550112,2233,350,55,15,feat: port `influx inspect report-tsm` to 2.x (#21814)
-e7cbbaa722303f3e806656233a1c5cbe9b47f320,False,1,47,3476,703,73.95744680851064,3215,4428,1213,0.0,1.0,0.8922381311228335,77944,13022,2079,247,feat: upgrade Flux to v0.83.2 (#19569)
+change does not change that.",1537457595
+fb0db04bc1f3bd7b5639eb07a3f54d76108d1a70,False,1,23,1756,495,76.34782608695652,12,3281,3269,0.4471111111111111,0.6657777777777778,0.964,41716,6014,1622,113,Initial import pkg package,1538391800
+0136c7e63d32021c71972970df5d8af39701575f,False,1,2,368,366,184.0,0,619,619,0.35634743875278396,0.6481069042316259,0.6414253897550112,2233,350,55,15,feat: port `influx inspect report-tsm` to 2.x (#21814),1626800910
+e7cbbaa722303f3e806656233a1c5cbe9b47f320,False,1,47,3476,703,73.95744680851064,3215,4428,1213,0.0,1.0,0.8922381311228335,77944,13022,2079,247,feat: upgrade Flux to v0.83.2 (#19569),1600304355
 cade59e253b0eee194375658d6047bbf9b009cbe,False,1,4,43,30,10.75,10,318,308,0.0,0.3263598326359833,1.0,39527,5916,678,3,"Fix panic in IndexSet
 
 This commit fixes a panic where a concurrent removal of a shard and meta
-query could cause a `nil` index to be added to the IndexSet`."
-cde973f409c9c96a6a2d85ba302ef1c714719d0c,False,1,31,11125,1745,358.8709677419355,11055,6704,-4351,0.8895680521597392,0.6617766911165445,0.04095354523227384,76933,11528,2242,465,refactor query engine
+query could cause a `nil` index to be added to the IndexSet`.",1540574634
+cde973f409c9c96a6a2d85ba302ef1c714719d0c,False,1,31,11125,1745,358.8709677419355,11055,6704,-4351,0.8895680521597392,0.6617766911165445,0.04095354523227384,76933,11528,2242,465,refactor query engine,1455122424
 15d37fd3881aecdef2093af59841be540fa9c0cd,False,1,2,19,18,9.5,34,78,44,0.10526315789473684,1.0,0.9210526315789473,4577,681,161,6,"Make store open every shard on load. Fix shard to set measurementFields on load.
 
 Fixes issue where queries wouldn't be able to hit anything because the index does't load until the shard is open.
 
-Fix an issue where field codecs weren't populated in the shard when loading."
-b24b08a23c092c2d918bff932caab3e92c3bc0d9,False,1,3,18,13,6.0,15,16,1,0.0,0.0,0.0,13338,1879,454,4,Fix partition loading.
-489c89bea4d3ece5c4b729934225ac6ba6bd9029,False,1,8,549,469,68.625,2,548,546,0.1984924623115578,0.4547738693467337,0.9020100502512562,28966,4029,818,27,Add tsi support tooling.
-48b48a89272dfe9141f1f2b6386d2b3f7ad34983,False,1,13,2887,989,222.07692307692307,2032,1126,-906,0.782608695652174,0.6465028355387523,0.3270321361058601,31880,4447,908,186,intermediate
-9a15130a4c676437c717dcbe155ea042a132eb9a,False,1,7,391,157,55.857142857142854,144,247,103,0.35398230088495575,0.49557522123893805,0.7522123893805309,23098,3328,735,23,Persist TSI tombstones.
-8d40ceb00c7e183951d66bc26aa7d5d9915a08b4,False,1,8,777,383,97.125,112,750,638,0.29906542056074764,0.7289719626168224,0.8068535825545171,17919,2545,672,43,TSI1 Index
-919f99f34dfe173d66e4b99bba737f67261df2ae,False,1,6,611,297,101.83333333333333,370,412,42,1.0,0.0,1.0,23362,3241,657,20,Fixing tests.
-6851db3fc9060fc35f0fa707f6841b2f1c9d5475,False,1,11,151,49,13.727272727272727,61,166,105,0.5161290322580645,1.0,0.4032258064516129,67764,9526,1428,16,Add FGA support to SHOW MEASUREMENTS
-87778f3c45a61af20780f5f2ed8ad7d84c209c77,False,1,1,27,27,27.0,4,23,19,0.0,1.0,1.0,3416,494,136,2,Open partitions in parallel
+Fix an issue where field codecs weren't populated in the shard when loading.",1433001233
+b24b08a23c092c2d918bff932caab3e92c3bc0d9,False,1,3,18,13,6.0,15,16,1,0.0,0.0,0.0,13338,1879,454,4,Fix partition loading.,1510244917
+489c89bea4d3ece5c4b729934225ac6ba6bd9029,False,1,8,549,469,68.625,2,548,546,0.1984924623115578,0.4547738693467337,0.9020100502512562,28966,4029,818,27,Add tsi support tooling.,1494262815
+48b48a89272dfe9141f1f2b6386d2b3f7ad34983,False,1,13,2887,989,222.07692307692307,2032,1126,-906,0.782608695652174,0.6465028355387523,0.3270321361058601,31880,4447,908,186,intermediate,1510244026
+9a15130a4c676437c717dcbe155ea042a132eb9a,False,1,7,391,157,55.857142857142854,144,247,103,0.35398230088495575,0.49557522123893805,0.7522123893805309,23098,3328,735,23,Persist TSI tombstones.,1516017630
+8d40ceb00c7e183951d66bc26aa7d5d9915a08b4,False,1,8,777,383,97.125,112,750,638,0.29906542056074764,0.7289719626168224,0.8068535825545171,17919,2545,672,43,TSI1 Index,1483634076
+919f99f34dfe173d66e4b99bba737f67261df2ae,False,1,6,611,297,101.83333333333333,370,412,42,1.0,0.0,1.0,23362,3241,657,20,Fixing tests.,1510245019
+6851db3fc9060fc35f0fa707f6841b2f1c9d5475,False,1,11,151,49,13.727272727272727,61,166,105,0.5161290322580645,1.0,0.4032258064516129,67764,9526,1428,16,Add FGA support to SHOW MEASUREMENTS,1510916803
+87778f3c45a61af20780f5f2ed8ad7d84c209c77,False,1,1,27,27,27.0,4,23,19,0.0,1.0,1.0,3416,494,136,2,Open partitions in parallel,1510244917
 d3e3b05a498b113c8cc616af690b9be772a5c20d,False,1,4,16,9,4.0,0,16,16,0.0,0.6,0.8,32698,4659,950,5,"Add tsm1 open limiter
 
 This commit restricts the number of TSM1 files that can be opened
@@ -2509,8 +2509,8 @@ a limit for the number of shards that can be opened concurrently,
 however, this limit does not help when the number of CPU cores
 is higher than the number of shards. Because TSM1 files have a 2GB
 limit and there is no limit on the number of files per shard,
-extremely large shards (1TB+) can load 1,000s of files simultaneously."
-4b6767bf0154b0a7775e7fcae22e82fa9533ad9c,False,1,3,404,355,134.66666666666666,97,416,319,0.319047619047619,0.6,0.9380952380952381,5215,756,165,31,Add MMAP based file reader
+extremely large shards (1TB+) can load 1,000s of files simultaneously.",1527610913
+4b6767bf0154b0a7775e7fcae22e82fa9533ad9c,False,1,3,404,355,134.66666666666666,97,416,319,0.319047619047619,0.6,0.9380952380952381,5215,756,165,31,Add MMAP based file reader,1449074723
 a789e819a32a07ca99f03c5fae036f1ae49fd505,False,1,5,71,47,14.2,194,309,115,0.0,0.0,1.0,19187,2746,620,9,"Remove NewTSMReaderWithOptions
 
 There are two TSMIndex implementations, the directIndex and the
@@ -2524,18 +2524,18 @@ This changes removes the NewTSMReaderWithOptions func so that it is
 no longer possible to create a TSMReader with a directIndex.  This
 will allow a lot of the block reading code used by the directIndex
 to be removed and simplify maintainence.  It also gives better test
-coverage of the code that is actually used by the TSM engine now."
-996bb9bfa6642db0eddfa0f5be936bc2fc30c19f,False,1,5,77,50,15.4,19,58,39,0.1111111111111111,0.3333333333333333,1.0,30970,4359,999,12,Wire in mmap advise hint to TSMReader
+coverage of the code that is actually used by the TSM engine now.",1461784192
+996bb9bfa6642db0eddfa0f5be936bc2fc30c19f,False,1,5,77,50,15.4,19,58,39,0.1111111111111111,0.3333333333333333,1.0,30970,4359,999,12,Wire in mmap advise hint to TSMReader,1533310059
 d4b1c25f8e76081967d4f2acb35b7cf576d4ae1b,False,1,5,401,139,80.2,89,674,585,0.31827956989247314,0.832258064516129,0.9870967741935484,13203,2045,456,18,"Add CompactionPlanner type
 
 CompactionPlanner is used to determine which files (WAL Segments, TSM
-Files) to include in a given compaction run."
+Files) to include in a given compaction run.",1449074723
 da2dfa495e3b4221a7ed2a6a429c6b96d3480887,False,1,1,2,2,2.0,0,2,2,0.0,1.0,1.0,6702,962,235,2,"Fix TSM1 panic on reader error.
 
 This commit fixes an error check so that a `nil` TSM reader does
-not cause a panic."
-108fa09439c61ff5fd0e94cf7597e19210fb49a8,False,1,2,20,17,10.0,5,15,10,0.0,0.6,1.0,7454,1123,275,3,Rename corrupt tsm files on load.
-58aed93fe6e3886fd23135c0109d287c5d767c27,False,1,2,15,12,7.5,0,19,19,0.0,0.0,1.0,9759,1536,85,1,Add option for unicode validation.
+not cause a panic.",1537800868
+108fa09439c61ff5fd0e94cf7597e19210fb49a8,False,1,2,20,17,10.0,5,15,10,0.0,0.6,1.0,7454,1123,275,3,Rename corrupt tsm files on load.,1524860864
+58aed93fe6e3886fd23135c0109d287c5d767c27,False,1,2,15,12,7.5,0,19,19,0.0,0.0,1.0,9759,1536,85,1,Add option for unicode validation.,1525281415
 544329380f166d2b3b2665a71d8783c65ad3edeb,False,1,11,182,65,16.545454545454547,26,290,264,0.535483870967742,0.5548387096774193,0.8709677419354839,69353,10109,1614,15,"Add empty series sketches back to tsi1 index
 
 This commit adds initial empty sketches back to the tsi1 index, as well
@@ -2547,21 +2547,21 @@ the store level produce the correct results under writes, deletions and
 re-opening of the store.
 
 This commit does not provide working sketches for post-compaction on the
-tsi1 index."
-5b25a93b45b907b671692795512a79b4e33d2bb7,False,1,1,6,6,6.0,3,3,0,,,,2089,356,63,2,Clean error and log messages
+tsi1 index.",1518040333
+5b25a93b45b907b671692795512a79b4e33d2bb7,False,1,1,6,6,6.0,3,3,0,,,,2089,356,63,2,Clean error and log messages,1481144081
 eeb0b967f9a0f1792072edcfe06e365b451278d2,False,1,1,36,36,36.0,25,11,-14,1.0,1.0,0.0,6340,872,211,3,"Don't create series one at a time when limits in place
 
 When a max series per data limit was in place (or 0), we would create
 series one at a time which really affects throughput.  This does it
-in bulk which is less accurate, but more performant."
+in bulk which is less accurate, but more performant.",1518716619
 903d2c2d28512107ee71391f7a677fb9418cc872,False,1,1,19,19,19.0,8,71,63,0.0,0.0,0.9347826086956522,6860,931,220,1,"fix(tsm1): improve series cardinality limit
 
 Prior to this change, new series would be added to the series file
 before checking the series cardinality limit. If the limit was exceeded,
 the write was rejected even though the series had already been added to
-the series file."
-9fcf27a25bf0f83d589bbe638edd5120e8b46cfd,False,1,2,39,26,19.5,0,169,169,0.5504587155963303,0.5504587155963303,1.0,317,57,16,4,Add safe rename functions at fs level
-074f263e08c047adbffee3b3654b9a0522f18ba0,False,1,54,26045,2937,482.31481481481484,31,49432,49401,0.2125239101983288,0.37971072854793786,0.9376153562200074,154248,21890,4371,806,Initial import of tsm1.Engine
+the series file.",1579643113
+9fcf27a25bf0f83d589bbe638edd5120e8b46cfd,False,1,2,39,26,19.5,0,169,169,0.5504587155963303,0.5504587155963303,1.0,317,57,16,4,Add safe rename functions at fs level,1549975287
+074f263e08c047adbffee3b3654b9a0522f18ba0,False,1,54,26045,2937,482.31481481481484,31,49432,49401,0.2125239101983288,0.37971072854793786,0.9376153562200074,154248,21890,4371,806,Initial import of tsm1.Engine,1538392117
 47007f69889b37d2d7893167e26dfe92985079ec,False,1,3,96,46,32.0,11,101,90,0.484375,0.84375,1.0,7270,1056,259,5,"fix: for Windows, copy snapshot files being backed up (#22551) (#22562)
 
 On Windows, make copies of files for snapshots, because
@@ -2574,14 +2574,14 @@ closes https://github.com/influxdata/influxdb/issues/16289
 
 (cherry picked from commit 3702fe8e7688499dc6183ad20c90e6c3a6a812ed)
 
-closes https://github.com/influxdata/influxdb/issues/22557"
+closes https://github.com/influxdata/influxdb/issues/22557",1632341188
 59fbd371fc285c6316f65e7a142de5c36be90def,False,1,13,1547,529,119.0,1420,875,-545,0.05343511450381679,0.0,0.0,29686,4306,1027,78,"Implement backup/restore for TSM.
 
 This changes backup and restore to work for TSM. It breaks it for b1 and bz1, but since those are getting removed it's ok.
 
 The backup runs against any host that is specified and can backup either the metasstore, a database, specific retention policy, or a specific shard. It can also take incremental backups with the `since` flag, which will only backup TSM files that have been created since that timestamp.
 
-The backup is safe to run online. However, for shards that are still hot for writes, they won't be able to create new TSM files while the backup for that single shard runs. If the backup isn't too large and the write throughput isn't too high this shouldn't be a problem since the writes will just go into the WAL cache."
+The backup is safe to run online. However, for shards that are still hot for writes, they won't be able to create new TSM files while the backup for that single shard runs. If the backup isn't too large and the write throughput isn't too high this shouldn't be a problem since the writes will just go into the WAL cache.",1451516810
 159b10543c7c2d68d40ab958969a0b40e4eebd56,False,1,3,73,46,24.333333333333332,5,84,79,0.2807017543859649,0.2807017543859649,1.0,7193,1049,258,4,"fix: for Windows, copy snapshot files being backed up (#22551) (#22676)
 
 On Windows, make copies of files for snapshots, because
@@ -2594,12 +2594,12 @@ closes https://github.com/influxdata/influxdb/issues/16289
 
 (cherry picked from commit 3702fe8e7688499dc6183ad20c90e6c3a6a812ed)
 
-Closes https://github.com/influxdata/influxdb/issues/22556"
+Closes https://github.com/influxdata/influxdb/issues/22556",1634255674
 bc31783a002d79d68ac9d1927b974f9c01547922,False,1,13,2240,643,172.30769230769232,1217,1706,489,0.45204336947456214,0.6572143452877398,0.9224353628023353,31313,4812,1239,122,"Refactor backup and restore
 
 This commit updates the snapshot code as well as the ""backup"" and
-""restore"" command to work with the new architecture."
-ef596c6b6b58ebebf621749bfebed00ecc959067,False,1,1,8,8,8.0,0,9,9,0.0,0.0,1.0,1603,267,54,1,skip backup/restore test until we update the code
+""restore"" command to work with the new architecture.",1433995621
+ef596c6b6b58ebebf621749bfebed00ecc959067,False,1,1,8,8,8.0,0,9,9,0.0,0.0,1.0,1603,267,54,1,skip backup/restore test until we update the code,1453408323
 3702fe8e7688499dc6183ad20c90e6c3a6a812ed,False,1,3,73,46,24.333333333333332,5,84,79,0.2807017543859649,0.2807017543859649,1.0,7193,1049,258,4,"fix: for Windows, copy snapshot files being backed up (#22551)
 
 On Windows, make copies of files for snapshots, because
@@ -2608,7 +2608,7 @@ allows files (and links) to be deleted while open. This
 causes temporary directories to be left behind after
 backups.
 
-closes https://github.com/influxdata/influxdb/issues/16289"
+closes https://github.com/influxdata/influxdb/issues/16289",1632333377
 a9d02e7ab7d5a654d34d38464aa9e9c44392d642,False,1,2,59,47,29.5,19,40,21,1.0,1.0,1.0,22976,3259,742,5,"fix: Handle snapshot related errors (#18710)
 
 When applied this patch will:
@@ -2639,11 +2639,11 @@ When applied this patch will:
   In short, we hoisted code out of CreateSnapshot() to simplify error
   handling.
 
-  On error, we remove any directories we created."
+  On error, we remove any directories we created.",1593093904
 5bb62597c8dba125c6ab6e64172d0e10f9c71e3d,False,1,1,15,15,15.0,7,15,8,0.2,0.6,0.8,2852,481,101,4,"Backup continue on errors (#10307)
 
-* mod backup to continue if a shard fails to backup"
-59109907d63efd0a83ffcfe1cb7be2747b250fef,False,1,4,87,42,21.75,119,85,-34,1.0,1.0,0.058823529411764705,34326,4898,1127,9,fix(tsm1): fix data race when accessing tombstone stats (#20836)
+* mod backup to continue if a shard fails to backup",1537987454
+59109907d63efd0a83ffcfe1cb7be2747b250fef,False,1,4,87,42,21.75,119,85,-34,1.0,1.0,0.058823529411764705,34326,4898,1127,9,fix(tsm1): fix data race when accessing tombstone stats (#20836),1616513015
 fe59e34940930cdfa2925bda3fe14ba292576114,False,1,2,59,47,29.5,19,40,21,1.0,1.0,1.0,23075,3268,744,5,"fix: Handle snapshot related errors (#18710)
 
 When applied this patch will:
@@ -2674,9 +2674,9 @@ When applied this patch will:
   In short, we hoisted code out of CreateSnapshot() to simplify error
   handling.
 
-  On error, we remove any directories we created."
-efd766d60febc066f14caf59f87cdcf99a5319f5,False,1,4,88,43,22.0,120,85,-35,1.0,1.0,0.05714285714285714,34321,4897,1127,9,fix(tsm1): fix data race when accessing tombstone stats (#20773)
-3f59d4be8e454e5a5de9e1d78522b7858d516cfc,False,1,1,28,28,28.0,12,18,6,1.0,1.0,1.0,9416,1531,396,6,fix(tsdb): Fix error lists
+  On error, we remove any directories we created.",1593724968
+efd766d60febc066f14caf59f87cdcf99a5319f5,False,1,4,88,43,22.0,120,85,-35,1.0,1.0,0.05714285714285714,34321,4897,1127,9,fix(tsm1): fix data race when accessing tombstone stats (#20773),1613697837
+3f59d4be8e454e5a5de9e1d78522b7858d516cfc,False,1,1,28,28,28.0,12,18,6,1.0,1.0,1.0,9416,1531,396,6,fix(tsdb): Fix error lists,1585774479
 025319c3875a73ede0345687e256ebc3249318ab,False,1,3,452,327,150.66666666666666,76,466,390,0.6585365853658537,1.0,0.8536585365853658,26347,3990,273,4,"fix(services/storage): multi measurement queries return all applicable series (#19566)
 
 This fixes multi measurement queries that go through the storage service
@@ -2702,7 +2702,7 @@ condition will be considered a multiple measurement query.
 This bug did not apply to single measurement queries where one
 measurement was selected and all of the logical operators were `AND`
 values. This is because it used a different code path that correctly
-handled these situations."
+handled these situations.",1600370904
 3ee31b688dfc94fd59c7323d0c59f13129e15327,False,1,1,123,123,123.0,25,99,74,,,,15607,2375,167,0,"fix: copy names from mmapped memory before closing iterator (#22040) (#22060)
 
 This fix ensures that memory-mapped files are not released
@@ -2717,7 +2717,7 @@ closes https://github.com/influxdata/influxdb/issues/22000
 
 (cherry picked from commit a989f8f8b6fc453c85075e5ae73033d5bd036e21)
 
-closes https://github.com/influxdata/influxdb/issues/22003"
+closes https://github.com/influxdata/influxdb/issues/22003",1628119884
 05744ea48b014918c2e84bba81312ec84b9757c2,False,1,1,129,129,129.0,29,109,80,,,,16176,2472,166,0,"fix: copy names from mmapped memory before closing iterator (#22040) (#22058)
 
 This fix ensures that memory-mapped files are not released
@@ -2732,13 +2732,13 @@ closes https://github.com/influxdata/influxdb/issues/22000
 
 (cherry picked from commit a989f8f8b6fc453c85075e5ae73033d5bd036e21)
 
-Closes https://github.com/influxdata/influxdb/issues/22001"
+Closes https://github.com/influxdata/influxdb/issues/22001",1628112430
 5c2d36225d6a76aa5fdb6c51337d94cffd137a70,False,1,1,6,6,6.0,1,5,4,,,,13554,2059,158,0,"fix(tsdb): copy measurement names when expression is provided
 
 We already make copies when no expression is provided, because
 the backing slices may go away if the shard they came from is
 closed. This fixes the other spot where some backing slices
-would be returned."
+would be returned.",1540574725
 04f4817aaeb6fd22ab7964eb063bec77141833fe,False,1,3,452,327,150.66666666666666,77,466,389,0.6585365853658537,1.0,0.8536585365853658,27031,4126,284,4,"fix(services/storage): multi measurement queries return all applicable series (#19592) (#20934)
 
 This fixes multi measurement queries that go through the storage service
@@ -2770,7 +2770,7 @@ Backport of #19566.
 
 (cherry picked from commit ceead88bd5b1cf0d808031f02ba6a05ac1343eb9)
 
-Co-authored-by: Jonathan A. Sternberg <jonathan@influxdata.com>"
+Co-authored-by: Jonathan A. Sternberg <jonathan@influxdata.com>",1615584854
 a989f8f8b6fc453c85075e5ae73033d5bd036e21,False,1,1,129,129,129.0,28,102,74,,,,16176,2472,166,0,"fix: copy names from mmapped memory before closing iterator (#22040)
 
 This fix ensures that memory-mapped files are not released
@@ -2781,7 +2781,7 @@ released. The functions they call use iterators to files which
 are closed (releasing the mmapped files) before the memory is
 safely copied to the heap.
 
-closes https://github.com/influxdata/influxdb/issues/22000"
+closes https://github.com/influxdata/influxdb/issues/22000",1628108160
 733d8428126d77a84c92f768114e3a98ce891c48,False,1,8,408,113,51.0,223,376,153,0.22727272727272727,0.7727272727272727,0.9696969696969697,34552,5226,443,19,"Turn the ExecutionContext into a context.Context
 
 Along with modifying ExecutionContext to be a context and have the
@@ -2794,7 +2794,7 @@ statement executor.
 An eventual goal is to remove the InterruptCh from the IteratorOptions
 and use the Context instead, but for now, we'll just assign the done
 channel from the Context to the IteratorOptions so at least they refer
-to the same channel."
+to the same channel.",1520539400
 37b63cedecc037670382eeeae806237bd2e75310,False,1,10,1390,435,139.0,1154,1029,-125,1.0,0.38461538461538464,1.0,42841,6616,752,33,"Cleanup QueryExecutor and split statement execution code
 
 The QueryExecutor had a lot of dead code made obsolete by the query
@@ -2828,7 +2828,7 @@ source version of InfluxDB anymore.
 The QueryManager interface is now built into QueryExecutor and is no
 longer necessary. The StatementExecutor and QueryExecutor split allows
 task management to much more easily be built into QueryExecutor rather
-than as a separate struct."
+than as a separate struct.",1459790837
 64c2d704da7acbc302fb4ddc8c8bd9e941bc4b1e,False,1,3,110,48,36.666666666666664,39,107,68,0.49056603773584906,0.8301886792452831,0.8301886792452831,14614,2099,289,4,"Avoid deadlock when max-row-limit is hit
 
 When the `max-row-limit` was hit, the goroutine reading from the results
@@ -2839,41 +2839,41 @@ read it and this created a deadlock.
 
 Include an `AbortCh` on the `ExecutionContext` that will signal when
 results are no longer desired so the sender can abort instead of
-deadlocking."
+deadlocking.",1478632348
 e3b4b71c13db844686eb7092dec8acccf266681a,False,1,16,3294,1086,205.875,3690,1760,-1930,0.6076779026217228,0.50187265917603,0.0,34522,5372,832,55,"refactor query executor
 
 This commit moves the `QueryExecutor` to the `cluster` package
-and provides an interface to it inside the `influxql` package."
+and provides an interface to it inside the `influxql` package.",1455747236
 937233d98823c740969ff0af79718d59ea31d5e4,False,1,4,118,87,29.5,61,269,208,0.12972972972972974,0.8756756756756757,1.0,8073,1297,298,10,"Update TSM compaction planning logic
 
 * Update Plan to do a full compaction if cold for writes
 * Remove MaxFileSize as a config variable from Compactor. Should be a set constant
 * Update Plan to keep track of if the last check was fully compacted so we can skip future planning calls
-* Update compact min file count to 3 so that compactions run more frequently"
-bb2562b2ab6686d544b1202dc4cca9d62f40ae92,False,1,2,14,10,7.0,18,20,2,,,,6760,1040,240,2,Return CompactionGroups from planning
+* Update compact min file count to 3 so that compactions run more frequently",1449494790
+bb2562b2ab6686d544b1202dc4cca9d62f40ae92,False,1,2,14,10,7.0,18,20,2,,,,6760,1040,240,2,Return CompactionGroups from planning,1450918871
 217772752d7685060f0931548e4103580f919e3f,False,1,1,2,2,2.0,1,1,0,,,,15643,2208,475,1,"Fix compaction logic on infrequent cache snapshots
 
 This change fixes #10511 that manifests when a shard is considered cold
 faster than its cache is snapshotted. This can happen if WAL is enabled
 because previously the code only considered the last modification of
 compacted tsm1 files. Instead Engine.LastModified() also takes the WAL
-into account if necessary."
+into account if necessary.",1543266337
 2dd913d71bd015c9039a767176152f8ca959ab38,False,1,1,28,28,28.0,77,11,-66,0.8135593220338984,1.0,0.0,9077,1490,386,2,"Revert ""Limit force-full and cold compaction size.""
 
-This reverts commit 40db64d0b91822b4263d6a294b17b1920aa39cac."
+This reverts commit 40db64d0b91822b4263d6a294b17b1920aa39cac.",1549908464
 5ee20e04a862b233c6678ee42cebd942178a0fb6,False,1,1,112,112,112.0,43,404,361,0.09523809523809523,0.8095238095238095,1.0,5050,819,222,3,"Fix compaction level planner
 
 Large files created early in the leveled compactions could cause
 a shard to get into a bad state.  This reworks the level planner
 to handle those cases as well as splits large compactions up into
-multiple groups to leverage more CPUs when possible."
+multiple groups to leverage more CPUs when possible.",1468516449
 7d50970631fa5b2436e4ac68bda2f93bcb4a20f6,False,1,1,8,8,8.0,3,78,75,0.3142857142857143,1.0,1.0,4734,756,212,2,"Fix continous compaction edge case
 
 The level planner would keep including the same TSM files to be
 recompacted even if they were already quite compacted and split
 across several TSM files.
 
-Fixes #6683"
+Fixes #6683",1464194184
 1a35c0a3fc3472dae6ef02cf08da88fd202c32f4,False,1,1,7,7,7.0,2,86,84,0.04,0.9733333333333334,1.0,5557,905,246,1,"Fix neverending full compactions
 
 The full compaction planner could return a plan that only included
@@ -2890,22 +2890,22 @@ continuously and the disks become very busy basically rewriting the
 same files over and over again.  This can eventually cause disk and CPU
 saturation if it occurs with more than one shard.
 
-Fixes #7074"
+Fixes #7074",1472945714
 96445a53a73c3f1f2babffb8c411273e16baabfa,False,1,1,156,156,156.0,83,148,65,0.0,1.0,1.0,2231,392,95,6,"Update TSM compaction logic
 
 * Update compaction to look at newest files of the smallest step first
 * Update compaction to look at older files in larger steps if newer files don't have enough small steps to compact
 * Changed the TestDefaultCompactionPlanner_CombineSequence test to reflect what's possible now. We'd only have multiple files in the same generation if the all files but one were over the max allowable size.
-* Clean up the logic on when full compactions are run and when planning can be skipped"
+* Clean up the logic on when full compactions are run and when planning can be skipped",1449614018
 6592615958bc9f51154a9cf06fd5792a3ab604e2,False,1,3,203,170,67.66666666666667,73,270,197,0.007246376811594203,0.8623188405797102,0.9710144927536232,7030,1120,267,11,"Updated compaction strategy
 
 This changes compacting files to merge sequences of files in lower generations
-up to later generations"
+up to later generations",1449297039
 21163329507c9a585675c72248ae9f785eeaadf9,False,1,3,42,38,14.0,34,8,-26,0.0,0.0,0.65,29147,4362,997,7,"fix(tsm1): fix calculation of tsmFullCompactionQueue statistic (#20897)
 
 
 
-Co-authored-by: zhaoyun.248 <zhaoyun.248@bytedance.com>"
+Co-authored-by: zhaoyun.248 <zhaoyun.248@bytedance.com>",1622816797
 17b9ea87232b25cafe2024bfc9b9cd663dc93a11,False,1,5,356,251,71.2,389,193,-196,0.7671232876712328,0.0,0.0136986301369863,41077,6171,646,5,"feat: Add WITH KEY to show tag keys (#20793)
 
 * fix: Change from RewriteExpr to PartitionExpr
@@ -2914,15 +2914,15 @@ Also remove some dead code
 
 * feat: WITH KEY implementation
 
-* feat: query rewriting for WITH KEY in SHOW TAG KEYS"
+* feat: query rewriting for WITH KEY in SHOW TAG KEYS",1614260309
 ad65da2d76d95e69ba91d1cc6a062fe530245e86,False,1,34,8813,1643,259.20588235294116,6607,3055,-3552,1.0,0.8133262823902697,0.14013749338974088,108601,16900,4428,959,"chore: update protobuf library versions and remove influx_tsm (#21882) (#21890)
 
 * chore: update protobufs
 
 * fix: run codegen during build
 
-* fix: fully remove influx_tsm"
-493c1ed0d1f103c357eb9289deba22f593fa8835,False,1,10,1128,493,112.8,394,741,347,1.0,1.0,0.8936170212765957,60837,8841,1407,14,inmem tests passing.
+* fix: fully remove influx_tsm",1626800729
+493c1ed0d1f103c357eb9289deba22f593fa8835,False,1,10,1128,493,112.8,394,741,347,1.0,1.0,0.8936170212765957,60837,8841,1407,14,inmem tests passing.,1512496198
 1661b6f67d72d0be7736053a717a87f62c42ea9c,False,1,2,201,200,100.5,94,177,83,1.0,1.0,1.0,27247,3967,606,1,"fix: avoid rewriting fields.idx unnecessarily (#21692)
 
 * fix: avoid rewriting fields.idx unnecessarily (#21592) [Port to 1.9] (#21609)
@@ -2946,7 +2946,7 @@ Closes #21597
 (cherry picked from commit 7d10228e19a6032ddd16b560679f00a56d591d05)
 (cherry picked from commit f8202876ad990a503f7a5f355fb5060d3e9552c6)
 
-Co-authored-by: davidby-influx <72418212+davidby-influx@users.noreply.github.com>"
+Co-authored-by: davidby-influx <72418212+davidby-influx@users.noreply.github.com>",1623775012
 b01c5f08dc9889bc158e5f4759e1f0c064e61c52,False,1,2,201,200,100.5,95,170,75,1.0,1.0,1.0,26675,3881,566,1,"fix: avoid rewriting fields.idx unnecessarily (#21859)
 
 Under heavy write load creating new fields and measurements
@@ -2958,7 +2958,7 @@ MeasurementFieldSetWriter must both now be explicitly
 closed.
 
 
-Co-authored-by: davidby-influx <72418212+davidby-influx@users.noreply.github.com>"
+Co-authored-by: davidby-influx <72418212+davidby-influx@users.noreply.github.com>",1626445531
 d10a727157dc6426afc062a1912641fe89510e15,False,1,2,201,200,100.5,94,169,75,1.0,1.0,1.0,26529,3862,562,1,"fix: avoid rewriting fields.idx unnecessarily (#21592) (#21610)
 
 Under heavy write load creating new fields and measurements
@@ -2973,13 +2973,13 @@ Closes #21577
 
 (cherry picked from commit f64be286be178d481c9897b8a388d227ebb62b52)
 
-Closes https://github.com/influxdata/influxdb/issues/21598"
+Closes https://github.com/influxdata/influxdb/issues/21598",1622837873
 e0ae9c5a2dae051cdab014c5f299e0cdaffc1664,False,1,3,186,95,62.0,400,35,-365,0.7766323024054983,0.4742268041237113,0.01718213058419244,21729,3107,699,7,"tsm1: Replace goroutine `merge` with k-way merge
 
 Previously replaced WalkKeys implementation for a considerable
-improvement to startup time"
-4e13248d8540eae8f731ce58a297d909ed254696,False,1,7,370,136,52.857142857142854,0,529,529,0.2,0.1373134328358209,0.7791044776119403,34087,4957,752,17,feat #9212: add ability to generate shard digests
-50bbf1129953073e2efc53334ffdc8746184c2f3,False,1,4,241,156,60.25,69,495,426,0.19318181818181818,0.26515151515151514,0.7992424242424242,17852,2524,552,13,add digest manifest
+improvement to startup time",1525100275
+4e13248d8540eae8f731ce58a297d909ed254696,False,1,7,370,136,52.857142857142854,0,529,529,0.2,0.1373134328358209,0.7791044776119403,34087,4957,752,17,feat #9212: add ability to generate shard digests,1513175314
+50bbf1129953073e2efc53334ffdc8746184c2f3,False,1,4,241,156,60.25,69,495,426,0.19318181818181818,0.26515151515151514,0.7992424242424242,17852,2524,552,13,add digest manifest,1533323828
 f64be286be178d481c9897b8a388d227ebb62b52,False,1,2,199,198,99.5,93,172,79,1.0,1.0,1.0,27252,3967,606,1,"fix: avoid rewriting fields.idx unnecessarily (#21592)
 
 Under heavy write load creating new fields and measurements
@@ -2990,16 +2990,16 @@ invocations. MeasurementFieldSet and the new
 MeasurementFieldSetWriter must both now be explicitly
 closed.
 
-Closes #21577"
+Closes #21577",1622823693
 f7279b57f345a8f9769a5c1046d365e8f49059b6,False,1,2,21,17,10.5,10,23,13,0.0,0.0,1.0,12260,1883,438,5,"Re-open last WAL segment
 
 Re-open the last wal segment instead of creating a new one.  This fixes
 an issue where the last modified time of the WAL would change on
-restart.  It also avoids a lot of IO file churn on restart."
-6cc1a3470425d6dd355ad69be454fdbce01fe3e3,False,1,8,68,30,8.5,91,91,0,,,,12713,1903,246,9,Rename cluster package to coordinator
+restart.  It also avoids a lot of IO file churn on restart.",1519161844
+6cc1a3470425d6dd355ad69be454fdbce01fe3e3,False,1,8,68,30,8.5,91,91,0,,,,12713,1903,246,9,Rename cluster package to coordinator,1462988465
 7b1a4e6700aa79d46dd14952b38dee17d469e0b0,False,1,3,13,7,4.333333333333333,2,15,13,0.25,0.5,1.0,7287,1128,241,4,"Control whether each query should be logged
 
-Fixes issue #4138"
+Fixes issue #4138",1442456783
 9f26eb76307506c8b5e3ef56c87182fa6ad16d6d,False,1,1,25,25,25.0,9,132,123,0.6146788990825688,1.0,1.0,7925,1087,64,0,"Drop NaN values when writing back points
 
 When an NaN value was computed, it would be written back incorrectly as
@@ -3017,11 +3017,11 @@ number of points actually written rather than the number of points
 desired to be written. Previously, if there was an error writing a point
 for some reason, the point would be silently dropped, but still recorded
 as a point that had been written. Now it reports the number of points
-that were written and omits the ones that were dropped."
+that were written and omits the ones that were dropped.",1544115346
 4b1a35fb93935f7529fa8e81440bb5f9b4d2ca16,False,1,1,105,105,105.0,28,78,50,1.0,1.0,1.0,1240,215,40,8,"Fix data races in tcp.Mux and tcp.listener
 
 This fixes two data races around concurrent calls to (*tcp.Mux).Close
-and (*tcp.Mux).handleConn, discovered in Enterprise test suites."
+and (*tcp.Mux).handleConn, discovered in Enterprise test suites.",1516320610
 a4fb30d1b4cb2daed150b87be68eaa97d45fb1c0,False,1,1,31,31,31.0,36,79,43,0.0,1.0,0.6896551724137931,795,135,34,3,"fix: Allow longer lines than the default for bufio.Scanner
 
 This commit adds a field to Batcher to configure the maximum allowed
@@ -3031,32 +3031,32 @@ this length an ErrLineToLong error will be returned.
 
 Simplified TestBatcher_read tests and added a test case for this
 new scenario and to ensure lines exceeding the default
-bufio.MaxScanTokenSize are allowed."
-7ff3361e784da050a5e9650d48c7161f8308e6e2,False,1,3,92,87,30.666666666666668,9,95,86,0.12244897959183673,0.6326530612244898,0.8775510204081632,6061,978,145,9,fix(task): Allow task scheduler to be stopped and started. (#882)
-c78344c4411d26b6e95ae73e5ade94622b583162,False,1,8,1184,346,148.0,629,1064,435,0.2808988764044944,0.13764044943820225,0.6938202247191011,22025,3157,617,78,update task schedler to use the new task control service (#12949)
-1862b4421df347adaf9e4a91cda57f22a5a65fbc,False,1,19,566,210,29.789473684210527,105,621,516,0.7314814814814815,0.8518518518518519,0.9629629629629629,67688,10334,2397,112,Integrate scanned values statistics tracking.
-f1bcc97e896e4e5a00d78d2ff50f9e09d25a5286,False,1,6,565,447,94.16666666666667,202,371,169,0.8,0.8,0.4,53043,7699,1166,15,Fix auth tests
-89877d77644f71e772614e8ae02b88c41b36fad5,False,1,3,509,261,169.66666666666666,179,389,210,0.12244897959183673,0.12244897959183673,1.0,2291,332,62,9,ifql: writer tracks estimated size (bytes) to limit memory between Send
+bufio.MaxScanTokenSize are allowed.",1601412258
+7ff3361e784da050a5e9650d48c7161f8308e6e2,False,1,3,92,87,30.666666666666668,9,95,86,0.12244897959183673,0.6326530612244898,0.8775510204081632,6061,978,145,9,fix(task): Allow task scheduler to be stopped and started. (#882),1537941681
+c78344c4411d26b6e95ae73e5ade94622b583162,False,1,8,1184,346,148.0,629,1064,435,0.2808988764044944,0.13764044943820225,0.6938202247191011,22025,3157,617,78,update task schedler to use the new task control service (#12949),1553813545
+1862b4421df347adaf9e4a91cda57f22a5a65fbc,False,1,19,566,210,29.789473684210527,105,621,516,0.7314814814814815,0.8518518518518519,0.9629629629629629,67688,10334,2397,112,Integrate scanned values statistics tracking.,1543444326
+f1bcc97e896e4e5a00d78d2ff50f9e09d25a5286,False,1,6,565,447,94.16666666666667,202,371,169,0.8,0.8,0.4,53043,7699,1166,15,Fix auth tests,1513113935
+89877d77644f71e772614e8ae02b88c41b36fad5,False,1,3,509,261,169.66666666666666,179,389,210,0.12244897959183673,0.12244897959183673,1.0,2291,332,62,9,ifql: writer tracks estimated size (bytes) to limit memory between Send,1511202817
 4b7a4868a9fc0297ec3ab1535ffbbd80875cba9a,False,1,3,77,49,25.666666666666668,33,44,11,0.36363636363636365,0.36363636363636365,0.7272727272727273,4842,747,172,5,"fix(services/storage): Add nil checks to prevent panics
 
-Fixes #9925"
+Fixes #9925",1527801739
 aa61359cc74f220f4e5680de3a6d699691c0b793,False,1,20,1674,655,83.7,819,1144,325,0.0,0.35119047619047616,1.0,58043,8637,1378,172,"Storage RPC API improvements. See PR for details
 
 * reduce # allocations (115M -> 22M)
 * reduce size allocations (53GB -> 1.3GB)
-* reduce RPC query time (45s -> 12.9s)"
+* reduce RPC query time (45s -> 12.9s)",1521665169
 415ed14c53b46f8f8fecb3d9991afefe95c7a7c4,False,1,20,7878,3655,393.9,0,8582,8582,0.24230709757229008,0.33431266429565487,0.9412401422607082,53712,8524,1984,275,"storage service
 
 * storage service is disabled by default
 * default port 8082
-* RPC interface generated using yarpc via service.proto"
+* RPC interface generated using yarpc via service.proto",1508963887
 7f8b7af61e381fd92f36ea997660cb32088c9e29,False,1,7,84,30,12.0,39,102,63,0.0,0.5087719298245614,1.0,59061,8600,1306,6,"Cleanup index memory footprint counting code (#9828)
 
 * Fix IndexSet.DedupeInmemIndexes
 
-* Cleanup index memory footprint code"
-0763d1789e63cd62a8a3c0edba54b408343dab0d,False,1,7,38,16,5.428571428571429,9,36,27,0.9473684210526315,1.0,1.0,59049,8595,1304,5,Get inmem index bytes without double-counting
-ec93b0eb0c54b1e5f9b5c25e0678e855bb5f0dd7,False,1,1,62,62,62.0,21,41,20,,,,12515,1897,137,0,Ensure all shards checked for fields within an IndexSet
+* Cleanup index memory footprint code",1526408719
+0763d1789e63cd62a8a3c0edba54b408343dab0d,False,1,7,38,16,5.428571428571429,9,36,27,0.9473684210526315,1.0,1.0,59049,8595,1304,5,Get inmem index bytes without double-counting,1525977232
+ec93b0eb0c54b1e5f9b5c25e0678e855bb5f0dd7,False,1,1,62,62,62.0,21,41,20,,,,12515,1897,137,0,Ensure all shards checked for fields within an IndexSet,1520868345
 e610e7c21d23f7350b397d48a8eeb9a22dec947b,False,1,7,103,44,14.714285714285714,112,314,202,0.6259541984732825,0.8549618320610687,0.9312977099236641,51191,7417,1174,21,"Track undeleted series IDs per-shard with inmem
 
 This commit adds a bitset into each shard's in-memory index, to be used to
@@ -3069,8 +3069,8 @@ ids are removed from the bitset.
 Becasue each shard shares the same inmem index reference, the bitset
 is stored in the `ShardIndex`, which is local to each shard, and then
 different references are passed into the shared `Index` object, depending
-on which shard is writing the series."
-13a1505ba2c3deec4ec91fab1ebfc3f33be1a8ab,False,1,5,38,15,7.6,27,23,-4,0.0,1.0,0.0,11527,1832,405,8,Cleanup cmd package
+on which shard is writing the series.",1515632514
+13a1505ba2c3deec4ec91fab1ebfc3f33be1a8ab,False,1,5,38,15,7.6,27,23,-4,0.0,1.0,0.0,11527,1832,405,8,Cleanup cmd package,1516565305
 938db68198718d9899a91e00e3a598e85174320a,False,1,14,1617,390,115.5,422,1553,1131,0.23356643356643356,0.35524475524475524,0.7874125874125875,52779,7413,1872,71,"Update restore functionality to run in online mode, consume Enterprise backup files.  (#9207)
 
 * Live Restore + Enterprise data format compatability
@@ -3085,39 +3085,39 @@ on which shard is writing the series."
 
 * Update to test to do cross-testing with enterprise version
 
-* incremental enterprise backup format support"
-4159fd693eb8529409d6b198217d396111bd5ed3,False,1,1,24,24,24.0,11,13,2,0.0,0.0,1.0,1711,280,60,8,"break out backup logging into 2 loggers, one for Stdout and one for Stderr"
+* incremental enterprise backup format support",1515610758
+4159fd693eb8529409d6b198217d396111bd5ed3,False,1,1,24,24,24.0,11,13,2,0.0,0.0,1.0,1711,280,60,8,"break out backup logging into 2 loggers, one for Stdout and one for Stderr",1497468058
 eb4d311c0a7d142641e535f0956d39bb8fc50cac,False,1,2,44,38,22.0,17,27,10,1.0,1.0,1.0,10309,1493,323,3,"Add retry/backup when backing up a shard fails
 
 The backup command can fail if a snapshot is running which silently
 closes the connection.  This causes the backup shard command to continue
-on as if nothing failed."
-f3e08c58711e95d6494d450d4123cd29db2023f8,False,1,3,138,78,46.0,52,86,34,0.37209302325581395,0.3953488372093023,0.37209302325581395,8466,1153,234,9,Delta encode tag and measurement block series data.
-5f9d53b58638fa7843f6f09ef31264e81112b3dc,False,1,1,12,12,12.0,3,9,6,0.0,0.0,1.0,6452,894,204,1,Fix LogEntry.UnmarshalBinary() short buffer check.
-e3af4b0dad5ddf26edb36f4710a5714f53899ebc,False,1,9,1853,802,205.88888888888889,829,1355,526,0.5399239543726235,0.5893536121673004,1.0,15969,2205,462,148,Refactor iterators.
-c4e9430de3a9c65d0033c3361086a9857e9fe2dd,False,1,1,50,50,50.0,4,46,42,0.0,0.0,1.0,6120,838,195,2,Recover after partial tsi log file write.
-9b62df23d2769b17fcae2f74b74d417d000bec51,False,1,4,396,311,99.0,21,439,418,0.21393034825870647,0.4975124378109453,0.7810945273631841,4183,620,127,18,Add MeasurementBlock.
-1c4ab05c7e874b84c6081c880a9e49b1da1cdfba,False,1,6,95,25,15.833333333333334,13,82,69,1.0,1.0,1.0,23927,3398,742,10,Add fast TSI MeasurementHasSeries() check.
-328bffd658d6cba7abbab8b906aef99beb503456,False,1,6,137,40,22.833333333333332,86,91,5,0.0,1.0,0.0,19979,2775,634,39,Convert series ids to 64-bits.
+on as if nothing failed.",1483986528
+f3e08c58711e95d6494d450d4123cd29db2023f8,False,1,3,138,78,46.0,52,86,34,0.37209302325581395,0.3953488372093023,0.37209302325581395,8466,1153,234,9,Delta encode tag and measurement block series data.,1495550491
+5f9d53b58638fa7843f6f09ef31264e81112b3dc,False,1,1,12,12,12.0,3,9,6,0.0,0.0,1.0,6452,894,204,1,Fix LogEntry.UnmarshalBinary() short buffer check.,1516133666
+e3af4b0dad5ddf26edb36f4710a5714f53899ebc,False,1,9,1853,802,205.88888888888889,829,1355,526,0.5399239543726235,0.5893536121673004,1.0,15969,2205,462,148,Refactor iterators.,1483635645
+c4e9430de3a9c65d0033c3361086a9857e9fe2dd,False,1,1,50,50,50.0,4,46,42,0.0,0.0,1.0,6120,838,195,2,Recover after partial tsi log file write.,1486486951
+9b62df23d2769b17fcae2f74b74d417d000bec51,False,1,4,396,311,99.0,21,439,418,0.21393034825870647,0.4975124378109453,0.7810945273631841,4183,620,127,18,Add MeasurementBlock.,1483634076
+1c4ab05c7e874b84c6081c880a9e49b1da1cdfba,False,1,6,95,25,15.833333333333334,13,82,69,1.0,1.0,1.0,23927,3398,742,10,Add fast TSI MeasurementHasSeries() check.,1516017630
+328bffd658d6cba7abbab8b906aef99beb503456,False,1,6,137,40,22.833333333333332,86,91,5,0.0,1.0,0.0,19979,2775,634,39,Convert series ids to 64-bits.,1510244766
 38e1ad6e0cad9e8706ab2bfd2c806651b98cd0bb,False,1,1,20,20,20.0,2,31,29,0.0,0.0,1.0,2817,470,100,2,"Bugfix for shard collisions resulting from attempted _internal import (#9576)
 
-backport of #9569"
-28f3912491a564677bfafc4602aa126023d1bfb2,False,1,4,108,38,27.0,68,68,0,,,,6734,1108,232,31,"Renamed references for ""enterprise"" backup/restore mode to ""portable"" (#9346)"
-b213b31cd48c610288a87b470429567c7a3f9c03,False,1,1,20,20,20.0,2,31,29,0.0,0.0,1.0,2817,470,100,2,Bugfix for shard collisions resulting from attempted _internal import (#9569)
-ca09f18e65cfc9e65067b77098f1fe691fd89e85,False,1,15,2950,1524,196.66666666666666,1007,1943,936,1.0,1.0,1.0,80427,11557,2011,89,intermediate: tsdb compile
-267f34b94e8d4ab6987f0aace2a6954e83133f14,False,1,4,50,42,12.5,8,42,34,1.0,1.0,1.0,19647,2912,799,3,Updates based on PR feedback
-4fbba8234eecffb575f94f0b8ae56c8ef57aaa83,False,1,1,29,29,29.0,9,32,23,0.8235294117647058,1.0,1.0,10241,1457,462,5,Add Size to models.Tags
-d19a510ad27fd0051009ae9c9d15fb0c047e7948,False,1,25,296,114,11.84,597,552,-45,0.5892857142857143,0.5892857142857143,0.0,62115,9273,1938,70,refactor Points and Rows to dedicated packages
+backport of #9569",1521132732
+28f3912491a564677bfafc4602aa126023d1bfb2,False,1,4,108,38,27.0,68,68,0,,,,6734,1108,232,31,"Renamed references for ""enterprise"" backup/restore mode to ""portable"" (#9346)",1516398823
+b213b31cd48c610288a87b470429567c7a3f9c03,False,1,1,20,20,20.0,2,31,29,0.0,0.0,1.0,2817,470,100,2,Bugfix for shard collisions resulting from attempted _internal import (#9569),1521042717
+ca09f18e65cfc9e65067b77098f1fe691fd89e85,False,1,15,2950,1524,196.66666666666666,1007,1943,936,1.0,1.0,1.0,80427,11557,2011,89,intermediate: tsdb compile,1511979618
+267f34b94e8d4ab6987f0aace2a6954e83133f14,False,1,4,50,42,12.5,8,42,34,1.0,1.0,1.0,19647,2912,799,3,Updates based on PR feedback,1444090196
+4fbba8234eecffb575f94f0b8ae56c8ef57aaa83,False,1,1,29,29,29.0,9,32,23,0.8235294117647058,1.0,1.0,10241,1457,462,5,Add Size to models.Tags,1486579488
+d19a510ad27fd0051009ae9c9d15fb0c047e7948,False,1,25,296,114,11.84,597,552,-45,0.5892857142857143,0.5892857142857143,0.0,62115,9273,1938,70,refactor Points and Rows to dedicated packages,1442435588
 fc3bce872a24708f0a469bb611f16a4587170a73,False,1,1,28,28,28.0,4,39,35,1.0,1.0,1.0,6225,902,301,4,"Ensure tags use the correct escape codes.
 
 Similar to measurement names, some characters were being escaped
-incorrectly."
-17c7f4a2a18801dff36acf15d7aaa010ef287d9f,False,1,1,4,4,4.0,2,2,0,,,,7488,1092,366,2,Avoid allocating a byte slice
-5dcab443dcd90d07ff71a848aab1b21635fe9d67,False,1,14,416,118,29.714285714285715,328,274,-54,1.0,1.0,1.0,36524,5456,1182,51,Move data.Point to tsdb.Point
+incorrectly.",1439998373
+17c7f4a2a18801dff36acf15d7aaa010ef287d9f,False,1,1,4,4,4.0,2,2,0,,,,7488,1092,366,2,Avoid allocating a byte slice,1459277932
+5dcab443dcd90d07ff71a848aab1b21635fe9d67,False,1,14,416,118,29.714285714285715,328,274,-54,1.0,1.0,1.0,36524,5456,1182,51,Move data.Point to tsdb.Point,1432328451
 8aa224b22dc007ee31a176e053ceb78519899a73,False,1,30,704,191,23.466666666666665,346,665,319,0.8987341772151899,0.9240506329113924,1.0,101578,15185,2856,87,"reduce memory allocations in index
 
 This commit changes the index to point to index data in the shards
-instead of keeping it in-memory on the heap."
+instead of keeping it in-memory on the heap.",1471378140
 a8d9eeef36b5d367e6d155ef9e39830307f97601,False,1,7,163,75,23.285714285714285,32,131,99,0.7916666666666666,0.2708333333333333,0.9791666666666666,48890,7114,1712,21,"Reduce lock contention when deleting high cardinality series
 
 Deleting high cardinality series could take a very long time, cause
@@ -3136,11 +3136,11 @@ Deleting the field set held a write lock and the function it invoked under
 the lock could try to take a read lock on the field set.  This would then
 deadlock.  This approach was also very slow and caused time out for writes.
 It now uses faster approach that checks for the existing of the measurment
-in the cache and filestore which does not take write locks."
+in the cache and filestore which does not take write locks.",1504805762
 9a9bb736f73161d3c23b6d7b7a687412cdd07fac,False,1,2,696,690,348.0,63,949,886,0.3962558502340094,0.6552262090483619,0.8939157566302652,6495,969,228,41,"Add text protocol parsing and serialzation for points
 
 This changes the implementation of point to minimize the extra
-processing needed to parse and marshal point data though the system."
+processing needed to parse and marshal point data though the system.",1432919920
 329a0cdb743206500a87b5e641e029072a1a23b3,False,1,1,23,23,23.0,4,37,33,1.0,1.0,1.0,6083,885,297,4,"Fix panic: runtime error: index out of range
 
 If the measurement started with a quote, a panic would happen.  This
@@ -3150,4 +3150,4 @@ This also uncovered that measurement names were being escaped incorrectly.
 The escape codes for tag and fields also includes `=` and '""` which should
 not be escaped for measurement names.
 
-Fixes #3681"
+Fixes #3681",1439998373

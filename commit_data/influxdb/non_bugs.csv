@@ -1,4 +1,4 @@
-sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message
+sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message,commit_timestamp
 0fdb6adcb2451a6ef3bfc8c63d621747de7aeef2,False,1,1,22,22,22.0,13,9,-4,0.0,0.0,1.0,18894,2644,583,3,"feat: Add new logging for compaction level 5 and remove bug with opt holdoff time (#26488) (#26490)
 
 Previously
@@ -18,7 +18,7 @@ was not passing the data by reference which meant we were never modifying the `o
 
 This PR also adds additional logging to Optimized level 5 compactions to clear up a little bit of confusion around log messages.
 
-(cherry picked from commit 7437f275ff88d203d369459d740d9addb2911298)"
+(cherry picked from commit 7437f275ff88d203d369459d740d9addb2911298)",1748959552
 7437f275ff88d203d369459d740d9addb2911298,False,1,1,22,22,22.0,13,9,-4,0.0,0.0,1.0,18894,2644,583,3,"feat: Add new logging for compaction level 5 and remove bug with opt holdoff time (#26488)
 
 Previously 
@@ -36,49 +36,49 @@ func (e *Engine) StartOptHoldOff(holdOffDurationCheck time.Duration, optHoldoffS
 ```
 was not passing the data by reference which meant we were never modifying the `optHoldoffDuration` and `optHoldoffStart` vars. 
 
-This PR also adds additional logging to Optimized level 5 compactions to clear up a little bit of confusion around log messages."
-eab8a8a6e83c3142d11a464df13a99b9b6bdfea5,False,1,1,2,2,2.0,0,2,2,1.0,1.0,1.0,13053,1897,317,1,fix: add locking in ClearBadShardList (#26423)
-a2f1b41363c8faf1f725d96ce4509abfeb8dea02,False,1,1,5,5,5.0,4,9,5,0.0,1.0,1.0,5623,784,114,1,fix: do not panic on invalid multiple subqueries (#26143) (#26162) (#26411)
+This PR also adds additional logging to Optimized level 5 compactions to clear up a little bit of confusion around log messages.",1748904719
+eab8a8a6e83c3142d11a464df13a99b9b6bdfea5,False,1,1,2,2,2.0,0,2,2,1.0,1.0,1.0,13053,1897,317,1,fix: add locking in ClearBadShardList (#26423),1747671247
+a2f1b41363c8faf1f725d96ce4509abfeb8dea02,False,1,1,5,5,5.0,4,9,5,0.0,1.0,1.0,5623,784,114,1,fix: do not panic on invalid multiple subqueries (#26143) (#26162) (#26411),1747097148
 5900fcfb1757895eff0f1a7d4e4064f5ad60b42c,False,1,3,150,107,50.0,107,85,-22,1.0,1.0,0.0,30562,4503,776,7,"fix: ensure fields in memory match on disk (#26402)
 
 Co-authored-by: davidby-influx <72418212+davidby-influx@users.noreply.github.com>
-closes https://github.com/influxdata/influxdb/issues/26035"
+closes https://github.com/influxdata/influxdb/issues/26035",1747080698
 b0a47a02bcbcb5357c15a53e4eed237782b5e9dd,False,1,1,39,39,39.0,20,19,-1,1.0,1.0,1.0,8864,1375,350,2,"fix: remove temp files on error in Compactor.writeNewFiles (#26074) (#26080) (#26408)
 
 Co-authored-by: davidby-influx <72418212+davidby-influx@users.noreply.github.com>
 closes https://github.com/influxdata/influxdb/issues/26073
-closes https://github.com/influxdata/influxdb/issues/26075"
+closes https://github.com/influxdata/influxdb/issues/26075",1747080684
 a753a8b8d654f23a44ea30a0fb7c17ec505758e7,False,1,2,18,13,9.0,6,12,6,0.8571428571428571,0.8571428571428571,1.0,25581,3752,877,6,"fix: ensure temp files removed on failed compaction (#26070) (#26071) (#26407)
 
 Co-authored-by: davidby-influx <72418212+davidby-influx@users.noreply.github.com>
 closes https://github.com/influxdata/influxdb/issues/26068
-closes https://github.com/influxdata/influxdb/issues/26069"
+closes https://github.com/influxdata/influxdb/issues/26069",1747077411
 eb1dd047062029e25311cfb8b429d1b27c2fb23f,False,1,4,305,221,76.25,168,325,157,0.3541666666666667,0.4583333333333333,0.9635416666666666,30961,4554,786,14,"fix: prevent differing field types in the same shard (#26025) (#26403)
 
 Co-authored-by: davidby-influx <72418212+davidby-influx@users.noreply.github.com>
 fix: lock MeasurementFields while validating (#25998)
 closes https://github.com/influxdata/influxdb/issues/23756
 fix: switch MeasurementFields from atomic.Value to sync.Map (#26022)
-closes https://github.com/influxdata/influxdb/issues/26001"
-c6e771877dd57e9c06f0c65ac824f125f6f69478,False,1,1,6,6,6.0,3,3,0,,,,8790,1376,350,1,feat: Add error join for file writing in snapshots (#26004) (#26005) (#26400)
+closes https://github.com/influxdata/influxdb/issues/26001",1747072343
+c6e771877dd57e9c06f0c65ac824f125f6f69478,False,1,1,6,6,6.0,3,3,0,,,,8790,1376,350,1,feat: Add error join for file writing in snapshots (#26004) (#26005) (#26400),1747068515
 f56d48201ea1164f1cc4c372604f539e232b490b,False,1,2,159,93,79.5,77,82,5,0.25,0.5,0.25,12263,1881,460,8,"fix: do not leak file handles from Compactor.write (#25725) (#25740) (#26391)
 
 Co-authored-by: davidby-influx <72418212+davidby-influx@users.noreply.github.com>
 closes https://github.com/influxdata/influxdb/issues/25724
-closes https://github.com/influxdata/influxdb/issues/25739"
-4ca5174744aa856c9e8f78a2c21f0d65269653a5,False,1,1,15,15,15.0,3,12,9,0.0,0.0,0.0,8614,1370,349,1,feat: Add error joins/returns (#25996) (#26000) (#26398)
+closes https://github.com/influxdata/influxdb/issues/25739",1747068296
+4ca5174744aa856c9e8f78a2c21f0d65269653a5,False,1,1,15,15,15.0,3,12,9,0.0,0.0,0.0,8614,1370,349,1,feat: Add error joins/returns (#25996) (#26000) (#26398),1747066742
 9dc4b98ad5bb12bd7f763098c635e013e33d2f43,False,1,2,24,22,12.0,10,14,4,1.0,1.0,1.0,2281,390,90,4,"fix: defer calls that return a closure need to be called (#25951) (#26393)
 
 Co-authored-by: Phil Bracikowski <13472206+philjb@users.noreply.github.com>
-fixes #25950"
+fixes #25950",1747056441
 ced7c779abc19885a97f571c081b6098a251936c,False,1,2,60,35,30.0,97,184,87,0.6428571428571429,1.0,0.7428571428571429,25294,3732,872,10,"fix: move aside TSM file on errBlockRead (#25899) (#26392)
 
 Co-authored-by: davidby-influx <72418212+davidby-influx@users.noreply.github.com>
 Closes https://github.com/influxdata/influxdb/issues/25838
-Closes https://github.com/influxdata/influxdb/issues/25840"
+Closes https://github.com/influxdata/influxdb/issues/25840",1747056410
 7f94f564db62d87c9a5f47018018a4205a0e876e,False,1,1,3,3,3.0,0,3,3,0.0,0.0,1.0,2295,337,63,1,"fix: avoid panic if shard group has no shards (#25717) (#26389)
 
-Co-authored-by: davidby-influx <72418212+davidby-influx@users.noreply.github.com>"
+Co-authored-by: davidby-influx <72418212+davidby-influx@users.noreply.github.com>",1747056356
 66f4dbeaadb4f8e3da5538dfef62bc7380a1a198,False,1,6,488,447,81.33333333333333,266,941,675,0.0,0.8,0.9689655172413794,42806,6264,1285,25,"fix: limit number of concurrent optimized compactions (#26319)
 
 Limit number of concurrent optimized compactions so that level compactions do not get starved. Starved level compactions result in a sudden increase in disk usage.
@@ -87,19 +87,19 @@ Add [data] max-concurrent-optimized-compactions for configuring maximum number o
 
 Co-authored-by: davidby-influx <dbyrne@influxdata.com>
 Co-authored-by: devanbenz <devandbenz@gmail.com>
-Closes: #26315"
+Closes: #26315",1746564159
 e984a226f2470ef17239f0620d2458e190b5a560,False,1,3,114,51,38.0,243,641,398,0.14545454545454545,0.9922077922077922,0.8545454545454545,28237,4082,949,27,"fix: PlanOptimize is running too frequently (#26211) (#26238)
 
 PlanOptimize is being checked far too frequently. This PR is the simplest change that can be made in order to ensure that PlanOptimize is not being ran too much. To alleviate the frequency I've added a lastWrite parameter to PlanOptimize and added an additional test that mocks the edge cause out in the wild that led to this PR.
 
 Previously in test cases for PlanOptimize I was not checked to see if certain cases would be picked up by Plan I've adjusted a few of the existing test cases after modifying Plan and PlanOptimize to have the same lastWrite time.
 
-(cherry picked from commit 96e44ca)"
+(cherry picked from commit 96e44ca)",1744133721
 96e44cac735baa4d7a4d40ee4f9ff9e9658a2b59,False,1,3,114,51,38.0,243,641,398,0.14545454545454545,0.9922077922077922,0.8545454545454545,28237,4082,949,27,"fix: PlanOptimize is running too frequently (#26211)
 
 PlanOptimize is being checked far too frequently. This PR is the simplest change that can be made in order to ensure that PlanOptimize is not being ran too much. To alleviate the frequency I've added a lastWrite parameter to PlanOptimize and added an additional test that mocks the edge cause out in the wild that led to this PR.
 
-Previously in test cases for PlanOptimize I was not checked to see if certain cases would be picked up by Plan I've adjusted a few of the existing test cases after modifying Plan and PlanOptimize to have the same lastWrite time."
+Previously in test cases for PlanOptimize I was not checked to see if certain cases would be picked up by Plan I've adjusted a few of the existing test cases after modifying Plan and PlanOptimize to have the same lastWrite time.",1744132949
 9e00f0de98d234c76c0daeb6c60d2ec62113df1b,False,1,1,5,5,5.0,4,9,5,0.0,1.0,1.0,5701,800,113,1,"fix: do not panic on invalid multiple subqueries (#26143)
 
 Multiple subqueries in a FROM clause caused a
@@ -107,7 +107,7 @@ panic, insead of returning an error because
 they are syntactically invalid. This corrects
 that problem
 
-closes https://github.com/influxdata/influxdb/issues/26139"
+closes https://github.com/influxdata/influxdb/issues/26139",1741984737
 d8dc76472594e0041b65eb9731bee74a7f818f09,False,1,1,39,39,39.0,20,19,-1,1.0,1.0,1.0,8864,1375,350,2,"fix: remove temp files on error in Compactor.writeNewFiles (#26074) (#26080)
 
 Compactor.writeNewFiles should delete
@@ -118,14 +118,14 @@ closes https://github.com/influxdata/influxdb/issues/26073
 
 (cherry picked from commit 1efb8dad431b22aea75f9146a17c88141b3296ee)
 
-closes https://github.com/influxdata/influxdb/issues/26075"
+closes https://github.com/influxdata/influxdb/issues/26075",1740676576
 1efb8dad431b22aea75f9146a17c88141b3296ee,False,1,1,39,39,39.0,20,19,-1,1.0,1.0,1.0,8939,1388,351,2,"fix: remove temp files on error in Compactor.writeNewFiles (#26074)
 
 Compactor.writeNewFiles should delete
 temporary files created on iterations
 before an error halts the compaction.
 
-closes https://github.com/influxdata/influxdb/issues/26073"
+closes https://github.com/influxdata/influxdb/issues/26073",1740673068
 d169651dff15065fa564dca5ee4155b0a584efcc,False,1,2,18,13,9.0,6,12,6,0.8571428571428571,0.8571428571428571,1.0,25586,3752,877,6,"fix: ensure temp files removed on failed compaction (#26070) (#26071)
 
 Add more robust temporary file removal
@@ -138,7 +138,7 @@ closes https://github.com/influxdata/influxdb/issues/26068
 
 (cherry picked from commit ba95c9b0f061d9730739a2997d18efd7ed11dc8e)
 
-closes https://github.com/influxdata/influxdb/issues/26069"
+closes https://github.com/influxdata/influxdb/issues/26069",1740607390
 ba95c9b0f061d9730739a2997d18efd7ed11dc8e,False,1,2,18,13,9.0,6,12,6,0.8571428571428571,0.8571428571428571,1.0,26138,3802,890,6,"fix: ensure temp files removed on failed compaction (#26070)
 
 Add more robust temporary file removal
@@ -147,7 +147,7 @@ a failed removal, and don't assume a
 failed compaction won't generate
 temporary files.
 
-closes https://github.com/influxdata/influxdb/issues/26068"
+closes https://github.com/influxdata/influxdb/issues/26068",1740604637
 248022800ae693f55a6f3acaa5b6aeb21052fcb1,False,1,3,150,107,50.0,107,85,-22,1.0,1.0,0.0,30519,4498,774,7,"fix: ensure fields in memory match on disk
 
 * chore: refactor field creation for maintainability
@@ -168,19 +168,19 @@ point was invalid (type conflict, too big)
 Ensure that if a field is created, it is
 saved.
 
-(cherry picked from commit 083b679b564fcfd883724195a5498a20de9f32d2)"
+(cherry picked from commit 083b679b564fcfd883724195a5498a20de9f32d2)",1740440372
 083b679b564fcfd883724195a5498a20de9f32d2,False,1,3,122,80,40.666666666666664,71,61,-10,1.0,1.0,0.0,30151,4349,807,6,"fix: ensure fields in memory match on disk
 
 A field could be created in  memory but not
 saved to disk if a later field in that
 point was invalid (type conflict, too big)
 Ensure that if a field is created, it is
-saved."
+saved.",1740434020
 5f576331d3aea40b9ee03d54c248cfe5ee3a2b1e,False,1,3,78,69,26.0,66,54,-12,0.0,0.0,0.0,30186,4359,808,4,"chore: refactor field creation for maintainability
 
 Address review comments in the port work of the
 field creation. Also fixes one bug in returning the wrong
-error."
+error.",1739916011
 5a20a835a55d9bd77810b1d47a0699dee18c42b9,False,1,3,160,123,53.333333333333336,95,247,152,0.20754716981132076,0.3270440251572327,0.9622641509433962,30544,4398,808,5,"fix: lock MeasurementFields while validating (#25998)
 
 There was a window where a race between writes with
@@ -188,7 +188,7 @@ differing types for the same field were being validated.
 Lock the  MeasurementFields struct during field
 validation to avoid this.
 
-closes https://github.com/influxdata/influxdb/issues/23756"
+closes https://github.com/influxdata/influxdb/issues/23756",1739475214
 8711e2d6cc64682f77215af1377dc58f9545bb0c,False,1,4,305,221,76.25,168,325,157,0.3541666666666667,0.4583333333333333,0.9635416666666666,30961,4554,786,14,"fix: prevent differing field types in the same shard (#26025)
 
 * fix: lock MeasurementFields while validating (#25998)
@@ -212,12 +212,12 @@ from a mutex and atomic.Value to a sync.Map
 
 (cherry picked from commit b617eb24a767c9adfcfd490e0d543bd5924c2052)
 
-closes https://github.com/influxdata/influxdb/issues/26001"
+closes https://github.com/influxdata/influxdb/issues/26001",1739564890
 306a184a8dfc76a27a0214186895ede25b5a5f0e,False,1,1,15,15,15.0,3,12,9,0.0,0.0,0.0,8852,1389,351,1,"feat: Add error joins/returns (#25996)
 
 This pr adds err handling for branch that did not specify os file removal errors
-previously. This is part of EAR #5819."
-f54a34ae33424b49d5c6823f1a113f3ec7f8d1b1,False,1,1,2,2,2.0,1,1,0,,,,809,128,32,1,fix: actually call the deferred function (#25952)
+previously. This is part of EAR #5819.",1739297725
+f54a34ae33424b49d5c6823f1a113f3ec7f8d1b1,False,1,1,2,2,2.0,1,1,0,,,,809,128,32,1,fix: actually call the deferred function (#25952),1738366958
 dd7b4ce35165cc6b355298fc3ae8cc58e8679717,False,1,2,60,35,30.0,61,91,30,1.0,1.0,0.18181818181818182,25457,3738,873,10,"fix: move aside TSM file on errBlockRead (#25899)
 
 The error type check for errBlockRead was incorrect,
@@ -230,7 +230,7 @@ Closes https://github.com/influxdata/influxdb/issues/25838
 
 (cherry picked from commit 800970490a715d2b6eb5a0a7fed7fb4e9707af5d)
 
-Closes https://github.com/influxdata/influxdb/issues/25840"
+Closes https://github.com/influxdata/influxdb/issues/25840",1737583814
 800970490a715d2b6eb5a0a7fed7fb4e9707af5d,False,1,2,60,35,30.0,61,90,29,1.0,1.0,0.18181818181818182,26009,3788,886,10,"fix: move aside TSM file on errBlockRead (#25839)
 
 The error type check for errBlockRead was incorrect,
@@ -239,7 +239,7 @@ that error was encountered. Use errors.Join,
 errors.Is, and errors.As to correctly unwrap multiple
 errors.
 
-Closes https://github.com/influxdata/influxdb/issues/25838"
+Closes https://github.com/influxdata/influxdb/issues/25838",1737571591
 c82d4f86eeb554c94e7e21644a98cd7a3ca071f2,False,1,2,159,93,79.5,113,175,62,0.40384615384615385,0.9615384615384616,0.9423076923076923,12106,1859,455,8,"fix: do not leak file handles from Compactor.write (#25725) (#25740)
 
 There are a number of code paths in Compactor.write which
@@ -251,7 +251,7 @@ closes https://github.com/influxdata/influxdb/issues/25724
 
 (cherry picked from commit e974165d252a1904b5ede5b88104301b32842b81)
 
-closes https://github.com/influxdata/influxdb/issues/25739"
+closes https://github.com/influxdata/influxdb/issues/25739",1736183017
 e974165d252a1904b5ede5b88104301b32842b81,False,1,2,159,93,79.5,113,176,63,0.39622641509433965,0.9622641509433962,0.9433962264150944,11953,1837,449,8,"fix: do not leak file handles from Compactor.write (#25725)
 
 There are a number of code paths in Compactor.write which
@@ -259,7 +259,7 @@ on error can lead to leaked file handles to temporary files.
 This, in turn, prevents the removal of the temporary files until
 InfluxDB is rebooted, releasing the file handles.
 
-closes https://github.com/influxdata/influxdb/issues/25724"
+closes https://github.com/influxdata/influxdb/issues/25724",1735944221
 694607a22c190ed648de46ef029ef2b74d2cc064,False,1,1,3,3,3.0,0,3,3,0.0,0.0,1.0,2425,339,74,1,"fix: avoid panic if shard group has no shards (#25717) (#25719)
 
 Avoid panicking when mapping points to a shard group
@@ -269,14 +269,14 @@ how the shard group ended up with no shards.
 helps: https://github.com/influxdata/influxdb/issues/25715
 (cherry picked from commit 5b364b51c865f7acc18756f8dd1362bc92992a6d)
 
-closes: https://github.com/influxdata/influxdb/issues/25718"
+closes: https://github.com/influxdata/influxdb/issues/25718",1735338601
 5b364b51c865f7acc18756f8dd1362bc92992a6d,False,1,1,3,3,3.0,0,3,3,0.0,0.0,1.0,2295,337,63,1,"fix: avoid panic if shard group has no shards (#25717)
 
 Avoid panicking when mapping points to a shard group
 that has no shards. This does not address the root problem,
 how the shard group ended up with no shards.
 
-helps: https://github.com/influxdata/influxdb/issues/25715"
+helps: https://github.com/influxdata/influxdb/issues/25715",1735337059
 3570db0b75b2ed8292328d5da7eab2af1c725f17,False,1,1,2,2,2.0,3,28,25,0.28,1.0,0.72,17346,2391,412,2,"fix: strip double quotes from measurement names in v2/delete (#25407) (#25477)
 
 When searching for a measurement in the v2/delete API,
@@ -287,7 +287,7 @@ closes https://github.com/influxdata/influxdb/issues/25406
 
 (cherry picked from commit e3e9232de528b7566ad239f6879c98d94ce8707a)
 
-closes https://github.com/influxdata/influxdb/issues/25476"
+closes https://github.com/influxdata/influxdb/issues/25476",1730390266
 07df053ce2612802b465427d97a21257cfedffb3,False,1,2,151,147,75.5,75,82,7,1.0,1.0,1.0,12916,1916,473,28,"fix(tsi1/partition/test): fix data races in test code (#57) (#25338) … (#25352)
 
 * fix(tsi1/partition/test): fix data races in test code (#57)
@@ -314,7 +314,7 @@ Co-authored-by: Phil Bracikowski <13472206+philjb@users.noreply.github.com>
 (cherry picked from commit 5c9e45f)
 (cherry picked from commit b88e74e)
 
-closes #25342"
+closes #25342",1726601101
 b88e74e6bbcc72ed765e71675e561ad081d466a7,False,1,1,14,14,14.0,8,6,-2,0.5,0.0,0.0,7472,1121,262,2,"fix(tsi1/partition/test): fix data races in test code (#57) (#25338) (#25344)
 
 * fix(tsi1/partition/test): fix data races in test code (#57)
@@ -338,7 +338,7 @@ closes https://github.com/influxdata/influxdb/issues/25341
 ---------
 
 Co-authored-by: Phil Bracikowski <13472206+philjb@users.noreply.github.com>
-(cherry picked from commit 5c9e45f03340d6bb3bb48a2341c5e7da73860a89)"
+(cherry picked from commit 5c9e45f03340d6bb3bb48a2341c5e7da73860a89)",1726596554
 1fd1ad63b9336b4fd28631e6c3f6d0813a45d5ae,False,1,2,149,145,74.5,73,82,9,1.0,1.0,1.0,13340,1961,486,29,"fix(tsi1/partition/test): fix data races in test code (#57) (#25338) (#25345)
 
 * feat: add hook for optimizing series reads based on authorizer (#25207)
@@ -369,7 +369,7 @@ Co-authored-by: Phil Bracikowski <13472206+philjb@users.noreply.github.com>
 
 ---------
 
-Co-authored-by: Geoffrey Wossum <gwossum@influxdata.com>"
+Co-authored-by: Geoffrey Wossum <gwossum@influxdata.com>",1726596543
 11037838705c295482f2f73c4f08c37a892c2bb5,False,1,1,11,11,11.0,9,2,-7,0.0,0.0,0.0,7719,1107,252,2,"fix(tsi1): fix data race between appendEntry and FlushAndSync tsi1.(*LogFile) (#25182) (#25243)
 
 Extend lock lifespan to encompass the
@@ -381,7 +381,7 @@ closes https://github.com/influxdata/influxdb/issues/25181
 
 closes https://github.com/influxdata/influxdb/issues/25186
 
-Co-authored-by: Shiwen Cheng <chengshiwen0103@gmail.com>"
+Co-authored-by: Shiwen Cheng <chengshiwen0103@gmail.com>",1723511483
 fe3bcf18ed0cd9c557b5a897e57acc647319da1c,False,1,1,4,4,4.0,2,2,0,,,,2874,418,98,1,"fix: Store.validateArgs wrongfully overwriting start, end unix time (#25146) (#25165) (#25242)
 
 When querying data before 1970-01-01 (UNIX time 0)
@@ -395,7 +395,7 @@ closes https://github.com/influxdata/influxdb/issues/25149
 
 (cherry picked from commit c4bfaa895417c174cef76f5308eebb6aaddbfa36)
 
-closes https://github.com/influxdata/influxdb/issues/25150"
+closes https://github.com/influxdata/influxdb/issues/25150",1723511427
 01a35eb79a2ce76f8cd79c5a0fe2a1d36257ed4d,False,1,1,10,10,10.0,4,6,2,,,,12830,1908,251,0,"fix: prevent an infinite loop in measurementFieldSetChangeMgr (#25155) (#25241)
 
 The measurementFieldSetChangeMgr has a possibly infinite loop
@@ -407,7 +407,7 @@ closes https://github.com/influxdata/influxdb/issues/25151
 
 (cherry picked from commit 176fca2138a856ed54243a17d06e0926d200d382)
 
-closes https://github.com/influxdata/influxdb/issues/25152"
+closes https://github.com/influxdata/influxdb/issues/25152",1723511361
 679426b9a5ee6df18870cf5bfd2e59fd2b69aca9,False,1,1,5,5,5.0,1,169,168,0.0,0.0,1.0,6717,1042,41,0,"fix: GROUP BY queries with offset that crosses a DST boundary fail. (#25082) (#25240)
 
 This is actually the second fix for
@@ -418,13 +418,13 @@ closes https://github.com/influxdata/influxdb/issues/25078
 
 (cherry picked from commit d60741b5063ce829cf32ca86f4746b16d1c4d31c)
 
-closes https://github.com/influxdata/influxdb/issues/25079"
+closes https://github.com/influxdata/influxdb/issues/25079",1723511290
 7333da95920a4723829ddff631df14c71cd71430,False,1,1,11,11,11.0,9,2,-7,0.0,0.0,0.0,7719,1107,252,2,"fix(tsi1): fix data race between appendEntry and FlushAndSync tsi1.(*LogFile) (#25182)
 
 Extend lock lifespan to encompass the 
 flushAndSync() call to avoid a race
 
-closes https://github.com/influxdata/influxdb/issues/25181"
+closes https://github.com/influxdata/influxdb/issues/25181",1721770810
 9c8f2968f348c6a3856e371d8ae15e4245ee8612,False,1,1,4,4,4.0,2,67,65,0.29508196721311475,1.0,1.0,4631,658,147,1,"fix: Store.validateArgs wrongfully overwriting start, end unix time (#25146) (#25163)
 
 When querying data before 1970-01-01 (UNIX time 0)
@@ -435,7 +435,7 @@ closes https://github.com/influxdata/influxdb/issues/24669
 Co-authored-by: Paul Hegenberg <paul.hegenberg@gmail.com>
 (cherry picked from commit c2b3e38a38e1e8a47b6008a332d4443b8fe5f38e)
 
-closes https://github.com/influxdata/influxdb/issues/25148"
+closes https://github.com/influxdata/influxdb/issues/25148",1721144260
 8e0d754c1ef805d51dc2b0466259a05a7d69b35c,False,1,1,10,10,10.0,4,6,2,,,,13699,2098,230,0,"fix: prevent an infinite loop in measurementFieldSetChangeMgr (#25155) (#25156) (#25164)
 
 The measurementFieldSetChangeMgr has a possibly infinite loop
@@ -451,7 +451,7 @@ closes https://github.com/influxdata/influxdb/issues/25153
 
 (cherry picked from commit 031f394d2ccbdc32e5e6befaaf6a0398c57169a6)
 
-closes https://github.com/influxdata/influxdb/issues/25154"
+closes https://github.com/influxdata/influxdb/issues/25154",1721144212
 c4bfaa895417c174cef76f5308eebb6aaddbfa36,False,1,1,4,4,4.0,2,2,0,,,,2874,418,98,1,"fix: Store.validateArgs wrongfully overwriting start, end unix time (#25146) (#25165)
 
 When querying data before 1970-01-01 (UNIX time 0)
@@ -461,7 +461,7 @@ closes https://github.com/influxdata/influxdb/issues/24669
 
 Co-authored-by: Paul Hegenberg <paul.hegenberg@gmail.com>
 
-closes https://github.com/influxdata/influxdb/issues/25149"
+closes https://github.com/influxdata/influxdb/issues/25149",1721144117
 031f394d2ccbdc32e5e6befaaf6a0398c57169a6,False,1,1,10,10,10.0,4,6,2,,,,13699,2098,230,0,"fix: prevent an infinite loop in measurementFieldSetChangeMgr (#25155) (#25156)
 
 The measurementFieldSetChangeMgr has a possibly infinite loop
@@ -473,7 +473,7 @@ closes https://github.com/influxdata/influxdb/issues/25151
 
 (cherry picked from commit 176fca2138a856ed54243a17d06e0926d200d382)
 
-closes https://github.com/influxdata/influxdb/issues/25153"
+closes https://github.com/influxdata/influxdb/issues/25153",1720841639
 176fca2138a856ed54243a17d06e0926d200d382,False,1,1,10,10,10.0,4,6,2,,,,12830,1908,251,0,"fix: prevent an infinite loop in measurementFieldSetChangeMgr (#25155)
 
 The measurementFieldSetChangeMgr has a possibly infinite loop
@@ -481,7 +481,7 @@ if the writeRequests channel is closed while in the inner
 loop to consolidate write requests. We need to check for ok
 on channel receive and exit the loop when ok is false.
 
-closes https://github.com/influxdata/influxdb/issues/25151"
+closes https://github.com/influxdata/influxdb/issues/25151",1720828348
 c2b3e38a38e1e8a47b6008a332d4443b8fe5f38e,False,1,1,4,4,4.0,2,67,65,0.29508196721311475,1.0,1.0,4631,658,147,1,"fix: Store.validateArgs wrongfully overwriting start, end unix time (#25146)
 
 When querying data before 1970-01-01 (UNIX time 0) 
@@ -489,7 +489,7 @@ validateArgs would set start to -in64 max and end to int64 max.
 
 closes https://github.com/influxdata/influxdb/issues/24669
 
-Co-authored-by: Paul Hegenberg <paul.hegenberg@gmail.com>"
+Co-authored-by: Paul Hegenberg <paul.hegenberg@gmail.com>",1720818678
 0b7cd24e24fbf8a6e4d71e747104c12b7cc96549,False,1,1,36,36,36.0,18,116,98,0.23404255319148937,0.574468085106383,0.8936170212765957,2047,305,60,10,"fix: preserve time zone information in Task Scheduler (#25112) (#25113)
 
 Avoid converting times to int64 in the Task Scheduler
@@ -501,7 +501,7 @@ closes https://github.com/influxdata/influxdb/issues/25110
 
 (cherry picked from commit ebb597d16cd83d50e04ca9e29b6fbdee816db73c)
 
-closes https://github.com/influxdata/influxdb/issues/25111"
+closes https://github.com/influxdata/influxdb/issues/25111",1719590983
 ebb597d16cd83d50e04ca9e29b6fbdee816db73c,False,1,1,36,36,36.0,18,116,98,0.23404255319148937,0.574468085106383,0.8936170212765957,2047,305,60,10,"fix: preserve time zone information in Task Scheduler (#25112)
 
 Avoid converting times to int64 in the Task Scheduler
@@ -509,7 +509,7 @@ to preserve time zone information. This corrects a
 failure after fall back time changes which halts
 every-type tasks
 
-closes https://github.com/influxdata/influxdb/issues/25110"
+closes https://github.com/influxdata/influxdb/issues/25110",1719530085
 3e756c6bbd42fcb81fa853bf86e23fb05117b358,False,1,1,5,5,5.0,1,169,168,0.0,0.0,1.0,6343,988,41,0,"fix: GROUP BY queries with offset that crosses a DST boundary fail. (#25082) (#25087) (#25089)
 
 This is actually the second fix for
@@ -524,7 +524,7 @@ closes https://github.com/influxdata/influxdb/issues/25080
 
 (cherry picked from commit 0c77b4cbd2be68dc4ff7935a836f46fec2dcf0e7)
 
-closes https://github.com/influxdata/influxdb/issues/25081"
+closes https://github.com/influxdata/influxdb/issues/25081",1719340382
 0c77b4cbd2be68dc4ff7935a836f46fec2dcf0e7,False,1,1,5,5,5.0,1,169,168,0.0,0.0,1.0,6343,988,41,0,"fix: GROUP BY queries with offset that crosses a DST boundary fail. (#25082) (#25087)
 
 This is actually the second fix for
@@ -535,14 +535,14 @@ closes https://github.com/influxdata/influxdb/issues/25078
 
 (cherry picked from commit d60741b5063ce829cf32ca86f4746b16d1c4d31c)
 
-closes https://github.com/influxdata/influxdb/issues/25080"
+closes https://github.com/influxdata/influxdb/issues/25080",1719261604
 d60741b5063ce829cf32ca86f4746b16d1c4d31c,False,1,1,5,5,5.0,1,169,168,0.0,0.0,1.0,6717,1042,41,0,"fix: GROUP BY queries with offset that crosses a DST boundary fail. (#25082)
 
 This is actually the second fix for
 https://github.com/influxdata/influxdb/issues/20238
 for when the time zone falls back in autumn.
 
-closes https://github.com/influxdata/influxdb/issues/25078"
+closes https://github.com/influxdata/influxdb/issues/25078",1719249874
 9c84e6c815e6e3e93af9c4b89df886046dd79f0a,False,1,1,131,131,131.0,51,80,29,0.0,0.0,1.0,810,139,32,2,"fix: ignore empty index error deleting last measurement (#25037) (#25043)
 
 An empty index is appropriate when deleting the last
@@ -553,7 +553,7 @@ closes https://github.com/influxdata/influxdb/issues/9929
 
 (cherry picked from commit b09e4b751f9ac24e53558764df64b74e9b06fc3d)
 
-closes https://github.com/influxdata/influxdb/issues/25038"
+closes https://github.com/influxdata/influxdb/issues/25038",1717541559
 b4bd607eefe4af3c38a73a5883866a66daecd7db,False,1,9,403,165,44.77777777777778,119,696,577,0.5011037527593819,0.9337748344370861,0.9646799116997793,63695,9241,1849,21,"fix: prevent retention service from hanging (#25055)
 
 * fix: prevent retention service from hanging
@@ -578,14 +578,14 @@ delete the shards, which can be observed in the logs for manual
 intervention. Other shards can still be deleted by the retention service
 even if a shard is stuck with readers.
 
-closes: #25054"
+closes: #25054",1718294837
 b09e4b751f9ac24e53558764df64b74e9b06fc3d,False,1,1,131,131,131.0,51,80,29,0.0,0.0,1.0,810,139,32,2,"fix: ignore empty index error deleting last measurement (#25037)
 
 An empty index is appropriate when deleting the last
 measurement.  Also clean up error handling, avoid
 duplicate calls to Close.
 
-closes https://github.com/influxdata/influxdb/issues/9929"
+closes https://github.com/influxdata/influxdb/issues/9929",1717529379
 00b688888a8b7ec08ef8c3c52236f9b99753016d,False,1,1,26,26,26.0,12,20,8,1.0,1.0,1.0,66873,10307,516,2,"fix: return MergeIterator.Close errors (#24975) (#24997) (#24998)
 
 Ensure that errors from closing the
@@ -598,7 +598,7 @@ closes https://github.com/influxdata/influxdb/issues/24977
 
 (cherry picked from commit a97566bc31ba99916c41cef2c8135f239dc10574)
 
-closes https://github.com/influxdata/influxdb/issues/24978"
+closes https://github.com/influxdata/influxdb/issues/24978",1715715160
 a97566bc31ba99916c41cef2c8135f239dc10574,False,1,1,26,26,26.0,12,20,8,1.0,1.0,1.0,66873,10307,516,2,"fix: return MergeIterator.Close errors (#24975) (#24997)
 
 Ensure that errors from closing the
@@ -607,7 +607,7 @@ are returned up the stack.
 
 (cherry picked from commit 5fda409f39be40c0624fd1aaf38b63411b517725)
 
-closes https://github.com/influxdata/influxdb/issues/24977"
+closes https://github.com/influxdata/influxdb/issues/24977",1715649975
 3edc22f865adf443e9d8f240e8002469e6582737,False,1,1,26,26,26.0,12,20,8,1.0,1.0,1.0,66873,10307,516,2,"fix: return MergeIterator.Close errors (#24975) (#24996)
 
 Ensure that errors from closing the
@@ -616,12 +616,12 @@ are returned up the stack.
 
 (cherry picked from commit 5fda409f39be40c0624fd1aaf38b63411b517725)
 
-closes https://github.com/influxdata/influxdb/issues/24976"
+closes https://github.com/influxdata/influxdb/issues/24976",1715639579
 5fda409f39be40c0624fd1aaf38b63411b517725,False,1,1,26,26,26.0,12,20,8,1.0,1.0,1.0,66873,10307,516,2,"fix: return MergeIterator.Close errors (#24975)
 
 Ensure that errors from closing the
 iterators underneath a MergeIterator
-are returned up the stack."
+are returned up the stack.",1715638256
 6ac3343eb8a126f16b50f225972c9d56f21b897d,False,1,2,20,10,10.0,11,9,-2,0.0,0.0,0.0,16117,2454,614,2,"fix: ensure TSMBatchKeyIterator and FileStore close all TSMReaders (#24957) (#24964) (#24965)
 
 Do not let errors on closing
@@ -634,7 +634,7 @@ closes https://github.com/influxdata/influxdb/issues/24961
 
 (cherry picked from commit 0a4d41bc906450b2afc8137bef6ab60f08d3ba98)
 
-closes https://github.com/influxdata/influxdb/issues/24962"
+closes https://github.com/influxdata/influxdb/issues/24962",1715029117
 0a4d41bc906450b2afc8137bef6ab60f08d3ba98,False,1,2,20,10,10.0,11,9,-2,0.0,0.0,0.0,16117,2454,614,2,"fix: ensure TSMBatchKeyIterator and FileStore close all TSMReaders (#24957) (#24964)
 
 Do not let errors on closing
@@ -643,7 +643,7 @@ closes.
 
 (cherry picked from commit 82cbdb5478af885c79a5a7dbe78c0297599bb616)
 
-closes https://github.com/influxdata/influxdb/issues/24961"
+closes https://github.com/influxdata/influxdb/issues/24961",1715017541
 8caeff7d0ce5c920765295a81ead8e292008825a,False,1,2,20,10,10.0,11,9,-2,0.0,0.0,0.0,15959,2421,609,2,"fix: ensure TSMBatchKeyIterator and FileStore close all TSMReaders (#24957) (#24963)
 
 Do not let errors on closing
@@ -652,12 +652,12 @@ closes.
 
 (cherry picked from commit 82cbdb5478af885c79a5a7dbe78c0297599bb616)
 
-closes https://github.com/influxdata/influxdb/issues/24960"
+closes https://github.com/influxdata/influxdb/issues/24960",1715017500
 82cbdb5478af885c79a5a7dbe78c0297599bb616,False,1,2,20,10,10.0,11,9,-2,0.0,0.0,0.0,15959,2421,609,2,"fix: ensure TSMBatchKeyIterator and FileStore close all TSMReaders (#24957)
 
 Do not let errors on closing 
 a TSMReader prevent other 
-closes."
+closes.",1715014770
 e4fba98c6b7f8ec229c9025891912212ff11cbbb,False,1,1,36,36,36.0,7,35,28,1.0,1.0,1.0,5723,793,205,6,"fix: do not panic when empty tags are queried (#24784) (#24787)
 
 Do not panic if a cursor array is nil and the number
@@ -665,7 +665,7 @@ of timestamps is retrieved.
 
 closes https://github.com/influxdata/influxdb/issues/24536
 
-(cherry picked from commit bc80e881fa34aef4145007aa510ffe3e78d3e7ab)"
+(cherry picked from commit bc80e881fa34aef4145007aa510ffe3e78d3e7ab)",1710824259
 727eb09cc0d3183f238e30144d8d0a21700bae8d,False,1,6,237,90,39.5,95,240,145,0.453781512605042,0.0,0.2857142857142857,32914,4749,997,24,"fix: return and respect cursor errors (#24791) (#24894)
 
 ArrayCursors were ignoring errors, which led to panics when nil
@@ -678,7 +678,7 @@ Co-authored-by: Stuart Carnie <stuart.carnie@gmail.com>
 
 (cherry picked from commit fe6c64b21ed7e0757375e57b8eca21e9c05f3c89)
 
-closes https://github.com/influxdata/influxdb/issues/24824"
+closes https://github.com/influxdata/influxdb/issues/24824",1712606119
 ea7c421e51db161974a679e5b50b3b5bb0581af1,False,1,1,46,46,46.0,13,33,20,0.0,0.631578947368421,1.0,11836,1702,292,4,"fix: improved shard deletion (#24602) (#24893)
 
 Avoid unnecessarily deleting series from the series file
@@ -689,7 +689,7 @@ Closes https://github.com/influxdata/influxdb/issues/24834
 
 (cherry picked from commit 8ff06d5a92ca3a0a34b31bfa9d37e6cff72a58a3)
 
-closes https://github.com/influxdata/influxdb/issues/24835"
+closes https://github.com/influxdata/influxdb/issues/24835",1712606083
 8f09e3684a7754818692b18a7f86f51c46f06214,False,1,5,230,90,46.0,93,245,152,0.48,0.0,0.32,30519,4388,930,23,"fix: return and respect cursor errors (#24791) (#24846) (#24847)
 
 ArrayCursors were ignoring errors, which led to panics when nil
@@ -706,7 +706,7 @@ closes https://github.com/influxdata/influxdb/issues/24836
 
 (cherry picked from commit 49d0bef3ea6ea5e2836844cd059159bd246cc5bb)
 
-closes https://github.com/influxdata/influxdb/issues/24826"
+closes https://github.com/influxdata/influxdb/issues/24826",1711574200
 d2af577adfe4ce0cb619fffcac3c046a4bba6cb2,False,1,1,26,26,26.0,9,17,8,0.42857142857142855,0.42857142857142855,1.0,10910,1595,289,4,"fix: improved shard deletion (#24602) (#24844) (#24848)
 
 Avoid unnecessarily deleting series from the series file
@@ -720,7 +720,7 @@ closes https://github.com/influxdata/influxdb/issues/24836
 
 (cherry picked from commit 2066c4be46a9048b0ccc0696b340a4ecc2d0281b)
 
-closes https://github.com/influxdata/influxdb/issues/24837"
+closes https://github.com/influxdata/influxdb/issues/24837",1711573950
 49d0bef3ea6ea5e2836844cd059159bd246cc5bb,False,1,5,230,90,46.0,93,245,152,0.48,0.0,0.32,30519,4388,930,23,"fix: return and respect cursor errors (#24791) (#24846)
 
 ArrayCursors were ignoring errors, which led to panics when nil
@@ -733,7 +733,7 @@ Co-authored-by: Stuart Carnie <stuart.carnie@gmail.com>
 
 (cherry picked from commit fe6c64b21ed7e0757375e57b8eca21e9c05f3c89)
 
-closes https://github.com/influxdata/influxdb/issues/24836"
+closes https://github.com/influxdata/influxdb/issues/24836",1711490072
 2066c4be46a9048b0ccc0696b340a4ecc2d0281b,False,1,1,26,26,26.0,9,17,8,0.42857142857142855,0.42857142857142855,1.0,10910,1595,289,4,"fix: improved shard deletion (#24602) (#24844)
 
 Avoid unnecessarily deleting series from the series file
@@ -743,7 +743,7 @@ Closes https://github.com/influxdata/influxdb/issues/24834
 
 (cherry picked from commit 8ff06d5a92ca3a0a34b31bfa9d37e6cff72a58a3)
 
-closes https://github.com/influxdata/influxdb/issues/24836"
+closes https://github.com/influxdata/influxdb/issues/24836",1711487888
 fe6c64b21ed7e0757375e57b8eca21e9c05f3c89,False,1,6,237,90,39.5,95,240,145,0.453781512605042,0.0,0.2857142857142857,32914,4749,997,24,"fix: return and respect cursor errors (#24791)
 
 ArrayCursors were ignoring errors, which led to panics when nil
@@ -752,14 +752,14 @@ and uses them to enforce healthy cursor creation.
 
 Closes https://github.com/influxdata/influxdb/issues/24789
 ---------
-Co-authored-by: Stuart Carnie <stuart.carnie@gmail.com>"
+Co-authored-by: Stuart Carnie <stuart.carnie@gmail.com>",1711412553
 8ff06d5a92ca3a0a34b31bfa9d37e6cff72a58a3,False,1,1,46,46,46.0,13,33,20,0.0,0.631578947368421,1.0,11836,1702,292,4,"fix: improved shard deletion (#24602)
 
 Avoid unnecessarily deleting series from the series file
 Try harder to delete series from InMem indices
 Log all errors on shard deletion
 
-Closes https://github.com/influxdata/influxdb/issues/24834"
+Closes https://github.com/influxdata/influxdb/issues/24834",1711412131
 82dc3430b8a2d40198715a743d9ccd9fcfbc908c,False,1,1,36,36,36.0,7,35,28,1.0,1.0,1.0,5723,793,205,6,"fix: do not panic when empty tags are queried (#24784) (#24786)
 
 Do not panic if a cursor array is nil and the number
@@ -767,7 +767,7 @@ of timestamps is retrieved.
 
 closes https://github.com/influxdata/influxdb/issues/24536
 
-(cherry picked from commit bc80e881fa34aef4145007aa510ffe3e78d3e7ab)"
+(cherry picked from commit bc80e881fa34aef4145007aa510ffe3e78d3e7ab)",1710824607
 31ad53ec6e999dcebb450204098a6496ce3401f3,False,1,1,36,36,36.0,7,35,28,1.0,1.0,1.0,5723,793,205,6,"fix: do not panic when empty tags are queried (#24784) (#24785)
 
 Do not panic if a cursor array is nil and the number
@@ -775,13 +775,13 @@ of timestamps is retrieved.
 
 closes https://github.com/influxdata/influxdb/issues/24536
 
-(cherry picked from commit bc80e881fa34aef4145007aa510ffe3e78d3e7ab)"
+(cherry picked from commit bc80e881fa34aef4145007aa510ffe3e78d3e7ab)",1710802060
 bc80e881fa34aef4145007aa510ffe3e78d3e7ab,False,1,1,36,36,36.0,7,35,28,1.0,1.0,1.0,5723,793,205,6,"fix: do not panic when empty tags are queried (#24784)
 
 Do not panic if a cursor array is nil and the number
 of timestamps is retrieved.
 
-closes https://github.com/influxdata/influxdb/issues/24536"
+closes https://github.com/influxdata/influxdb/issues/24536",1710800909
 09a9607fd9fe017cae589610364017b1939ae9a2,False,1,5,323,225,64.6,191,597,406,0.3333333333333333,0.4380952380952381,0.873015873015873,18312,2674,689,14,"fix: prevent retention service creating orphaned shard files (#24530) (#24547) (#24548)
 
 Under certain circumstances, the retention service can fail to delete shards from
@@ -799,7 +799,7 @@ closes https://github.com/influxdata/influxdb/issues/24545
 
 Co-authored-by: Geoffrey Wossum <gwossum@influxdata.com>
 (cherry picked from commit 0dc48b12609d840b86cca439476e106fc2692d44)
-closes https://github.com/influxdata/influxdb/issues/24546"
+closes https://github.com/influxdata/influxdb/issues/24546",1704471676
 0dc48b12609d840b86cca439476e106fc2692d44,False,1,5,323,225,64.6,191,609,418,0.3333333333333333,0.4380952380952381,0.873015873015873,18312,2674,689,14,"fix: prevent retention service creating orphaned shard files (#24530) (#24547)
 
 Under certain circumstances, the retention service can fail to delete shards from
@@ -815,7 +815,7 @@ fixes: #24529
 (cherry picked from commit 7bd3f89d181fdb789e87f9380961f42d7790de5c)
 closes https://github.com/influxdata/influxdb/issues/24545
 
-Co-authored-by: Geoffrey Wossum <gwossum@influxdata.com>"
+Co-authored-by: Geoffrey Wossum <gwossum@influxdata.com>",1704416216
 7bd3f89d181fdb789e87f9380961f42d7790de5c,False,1,6,327,226,54.5,180,583,403,0.38557993730407525,0.43573667711598746,0.877742946708464,20056,3001,775,15,"fix: prevent retention service creating orphaned shard files (#24530)
 
 * fix: prevent retention service creating orphaned shard files
@@ -829,14 +829,14 @@ This can cause excessive disk space usage for some users.
 This corrects that by requiring shards files be deleted before they can be removed
 from the meta store.
 
-fixes: #24529"
+fixes: #24529",1704391168
 2dc3dcb3d1795e0c6091e5b113e6297836ce5f2f,False,1,4,18,10,4.5,18,18,0,,,,18050,2652,670,6,"fix: do not escape CSV output (#24311)
 
 CSV output is incorrectly escaped.
 Add a boolean flag to tag output
 functions to prevent this.
 
-closes https://github.com/influxdata/influxdb/issues/24309"
+closes https://github.com/influxdata/influxdb/issues/24309",1688065241
 734d25f3fd5ab12997760538a1cd01311bf9bea5,False,1,4,18,10,4.5,18,18,0,,,,18050,2652,670,6,"fix: do not escape CSV output (#24311) (#24313)
 
 CSV output is incorrectly escaped.
@@ -847,7 +847,7 @@ closes https://github.com/influxdata/influxdb/issues/24309
 
 (cherry picked from commit 2dc3dcb3d1795e0c6091e5b113e6297836ce5f2f)
 
-closes https://github.com/influxdata/influxdb/issues/24310"
+closes https://github.com/influxdata/influxdb/issues/24310",1688070938
 c169e98f30eb1ed1fde8a66fa49241ee1ac1903c,False,1,31,907,122,29.258064516129032,427,561,134,0.39568345323741005,0.7985611510791367,0.7697841726618705,81412,15377,1390,155,"fix: corrrectly return 4XX errors instead of 5XX errors (#24519) (#24534)
 
 HTTP 5XX errors were being returned incorrectly from
@@ -857,7 +857,7 @@ organizations. Map BoltDB errors to correct Influx
 errors and return 4XX errors where appropriate. Also
 add op codes to more errors
 
-(cherry picked from commit a3fd4898640cda951d8a61a97d9a2a14ea0a80ef)"
+(cherry picked from commit a3fd4898640cda951d8a61a97d9a2a14ea0a80ef)",1703783017
 a3fd4898640cda951d8a61a97d9a2a14ea0a80ef,False,1,31,907,122,29.258064516129032,427,561,134,0.39568345323741005,0.7985611510791367,0.7697841726618705,81412,15377,1390,155,"fix: corrrectly return 4XX errors instead of 5XX errors (#24519)
 
 HTTP 5XX errors were being returned incorrectly from
@@ -865,7 +865,7 @@ BoltDB errors that were actually bad requests, e.g.,
 names that were too long for buckets, users, and 
 organizations. Map BoltDB errors to correct Influx 
 errors and return 4XX errors where appropriate. Also 
-add op codes to more errors"
+add op codes to more errors",1703694069
 66ebe368b266fddff3e6490a3e1cb825b871cb5f,False,1,1,6,6,6.0,3,5,2,1.0,0.0,0.0,899,158,21,3,"fix: enable Secure when using TLS and enable HttpOnly (#24524) (#24526)
 
 Set the HttpOnly and, when TLS is enabled,
@@ -875,13 +875,13 @@ closes: https://github.com/influxdata/influxdb/issues/24522
 
 (cherry picked from commit 8e8700f14f8b45601f59cb20908ee5baa8667328)
 
-closes https://github.com/influxdata/influxdb/issues/24523"
+closes https://github.com/influxdata/influxdb/issues/24523",1703104104
 8e8700f14f8b45601f59cb20908ee5baa8667328,False,1,1,6,6,6.0,3,5,2,1.0,0.0,0.0,899,158,21,3,"fix: enable Secure when using TLS and enable HttpOnly (#24524)
 
 Set the HttpOnly and, when TLS is enabled, 
 Secure flags on cookies
 
-closes: https://github.com/influxdata/influxdb/issues/24522"
+closes: https://github.com/influxdata/influxdb/issues/24522",1703101704
 535e86965a467d84a06b1103aa82cdb8601c72ca,False,1,4,41,30,10.25,47,86,39,0.0,0.7878787878787878,1.0,11153,1656,414,9,"fix: avoid SIGBUS when reading non-std series segment files (#24509) (#24520) (#24521)
 
 Some series files which are smaller than the standard
@@ -899,7 +899,7 @@ closes https://github.com/influxdata/influxdb/issues/24511
 
 (cherry picked from commit 081f95147ecf7be3a1f96b07dcb19ff95bab054a)
 
-closes https://github.com/influxdata/influxdb/issues/24512"
+closes https://github.com/influxdata/influxdb/issues/24512",1703094777
 081f95147ecf7be3a1f96b07dcb19ff95bab054a,False,1,4,41,30,10.25,47,86,39,0.0,0.7878787878787878,1.0,11153,1656,414,9,"fix: avoid SIGBUS when reading non-std series segment files (#24509) (#24520)
 
 Some series files which are smaller than the standard
@@ -913,7 +913,7 @@ closes https://github.com/influxdata/influxdb/issues/24508
 Co-authored-by: Geoffrey Wossum <gwossum@influxdata.com>
 (cherry picked from commit 969abf3da274052a843032704a590efb94fce6af)
 
-closes https://github.com/influxdata/influxdb/issues/24511"
+closes https://github.com/influxdata/influxdb/issues/24511",1703026954
 7116861f3736732d9cc64d2ca841b6b437511ea7,False,1,4,41,30,10.25,48,78,30,0.0,0.75,1.0,10777,1598,404,9,"fix: avoid SIGBUS when reading non-std series segment files (#24509) (#24515)
 
 Some series files which are smaller than the standard
@@ -927,7 +927,7 @@ closes https://github.com/influxdata/influxdb/issues/24508
 Co-authored-by: Geoffrey Wossum <gwossum@influxdata.com>
 (cherry picked from commit 969abf3da274052a843032704a590efb94fce6af)
 
-closes https://github.com/influxdata/influxdb/issues/24510"
+closes https://github.com/influxdata/influxdb/issues/24510",1702340552
 969abf3da274052a843032704a590efb94fce6af,False,1,4,41,30,10.25,48,78,30,0.0,0.75,1.0,10777,1598,404,9,"fix: avoid SIGBUS when reading non-std series segment files (#24509)
 
 Some series files which are smaller than the standard
@@ -938,19 +938,19 @@ iterating series entries in oddly sized files.
 
 closes https://github.com/influxdata/influxdb/issues/24508
 
-Co-authored-by: Geoffrey Wossum <gwossum@influxdata.com>"
+Co-authored-by: Geoffrey Wossum <gwossum@influxdata.com>",1702079171
 4cd5e765b8e4d25b494c69e37af7cca6b4f9fb9f,False,1,1,6,6,6.0,3,48,45,0.0,1.0,1.0,302,53,10,1,"fix: handle MetricSlice to Points conversion errors (#24452) (#24453)
 
 Correctly handle errors in converting MetricSlice
 elements into model.Points. Add a test to verify
 error handling.
 
-(cherry picked from commit 19e5c0e1b7c40f95fd9d70d51c72281d2d4b4b6b)"
+(cherry picked from commit 19e5c0e1b7c40f95fd9d70d51c72281d2d4b4b6b)",1699463990
 19e5c0e1b7c40f95fd9d70d51c72281d2d4b4b6b,False,1,1,6,6,6.0,3,48,45,0.0,1.0,1.0,302,53,10,1,"fix: handle MetricSlice to Points conversion errors (#24452)
 
 Correctly handle errors in converting MetricSlice
 elements into model.Points. Add a test to verify
-error handling."
+error handling.",1699460703
 a03051adeea275ff0b1c427e8047c96d797e8024,False,1,1,132,132,132.0,58,74,16,0.0,0.0,0.0,3642,546,142,4,"fix: series file index compaction (#23916) (#24259)
 
 Series file indices monotonically grew even
@@ -959,14 +959,14 @@ ignoring error in series index recovery
 
 Partially closes https://github.com/influxdata/EAR/issues/3643
 
-(cherry picked from commit 53856cdaae63a699946b388ffbba5bb56784ba51)"
+(cherry picked from commit 53856cdaae63a699946b388ffbba5bb56784ba51)",1685642332
 53856cdaae63a699946b388ffbba5bb56784ba51,False,1,1,132,132,132.0,58,74,16,0.0,0.0,0.0,3642,546,142,4,"fix: series file index compaction (#23916)
 
 Series file indices monotonically grew even
 when series were deleted.  Also stop 
 ignoring error in series index recovery
 
-Partially closes https://github.com/influxdata/EAR/issues/3643"
+Partially closes https://github.com/influxdata/EAR/issues/3643",1685641763
 fd0f0ce7cbbdcae384e4e59d515e18396808fdc8,False,1,1,2,2,2.0,1,1,0,,,,7484,1115,260,2,"fix: prevent world-writable MANIFEST files (#24235) (#24238)
 
 When a new MANIFEST file is created, set
@@ -974,7 +974,7 @@ its permissions to 644, not 666
 
 closes https://github.com/influxdata/influxdb/issues/24233
 
-(cherry picked from commit aad79e471ffff4a77d6f89f87e2fac46280c0011)"
+(cherry picked from commit aad79e471ffff4a77d6f89f87e2fac46280c0011)",1684879593
 eaa4c95de226377dc1bf0bd468499333e5b639c5,False,1,1,2,2,2.0,1,1,0,,,,7484,1115,260,2,"fix: prevent world-writable MANIFEST files (#24235) (#24236)
 
 When a new MANIFEST file is created, set
@@ -984,13 +984,13 @@ closes https://github.com/influxdata/influxdb/issues/24233
 
 (cherry picked from commit aad79e471ffff4a77d6f89f87e2fac46280c0011)
 
-closes https://github.com/influxdata/influxdb/issues/24234"
+closes https://github.com/influxdata/influxdb/issues/24234",1684437657
 aad79e471ffff4a77d6f89f87e2fac46280c0011,False,1,1,2,2,2.0,1,1,0,,,,7484,1115,260,2,"fix: prevent world-writable MANIFEST files (#24235)
 
 When a new MANIFEST file is created, set
 its permissions to 644, not 666
 
-closes https://github.com/influxdata/influxdb/issues/24233"
+closes https://github.com/influxdata/influxdb/issues/24233",1684436854
 e05cc9667ef838bfb3736e73dfd6451670744992,False,1,1,8,8,8.0,2,6,4,,,,17339,2391,412,2,"fix: /api/v2/delete - user nil sources field, do not set measurement db or rp (#24223)
 
 * fix: do not set measurement db or rp in V2 delete (#24141)
@@ -1018,7 +1018,7 @@ closes https://github.com/influxdata/influxdb/issues/24144
 
 (cherry picked from commit f365bb7e3a9c5e227dbf66d84adf674d3d127176)
 
-closes https://github.com/influxdata/influxdb/issues/24146"
+closes https://github.com/influxdata/influxdb/issues/24146",1683131856
 f365bb7e3a9c5e227dbf66d84adf674d3d127176,False,1,1,6,6,6.0,1,5,4,,,,17339,2391,412,1,"fix: use nil Sources field in /api/v2/delete (#24145)
 
 An empty slice in Sources causes an empty
@@ -1026,7 +1026,7 @@ WHERE clause to be generated by
 Statement.String(). Use a nil in the field
 to omit the WHERE clause completely
 
-closes https://github.com/influxdata/influxdb/issues/24144"
+closes https://github.com/influxdata/influxdb/issues/24144",1679063894
 c31e99574ffd6fad591bcf25f68c883b908ce0e3,False,1,1,2,2,2.0,1,1,0,,,,17342,2391,412,2,"fix: do not set measurement db or rp in V2 delete (#24141)
 
 Setting the DB or RP in measurements extracted from
@@ -1035,7 +1035,7 @@ the predicate and used as sources causes Enterprise
 to Store.Delete without being set in the measurement
 struct passed as a source.
 
-closes https://github.com/influxdata/influxdb/issues/24139"
+closes https://github.com/influxdata/influxdb/issues/24139",1678931948
 98ffc2097f5dace360524841923b6461b6fa27e1,False,1,1,14,14,14.0,3,11,8,1.0,0.0,0.5,522,92,18,3,"fix: support absolute file paths in check-schema (#23991) (#23995)
 
 Absolute file paths in influx_inspect check-schema
@@ -1047,7 +1047,7 @@ closes https://github.com/influxdata/influxdb/issues/23987
 
 (cherry picked from commit 144aca1f7fd1cacee78ab324b639cd55246b1af2)
 
-closes https://github.com/influxdata/influxdb/issues/23994"
+closes https://github.com/influxdata/influxdb/issues/23994",1671486429
 144aca1f7fd1cacee78ab324b639cd55246b1af2,False,1,1,14,14,14.0,3,11,8,1.0,0.0,0.5,550,99,19,3,"fix: support absolute file paths in check-schema (#23991)
 
 Absolute file paths in influx_inspect check-schema
@@ -1055,19 +1055,19 @@ cause an 'Invalid Argument' error. This was caused
 fs.WalkDir using fs.ValidPath. Replacing with
 filepath.WalkDir permits absolute paths.
 
-closes https://github.com/influxdata/influxdb/issues/23987"
-7ad8fbad22e76409c7dbea0a946dcf3b8019370a,False,1,1,2,2,2.0,1,1,0,,,,13616,2086,228,0,chore: fix trace message text (#23918)
-fd7e4aa0f782297bac5521061cec7a462e6bd790,False,1,1,2,2,2.0,1,1,0,,,,12747,1896,249,0,chore: fix trace message text (#23917)
+closes https://github.com/influxdata/influxdb/issues/23987",1671483596
+7ad8fbad22e76409c7dbea0a946dcf3b8019370a,False,1,1,2,2,2.0,1,1,0,,,,13616,2086,228,0,chore: fix trace message text (#23918),1668606026
+fd7e4aa0f782297bac5521061cec7a462e6bd790,False,1,1,2,2,2.0,1,1,0,,,,12747,1896,249,0,chore: fix trace message text (#23917),1668606010
 be9a3d4a078fe2b36cea685839d24a3c6b53a592,False,1,1,100,100,100.0,50,99,49,0.22448979591836735,0.32653061224489793,1.0,17001,2332,407,3,"fix: :db/:rp -> :dbrp, fixed create bucket, update bucket (#23898) (#23900)
 
 Fix URL processing for V2 buckets API, add error checking.
 
 (cherry picked from commit 636fbb3f79f26784eec1ad40d9bad9f1b0f1cc12)
 
-Co-authored-by: Vlasta Hajek <vlastimil.hajek@bonitoo.io>"
+Co-authored-by: Vlasta Hajek <vlastimil.hajek@bonitoo.io>",1668205145
 636fbb3f79f26784eec1ad40d9bad9f1b0f1cc12,False,1,1,100,100,100.0,50,99,49,0.22448979591836735,0.32653061224489793,1.0,17001,2332,407,3,"fix: :db/:rp -> :dbrp, fixed create bucket, update bucket (#23898)
 
-Fix URL processing for V2 buckets API, add error checking."
+Fix URL processing for V2 buckets API, add error checking.",1668122495
 a2fca83af00737063ae997e4542b82705ad0e8b7,False,1,1,4,4,4.0,2,2,0,,,,2673,390,98,2,"fix: don't write skipped shard messages to the line protocol output destination (#23727) (#23885)
 
 This switches so that the message
@@ -1080,7 +1080,7 @@ is written to stdErr instead of stdout (or the output file if `-out` has been pr
 
 closes https://github.com/influxdata/influxdb/issues/23866
 
-Co-authored-by: Ben Tasker <88340935+btasker@users.noreply.github.com>"
+Co-authored-by: Ben Tasker <88340935+btasker@users.noreply.github.com>",1668016725
 b0e44a465950e862e21bc33a73ff0a1a948a3537,False,1,1,7,7,7.0,7,12,5,1.0,1.0,1.0,16713,2289,399,2,"fix: listBuckets properly returns wrapped response (#23879) (#23884)
 
 closes https://github.com/influxdata/influxdb/issues/23861
@@ -1089,12 +1089,12 @@ closes https://github.com/influxdata/influxdb/issues/23861
 
 closes https://github.com/influxdata/influxdb/issues/23883
 
-Co-authored-by: Vlasta Hajek <vlastimil.hajek@bonitoo.io>"
+Co-authored-by: Vlasta Hajek <vlastimil.hajek@bonitoo.io>",1668016666
 cc26b7653c7d9c383b855c3765b5deb3ec803c51,False,1,2,16,11,8.0,14,2,-12,0.0,0.0,0.0,13839,2076,285,2,"fix: remove breaking argument validation for _fieldKeys iterator (#23875)
 
 New argument validation code for _fieldKeys system iterator 
 broke Enterprise tests because it is misused all over the 
-place. Back out the safety check."
+place. Back out the safety check.",1668013484
 514f024b7dbf6f36748f3325dd9c1ebd40984c8f,False,1,3,85,44,28.333333333333332,2,225,223,0.5357142857142857,0.65,0.9571428571428572,441,79,21,5,"fix: use copy when a rename spans volumes (#23785) (#23792)
 
 When a file rename fails with EXDEV
@@ -1114,10 +1114,10 @@ Also move shared code from file_unix.go
 
 (cherry picked from commit bc8d9ea9f33b964ada77a9057a603255f13eeb59)
 
-closes https://github.com/influxdata/influxdb/issues/23791"
+closes https://github.com/influxdata/influxdb/issues/23791",1665687395
 bc8d9ea9f33b964ada77a9057a603255f13eeb59,False,1,3,99,44,33.0,39,202,163,0.5625,0.5625,0.9464285714285714,441,79,21,5,"fix: add tests for file rename across volumes (#23787)
 
-Also move shared code from file_unix.go"
+Also move shared code from file_unix.go",1665678419
 0913276ff0f33d1639a14cb49c971772232b5af3,False,1,1,64,64,64.0,2,62,60,0.42857142857142855,1.0,1.0,313,54,14,4,"fix: use copy when a rename spans volumes (#23785)
 
 When a file rename fails with EXDEV
@@ -1127,8 +1127,8 @@ file and delete the original instead
 Differs from master branch by overwriting
 existing files instead of erring.
 
-closes https://github.com/influxdata/influxdb/issues/22997"
-b17f27a5d987585b2277d435797247e45c2898a0,False,1,1,2,2,2.0,1,1,0,,,,12747,1896,249,0,fix: incorrect error message concatenation (#23729)
+closes https://github.com/influxdata/influxdb/issues/22997",1665593427
+b17f27a5d987585b2277d435797247e45c2898a0,False,1,1,2,2,2.0,1,1,0,,,,12747,1896,249,0,fix: incorrect error message concatenation (#23729),1663259211
 619eb1cae68689854b4e1489cd123c7490147458,False,1,2,140,116,70.0,40,165,125,0.5495495495495496,1.0,1.0,12881,1911,473,13,"fix: restore in-memory Manifest on write error (#23552) (#23578)
 
 Do not update the `FileSet` or `activeLogFile` field in the in-memory
@@ -1139,18 +1139,18 @@ closes https://github.com/influxdata/influxdb/issues/23553
 
 (cherry picked from commit a8732dcf524053c972fcfabb38f528e7ef3eba5a)
 
-closes https://github.com/influxdata/influxdb/issues/23554"
+closes https://github.com/influxdata/influxdb/issues/23554",1658771589
 02c1cad6a681220b54ffde1df51ecd89479fb048,False,1,1,6,6,6.0,7,8,1,1.0,1.0,1.0,7484,1115,260,1,"fix: generalize test for Windows (#23580) (#23581)
 
 Also eliminate race condition in tests
 
 (cherry picked from commit 7e37a7ad1610771409d9b651a775f3a4ab4352ed)
-(cherry picked from commit eb3cc887724a9b897d28affff3e27c1f2130f92d)"
+(cherry picked from commit eb3cc887724a9b897d28affff3e27c1f2130f92d)",1658438017
 eb3cc887724a9b897d28affff3e27c1f2130f92d,False,1,1,6,6,6.0,7,8,1,1.0,1.0,1.0,7484,1115,260,1,"fix: generalize test for Windows (#23580)
 
 Also eliminate race condition in tests
 
-(cherry picked from commit 7e37a7ad1610771409d9b651a775f3a4ab4352ed)"
+(cherry picked from commit 7e37a7ad1610771409d9b651a775f3a4ab4352ed)",1658435290
 823f63d62535c09bf47492960e5a78ce5c245cd9,False,1,2,134,110,67.0,39,163,124,0.4,1.0,1.0,13271,1950,485,12,"fix: restore in-memory Manifest on write error (#23552) (#23577)
 
 Do not update the `FileSet` or `activeLogFile` field in the in-memory
@@ -1161,7 +1161,7 @@ closes https://github.com/influxdata/influxdb/issues/23553
 
 (cherry picked from commit a8732dcf524053c972fcfabb38f528e7ef3eba5a)
 
-closes https://github.com/influxdata/influxdb/issues/23555"
+closes https://github.com/influxdata/influxdb/issues/23555",1658358334
 4db8ab54f67fc9c9943d4f3f62346dc138490535,False,1,2,14,10,7.0,9,12,3,0.0,1.0,1.0,10582,1468,332,2,"fix: add paths to tsi log and index file errors (#23557) (#23576)
 
 Add paths to various TSI errors on opening and unmarshaling files
@@ -1171,7 +1171,7 @@ Closes https://github.com/influxdata/influxdb/issues/23556
 
 (cherry picked from commit 25cea95beb4fa050d58062cfffd13669b1bb17e2)
 
-closes https://github.com/influxdata/influxdb/issues/23559"
+closes https://github.com/influxdata/influxdb/issues/23559",1658353094
 05a0b540ddc9eb6444eac0ebf33c09fb67e79c21,False,1,1,28,28,28.0,1,27,26,0.0,0.0,1.0,7193,1071,249,2,"fix: create TSI MANIFEST files atomically (#23539) (#23575)
 
 When a MANIFEST file is created in TSI, it
@@ -1184,7 +1184,7 @@ closes https://github.com/influxdata/influxdb/issues/23536
 
 (cherry picked from commit 061cf55f2ac6c918b219d15e659bd51416d1c52b)
 
-closes https://github.com/influxdata/influxdb/issues/23537"
+closes https://github.com/influxdata/influxdb/issues/23537",1658352081
 cbfc7c12c33757b110bf5b77ff8eea62e36a9273,False,1,1,20,20,20.0,11,15,4,0.0,0.0,1.0,7064,1052,244,5,"fix: improve error messages opening index partitions (#23532) (#23573)
 
 Where possible, add the file path path to any errors
@@ -1195,7 +1195,7 @@ closes https://github.com/influxdata/influxdb/issues/23506
 
 (cherry picked from commit a2dd708a264202995d1437cb29ccaa24577ab060)
 
-closes https://github.com/influxdata/influxdb/issues/23533"
+closes https://github.com/influxdata/influxdb/issues/23533",1658350707
 f762346ecc39c6bba1acb192702613f492b5bd98,False,1,2,14,10,7.0,9,11,2,0.0,1.0,1.0,10478,1452,326,2,"fix: add paths to tsi log and index file errors (#23557) (#23562)
 
 Add paths to various TSI errors on opening and unmarshaling files
@@ -1205,13 +1205,13 @@ Closes https://github.com/influxdata/influxdb/issues/23556
 
 (cherry picked from commit 25cea95beb4fa050d58062cfffd13669b1bb17e2)
 
-closes https://github.com/influxdata/influxdb/issues/23558"
+closes https://github.com/influxdata/influxdb/issues/23558",1658270742
 25cea95beb4fa050d58062cfffd13669b1bb17e2,False,1,2,14,10,7.0,9,12,3,0.0,1.0,1.0,10582,1468,332,2,"fix: add paths to tsi log and index file errors (#23557)
 
 Add paths to various TSI errors on opening and unmarshaling files
 to help poinpoint the corrupt files.
 
-Closes https://github.com/influxdata/influxdb/issues/23556"
+Closes https://github.com/influxdata/influxdb/issues/23556",1658246540
 00edb77253ad28a8bf6265cb1bbef3667189907c,False,1,1,28,28,28.0,1,27,26,0.0,0.0,1.0,7146,1072,251,2,"fix: create TSI MANIFEST files atomically (#23539) (#23546)
 
 When a MANIFEST file is created in TSI, it
@@ -1224,7 +1224,7 @@ closes https://github.com/influxdata/influxdb/issues/23536
 
 (cherry picked from commit 061cf55f2ac6c918b219d15e659bd51416d1c52b)
 
-closes https://github.com/influxdata/influxdb/issues/23538"
+closes https://github.com/influxdata/influxdb/issues/23538",1657815191
 4789d5402a105841a59e6c340b5c1250e31c9600,False,1,1,20,20,20.0,11,15,4,0.0,0.0,1.0,7017,1053,246,5,"fix: improve error messages opening index partitions (#23532) (#23535)
 
 Where possible, add the file path path to any errors
@@ -1235,7 +1235,7 @@ closes https://github.com/influxdata/influxdb/issues/23506
 
 (cherry picked from commit a2dd708a264202995d1437cb29ccaa24577ab060)
 
-closes https://github.com/influxdata/influxdb/issues/23534"
+closes https://github.com/influxdata/influxdb/issues/23534",1657743647
 061cf55f2ac6c918b219d15e659bd51416d1c52b,False,1,1,28,28,28.0,1,27,26,0.0,0.0,1.0,7193,1071,249,2,"fix: create TSI MANIFEST files atomically (#23539)
 
 When a MANIFEST file is created in TSI, it
@@ -1244,35 +1244,35 @@ atomically renamed, to avoid overwriting
 the existing file only to fail on the
 later write.
 
-closes https://github.com/influxdata/influxdb/issues/23536"
+closes https://github.com/influxdata/influxdb/issues/23536",1657732309
 a2dd708a264202995d1437cb29ccaa24577ab060,False,1,1,20,20,20.0,11,15,4,0.0,0.0,1.0,7064,1052,244,5,"fix: improve error messages opening index partitions (#23532)
 
 Where possible, add the file path path to any errors
 on opening, reading, (un)marshaling, or validating
 the various files comprising a partition
 
-closes https://github.com/influxdata/influxdb/issues/23506"
+closes https://github.com/influxdata/influxdb/issues/23506",1657660956
 1c5b711e36a9bd1ecddd7318520b0045776028e9,False,1,1,1,1,1.0,0,1,1,0.0,0.0,1.0,5752,835,223,1,"fix: lost TSI reference / close TagValueSeriesIDIterator in error case (#23461) (#23464)
 
 (cherry picked from commit 8bd4fc502d12a0e2ece10eb86e64832646640cda)
 
 closes https://github.com/influxdata/influxdb/issues/23460
 
-Co-authored-by: Dane Strandboge <dstrandboge@influxdata.com>"
+Co-authored-by: Dane Strandboge <dstrandboge@influxdata.com>",1655406372
 75ed51b9c381bed86d49503fa2f70a096d0d4b36,False,1,1,1,1,1.0,0,1,1,0.0,0.0,1.0,5781,837,225,1,"fix: lost TSI reference / close TagValueSeriesIDIterator in error case (#23461) (#23463)
 
 (cherry picked from commit 8bd4fc502d12a0e2ece10eb86e64832646640cda)
 
 closes https://github.com/influxdata/influxdb/issues/23460
 
-Co-authored-by: Dane Strandboge <dstrandboge@influxdata.com>"
+Co-authored-by: Dane Strandboge <dstrandboge@influxdata.com>",1655405890
 a428043f84d5c27c0055d19382f8c76a6e994e3f,False,1,1,1,1,1.0,0,1,1,0.0,0.0,1.0,5781,837,225,1,"fix: lost TSI reference / close TagValueSeriesIDIterator in error case (#23461) (#23462)
 
 (cherry picked from commit 8bd4fc502d12a0e2ece10eb86e64832646640cda)
 
 closes https://github.com/influxdata/influxdb/issues/23460
 
-Co-authored-by: Dane Strandboge <dstrandboge@influxdata.com>"
+Co-authored-by: Dane Strandboge <dstrandboge@influxdata.com>",1655405644
 53580ead1de2f25354778f4779f156e50a9f532e,False,1,2,68,66,34.0,6,93,87,1.0,1.0,0.796875,12934,1894,341,12,"fix: remember shards that fail Open(), avoid repeated attempts (#23437) (#23455)
 
 If a shard cannot be opened, store its ID and last error.
@@ -1285,7 +1285,7 @@ closes https://github.com/influxdata/influxdb/issues/23426
 (cherry picked from commit 54ac7e54edbbb8a495d5b1be626a21b0165fb77e)
 
 closes https://github.com/influxdata/influxdb/issues/23434
-closes https://github.com/influxdata/influxdb/issues/23436"
+closes https://github.com/influxdata/influxdb/issues/23436",1655236871
 a9df3f8a7c9315dffa97a174980e1b551fb2d2ba,False,1,4,94,44,23.5,51,99,48,0.17391304347826086,0.4782608695652174,1.0,15689,2313,505,8,"fix: fully clean up partially opened TSI (#23430) (#23454)
 
 When one partition in a TSI fails to open, all previously opened
@@ -1296,7 +1296,7 @@ closes https://github.com/influxdata/influxdb/issues/23427
 
 (cherry picked from commit d3db48e93d561c0125d6a1fab146fd0ded20fedc)
 
-closes https://github.com/influxdata/influxdb/issues/23432"
+closes https://github.com/influxdata/influxdb/issues/23432",1655232556
 d0dd842149c334de738bcba267add6890126ccbc,False,1,2,70,68,35.0,7,95,88,1.0,1.0,1.0,13870,1981,351,12,"fix: remember shards that fail Open(), avoid repeated attempts (#23437) (#23444)
 
 If a shard cannot be opened, store its ID and last error.
@@ -1309,14 +1309,14 @@ closes https://github.com/influxdata/influxdb/issues/23426
 (cherry picked from commit 54ac7e54edbbb8a495d5b1be626a21b0165fb77e)
 
 closes https://github.com/influxdata/influxdb/issues/23433
-closes https://github.com/influxdata/influxdb/issues/23435"
+closes https://github.com/influxdata/influxdb/issues/23435",1655149879
 d705841a00ec37184818aca618f82501a2b81560,False,1,2,19,12,9.5,0,120,120,0.2708333333333333,0.7708333333333334,0.8958333333333334,2428,418,105,1,"feat: error when creating v1 auth with a nonexistent bucket id (#23422)
 
 * feat: error when creating v1 auth with a nonexistent bucket id
 
 * fix: only check for buckets
 
-* refactor: test cleanup for clarity"
+* refactor: test cleanup for clarity",1655149948
 07ee889eb37ba7ff8a0a08bbf10c4d3b58af9efc,False,1,4,94,44,23.5,39,80,41,0.17391304347826086,0.4782608695652174,1.0,16094,2356,517,8,"fix: fully clean up partially opened TSI (#23430) (#23446)
 
 When one partition in a TSI fails to open, all previously opened
@@ -1327,7 +1327,7 @@ closes https://github.com/influxdata/influxdb/issues/23427
 
 (cherry picked from commit d3db48e93d561c0125d6a1fab146fd0ded20fedc)
 
-closes https://github.com/influxdata/influxdb/issues/23431"
+closes https://github.com/influxdata/influxdb/issues/23431",1655149894
 54ac7e54edbbb8a495d5b1be626a21b0165fb77e,False,1,2,70,68,35.0,7,95,88,1.0,1.0,1.0,13870,1981,351,12,"fix: remember shards that fail Open(), avoid repeated attempts (#23437)
 
 If a shard cannot be opened, store its ID and last error.
@@ -1335,14 +1335,14 @@ Prevent future attempts to open during this invocation of
 influxDB. This information is not persisted.
 
 closes https://github.com/influxdata/influxdb/issues/23428
-closes https://github.com/influxdata/influxdb/issues/23426"
+closes https://github.com/influxdata/influxdb/issues/23426",1655141567
 d3db48e93d561c0125d6a1fab146fd0ded20fedc,False,1,4,94,44,23.5,39,80,41,0.17391304347826086,0.4782608695652174,1.0,16094,2356,517,8,"fix: fully clean up partially opened TSI (#23430)
 
 When one partition in a TSI fails to open, all previously opened
 partitions should be cleaned up, and remaining partitions 
 should not be opened
 
-closes https://github.com/influxdata/influxdb/issues/23427"
+closes https://github.com/influxdata/influxdb/issues/23427",1654885889
 b22fe17061c0b657430853948403f5d791b09846,False,1,3,76,42,25.333333333333332,21,202,181,0.7289719626168224,0.7476635514018691,0.9345794392523364,32462,4568,1076,11,"fix: do not rename files on mmap failure (#23396) (#23421)
 
 If NewTSMReader() fails because mmap fails, do not
@@ -1353,7 +1353,7 @@ closes https://github.com/influxdata/influxdb/issues/23172
 
 (cherry picked from commit ec412f793b0fbb0d4c1ee35ebbb1fbbc69baabf0)
 
-closes https://github.com/influxdata/influxdb/issues/23413"
+closes https://github.com/influxdata/influxdb/issues/23413",1654882724
 3635e1c1b130f33b413648792684ef9c0aea7805,False,1,1,25,25,25.0,1,56,55,0.3164005805515239,0.5442670537010159,1.0,10561,1618,249,2,"fix: replace unprintable and invalid characters in errors (#23387) (#23418)
 
 Replace unprintable and invalid characters with '?'
@@ -1364,14 +1364,14 @@ closes https://github.com/influxdata/influxdb/issues/23386
 
 (cherry picked from commit 0ae0bd6e2eb6eeeb97b67bc8c96ad6b158ce28f5)
 
-closes https://github.com/influxdata/influxdb/issues/23390"
+closes https://github.com/influxdata/influxdb/issues/23390",1654791983
 ec412f793b0fbb0d4c1ee35ebbb1fbbc69baabf0,False,1,3,76,42,25.333333333333332,21,202,181,0.7289719626168224,0.7476635514018691,0.9345794392523364,32462,4568,1076,11,"fix: do not rename files on mmap failure (#23396)
 
 If NewTSMReader() fails because mmap fails, do not
 rename the file, because the error is probably
 caused by vm.max_map_count being too low
 
-closes https://github.com/influxdata/influxdb/issues/23172"
+closes https://github.com/influxdata/influxdb/issues/23172",1654616220
 8c9768cdb74a458948714f988ecd7b96a14fa3da,False,1,1,25,25,25.0,1,55,54,0.39029126213592236,0.5902912621359223,1.0,11481,1817,228,2,"fix: replace unprintable and invalid characters in errors (#23387) (#23395)
 
 Replace unprintable and invalid characters with '?'
@@ -1382,7 +1382,7 @@ closes https://github.com/influxdata/influxdb/issues/23386
 
 (cherry picked from commit 0ae0bd6e2eb6eeeb97b67bc8c96ad6b158ce28f5)
 
-closes https://github.com/influxdata/influxdb/issues/23389"
+closes https://github.com/influxdata/influxdb/issues/23389",1654119771
 d42182cd47a5015ea80d923adcf6ae9ea1470986,False,1,1,25,25,25.0,1,56,55,0.3164005805515239,0.5442670537010159,1.0,10562,1619,249,2,"fix: replace unprintable and invalid characters in errors (#23387) (#23394)
 
 Replace unprintable and invalid characters with '?'
@@ -1393,14 +1393,14 @@ closes https://github.com/influxdata/influxdb/issues/23386
 
 (cherry picked from commit 0ae0bd6e2eb6eeeb97b67bc8c96ad6b158ce28f5)
 
-closes https://github.com/influxdata/influxdb/issues/23391"
+closes https://github.com/influxdata/influxdb/issues/23391",1654118234
 0ae0bd6e2eb6eeeb97b67bc8c96ad6b158ce28f5,False,1,1,25,25,25.0,1,56,55,0.3164005805515239,0.5442670537010159,1.0,10561,1618,249,2,"fix: replace unprintable and invalid characters in errors (#23387)
 
 Replace unprintable and invalid characters with '?'
 in logged errors.  Truncate consecutive runs of them to
 only 3 repeats of '?'
 
-closes https://github.com/influxdata/influxdb/issues/23386"
+closes https://github.com/influxdata/influxdb/issues/23386",1654116324
 9c33764b6d409b96f4622248a4a223df9713e3c6,False,1,1,17,17,17.0,3,14,11,1.0,1.0,1.0,6343,988,41,1,"fix: do not panic on cleaning up failed iterators (#21666) (#23319)
 
 We have seen occasional panics in Iterators.Close()
@@ -1414,14 +1414,14 @@ Closes https://github.com/influxdata/influxdb/issues/19476
 
 (cherry picked from commit acc4105b8c48657287ddeaed56c28fd2840dd862)
 
-closes https://github.com/influxdata/influxdb/issues/23271"
+closes https://github.com/influxdata/influxdb/issues/23271",1651267281
 160cf678d56e16dc3e58eb2bc83f7540bb667a8d,False,1,1,6,6,6.0,1,45,44,0.11764705882352941,0.11764705882352941,0.5882352941176471,11340,1632,277,1,"fix: MeasurementsCardinality should not be less than 0 (#23286)
 
 Clamp the value of Store.MeasurementsCardinality so that it can not be less
 than 0. This primarily shows up as a negative `numMeasurements` value in
 /debug/vars under some circumstances.
 
-refs #23285"
+refs #23285",1650565932
 107807ceb5a9af7f9d416f972424ab03ba6dd523,False,1,1,4,4,4.0,2,2,0,,,,3082,506,84,1,"fix: return underlying error creating a subscription (#23217) (#23221)
 
 When creating a subscription, return the wrapped error
@@ -1431,20 +1431,20 @@ closes https://github.com/influxdata/influxdb/issues/23216
 
 (cherry picked from commit c3a958cb5f09ab0cc9a792394ea13d5702399305)
 
-closes https://github.com/influxdata/influxdb/issues/23220"
+closes https://github.com/influxdata/influxdb/issues/23220",1647981558
 c3a958cb5f09ab0cc9a792394ea13d5702399305,False,1,1,4,4,4.0,2,2,0,,,,3082,506,84,1,"fix: return underlying error creating a subscription (#23217)
 
 When creating a subscription, return the wrapped error
 on failure
 
-closes https://github.com/influxdata/influxdb/issues/23216"
+closes https://github.com/influxdata/influxdb/issues/23216",1647979448
 b8ccf5bbbd3b374c67905d3337c046c007822e7f,False,1,1,9,9,9.0,3,6,3,0.0,0.0,1.0,11302,1788,98,1,"fix: correctly handle PartialWriteError (#23098)
 
 Check for the correctly returned PartialWriteError
 in (*shard).validateSeriesAndFields, allow partial
 writes.
 
-closes https://github.com/influxdata/influxdb/issues/23096"
+closes https://github.com/influxdata/influxdb/issues/23096",1643841803
 85580fa8c10a097ff28893f235db3cbc708b1c5e,False,1,2,17,9,8.5,8,13,5,0.0,0.0,1.0,17488,2548,303,3,"fix: correctly handle MaxSeriesPerDatabaseExceeded (#23091) (#23093)
 
 Check for the correctly returned PartialWriteError
@@ -1455,14 +1455,14 @@ closes https://github.com/influxdata/influxdb/issues/23090
 
 (cherry picked from commit 0c3dca883ee58ca204e6cb0d528bfe2b93e1956d)
 
-closes https://github.com/influxdata/influxdb/issues/23092"
+closes https://github.com/influxdata/influxdb/issues/23092",1643781086
 0c3dca883ee58ca204e6cb0d528bfe2b93e1956d,False,1,2,17,9,8.5,8,13,5,0.0,0.0,1.0,17516,2552,303,3,"fix: correctly handle MaxSeriesPerDatabaseExceeded (#23091)
 
 Check for the correctly returned PartialWriteError
 in (*shard).validateSeriesAndFields, allow partial
 writes.
 
-closes https://github.com/influxdata/influxdb/issues/23090"
+closes https://github.com/influxdata/influxdb/issues/23090",1643771331
 4fd4bd019f814db68215df7cfeec5f1dad613a5e,False,1,2,54,39,27.0,7,64,57,0.4838709677419355,1.0,0.8064516129032258,553,95,21,4,"fix: use copy when a rename spans volumes (#22995)
 
 When a file rename fails with EXDEV
@@ -1471,7 +1471,7 @@ file and delete the original instead.
 
 closes https://github.com/influxdata/influxdb/issues/22890
 
-Co-authored-by: Chris Pahl <sahib@online.de>"
+Co-authored-by: Chris Pahl <sahib@online.de>",1639515524
 88afa9229b9ad51d695d58f4b322583f516cea2a,False,1,1,32,32,32.0,1,31,30,,,,10193,1473,264,0,"fix: detect misquoted tag values and return an error (#22754) (#22785)
 
 SHOW TAG KEYS FROM ""foo"" where bar=""misquoted"" is
@@ -1485,7 +1485,7 @@ closes https://github.com/influxdata/influxdb/issues/22755
 
 (cherry picked from commit af9e89a4d46b7f83623b3cdd5996fcccc39609e8)
 
-closes https://github.com/influxdata/influxdb/issues/22757"
+closes https://github.com/influxdata/influxdb/issues/22757",1635395531
 d3be25b251256755d622792ec91826c5670c6106,False,1,1,31,31,31.0,0,31,31,,,,11182,1588,255,0,"fix: detect misquoted tag values and return an error (#22754) (#22787)
 
 SHOW TAG KEYS FROM ""foo"" where bar=""misquoted"" is
@@ -1499,7 +1499,7 @@ closes https://github.com/influxdata/influxdb/issues/22755
 
 (cherry picked from commit af9e89a4d46b7f83623b3cdd5996fcccc39609e8)
 
-closes https://github.com/influxdata/influxdb/issues/22786"
+closes https://github.com/influxdata/influxdb/issues/22786",1635370122
 2b1074539cb247e9d67d144dfc25698d8f77b678,False,1,1,32,32,32.0,1,31,30,,,,11241,1618,271,0,"fix: detect misquoted tag values and return an error (#22754) (#22781)
 
 SHOW TAG KEYS FROM ""foo"" where bar=""misquoted"" is
@@ -1513,7 +1513,7 @@ closes https://github.com/influxdata/influxdb/issues/22755
 
 (cherry picked from commit af9e89a4d46b7f83623b3cdd5996fcccc39609e8)
 
-closes https://github.com/influxdata/influxdb/issues/22756"
+closes https://github.com/influxdata/influxdb/issues/22756",1635360457
 af9e89a4d46b7f83623b3cdd5996fcccc39609e8,False,1,1,32,32,32.0,1,31,30,,,,11317,1629,276,0,"fix: detect misquoted tag values and return an error (#22754)
 
 SHOW TAG KEYS FROM ""foo"" where bar=""misquoted"" is
@@ -1523,7 +1523,7 @@ correctly returns no tag keys, it is very
 inefficient and has cause out-of-memory failures
 at a customer. This fix short-circuits the query.
 
-closes https://github.com/influxdata/influxdb/issues/22755"
+closes https://github.com/influxdata/influxdb/issues/22755",1635359180
 5e6b0d539bcc150afd8e7113c2a1f26f638f8c93,False,1,3,149,86,49.666666666666664,65,84,19,0.0,0.36666666666666664,1.0,7512,1077,267,9,"fix: extend snapshot copy to filesystems that cannot link (#22703) (#22732)
 
 If os.Link fails with syscall.ENOTSUP, then the file
@@ -1536,7 +1536,7 @@ closes https://github.com/influxdata/influxdb/issues/16739
 
 (cherry picked from commit d9b9e86db9a20fcf64400cd07be7f5bf2e0cc8b2)
 
-closes https://github.com/influxdata/influxdb/issues/22701"
+closes https://github.com/influxdata/influxdb/issues/22701",1634918381
 effd948c1eec462bd384b5716a0be4cece6bbd1b,False,1,5,168,86,33.6,73,95,22,0.0,0.40625,1.0,11324,1731,402,14,"fix: extend snapshot copy to filesystems that cannot link (#22703) (#22730)
 
 If os.Link fails with syscall.ENOTSUP, then the file
@@ -1549,7 +1549,7 @@ closes https://github.com/influxdata/influxdb/issues/16739
 
 (cherry picked from commit d9b9e86db9a20fcf64400cd07be7f5bf2e0cc8b2)
 
-closes https://github.com/influxdata/influxdb/issues/22700"
+closes https://github.com/influxdata/influxdb/issues/22700",1634849498
 d9b9e86db9a20fcf64400cd07be7f5bf2e0cc8b2,False,1,5,168,86,33.6,73,95,22,0.0,0.40625,1.0,11324,1731,402,14,"fix: extend snapshot copy to filesystems that cannot link (#22703)
 
 If os.Link fails with syscall.ENOTSUP, then the file
@@ -1558,14 +1558,14 @@ to snapshot files for backup. We also automatically make
 copies instead of link on Windows, because although it
 makes links, their semantics are different from Linux.
 
-closes https://github.com/influxdata/influxdb/issues/16739"
+closes https://github.com/influxdata/influxdb/issues/16739",1634846006
 993bdb244bfa7c38f535d5de1a5aea6ea6d1d182,False,1,1,5,5,5.0,0,5,5,0.0,0.0,1.0,2883,465,104,1,"fix(restore): enforce the -db parameter when -newdb used (#22542) (#22677)
 
 closes https://github.com/influxdata/influxdb/issues/15901
 
 (cherry picked from commit 1dde65bb75f3744c01313f5bd8f54f0262dd0da4)
 
-closes https://github.com/influxdata/influxdb/issues/22543"
+closes https://github.com/influxdata/influxdb/issues/22543",1634266876
 159b10543c7c2d68d40ab958969a0b40e4eebd56,False,1,3,73,46,24.333333333333332,5,84,79,0.2807017543859649,0.2807017543859649,1.0,7193,1049,258,4,"fix: for Windows, copy snapshot files being backed up (#22551) (#22676)
 
 On Windows, make copies of files for snapshots, because
@@ -1578,14 +1578,14 @@ closes https://github.com/influxdata/influxdb/issues/16289
 
 (cherry picked from commit 3702fe8e7688499dc6183ad20c90e6c3a6a812ed)
 
-Closes https://github.com/influxdata/influxdb/issues/22556"
+Closes https://github.com/influxdata/influxdb/issues/22556",1634255674
 9d3508c54d5b7c349e59d8dbef3395ca14b610d1,False,1,1,62,62,62.0,32,30,-2,1.0,1.0,1.0,2872,489,104,2,"fix: For Windows, close temp file before removing (#22492) (#22675)
 
 closes https://github.com/influxdata/influxdb/issues/21470
 
 (cherry picked from commit d2199efcd79fa325a8061a90136483dca1194442)
 
-Closes https://github.com/influxdata/influxdb/issues/22493"
+Closes https://github.com/influxdata/influxdb/issues/22493",1634255555
 cf8408eabd4e30a62fe46116eaa9261dd60dff66,False,1,3,96,46,32.0,11,101,90,0.484375,0.84375,1.0,7184,1049,257,5,"fix: for Windows, copy snapshot files being backed up (#22551) (#22562) (#22563)
 
 On Windows, make copies of files for snapshots, because
@@ -1602,7 +1602,7 @@ closes https://github.com/influxdata/influxdb/issues/22557
 
 (cherry picked from commit 47007f69889b37d2d7893167e26dfe92985079ec)
 
-closes https://github.com/influxdata/influxdb/issues/22558"
+closes https://github.com/influxdata/influxdb/issues/22558",1632344395
 1dd2c0c12f932a3ee9eff2b91d26085dcc92b713,False,1,4,78,46,19.5,5,89,84,0.26666666666666666,0.26666666666666666,1.0,10087,1513,362,5,"fix(restore): parameter validation, Windows temp file deletion (#22561)
 
 fix(restore): enforce the -db parameter when -newdb used
@@ -1625,7 +1625,7 @@ closes https://github.com/influxdata/influxdb/issues/16289
 
 (cherry picked from commit 3702fe8e7688499dc6183ad20c90e6c3a6a812ed)
 
-closes https://github.com/influxdata/influxdb/issues/22559"
+closes https://github.com/influxdata/influxdb/issues/22559",1632342526
 47007f69889b37d2d7893167e26dfe92985079ec,False,1,3,96,46,32.0,11,101,90,0.484375,0.84375,1.0,7270,1056,259,5,"fix: for Windows, copy snapshot files being backed up (#22551) (#22562)
 
 On Windows, make copies of files for snapshots, because
@@ -1638,7 +1638,7 @@ closes https://github.com/influxdata/influxdb/issues/16289
 
 (cherry picked from commit 3702fe8e7688499dc6183ad20c90e6c3a6a812ed)
 
-closes https://github.com/influxdata/influxdb/issues/22557"
+closes https://github.com/influxdata/influxdb/issues/22557",1632341188
 3702fe8e7688499dc6183ad20c90e6c3a6a812ed,False,1,3,73,46,24.333333333333332,5,84,79,0.2807017543859649,0.2807017543859649,1.0,7193,1049,258,4,"fix: for Windows, copy snapshot files being backed up (#22551)
 
 On Windows, make copies of files for snapshots, because
@@ -1647,13 +1647,13 @@ allows files (and links) to be deleted while open. This
 causes temporary directories to be left behind after
 backups.
 
-closes https://github.com/influxdata/influxdb/issues/16289"
+closes https://github.com/influxdata/influxdb/issues/16289",1632333377
 1dde65bb75f3744c01313f5bd8f54f0262dd0da4,False,1,1,5,5,5.0,0,5,5,0.0,0.0,1.0,2883,465,104,1,"fix(restore): enforce the -db parameter when -newdb used (#22542)
 
-closes https://github.com/influxdata/influxdb/issues/15901"
+closes https://github.com/influxdata/influxdb/issues/15901",1632325832
 d2199efcd79fa325a8061a90136483dca1194442,False,1,1,62,62,62.0,32,30,-2,1.0,1.0,1.0,2872,489,104,2,"fix: For Windows, close temp file before removing (#22492)
 
-closes https://github.com/influxdata/influxdb/issues/21470"
+closes https://github.com/influxdata/influxdb/issues/21470",1631811137
 c0dd3d3c75648f736d85addd37d96837b69f5cc7,False,1,1,33,33,33.0,5,121,116,0.2604166666666667,0.2708333333333333,0.9895833333333334,9817,1558,397,5,"fix: discard excessive errors (#22379) (#22397)
 
 The tsmBatchKeyIterator discards excessive errors to avoid
@@ -1665,7 +1665,7 @@ closes https://github.com/influxdata/influxdb/issues/22328
 
 (cherry picked from commit e53f75e06d0d2576e6db0175fe96c486014663a0)
 
-closes https://github.com/influxdata/influxdb/issues/22382"
+closes https://github.com/influxdata/influxdb/issues/22382",1630706389
 7ad612b0d779f392d1997056ff961a9fc487bfe7,False,1,1,33,33,33.0,5,121,116,0.2604166666666667,0.2708333333333333,0.9895833333333334,9817,1558,397,5,"fix: discard excessive errors (#22379) (#22391)
 
 The tsmBatchKeyIterator discards excessive errors to avoid
@@ -1677,7 +1677,7 @@ closes https://github.com/influxdata/influxdb/issues/22328
 
 (cherry picked from commit e53f75e06d0d2576e6db0175fe96c486014663a0)
 
-closes https://github.com/influxdata/influxdb/issues/22381"
+closes https://github.com/influxdata/influxdb/issues/22381",1630706256
 25e21c90f26be0e6f31429afd4ae9740a47b7a08,False,1,1,33,33,33.0,5,121,116,0.2604166666666667,0.2708333333333333,0.9895833333333334,9817,1558,397,5,"fix: discard excessive errors (#22379) (#22389)
 
 The tsmBatchKeyIterator discards excessive errors to avoid
@@ -1689,7 +1689,7 @@ closes https://github.com/influxdata/influxdb/issues/22328
 
 (cherry picked from commit e53f75e06d0d2576e6db0175fe96c486014663a0)
 
-Closes https://github.com/influxdata/influxdb/issues/22380"
+Closes https://github.com/influxdata/influxdb/issues/22380",1630697434
 e53f75e06d0d2576e6db0175fe96c486014663a0,False,1,1,33,33,33.0,5,121,116,0.2604166666666667,0.2708333333333333,0.9895833333333334,9817,1558,397,5,"fix: discard excessive errors (#22379)
 
 The tsmBatchKeyIterator discards excessive errors to avoid
@@ -1697,7 +1697,7 @@ out-of-memory crashes when compacting very corrupt files.
 Any error beyond DefaultMaxSavedErrors (100) will be
 discarded instead of appended to the error slice.
 
-closes https://github.com/influxdata/influxdb/issues/22328"
+closes https://github.com/influxdata/influxdb/issues/22328",1630685465
 546ee8d1ce4160d022a82effbc3eac995dab385f,False,1,1,16,16,16.0,8,8,0,,,,15611,2375,167,0,"fix: repair bad port dropping return value names (#22307) (#22355)
 
 Named returns were not cherry-picked correctly from
@@ -1708,9 +1708,9 @@ closes https://github.com/influxdata/influxdb/issues/22303
 
 (cherry picked from commit 99cfbfe8cf8f1c857c888aa633cc656507955c8b)
 
-closes https://github.com/influxdata/influxdb/issues/22304"
-b519b630aac5ea213c7ce5f32533248b70e43a16,False,1,1,12,12,12.0,6,6,0,,,,16176,2472,166,0,fix: correct error return shadowing (#22354)
-926020e331f7b3be79627ccd160858e630659689,False,1,1,12,12,12.0,6,6,0,,,,16176,2472,166,0,fix: correct error return shadowing (#22353)
+closes https://github.com/influxdata/influxdb/issues/22304",1630439234
+b519b630aac5ea213c7ce5f32533248b70e43a16,False,1,1,12,12,12.0,6,6,0,,,,16176,2472,166,0,fix: correct error return shadowing (#22354),1630435651
+926020e331f7b3be79627ccd160858e630659689,False,1,1,12,12,12.0,6,6,0,,,,16176,2472,166,0,fix: correct error return shadowing (#22353),1630435581
 d6aa0e69de600e5ee67d1c1c816ac8129c217e75,False,1,2,5,4,2.5,3,70,67,0.6140350877192983,1.0,0.6842105263157895,2254,397,75,2,"fix: return correct count of ErrNotExecuted (#22273) (#22294)
 
 executeQuery() iterates over statements until each is
@@ -1723,7 +1723,7 @@ closes https://github.com/influxdata/influxdb/issues/19136
 
 (cherry-picked from commit 0090c5b11141e99ee80dc8980cff615c3b63dfd6)
 
-closes https://github.com/influxdata/influxdb/issues/22274"
+closes https://github.com/influxdata/influxdb/issues/22274",1629832168
 0090c5b11141e99ee80dc8980cff615c3b63dfd6,False,1,2,5,4,2.5,3,70,67,0.6140350877192983,1.0,0.6842105263157895,2254,397,75,2,"fix: return correct count of ErrNotExecuted (#22273)
 
 executeQuery() iterates over statements until each is
@@ -1732,7 +1732,7 @@ the loop to exit pre-maturely. It should return
 ErrNotExecuted for each remaining statement in the
 query
 
-closes https://github.com/influxdata/influxdb/issues/19136"
+closes https://github.com/influxdata/influxdb/issues/19136",1629829630
 509d34e7840f6564ad342e4533ada5a9aa05f4bb,False,1,1,16,16,16.0,6,91,85,0.038461538461538464,1.0,1.0,8194,1117,64,1,"fix: require database authorization to see continuous queries (#22283) (#22289)
 
 SHOW CONTINUOUS QUERIES now requires the same permissions
@@ -1743,14 +1743,14 @@ closes https://github.com/influxdata/influxdb/issues/10292
 
 (cherry picked from commit 71b3d064943f3b0f940aaa4bdb1b6fa35b91a35a)
 
-closes https://github.com/influxdata/influxdb/issues/22284"
+closes https://github.com/influxdata/influxdb/issues/22284",1629828920
 71b3d064943f3b0f940aaa4bdb1b6fa35b91a35a,False,1,1,16,16,16.0,6,91,85,0.038461538461538464,1.0,1.0,8194,1117,64,1,"fix: require database authorization to see continuous queries (#22283)
 
 SHOW CONTINUOUS QUERIES now requires the same permissions
 as SHOW DATABASES in order to see the continuous queries
 in a database.
 
-closes https://github.com/influxdata/influxdb/issues/10292"
+closes https://github.com/influxdata/influxdb/issues/10292",1629820616
 7d3efe1e9e9f6efa92a41da1fc225886362d41a2,False,1,2,68,44,34.0,73,149,76,0.05555555555555555,0.0,1.0,26567,3918,924,4,"fix: avoid compaction queue stats flutter. (#22195)
 
 When the compaction planner runs, if it cannot acquire
@@ -1760,7 +1760,7 @@ engine statistics for compactions queues to zero,
 which is incorrect. Instead, use the length of pending
 files which would have been returned.
 
-closes https://github.com/influxdata/influxdb/issues/22138"
+closes https://github.com/influxdata/influxdb/issues/22138",1629130867
 1ac3471e58f945162571bcc5399a6b54f471d051,False,1,2,68,44,34.0,72,148,76,0.05555555555555555,0.0,1.0,26025,3845,886,4,"fix: avoid compaction queue stats flutter (#22245)
 
 When the compaction planner runs, if it cannot acquire
@@ -1778,7 +1778,7 @@ closes https://github.com/influxdata/influxdb/issues/22141
 
 (cherry picked from commit 9923d2e8d540a9a4134137f6e93e9fe126a85399)
 
-closes https://github.com/influxdata/influxdb/issues/22142"
+closes https://github.com/influxdata/influxdb/issues/22142",1629306255
 9923d2e8d540a9a4134137f6e93e9fe126a85399,False,1,2,68,44,34.0,72,148,76,0.05555555555555555,0.0,1.0,25940,3830,882,4,"fix: avoid compaction queue stats flutter (#22235)
 
 When the compaction planner runs, if it cannot acquire
@@ -1792,7 +1792,7 @@ closes https://github.com/influxdata/influxdb/issues/22138
 
 (cherry picked from commit 7d3efe1e9e9f6efa92a41da1fc225886362d41a2)
 
-closes https://github.com/influxdata/influxdb/issues/22141"
+closes https://github.com/influxdata/influxdb/issues/22141",1629234234
 0ff21968085c01257486b65bd82d6a4e1abe4f63,False,1,2,68,44,34.0,72,148,76,0.05555555555555555,0.0,1.0,26567,3918,924,4,"fix: avoid compaction queue stats flutter. (#22195) (#22214)
 
 When the compaction planner runs, if it cannot acquire
@@ -1806,7 +1806,7 @@ closes https://github.com/influxdata/influxdb/issues/22138
 
 (cherry picked from commit 7d3efe1e9e9f6efa92a41da1fc225886362d41a2)
 
-closes https://github.com/influxdata/influxdb/issues/22139"
+closes https://github.com/influxdata/influxdb/issues/22139",1629136560
 3ee31b688dfc94fd59c7323d0c59f13129e15327,False,1,1,123,123,123.0,25,99,74,,,,15607,2375,167,0,"fix: copy names from mmapped memory before closing iterator (#22040) (#22060)
 
 This fix ensures that memory-mapped files are not released
@@ -1821,7 +1821,7 @@ closes https://github.com/influxdata/influxdb/issues/22000
 
 (cherry picked from commit a989f8f8b6fc453c85075e5ae73033d5bd036e21)
 
-closes https://github.com/influxdata/influxdb/issues/22003"
+closes https://github.com/influxdata/influxdb/issues/22003",1628119884
 16b737dea41e1531063b96432bd00b5f2891e88b,False,1,1,123,123,123.0,25,99,74,,,,15607,2375,167,0,"fix: copy names from mmapped memory before closing iterator (#22040) (#22059)
 
 This fix ensures that memory-mapped files are not released
@@ -1836,7 +1836,7 @@ closes https://github.com/influxdata/influxdb/issues/22000
 
 (cherry picked from commit a989f8f8b6fc453c85075e5ae73033d5bd036e21)
 
-closes https://github.com/influxdata/influxdb/issues/22002"
+closes https://github.com/influxdata/influxdb/issues/22002",1628117900
 05744ea48b014918c2e84bba81312ec84b9757c2,False,1,1,129,129,129.0,29,109,80,,,,16176,2472,166,0,"fix: copy names from mmapped memory before closing iterator (#22040) (#22058)
 
 This fix ensures that memory-mapped files are not released
@@ -1851,7 +1851,7 @@ closes https://github.com/influxdata/influxdb/issues/22000
 
 (cherry picked from commit a989f8f8b6fc453c85075e5ae73033d5bd036e21)
 
-Closes https://github.com/influxdata/influxdb/issues/22001"
+Closes https://github.com/influxdata/influxdb/issues/22001",1628112430
 a989f8f8b6fc453c85075e5ae73033d5bd036e21,False,1,1,129,129,129.0,28,102,74,,,,16176,2472,166,0,"fix: copy names from mmapped memory before closing iterator (#22040)
 
 This fix ensures that memory-mapped files are not released
@@ -1862,16 +1862,16 @@ released. The functions they call use iterators to files which
 are closed (releasing the mmapped files) before the memory is
 safely copied to the heap.
 
-closes https://github.com/influxdata/influxdb/issues/22000"
+closes https://github.com/influxdata/influxdb/issues/22000",1628108160
 4e2fa689e3a1a76f2b3302efb36614f6cfd512a9,False,1,1,2,2,2.0,1,1,0,,,,10402,1593,78,0,"fix: don't access a field in a nil struct (#21693) (#21921)
 
 (cherry picked from commit aca69e530f16441e343265d717001c68cd1db115)
 
-Closes https://github.com/influxdata/influxdb/issues/21698"
+Closes https://github.com/influxdata/influxdb/issues/21698",1626991173
 c4614f499ece6deeebe1351a4114d9b48f09aec4,False,1,1,2,2,2.0,1,1,0,,,,10462,1597,78,0,"fix: don't access a field in a nil struct (#21693) (#21696) (#21914)
 
 (cherry picked from commit aca69e530f16441e343265d717001c68cd1db115)
-(cherry picked from commit f8ef784cffff663cd4c5f0ec3ac493ef39e6040a)"
+(cherry picked from commit f8ef784cffff663cd4c5f0ec3ac493ef39e6040a)",1626971097
 85778072129256a9fa5ccb66a29313e00e435071,False,1,2,87,47,43.5,1,244,243,0.24074074074074073,0.7962962962962963,0.8024691358024691,14654,2175,607,5,"fix: do not send non-UTF-8 characters to subscriptions (#21558) (#21764)
 
 Added a check for valid UTF-8 strings in measurement names,
@@ -1883,7 +1883,7 @@ Closes https://github.com/influxdata/influxdb/issues/21557
 
 (cherry picked from commit a08b69098eba5362ffcaeabf748ada57ff009ffa)
 
-Closes https://github.com/influxdata/influxdb/issues/21559"
+Closes https://github.com/influxdata/influxdb/issues/21559",1625010812
 ae851d92f7c6a0aae11290d8f8d3a9bd8369670c,False,1,1,17,17,17.0,4,16,12,1.0,1.0,1.0,6717,1042,41,1,"fix: do not panic on cleaning up failed iterators (#21666) (#21697)
 
 We have seen occasional panics in Iterators.Close()
@@ -1897,10 +1897,10 @@ Closes https://github.com/influxdata/influxdb/issues/19476
 
 (cherry picked from commit acc4105b8c48657287ddeaed56c28fd2840dd862)
 
-Closes #21667"
+Closes #21667",1623786334
 f8ef784cffff663cd4c5f0ec3ac493ef39e6040a,False,1,1,2,2,2.0,1,1,0,,,,10487,1601,78,0,"fix: don't access a field in a nil struct (#21693) (#21696)
 
-(cherry picked from commit aca69e530f16441e343265d717001c68cd1db115)"
+(cherry picked from commit aca69e530f16441e343265d717001c68cd1db115)",1623783111
 9355183430e77af8782794f1d73f4b0744150076,False,1,1,14,14,14.0,4,11,7,1.0,1.0,1.0,1159,180,47,2,"fix: Do not close connection twice in DigestWithOptions (#21659) (#21695)
 
 tsm1.DigestWithOptions closes its network connection
@@ -1913,8 +1913,8 @@ Closes https://github.com/influxdata/influxdb/issues/21656
 
 (cherry picked from commit bce6553459e0eadea414696c0c564ad28275116b)
 
-Closes https://github.com/influxdata/influxdb/issues/21657"
-aca69e530f16441e343265d717001c68cd1db115,False,1,1,2,2,2.0,1,1,0,,,,10402,1593,78,0,fix: don't access a field in a nil struct (#21693)
+Closes https://github.com/influxdata/influxdb/issues/21657",1623782989
+aca69e530f16441e343265d717001c68cd1db115,False,1,1,2,2,2.0,1,1,0,,,,10402,1593,78,0,fix: don't access a field in a nil struct (#21693),1623777818
 acc4105b8c48657287ddeaed56c28fd2840dd862,False,1,1,17,17,17.0,3,18,15,1.0,1.0,1.0,6717,1042,41,1,"fix: do not panic on cleaning up failed iterators (#21666)
 
 We have seen occasional panics in Iterators.Close()
@@ -1924,7 +1924,7 @@ closed, and now returns any errors generated by
 that Close().
 
 Closes https://github.com/influxdata/influxdb/issues/19579
-Closes https://github.com/influxdata/influxdb/issues/19476"
+Closes https://github.com/influxdata/influxdb/issues/19476",1623436139
 5251c85412299334db280b1fb5d96b9e9960d576,False,1,1,14,14,14.0,4,11,7,1.0,1.0,1.0,1159,180,47,2,"fix: Do not close connection twice in DigestWithOptions (#21659) (#21662)
 
 tsm1.DigestWithOptions closes its network connection
@@ -1937,7 +1937,7 @@ Closes https://github.com/influxdata/influxdb/issues/21656
 
 (cherry picked from commit bce6553459e0eadea414696c0c564ad28275116b)
 
-Closes https://github.com/influxdata/influxdb/issues/21660"
+Closes https://github.com/influxdata/influxdb/issues/21660",1623357156
 bce6553459e0eadea414696c0c564ad28275116b,False,1,1,14,14,14.0,4,11,7,1.0,1.0,1.0,1159,180,47,2,"fix: Do not close connection twice in DigestWithOptions (#21659)
 
 tsm1.DigestWithOptions closes its network connection
@@ -1946,7 +1946,7 @@ invocations of the same procedure, by closing a reused
 i/o descriptor. This fix also captures errors from TSM
 file closures, which were previously ignored.
 
-Closes https://github.com/influxdata/influxdb/issues/21656"
+Closes https://github.com/influxdata/influxdb/issues/21656",1623354102
 a08b69098eba5362ffcaeabf748ada57ff009ffa,False,1,2,87,47,43.5,0,242,242,0.24074074074074073,0.7962962962962963,0.8024691358024691,14654,2175,607,5,"fix: do not send non-UTF-8 characters to subscriptions (#21558)
 
 Added a check for valid UTF-8 strings in measurement names,
@@ -1954,7 +1954,7 @@ tags name, tag values, and field names when writing to subscriptions.
 Do not send the failing points to subscribers, and log the errors if at
 debug level logging
 
-Closes https://github.com/influxdata/influxdb/issues/21557"
+Closes https://github.com/influxdata/influxdb/issues/21557",1622063676
 29b8887a601817588046de1ad7daf54af6de62a4,False,1,1,14,14,14.0,2,13,11,0.0,0.0,1.0,6889,999,244,1,"fix: Anti-Entropy loops endlessly with empty shard (#21310)
 
 The anti-entropy service will loop trying to copy an empty shard to a
@@ -1966,13 +1966,13 @@ of that directory, instead of to the Unix epoch.
 Fixes: https://github.com/influxdata/influxdb/issues/21273
 (cherry picked from commit 7f300dc248d767ee1a96642480dfa1daa28f18ba)
 
-fixes https://github.com/influxdata/influxdb/issues/21287"
+fixes https://github.com/influxdata/influxdb/issues/21287",1619626804
 b685daef2d40bbb0be620d7e04f35f7491aa17e6,False,1,1,9,9,9.0,0,21,21,0.6666666666666666,0.6666666666666666,0.6666666666666666,11989,1740,534,1,"fix(models): grow tag index buffer if needed [Backport to 1.9] (#21308)
 
 (cherry picked from commit cae14176aa4d2f953f1330bc48051641b8c7fc78)
 
 Co-authored-by: Tristan Su <foobar@users.noreply.github.com>
-(cherry picked from commit f646cbc5406bd4d28d54c522f7c19963a719755e)"
+(cherry picked from commit f646cbc5406bd4d28d54c522f7c19963a719755e)",1619548387
 f646cbc5406bd4d28d54c522f7c19963a719755e,False,1,1,9,9,9.0,0,21,21,0.6666666666666666,0.6666666666666666,0.6666666666666666,11989,1740,534,1,"fix(models): grow tag index buffer if needed (#20137) (#21303) (#21306)
 
 * fix(models): grow tag index buffer if needed (#20137)
@@ -1981,7 +1981,7 @@ f646cbc5406bd4d28d54c522f7c19963a719755e,False,1,1,9,9,9.0,0,21,21,0.66666666666
 
 Co-authored-by: Tristan Su <foobar@users.noreply.github.com>
 
-fixes #21303"
+fixes #21303",1619545491
 e234aa7ff092d0c7cfa22259941fbe6368500f74,False,1,1,14,14,14.0,2,14,12,0.0,0.0,1.0,6900,998,244,1,"fix: Anti-Entropy loops endlessly with empty shard (#21275) (#21290)
 
 The anti-entropy service will loop trying to copy an empty shard to a
@@ -1991,7 +1991,7 @@ LastModified date of an empty shard directory to the modification time
 of that directory, instead of to the Unix epoch.
 
 Fixes: https://github.com/influxdata/influxdb/issues/21273
-(cherry picked from commit 7f300dc248d767ee1a96642480dfa1daa28f18ba)"
+(cherry picked from commit 7f300dc248d767ee1a96642480dfa1daa28f18ba)",1619457229
 7f300dc248d767ee1a96642480dfa1daa28f18ba,False,1,1,14,14,14.0,2,12,10,0.0,0.0,1.0,6889,999,244,1,"fix: Anti-Entropy loops endlessly with empty shard (#21275)
 
 The anti-entropy service will loop trying to copy an empty shard to a
@@ -2000,7 +2000,7 @@ correctly create an empty shard on a new node. This fix will set the
 LastModified date of an empty shard directory to the modification time
 of that directory, instead of to the Unix epoch.
 
-Fixes: https://github.com/influxdata/influxdb/issues/21273"
+Fixes: https://github.com/influxdata/influxdb/issues/21273",1619193963
 b2cb8624849b5701c89e0bf5156158b6b7320a4e,False,1,3,38,20,12.666666666666666,13,30,17,0.0,0.6666666666666666,1.0,11655,1711,167,3,"fix(error): SELECT INTO doesn't return error with unsupported value (#20429) (#20432)
 
 * fix(error): SELECT INTO doesn't return error with unsupported value (#20429)
@@ -2016,7 +2016,7 @@ Fixes https://github.com/influxdata/influxdb/issues/20426
 
 (cherry picked from commit 9e33be2619cd0d7ad5a4323455bf5c3308908f23)
 
-Fixes https://github.com/influxdata/influxdb/issues/20427"
+Fixes https://github.com/influxdata/influxdb/issues/20427",1609384738
 9e33be2619cd0d7ad5a4323455bf5c3308908f23,False,1,3,38,20,12.666666666666666,13,29,16,0.0,0.6666666666666666,1.0,11655,1711,167,3,"fix(error): SELECT INTO doesn't return error with unsupported value (#20429)
 
 When a SELECT INTO query generates an illegal value that cannot be inserted,
@@ -2026,7 +2026,7 @@ This adds a boolean parameter to the [data] section of influxdb.conf:
 When false, the default, the old behavior is preserved.  When true,
 unsupported values will return an error from SELECT INTO queries
 
-Fixes https://github.com/influxdata/influxdb/issues/20426"
+Fixes https://github.com/influxdata/influxdb/issues/20426",1609381363
 8ecf0d2a367eef6bb585b9c2939b0afe0a04a016,False,1,1,10,10,10.0,3,8,5,0.4,0.4,1.0,1314,220,42,2,"fix: cp.Mux.Serve() closes all net.Listener instances silently on error (#20295)
 
 * fix: cp.Mux.Serve() closes all net.Listener instances silently on error. (#20278)
@@ -2038,7 +2038,7 @@ as any errors in closing the Listeners.
 
 Fixes https://github.com/influxdata/influxdb/issues/20256
 
-(cherry picked from commit 5b98166b056d78662057ff723aab0cb87616f9f4)+"
+(cherry picked from commit 5b98166b056d78662057ff723aab0cb87616f9f4)+",1607541689
 5b98166b056d78662057ff723aab0cb87616f9f4,False,1,1,10,10,10.0,3,7,4,0.4,0.4,1.0,1314,220,42,2,"fix: cp.Mux.Serve() closes all net.Listener instances silently on error. (#20278)
 
 A customer has seen a rash of ""connection refused"" errors to the meta node.
@@ -2046,7 +2046,7 @@ This fix ensures that when net.Listener instances are closed because of an
 error in Accept(), influxdb logs the error which caused the closures, as well
 as any errors in closing the Listeners.
 
-Fixes https://github.com/influxdata/influxdb/issues/20256"
+Fixes https://github.com/influxdata/influxdb/issues/20256",1607473079
 5a84f77c34f050ea3781d25896119e10f4fc4193,False,1,1,3,3,3.0,1,58,57,0.0,1.0,1.0,6661,1031,37,0,"fix(query): Group By queries with offset that crosses a DST boundary can fail (#20277)
 
 Customer reported that a GROUP BY query with an offset that caused an interval
@@ -2061,7 +2061,7 @@ Fixes https://github.com/influxdata/influxdb/issues/20238
 
 (cherry picked from commit df39b1e71c333d6ec9ef44cca9fa0fadf22767b7)
 
-Fixes https://github.com/influxdata/influxdb/issues/20252"
+Fixes https://github.com/influxdata/influxdb/issues/20252",1607387695
 df39b1e71c333d6ec9ef44cca9fa0fadf22767b7,False,1,1,3,3,3.0,1,57,56,0.0,1.0,1.0,6661,1031,37,0,"fix(query): Group By queries with offset that crosses a DST boundary can fail (#20230)
 
 * fix(query): Group By queries with offset that crosses a DST boundary can fail
@@ -2074,9 +2074,9 @@ correctly set before calculating the time zone offset for that date and time.
 Add TestGroupByIterator_DST() in query/iterator_test.go
 for regression testing of this bug.
 
-Fixes https://github.com/influxdata/influxdb/issues/20238"
-b3b8f9e2004a8128a0d6adc4ed39ebf2764b109e,False,1,1,11,11,11.0,10,1,-9,0.0,0.0,0.0,760,129,32,2,fix: Changed per feedback
-0dde41f895a595bd71e0654e7e95dca340daf6bc,False,1,1,12,12,12.0,4,8,4,0.0,1.0,0.0,3972,580,106,5,fix(tasks): wire auth context down to scheduler runner (#15675)
+Fixes https://github.com/influxdata/influxdb/issues/20238",1607103643
+b3b8f9e2004a8128a0d6adc4ed39ebf2764b109e,False,1,1,11,11,11.0,10,1,-9,0.0,0.0,0.0,760,129,32,2,fix: Changed per feedback,1601412258
+0dde41f895a595bd71e0654e7e95dca340daf6bc,False,1,1,12,12,12.0,4,8,4,0.0,1.0,0.0,3972,580,106,5,fix(tasks): wire auth context down to scheduler runner (#15675),1572536832
 3804d50fbd9a6192d316f84dbb9949805026623d,False,1,1,24,24,24.0,8,139,131,0.0,0.0,1.0,704,97,20,1,"fix(storage): array cursor iterator should return stats of all observed cursors (#15731)
 
 * fix(storage): add failing test for array cursor iterator stats
@@ -2085,58 +2085,58 @@ b3b8f9e2004a8128a0d6adc4ed39ebf2764b109e,False,1,1,11,11,11.0,10,1,-9,0.0,0.0,0.
 
 * fix(storage): add failing test to assert arrayCursorIterator.Stats() returns accumulated result
 
-* fix(storage): assumulate stats in arrayCursorIterator.Stats() call across all observed cursors"
-e9bb3462252ee842f86a9512de8caa630610474d,False,1,1,15,15,15.0,1,42,41,0.20512820512820512,0.9230769230769231,1.0,2090,322,90,3,fix(fill): fill resets the previous value when a new series or window is encountered (#13459)
-c3d7f3de2b876b0b542df4e8be5775954acb531c,False,1,1,65,65,65.0,0,78,78,0.0,0.0,1.0,12422,1510,495,5,fix: Allow compactor to make progress if v.MaxTime() != entry.MaxTime
+* fix(storage): assumulate stats in arrayCursorIterator.Stats() call across all observed cursors",1572946866
+e9bb3462252ee842f86a9512de8caa630610474d,False,1,1,15,15,15.0,1,42,41,0.20512820512820512,0.9230769230769231,1.0,2090,322,90,3,fix(fill): fill resets the previous value when a new series or window is encountered (#13459),1555598516
+c3d7f3de2b876b0b542df4e8be5775954acb531c,False,1,1,65,65,65.0,0,78,78,0.0,0.0,1.0,12422,1510,495,5,fix: Allow compactor to make progress if v.MaxTime() != entry.MaxTime,1542211993
 25015b9564cf26613cf130fe93e8ac6b6a4bb716,False,1,1,65,65,65.0,0,78,78,0.0,0.0,1.0,12422,1510,495,5,"fix: Allow compactor to make progress if v.MaxTime() != entry.MaxTime
 
-(cherry picked from commit c3d7f3de2b876b0b542df4e8be5775954acb531c)"
+(cherry picked from commit c3d7f3de2b876b0b542df4e8be5775954acb531c)",1542214089
 3cf5d192306d18c9a2e7cd9f31d155c9539b2ceb,False,1,1,6,6,6.0,1,5,4,,,,13398,2037,158,0,"fix(tsdb): copy measurement names when expression is provided
 
 We already make copies when no expression is provided, because
 the backing slices may go away if the shard they came from is
 closed. This fixes the other spot where some backing slices
-would be returned."
+would be returned.",1540828633
 355d7818dc7076c7b1f6d01cc1be4e5190f18c73,False,1,1,6,6,6.0,1,5,4,,,,12650,1921,140,0,"fix(tsdb): copy measurement names when expression is provided
 
 We already make copies when no expression is provided, because
 the backing slices may go away if the shard they came from is
 closed. This fixes the other spot where some backing slices
-would be returned."
+would be returned.",1540828626
 5c2d36225d6a76aa5fdb6c51337d94cffd137a70,False,1,1,6,6,6.0,1,5,4,,,,13554,2059,158,0,"fix(tsdb): copy measurement names when expression is provided
 
 We already make copies when no expression is provided, because
 the backing slices may go away if the shard they came from is
 closed. This fixes the other spot where some backing slices
-would be returned."
+would be returned.",1540574725
 c944340c9b0616153f80eaed00be24fd26cbe3b3,False,1,1,12,12,12.0,6,6,0,,,,9904,1393,230,1,"fix(tsdb): Fix race calling filterShards outside a lock
 
 Move filterShards inside the lock, as it enumerates the shards map,
-which can result in data race when the map is written concurrently."
+which can result in data race when the map is written concurrently.",1539811639
 9520b8d956068200d9bad28cd20c96add40e5dc9,False,1,1,12,12,12.0,6,6,0,,,,9924,1408,232,1,"fix(tsdb): Fix race calling filterShards outside a lock
 
 Move filterShards inside the lock, as it enumerates the shards map,
-which can result in data race when the map is written concurrently."
-e4b3204328ca611a638d0219a8caddf00b4fdcf2,False,1,3,47,44,15.666666666666666,30,31,1,0.0,1.0,1.0,4638,700,150,4,fix(services/storage): Don't serialize empty group frames
+which can result in data race when the map is written concurrently.",1539810893
+e4b3204328ca611a638d0219a8caddf00b4fdcf2,False,1,3,47,44,15.666666666666666,30,31,1,0.0,1.0,1.0,4638,700,150,4,fix(services/storage): Don't serialize empty group frames,1527884914
 4b7a4868a9fc0297ec3ab1535ffbbd80875cba9a,False,1,3,77,49,25.666666666666668,33,44,11,0.36363636363636365,0.36363636363636365,0.7272727272727273,4842,747,172,5,"fix(services/storage): Add nil checks to prevent panics
 
-Fixes #9925"
+Fixes #9925",1527801739
 7f8b7af61e381fd92f36ea997660cb32088c9e29,False,1,7,84,30,12.0,39,102,63,0.0,0.5087719298245614,1.0,59061,8600,1306,6,"Cleanup index memory footprint counting code (#9828)
 
 * Fix IndexSet.DedupeInmemIndexes
 
-* Cleanup index memory footprint code"
+* Cleanup index memory footprint code",1526408719
 38e1ad6e0cad9e8706ab2bfd2c806651b98cd0bb,False,1,1,20,20,20.0,2,31,29,0.0,0.0,1.0,2817,470,100,2,"Bugfix for shard collisions resulting from attempted _internal import (#9576)
 
-backport of #9569"
+backport of #9569",1521132732
 665d5e65952e4576e1898c0b7506ef4f731e6bb4,False,1,1,10,10,10.0,2,8,6,0.0,0.0,1.0,2777,468,100,1,"Changed file download retry rate to have exponential wait times (#9706) (#9712)
 
-* Changed file download retry rate to have exponential wait times"
+* Changed file download retry rate to have exponential wait times",1523563979
 a00e4dc70be280cc1c08150e83cc8cae7aebd623,False,1,1,10,10,10.0,2,8,6,0.0,0.0,1.0,2777,468,100,1,"Changed file download retry rate to have exponential wait times (#9706)
 
 * Changed file download retry rate to have exponential wait times
 
-* Fixes from PR review"
+* Fixes from PR review",1523560862
 10a7ffb647d014d038fc3135f581f2bc1e15d4e1,False,1,4,76,27,19.0,30,66,36,0.0,0.8484848484848485,1.0,15587,2186,491,6,"Check for errors from binary.Uvarint when reading TSI logs (#9705)
 
 * Check for errors from binary.Uvarint when reading TSI logs
@@ -2145,24 +2145,24 @@ a00e4dc70be280cc1c08150e83cc8cae7aebd623,False,1,1,10,10,10.0,2,8,6,0.0,0.0,1.0,
 
 * wrap binary.Uvarint
 
-* make uvarint() more generally useful/used"
+* make uvarint() more generally useful/used",1523552396
 cc83e16864a725ec3a5265cd5ff7a1821bd19ca0,False,1,2,15,8,7.5,8,49,41,0.0967741935483871,0.0967741935483871,0.7741935483870968,15498,2180,466,3,"Fix stream package to allow for renaming the file before writing it to the stream (#9684) (#9689)
 
 * Fix stream package to allow for renaming the file before writing it to the stream
 
-* updated test to make sure that the final tsm file has more than one block"
+* updated test to make sure that the final tsm file has more than one block",1523457971
 72bceca888a8f55b5dca922f24a514e329cd5e8f,False,1,2,15,8,7.5,8,49,41,0.0967741935483871,0.0967741935483871,0.7741935483870968,15602,2191,473,3,"Fix stream package to allow for renaming the file before writing it to the stream (#9684)
 
 * Fix stream package to allow for renaming the file before writing it to the stream
 
-* updated test to make sure that the final tsm file has more than one block"
-ca9f2510b8d3846e4e5ec1deae4ab4fef36ed799,False,1,1,4,4,4.0,0,4,4,0.0,0.0,1.0,2837,472,101,1,check for failure case where backup dir has no manifest files (#9634)
+* updated test to make sure that the final tsm file has more than one block",1522959869
+ca9f2510b8d3846e4e5ec1deae4ab4fef36ed799,False,1,1,4,4,4.0,0,4,4,0.0,0.0,1.0,2837,472,101,1,check for failure case where backup dir has no manifest files (#9634),1522166729
 f8a9a089eb4edd6e406b74d777c647f2800f3d64,False,1,2,42,38,21.0,4,38,34,1.0,1.0,1.0,21345,3257,205,3,"Use combined IndexSet when executing meta queries
 
 * removed unused fieldset field
 
-(cherry picked from commit 6cf6ae7)"
+(cherry picked from commit 6cf6ae7)",1521146091
 abceaa422aa46574faeefc8cf7fb71e965395b66,False,1,1,127,127,127.0,34,93,59,0.5882352941176471,0.058823529411764705,0.9019607843137255,11306,1627,513,8,"Improve MakeKey, HashKey performance
 
-(cherry picked from commit ceefa7f)"
-b213b31cd48c610288a87b470429567c7a3f9c03,False,1,1,20,20,20.0,2,31,29,0.0,0.0,1.0,2817,470,100,2,Bugfix for shard collisions resulting from attempted _internal import (#9569)
+(cherry picked from commit ceefa7f)",1521126103
+b213b31cd48c610288a87b470429567c7a3f9c03,False,1,1,20,20,20.0,2,31,29,0.0,0.0,1.0,2817,470,100,2,Bugfix for shard collisions resulting from attempted _internal import (#9569),1521042717

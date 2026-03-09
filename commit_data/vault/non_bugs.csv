@@ -1,4 +1,4 @@
-sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message
+sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message,commit_timestamp
 a6c35b6d5e63ce77aaaeec86730427a3083e7dc4,False,1,1,37,37,37.0,37,16,-21,0.0,0.0,0.0,447,75,15,2,"Directly exec ExternalTokenHelper rather than using a SHELL  (#29653)
 
 * [OT] use `new` builtin for visual clarity
@@ -31,7 +31,7 @@ We got a PR ID, so fix the changelog file
 ---------
 
 Co-authored-by: Roosevelt Burden <rburden@grantstreet.com>
-Co-authored-by: Roosevelt Burden <roosevelt.burden@grantstreet.com>"
+Co-authored-by: Roosevelt Burden <roosevelt.burden@grantstreet.com>",1743791666
 89276a56b2267ca49041be0bd9c7be7c96d3b94d,False,1,1,7,7,7.0,8,90,82,0.09615384615384616,0.9230769230769231,0.9230769230769231,289,60,10,2,"VAULT-6803: fix listener issue if using `proxy_protocol_behavior` with `deny_unauthorized` for untrusted upstream connections (#27589)
 
 
@@ -41,15 +41,15 @@ Co-authored-by: Roosevelt Burden <roosevelt.burden@grantstreet.com>"
 
 * update go-proxyproto to use fork/tag
 
-* test that fails before library and code update, but passes afterwards"
+* test that fails before library and code update, but passes afterwards",1719388333
 59342940fdeba2220554adf62b1452f0552fc5b7,False,1,2,19,14,9.5,2,20,18,0.0,0.0,1.0,11665,1861,369,1,"lock public JWKS generation and re-check cache (#27929)
 
 ---------
 
-Co-authored-by: kpcraig <3031348+kpcraig@users.noreply.github.com>"
+Co-authored-by: kpcraig <3031348+kpcraig@users.noreply.github.com>",1725899798
 d8c241838ac05a5a4256e4e805c4a28fc0814ff9,False,1,1,58,58,58.0,25,33,8,0.0,0.0,1.0,1641,278,63,1,"Allow stubmaker to work outside of a git repository (#24678)
 
-Co-authored-by: Violet Hynes <violet.hynes@hashicorp.com>"
+Co-authored-by: Violet Hynes <violet.hynes@hashicorp.com>",1717089550
 3372a9b4db8ca8be4191677f6bfdc327ca70d293,False,1,3,15,10,5.0,5,18,13,1.0,1.0,0.0,2646,473,107,6,"secrets/database: Add usePrivateIP field for cloudsql postgresql instances  (#26828)
 
 * add usePrivateIP params to determine if to use private ip dial option
@@ -68,12 +68,12 @@ Co-authored-by: Robert <17119716+robmonte@users.noreply.github.com>
 
 Signed-off-by: aviv guiser <avivguiser@gmail.com>
 Signed-off-by: AvivGuiser <aviv.guiser@placer.ai>
-Co-authored-by: Robert <17119716+robmonte@users.noreply.github.com>"
+Co-authored-by: Robert <17119716+robmonte@users.noreply.github.com>",1719343033
 12e7c77ecc9d006bdff6b13a1b36cb5e07079a62,False,1,1,4,4,4.0,3,7,4,,,,2692,476,99,1,"TCP Listener: fix bug in parsing TCP listener settings for `proxy_protocol_behavior` (#27459)
 
 * update code and test to support the documented config setting 'deny_unauthorized' rather than 'deny_authorized' which was incorrect
 
-* changelog"
+* changelog",1718206219
 d64856c6c9255c0079db10659e6cc04232692285,False,1,1,27,27,27.0,6,57,51,0.38235294117647056,1.0,1.0,6602,1056,269,2,"fixes auto_join for mDNS provider (#25080)
 
 * fixes auto_join for mDNS provider
@@ -86,7 +86,7 @@ d64856c6c9255c0079db10659e6cc04232692285,False,1,1,27,27,27.0,6,57,51,0.38235294
 
 ---------
 
-Co-authored-by: Violet Hynes <violet.hynes@hashicorp.com>"
+Co-authored-by: Violet Hynes <violet.hynes@hashicorp.com>",1718025723
 2a1775f45f63ae485043375f71dc4d705ad256b5,False,1,2,10,6,5.0,2,11,9,0.0,0.0,1.0,21291,3419,74,1,"fix an edge case bug that ""identity_policies"" is nil (#17007)
 
 * check if ""identity_policies"" is nil to fix cli vault login error
@@ -101,7 +101,7 @@ This is an edge case, when an entity has identity_policies associated in other n
 
 ---------
 
-Co-authored-by: Violet Hynes <violet.hynes@hashicorp.com>"
+Co-authored-by: Violet Hynes <violet.hynes@hashicorp.com>",1716924899
 2054ffcbfa519e72fe5b025fcd3f22bb05a23c50,False,1,3,55,31,18.333333333333332,59,270,211,0.3851851851851852,0.9481481481481482,0.8074074074074075,10546,1707,378,7,"VAULT-14048: raft-autopilot appears to refuse to remove a node which has left and wouldn't impact stability (#19472)
 
 * ensure we supply the node type when it's for a voter
@@ -111,7 +111,7 @@ Co-authored-by: Violet Hynes <violet.hynes@hashicorp.com>"
 * Updated tests for autopilot (related to dead server cleanup)
 * Export Raft NewDelegate
 
-Co-authored-by: Nick Cabatoff <ncabatoff@hashicorp.com>"
+Co-authored-by: Nick Cabatoff <ncabatoff@hashicorp.com>",1680537537
 e9f9e7d7f044d0171f1886a20f7acad7f1ebf3a8,False,1,1,42,42,42.0,13,143,130,0.20952380952380953,0.20952380952380953,0.9809523809523809,12415,2024,189,3,"Do not generate HMAC keys for CMAC keys on calls to Upgrade (#27156)
 
 * Do not generate HMAC keys for CMAC keys on calls to Upgrade
@@ -126,12 +126,12 @@ e9f9e7d7f044d0171f1886a20f7acad7f1ebf3a8,False,1,1,42,42,42.0,13,143,130,0.20952
    value, string it defined and the proper operation of HMACSupported
    and CMACSupported functions
 
-* Add warning to test variable"
+* Add warning to test variable",1716307921
 57cb563be571599798325ad525075c0d63eef7c1,False,1,1,7,7,7.0,2,8,6,0.0,0.0,0.0,1358,245,54,1,"Fix exponential backoff for api.LifetimeWatcher (#26383)
 
 * Fix exponential backoff for api.LifetimeWatcher
 
-* Add changelog entry"
+* Add changelog entry",1712941198
 2fe676e75b39d0e39b0fa23a458345370bca41b7,False,1,2,168,164,84.0,65,379,314,0.20306513409961685,0.9233716475095786,0.9233716475095786,8922,1370,348,9,"Validate OCSP response is signed by expected issuer  (#26091)
 
 * Validate OCSP response is signed by expected issuer and serial number matches request
@@ -147,8 +147,8 @@ e9f9e7d7f044d0171f1886a20f7acad7f1ebf3a8,False,1,1,42,42,42.0,13,143,130,0.20952
  - Add a missing validation that the response was for the serial number
     we requested
 
-* Add cl"
-6fca34eace86a4850a7f4e0f7860fc001ba58dea,False,1,4,63,30,15.75,6,481,475,0.2282051282051282,0.8897435897435897,1.0,12563,2016,443,8,Proceed with cert auth login attempts if ocsp_fail_open is true and servers are unreachable (#25982)
+* Add cl",1711114082
+6fca34eace86a4850a7f4e0f7860fc001ba58dea,False,1,4,63,30,15.75,6,481,475,0.2282051282051282,0.8897435897435897,1.0,12563,2016,443,8,Proceed with cert auth login attempts if ocsp_fail_open is true and servers are unreachable (#25982),1710859177
 94d42235cf28f8194aa0a5ccafd4c67afd344c64,False,1,1,17,17,17.0,4,19,15,1.0,1.0,0.9090909090909091,4349,702,149,2,"Address OCSP client caching issue (#25986)
 
 * Address OCSP client caching issue
@@ -168,14 +168,14 @@ e9f9e7d7f044d0171f1886a20f7acad7f1ebf3a8,False,1,1,42,42,42.0,13,143,130,0.20952
 
  - Remove the previous lookup before revocation as now the OCSP
    cache works so we don't see the new revocation as we are actually
-   leveraging the cache"
+   leveraging the cache",1710789074
 0ccfbc039054d53fcc2ce911ab41dc2b3727dba1,False,1,9,193,53,21.444444444444443,78,263,185,0.0,0.6375838926174496,0.8187919463087249,17298,2792,540,13,"Audit panic fix: PR based on #25605 (#25631)
 
 * PR based on #25605
 
 * changelog
 
-* fix corehelpers"
+* fix corehelpers",1708974001
 67c16342d86aec77d7662e67d2950eae077ca9e7,False,1,8,130,42,16.25,59,250,191,0.040268456375838924,0.738255033557047,0.5570469798657718,17522,2726,548,19,"VAULT-24013: Audit regression attempting to recover from panic (#25605)
 
 * Add Logger to BackendConfig
@@ -196,12 +196,12 @@ e9f9e7d7f044d0171f1886a20f7acad7f1ebf3a8,False,1,1,42,42,42.0,13,143,130,0.20952
 
 * changelog
 
-* Remove old comment during test writing"
+* Remove old comment during test writing",1708943610
 83986f342b1c817b06c239e66d403a07fbca5e1c,False,1,2,45,38,22.5,32,16,-16,0.5652173913043478,0.5652173913043478,0.0,5834,862,181,4,"Audit: Extracted SSCT related auditing code to formatter node (#25443)
 
 * Removed unneeded header tracking in log request/log response of audit broker, moved SSCT overwrite to entry formatter
 
-* added changelog"
+* added changelog",1708027378
 7463055f077554f4c0802449c59bebed84310fcf,False,1,6,45,16,7.5,37,11,-26,1.0,1.0,1.0,11723,2084,361,8,"Transit: Release locks using defer statements (#25336)
 
 * Transit: Release locks using defer statements
@@ -210,12 +210,12 @@ e9f9e7d7f044d0171f1886a20f7acad7f1ebf3a8,False,1,1,42,42,42.0,13,143,130,0.20952
    to avoid issues with forgetting to manually Unlock during
    each return statement
 
-* Add cl"
+* Add cl",1707505583
 58ef5fe47b140ba170c8aec69b33c6e58ab38412,False,1,1,1,1,1.0,0,4,4,0.0,0.0,0.0,1682,251,56,1,"Audit: ensure 'prefix' is supplied to socket audit backends (#25004)
 
 * ensure 'prefix' is supplied to socket audit backends
 
-* changelog"
+* changelog",1706034404
 cfa37138b97147c6b563cd9f5de275562b62cd10,False,1,4,34,22,8.5,16,88,72,0.0,0.7636363636363637,1.0,4654,751,149,3,"VAULT-23122: Audit fix for 'log_raw' issue (#24968)
 
 * Fix for log_raw issue on audit
@@ -224,7 +224,7 @@ cfa37138b97147c6b563cd9f5de275562b62cd10,False,1,4,34,22,8.5,16,88,72,0.0,0.7636
 
 * changelog
 
-* Update test now that the original event won't have the formatted data"
+* Update test now that the original event won't have the formatted data",1705924988
 06b9325bb9e6616789c4fe5e7778459ba98a14ab,False,1,5,145,49,29.0,128,239,111,0.4520547945205479,0.863013698630137,1.0,29621,4863,987,13,"fix `-log-file` so that it uses the correct name and only adds timestamps on rotation (#24297)
 
 * fix -log-file so that it uses the correct name and only adds timestamps on rotation
@@ -266,53 +266,53 @@ Co-authored-by: Sarah Chavis <62406755+schavis@users.noreply.github.com>
 ---------
 
 Co-authored-by: Violet Hynes <violet.hynes@hashicorp.com>
-Co-authored-by: Sarah Chavis <62406755+schavis@users.noreply.github.com>"
+Co-authored-by: Sarah Chavis <62406755+schavis@users.noreply.github.com>",1701430234
 c329ed8d3b02b92dfded30065317c82648d3cae3,False,1,3,43,23,14.333333333333334,12,35,23,1.0,1.0,1.0,44232,7140,1360,3,"api/leader: fix deadlock when namespace is set on leader calls (#24256)
 
 * api/leader: fix deadlock when namespace is set on leader calls
 
-* Add cl"
+* Add cl",1701118241
 39762174206ee353e8cb2d1eab2c544723b91c2d,False,1,1,19,19,19.0,1,21,20,0.0,0.0,0.0,1734,252,54,1,"Audit: logging a response uses a separate 5 second timeout (#24238)
 
 * added a 5s timeout to attempts to process nodes in the audit pipeline for logging a response
 
 * added changelog
 
-* ensure we supply namespace to the new context"
+* ensure we supply namespace to the new context",1700682887
 8753d08451ac289505dfa3c82d6b339c073a6c29,False,1,1,11,11,11.0,1,102,101,0.23376623376623376,0.922077922077922,0.961038961038961,4305,689,145,2,"backport of commit bcbd45b380d2cf776cb3cd920f03291301cee998 (#24199)
 
-Co-authored-by: Steven Clark <steven.clark@hashicorp.com>"
+Co-authored-by: Steven Clark <steven.clark@hashicorp.com>",1700501082
 d1a1dd46b8cfdd69e6e4738a2cc898a615a90b0f,False,1,1,11,11,11.0,1,102,101,0.23376623376623376,0.922077922077922,0.961038961038961,4305,689,145,2,"backport of commit bcbd45b380d2cf776cb3cd920f03291301cee998 (#24198)
 
-Co-authored-by: Steven Clark <steven.clark@hashicorp.com>"
+Co-authored-by: Steven Clark <steven.clark@hashicorp.com>",1700496928
 d20526b09b6b84ad1122c187f84a819ce8b04a90,False,1,1,11,11,11.0,1,102,101,0.23376623376623376,0.922077922077922,0.961038961038961,4305,689,145,2,"backport of commit bcbd45b380d2cf776cb3cd920f03291301cee998 (#24197)
 
-Co-authored-by: Steven Clark <steven.clark@hashicorp.com>"
+Co-authored-by: Steven Clark <steven.clark@hashicorp.com>",1700496552
 c029f6fb102f856ae64e8df3ab84cc2c1bd2d663,False,1,1,5,5,5.0,17,57,40,0.17391304347826086,0.9130434782608695,0.17391304347826086,2168,368,73,1,"PKI: Do not set NextUpdate OCSP field when ocsp_expiry is 0 (#24192) (#24194)
 
 * Do not set NextUpdate OCSP field when ocsp_expiry is 0
 
 * Add cl
 
-Co-authored-by: Steven Clark <steven.clark@hashicorp.com>"
+Co-authored-by: Steven Clark <steven.clark@hashicorp.com>",1700496193
 09300240cb46d1f22f8202cdb9d3b53c8006bdc0,False,1,1,5,5,5.0,17,56,39,0.17391304347826086,0.9130434782608695,0.17391304347826086,2289,395,73,1,"backport of commit 53040690a2bb89a71b723cd888411182295abcd6 (#24195)
 
-Co-authored-by: Steven Clark <steven.clark@hashicorp.com>"
+Co-authored-by: Steven Clark <steven.clark@hashicorp.com>",1700495930
 a28a42bcaf729311a4cf5380617312d4a2aad81f,False,1,1,5,5,5.0,17,56,39,0.17391304347826086,0.9130434782608695,0.17391304347826086,2289,395,73,1,"backport of commit 53040690a2bb89a71b723cd888411182295abcd6 (#24196)
 
-Co-authored-by: Steven Clark <steven.clark@hashicorp.com>"
+Co-authored-by: Steven Clark <steven.clark@hashicorp.com>",1700495342
 bcbd45b380d2cf776cb3cd920f03291301cee998,False,1,1,11,11,11.0,1,102,101,0.23376623376623376,0.922077922077922,0.961038961038961,4305,689,145,2,"Handle expired OCSP responses from server (#24193)
 
 * Handle expired OCSP responses from server
 
  - If a server replied with what we considered an expired OCSP response (nextUpdate is now or in the past), and it was our only response we would panic due to missing error handling logic.
 
-* Add cl"
+* Add cl",1700495463
 53040690a2bb89a71b723cd888411182295abcd6,False,1,1,5,5,5.0,17,56,39,0.17391304347826086,0.9130434782608695,0.17391304347826086,2289,395,73,1,"PKI: Do not set NextUpdate OCSP field when ocsp_expiry is 0 (#24192)
 
 * Do not set NextUpdate OCSP field when ocsp_expiry is 0
 
-* Add cl"
+* Add cl",1700494325
 402f3ef8e1ad05c99303186c9a3555638ec237d0,False,1,2,53,28,26.5,31,135,104,0.10344827586206896,0.4482758620689655,1.0,3906,699,131,2,"Address a panic when exporting RSA public keys in transit (#24054) (#24116)
 
 * Address a panic export RSA public keys in transit
@@ -324,10 +324,10 @@ bcbd45b380d2cf776cb3cd920f03291301cee998,False,1,1,11,11,11.0,1,102,101,0.233766
 
 * Add cl
 
-Co-authored-by: Steven Clark <steven.clark@hashicorp.com>"
+Co-authored-by: Steven Clark <steven.clark@hashicorp.com>",1699974887
 9a2857a66a0c3ca3f75a5a23d931befe99dd83ba,False,1,2,52,28,26.0,29,135,106,0.10227272727272728,0.45454545454545453,1.0,4106,735,140,2,"backport of commit 92682f33ce4cd29324c43ef2197e725504bc850c (#24117)
 
-Co-authored-by: Steven Clark <steven.clark@hashicorp.com>"
+Co-authored-by: Steven Clark <steven.clark@hashicorp.com>",1699973856
 92682f33ce4cd29324c43ef2197e725504bc850c,False,1,2,52,28,26.0,29,135,106,0.10227272727272728,0.45454545454545453,1.0,4106,735,140,2,"Address a panic when exporting RSA public keys in transit (#24054)
 
 * Address a panic export RSA public keys in transit
@@ -337,16 +337,16 @@ Co-authored-by: Steven Clark <steven.clark@hashicorp.com>"
    deference.
  - Add additional tests around Transit key exporting
 
-* Add cl"
+* Add cl",1699972837
 0f5f648c1c9505e975ea2d479aa5e9f27bb1d935,False,1,1,8,8,8.0,6,6,0,,,,17648,2776,645,3,"fix `log_requests_level` misconfiguration (#24056)
 
-* use the correct raw value for setting log requests level"
-b19562db9a8c1b65ea660ed0d51aaf9498a9887d,False,1,2,12,10,6.0,4,12,8,0.0,0.0,0.0,16176,2551,400,2,[VAULT-21461] Do not error when token policy type lookup fails (#24023)
+* use the correct raw value for setting log requests level",1699435345
+b19562db9a8c1b65ea660ed0d51aaf9498a9887d,False,1,2,12,10,6.0,4,12,8,0.0,0.0,0.0,16176,2551,400,2,[VAULT-21461] Do not error when token policy type lookup fails (#24023),1699277398
 8fa560568af397b245106f548151800f41028ed3,False,1,1,64,64,64.0,19,48,29,0.0,0.0,0.0,2627,411,80,2,"Revert changes to STS leases but keep the ttl field (#20034)
 
 * revert STS lease changes, now create a lease for STS credentials but keep the ttl
-Co-authored-by: Calvin Leung Huang <1883212+calvn@users.noreply.github.com>"
-9739270d7b780e02b68d1f0c0fbb1bce31278e50,False,1,1,2,2,2.0,1,1,0,,,,32103,5180,945,2,ensure we are handling the error returned from attempting to set the rotation config (#23751)
+Co-authored-by: Calvin Leung Huang <1883212+calvn@users.noreply.github.com>",1681416159
+9739270d7b780e02b68d1f0c0fbb1bce31278e50,False,1,1,2,2,2.0,1,1,0,,,,32103,5180,945,2,ensure we are handling the error returned from attempting to set the rotation config (#23751),1697804911
 d0501db90f2b36eb535b2526ed04a364f9f06340,False,1,3,28,19,9.333333333333334,1,30,29,0.0,0.0,0.0,3278,618,109,3,"Forbid setting auto_rotate_period on transit managed keys (#23723)
 
 * Forbid setting auto_rotate_period on transit managed keys
@@ -355,12 +355,12 @@ d0501db90f2b36eb535b2526ed04a364f9f06340,False,1,3,28,19,9.333333333333334,1,30,
    generate an invalid key version without the uuid field set.
  - Hook in the datakey generation api into managed key encryption.
 
-* Add cl"
+* Add cl",1697743741
 88fb88e3db45cbc45b963cd17a3fdec6eea910b5,False,1,1,44,44,44.0,16,31,15,0.0,0.0,1.0,2151,345,77,1,"Audit: eventlogger sink node reopen on SIGHUP (#23598)
 
 * ensure nodes are asked to reload audit files on SIGHUP
 
-* added changelog"
+* added changelog",1697039209
 dbfaa6f81a156ec1dcb85d8d76941d4ac70c91fb,False,1,3,62,47,20.666666666666668,14,51,37,0.0,0.0,0.2,8487,1228,272,9,"Stop processing ACME verifications when active node is stepped down (#23278)
 
 - Do not load existing ACME challenges persisted within storage on non-active nodes. This was the main culprit of the issues, secondary nodes would load existing persisted challenges trying to resolve them but writes would fail leading to the excessive logging.
@@ -370,16 +370,16 @@ dbfaa6f81a156ec1dcb85d8d76941d4ac70c91fb,False,1,3,62,47,20.666666666666668,14,5
 
 - Add a maximum number of retries for errors around attempting to decode,fetch challenge/authorization entries from disk. We use double the number of ""normal"" max attempts for these types of errors, than we would for normal ACME retry attempts to avoid collision issues. Note that these additional retry attempts are not persisted to disk and will restart on every node start
 
-- Add a 1 second backoff to any disk related error to not immediately spin on disk/io errors for challenges."
-a074bf9cbfffb10807fcc8559a6630047bf4a111,False,1,1,16,16,16.0,16,29,13,0.6,0.8,1.0,1326,230,43,4,Support mlock and custom tmpdir for containerized plugins (#23215)
+- Add a 1 second backoff to any disk related error to not immediately spin on disk/io errors for challenges.",1695751153
+a074bf9cbfffb10807fcc8559a6630047bf4a111,False,1,1,16,16,16.0,16,29,13,0.6,0.8,1.0,1326,230,43,4,Support mlock and custom tmpdir for containerized plugins (#23215),1695381242
 873243df026504b23caf0f572ce630ca80cca650,False,1,3,38,32,12.666666666666666,31,41,10,0.0,0.5,1.0,55713,9711,991,3,"Allow GET for plugin runtime listing (#23171)
 
 Also corrects the error code for reading a non-existent plugin runtime
-from 500 -> 404"
+from 500 -> 404",1695207555
 8e7c6e80d5e5e9f7f87a2635f9e812d128e6bc56,False,1,1,48,48,48.0,24,55,31,0.0,0.7894736842105263,0.3684210526315789,1801,287,61,6,"events: Ensure pipelines are cleaned up on closing subscription (#23042)
 
 * events: Ensure pipelines are cleaned up on closing subscription
-* Re-register formatter node on each subscribe"
+* Re-register formatter node on each subscribe",1694640204
 e2ff1f1c7117574888db91b4b6027be24533d718,False,1,2,96,84,48.0,1,189,188,0.022556390977443608,0.022556390977443608,0.9473684210526315,13156,2200,523,3,"Clean up unused CRL entries when issuer is removed (#23007)
 
 * Clean up unused CRL entries when issuer is removed
@@ -418,10 +418,10 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 ---------
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
-Co-authored-by: Steven Clark <steven.clark@hashicorp.com>"
+Co-authored-by: Steven Clark <steven.clark@hashicorp.com>",1694552207
 f884c3c4cd02fac3750ac133cc38a7b0f2be0457,False,1,3,40,26,13.333333333333334,11,35,24,0.23076923076923078,0.38461538461538464,0.23076923076923078,8697,1302,260,3,"Avoid Vault hang when no communication established with plugin (#22914)
 
-Also fixes a function where we may call go-plugin's client.Client() without ever calling client.Kill(), which could leak plugin processes"
+Also fixes a function where we may call go-plugin's client.Client() without ever calling client.Kill(), which could leak plugin processes",1694193662
 f150a5259335117632d094bdf33ead0209172654,False,1,1,9,9,9.0,1,11,10,,,,12071,1970,179,0,"Fix transit panic with invalid PEM (#22753)
 
 * Fix transit panic with invalid PEM
@@ -455,21 +455,21 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 ---------
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1693924340
 a7c2b15f4e49b499a5033deb6befe09d8a8b7147,False,1,1,17,17,17.0,5,12,7,0.0,0.0,1.0,1101,183,31,3,"Improve transit import command error handling (#22755)
 
 - Doubtful this will ever happen in real life
  - We would nil panic if the public_key field was not present in the
    wrapping key response
- - Also trap a casting error if the public key was not an RSA public key"
-d2d3d8a27dd912585cdbd37007b14351147ebae5,False,1,1,7,7,7.0,1,58,57,0.4146341463414634,1.0,0.926829268292683,516,121,34,2,Fix potential panic in audit during header formatting (#22694)
+ - Also trap a casting error if the public key was not an RSA public key",1693922677
+d2d3d8a27dd912585cdbd37007b14351147ebae5,False,1,1,7,7,7.0,1,58,57,0.4146341463414634,1.0,0.926829268292683,516,121,34,2,Fix potential panic in audit during header formatting (#22694),1693503875
 479519e6df4ccd79b2fa2745cb324738ad613461,False,1,1,18,18,18.0,6,12,6,0.0,1.0,1.0,1347,234,12,2,"Fix erroneous OpenAPI operation IDs (#22579)
 
 The recent additions to the transit secret engine have created two new
 endpoints which both have the incorrect (and duplicate) operation ID of
 just `""update""`.
 
-Amend to unique meaningful values."
+Amend to unique meaningful values.",1693228276
 35a5fbfc6002e0440c708e722dc8aabbcb7a81b2,False,1,2,37,28,18.5,20,44,24,0.0,0.0,0.5,26163,3873,667,2,"Fix misattribution of activity log entries to incorrect auth methods (#18809)
 
 * Fix misattribution of activity log entries to incorrect auth methods
@@ -493,7 +493,7 @@ make requests that reach into child namespaces.
 
 ---------
 
-Co-authored-by: Violet Hynes <violet.hynes@hashicorp.com>"
+Co-authored-by: Violet Hynes <violet.hynes@hashicorp.com>",1692622779
 a2a483175403369e847e491e1e0e71dc667141ae,False,1,2,19,14,9.5,21,120,99,0.0,1.0,0.24050632911392406,13384,2196,191,2,"Minor improvements to transit & csrs (#22494)
 
 * Remove note
@@ -514,12 +514,12 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 ---------
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1692715897
 64f92b40fc5858e1dee68a1be6eddfda859f5698,False,1,1,2,2,2.0,1,22,21,0.0,1.0,1.0,8972,1347,312,1,"bug(20562): allowed_domains are compared case-sensitive if they use g… (#22126)
 
 * bug(20562): allowed_domains are compared case-sensitive if they use glob patterns
 
-* bug(20562): review fixes"
+* bug(20562): review fixes",1690988950
 4ec5e22adebe64944c35a6b6460bfee5efae5d51,False,1,4,62,23,15.5,33,546,513,0.08743169398907104,0.5163934426229508,0.7158469945355191,21347,3404,639,12,"Fix ACME tidy to not reference acmeContext (#21870)
 
 * Fix ACME tidy to not reference acmeCtx
@@ -581,7 +581,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 Co-authored-by: kitography <khaines@mit.edu>
-Co-authored-by: Steve Clark <steven.clark@hashicorp.com>"
+Co-authored-by: Steve Clark <steven.clark@hashicorp.com>",1689620068
 15aee2e0babebaeb7ef3c49fc6221a2bc08cd8fa,False,1,1,49,49,49.0,16,164,148,0.0,0.9027777777777778,0.9027777777777778,951,166,38,1,"Fix re-migration of existing CA bundles (#21316)
 
 * Fix re-migration of existing version 1 storage bundles
@@ -619,7 +619,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 ---------
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
-Co-authored-by: Sarah Chavis <62406755+schavis@users.noreply.github.com>"
+Co-authored-by: Sarah Chavis <62406755+schavis@users.noreply.github.com>",1687379691
 8cc7be234ac34ff0f703ab092a7314ba9e65b277,False,1,3,54,39,18.0,23,442,419,0.1736111111111111,0.9027777777777778,0.9444444444444444,4391,636,130,5,"Adds automated ACME tests using Caddy. (#21277)
 
 * Adds automated ACME tests using Caddy.
@@ -669,7 +669,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 Co-authored-by: Steve Clark <steven.clark@hashicorp.com>
-Co-authored-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Co-authored-by: Alexander Scheel <alex.scheel@hashicorp.com>",1686861849
 052719b9a824da4ee368c3d982070ab290846970,False,1,1,21,21,21.0,10,60,50,0.0,0.16666666666666666,0.16666666666666666,8290,1299,309,1,"Allow issuance of root certs no AIA when templating is enabled (#21209)
 
 * Ignore templated AIA on root generation
@@ -690,7 +690,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 ---------
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1686764117
 b346b52b62db8ddf2eeaace506f211ea02166b93,False,1,2,45,27,22.5,13,182,169,0.12389380530973451,0.8938053097345132,0.7610619469026548,4747,795,124,3,"Correctly validate ACME PoP against public key (#21190)
 
 * Correctly validate ACME PoP against public key
@@ -711,7 +711,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 ---------
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
-Co-authored-by: Steve Clark <steven.clark@hashicorp.com>"
+Co-authored-by: Steve Clark <steven.clark@hashicorp.com>",1686758476
 08c1efa4d4fa516c40a8b5ede0e8e19f298d7755,False,1,2,40,34,20.0,3,39,36,0.0,0.0,0.043478260869565216,8100,1159,270,3,"Gracefully handle CSRs without CNs (#20982)
 
 * Allow not specifying CN on CSR
@@ -728,7 +728,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 ---------
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1686140119
 4b60ffd5ef87e5f6535dcf578ed6c36b24b75174,False,1,1,53,53,53.0,17,72,55,0.15789473684210525,0.8421052631578947,0.9210526315789473,10013,1729,246,4,"Fix enabling tidy_acme=true in auto-tidy config (#20889)
 
 This should help to prevent the issue of missing tidy configurations
@@ -740,7 +740,7 @@ can be specified independently. Thus, the test allows (for any added
 and properly tracked tidy operations) verifying that we have enabled
 proper storage/retention of that attribute.
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1685538972
 daf72aa42790144c3a0ca9c17bb19b1c5bce66c6,False,1,2,18,12,9.0,3,34,31,0.0,0.3157894736842105,0.15789473684210525,12669,2105,240,2,"Fix transit import/export of hmac-only keys (#20864)
 
 * Fix export of HMAC typed keys
@@ -772,7 +772,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 ---------
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1685556248
 0ac2fa19aa6d798c6ae71528a75ec22c6d56f024,False,1,1,20,20,20.0,9,14,5,,,,1276,219,56,1,"Fix race in PKI's runUnifiedTransfer (#20701)
 
 * Fix race in PKI's runUnifiedTransfer
@@ -794,7 +794,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 ---------
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1684780279
 b1f0d4e495cb1007b4ee3f7fdf86071171543c0d,False,1,5,705,443,141.0,66,981,915,0.44696969696969696,0.7670454545454546,0.9356060606060606,10080,1555,305,35,"Add nonce service to sdk/helpers, use in PKI (#20688)
 
 * Build a better nonce service
@@ -851,7 +851,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 ---------
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1684871045
 7144523b8349c2ec792862d3bf976c081cd68c69,False,1,2,39,22,19.5,20,22,2,,,,11982,2240,254,3,"Fix tidy with maintain_stored_certificate_counts == publish_stored_certificate_count_metrics == false (#20664)
 
 * Fix tidy with maintain_stored_certificate_counts == publish_stored_certificate_count_metrics == false
@@ -871,7 +871,7 @@ Co-authored-by: claire bontempo <68122737+hellobontempo@users.noreply.github.com
 ---------
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
-Co-authored-by: claire bontempo <68122737+hellobontempo@users.noreply.github.com>"
+Co-authored-by: claire bontempo <68122737+hellobontempo@users.noreply.github.com>",1684498188
 a5bca6a12235713ca00c4284be21202356d5c224,False,1,5,131,70,26.2,40,97,57,0.7727272727272727,0.9090909090909091,1.0,14408,2221,450,21,"Add dns resolver to PKI Binary Cluster (#20485)
 
 * Export DockerAPI for use by other consumers
@@ -918,7 +918,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 ---------
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1683135159
 5aea0e7b4816d944752c604024d32541e9a4ec92,False,1,1,6,6,6.0,0,126,126,0.0,0.8333333333333334,0.16666666666666666,6117,1084,216,2,"Fix reading issuer's enable_aia_url_templating value (#20354)
 
 * Add enable_aia_url_templating to read issuer
@@ -942,7 +942,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 ---------
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1682455685
 464b9de169e157495d18865a34c1bc2627194675,False,1,1,2,2,2.0,3,9,6,0.0,1.0,1.0,6088,1078,216,1,"Fix issuer patch of leaf_not_after_behavior (#20341)
 
 * Fix patching issuer leaf_not_after_behavior
@@ -959,7 +959,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 ---------
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1682434933
 acfc862b4b0a7d9b3d8007c30eb89db43ec91175,False,1,1,2,2,2.0,3,6,3,,,,6465,1029,282,1,"Minor follow-ups to #16865 (#20220)
 
 * Minor follow-ups to #16865
@@ -969,7 +969,7 @@ actually turn off the issuer crl-signing usage when it intended to.
 
 Fix minor typo in docs.
 
-* changelog"
+* changelog",1681817945
 17a28278940774cc17f7496ae2aa2033f81b4502,False,1,1,64,64,64.0,1,234,233,0.0,0.806060606060606,0.806060606060606,4269,683,143,1,"Add fix for Go x/crypto/ocsp failure case (#20181)
 
 * Add fix for Go x/crypto/ocsp failure case
@@ -1009,7 +1009,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 ---------
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1681746499
 b2e1ff5b7a43f08bc1ae93b7409ff07393934cf7,False,1,1,5,5,5.0,0,29,29,0.7777777777777778,0.37037037037037035,0.48148148148148145,2603,446,71,1,"Add missing cert auth ocsp read data (#20154)
 
 * Add missing OCSP cert auth fields
@@ -1026,7 +1026,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 ---------
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1681412349
 65297e5246f7f9425e953aafe6c88f65875c612b,False,1,1,5,5,5.0,2,3,1,0.0,0.0,1.0,6465,1029,282,1,"Make config load consistent with config write (#20059)
 
 When reading the config, we attempt to detect if the running Vault
@@ -1035,7 +1035,7 @@ Similarly, we should detect if the mount is a local mount instead. While
 this isn't changeable at runtime, using sys/raw to side-load an invalid
 config could be possible.
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1681225543
 5f8e67d8cde628c3c5d3d33d74df0dbd93faf771,False,1,2,323,165,161.5,44,282,238,0.0,0.013793103448275862,0.8275862068965517,10185,1576,407,10,"Fix building unified delta WAL, unified delta CRLs (#20058)
 
 * Correctly find certificates for unified delta CRL
@@ -1123,7 +1123,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 ---------
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1681236178
 ee40ffc03f5a3d9066237018d6541f0fc41fd584,False,1,1,10,10,10.0,3,10,7,1.0,1.0,0.0,8548,1304,341,2,"Log, don't err, on unified delta WAL write failure (#20057)
 
 * Log, don't err, on unified delta WAL write failure
@@ -1147,7 +1147,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 ---------
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1681220170
 871bf52c618a143c05b79f7ed90944ac8756497b,False,1,1,12,12,12.0,1,11,10,0.0,0.0,1.0,1351,230,46,1,"Only log stopping rollback manager once (#20041)
 
 When testing the Rollback Manager's one-time invocation in Enterprise,
@@ -1160,7 +1160,7 @@ parallel and thus doesn't need a sync.Once.
 This only affected anyone calling the test core's
 StopAutomaticRollbacks() helper.
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1681147443
 89ff5f4844e6c7ba96315677162461e9dc286a2c,False,1,4,10,4,2.5,5,5,0,,,,19873,3145,771,3,"More wrapped errors - PKI, SSH, Transit  (#19631)
 
 * Add missing wrapped errors in PKI
@@ -1177,7 +1177,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 ---------
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1679328049
 69e238771a9a9ca0ffc7af3b7510fa9df9757b91,False,1,2,28,19,14.0,10,73,63,0.0,0.0,1.0,12128,1927,434,8,"Forward PKI revocation requests received by standby nodes to active node (#19624)
 
 * Forward PKI revocation requests received by standby nodes to active node
@@ -1191,7 +1191,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
 
 * Add cl
 
-* Add test for basic PKI operations against standby nodes"
+* Add test for basic PKI operations against standby nodes",1679324316
 ba013912b1b2fd75fd7776fecb5e5f0329cb21e4,False,1,5,54,39,10.8,4,50,46,0.0,1.0,0.9666666666666667,5521,1070,161,8,"Fix PKI Synopsis, add Transit help text and casing fixes (#19395)
 
 * Fix synopsis for PKI subcommand
@@ -1208,7 +1208,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 ---------
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1677595385
 d35be2d0de3d1c036248570c538c2051c4c1dc57,False,1,2,74,56,37.0,23,347,324,0.029069767441860465,0.9069767441860465,0.7441860465116279,1159,208,33,8,"Fix transit byok tool, add docs, tests (#19373)
 
 * Fix Vault Transit BYOK helper argument parsing
@@ -1245,10 +1245,10 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 ---------
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1677522338
 854587607695dd2e76ae1a187df4016a7083a6d3,False,1,1,112,112,112.0,34,78,44,0.9333333333333333,0.0,0.0,4064,651,135,2,"backport of commit 3adb416da1bdbd46a633c2aae25fc7cd44082724 (#19352)
 
-Co-authored-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Co-authored-by: Alexander Scheel <alex.scheel@hashicorp.com>",1677264319
 3adb416da1bdbd46a633c2aae25fc7cd44082724,False,1,1,112,112,112.0,34,78,44,0.9333333333333333,0.0,0.0,4064,651,135,2,"Refactor OCSP client to support better retries (#19345)
 
 Mirror NSS's GET-vs-POST selection criteria, wherein GET is preferred
@@ -1257,7 +1257,7 @@ whereas the latter might hit a live responder). However, only accept it
 if it definitively says ""Good"" or ""Revoked"" -- trigger a POST request
 when an unknown or failure status is seen.
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1677262717
 100ec9a7006e87e1505141835776c547d3afdd9d,False,1,1,15,15,15.0,4,11,7,0.0,0.0,1.0,1602,305,49,2,"Allow listing health checks without mount path (#19199)
 
 * Allow listing health checks without mount path
@@ -1277,7 +1277,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 ---------
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1676488099
 2dd4528ed8a8be83e0c1e0b48b1f23dab701181f,False,1,8,286,159,35.75,85,597,512,0.0,0.14285714285714285,0.9548872180451128,41283,6622,1351,26,"Telemetry Metrics Configuration. (#18186)
 
 * Telemetry Metrics Configuration.
@@ -1323,12 +1323,12 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
 
 ---------
 
-Co-authored-by: Steve Clark <steven.clark@hashicorp.com>"
+Co-authored-by: Steve Clark <steven.clark@hashicorp.com>",1676064716
 05e742b4eef0dd6afd434df6ec036bad816531c0,False,1,1,8,8,8.0,10,3,-7,1.0,1.0,0.0,2167,367,72,1,"Revert URL encoding OCSP GET fix #18938 (#19037)
 
 - This fix was incorrect as now the tests and program are double
    URL encoding the OCSP GET requests, so the base64 + characters
-   when using Vault proper are becoming space characters."
+   when using Vault proper are becoming space characters.",1675873466
 780dcf13168e424135081e882f7c62fbae717df8,False,1,1,2,2,2.0,1,4,3,,,,7941,1255,315,2,"Use UTC for leaf exceeding CA's notAfter (#18984)
 
 * Use UTC for leaf exceeding CA's notAfter
@@ -1353,7 +1353,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 ---------
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1675443642
 f030cbc847408e3cb9dbc134c7254ac7c2f8b92a,False,1,3,45,29,15.0,25,43,18,1.0,1.0,1.0,6122,962,228,9,"Fix race accessing b.crls within cert auth (#18945)
 
 * Fix race accessing b.crls within cert auth
@@ -1373,7 +1373,7 @@ f030cbc847408e3cb9dbc134c7254ac7c2f8b92a,False,1,3,45,29,15.0,25,43,18,1.0,1.0,1
    the error returned
  - Make the test within TestCRLFetch a little less timing sensitive as
    I was able to trigger a failure due to my machine taking more than
-   150ms to load the new CRL"
+   150ms to load the new CRL",1675286586
 b5f04147cb953cec39e54daaa171e250b210aab9,False,1,1,8,8,8.0,2,111,109,0.0,0.9506172839506173,1.0,2198,372,74,1,"Apply URL encoding/unencoding to OCSP Get requests (#18938)
 
 * Apply URL encoding/unencoding to OCSP Get requests
@@ -1391,7 +1391,7 @@ b5f04147cb953cec39e54daaa171e250b210aab9,False,1,1,8,8,8.0,2,111,109,0.0,0.95061
 
 * Rename PKI ocsp files to path_ocsp to follow naming conventions
 
-* make fmt"
+* make fmt",1675267423
 d39fef001d0e6f5e676f2a318c1455a3655aced2,False,1,1,4,4,4.0,4,7,3,,,,6916,1033,215,1,"Fix race in tidy status with cert counting (#18899)
 
 * Read total cert counts with atomic.LoadUint32(...)
@@ -1453,7 +1453,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 ---------
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1675106020
 3eac8d5069dbf1b76ad866ad41433b6d8234e43d,False,1,1,2,2,2.0,3,3,0,,,,1747,315,67,1,"Clarify key bits for ssh (#18854)
 
 * Clarify error on due to unsupported EC key bits
@@ -1466,7 +1466,7 @@ Resolves: #18843
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1674746045
 fa7c021db98dc6c110026b1490be75408391b7b3,False,1,3,186,115,62.0,55,132,77,0.14705882352941177,0.14705882352941177,0.11764705882352941,15936,2466,519,7,"More cross cluster queue tweaks (#18789)
 
 * Move comment about perf-primary only invalidation
@@ -1510,12 +1510,12 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1674492758
 38264fdd3b4f7f186ee44b57fe6771b21092a273,False,1,1,2,2,2.0,1,1,0,,,,1466,222,47,1,"Add missing space in PKI error (#18778)
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1674230537
 1e356c9c7dbf71238f69984cd63346df67ca36e4,False,1,2,14,12,7.0,6,21,15,0.0,0.7272727272727273,1.0,6735,1153,277,2,"Correctly distinguish empty issuer names in PKI (#18466)
 
 * Correctly distinguish empty issuer names
@@ -1538,7 +1538,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1673363070
 8c7b9e9f8a9ba69360bdf4a6be0f2cd472d490b6,False,1,1,15,15,15.0,2,72,70,0.0,0.71875,0.71875,4782,723,132,1,"Correctly handle issuer tidying in auto-tidy config (#18347)
 
 * Correctly handle issuer tidying in auto-tidy config
@@ -1549,7 +1549,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1671050121
 b26888963f8f0055589583ac39f7e80231bf4e3f,False,1,1,8,8,8.0,0,11,11,0.0,0.0,1.0,1952,333,60,1,"Address a nil panic when writing an empty POST request to the ocsp handler (#18184)
 
 * Address a nil panic when writing an empty POST request to the ocsp handler
@@ -1559,7 +1559,7 @@ b26888963f8f0055589583ac39f7e80231bf4e3f,False,1,1,8,8,8.0,0,11,11,0.0,0.0,1.0,1
    - vault write -force pki/ocsp
  - Add a check for it and the Body member variable to be nil before use.
 
-* Add cl"
+* Add cl",1669907412
 1ad92c5dcca9822c7d3dddd7a272f931bb0df53a,False,1,10,233,48,23.3,66,748,682,0.04918032786885246,0.22950819672131148,0.9377049180327869,8599,1487,355,26,"Various health check improvements + tests (#18096)
 
 * Rename common.go->healthcheck.go
@@ -1630,12 +1630,12 @@ Co-authored-by: Steven Clark <steven.clark@hashicorp.com>
 Co-authored-by: Steven Clark <steven.clark@hashicorp.com>
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
-Co-authored-by: Steven Clark <steven.clark@hashicorp.com>"
+Co-authored-by: Steven Clark <steven.clark@hashicorp.com>",1669214539
 b3514eb22f0c1cb7f36dfcffe06303f22fbbadd5,False,1,1,6,6,6.0,4,8,4,0.0,0.0,1.0,6871,1035,273,1,"certutil.ParseHexFormatted fails parsing 80 hex and above (#18018)
 
 - Switch to using ParseUint of 8 bits to parse the hex values properly
    as ParseInt limited to 8 bits will only handle values up to 127
-   decimal or 7F."
+   decimal or 7F.",1668715477
 d1ad4469b3b2ba3adcc75b673621149e2bd36eef,False,1,4,24,8,6.0,12,12,0,,0.0,,3186,541,134,4,"Fix semgrep false-positive due to co-dependent returns (#17984)
 
 We previously tried to extract this log into a function (shouldExit),
@@ -1648,14 +1648,14 @@ and it should never be evaluated.
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1668695173
 3845d2782b43f0db48e70229027c51d9092ade64,False,1,1,16,16,16.0,1,15,14,0.0,0.0,1.0,433,79,19,1,"Handle removed default issuers (#17930)
 
 Credit to Steve for finding this one.
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1668456819
 047a9ff03ae88f7d3a19d3620c89ac36bff20de8,False,1,1,2,2,2.0,99,114,15,0.0,0.0,1.0,1506,183,42,2,"Move pki docker tests to pkiext (#17928)
 
 * Export CreateBackendWithStorage for pkiext
@@ -1670,7 +1670,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1668468386
 e19ce98a97015e13995fdff3c8ca4ae1e02f515b,False,1,5,185,84,37.0,61,272,211,0.05511811023622047,0.8740157480314961,0.8188976377952756,12611,2040,384,10,"Optional automatic default issuer selection (#17824)
 
 * Correctly preserve other issuer config params
@@ -1716,7 +1716,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1667936429
 866a47d154f1f26e8c27eda0b8d2cebf9ec2d960,False,1,2,63,44,31.5,7,278,271,0.0594059405940594,0.8316831683168316,0.8712871287128713,5178,881,238,2,"PKI - Fix order of chain building writes (#17772)
 
 * Ensure correct write ordering in rebuildIssuersChains
@@ -1777,7 +1777,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1667490603
 c3d0f9f2bd6f17376837f2fa0e2a1cc10a9bc6d8,False,1,1,6,6,6.0,0,32,32,0.0,0.76,1.0,5361,858,235,1,"Add empty expiry crlConfig upgrade test (#17701)
 
 * Add regression test for default CRL expiry
@@ -1791,7 +1791,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1666884012
 6cb818993eaf8537f65816daf7123645adc7d926,False,1,1,11,11,11.0,11,3,-8,1.0,1.0,1.0,3954,610,107,2,"Fix tidy-status, tidy-cancel on PR Secondaries (#17497)
 
 * Fix tidy-status, tidy-cancel on PR Secondaries
@@ -1816,7 +1816,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1665580506
 cfc6b436074140af83e11e896308b147b22a6609,False,1,1,16,16,16.0,3,25,22,0.0,0.8181818181818182,0.8181818181818182,5096,799,184,1,"Don't include issuers on delta CRLs (#17463)
 
 When revoking an issuer, we immediately force a full rebuild of all CRLs
@@ -1831,7 +1831,7 @@ they should always appear only on the complete CRL.
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1665160582
 32f7e8ba2881f2972eaaa4c82d22f13d5ac75976,False,1,4,62,35,15.5,40,95,55,0.0,1.0,0.9333333333333333,16964,2696,555,2,"Fix RevocationSigAlg provisioning in GCP (#17449)
 
 * Fix RevocationSigAlg provisioning in GCP
@@ -1868,7 +1868,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1665093049
 95860c6a69939456b9539cdea37c07d1977ca00c,False,1,2,68,58,34.0,21,55,34,0.0,0.0,0.3076923076923077,6777,1155,249,6,"Fix RevocationSigAlgo support in OCSP (#17436)
 
 * Allow OCSP to use issuer's RevocationSigAlgo
@@ -1887,7 +1887,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1665072072
 6f1bc046247d1720892b57f8f02827390bb4ddb1,False,1,1,22,22,22.0,7,15,8,0.0,0.0,0.0,2759,445,84,2,"Add warning on missing entity information (#17428)
 
 When requesting a SSH certificate with default_extension templating
@@ -1900,12 +1900,12 @@ one extension that was skipped as a result.
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1665079256
 418e528008fb7593c1df5c4f17bd0c9406123698,False,1,3,143,132,47.666666666666664,101,375,274,0.32673267326732675,0.5693069306930693,0.698019801980198,18982,2924,593,16,"Plugins: Tighten requirements for multiplexing (#17403)
 
 Change the multiplexing key to use all `PluginRunner` config (converted to a struct which is comparable), so that plugins with the same name but different env, args, types, versions etc are not incorrectly multiplexed together.
 
-Co-authored-by: Christopher Swenson <christopher.swenson@hashicorp.com>"
+Co-authored-by: Christopher Swenson <christopher.swenson@hashicorp.com>",1664958569
 aea2844c5fcd20a947c565bac667548b400f90aa,False,1,1,20,20,20.0,7,16,9,0.0,0.0,0.0,5091,797,183,1,"PKI: Do not load revoked certificates if CRL has been disabled (#17385)
 
 * PKI: Do not load revoked certificates if CRL has been disabled
@@ -1914,7 +1914,7 @@ aea2844c5fcd20a947c565bac667548b400f90aa,False,1,1,20,20,20.0,7,16,9,0.0,0.0,0.0
    if the CRL has been disabled as there might be performance issues
    if a customer had or is still revoking a lot of certificates.
 
-* Add cl"
+* Add cl",1664805872
 0c2f920d6ad0d2e86cf37e59d61dbf25839b4edf,False,1,1,36,36,36.0,11,28,17,0.0,0.0,0.0,2953,437,88,4,"PKI: Do not read revoked certificates if CRL is disabled (#17384)
 
 * PKI: Do not read revoked certificates if CRL is disabled
@@ -1924,12 +1924,12 @@ aea2844c5fcd20a947c565bac667548b400f90aa,False,1,1,20,20,20.0,7,16,9,0.0,0.0,0.0
 
 * Remove incorrect comment text copied from 1.12
 
-* Add cl"
+* Add cl",1664803204
 b4783bfee99d2148450498c12cff4904b7c25991,False,1,1,28,28,28.0,5,107,102,0.0,0.32222222222222224,1.0,5580,784,160,2,"Plugins: Fix file permissions check to always use the correct path (#17340)
 
 * Add failing test for when command != plugin name
 * wrapFactoryCheckPerms uses pluginCatalog.Get to fetch the correct command
-* Use filepath.Rel for consistency with plugin read API handler"
+* Use filepath.Rel for consistency with plugin read API handler",1664530411
 c2d427e7d224527df9aedbbbe04a462470cd604f,False,1,1,12,12,12.0,4,16,12,0.0,0.0,1.0,5066,793,182,0,"Remove delta indicator on main CRL (#17334)
 
 When adding delta CRL support, we unconditionally added the delta
@@ -1938,7 +1938,7 @@ instead only added it conditionally when we were building delta CRLs.
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1664315078
 f28e92118cd7db1365d172fc82d906d7929cdf16,False,1,2,19,12,9.5,7,15,8,0.0,0.0,1.0,11214,1760,415,2,"PKI: Fix managed key signatures when using specified signature_bits (#17328)
 
 * PKI: Fix managed key signatures when using specified signature_bits
@@ -1947,17 +1947,17 @@ f28e92118cd7db1365d172fc82d906d7929cdf16,False,1,2,19,12,9.5,7,15,8,0.0,0.0,1.0,
    value overridden with a backing managed key we did not use that
    value as tests for the private key type were not working.
 
-* Add cl"
+* Add cl",1664370503
 3c6807d57414598006f833f3e6d4efc4eb5a925c,False,1,2,10,9,5.0,1,9,8,0.0,0.0,0.0,2591,419,91,1,"Fixes multiplexed plugin initialization after manual plugin reload (#17248)
 
 * Fixes initialize not called after v5 plugin reload
 
-* use request context instead of core activeContext"
+* use request context instead of core activeContext",1663866981
 0dce151d3f4209b862c803ffa953fcde7ab51acd,False,1,1,3,3,3.0,0,3,3,0.0,1.0,1.0,1440,218,39,1,"Fixes concurrent map writes in GRPC plugin server setup (#17247)
 
 * Fixes concurrent map writes in GRPC plugin server setup
 
-* move lock closer to critical section"
+* move lock closer to critical section",1663783460
 b2d6fc0a922ccfcf918ac5ec62f7b60a997b5217,False,1,2,10,6,5.0,0,247,247,0.021621621621621623,0.9621621621621622,0.9837837837837838,12930,2055,561,2,"Prevent PSS with Go-incompatible CAs, CSRs, Private Keys (#17223)
 
 * Fix interoperability concerns with PSS
@@ -1983,7 +1983,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1663709458
 9f3955bdbdf2db164de8088c6478e718895baca0,False,1,2,16,9,8.0,7,11,4,0.0,1.0,1.0,7132,1157,242,4,"Don't race for CRL rebuilding capability check (#17185)
 
 * Don't race for CRL rebuilding capability check
@@ -2005,7 +2005,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 * Update builtin/logical/pki/backend.go
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1663602092
 43443db98dac8ccc8695623e1daceb33c387aea4,False,1,1,8,8,8.0,4,4,0,,,,4822,824,188,1,"Update issuer usage with ocsp-signing by default (#17087)
 
 This option was elided from the default value for the usage field. This
@@ -2015,7 +2015,7 @@ as the default.
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1662744525
 82174f0c0de5c2656ac2783561d69791dcf93b72,False,1,7,106,50,15.142857142857142,34,139,105,0.0,0.014925373134328358,0.6865671641791045,20463,3407,776,10,"Clean up behavior of If-Modified-Since header (#16929)
 
 * Issuer renames should invalidate CRL cache times
@@ -2036,7 +2036,7 @@ ensuring an accurate number is stored.
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1661880336
 7f90f83d3d808d65368afa8e8857967354674e88,False,1,2,47,29,23.5,3,145,142,0.0,0.6509433962264151,0.8679245283018868,9628,1588,401,4,"Don't allow crl-signing issuer usage without CRLSign KeyUsage (#16865)
 
 * Allow correct importing of certs without CRL KU
@@ -2070,7 +2070,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1661352354
 986e43b7f25168e9f9487b72bdc3876a86bb1d13,False,1,2,3,2,1.5,3,14,11,0.0,0.0,1.0,6550,1075,255,1,"Finish refactor to remove global crlLifetime (#16835)
 
 Previously we used the global backend-set crlLifetime as a default
@@ -2083,7 +2083,7 @@ This fixes the broken UI test.
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1661282351
 8c9b4a0f7d3f31d5888e9f8df1745cabeaa788ba,False,1,1,6,6,6.0,0,38,38,0.0,0.9565217391304348,0.9565217391304348,1331,224,50,1,"Ignore EC PARAMETER blocks during issuer import (#16721)
 
 * Ignore EC PARAMETER blocks during issuer import
@@ -2104,14 +2104,14 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1660579150
 a186651f86812e0c910fd39c49b179d05cd376c6,False,1,2,26,24,13.0,14,54,40,0.0,1.0,1.0,13284,2263,473,2,"pki: When a role sets key_type to any ignore key_bits value when signing a csr (#16246)
 
 * pki: When a role sets key_type to any ignore key_bits value when signing
 
  - Bypass the validation for the role's key_bits value when signing CSRs
    if the key_type is set to any. We still validate the key is at least
-   2048 for RSA backed CSRs as we did in 1.9.x and lower."
+   2048 for RSA backed CSRs as we did in 1.9.x and lower.",1657292175
 7e445571b070dead6825a5a1ed9bfbfe1608133f,False,1,1,15,15,15.0,11,89,78,0.0625,0.1875,0.125,2911,430,85,1,"Fix leaf revocation under intermediate CAs  (#16052)
 
 * Add test for revocation under intermediate CA
@@ -2134,7 +2134,7 @@ This manifests as the error on revocation:
 > URL: PUT http://127.0.0.1:8200/v1/pki_int/revoke
 > * could not fetch the CA certificate for issuer id 156e1b99-4f04-5b5e-0036-cc0422c0c0d3: unable to fetch corresponding key for issuer 156e1b99-4f04-5b5e-0036-cc0422c0c0d3; unable to use this issuer for signing
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1655503491
 0f4b958611f27dc7cbbc019a18896915441b5518,False,1,1,2,2,2.0,1,1,0,,,,14000,2252,4,0,"Add missing nil check to FIPS EA verification (#15883)
 
 This was causing failures when running `vault server -dev`:
@@ -2149,8 +2149,8 @@ This was causing failures when running `vault server -dev`:
 Interestingly, we do not have a test case for running the dev
 sever.
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
-4ac2b575faf592d366c023f38f8abcdc86851122,False,1,2,15,13,7.5,3,12,9,0.0,0.0,1.0,1772,319,56,2,secrets/db: fix structpb conversion for external plugins using alternative cred types (#15801)
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1654717546
+4ac2b575faf592d366c023f38f8abcdc86851122,False,1,2,15,13,7.5,3,12,9,0.0,0.0,1.0,1772,319,56,2,secrets/db: fix structpb conversion for external plugins using alternative cred types (#15801),1654298109
 4f21baa69aadafa55ab5bab555174213691dd373,False,1,2,4,2,2.0,2,5,3,,,,3584,626,66,3,"Allow issuer/:issuer_ref/sign-verbatim/:role, add error on missing role (#15543)
 
 * Allow role-based sign-verbatim with chosen issuer
@@ -2169,12 +2169,12 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 Co-authored-by: Steven Clark <steven.clark@hashicorp.com>
 
-Co-authored-by: Steven Clark <steven.clark@hashicorp.com>"
+Co-authored-by: Steven Clark <steven.clark@hashicorp.com>",1653325758
 9083bd2b5d911a1abee84bdcae4cc109ac319fee,False,1,1,2,2,2.0,1,4,3,,,,3551,750,90,1,"Convert not_before_duration to seconds before returning it (#15559)
 
 * Convert not_before_duration to seconds before returning it
 
-* changelog file"
+* changelog file",1653307597
 065ace5610b2685cdb51da19f6f78a84d264434f,False,1,2,17,11,8.5,0,20,20,0.0,0.16666666666666666,0.16666666666666666,1834,325,44,2,"Remove signature_bits on intermediate generate (#15478)
 
 * Remove signature_bits on intermediate generate
@@ -2195,7 +2195,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 * Add changelog
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1652880999
 2481dbb41756b0591037e9d83703059884f7f4ed,False,1,1,1,1,1.0,0,4,4,0.0,1.0,0.0,1264,190,41,1,"Add default timeout to legacy ssh.ClientConfig (#15440)
 
 * Add default timeout to legacy ssh.ClientConfig
@@ -2212,7 +2212,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 * Add changelog
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1652719007
 91e710f4951520e815b6fc8489f4ce2ae9cb7bdc,False,1,4,26,8,6.5,19,17,-2,0.0,0.0,0.0,12007,2011,466,5,"Fix integer overflows with new parseutil (#15437)
 
 * Use new parseutil helper: Safe variants
@@ -2225,7 +2225,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 * Fix additional integer overflow in command/server
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1652723839
 dda23aeeb90ac15e9c309745320fcf93c3091da4,False,1,1,48,48,48.0,70,104,34,0.0,1.0,0.0,6061,906,238,3,"Fix handling of SignatureBits for ECDSA issuers (#14943) (#14994)
 
 When adding SignatureBits control logic, we incorrectly allowed
@@ -2238,7 +2238,7 @@ and truncate!) hash.
 Ignore the configuration of signature bits and always use autodetection
 for ECDSA like ed25519.
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1649707821
 ca45941f41924200a092e903cb100dfcfd48623f,False,1,1,48,48,48.0,70,105,35,0.0,1.0,0.0,6061,906,238,3,"Fix handling of SignatureBits for ECDSA issuers (#14943)
 
 When adding SignatureBits control logic, we incorrectly allowed
@@ -2251,7 +2251,7 @@ and truncate!) hash.
 Ignore the configuration of signature bits and always use autodetection
 for ECDSA like ed25519.
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1649346779
 7d92a63ab061e406d6a66d0bdc54c221213d5abe,False,1,2,141,131,70.5,47,312,265,0.08994708994708994,0.1164021164021164,0.455026455026455,13038,2032,554,3,"Fix handling of default zero SignatureBits value with Any key type in PKI Secrets Engine (#14875)
 
 * Correctly handle minimums, default SignatureBits
@@ -2297,10 +2297,10 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
-Co-authored-by: Steven Clark <steven.clark@hashicorp.com>"
+Co-authored-by: Steven Clark <steven.clark@hashicorp.com>",1649100414
 72c6b836b947048539ba8576ffa831475715224d,False,1,1,2,2,2.0,1,1,0,,,,1454,274,30,1,"backport of commit adfa09a781b384a13e2c5d1ccec5c8583f153bad (#14353)
 
-Co-authored-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Co-authored-by: Alexander Scheel <alex.scheel@hashicorp.com>",1646321611
 5a8c389de9ea152744d49cbca4258b791abaece6,False,1,1,2,2,2.0,1,1,0,,,,1454,274,30,1,"Remove duplicated certificates from chains (#14348)
 
 As reported by Steve Clark, building an intermediate mount in PKI (and
@@ -2308,7 +2308,7 @@ calling /intermediate/set-signed) results in a duplicate intermediate CA
 certificate in the full chain output (ca_chain field of the
 /cert/ca_chain API endpoint response).
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1646318854
 67e49339ec4e8feba4e84bb943d59bf21f5d0780,False,1,2,59,51,29.5,11,122,111,0.0,0.5106382978723404,0.5106382978723404,6329,1212,175,3,"Switch to secure signing algorithm for SSH secrets engine (#14006)
 
 * Explicitly call out SSH algorithm_signer default
@@ -2343,7 +2343,7 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 * Add to side bar
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1645199041
 42b90ff691dd1dd17142b8b279d4f95e2ffad86c,False,1,1,9,9,9.0,5,43,38,0.0,0.5517241379310345,0.5517241379310345,1745,315,67,1,"Fix ed25519 generated SSH key marshalling (#14101)
 
 * Ensure we can issue against generated SSH CA keys
@@ -2370,7 +2370,7 @@ appears to have been made since the CL was opened by the author.
 
 See also: https://go-review.googlesource.com/c/crypto/+/218620/
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1645039737
 4469b56925540cd603ca74a72915a5573c8655d9,False,1,1,45,45,45.0,13,125,112,0.6774193548387096,0.7096774193548387,1.0,1152,216,51,2,"Fix pkcs7 parsing in some cases (#12519)
 
 * Fix pkcs7 parsing in some cases
@@ -2390,14 +2390,14 @@ some instances have those certificates and others don't.
 
 * Add changelog entry
 
-* Correct missed line"
+* Correct missed line",1631290623
 25eba851dcb546aba569c4ad92a6ef657d0de016,False,1,2,3,2,1.5,1,5,4,0.0,0.0,0.0,2496,428,63,3,"secrets/database: fixes external plugin reconnect after shutdown for v4 and v5 interface (#12087)
 
 * secrets/database: fixes external plugin shutdown reconnect for v5 interface
 
 * adds changelog entry
 
-* fixes handling of plugin shutdown for password generation on v4 interface"
+* fixes handling of plugin shutdown for password generation on v4 interface",1626381664
 43ccb633b5e0df4b0b67b77e026cfbdf0d37a8f2,False,1,3,270,117,90.0,1466,458,-1008,0.35978835978835977,0.8042328042328042,0.6243386243386243,2495,438,93,11,"Cassandra: Refactor PEM parsing logic (#11861)
 
 * Refactor TLS parsing
@@ -2405,8 +2405,8 @@ some instances have those certificates and others don't.
 The ParsePEMBundle and ParsePKIJSON functions in the certutil package assumes
 both a client certificate and a custom CA are specified. Cassandra needs to
 allow for either a client certificate, a custom CA, or both. This revamps the
-parsing of pem_json and pem_bundle to accomodate for any of these configurations"
-34478710d0940fe20894dd181e100e987af62169,False,1,1,2,2,2.0,1,1,0,,,,1003,170,26,2,Fix database creds rotation panic for nil resp (#9258)
+parsing of pem_json and pem_bundle to accomodate for any of these configurations",1624297088
+34478710d0940fe20894dd181e100e987af62169,False,1,1,2,2,2.0,1,1,0,,,,1003,170,26,2,Fix database creds rotation panic for nil resp (#9258),1592502582
 0db008212ff3414b4b267bc76e281ebb172fa8f3,False,1,1,86,86,86.0,31,55,24,0.5652173913043478,0.5652173913043478,0.5652173913043478,7846,1245,327,6,"Fix AWS auth renewals (#8991) (#9024)
 
 * fix aws auth renewals
@@ -2421,7 +2421,7 @@ Co-authored-by: Jim Kalafut <jkalafut@hashicorp.com>
 
 Co-authored-by: Jim Kalafut <jkalafut@hashicorp.com>
 
-Co-authored-by: Jim Kalafut <jkalafut@hashicorp.com>"
+Co-authored-by: Jim Kalafut <jkalafut@hashicorp.com>",1589833834
 19d2155242b16275f3bd01aab60485011cc20f54,False,1,1,86,86,86.0,31,55,24,0.5652173913043478,0.5652173913043478,0.5652173913043478,7870,1249,328,6,"Fix AWS auth renewals (#8991) (#9023)
 
 * fix aws auth renewals
@@ -2436,7 +2436,7 @@ Co-authored-by: Jim Kalafut <jkalafut@hashicorp.com>
 
 Co-authored-by: Jim Kalafut <jkalafut@hashicorp.com>
 
-Co-authored-by: Jim Kalafut <jkalafut@hashicorp.com>"
+Co-authored-by: Jim Kalafut <jkalafut@hashicorp.com>",1589833858
 03332aaf8d18f991cb806f9e1df7822caa474251,False,1,6,640,200,106.66666666666667,95,1336,1241,0.17221584385763491,0.41102181400688864,0.9161882893226176,14073,2153,521,26,"Add helper for aliasmetadata and add to AWS auth (#8783)
 
 * add aliasmetadata sdk helper and add to aws auth
@@ -2477,7 +2477,7 @@ Co-Authored-By: Jim Kalafut <jkalafut@hashicorp.com>
 
 * add auth_type to ec2 logins
 
-Co-authored-by: Jim Kalafut <jkalafut@hashicorp.com>"
+Co-authored-by: Jim Kalafut <jkalafut@hashicorp.com>",1588007167
 7807d451d95e4704c6a063d2c6e18d3591f92bf0,False,1,6,213,112,35.5,27,611,584,0.0475,0.1025,0.82,10447,1584,321,12,"Fix: rotate root credentials for database plugins using WAL (#8782)
 
 * fix: rotate root credentials for database plugins using WAL
@@ -2496,12 +2496,12 @@ Co-authored-by: Jim Kalafut <jkalafut@hashicorp.com>"
 
 * style: error handling, imports, signature line wraps
 
-* fix: always close db plugin connection"
+* fix: always close db plugin connection",1587597688
 78ed5f31c61a7a108431b84c2348c18055f2eaba,False,1,1,29,29,29.0,3,26,23,0.0,0.0,0.0,7821,1254,324,3,"Retry on transient failures during AWS IAM auth login attempts (#8727)
 
 * use retryer for failed aws auth attempts
 
-* fixes from testing"
+* fixes from testing",1586813294
 e8ce395308c3571d9c8eac4023ae37dd0252bea0,False,1,1,108,108,108.0,29,112,83,0.36046511627906974,1.0,1.0,966,162,36,3,"Rabbitmq: surface errors from responses (#8619)
 
 * surface errs from responses
@@ -2514,8 +2514,8 @@ Co-Authored-By: Vishal Nayak <vishalnayak@users.noreply.github.com>
 
 * improve error message
 
-Co-authored-by: Vishal Nayak <vishalnayak@users.noreply.github.com>"
-f640ff4d0669fcce1ef93f5b6b66d353e0a95bf7,False,1,3,360,271,120.0,14,473,459,0.0875,0.09166666666666666,0.2625,3162,506,97,9,update kerberos dependency (#8353)
+Co-authored-by: Vishal Nayak <vishalnayak@users.noreply.github.com>",1585343699
+f640ff4d0669fcce1ef93f5b6b66d353e0a95bf7,False,1,3,360,271,120.0,14,473,459,0.0875,0.09166666666666666,0.2625,3162,506,97,9,update kerberos dependency (#8353),1581707608
 3bf1299814af605b534a8c20b207790d3de21bcd,False,1,1,387,387,387.0,255,135,-120,,,,19765,3147,0,0,"Fix aspects of `auth/token/create` request parsing (#18556)
 
 * Fix aspects of `auth/token/create` request parsing
@@ -2556,12 +2556,12 @@ Detailed changes:
 
 * Add changelog
 
-* Rephrase comment."
+* Rephrase comment.",1689005703
 9ae8f48f9b05c3f54eeca68e118122a92f46caaa,False,1,1,8,8,8.0,17,28,11,1.0,1.0,1.0,15218,2425,4,0,"Fix panic when Vault enters recovery mode, added test (#20418)
 
 * Fix panic when Vault enters recovery mode, added test
 
-* Added changelog"
+* Added changelog",1682685679
 9042643d63716bb2dc9faf5b1ade02ca0053bfa2,False,1,2,16,12,8.0,9,19,10,0.14285714285714285,0.5714285714285714,0.8571428571428571,5676,1074,182,4,"Fix command.RunCustom(...) correctly (#18904)
 
 * Revert ""Remove t.Parallel() due to initialization race (#18751)""
@@ -2588,14 +2588,14 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
 ---------
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
-3ace92c4292ee662ddf44685269245c509c1ed59,False,1,1,2,2,2.0,1,4,3,,,,789,155,23,1,CLI: Fix secrets list -detailed headings (#17577)
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1675171101
+3ace92c4292ee662ddf44685269245c509c1ed59,False,1,1,2,2,2.0,1,4,3,,,,789,155,23,1,CLI: Fix secrets list -detailed headings (#17577),1666100771
 d6ed362cc32c22866adf63b730265818b9302161,False,1,2,27,23,13.5,5,65,60,0.06666666666666667,0.06666666666666667,0.5777777777777777,42485,6802,1301,2,"Fix plugin list API when audit logging enabled (#18173)
 
 * Add test that fails due to audit log panic
 * Rebuild VersionedPlugin as map of primitive types before adding to response
 * Changelog
-* Fix casting in external plugin tests"
+* Fix casting in external plugin tests",1669891484
 0bbeba1028e90741fa27c56451f8c4eb52268d2e,False,1,1,2,2,2.0,0,5,5,0.0,0.0,1.0,3208,543,137,1,"bug: correct sdk handling of the zero int64 value (#18729)
 
 * bug: correct handling of the zero int64 value
@@ -2605,13 +2605,13 @@ d6ed362cc32c22866adf63b730265818b9302161,False,1,2,27,23,13.5,5,65,60,0.06666666
 ---------
 
 Co-authored-by: valli_0x <personallune@mail.ru>
-Co-authored-by: Tom Proctor <tomhjp@users.noreply.github.com>"
+Co-authored-by: Tom Proctor <tomhjp@users.noreply.github.com>",1678361145
 b3dc15fe7449edb7566f8e84b2e07416ca996b7e,False,1,5,54,39,10.8,4,50,46,0.0,1.0,0.9666666666666667,5521,1070,161,8,"backport of commit ba013912b1b2fd75fd7776fecb5e5f0329cb21e4 (#19396)
 
-Co-authored-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Co-authored-by: Alexander Scheel <alex.scheel@hashicorp.com>",1677597156
 c496011eed2559b51bb23a43b0689b35610de568,False,1,8,224,52,28.0,45,187,142,0.026785714285714284,0.0,0.9910714285714286,7597,1344,318,22,"backport of commit d08bf5616db060e43b2280a7dcab2defa16fe227 (#19347)
 
-Co-authored-by: Steven Clark <steven.clark@hashicorp.com>"
+Co-authored-by: Steven Clark <steven.clark@hashicorp.com>",1677265903
 8abcde7cbbaf86c2b54a097638f57a0c734281b7,False,1,7,176,109,25.142857142857142,126,157,31,1.0,0.0,1.0,29224,4781,509,19,"VAULT-12264: Fix log rotation params which require an integer (#18666)
 
 * integer values for some log flags
@@ -2620,7 +2620,7 @@ Co-authored-by: Steven Clark <steven.clark@hashicorp.com>"
  Renamed updateConfig (and updateLogConfig)
 * Added int log params to test
 * Adjust config/params so we can identify when they're not present
-* Removed pointer confusion"
+* Removed pointer confusion",1673467497
 f06a6f71d383d0659ee4a659fb3aafbcbae3c61c,False,1,1,97,97,97.0,44,120,76,0.0,0.25,0.0,3770,573,123,2,"Cleanup changes around issuer revocation (#16874)
 
 * Refactor CRL tests to use /sys/mounts
@@ -2678,7 +2678,7 @@ This is only for the last commit.
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1661441797
 8ff7aaabc4a2b6c2a370ecc3fdccac6e45884e73,False,1,5,42,19,8.4,9,37,28,0.9444444444444444,0.9444444444444444,1.0,9982,1577,245,8,"Fix raw format for other commands, add to docs! (#17730)
 
 * Clarify when -format=raw fails
@@ -2707,7 +2707,7 @@ the command if a bad formatter was specified.
 
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
-Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
+Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>",1666976003
 7c18e364a3330efc031b28636d3e60c52631b4fe,False,1,1,12,12,12.0,0,38,38,0.0,0.0,1.0,5361,858,235,1,"Backport of Add empty expiry crlConfig upgrade test into release/1.12.x (#17705)
 
 * backport of commit c3d0f9f2bd6f17376837f2fa0e2a1cc10a9bc6d8
@@ -2717,15 +2717,15 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>"
 Ref: https://github.com/hashicorp/vault/issues/17642
 
 Co-authored-by: Alexander Scheel <alex.scheel@hashicorp.com>
-Co-authored-by: James Protzman <JNProtzman@gmail.com>"
+Co-authored-by: James Protzman <JNProtzman@gmail.com>",1667226415
 ab6fecb2d53ce80667add4e955d9553120d0f260,False,1,1,6,6,6.0,0,6,6,0.0,0.0,1.0,5333,852,233,1,"Default crl expiry (#17693)
 
-Ref: https://github.com/hashicorp/vault/issues/17642"
+Ref: https://github.com/hashicorp/vault/issues/17642",1666882037
 aa4768dbb64247bd948292d831c73b6d48e5b736,False,1,1,4,4,4.0,2,5,3,,,,5357,855,179,3,"Fix debug bundle panic on Windows (#14399)
 
 * Fix debug bundle panic on Windows
 
-* Add changelog entry"
+* Add changelog entry",1654815465
 4a2e014087d558dbd44e7e91c2ab2eb2afd2242d,False,1,1,7,7,7.0,2,32,30,0.0,0.0,1.0,6871,1035,273,1,"Fix for duplicate SANs in signed certificates (#16700)
 
 * Fix for duplicate SANs in signed certificates when othernames are present in the CSR SAN extension and UseCSRValues is true.
@@ -2736,7 +2736,7 @@ Having duplicate x509v3 extensions is invalid and is rejected by openssl on Ubun
 
 In this fix I do not add the extension from the CSR if it will be added during HandleOtherSANs.
 
-* Added unittest and changelog entry."
+* Added unittest and changelog entry.",1665159548
 87801ecf1f7413bd288d82016f55c84d46ea4a99,False,1,4,12,4,3.0,15,22,7,,,,4107,639,144,0,"fix: PGP subkeys support (#16224)
 
 * fix: PGP subkeys support
@@ -2751,12 +2751,12 @@ Signed-off-by: Yoan Blanc <yoan@dosimple.ch>
 
 Signed-off-by: Yoan Blanc <yoan@dosimple.ch>
 
-Signed-off-by: Yoan Blanc <yoan@dosimple.ch>"
+Signed-off-by: Yoan Blanc <yoan@dosimple.ch>",1663852361
 98ac4576f1b9820f10cd6813a135a2bdf461dd6d,False,1,1,6,6,6.0,3,6,3,,,,1637,291,40,1,"Fix LIST issuers endpoint (#16830)
 
 * Fix LIST issuers endpoint ability to access, add a comment.
 
-* Add changelog."
+* Add changelog.",1661267303
 dc5b396b14b445a5ed4a73b6b1158c0ae23e51e7,False,1,2,14,11,7.0,38,71,33,0.7692307692307693,0.0,0.7307692307692307,9788,1560,398,3,"Vault 7338/fix retry join (#16550)
 
 * storage/raft: Fix cluster init with retry_join
@@ -2775,7 +2775,7 @@ error and allowing the existing mechanics to work as intended.
 
 * storage/raft: Add changelog entry for retry_join fix
 
-* storage/raft: Add description to VerifyRaftPeers"
+* storage/raft: Add description to VerifyRaftPeers",1659577497
 cc6409222ce246ed72d067debe6ffeb8f62f9dad,False,1,3,38,21,12.666666666666666,14,27,13,0.0,0.8,1.0,7947,1258,314,5,"Vault 6773/raft rejoin nonvoter (#16324)
 
 * raft: Ensure init before setting suffrage
@@ -2814,7 +2814,7 @@ places:
 
 Both consumers have been tested and pass with this change.
 
-* changelog: Unauthn voter status change bugfix"
+* changelog: Unauthn voter status change bugfix",1658169432
 d5305500e35ed1766ea96e29846f7dead6e65baa,False,1,1,76,76,76.0,29,132,103,0.0,0.18181818181818182,1.0,7528,1208,252,5,"Improving Handling of Unix Domain Socket Addresses (#11904)
 
 * Removed redundant checks for same env var in ReadEnvironment, extracted Unix domain socket logic to function, and made use of this logic in SetAddress.  Adjusted unit tests to verify proper Unix domain socket handling.
@@ -2837,8 +2837,8 @@ d5305500e35ed1766ea96e29846f7dead6e65baa,False,1,1,76,76,76.0,29,132,103,0.0,0.1
 
 * make release note more end-user focused
 
-* adopt review feedback to add comment about holding a lock"
-26258a7ec910c6ef0266faf3bfc6da39981f5161,False,1,1,11,11,11.0,3,11,8,0.0,0.0,1.0,1655,291,63,1,Fix keyring file missing after Vault restart (#15946)
+* adopt review feedback to add comment about holding a lock",1655849818
+26258a7ec910c6ef0266faf3bfc6da39981f5161,False,1,1,11,11,11.0,3,11,8,0.0,0.0,1.0,1655,291,63,1,Fix keyring file missing after Vault restart (#15946),1655313762
 557cb15ac1431a5faf9ee3dbdf902756ea5d8d63,False,1,2,139,129,69.5,44,311,267,0.09392265193370165,0.06629834254143646,0.4198895027624309,13044,2032,554,3,"Fix handling of default zero SignatureBits value with Any key type in PKI Secrets Engine (#14875) (#14893)
 
 * Correctly handle minimums, default SignatureBits
@@ -2887,33 +2887,33 @@ Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 Co-authored-by: Steven Clark <steven.clark@hashicorp.com>
 Signed-off-by: Alexander Scheel <alex.scheel@hashicorp.com>
 
-Co-authored-by: Steven Clark <steven.clark@hashicorp.com>"
+Co-authored-by: Steven Clark <steven.clark@hashicorp.com>",1649360945
 302ebee61f12cf46309ff8413d5f5b1d9486bfa3,False,1,1,3,3,3.0,0,94,94,0.0,0.0,0.9855072463768116,11726,1903,525,1,"Remove duplicate policies when creating/updating identity groups (#15055)
 
 * Remove duplicate policies for identity groups
 
 * adding changelog
 
-* test cleanup"
+* test cleanup",1652736048
 7aaa70cf9c354d0c93464e740bbadc0c4f08489c,False,1,1,2,2,2.0,0,5,5,,,,14235,2185,240,0,"Disabling client side rate limiting in Okta login MFA client (#15369)
 
 * disabling client side rate limiting for MFA client
 
-* add changelog"
+* add changelog",1652385333
 a918e5ed5c987075579d103e49cda99163e6c3ae,False,1,1,7,7,7.0,7,0,-7,1.0,1.0,0.0,4680,708,180,1,"Remove dead code in setupCredentials() (#15194)
 
 This should have been removed as part of f09e39ea42 but somehow got
-forgotten."
+forgotten.",1651070824
 e17724e33f002e98ace08299c650a8074b8a5f1a,False,1,1,5,5,5.0,4,4,0,,,,1654,257,0,0,"Set header content type instead of overwriting all headers (#14222)
 
 * Set header content type instead of overwriting all headers
 
-* Add changelog file"
+* Add changelog file",1645654197
 c27825a8a74c8aeeb56945bcbcccb153f14ded5d,False,1,1,9,9,9.0,3,9,6,0.0,0.0,0.0,1686,275,56,1,"fix approle login IPBelongsToCIDRBlocksSlice err handling (#14107)
 
 * fix approle login IPBelongsToCIDRBlocksSlice err handling
 
-* add changelog entry"
+* add changelog entry",1645047011
 8b09873cc0926bd1167a501177e1b12c37a1ee04,False,1,2,41,38,20.5,1,43,42,0.0,0.0,1.0,13100,2013,409,2,"identity/oidc: loopback redirect dynamic port (#13871)
 
 * Add check for OIDC provider to permit a non-exact redirect URI from OIDC client if it is the IPv4 or IPv6 loopback address.
@@ -2924,17 +2924,17 @@ Co-authored-by: Austin Gebauer <34121980+austingebauer@users.noreply.github.com>
 
 * Update redirectURI check to match that for the OIDC auth method.
 
-Co-authored-by: Austin Gebauer <34121980+austingebauer@users.noreply.github.com>"
+Co-authored-by: Austin Gebauer <34121980+austingebauer@users.noreply.github.com>",1644258873
 d725f97b3097185a98705627c3f5e74f1f85ac94,False,1,81,27683,11749,341.7654320987654,3008,24682,21674,0.8362164735756229,0.8882717029043009,0.8928741469607999,604526,101932,20764,1467,"Bump aws-sdk-go to v1.25.41 (#7458)
 
-This is in support of #7450 and #7924"
+This is in support of #7450 and #7924",1576543380
 e11eb36bc6440788f33da63a3f454fc9e3966a9b,False,1,1,2,2,2.0,4,10,6,0.0,1.0,1.0,2680,452,113,1,"[VAULT-2825] Fix erroneous 500 resp for field validation errors (#12042)
 
 * [VAULT-2825] Correctly respond with 400 rather than 500 for field validation errors
 
 * [VAULT-2825] Add changelog entry
 
-* [VAULT-2825] Simplify test assertion"
+* [VAULT-2825] Simplify test assertion",1626111568
 6a403a65bbbb4e8a37d257458cf689ac9e137a1c,False,1,3,270,117,90.0,1461,458,-1003,0.35978835978835977,0.8042328042328042,0.6243386243386243,2495,438,93,11,"Cassandra: Refactor PEM parsing logic (#11861) (#11921)
 
 * Refactor TLS parsing
@@ -2942,15 +2942,15 @@ e11eb36bc6440788f33da63a3f454fc9e3966a9b,False,1,1,2,2,2.0,4,10,6,0.0,1.0,1.0,26
 The ParsePEMBundle and ParsePKIJSON functions in the certutil package assumes
 both a client certificate and a custom CA are specified. Cassandra needs to
 allow for either a client certificate, a custom CA, or both. This revamps the
-parsing of pem_json and pem_bundle to accomodate for any of these configurations"
-67ca3beb1ecde48a5a6a8befb783b1b95aa5ad8e,False,1,1,2,2,2.0,2,27,25,0.0,0.3,1.0,1345,190,51,1,Check ErrPluginStaticUnsupported for fallback to RotateRootCredentials (#11585)
-4741e0805752a42b97c6c2c97349a360f72938e4,False,1,2,28,14,14.0,0,55,55,0.43902439024390244,1.0,1.0,380,74,20,2,secrets/database: Fixes marshalling bug for json.Number types (#11451) (#11457)
-a64ef998d62e851d373af82bff633df7089a90a3,False,1,2,28,14,14.0,0,55,55,0.43902439024390244,1.0,1.0,380,74,20,2,secrets/database: Fixes marshalling bug for json.Number types (#11451) (#11456)
-a8b0a583d30850da75faa7a3c327c6f1e91e54a7,False,1,1,2,2,2.0,1,4,3,,,,1260,209,42,0,Cassandra DB plugin: Allow special chars in usernames (#11262)
-9f86fccd768aab3ed8b1aaacc556652985c459f2,False,1,1,5,5,5.0,1,7,6,0.0,0.0,0.0,4312,688,132,2,Correct lock acquisition order in the `pathEntityMergeID` identity to fix deadlock condition (#10877)
-a15bbc8cf58286446b105e3b993f05b2b3738f7e,False,1,3,7,3,2.3333333333333335,3,4,1,,,,333,74,14,5,Fix compilation of MySQL & Redshift plugins (#10640) (#10654)
-2a8f9632d303c3f7a725fcaf3203327197c528d0,False,1,3,7,3,2.3333333333333335,3,4,1,,,,333,74,14,5,Fix compilation of MySQL & Redshift plugins (#10640)
-f0849708a59e02025ac9808e6c1d451553af048f,False,1,184,20131,1623,109.40760869565217,39,21530,21491,0.474534821903243,0.5888357256778309,0.7988304093567251,90723,16122,3214,852,MySQL - Fix username generation length bug (#10433)
+parsing of pem_json and pem_bundle to accomodate for any of these configurations",1624479242
+67ca3beb1ecde48a5a6a8befb783b1b95aa5ad8e,False,1,1,2,2,2.0,2,27,25,0.0,0.3,1.0,1345,190,51,1,Check ErrPluginStaticUnsupported for fallback to RotateRootCredentials (#11585),1620854561
+4741e0805752a42b97c6c2c97349a360f72938e4,False,1,2,28,14,14.0,0,55,55,0.43902439024390244,1.0,1.0,380,74,20,2,secrets/database: Fixes marshalling bug for json.Number types (#11451) (#11457),1619219395
+a64ef998d62e851d373af82bff633df7089a90a3,False,1,2,28,14,14.0,0,55,55,0.43902439024390244,1.0,1.0,380,74,20,2,secrets/database: Fixes marshalling bug for json.Number types (#11451) (#11456),1619219222
+a8b0a583d30850da75faa7a3c327c6f1e91e54a7,False,1,1,2,2,2.0,1,4,3,,,,1260,209,42,0,Cassandra DB plugin: Allow special chars in usernames (#11262),1618603275
+9f86fccd768aab3ed8b1aaacc556652985c459f2,False,1,1,5,5,5.0,1,7,6,0.0,0.0,0.0,4312,688,132,2,Correct lock acquisition order in the `pathEntityMergeID` identity to fix deadlock condition (#10877),1612973116
+a15bbc8cf58286446b105e3b993f05b2b3738f7e,False,1,3,7,3,2.3333333333333335,3,4,1,,,,333,74,14,5,Fix compilation of MySQL & Redshift plugins (#10640) (#10654),1610474004
+2a8f9632d303c3f7a725fcaf3203327197c528d0,False,1,3,7,3,2.3333333333333335,3,4,1,,,,333,74,14,5,Fix compilation of MySQL & Redshift plugins (#10640),1609793051
+f0849708a59e02025ac9808e6c1d451553af048f,False,1,184,20131,1623,109.40760869565217,39,21530,21491,0.474534821903243,0.5888357256778309,0.7988304093567251,90723,16122,3214,852,MySQL - Fix username generation length bug (#10433),1606861491
 0e993e88abe622eadb9990c88752be0e5258f679,False,1,1,2,2,2.0,1,27,26,0.0,1.0,1.0,7068,1017,160,1,"Return logical.StatusBadRequest on requests with missing token (#8457)
 
 * Add test for 400 status on missing token
@@ -2959,7 +2959,7 @@ f0849708a59e02025ac9808e6c1d451553af048f,False,1,184,20131,1623,109.407608695652
 
 * remove commented out code
 
-Co-authored-by: Vishal Nayak <vishalnayak@users.noreply.github.com>"
+Co-authored-by: Vishal Nayak <vishalnayak@users.noreply.github.com>",1603743445
 87d7180204eca5fbddffaf06cca99846be31c5a6,False,1,1,69,69,69.0,2,173,171,0.3203125,0.90625,0.90625,2396,422,92,3,"Postgres: Correct parsing of multiline statements (#8512)
 
 * add test reproducing issue
@@ -2980,8 +2980,8 @@ Co-authored-by: Vishal Nayak <vishalnayak@users.noreply.github.com>"
 
 * update test name
 
-* remove unnecessary backslashes from test"
-534093bf63b0f0057296c15db273ae9cad9b25cd,False,1,1,8,8,8.0,2,6,4,1.0,1.0,1.0,616,109,20,1,Forward requests for rotate-root on Performance secondary / standbys (#9606)
+* remove unnecessary backslashes from test",1584474325
+534093bf63b0f0057296c15db273ae9cad9b25cd,False,1,1,8,8,8.0,2,6,4,1.0,1.0,1.0,616,109,20,1,Forward requests for rotate-root on Performance secondary / standbys (#9606),1595946152
 ac880b0079be00778d68044cba3f2fc565bd040f,False,1,1,86,86,86.0,31,55,24,0.5652173913043478,0.5652173913043478,0.5652173913043478,7981,1270,330,6,"Fix AWS auth renewals (#8991)
 
 * fix aws auth renewals
@@ -2994,7 +2994,7 @@ Co-authored-by: Jim Kalafut <jkalafut@hashicorp.com>
 
 * strip tests and related changes
 
-Co-authored-by: Jim Kalafut <jkalafut@hashicorp.com>"
+Co-authored-by: Jim Kalafut <jkalafut@hashicorp.com>",1589825436
 882a39e6b1318f94ad11bebe0ffc911f3a69b5da,False,1,1,7,7,7.0,1,13,12,1.0,1.0,1.0,1289,238,40,1,"Always pick us-east-1 for the ""aws"" partition (#8679) (#8680)
 
 * always pick us-east-1 for aws partition
@@ -3005,7 +3005,7 @@ Co-Authored-By: Jim Kalafut <jkalafut@hashicorp.com>
 
 Co-authored-by: Jim Kalafut <jkalafut@hashicorp.com>
 
-Co-authored-by: Jim Kalafut <jkalafut@hashicorp.com>"
+Co-authored-by: Jim Kalafut <jkalafut@hashicorp.com>",1586448732
 d0f753159949fb334917b5454daa92d0640bd503,False,1,1,7,7,7.0,1,13,12,1.0,1.0,1.0,1289,238,40,1,"Always pick us-east-1 for the ""aws"" partition (#8679)
 
 * always pick us-east-1 for aws partition
@@ -3014,9 +3014,9 @@ d0f753159949fb334917b5454daa92d0640bd503,False,1,1,7,7,7.0,1,13,12,1.0,1.0,1.0,1
 
 Co-Authored-By: Jim Kalafut <jkalafut@hashicorp.com>
 
-Co-authored-by: Jim Kalafut <jkalafut@hashicorp.com>"
-a00c97f3eef04a04960fa1a2b7662d25d12934a0,False,1,1,4,4,4.0,2,78,76,0.17307692307692307,0.17307692307692307,1.0,624,138,17,2,allow delete-version-after to be reset to 0 (#8635) (#8641)
-7cb59dc326311a7bda664fe3e32e80a5a00cab74,False,1,1,4,4,4.0,2,78,76,0.17307692307692307,0.17307692307692307,1.0,624,138,17,2,allow delete-version-after to be reset to 0 (#8635)
+Co-authored-by: Jim Kalafut <jkalafut@hashicorp.com>",1585951736
+a00c97f3eef04a04960fa1a2b7662d25d12934a0,False,1,1,4,4,4.0,2,78,76,0.17307692307692307,0.17307692307692307,1.0,624,138,17,2,allow delete-version-after to be reset to 0 (#8635) (#8641),1585672260
+7cb59dc326311a7bda664fe3e32e80a5a00cab74,False,1,1,4,4,4.0,2,78,76,0.17307692307692307,0.17307692307692307,1.0,624,138,17,2,allow delete-version-after to be reset to 0 (#8635),1585610384
 e4b9bffbf851cb8367ab35454d4d655f2f8c83f7,False,1,1,108,108,108.0,29,112,83,0.36046511627906974,1.0,1.0,966,162,36,3,"Rabbitmq: surface errors from responses (#8619) (#8629)
 
 * surface errs from responses
@@ -3031,17 +3031,17 @@ Co-Authored-By: Vishal Nayak <vishalnayak@users.noreply.github.com>
 
 Co-authored-by: Vishal Nayak <vishalnayak@users.noreply.github.com>
 
-Co-authored-by: Vishal Nayak <vishalnayak@users.noreply.github.com>"
+Co-authored-by: Vishal Nayak <vishalnayak@users.noreply.github.com>",1585592369
 877771f5ef0c3a5f752e4023452c77de61270f11,False,1,1,2,2,2.0,1,1,0,,,,1142,206,6,1,"fix minor potential nil-pointer panic on line 89 (#8488) (#8584)
 
-Co-authored-by: Denis Subbotin <denis@subbot.in>"
-375ab6f10210dc5f5455af3148ecea55beaef001,False,1,1,2,2,2.0,1,1,0,,,,1142,206,6,1,fix minor potential nil-pointer panic on line 89 (#8488)
+Co-authored-by: Denis Subbotin <denis@subbot.in>",1584467307
+375ab6f10210dc5f5455af3148ecea55beaef001,False,1,1,2,2,2.0,1,1,0,,,,1142,206,6,1,fix minor potential nil-pointer panic on line 89 (#8488),1583530356
 c6ff7ac589fe320a8630f1665a0e5cdb876d39d7,False,1,2,41,38,20.5,19,53,34,0.10714285714285714,0.8214285714285714,1.0,4040,706,140,3,"Fix SRV Lookups (#8520) (#8533)
 
 * Pin HTTP Host header for all client requests
 * Drop port map scheme
 * Add SRV Lookup environment var
-* Lookup SRV records only when env var is specified"
+* Lookup SRV records only when env var is specified",1584000782
 8dd6180e313c43ee6e2302dcf9f8cf5cd8705765,False,1,2,41,38,20.5,19,60,41,0.10714285714285714,0.8214285714285714,1.0,4040,706,140,3,"Fix SRV Lookups (#8520)
 
 * Pin HTTP Host header for all client requests
@@ -3050,19 +3050,19 @@ c6ff7ac589fe320a8630f1665a0e5cdb876d39d7,False,1,2,41,38,20.5,19,53,34,0.1071428
 * Lookup SRV records only when env var is specified
 * Add docs
 
-Co-Authored-By: Michel Vocks <michelvocks@gmail.com>"
+Co-Authored-By: Michel Vocks <michelvocks@gmail.com>",1583932978
 75461a65220bd85dc3913ecdf75f07bb108cccfb,False,1,5,59,43,11.8,10,49,39,0.8076923076923077,0.07692307692307693,1.0,3623,672,154,9,"Fix CLI namespace commands (#8315)
 
 * Fix namespace commands help
 
 * Fix useless prediction for namespace commands
 
-* Add namespace prediction capability"
+* Add namespace prediction capability",1581273519
 af3b19099f994fd029d5c4d879371d727b756aa4,False,1,1,12,12,12.0,1,29,28,0.0,0.0,1.0,1850,338,90,2,"Support CLI autocompletion for nested mounts (#8303)
 
 * Support CLI autocompletion for nested mounts
 
-* Add test for nested autocomplete prediction"
+* Add test for nested autocomplete prediction",1581087510
 45cfa720c65fd24680bc7d6ae181ba0d18ff231d,False,1,2,56,53,28.0,20,88,68,0.0,0.0,0.803921568627451,2551,425,94,5,"secret/database: Guard against panic with InfluxDB plugin (#8282)
 
 * database/influx: fix panic when trying to revoke user
@@ -3071,16 +3071,16 @@ Guard against other nil responses
 
 * return an error if response is nil, which is unlikely but best safe than sorry
 
-* refactor a deeply nested statement into a function"
+* refactor a deeply nested statement into a function",1580932142
 e3f37c7751285e24c6694853ed5463d89cca27dc,False,1,1,2,2,2.0,1,33,32,0.0,1.0,1.0,6078,979,275,0,"Allow FQDNs in DNS Name for PKI Secrets Engine (#8288)
 
-Fixes #4837"
+Fixes #4837",1580856398
 3f62e7f30b0698ebb3807dd935434dbdbd835027,False,1,1,15,15,15.0,2,80,78,0.10526315789473684,0.10526315789473684,0.8947368421052632,292,50,5,1,"Transit: error when restoring to a name that looks like a path (#7998)
 
 * Add test to verify #7663
 
-* Validate name in transit key restore to not be a path"
-6b2d5ac3dcc748c1494654cf232af78a46c01b99,False,1,2,31,20,15.5,5,133,128,0.0,0.06060606060606061,0.8686868686868687,2881,469,104,4,Add an sts_region parameter to the AWS auth engine's client config (#7922)
+* Validate name in transit key restore to not be a path",1576078342
+6b2d5ac3dcc748c1494654cf232af78a46c01b99,False,1,2,31,20,15.5,5,133,128,0.0,0.06060606060606061,0.8686868686868687,2881,469,104,4,Add an sts_region parameter to the AWS auth engine's client config (#7922),1576022524
 9b8c89ada6dc2bf8054b2db8a01452688a56c15f,False,1,1,43,43,43.0,46,327,281,0.020833333333333332,0.0625,0.8333333333333334,988,176,31,1,"Agent Template: check rendering to match expectations (#7899) (#7918)
 
 * add regression test for #7883
@@ -3089,10 +3089,10 @@ Fixes #4837"
 
 * remove the WAIT label and make some changes to remove the break statements
 
-* change the 'randomness' of the templateContents test helper method"
+* change the 'randomness' of the templateContents test helper method",1575310412
 ec62abb9514323c2de5768adb0cdabc9fa108588,False,1,5,279,88,55.8,5,693,688,0.38095238095238093,0.9603174603174603,0.9920634920634921,4804,853,141,12,"Update how Vault Agent configures Consul Templates internal logger (#7822)
 
 * fix up logger in Vault Agent Template
 
-* update deps"
-83d3f474df433f39e319899efdcd08833ffde060,False,1,1,2,2,2.0,1,1,0,,,,1192,185,34,1,Fix regression that causes panic when logging in via Radius. (#7290)
+* update deps",1573586969
+83d3f474df433f39e319899efdcd08833ffde060,False,1,1,2,2,2.0,1,1,0,,,,1192,185,34,1,Fix regression that causes panic when logging in via Radius. (#7290),1565741484

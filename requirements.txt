@@ -132,3 +132,4 @@ xgboost
 scikit-posthocs==0.8.1
 tqdm
 rich
+optuna>=3.0.0

@@ -1,24 +1,24 @@
-sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message
+sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message,commit_timestamp
 3683010a7c6a3dc5372e1688d7b2995b745f5bea,False,1,2,248,199,124.0,24,224,200,0.22388059701492538,0.15671641791044777,0.753731343283582,2387,347,38,7,"Adding e2e test to validate memory-pressure eviction on Windows
 
-Signed-off-by: Mark Rossetti <marosset@microsoft.com>"
+Signed-off-by: Mark Rossetti <marosset@microsoft.com>",1721254290
 2f6c4f5eab85d3f15cd80d21f4a0c353a8ceb10b,False,1,368,20963,830,56.96467391304348,11369,11489,120,0.0,0.0,0.0,848454,111299,15937,3890,"e2e: use Ginkgo context
 
 All code must use the context from Ginkgo when doing API calls or polling for a
 change, otherwise the code would not return immediately when the test gets
-aborted."
+aborted.",1671218044
 863168e47497175fdbc2659218253cb3029500d9,False,1,1,240,240,240.0,34,206,172,0.0,0.9776119402985075,0.5373134328358209,2204,292,51,6,"e2e: stabilize Windows memory pressure eviction test
 
 - Add logic to wait until memory-pressure taint is cleared before running the test.
 
-This reduces test flakiness due to lingering node conditions between retries."
-a2e0beb44be971859a6b7f87b224aae2b6e2fab6,False,1,1,253,253,253.0,0,253,253,0.04145077720207254,1.0,1.0,1176,204,7,2,Adding reboot node testcase
+This reduces test flakiness due to lingering node conditions between retries.",1746548706
+a2e0beb44be971859a6b7f87b224aae2b6e2fab6,False,1,1,253,253,253.0,0,253,253,0.04145077720207254,1.0,1.0,1176,204,7,2,Adding reboot node testcase,1643034395
 8e5b959e1228c25a2df2301f80b22761460da6cf,False,1,3,34,24,11.333333333333334,14,20,6,1.0,1.0,1.0,2497,392,26,9,"windows-tests: Add retries to Windows `assertConsistentConnectivity` func
 
 Add retry logic to the `assertConsistentConnectivity` function from
 the `test/e2e/windows/hybrid_network.go` file.
 
-Signed-off-by: Ionut Balutoiu <ibalutoiu@cloudbasesolutions.com>"
+Signed-off-by: Ionut Balutoiu <ibalutoiu@cloudbasesolutions.com>",1698678905
 dfdf88d4faafa6fd39988832ea0ef6d668f490e9,False,1,125,1199,248,9.592,715,822,107,,,,331793,43379,5987,243,"e2e: adapt to moved code
 
 This is the result of automatically editing source files like this:
@@ -112,20 +112,20 @@ for i in ""$@""; do
     sed -i -e '/""k8s.io.kubernetes.test.e2e.framework""/a e2epod ""k8s.io/kubernetes/test/e2e/framework/pod""' ""$i""
     sed -i -e '/""k8s.io.kubernetes.test.e2e.framework""/a e2eproviders ""k8s.io/kubernetes/test/e2e/framework/providers""' ""$i""
     goimports -w ""$i""
-done"
+done",1665037187
 693e1299a6a75ffe358c41626532cdf2567c267b,False,1,2,131,92,65.5,14,815,801,0.20588235294117646,0.803921568627451,0.9640522875816994,3615,540,117,8,"Fix rollout history bug
 
 Fix rollout history bug where the latest revision was
 always shown when requesting a specific revision and
 specifying an output.
 
-Add unit and integration tests for rollout history."
-c7102ee5dc42ac8ee38b76ecf56e3a18d3a42180,False,1,5,142,106,28.4,168,304,136,0.0,0.8581560283687943,0.7588652482269503,9863,1192,241,19,Implement autoscaling/v2beta2 features in HPA controller
-05565ff7e5f6ab91abf983ade9182e4994638676,False,1,1,114,114,114.0,5,172,167,0.0,0.427536231884058,0.6304347826086957,1630,222,46,2,CustomMetrics in HPA controller
+Add unit and integration tests for rollout history.",1657751225
+c7102ee5dc42ac8ee38b76ecf56e3a18d3a42180,False,1,5,142,106,28.4,168,304,136,0.0,0.8581560283687943,0.7588652482269503,9863,1192,241,19,Implement autoscaling/v2beta2 features in HPA controller,1535382472
+05565ff7e5f6ab91abf983ade9182e4994638676,False,1,1,114,114,114.0,5,172,167,0.0,0.427536231884058,0.6304347826086957,1630,222,46,2,CustomMetrics in HPA controller,1454330745
 c99d505001e5d0ed80ab23ad361783bfcd9f3aff,False,1,3,94,60,31.333333333333332,23,307,284,0.04395604395604396,0.9487179487179487,0.8608058608058609,38651,4813,1102,4,"Added functionality to use target average value for object metrics
 
-Signed-off-by: Arjun Naik <arjun.rn@gmail.com>"
-01b553145c510ebc55df356b3ea3e07b02eaa56e,False,1,3,118,82,39.333333333333336,73,73,0,,,,10835,1323,288,14,requested changes: fix return type variables
+Signed-off-by: Arjun Naik <arjun.rn@gmail.com>",1548273605
+01b553145c510ebc55df356b3ea3e07b02eaa56e,False,1,3,118,82,39.333333333333336,73,73,0,,,,10835,1323,288,14,requested changes: fix return type variables,1663837142
 7846827fc0f4f3b61ce93499ed379831b2ab7244,False,1,4,520,367,130.0,407,428,21,0.0,1.0,0.0,5705,731,159,34,"Convert HPA controller to use autoscaling/v2alpha1
 
 This commit converts the HPA controller over to using the new version of
@@ -136,7 +136,7 @@ scale client will return an error on attempts to get object metrics
 implemented).
 
 This also enables the HPA object in v2alpha1 as a retrievable API
-version by default."
+version by default.",1487275394
 f794c8bcd40ad1e322e75d8bd9a999673aebada5,False,1,2,4,3,2.0,1,10,9,0.0,0.0,1.0,9207,823,34,1,"plugin: add bootstrap policy for external metrics
 
 Since external metrics were added, we weren't running the HPA with
@@ -147,9 +147,9 @@ This change adds permissions for the HPA controller to list and get
 external.metrics.k8s.io by default as already done for the
 custom.metrics.k8s.io API.
 
-Signed-off-by: Damien Grisonnet <dgrisonn@redhat.com>"
-e701cb020533d657850738e74df8b9147a3caef0,False,1,12,192,86,16.0,3,283,280,0.2857142857142857,0.7523809523809524,0.9428571428571428,18819,2635,390,18,"Enabling the EndpointSliceMirroring controller, adding related config"
-850bc09e9b78e49ec2459515379ae042a142e5c9,False,1,15,198,31,13.2,154,85,-69,1.0,1.0,0.1702127659574468,55653,7435,1791,21,clean up codes after PodDisruptionConditions was promoted to GA and locked to default
+Signed-off-by: Damien Grisonnet <dgrisonn@redhat.com>",1628523214
+e701cb020533d657850738e74df8b9147a3caef0,False,1,12,192,86,16.0,3,283,280,0.2857142857142857,0.7523809523809524,0.9428571428571428,18819,2635,390,18,"Enabling the EndpointSliceMirroring controller, adding related config",1594064614
+850bc09e9b78e49ec2459515379ae042a142e5c9,False,1,15,198,31,13.2,154,85,-69,1.0,1.0,0.1702127659574468,55653,7435,1791,21,clean up codes after PodDisruptionConditions was promoted to GA and locked to default,1720665621
 6a6771b514f5c6abdb638600f8d85214702a2f7d,False,1,10,511,381,51.1,187,411,224,0.5151515151515151,1.0,0.8106060606060606,17716,2528,343,32,"svm: set UID and RV on SSA patch to cause conflict on logical create
 
 When a resource gets deleted during migration, the SVM SSA patch
@@ -194,37 +194,37 @@ Test changes:
 7. Better logs during CRD migration
 8. Scan audit logs to confirm SVM controller never creates
 
-Signed-off-by: Monis Khan <mok@microsoft.com>"
-092714ea0fab9960f6ac452f49f2576d677f1f9e,False,1,35,1737,327,49.628571428571426,1100,1317,217,0.09345794392523364,0.0,0.8037383177570093,59264,7704,1592,183,switch rbac to external
-e6e026f1ad76c2a674886f5545b8a53bfe9aa6ef,False,1,1,2,2,2.0,1,2,1,,,,4242,335,16,1,Allow pod-garbage-collector to get nodes
-75f6c249235b40b24e9ea1efdb1ff81dd76a8d68,False,1,31,2179,343,70.29032258064517,562,3852,3290,0.2999461497038234,0.7980613893376414,0.7506731287022078,33433,4511,708,101,Adding EndpointSlice controller
+Signed-off-by: Monis Khan <mok@microsoft.com>",1721337551
+092714ea0fab9960f6ac452f49f2576d677f1f9e,False,1,35,1737,327,49.628571428571426,1100,1317,217,0.09345794392523364,0.0,0.8037383177570093,59264,7704,1592,183,switch rbac to external,1526991425
+e6e026f1ad76c2a674886f5545b8a53bfe9aa6ef,False,1,1,2,2,2.0,1,2,1,,,,4242,335,16,1,Allow pod-garbage-collector to get nodes,1571842478
+75f6c249235b40b24e9ea1efdb1ff81dd76a8d68,False,1,31,2179,343,70.29032258064517,562,3852,3290,0.2999461497038234,0.7980613893376414,0.7506731287022078,33433,4511,708,101,Adding EndpointSlice controller,1567052007
 f3ab9550180a57e693105f77e8eba1fa00499fe2,False,1,2,55,29,27.5,15,393,378,0.05714285714285714,0.8171428571428572,0.9885714285714285,7309,695,160,7,"validation: Handle presence of api introduced
 
 When the StatefulSetMinReadySeconds feature gate is disabled,
 the registry and validation must properly handle dropping the
-minReadySeconds and AvailableReplicas fields"
-7b3d77a41af88083ba14ffe2cc8ad3a66010c43b,False,1,30,1989,498,66.3,507,1804,1297,0.3532796317606444,0.5431530494821634,0.9344073647871116,503326,104862,9804,115,"Adding implementation of KEP-3335, StatefulSetSlice"
-2a0ef026b6b4a6d14660113fcfeab19ed2bd1cfa,False,1,1,20,20,20.0,13,7,-6,1.0,0.0,0.0,6106,535,126,1,deepcopy statefulsets
-da9387131e64bf9ffecd33c5044d4e96ab310311,False,1,18,9592,4408,532.8888888888889,5073,6181,1108,0.452755905511811,0.4468503937007874,0.937007874015748,53343,6586,1457,424,prune internal clients from kubectl describer
-aaf1fb50f32466aa5e845ff423fc4acc8f04c402,False,1,2,78,45,39.0,9,154,145,0.29069767441860467,0.6046511627906976,0.9302325581395349,1579,305,52,5,Add --for=create option to kubectl wait
-ba160f6ed3f81f6dbe2c1dd5d0cdce6048812130,False,1,1,31,31,31.0,0,31,31,0.04,1.0,1.0,1551,168,22,2,test/apimachinery/watchlist: add scenario for dynamic client's List method
-48014bd7bdc331efea509a752694393ac929f270,False,1,1,70,70,70.0,0,147,147,0.47619047619047616,1.0,1.0,197,31,2,2,client-go/util/consistencydetector: add CheckListFromCacheDataConsistencyIfRequested
+minReadySeconds and AvailableReplicas fields",1621987398
+7b3d77a41af88083ba14ffe2cc8ad3a66010c43b,False,1,30,1989,498,66.3,507,1804,1297,0.3532796317606444,0.5431530494821634,0.9344073647871116,503326,104862,9804,115,"Adding implementation of KEP-3335, StatefulSetSlice",1667922480
+2a0ef026b6b4a6d14660113fcfeab19ed2bd1cfa,False,1,1,20,20,20.0,13,7,-6,1.0,0.0,0.0,6106,535,126,1,deepcopy statefulsets,1615215806
+da9387131e64bf9ffecd33c5044d4e96ab310311,False,1,18,9592,4408,532.8888888888889,5073,6181,1108,0.452755905511811,0.4468503937007874,0.937007874015748,53343,6586,1457,424,prune internal clients from kubectl describer,1542298270
+aaf1fb50f32466aa5e845ff423fc4acc8f04c402,False,1,2,78,45,39.0,9,154,145,0.29069767441860467,0.6046511627906976,0.9302325581395349,1579,305,52,5,Add --for=create option to kubectl wait,1720440446
+ba160f6ed3f81f6dbe2c1dd5d0cdce6048812130,False,1,1,31,31,31.0,0,31,31,0.04,1.0,1.0,1551,168,22,2,test/apimachinery/watchlist: add scenario for dynamic client's List method,1721037362
+48014bd7bdc331efea509a752694393ac929f270,False,1,1,70,70,70.0,0,147,147,0.47619047619047616,1.0,1.0,197,31,2,2,client-go/util/consistencydetector: add CheckListFromCacheDataConsistencyIfRequested,1716967572
 56a25d8c5f04ec5401b99c8eb29e980b1e8123d3,False,1,8,189,37,23.625,99,90,-9,1.0,0.2,0.0,11748,1695,350,17,"Ensure all response object modification happens in one place
 
 Make setLink and setListLink the same, and make them happen in transformResponseObject.
 Make those methods also responsible for ensuring an empty list. Then move outputMediaType
 negotiation before all other calls in the specific methods, to ensure we fail fast.
 
-Refactoring in preparation to support type conversion on watch."
+Refactoring in preparation to support type conversion on watch.",1543458866
 8fede0b18a81a6fb1acc1a48857f482857c25286,False,1,10,164,26,16.4,87,82,-5,1.0,0.75,0.0,25899,3679,738,58,"Make RequestScope be a pointer consistently for better memory use
 
 RequestScope is a large struct and causes stack growth when we pass
 it by value into multiple stack levels. Avoid the allocations for
-this read only struct by passing a pointer."
-951d325111729c3b7428fa514f42b3e763d24ddb,False,1,1,57,57,57.0,21,36,15,1.0,1.0,1.0,1238,142,20,9,test/apimachinery/watchlist: move common functionality to separate functions
-66bda6c0920798e1b6377db1332a83080c99b909,False,1,8,221,109,27.625,184,329,145,0.03361344537815126,0.4789915966386555,0.5210084033613446,17334,2239,550,59,deployment controller: use contextual logging
-7eeb71f6986b08cb6fc0cd362bc43b5395aafbfd,False,1,67,3132,200,46.74626865671642,4153,4380,227,0.852760736196319,0.8957055214723927,0.8773006134969326,122491,17796,3864,767,cmd/kube-controller-manager
-eec08872c73b5a39d48e17ed67f4c8a5c0ea84a9,False,1,12,590,272,49.166666666666664,309,290,-19,,,,64606,8515,1989,43,Move deployment utilities to there own package
+this read only struct by passing a pointer.",1553699382
+951d325111729c3b7428fa514f42b3e763d24ddb,False,1,1,57,57,57.0,21,36,15,1.0,1.0,1.0,1238,142,20,9,test/apimachinery/watchlist: move common functionality to separate functions,1721037362
+66bda6c0920798e1b6377db1332a83080c99b909,False,1,8,221,109,27.625,184,329,145,0.03361344537815126,0.4789915966386555,0.5210084033613446,17334,2239,550,59,deployment controller: use contextual logging,1678705244
+7eeb71f6986b08cb6fc0cd362bc43b5395aafbfd,False,1,67,3132,200,46.74626865671642,4153,4380,227,0.852760736196319,0.8957055214723927,0.8773006134969326,122491,17796,3864,767,cmd/kube-controller-manager,1479945189
+eec08872c73b5a39d48e17ed67f4c8a5c0ea84a9,False,1,12,590,272,49.166666666666664,309,290,-19,,,,64606,8515,1989,43,Move deployment utilities to there own package,1467964016
 99151c39b7d4595632f7745ba7fb4dea4356f7fd,False,1,18,257,85,14.277777777777779,129,135,6,0.0,0.0,0.0,36361,5182,1061,72,"kube-controller-manager: convert to structured logging
 
 Most of the individual controllers were already converted earlier. Some log
@@ -234,28 +234,28 @@ get updated here to fill those gaps.
 Adding of the name to the logger used by each controller gets
 consolidated in this commit. By using the name under which the
 controller is registered we ensure that the names in the log
-are consistent."
-5fa640490e272589ec69e32a37f5ea611669eb13,False,1,7,2042,1541,291.7142857142857,998,1059,61,0.5645161290322581,0.8387096774193549,1.0,65075,12389,2959,34,rewrite serivce controller to apply the latest controller pattern
-55d5df8a3622783770e7d3a0a580832844da5122,False,1,13,476,146,36.61538461538461,1011,930,-81,0.6226415094339622,0.0,0.018867924528301886,25712,4400,731,46,React to moves
-8cadd185d67e84dd186728669d6e72e9e415db70,False,1,3,173,103,57.666666666666664,122,610,488,0.024943310657596373,0.6485260770975056,0.9160997732426304,3415,536,106,15,Adds --prefix flag to the kubectl log command
-968adfa99362f733ef82f4aabb34a59dbbd6e56a,False,1,31,105,9,3.3870967741935485,99,83,-16,0.5416666666666666,0.08333333333333333,0.08333333333333333,55959,7808,1350,41,cleanup req.Context() and ResponseWrapper
+are consistent.",1678817792
+5fa640490e272589ec69e32a37f5ea611669eb13,False,1,7,2042,1541,291.7142857142857,998,1059,61,0.5645161290322581,0.8387096774193549,1.0,65075,12389,2959,34,rewrite serivce controller to apply the latest controller pattern,1470274135
+55d5df8a3622783770e7d3a0a580832844da5122,False,1,13,476,146,36.61538461538461,1011,930,-81,0.6226415094339622,0.0,0.018867924528301886,25712,4400,731,46,React to moves,1538844245
+8cadd185d67e84dd186728669d6e72e9e415db70,False,1,3,173,103,57.666666666666664,122,610,488,0.024943310657596373,0.6485260770975056,0.9160997732426304,3415,536,106,15,Adds --prefix flag to the kubectl log command,1571062392
+968adfa99362f733ef82f4aabb34a59dbbd6e56a,False,1,31,105,9,3.3870967741935485,99,83,-16,0.5416666666666666,0.08333333333333333,0.08333333333333333,55959,7808,1350,41,cleanup req.Context() and ResponseWrapper,1580316645
 e5b655938e55e0404545ff73e9239593a27a3272,False,1,2,454,451,227.0,1,685,684,0.2706422018348624,0.591743119266055,0.7958715596330275,2536,373,72,18,"Add kubectl debug alpha command
 
 This first version of `kubectl alpha debug` is an import of the existing
 kubectl-debug plugin, which supports adding ephemeral containers to
 running pods. This attempts to follow patterns used by other kubectl
-commands such as run, exec and scale."
+commands such as run, exec and scale.",1583346004
 2a230cc119379bcf8aa50c070f955dc1a5b81bca,False,1,3,99,87,33.0,55,367,312,0.27007299270072993,0.8503649635036497,0.9890510948905109,2573,420,75,12,"Allows to read from multiple logs simultaneously
 
-Which makes possible to combile the `-f` and `-l` flags in kubectl logs"
+Which makes possible to combile the `-f` and `-l` flags in kubectl logs",1547992222
 f5b0d728c59fbcca571e4a21ca2f473149e72f03,False,1,1,26,26,26.0,13,13,0,,,,4704,677,140,8,"kubectl debug: Use restClientGetter instead cmd.Factory
 
 As the move towards using `restClientGetter` interface instead
-gigantic `cmd.Factory`, this PR does that change."
+gigantic `cmd.Factory`, this PR does that change.",1676283456
 7d22e642845fb0b87c5ef0157473ea3540b64fd8,False,1,2,13,7,6.5,9,82,73,0.0,0.0,1.0,2042,290,78,4,"StatefulSet should not launch Pod i, if a Pod in the sequence [0,i) has its
 DeletionTimestamp set. Fixes 44229.
 Rename isTerminated to isTerminating
-Adds a test case for at the unit level to prevent regression"
+Adds a test case for at the unit level to prevent regression",1492789101
 4d99b4d825a74f7f22f1709e580574b70fe796d9,False,1,10,2034,327,203.4,2122,2754,632,0.24030172413793102,0.6454741379310345,0.8502155172413793,12724,1629,193,123,"StatefulSet refactoring and semantics fix
 
 1. pcb and pcb controller are removed and their functionality is
@@ -271,12 +271,12 @@ their ordinal indices, as is outlined in the documentation.
 4. StatefulSetController now checks to see if the Pods matching a
 StatefulSet's Selector also match the Name of the StatefulSet. This will
 make the controller resilient to overlapping, and will be enhanced by
-the addition of ControllerRefs."
-e07d898cfd203502792f9c2d1f30b0cdc3be773a,False,1,2,33,28,16.5,22,79,57,0.0,0.6097560975609756,0.6341463414634146,7600,1070,309,2,Make StatefulSet restart pods with phase Succeeded
-fc738cbb1d1aec9bff8e1d42a2a0684a439c1f92,False,1,31,217,32,7.0,111,110,-1,,,,98223,13457,2507,79,unify alias of api errors under test
-2fb472c83cd311a6298f5b353a2e9f2cc6deaf63,False,1,2,398,381,199.0,168,230,62,0.8292682926829268,0.8292682926829268,0.4634146341463415,7104,1003,291,9,Refactor StatefulSet controller update logic
-c2d41fda6c47af1c776373133a86797950a0ac13,False,1,3,78,54,26.0,45,33,-12,0.0,0.0,1.0,2807,366,74,13,remove unused code and use framework
-f6af1904cd0e017c6181c23d41e1281fd4a9b198,False,1,2,11,10,5.5,6,16,10,0.2,0.6,0.4,4428,703,153,4,Make StatefulSet report an event when recreating failed pod
+the addition of ControllerRefs.",1486658548
+e07d898cfd203502792f9c2d1f30b0cdc3be773a,False,1,2,33,28,16.5,22,79,57,0.0,0.6097560975609756,0.6341463414634146,7600,1070,309,2,Make StatefulSet restart pods with phase Succeeded,1698327241
+fc738cbb1d1aec9bff8e1d42a2a0684a439c1f92,False,1,31,217,32,7.0,111,110,-1,,,,98223,13457,2507,79,unify alias of api errors under test,1577349645
+2fb472c83cd311a6298f5b353a2e9f2cc6deaf63,False,1,2,398,381,199.0,168,230,62,0.8292682926829268,0.8292682926829268,0.4634146341463415,7104,1003,291,9,Refactor StatefulSet controller update logic,1687256065
+c2d41fda6c47af1c776373133a86797950a0ac13,False,1,3,78,54,26.0,45,33,-12,0.0,0.0,1.0,2807,366,74,13,remove unused code and use framework,1578147844
+f6af1904cd0e017c6181c23d41e1281fd4a9b198,False,1,2,11,10,5.5,6,16,10,0.2,0.6,0.4,4428,703,153,4,Make StatefulSet report an event when recreating failed pod,1510226617
 89bb7d845415206a25b6676eba99a95b6d94af94,False,1,1,35,35,35.0,15,75,60,0.32653061224489793,0.24489795918367346,0.30612244897959184,2416,393,91,3,"Honor the RevisionHistoryLimit in StatefulSetSpec
 
 The StatefulSet controller cleans up ControllerRevisions at the end of
@@ -284,90 +284,90 @@ the reconcile loop. If something goes wrong during reconcile, it bails
 out without actually performing this step. This commit moves the cleanup
 to a deferred function call to guarantee it will be executed.
 
-Fixes issue: https://github.com/kubernetes/kubernetes/issues/85690"
-41fcb95f2f346fc1f6e731da6fb35d5e98fb51aa,False,1,18,498,72,27.666666666666668,375,404,29,0.15384615384615385,0.15384615384615385,0.0,47279,6554,1527,170,Wire contexts to Apps controllers
-aba725a391d5c885354535d3cd5c01ae92d53ce1,False,1,16,205,44,12.8125,152,200,48,0.0,0.0,0.0,42877,5784,1039,44,Promote SS to apps/v1
-032dde8754856ba161a69636d6db9e156c1456b9,False,1,14,2292,895,163.71428571428572,1133,1213,80,0.48717948717948717,0.07692307692307693,0.0,32679,4141,628,129,Refactor statefulset e2e tests
+Fixes issue: https://github.com/kubernetes/kubernetes/issues/85690",1582051358
+41fcb95f2f346fc1f6e731da6fb35d5e98fb51aa,False,1,18,498,72,27.666666666666668,375,404,29,0.15384615384615385,0.15384615384615385,0.0,47279,6554,1527,170,Wire contexts to Apps controllers,1634157133
+aba725a391d5c885354535d3cd5c01ae92d53ce1,False,1,16,205,44,12.8125,152,200,48,0.0,0.0,0.0,42877,5784,1039,44,Promote SS to apps/v1,1516263532
+032dde8754856ba161a69636d6db9e156c1456b9,False,1,14,2292,895,163.71428571428572,1133,1213,80,0.48717948717948717,0.07692307692307693,0.0,32679,4141,628,129,Refactor statefulset e2e tests,1561433638
 1b55f57391f5a648b1f9859118a2d1fef7017ffe,False,1,15,1636,490,109.06666666666666,443,4784,4341,0.34185185185185185,0.4937037037037037,0.8503703703703703,32140,4339,785,76,"Implements StatefulSet update
 Implements history utilities for ControllerRevision in the controller/history package
 StatefulSetStatus now has additional fields for consistency with DaemonSet and Deployment
-StatefulSetStatus.Replicas now represents the current number of createdPods and StatefulSetStatus.ReadyReplicas is the current number of ready Pods"
-f6a186b1e1e952009fde9e500823cd51da7d3545,False,1,7,260,119,37.142857142857146,313,520,207,0.0,0.0,0.7829457364341085,12674,1635,321,20,Switch statefulset controller to shared informers
-63e5b6bdb24c44872621874cfcbbe3423f8a525e,False,1,1,96,96,96.0,21,100,79,0.4,0.8461538461538461,0.2923076923076923,4130,581,148,6,Parallel StatefulSet pod create & delete
-214bb8e57370c0b1341213c7c5a5f9ad809d0199,False,1,1,10,10,10.0,5,5,0,0.0,0.0,0.0,1830,204,47,6,Remove a closure function in statefulset e2e
+StatefulSetStatus.Replicas now represents the current number of createdPods and StatefulSetStatus.ReadyReplicas is the current number of ready Pods",1496775628
+f6a186b1e1e952009fde9e500823cd51da7d3545,False,1,7,260,119,37.142857142857146,313,520,207,0.0,0.0,0.7829457364341085,12674,1635,321,20,Switch statefulset controller to shared informers,1487771631
+63e5b6bdb24c44872621874cfcbbe3423f8a525e,False,1,1,96,96,96.0,21,100,79,0.4,0.8461538461538461,0.2923076923076923,4130,581,148,6,Parallel StatefulSet pod create & delete,1687256121
+214bb8e57370c0b1341213c7c5a5f9ad809d0199,False,1,1,10,10,10.0,5,5,0,0.0,0.0,0.0,1830,204,47,6,Remove a closure function in statefulset e2e,1677123013
 53b3a6c1d9b6ae42106b263889b641b529c18655,False,1,1,249,249,249.0,517,2040,1523,0.11380880121396054,0.26327769347496205,0.7481031866464339,14521,1554,126,2,"controller change for statefulset auto-delete (tests)
 
-Change-Id: I16b50e6853bba65fc89c793d2b9b335581c02407"
+Change-Id: I16b50e6853bba65fc89c793d2b9b335581c02407",1637196530
 20d45af6943f946bf92b81338a555a4a5745ea9a,False,1,1,2,2,2.0,230,220,-10,1.0,0.6744186046511628,0.0,1351,186,48,1,"Combine statefulset burst and monotonic scaling tests
 
-Use subtests to avoid duplicating entire suite of control logic."
+Use subtests to avoid duplicating entire suite of control logic.",1495343670
 379676c4bef48e5d2add28851302b55b41fcabcf,False,1,22,432,147,19.636363636363637,282,731,449,0.33505154639175255,0.9175257731958762,1.0,33385,5143,949,60,"add DefaultComponentGlobalsRegistry flags in ServerRunOptions
 
-Signed-off-by: Siyuan Zhang <sizhang@google.com>"
-b2831a686c31b5db72f3106b3688f00c40ba1b00,False,1,3,661,333,220.33333333333334,348,391,43,,,,1540,241,45,27,move generic feature gate code from k8s.io/apiserver to k8s.io/component-base
+Signed-off-by: Siyuan Zhang <sizhang@google.com>",1719353531
+b2831a686c31b5db72f3106b3688f00c40ba1b00,False,1,3,661,333,220.33333333333334,348,391,43,,,,1540,241,45,27,move generic feature gate code from k8s.io/apiserver to k8s.io/component-base,1557323935
 4352c4ad2762ce49ce30e62381f8ceb24723fbcc,False,1,15,635,229,42.333333333333336,409,853,444,0.23482849604221637,0.49340369393139843,0.17678100263852242,30072,4676,900,76,"Add version mapping in ComponentGlobalsRegistry.
 
-Signed-off-by: Siyuan Zhang <sizhang@google.com>"
+Signed-off-by: Siyuan Zhang <sizhang@google.com>",1719353531
 403301bfdf2c7312591077827abd2e72f445a53a,False,1,53,1491,388,28.132075471698112,421,3414,2993,0.19817767653758542,0.7544419134396355,0.9416856492027335,79883,12113,2140,160,"apiserver: Add API emulation versioning.
 
 Co-authored-by: Siyuan Zhang <sizhang@google.com>
 Co-authored-by: Joe Betz <jpbetz@google.com>
 Co-authored-by: Alex Zielenski <zielenski@google.com>
 
-Signed-off-by: Siyuan Zhang <sizhang@google.com>"
-ba6b4c5a18c455867f11036a7208962e84012a86,False,1,1,11,11,11.0,11,54,43,1.0,1.0,1.0,1573,243,48,1,PodSecurity: test GA-only cases and alpha/beta fields separately
+Signed-off-by: Siyuan Zhang <sizhang@google.com>",1719353531
+ba6b4c5a18c455867f11036a7208962e84012a86,False,1,1,11,11,11.0,11,54,43,1.0,1.0,1.0,1573,243,48,1,PodSecurity: test GA-only cases and alpha/beta fields separately,1625105291
 701e5fc3744c2b21ba5b1ca3399b71c9becf06d0,False,1,17,351,151,20.647058823529413,145,521,376,0.15501519756838905,0.7720364741641338,0.9908814589665653,22439,3349,538,42,"Add composition flags for emulation version and feature gate.
 
-Signed-off-by: Siyuan Zhang <sizhang@google.com>"
+Signed-off-by: Siyuan Zhang <sizhang@google.com>",1719353531
 46d0e1d5aaad03d0b8bbfa07874b3de5fa5da76e,False,1,1,43,43,43.0,0,181,181,0.31901840490797545,0.558282208588957,1.0,1823,278,57,1,"Support overrides for registered feature defaults.
 
 This is to support the goal of enabling a feature by default for a single component only when the
 feature in question is consumed by multiple components.
 
-Overriden defaults are reflected in KnownFeatures and registered flag text."
+Overriden defaults are reflected in KnownFeatures and registered flag text.",1705073122
 74f8e4dd51907f765dd68bd6f131b8585d81dedd,False,1,1,153,153,153.0,47,586,539,0.0,0.984,0.946,4568,688,162,9,"add allOf support into CEL validator
 
 preserve errors for additionalProperties and xvalidations so the API surface stays the same
 
-Once this has had some soak time we can allow CRDs to use these abilities"
-83e4d192b136ac3a28ea26a9d09dc9fee7c6b665,False,1,4,274,180,68.5,33,1386,1353,0.0946938775510204,0.88,0.966530612244898,8336,1382,286,17,Add maxLength/maxItems/maxProperties support to cel.Compile.
-d281e2542649b35ca7105a5bfc23ae58e42b77d8,False,1,1,216,216,216.0,118,191,73,0.0,0.05555555555555555,0.9722222222222222,4293,520,131,5,Optimize cronjob controller status updates
-78f51f8fa57eb431912c0cc03a06bafacebf3b48,False,1,5,96,29,19.2,94,84,-10,0.5,0.0,0.0,9526,1173,273,48,Switch cronjob controller to batch/v1
-8d7dd4415e28bded77667ce857e1c58016f9ab3a,False,1,8,874,648,109.25,4,1616,1612,0.14173228346456693,0.4479440069991251,0.9492563429571304,16203,1934,310,36,add cronjob_controllerv2.go
-c856c412b97c44383e000081bb47955319f7980e,False,1,6,80,25,13.333333333333334,178,246,68,0.0,1.0,1.0,24745,3053,765,15,Add util pkg to commonize job util functions
-98837de446fa4fbf441b69eb04da1ca5b66c2095,False,1,7,110,41,15.714285714285714,13,352,339,0.09818181818181818,0.09090909090909091,0.8909090909090909,9039,1154,226,7,TimeZone support for CronJobs
-d6ca5b8d14bb12f73e918a1f314fc98d1bb40a29,False,1,2,23,12,11.5,62,87,25,0.2727272727272727,0.2727272727272727,1.0,5416,667,149,3,"handle the case for slow cronjob lister, add unit tests"
-e394364cbd1d5ace0f9cfcf10fa2bc458076d1a4,False,1,1,189,189,189.0,1,4155,4154,0.12025316455696203,0.95042194092827,0.9810126582278481,1152,183,48,15,add plaintext template
+Once this has had some soak time we can allow CRDs to use these abilities",1715890443
+83e4d192b136ac3a28ea26a9d09dc9fee7c6b665,False,1,4,274,180,68.5,33,1386,1353,0.0946938775510204,0.88,0.966530612244898,8336,1382,286,17,Add maxLength/maxItems/maxProperties support to cel.Compile.,1647380376
+d281e2542649b35ca7105a5bfc23ae58e42b77d8,False,1,1,216,216,216.0,118,191,73,0.0,0.05555555555555555,0.9722222222222222,4293,520,131,5,Optimize cronjob controller status updates,1643274587
+78f51f8fa57eb431912c0cc03a06bafacebf3b48,False,1,5,96,29,19.2,94,84,-10,0.5,0.0,0.0,9526,1173,273,48,Switch cronjob controller to batch/v1,1614949414
+8d7dd4415e28bded77667ce857e1c58016f9ab3a,False,1,8,874,648,109.25,4,1616,1612,0.14173228346456693,0.4479440069991251,0.9492563429571304,16203,1934,310,36,add cronjob_controllerv2.go,1605047526
+c856c412b97c44383e000081bb47955319f7980e,False,1,6,80,25,13.333333333333334,178,246,68,0.0,1.0,1.0,24745,3053,765,15,Add util pkg to commonize job util functions,1715074066
+98837de446fa4fbf441b69eb04da1ca5b66c2095,False,1,7,110,41,15.714285714285714,13,352,339,0.09818181818181818,0.09090909090909091,0.8909090909090909,9039,1154,226,7,TimeZone support for CronJobs,1648503180
+d6ca5b8d14bb12f73e918a1f314fc98d1bb40a29,False,1,2,23,12,11.5,62,87,25,0.2727272727272727,0.2727272727272727,1.0,5416,667,149,3,"handle the case for slow cronjob lister, add unit tests",1605138537
+e394364cbd1d5ace0f9cfcf10fa2bc458076d1a4,False,1,1,189,189,189.0,1,4155,4154,0.12025316455696203,0.95042194092827,0.9810126582278481,1152,183,48,15,add plaintext template,1667451054
 f9e19fc83eb2fe177c77756e9845a9b5724e73e1,False,1,1,55636,55636,55636.0,12,55637,55625,0.003721424774056353,1.0,1.0,261562,54559,1053,1053,"Add the last zz_generated.openapi.go file
 
-We had 4 of 5 checked in."
-6ff5f06ec5c7040a449abdfbcdfe6b1856f40751,False,1,2,26,15,13.0,0,26,26,,,,7823,2619,0,0,add HostAliases field to PodSpec to support adding entries into hosts file
+We had 4 of 5 checked in.",1646072274
+6ff5f06ec5c7040a449abdfbcdfe6b1856f40751,False,1,2,26,15,13.0,0,26,26,,,,7823,2619,0,0,add HostAliases field to PodSpec to support adding entries into hosts file,1493441034
 455baadc4085c2577c29ebf1a5c16ab8b95f1cb8,False,1,9,502,394,55.77777777777778,2132,2131,-1,,,,11824,2554,271,0,"Autogenerated files
 
-Signed-off-by: Ahmet Alp Balkan <ahmetb@google.com>"
+Signed-off-by: Ahmet Alp Balkan <ahmetb@google.com>",1494882930
 d743c50bb9e663809e0129ee058fabdcf59d3d27,False,1,8,2663,2134,332.875,171,2604,2433,0.31565906838453917,0.44103072348860256,0.9554013875123885,25722,3871,812,153,"kubelet: support batched prepare/unprepare in v1alpha3 DRA plugin API
 
 Combining all prepare/unprepare operations for a pod enables plugins to
 optimize the execution. Plugins can continue to use the v1beta2 API for now,
 but should switch. The new API is designed so that plugins which want to work
 on each claim one-by-one can do so and then report errors for each claim
-separately, i.e. partial success is supported."
-2db4dea56544cf1c2aaea4f4af10636f7ae2f8e4,False,1,6,38,18,6.333333333333333,19,19,0,,,,16415,2412,542,10,use klog.InfoS instead of klog.V(0).InfoS
-4962e6eacb95e052b1ee85379308ee07ac14ac44,False,1,6,112,62,18.666666666666668,128,168,40,0.0,1.0,0.6470588235294118,33327,4868,934,12,Squash detectNodeIP and nodeIPTuple together
-0cd75e8fec62a2531637e80bb950ac9983cac1b0,False,1,94,738,60,7.851063829787234,988,1071,83,,,,338085,46992,10329,175,run hack/update-netparse-cve.sh
-d5d9327351de99e6068f62efb388a6ede38d944e,False,1,4,242,139,60.5,79,215,136,0.33035714285714285,0.7410714285714286,1.0,14512,2305,449,14,Only use dualstack if the node and config supports it
-36eb250cbb441984260ded6f7abeb796974031c3,False,1,20,635,433,31.75,678,813,135,0.0,0.381294964028777,0.9784172661870504,48652,6323,1331,116,Switch TableGenerator/TableConvertor interfaces to metav1
+separately, i.e. partial success is supported.",1689166230
+2db4dea56544cf1c2aaea4f4af10636f7ae2f8e4,False,1,6,38,18,6.333333333333333,19,19,0,,,,16415,2412,542,10,use klog.InfoS instead of klog.V(0).InfoS,1661424394
+4962e6eacb95e052b1ee85379308ee07ac14ac44,False,1,6,112,62,18.666666666666668,128,168,40,0.0,1.0,0.6470588235294118,33327,4868,934,12,Squash detectNodeIP and nodeIPTuple together,1686098880
+0cd75e8fec62a2531637e80bb950ac9983cac1b0,False,1,94,738,60,7.851063829787234,988,1071,83,,,,338085,46992,10329,175,run hack/update-netparse-cve.sh,1629448929
+d5d9327351de99e6068f62efb388a6ede38d944e,False,1,4,242,139,60.5,79,215,136,0.33035714285714285,0.7410714285714286,1.0,14512,2305,449,14,Only use dualstack if the node and config supports it,1625769560
+36eb250cbb441984260ded6f7abeb796974031c3,False,1,20,635,433,31.75,678,813,135,0.0,0.381294964028777,0.9784172661870504,48652,6323,1331,116,Switch TableGenerator/TableConvertor interfaces to metav1,1574792298
 0fec7b0f7e2dfd4b0c6c57e086472546f6c69efa,False,1,31,4309,942,139.0,871,5591,4720,0.17062863180137347,0.41257263602746963,0.8993660855784469,243973,36629,7890,283,"Added functionality and API for pod autoscaling based on container resources
 
-Signed-off-by: Arjun Naik <anaik@redhat.com>"
-17740a285785568ad753d7477881e67bcef19517,False,1,2,68,34,34.0,170,316,146,0.0,0.0,1.0,44366,5215,1143,3,Update printers to include changes from autoscaling/v2beta2
+Signed-off-by: Arjun Naik <anaik@redhat.com>",1603307405
+17740a285785568ad753d7477881e67bcef19517,False,1,2,68,34,34.0,170,316,146,0.0,0.0,1.0,44366,5215,1143,3,Update printers to include changes from autoscaling/v2beta2,1535382472
 946ecb549e170fdb49897e93ad41513ae3a0deb6,False,1,3,131,76,43.666666666666664,21,858,837,0.0,0.9410994764397905,1.0,37229,4959,652,3,"Update kubectl to work with new HPA objects
 
 This commit updates kubectl to work with the changes to the unversioned
-HPA object made to support the HPA v2alpha1 API."
-1a41ed394d69dbbc9590d9228337e5bafb29929b,False,1,1,4,4,4.0,190,189,-1,,,,6946,871,206,1,convert pointer to ptr for sig-apps integration tests
-74fcf3e7668bd72cbe404975a51de07619d03ca3,False,1,3,68,38,22.666666666666668,40,379,339,0.2879746835443038,0.7721518987341772,0.9050632911392406,20643,2681,761,8,implementation of PodReplacementPolicy kep in the job controller
-b96a074bcdf4da0577f09f22c3c8b11fd8f519c1,False,1,2,20,16,10.0,214,214,0,,,,11749,1581,441,4,convert pointer to ptr for job controller
+HPA object made to support the HPA v2alpha1 API.",1486524328
+1a41ed394d69dbbc9590d9228337e5bafb29929b,False,1,1,4,4,4.0,190,189,-1,,,,6946,871,206,1,convert pointer to ptr for sig-apps integration tests,1697726138
+74fcf3e7668bd72cbe404975a51de07619d03ca3,False,1,3,68,38,22.666666666666668,40,379,339,0.2879746835443038,0.7721518987341772,0.9050632911392406,20643,2681,761,8,implementation of PodReplacementPolicy kep in the job controller,1689900293
+b96a074bcdf4da0577f09f22c3c8b11fd8f519c1,False,1,2,20,16,10.0,214,214,0,,,,11749,1581,441,4,convert pointer to ptr for job controller,1696512601
 e298aa39c3de8ad1059861b7f78d62005ca87f88,False,1,8,256,121,32.0,71,202,131,0.7887323943661971,0.6901408450704225,1.0,13812,1867,329,27,"Add a lazy discovery interface for Unstructured
 
 Delays the error until the first call and then preserves it for others.
@@ -375,22 +375,22 @@ More closely matches the intent of the Object() calls. Loaders are now
 lazy and don't need to return errors directly.
 
 Sets the stage for collapsing unstructured and structured builders
-together."
+together.",1511137010
 792ec603c0ac6891c4c547ce4cbefcc3101503d4,False,1,1,8,8,8.0,4,4,0,,,,328,64,17,4,"Reexport term.IsTerminal
 
-Reexport term.IsTerminal so downstream consumers (e.g. OpenShift) can use it."
+Reexport term.IsTerminal so downstream consumers (e.g. OpenShift) can use it.",1468513778
 3a29e3971bee3290434008850e909ee01c7fbe9a,False,1,6,348,118,58.0,107,243,136,0.9361702127659575,0.8723404255319149,0.9787234042553191,2639,446,95,16,"Improve terminal reuse and attach
 
 Currently attach and the editor do not share the same logic for saving
 and restoring the terminal, and are not suitable for nesting (when the
 caller wants to create something, attach, and then delete something when
 the attach is over).  This commit moves the interrupt protection logic
-to a util package and supports nesting interrupt handlers."
-876629f690d052da591b1203d80beb1bd5a4f78c,False,1,5,189,82,37.8,92,131,39,0.0,1.0,0.0,9583,1663,254,21,move ConfigFlags to pkg/kubectl/genericclioptions
-3cb7d25959665864ad21b19d17d5066c9cf94485,False,1,6,72,34,12.0,23,49,26,0.9473684210526315,1.0,1.0,13254,1990,390,10,push ToRESTMapper down a layer
-00c30941260a27e6929aef84c7fdbc8f1508518c,False,1,93,661,15,7.10752688172043,646,740,94,,,,133939,22671,4007,344,Migrate genericclioptions.IOStreams usage to genericiooptions
-97ec47ba551a0ac59a19dc5c5bb694c283fa8a72,False,1,1,1,1,1.0,1,27,26,0.0,0.9615384615384616,1.0,680,90,24,1,use containing API group when resolving shortname from discovery
-0d674c4edb3af80a5630223819d9203e43679ba5,False,1,4,65,27,16.25,1,72,71,0.5,0.6428571428571429,0.9285714285714286,9089,1652,245,7,"cmd: silence warnings in kube-controller-manager/kube-apiserver, dedupe/color warnings in kubectl"
+to a util package and supports nesting interrupt handlers.",1458619198
+876629f690d052da591b1203d80beb1bd5a4f78c,False,1,5,189,82,37.8,92,131,39,0.0,1.0,0.0,9583,1663,254,21,move ConfigFlags to pkg/kubectl/genericclioptions,1526484708
+3cb7d25959665864ad21b19d17d5066c9cf94485,False,1,6,72,34,12.0,23,49,26,0.9473684210526315,1.0,1.0,13254,1990,390,10,push ToRESTMapper down a layer,1525879106
+00c30941260a27e6929aef84c7fdbc8f1508518c,False,1,93,661,15,7.10752688172043,646,740,94,,,,133939,22671,4007,344,Migrate genericclioptions.IOStreams usage to genericiooptions,1680692866
+97ec47ba551a0ac59a19dc5c5bb694c283fa8a72,False,1,1,1,1,1.0,1,27,26,0.0,0.9615384615384616,1.0,680,90,24,1,use containing API group when resolving shortname from discovery,1516844314
+0d674c4edb3af80a5630223819d9203e43679ba5,False,1,4,65,27,16.25,1,72,71,0.5,0.6428571428571429,0.9285714285714286,9089,1652,245,7,"cmd: silence warnings in kube-controller-manager/kube-apiserver, dedupe/color warnings in kubectl",1591905859
 c4fbd35cf4bdc76b86dd74e468b69328f5aa20f9,False,1,1,6,6,6.0,2,4,2,,,,2181,365,49,2,"Fix default config flags
 
 This is a follow up to #105520 which only changed the new default config flags in the `NewKubectlCommand` function if `kubeConfigFlags == nil`. However they are not nil because they were initialized before here:
@@ -398,7 +398,7 @@ https://github.com/kubernetes/kubernetes/blob/2fe968deb6cef4feea5bd0eb435e71844e
 
 This fix uses the same defaults for both functions
 
-Signed-off-by: Jonny Langefeld <jonny.langefeld@gmail.com>"
+Signed-off-by: Jonny Langefeld <jonny.langefeld@gmail.com>",1639972799
 ad688d77619955f793b6989ba44f0ecca602ab46,False,1,2,206,141,103.0,42,202,160,0.046875,0.59375,1.0,2224,326,58,11,"ShortcutExpander has been extended in a way that it will examine a hardcoded list of tuples anticipated from the server when
 searching for an alternative name for the resource. Note that the list is ordered and the first match will yield the extended resource's name.
 
@@ -406,16 +406,16 @@ One important thing to highlight is that the ShortcutExpander will fall back to 
 the resource. Also this PR introduces a new shortcut namely sc which will resolve to storageclasses within storage.k8s.io group
 
 In addition the type of kubectl.ShortForms has been changed to ResourceShortcuts struct. It has got a brand new name,
-it was also extended and ordered by group."
-f7d1eb7726fa511b6439b7f8162138742ac639ab,False,1,1,13,13,13.0,1,93,92,0.38028169014084506,1.0,1.0,831,118,33,1,restmapper: re-try shortcut expander after not-found error
+it was also extended and ordered by group.",1482424192
+f7d1eb7726fa511b6439b7f8162138742ac639ab,False,1,1,13,13,13.0,1,93,92,0.38028169014084506,1.0,1.0,831,118,33,1,restmapper: re-try shortcut expander after not-found error,1653908962
 77b0547b3df009ea09de39e76de03f5705e235dd,False,1,8,235,106,29.375,131,283,152,0.0703125,0.1015625,0.953125,6692,1087,232,19,"Fix Windows terminal handling
 
 Fix some issues with Windows terminal handling with respect to TTYs that came up as part of the
-code that adds support for terminal resizing."
-dd97a7bc59c913c71730dba8b8de274820466417,False,1,11,89,24,8.090909090909092,101,240,139,1.0,1.0,1.0,30575,4669,767,20,move client based restmappers to client-go
-8ad6fd6ddbf6a8e0f2cdca17583af38cf30c2bb2,False,1,4,268,227,67.0,66,342,276,0.46099290780141844,0.7801418439716312,0.45390070921985815,40201,5172,1204,46,Add --chunk-size support to kubectl describe
-02cd65d7bb5e4aea84a4f466186bcbbe604c4b27,False,1,5,124,105,24.8,228,192,-36,,,,38433,5074,1156,45,Squash pkg/describe/versioned/ into pkg/describe/
-6f8d38406a7f16fc9cc9b72789a9b826105b1b54,False,1,23,596,222,25.91304347826087,510,1280,770,0.06281833616298811,0.7843803056027164,0.8132427843803056,54967,7573,1578,55,feature(scheduler): implement ClusterEventWithHint to filter out useless events
+code that adds support for terminal resizing.",1469036234
+dd97a7bc59c913c71730dba8b8de274820466417,False,1,11,89,24,8.090909090909092,101,240,139,1.0,1.0,1.0,30575,4669,767,20,move client based restmappers to client-go,1525781516
+8ad6fd6ddbf6a8e0f2cdca17583af38cf30c2bb2,False,1,4,268,227,67.0,66,342,276,0.46099290780141844,0.7801418439716312,0.45390070921985815,40201,5172,1204,46,Add --chunk-size support to kubectl describe,1619030655
+02cd65d7bb5e4aea84a4f466186bcbbe604c4b27,False,1,5,124,105,24.8,228,192,-36,,,,38433,5074,1156,45,Squash pkg/describe/versioned/ into pkg/describe/,1583259606
+6f8d38406a7f16fc9cc9b72789a9b826105b1b54,False,1,23,596,222,25.91304347826087,510,1280,770,0.06281833616298811,0.7843803056027164,0.8132427843803056,54967,7573,1578,55,feature(scheduler): implement ClusterEventWithHint to filter out useless events,1687440979
 cd943dd95e32bfdc928450ecb61fdabadfcebd29,False,1,1,155,155,155.0,164,187,23,0.0,0.0,0.03225806451612903,7240,964,216,5,"scheduler: fix tracking of concurrent events
 
 The previous approach was based on the assumption that an in-flight pod can use
@@ -432,9 +432,9 @@ after 5 minutes if there was no other event for it.
 
 The approach with maintaining a single list of concurrent events can be fixed
 by inserting each in-flight pod into the list and using that element to
-identify ""more recent"" events for the pod."
-f322019d7a1a549e93058641ea4b1ca18c788021,False,1,7,225,76,32.142857142857146,53,546,493,0.26993865030674846,0.803680981595092,0.9693251533742331,22434,3134,649,20,Store a cluster event to plugin map in SchedulerQueue
-dc079acc2be603fbc2065e2748c79bb5e2c3453d,False,1,6,46,20,7.666666666666667,99,310,211,0.08187134502923976,0.9005847953216374,0.9415204678362573,21495,2864,527,7,sched: retry unschedule pods immediately after a waiting pod's deletion
+identify ""more recent"" events for the pod.",1693936718
+f322019d7a1a549e93058641ea4b1ca18c788021,False,1,7,225,76,32.142857142857146,53,546,493,0.26993865030674846,0.803680981595092,0.9693251533742331,22434,3134,649,20,Store a cluster event to plugin map in SchedulerQueue,1614784807
+dc079acc2be603fbc2065e2748c79bb5e2c3453d,False,1,6,46,20,7.666666666666667,99,310,211,0.08187134502923976,0.9005847953216374,0.9415204678362573,21495,2864,527,7,sched: retry unschedule pods immediately after a waiting pod's deletion,1628302117
 c7e7eee554a6f81f97f148df83c4526f747abe84,False,1,4,284,251,71.0,53,796,743,0.03374777975133215,0.33747779751332146,0.8809946714031972,22238,2934,650,18,"feature(scheduling_queue): track events per Pods (#118438)
 
 * feature(sscheduling_queue): track events per Pods
@@ -475,11 +475,11 @@ c7e7eee554a6f81f97f148df83c4526f747abe84,False,1,4,284,251,71.0,53,796,743,0.033
 
 * fix based on the suggestion from Abdullah
 
-* gate in-flight Pods logic by the SchedulingQueueHints feature gate"
+* gate in-flight Pods logic by the SchedulingQueueHints feature gate",1689634387
 9d2786c383df20acdeb48dfaf2abc1c050f7dc3e,False,1,2,19,17,9.5,18,112,94,0.1518987341772152,0.5569620253164557,0.8860759493670886,4412,639,131,5,"Fix back off when scheduling cycle is delayed
 
-Signed-off-by: Aldo Culquicondor <acondor@google.com>"
-074900e81bdf4a0848766255561854f71c1c5a7d,False,1,12,658,155,54.833333333333336,596,771,175,0.0,0.2108843537414966,0.0,25446,3531,665,153,scheduler: update the scheduler interface and cache methods to use contextual logging
+Signed-off-by: Aldo Culquicondor <acondor@google.com>",1580321713
+074900e81bdf4a0848766255561854f71c1c5a7d,False,1,12,658,155,54.833333333333336,596,771,175,0.0,0.2108843537414966,0.0,25446,3531,665,153,scheduler: update the scheduler interface and cache methods to use contextual logging,1685337992
 075866b3e3ea029c243d82d8d6eb99e96d9c49d3,False,1,9,457,174,50.77777777777778,3,675,672,0.40532544378698226,0.606508875739645,0.9792899408284024,6836,1083,229,23,"add fetching into discovery client for OpenAPI v3
 
 reflect latest struct changes
@@ -496,67 +496,67 @@ implement cached discovery client
 
 add cached discovery tests
 
-address review feedback"
-32d834a88673614080bc37727f8cc94b9b85bc86,False,1,1,7,7,7.0,8,7,-1,0.0,0.0,0.0,127,23,2,1,address feedback
+address review feedback",1648486961
+32d834a88673614080bc37727f8cc94b9b85bc86,False,1,1,7,7,7.0,8,7,-1,0.0,0.0,0.0,127,23,2,1,address feedback,1666029087
 fec79e75a50f334d8384a5377513fc78222ea36a,False,1,2,52,28,26.0,26,50,24,0.7777777777777778,0.7777777777777778,1.0,391,71,10,7,"add more options for fetching openapiv3 in clients
 
 remove serialized types from client
 
-update tests"
-e6e6dd826d76a2b19515cd907062f1f74f9e52c2,False,1,3,71,35,23.666666666666668,132,175,43,0.0,1.0,1.0,999,175,29,8,refactor to use Schema(contentType)
+update tests",1665706024
+e6e6dd826d76a2b19515cd907062f1f74f9e52c2,False,1,3,71,35,23.666666666666668,132,175,43,0.0,1.0,1.0,999,175,29,8,refactor to use Schema(contentType),1665776796
 7233538008489c189d09bb042fbabca97d9cdbaf,False,1,5,191,109,38.2,22,378,356,0.1091703056768559,0.0,0.8384279475982532,8812,1268,293,11,"revert timestamp updates to object if non-managed fields do not change
 
 add short-circuiting logic for long comaprison
 
 replace timestamps rather than doing a full managed fields deepcopy
 
-add guard"
-c2cbc460f2c5be07b0f5762005642625b06b6a75,False,1,1,18,18,18.0,9,9,0,,,,455,100,18,3,use more apt name for flag
+add guard",1657824926
+c2cbc460f2c5be07b0f5762005642625b06b6a75,False,1,1,18,18,18.0,9,9,0,,,,455,100,18,3,use more apt name for flag,1658340555
 076051135d16b70c08d8d6382e73ef983614240f,False,1,1,24,24,24.0,0,24,24,0.7692307692307693,0.7692307692307693,0.7692307692307693,455,100,18,2,"add envar to disable non semantic updates feature
 
-enabled by default. can easily be changed in backports"
-ab118165704b548a6d5f6164c5c31c6fdb3bcf2a,False,1,1,28,28,28.0,14,14,0,,,,2133,280,79,9,migrate pkg/controller/volume/pvcprotection.go to structured logs
-5a77ebe28b75187fc06dcd5a807b4877d524b29a,False,1,10,142,62,14.2,105,154,49,0.8108108108108109,0.918918918918919,0.0,8148,1231,180,24,Scheduler: remove pkg/features dependency from NodeResources plugins
-f782aba56eb5dc24f931c103c20ba76bfb320ecf,False,1,36,829,152,23.02777777777778,1909,1910,1,,,,28101,4309,859,274,plugin/scheduler
-2c51c136201910a9e4d5852a66a2a3d963a16224,False,1,22,458,321,20.818181818181817,378,246,-132,0.336734693877551,0.0,0.05102040816326531,34425,5220,1265,63,Scheduler NodeInfo cleanup
-9ae505930c5b70dd0261c2defbb959ec9dabff18,False,1,13,356,101,27.384615384615383,127,897,770,0.18130841121495328,0.7046728971962617,0.8934579439252337,13408,2378,473,31,extending RequestedToCapacityRatio priority function to support resource bin packing of extended resources
+enabled by default. can easily be changed in backports",1657824996
+ab118165704b548a6d5f6164c5c31c6fdb3bcf2a,False,1,1,28,28,28.0,14,14,0,,,,2133,280,79,9,migrate pkg/controller/volume/pvcprotection.go to structured logs,1612258940
+5a77ebe28b75187fc06dcd5a807b4877d524b29a,False,1,10,142,62,14.2,105,154,49,0.8108108108108109,0.918918918918919,0.0,8148,1231,180,24,Scheduler: remove pkg/features dependency from NodeResources plugins,1621342742
+f782aba56eb5dc24f931c103c20ba76bfb320ecf,False,1,36,829,152,23.02777777777778,1909,1910,1,,,,28101,4309,859,274,plugin/scheduler,1479945189
+2c51c136201910a9e4d5852a66a2a3d963a16224,False,1,22,458,321,20.818181818181817,378,246,-132,0.336734693877551,0.0,0.05102040816326531,34425,5220,1265,63,Scheduler NodeInfo cleanup,1586473431
+9ae505930c5b70dd0261c2defbb959ec9dabff18,False,1,13,356,101,27.384615384615383,127,897,770,0.18130841121495328,0.7046728971962617,0.8934579439252337,13408,2378,473,31,extending RequestedToCapacityRatio priority function to support resource bin packing of extended resources,1566927692
 1fa673c15c987b63450ef689ab01bc0860723428,False,1,20,380,80,19.0,75,815,740,0.23887973640856672,0.9390444810543658,0.9341021416803954,40665,5377,1283,39,"Extent the `NodeResourcesBalancedAllocation` plugin to cover more resources
 
-Signed-off-by: Dave Chen <dave.chen@arm.com>"
-d54822d1934496986d7b03865e4b1ed7b53b9467,False,1,3,37,20,12.333333333333334,7,122,115,0.0,0.6538461538461539,1.0,3868,621,149,4,bugfix: initcontainer wasn't considered when calculate resource request
-20f84b12a161ac7355d1743821ed335b354d7549,False,1,4,39,28,9.75,38,111,73,0.04838709677419355,0.532258064516129,0.9838709677419355,2053,340,71,8,Optimize scheduler res scorer on non-requested extended res
-7f79516705f6374c28bcbddeb079787f5ca78ea5,False,1,12,788,175,65.66666666666667,2031,830,-1201,0.9191489361702128,0.13333333333333333,0.02695035460992908,5042,820,165,42,Move resource-based priority functions to their Score plugins
-b2159b5d6637afea96ad68368bea5cef307254aa,False,1,8,35,13,4.375,121,56,-65,,,,15744,2317,530,11,Remove scheduler/algorithm/priorities/util package
-6f2cd1b5bd76e336c08846281db1aacca1e7dd13,False,1,3,92,82,30.666666666666668,61,76,15,0.1875,0.8125,0.875,5666,711,182,16,Update `pkg/controller/cronjob/` for contextual logging
-a890724f9efb55c32bab346bef7b36fb365fc967,False,1,2,38,35,19.0,35,3,-32,0.0,0.0,0.5,5212,629,147,5,cronjob: return immediately when failed to create job for the namespace is terminating
-39d9981dc2b550ae8f02ebfd039925ede15542e3,False,1,1,19,19,19.0,9,61,52,,,,347,85,2,0,Promote job-related metrics to stable
-aa788219f46ab0659a02a6d403b35de8de2939ed,False,1,2,12,6,6.0,6,30,24,,,,1477,271,42,0,fix metric names
-4af97e599a0876848832584177fcb4365f0b3fa2,False,1,1,4,4,4.0,2,19,17,,,,87,24,2,0,Promote cronjob_job_creation_skew metric to stable
+Signed-off-by: Dave Chen <dave.chen@arm.com>",1625022912
+d54822d1934496986d7b03865e4b1ed7b53b9467,False,1,3,37,20,12.333333333333334,7,122,115,0.0,0.6538461538461539,1.0,3868,621,149,4,bugfix: initcontainer wasn't considered when calculate resource request,1587575313
+20f84b12a161ac7355d1743821ed335b354d7549,False,1,4,39,28,9.75,38,111,73,0.04838709677419355,0.532258064516129,0.9838709677419355,2053,340,71,8,Optimize scheduler res scorer on non-requested extended res,1624646496
+7f79516705f6374c28bcbddeb079787f5ca78ea5,False,1,12,788,175,65.66666666666667,2031,830,-1201,0.9191489361702128,0.13333333333333333,0.02695035460992908,5042,820,165,42,Move resource-based priority functions to their Score plugins,1577807411
+b2159b5d6637afea96ad68368bea5cef307254aa,False,1,8,35,13,4.375,121,56,-65,,,,15744,2317,530,11,Remove scheduler/algorithm/priorities/util package,1578629765
+6f2cd1b5bd76e336c08846281db1aacca1e7dd13,False,1,3,92,82,30.666666666666668,61,76,15,0.1875,0.8125,0.875,5666,711,182,16,Update `pkg/controller/cronjob/` for contextual logging,1675319233
+a890724f9efb55c32bab346bef7b36fb365fc967,False,1,2,38,35,19.0,35,3,-32,0.0,0.0,0.5,5212,629,147,5,cronjob: return immediately when failed to create job for the namespace is terminating,1677058651
+39d9981dc2b550ae8f02ebfd039925ede15542e3,False,1,1,19,19,19.0,9,61,52,,,,347,85,2,0,Promote job-related metrics to stable,1667845720
+aa788219f46ab0659a02a6d403b35de8de2939ed,False,1,2,12,6,6.0,6,30,24,,,,1477,271,42,0,fix metric names,1689618141
+4af97e599a0876848832584177fcb4365f0b3fa2,False,1,1,4,4,4.0,2,19,17,,,,87,24,2,0,Promote cronjob_job_creation_skew metric to stable,1667566532
 49da8a1d4a63a3dff400091cb621fb04c75f592a,False,1,1,4,4,4.0,18,46,28,,,,764,143,24,0,"scheduler: promote pod resource metrics to stable
 
-Signed-off-by: Damien Grisonnet <dgrisonn@redhat.com>"
+Signed-off-by: Damien Grisonnet <dgrisonn@redhat.com>",1675971045
 b88b51c6e5191fa3a70d052438720672aa17462d,False,1,2,19,16,9.5,2,25,23,0.25,0.5,1.0,8422,1260,256,6,"adding evictions_total metric and marking evictions_number deprecated
 
-Signed-off-by: Davanum Srinivas <davanum@gmail.com>"
-a241c45dc799e3227e32e98b568ef9f9fbb822bd,False,1,1,8,8,8.0,5,75,70,,,,922,179,9,0,move a number of scheduler metrics to STABLE
-4712025ea84fe5982f1eda51ef6cc584c897e07e,False,1,3,118,70,39.333333333333336,25,192,167,0.6428571428571429,1.0,1.0,4645,664,137,14,Graduate kubelet resource metrics to GA
+Signed-off-by: Davanum Srinivas <davanum@gmail.com>",1639362962
+a241c45dc799e3227e32e98b568ef9f9fbb822bd,False,1,1,8,8,8.0,5,75,70,,,,922,179,9,0,move a number of scheduler metrics to STABLE,1636566677
+4712025ea84fe5982f1eda51ef6cc584c897e07e,False,1,3,118,70,39.333333333333336,25,192,167,0.6428571428571429,1.0,1.0,4645,664,137,14,Graduate kubelet resource metrics to GA,1692289368
 0b27f25252d827afe2cac2d9ab67595275315608,False,1,11,274,153,24.90909090909091,70,530,460,0.3548387096774194,0.896774193548387,0.932258064516129,23918,3359,653,29,"PreEnqueue implementation
 
 - Add PreEnqueuePlugin to Scheduler Framework
 - Implement PreEnqueuePlugin in scheduler queue
 - Implementation of SchedulingGates plugin
-- Metrics"
-04ea1d506b4b6e6be1330e9d2224b07d979e745f,False,1,1,4,4,4.0,2,36,34,,,,239,48,4,0,promote sli metrics to beta
-bb15f02039c4ddb344d48575d1e753316c637b27,False,1,2,25,24,12.5,12,86,74,1.0,1.0,0.0,1044,199,13,1,issue#105861: making scheduler metrics stable
+- Metrics",1667858578
+04ea1d506b4b6e6be1330e9d2224b07d979e745f,False,1,1,4,4,4.0,2,36,34,,,,239,48,4,0,promote sli metrics to beta,1688055781
+bb15f02039c4ddb344d48575d1e753316c637b27,False,1,2,25,24,12.5,12,86,74,1.0,1.0,0.0,1044,199,13,1,issue#105861: making scheduler metrics stable,1635953690
 224087abfa0d0dc25f2c6c8e86cb617d0430e908,False,1,2,19,18,9.5,2,50,48,0.0,0.0,0.0,7284,985,181,1,"Add Pod Scheduling SLI Duration metric (#119049)
 
 Signed-off-by: Heba Elayoty <hebaelayoty@gmail.com>
-Co-authored-by: Aldo Culquicondor <1299064+alculquicondor@users.noreply.github.com>"
+Co-authored-by: Aldo Culquicondor <1299064+alculquicondor@users.noreply.github.com>",1692137861
 8dcd8696654e4993fb96bc0522f509fce2d06946,False,1,1,4,4,4.0,12,9,-3,,,,1040,199,10,0,"feat: update preemption victims metric
 
-Signed-off-by: lengrongfu <rongfu.leng@daocloud.io>"
-894e31f41aed5e6db4275bf8cf89fdd62fe25b1e,False,1,2,107,103,53.5,47,144,97,0.0,1.0,1.0,4731,754,134,2,making some apiserver metrics stable
-6defbb4410b256a6f68cafaba8fc07f7fb8f2260,False,1,5,849,430,169.8,377,518,141,0.10204081632653061,0.3469387755102041,0.9591836734693877,411915,79017,6242,14,Update codegen/openapi spec.
+Signed-off-by: lengrongfu <rongfu.leng@daocloud.io>",1665686721
+894e31f41aed5e6db4275bf8cf89fdd62fe25b1e,False,1,2,107,103,53.5,47,144,97,0.0,1.0,1.0,4731,754,134,2,making some apiserver metrics stable,1636123805
+6defbb4410b256a6f68cafaba8fc07f7fb8f2260,False,1,5,849,430,169.8,377,518,141,0.10204081632653061,0.3469387755102041,0.9591836734693877,411915,79017,6242,14,Update codegen/openapi spec.,1678405069
 d6e525877b511a96b1355b7b5999aca0d7104967,False,1,16,1325,479,82.8125,403,1844,1441,0.08105939004815409,0.7182985553772071,0.8852327447833066,471967,89614,7549,33,"[KEP-2876]Add reason and fieldPath into CRD validation rules (#118041)
 
 * Add reason and fieldPath in CRD validation rules.
@@ -567,31 +567,31 @@ d6e525877b511a96b1355b7b5999aca0d7104967,False,1,16,1325,479,82.8125,403,1844,14
 
 ---------
 
-Co-authored-by: Joe Betz <jpbetz@google.com>"
-4b0080d71f0b34a6793d9ea503b10cca01dc9fe6,False,1,3,564,438,188.0,0,665,665,0.3151515151515151,0.5424242424242425,0.9090909090909091,2477,378,84,27,add prerelease-lifecycle generator for beta API types
-b5dd5f1f3a787827ec4f195a4e52ea5b0a6aa31a,False,1,1,8,8,8.0,0,87,87,0.22784810126582278,0.620253164556962,0.810126582278481,7289,1006,251,1,Investigate and fix the handling of Succeeded pods in DaemonSet
-7198bcffcd43d3fdd3028f1192812529ab5f8522,False,1,3,195,162,65.0,219,326,107,0.0,1.0,0.8571428571428571,11115,1495,361,43,daemonset: use contextual logging
-421e0bbd83ab234ce1e99f898d8898600342addb,False,1,2,112,75,56.0,103,163,60,0.7333333333333333,0.08888888888888889,0.9333333333333333,5939,833,199,15,DaemonSet: Use ControllerRefManager to adopt/orphan.
+Co-authored-by: Joe Betz <jpbetz@google.com>",1689746043
+4b0080d71f0b34a6793d9ea503b10cca01dc9fe6,False,1,3,564,438,188.0,0,665,665,0.3151515151515151,0.5424242424242425,0.9090909090909091,2477,378,84,27,add prerelease-lifecycle generator for beta API types,1586895418
+b5dd5f1f3a787827ec4f195a4e52ea5b0a6aa31a,False,1,1,8,8,8.0,0,87,87,0.22784810126582278,0.620253164556962,0.810126582278481,7289,1006,251,1,Investigate and fix the handling of Succeeded pods in DaemonSet,1680628875
+7198bcffcd43d3fdd3028f1192812529ab5f8522,False,1,3,195,162,65.0,219,326,107,0.0,1.0,0.8571428571428571,11115,1495,361,43,daemonset: use contextual logging,1678755027
+421e0bbd83ab234ce1e99f898d8898600342addb,False,1,2,112,75,56.0,103,163,60,0.7333333333333333,0.08888888888888889,0.9333333333333333,5939,833,199,15,DaemonSet: Use ControllerRefManager to adopt/orphan.,1488933748
 d67898b87558658aece6d4fd8b7e4b36dfb77680,False,1,14,144,22,10.285714285714286,166,559,393,0.0,0.6084656084656085,0.9735449735449735,30507,4471,964,19,"Check RegisterMetricAndTrackRateLimiterUsage error when starting controllers
 
-Signed-off-by: Ferran Rodenas <rodenasf@vmware.com>"
+Signed-off-by: Ferran Rodenas <rodenasf@vmware.com>",1509536767
 04fcbd721cd3e72eb9375275891e9bc3e28c3341,False,1,11,224,53,20.363636363636363,391,974,583,0.1650294695481336,1.0,0.762278978388998,34551,6484,560,24,"Introduction of a pod condition type indicating disruption. Its `reason` field indicates the reason:
 
 - PreemptionByKubeScheduler (Pod preempted by kube-scheduler)
 - DeletionByTaintManager (Pod deleted by taint manager due to NoExecute taint)
 - EvictionByEvictionAPI (Pod evicted by Eviction API)
-- DeletionByPodGC (an orphaned Pod deleted by PodGC)PreemptedByScheduler (Pod preempted by kube-scheduler)"
-2f61b6105c1866bf064569ecc88c303d1c721bd1,False,1,2,30,16,15.0,2,261,259,0.34355828220858897,0.26993865030674846,0.8773006134969326,7544,980,231,5,Add integration tests for podgc
-a2e1341e01ca86a8d5d8449a79b6687a8f39d995,False,1,2,214,184,107.0,105,109,4,0.0,0.0,0.0,7031,926,192,6,DaemonSet controller actively kills failed pods (to recreate them)
-1bbb9e5217f2032b8c19b151eea925ca5992fbdb,False,1,1,494,494,494.0,606,229,-377,0.3843283582089552,0.0,0.3582089552238806,0,0,0,29,"Revert ""add rolling update daemonset existing pod adoption integration test"""
-5cf3f8b79c115712c4af4d7b1f1b3a9c6940690a,False,1,1,56,56,56.0,195,963,768,0.0,0.0,0.9882179675994109,6505,939,235,6,Fix DS expectations on recreate
+- DeletionByPodGC (an orphaned Pod deleted by PodGC)PreemptedByScheduler (Pod preempted by kube-scheduler)",1659431536
+2f61b6105c1866bf064569ecc88c303d1c721bd1,False,1,2,30,16,15.0,2,261,259,0.34355828220858897,0.26993865030674846,0.8773006134969326,7544,980,231,5,Add integration tests for podgc,1658323034
+a2e1341e01ca86a8d5d8449a79b6687a8f39d995,False,1,2,214,184,107.0,105,109,4,0.0,0.0,0.0,7031,926,192,6,DaemonSet controller actively kills failed pods (to recreate them),1485368426
+1bbb9e5217f2032b8c19b151eea925ca5992fbdb,False,1,1,494,494,494.0,606,229,-377,0.3843283582089552,0.0,0.3582089552238806,0,0,0,29,"Revert ""add rolling update daemonset existing pod adoption integration test""",1521686380
+5cf3f8b79c115712c4af4d7b1f1b3a9c6940690a,False,1,1,56,56,56.0,195,963,768,0.0,0.0,0.9882179675994109,6505,939,235,6,Fix DS expectations on recreate,1592378537
 2e100780a72b0e3ac3b5698d53dacafa4bb9871e,False,1,1,8,8,8.0,0,87,87,0.22784810126582278,0.620253164556962,0.810126582278481,6803,973,240,1,"Investigate and fix the handling of Succeeded pods in DaemonSet
 
-Resolved conflict by using klog instead of logger"
+Resolved conflict by using klog instead of logger",1681980251
 85d96f9e7abe5970635e64660a70ccc98869c0cb,False,1,1,241,241,241.0,20,303,283,0.4460093896713615,0.5211267605633803,0.9295774647887324,3412,495,112,22,"Make describe able to be invoked on local resources
 
 Support a more flexible access mechanism for getting a describer given
-only an object."
+only an object.",1426478960
 5268f69405251a4a74130fa903e055a59071179a,False,1,19,108,19,5.684210526315789,156,116,-40,,,,32964,4638,894,31,"fix duplicated imports of k8s code (#77484)
 
 * fix duplicated imports of api/core/v1
@@ -600,11 +600,11 @@ only an object."
 
 * fix duplicated imports of rest code
 
-* change import name to more reasonable"
-3d3cde45b73ec31c81fadbfd494387d141858a40,False,1,1,40,40,40.0,5,35,30,0.0,0.0,0.0,1330,186,26,1,Split self-signed cert and CA
+* change import name to more reasonable",1557335567
+3d3cde45b73ec31c81fadbfd494387d141858a40,False,1,1,40,40,40.0,5,35,30,0.0,0.0,0.0,1330,186,26,1,Split self-signed cert and CA,1518794064
 754cb3d601a820180d19567c3600a789d77b0f07,False,1,3,74,66,24.666666666666668,80,293,213,0.4268292682926829,0.27439024390243905,0.5853658536585366,2485,421,41,4,"kubelet/client: collapse transport wiring onto standard approach
 
-Signed-off-by: Monis Khan <mok@microsoft.com>"
+Signed-off-by: Monis Khan <mok@microsoft.com>",1675733689
 929b1559a0b855d996257ab3ad5364605edc253d,False,1,5,274,176,54.8,9,489,480,0.2656826568265683,0.30996309963099633,0.8708487084870848,8814,1432,302,19,"Add ReloadCertFromDisk flag to rest.Config and to kubeconfig which allows the provided client certificate files to be reloaded from disk (currently on every use)
 
 Close outbound connections when using a cert callback and certificates rotate. This means that we won't get into a situation where we have open TLS connections using expires certs, which would get unauthorized errors at the apiserver
@@ -682,10 +682,10 @@ to handle that case in a later PR.
 This PR will focus only on rotating certificate and key files.
 Therefore, we don't need to modify the exec auth plugin.
 
-Fix copyright year"
+Fix copyright year",1583169616
 a397e306a41417a0230b6818bc36aedc93fa7f8f,False,1,236,34165,4636,144.76694915254237,4100,33567,29467,0.564868851407683,0.7037773359840954,0.8662861540434811,256267,45662,9960,1986,"run client-gen
 
-run copy.sh"
+run copy.sh",1474929636
 a5eedcde611658c220c56d2819bf0420aded4ed6,False,1,1,20,20,20.0,2,18,16,0.0,0.375,1.0,2745,454,122,2,"Added custom error message when wrong file is provided with KUBECONFIG (#78185)
 
 * Added custom error message when wrong file is provided with KUBECONFIG
@@ -694,12 +694,12 @@ a5eedcde611658c220c56d2819bf0420aded4ed6,False,1,1,20,20,20.0,2,18,16,0.0,0.375,
 
 * Updated the code to warn the missing files
 
-* Renamed the variable"
-adb75e1fd17b11e6a0256a4984ef9b18957d94ce,False,1,526,402732,60820,765.6501901140684,0,418770,418770,0.12360960903747122,0.18742049905579494,0.9540701681637593,1963753,363486,85826,10295,generated staging area
-9d2be187e550604879ad33d99379550b6fbebc3b,False,1,2,51,49,25.5,13,117,104,0.10256410256410256,0.7564102564102564,0.7564102564102564,947,146,36,4,add unit test for normalizer rendering markdown
-7a41b950cc00ee129b82e4a64d845e8d559d28ff,False,1,1,2,2,2.0,1,1,0,,,,1035,172,23,3,Fix shadowing lint error
-2f7793df7dad4e66d5b2ea828a55f4e21ba36099,False,1,1,59,59,59.0,22,37,15,0.13333333333333333,0.13333333333333333,0.13333333333333333,1421,242,44,10,allow convert to default on a per object basis
-54a73630f1f39802ad7c55938cf414ca16c705c0,False,1,3,26,19,8.666666666666666,20,10,-10,0.0,0.0,0.0,6055,1032,113,5,kubectl factory client access: Moves remaining internal references into callers
+* Renamed the variable",1562815494
+adb75e1fd17b11e6a0256a4984ef9b18957d94ce,False,1,526,402732,60820,765.6501901140684,0,418770,418770,0.12360960903747122,0.18742049905579494,0.9540701681637593,1963753,363486,85826,10295,generated staging area,1470776874
+9d2be187e550604879ad33d99379550b6fbebc3b,False,1,2,51,49,25.5,13,117,104,0.10256410256410256,0.7564102564102564,0.7564102564102564,947,146,36,4,add unit test for normalizer rendering markdown,1664307056
+7a41b950cc00ee129b82e4a64d845e8d559d28ff,False,1,1,2,2,2.0,1,1,0,,,,1035,172,23,3,Fix shadowing lint error,1673975364
+2f7793df7dad4e66d5b2ea828a55f4e21ba36099,False,1,1,59,59,59.0,22,37,15,0.13333333333333333,0.13333333333333333,0.13333333333333333,1421,242,44,10,allow convert to default on a per object basis,1513172894
+54a73630f1f39802ad7c55938cf414ca16c705c0,False,1,3,26,19,8.666666666666666,20,10,-10,0.0,0.0,0.0,6055,1032,113,5,kubectl factory client access: Moves remaining internal references into callers,1539117270
 5e5b3029f3bbfc93c3569f07ad300a5c6057fc58,False,1,38,2312,484,60.8421052631579,239,4909,4670,0.1492753623188406,0.712463768115942,0.9568115942028985,380970,86044,4721,156,"Matchconditions admission webhooks alpha implementation for kep-3716 (#116261)
 
 * api changes adding match conditions
@@ -724,7 +724,7 @@ adb75e1fd17b11e6a0256a4984ef9b18957d94ce,False,1,526,402732,60820,765.6501901140
 
 * final cleanup
 
-* openapi gen"
+* openapi gen",1678850906
 610b67031c79c6c38964631d27dd59df357c6d2e,False,1,1,7,7,7.0,0,38,38,0.0,0.8888888888888888,0.8888888888888888,6400,976,171,1,"cacher: Fix watch behaviour for unset RV
 
 The original design was to honour strong consistency
@@ -739,7 +739,7 @@ RV is unset.
 
 This commit subsequently also adds a test for the same.
 
-Signed-off-by: Madhav Jivrajani <madhav.jiv@gmail.com>"
+Signed-off-by: Madhav Jivrajani <madhav.jiv@gmail.com>",1673855947
 2cb3a56e83ae33464edb174b1b6373ba50600759,False,1,2,146,96,73.0,52,299,247,0.4896907216494845,0.0,0.9587628865979382,6439,978,177,10,"apiserver cacher: don't accept requests if stopped
 
 The cacher blocks requests until it is ready, however, the
@@ -752,8 +752,8 @@ stopped.
 
 Add a new condition to the condition variable to handle the
 stop condition, and returning an error to signal the goroutines
-that they should stop waiting and bail out."
-a53704911047b87d0960cabab7889ce92f48b79e,False,1,2,710,370,355.0,719,785,66,0.42408376963350786,0.6387434554973822,0.6963350785340314,6414,988,227,16,Split cacheWatcher into its own file
+that they should stop waiting and bail out.",1651588519
+a53704911047b87d0960cabab7889ce92f48b79e,False,1,2,710,370,355.0,719,785,66,0.42408376963350786,0.6387434554973822,0.6963350785340314,6414,988,227,16,Split cacheWatcher into its own file,1677236341
 954996e231074dc7429f7be1256a579bedd8344c,False,1,784,18615,3450,23.743622448979593,10076,10023,-53,0.0,0.8888888888888888,1.0,1467987,218328,44391,3265,"Move from glog to klog
 
 - Move from the old github.com/golang/glog to k8s.io/klog
@@ -767,38 +767,38 @@ change from glog to klog
 - Entirely remove all references to glog
 - Fix some tests by explicit InitFlags in their init() methods
 
-Change-Id: I92db545ff36fcec83afe98f550c9e630098b3135"
+Change-Id: I92db545ff36fcec83afe98f550c9e630098b3135",1541854231
 47a6c5b69357549f5a01540521d7c9a86a3b4fbb,False,1,22,384,73,17.454545454545453,352,426,74,0.0,0.9166666666666666,0.0,26622,3866,740,105,"feat(scheduler): use context in the scheduler package
 
 + Use context instead of stopCh
-+ Add context to the scheduling framework interface"
-68e18a6a36bf0463ad0d29e8475238777d8fc674,False,1,2,176,103,88.0,71,153,82,1.0,1.0,1.0,602,94,9,9,Refactor common parts of scheduler_perf into reusable utils
-5b042f0bf42ce72a31dc69d6fad2221a19f72353,False,1,4,405,345,101.25,404,46,-358,0.6088888888888889,0.6133333333333333,0.41333333333333333,7984,1113,225,25,Remove RunAnAPIServer from integration tests
-e7f67b1a63c048fac0b89c0f355206795a9767a7,False,1,9,61,21,6.777777777777778,14,55,41,0.625,0.7083333333333334,0.0,22968,3137,603,15,Surface kube config in scheduler framework handle
-bd8ed0a2a7da264d2ce1b1e74d8a5e31f87fbbef,False,1,4,155,89,38.75,16,198,182,0.4805194805194805,0.6493506493506493,0.8961038961038961,13372,2022,422,15,Add BenchmarkSchedulingWaitForFirstConsumerPVs benchmark
-1080c2d7175ffc45e2a70a0c94865477e8d52c57,False,1,2,48,47,24.0,40,123,83,0.8787878787878788,0.8939393939393939,0.8939393939393939,4358,586,154,17,Make scheduler_perf stable
++ Add context to the scheduling framework interface",1571274235
+68e18a6a36bf0463ad0d29e8475238777d8fc674,False,1,2,176,103,88.0,71,153,82,1.0,1.0,1.0,602,94,9,9,Refactor common parts of scheduler_perf into reusable utils,1519767018
+5b042f0bf42ce72a31dc69d6fad2221a19f72353,False,1,4,405,345,101.25,404,46,-358,0.6088888888888889,0.6133333333333333,0.41333333333333333,7984,1113,225,25,Remove RunAnAPIServer from integration tests,1658764351
+e7f67b1a63c048fac0b89c0f355206795a9767a7,False,1,9,61,21,6.777777777777778,14,55,41,0.625,0.7083333333333334,0.0,22968,3137,603,15,Surface kube config in scheduler framework handle,1617130499
+bd8ed0a2a7da264d2ce1b1e74d8a5e31f87fbbef,False,1,4,155,89,38.75,16,198,182,0.4805194805194805,0.6493506493506493,0.8961038961038961,13372,2022,422,15,Add BenchmarkSchedulingWaitForFirstConsumerPVs benchmark,1582638074
+1080c2d7175ffc45e2a70a0c94865477e8d52c57,False,1,2,48,47,24.0,40,123,83,0.8787878787878788,0.8939393939393939,0.8939393939393939,4358,586,154,17,Make scheduler_perf stable,1645633778
 71bc9ce9c2dff7f0f099f741e5856b2d3a7a91e7,False,1,3,28,14,9.333333333333334,450,892,442,0.4943181818181818,0.42613636363636365,0.32386363636363635,11857,1808,344,9,"scheduler_perf: refactor to allow arbitrary workloads
 
-Signed-off-by: Adhityaa Chandrasekar <adtac@google.com>"
+Signed-off-by: Adhityaa Chandrasekar <adtac@google.com>",1600370540
 d8def598711c5a6e95e394c61ae7b80c91d318ef,False,1,9,109,30,12.11111111111111,103,41,-62,0.8205128205128205,0.23076923076923078,0.5641025641025641,18550,2604,451,20,"Initialize scheduler's podInformer in sharedInformerFactory
 
-Scheduler's specific podInfomer is now initialized inside the sahredInformerFactory."
+Scheduler's specific podInfomer is now initialized inside the sahredInformerFactory.",1599595037
 1e5878b91099dbc06b86aeaeefa301cb59ca61d1,False,1,1,20,20,20.0,13,276,263,0.14074074074074075,0.42962962962962964,0.8222222222222222,1281,218,33,1,"Introduce a churnOp to scheduler perf testing framework
 
 - support two modes: recreate and create
-- use DynmaicClient to create API objects"
-35b5174bf1ed80a8e69eb7608bee9c9df3adfd3a,False,1,1,12,12,12.0,9,198,189,0.0,0.0,0.0,485,80,19,1,Generate and verify openapi specs in source tree at api/openapi-spec
-ff641f6eb229e9d48a439bd98bcb057403838951,False,1,14,262,124,18.714285714285715,327,254,-73,0.9435483870967742,0.6532258064516129,0.12096774193548387,34946,4898,888,19,mv TokenRequest and TokenRequestProjection to GA
-fffd152e0df522473ef289d924e2ab683f44834f,False,1,3,27,21,9.0,2,25,23,0.5625,0.75,1.0,8062,1275,235,4,Fixed kubelet error message to be more descriptive. Added Attach success event for help in debugging.
-cbdd121d2d69da0a762646be87fd8ab10262962f,False,1,7,153,107,21.857142857142858,88,395,307,0.02631578947368421,0.5307017543859649,0.9122807017543859,16998,2460,562,12,Remove pod mutation for PVs with supplemental GIDs
-af0c2fe572d51106b6d5a0e0496ecfa383e64bed,False,1,3,61,49,20.333333333333332,38,25,-13,1.0,0.8666666666666667,0.26666666666666666,14322,2281,422,6,Fix some error messages
+- use DynmaicClient to create API objects",1614783113
+35b5174bf1ed80a8e69eb7608bee9c9df3adfd3a,False,1,1,12,12,12.0,9,198,189,0.0,0.0,0.0,485,80,19,1,Generate and verify openapi specs in source tree at api/openapi-spec,1475193811
+ff641f6eb229e9d48a439bd98bcb057403838951,False,1,14,262,124,18.714285714285715,327,254,-73,0.9435483870967742,0.6532258064516129,0.12096774193548387,34946,4898,888,19,mv TokenRequest and TokenRequestProjection to GA,1604029621
+fffd152e0df522473ef289d924e2ab683f44834f,False,1,3,27,21,9.0,2,25,23,0.5625,0.75,1.0,8062,1275,235,4,Fixed kubelet error message to be more descriptive. Added Attach success event for help in debugging.,1513381019
+cbdd121d2d69da0a762646be87fd8ab10262962f,False,1,7,153,107,21.857142857142858,88,395,307,0.02631578947368421,0.5307017543859649,0.9122807017543859,16998,2460,562,12,Remove pod mutation for PVs with supplemental GIDs,1469223704
+af0c2fe572d51106b6d5a0e0496ecfa383e64bed,False,1,3,61,49,20.333333333333332,38,25,-13,1.0,0.8666666666666667,0.26666666666666666,14322,2281,422,6,Fix some error messages,1563785673
 7989f2704466b304f188f78cd314f58850423205,False,1,10,106,31,10.6,19,230,211,0.3241758241758242,0.6318681318681318,0.9065934065934066,42171,6413,1296,18,"use node informer to check volumes attachment status before backoff
 
-fix unit tests"
-5badb731a895dfa0a188a3f4aec2d3edfe709b12,False,1,1,241,241,241.0,324,173,-151,0.0440251572327044,0.0,0.0,2998,490,97,5,"Revert ""Move kubectl wait to informers with a cache to avoid hanging due to objects disappearing from the cluster"""
+fix unit tests",1640019425
+5badb731a895dfa0a188a3f4aec2d3edfe709b12,False,1,1,241,241,241.0,324,173,-151,0.0440251572327044,0.0,0.0,2998,490,97,5,"Revert ""Move kubectl wait to informers with a cache to avoid hanging due to objects disappearing from the cluster""",1658159309
 7a1493be5679ed3ec85b7fdef685c7e6b580e8e4,False,1,1,8,8,8.0,5,16,11,0.0,0.0,,3010,490,98,3,"feat: make jsonpath wait logics consistent with condition
 
-Signed-off-by: jonyhy96 <hy352144278@gmail.com>"
+Signed-off-by: jonyhy96 <hy352144278@gmail.com>",1656476904
 dcc54dec19fa5f4605cf679af5289b173ce6015f,False,1,1,241,241,241.0,458,272,-186,0.4946236559139785,0.6505376344086021,0.04838709677419355,3307,518,105,5,"Fix flakiness with kubectl wait tests (#111168)
 
 * Prepend reactor not watch reactor
@@ -831,13 +831,13 @@ cherry pick original changes back into branch
 
 * Remove validateActions functions
 
-* Remove go-spew"
+* Remove go-spew",1659028882
 8fcf98ec3bb16ddf32ea1688752e6b7e2a14eaa4,False,1,1,169,169,169.0,13,840,827,0.44855305466237944,0.797427652733119,0.909967845659164,2998,490,97,12,"Added JSONPath wait for kubectl wait
 
-Co-authored-by: Eddie Zaneski <eddiezane@gmail.com>"
-76794643c574a0ac4d9efb51515404f3b423feea,False,1,11,596,330,54.18181818181818,24,1135,1111,0.43342036553524804,0.6409921671018277,0.9569190600522193,18621,3300,622,35,add wait
+Co-authored-by: Eddie Zaneski <eddiezane@gmail.com>",1636587267
+76794643c574a0ac4d9efb51515404f3b423feea,False,1,11,596,330,54.18181818181818,24,1135,1111,0.43342036553524804,0.6409921671018277,0.9569190600522193,18621,3300,622,35,add wait,1526993262
 3d4a02abb54244861f9f05b8db2fdfdaa2c6f67c,False,1,11,175,49,15.909090909090908,88,178,90,0.4444444444444444,0.8444444444444444,0.7777777777777778,56041,7824,1242,28,"Rename Until to UntilWithoutRetry and move to using context so it's
-cancelable"
+cancelable",1533887741
 c1f41ceab392ac8d13a5cacdba738b18d314ee9f,False,1,1,48,48,48.0,0,286,286,0.05,0.8928571428571429,0.9107142857142857,1603,205,51,3,"Add support for btrfs resize
 
 Mount utils support resizing of btrfs volume, however it lacks btrfs
@@ -848,15 +848,15 @@ Adding btrfs support is useful for certain CSI drivers (e.g. Azure)
 which now have to implement custom solution for btrfs resize.
 
 With this patch it should be easy for such drivers to use mount-utils
-module instead and help unify (and correct) the resize flows."
-03106a152246d3346c5c00dafd137595dfa0283d,False,1,1,116,116,116.0,0,417,417,0.1273209549071618,0.7586206896551724,0.9336870026525199,1246,163,39,5,move filesystem resize code to kubernetes/mount-utils and add need resize function
-de146237755b58d61fd10142e69235334f1ae5ce,False,1,4,211,107,52.75,35,302,267,0.09302325581395349,0.5,0.872093023255814,12316,1710,445,6,Add a printer that knows how to print user-defined columns
+module instead and help unify (and correct) the resize flows.",1646658568
+03106a152246d3346c5c00dafd137595dfa0283d,False,1,1,116,116,116.0,0,417,417,0.1273209549071618,0.7586206896551724,0.9336870026525199,1246,163,39,5,move filesystem resize code to kubernetes/mount-utils and add need resize function,1618263442
+de146237755b58d61fd10142e69235334f1ae5ce,False,1,4,211,107,52.75,35,302,267,0.09302325581395349,0.5,0.872093023255814,12316,1710,445,6,Add a printer that knows how to print user-defined columns,1441127473
 d0c422fd9c8d932d6161f326c3168b221db540d0,False,1,1,25,25,25.0,1,91,90,0.0,0.7763157894736842,0.7763157894736842,3067,464,124,1,"Hide long and multiline strings when printing
 
 Currently both long strings and multiline strings can potentially
 ""break"" printing. I'm adding extra formatting to ensure we cut strings
 either at newline or at 100 chars with information that more information
-is available."
+is available.",1625576833
 63b8684cd32f96f3a1e5c5a5fd05e8194f2140fc,False,1,2,319,195,159.5,81,704,623,0.18444444444444444,0.9,1.0,2257,397,73,27,"Add new flags into alpha events
 
 In order to promote kubectl alpha events to beta,
@@ -873,8 +873,8 @@ Adds this ability to hide headers also for kubectl alpha events.
 This flag has no effect when output is json or yaml for both commands.
 
 --types: This will be used to filter certain events to be printed and
-discard others(default behavior is same with --event=Normal,Warning)."
-c803892bd8f225995d89a4e8b3b02c17e26b4d56,False,1,22,214,69,9.727272727272727,131,325,194,0.3656716417910448,0.9552238805970149,0.9029850746268657,79645,13067,2151,30,Enable the feature into beta
+discard others(default behavior is same with --event=Normal,Warning).",1659010618
+c803892bd8f225995d89a4e8b3b02c17e26b4d56,False,1,22,214,69,9.727272727272727,131,325,194,0.3656716417910448,0.9552238805970149,0.9029850746268657,79645,13067,2151,30,Enable the feature into beta,1667980960
 2dd262218816877ce33f303ab3cd31992ed7b08a,False,1,5,940,693,188.0,696,2530,1834,0.19114077669902912,0.7245145631067961,0.9035194174757282,19732,2609,577,63,"Track Job Pods completion in status
 
 Through Job.status.uncountedPodUIDs and a Pod finalizer
@@ -883,31 +883,31 @@ An annotation marks if a job should be tracked with new behavior
 
 A separate work queue is used to remove finalizers from orphan pods.
 
-Change-Id: I1862e930257a9d1f7f1b2b0a526ed15bc8c248ad"
-bf9ce70de34c93b545f95e1d81c122c81a8a0aa5,False,1,22,2762,1256,125.54545454545455,153,5960,5807,0.15191256830601094,0.7820765027322404,0.96,336012,77102,3841,153,Support handling of pod failures with respect to the specified rules
+Change-Id: I1862e930257a9d1f7f1b2b0a526ed15bc8c248ad",1625766485
+bf9ce70de34c93b545f95e1d81c122c81a8a0aa5,False,1,22,2762,1256,125.54545454545455,153,5960,5807,0.15191256830601094,0.7820765027322404,0.96,336012,77102,3841,153,Support handling of pod failures with respect to the specified rules,1659631148
 37c81ed79ac6836bce4b96f888aa407dc18d747c,False,1,6,37,13,6.166666666666667,4,61,57,0.5384615384615384,0.6153846153846154,0.9743589743589743,7328,1173,216,9,"Support TLS Server Name overrides in kubeconfig file
 
-Signed-off-by: Suresh Kumar Ponnusamy <suresh.ponnusamy@freshworks.com>"
-0d8e6b8500eab9d0c8218be3c72260605db914b8,False,1,13,79,13,6.076923076923077,149,103,-46,,,,9614,1669,267,12,move genericapiserver authenticator and authorizer factories
-dc0a736d1ea924dfa35ece64cb59d551c2a0b51f,False,1,4,65,42,16.25,30,37,7,0.0,0.0,0.0,8947,1536,226,6,apiserver: make loopback logic in SecureServingOptions reusable
-c4fae4e690772173b8d72d868393e26689f8be7c,False,1,22,70,12,3.1818181818181817,80,265,185,,,,23824,3766,667,0,mechanical repercussions
+Signed-off-by: Suresh Kumar Ponnusamy <suresh.ponnusamy@freshworks.com>",1583258118
+0d8e6b8500eab9d0c8218be3c72260605db914b8,False,1,13,79,13,6.076923076923077,149,103,-46,,,,9614,1669,267,12,move genericapiserver authenticator and authorizer factories,1485438647
+dc0a736d1ea924dfa35ece64cb59d551c2a0b51f,False,1,4,65,42,16.25,30,37,7,0.0,0.0,0.0,8947,1536,226,6,apiserver: make loopback logic in SecureServingOptions reusable,1531479897
+c4fae4e690772173b8d72d868393e26689f8be7c,False,1,22,70,12,3.1818181818181817,80,265,185,,,,23824,3766,667,0,mechanical repercussions,1484166036
 a653603e13a7995ead56afbe515795a981ab5817,False,1,3,512,258,170.66666666666666,0,692,692,0.5328467153284672,0.6678832116788321,0.8978102189781022,2243,367,63,23,"no-snat test
 
 Test checks that Pods can communicate with each other in the same
-cluster without SNAT."
-584d994133132ddbfb5da300e634049e1d3198fa,False,1,14,75,18,5.357142857142857,40,41,1,0.0,1.0,1.0,15848,2556,449,20,replace all the deprecated ioutil with io and os
-e9e74aa98b0a99f2fc663c976ea965ceb9edbb8f,False,1,1,119,119,119.0,0,120,120,0.21649484536082475,1.0,1.0,2681,348,39,4,Create e2e test for pod & service ProxyWithPath endpoints
-8e39630f40beb39051592cad8fb8accb35b8861a,False,1,1,109,109,109.0,0,109,109,0.1590909090909091,1.0,0.8863636363636364,3634,479,55,4,Create e2e test for pod & service Proxy endpoints
-be1c85d915d98f7a8a069a8512b036410eb341ca,False,1,2,18,11,9.0,8,10,2,,,,400,65,22,2,"Enhance the prompt information of verifyRunAsNonRoot, add pod, container information"
-ccde63b9c16241780f42d25550c200aa38e53989,False,1,3,143,65,47.666666666666664,29,258,229,0.0,0.7985074626865671,0.7985074626865671,931,156,43,3,fix windows container root validate
-730c21d386ac5a44f2e8a1d9c1d26a3d007bc007,False,1,43,6393,1533,148.67441860465115,6874,9,-6865,0.505939524838013,0.30858531317494603,0.08018358531317495,0,0,0,366,Drop etcd tests dependency
+cluster without SNAT.",1495831510
+584d994133132ddbfb5da300e634049e1d3198fa,False,1,14,75,18,5.357142857142857,40,41,1,0.0,1.0,1.0,15848,2556,449,20,replace all the deprecated ioutil with io and os,1652081233
+e9e74aa98b0a99f2fc663c976ea965ceb9edbb8f,False,1,1,119,119,119.0,0,120,120,0.21649484536082475,1.0,1.0,2681,348,39,4,Create e2e test for pod & service ProxyWithPath endpoints,1610927729
+8e39630f40beb39051592cad8fb8accb35b8861a,False,1,1,109,109,109.0,0,109,109,0.1590909090909091,1.0,0.8863636363636364,3634,479,55,4,Create e2e test for pod & service Proxy endpoints,1634764888
+be1c85d915d98f7a8a069a8512b036410eb341ca,False,1,2,18,11,9.0,8,10,2,,,,400,65,22,2,"Enhance the prompt information of verifyRunAsNonRoot, add pod, container information",1600733454
+ccde63b9c16241780f42d25550c200aa38e53989,False,1,3,143,65,47.666666666666664,29,258,229,0.0,0.7985074626865671,0.7985074626865671,931,156,43,3,fix windows container root validate,1595591998
+730c21d386ac5a44f2e8a1d9c1d26a3d007bc007,False,1,43,6393,1533,148.67441860465115,6874,9,-6865,0.505939524838013,0.30858531317494603,0.08018358531317495,0,0,0,366,Drop etcd tests dependency,1624458178
 b18d6ee61d0c7e54ddadd7bb5351006ca840c80c,False,1,9,1414,479,157.11111111111111,1320,2710,1390,0.13815789473684212,0.6299342105263158,0.4292763157894737,20522,4379,888,45,"Update cobra to v1.2.1
 
-Signed-off-by: Eddie Zaneski <eddiezane@gmail.com>"
-6ab3cced0ca15f5412074bca8654faf493c712ea,False,1,54,3090,378,57.22222222222222,1752,1418,-334,0.0,0.5254237288135594,0.0,39825,6846,1580,253,Upgrade kustomize-in-kubectl to v4.1.2
-29853a1976d4306593159d369cd8487eeed2b3d6,False,1,2,74,73,37.0,60,94,34,0.25,0.25,1.0,1355,241,62,5,github.com/google/uuid v1.1.1
-dd1709ba46580af290712b0eca12acd00a78789d,False,1,45,6765,1548,150.33333333333334,450,8079,7629,0.6430852370424956,0.7243920412675019,0.8454925079832964,39925,6590,1520,333,bump(k8s.io/kube-openapi)
-79550ed40c67a70534c1cb697e1fb7e7dbf96335,False,1,30,2109,385,70.3,8,3278,3270,0.41830065359477125,0.6092955700798838,0.9404502541757443,23032,3593,812,109,Add distributed tracing to the apiserver using OpenTelemetry
+Signed-off-by: Eddie Zaneski <eddiezane@gmail.com>",1629320545
+6ab3cced0ca15f5412074bca8654faf493c712ea,False,1,54,3090,378,57.22222222222222,1752,1418,-334,0.0,0.5254237288135594,0.0,39825,6846,1580,253,Upgrade kustomize-in-kubectl to v4.1.2,1618521543
+29853a1976d4306593159d369cd8487eeed2b3d6,False,1,2,74,73,37.0,60,94,34,0.25,0.25,1.0,1355,241,62,5,github.com/google/uuid v1.1.1,1561341243
+dd1709ba46580af290712b0eca12acd00a78789d,False,1,45,6765,1548,150.33333333333334,450,8079,7629,0.6430852370424956,0.7243920412675019,0.8454925079832964,39925,6590,1520,333,bump(k8s.io/kube-openapi),1604913998
+79550ed40c67a70534c1cb697e1fb7e7dbf96335,False,1,30,2109,385,70.3,8,3278,3270,0.41830065359477125,0.6092955700798838,0.9404502541757443,23032,3593,812,109,Add distributed tracing to the apiserver using OpenTelemetry,1624623627
 5cfc39ef5e90002080ff1f2bc4b7ade674c225f1,False,1,948,112953,12088,119.14873417721519,45821,87125,41304,0.4627840990513313,0.5813246969132441,0.8180906250895646,1204754,189446,39810,8355,"Update protobuf,grpc,etcd dependencies
 
 1. Updated etcd/protobuf/grpc dependencies:
@@ -937,17 +937,17 @@ hack/lint-dependencies.sh  | grep ""dropreplace"" | bash
 hack/update-vendor.sh
 hack/update-internal-modules.sh
 
-Repeated steps 2-4 until clean"
-9465d95ea69bb5ee140df605f0b7960d5ca0b758,False,1,26,113,30,4.346153846153846,278,387,109,,,,9682,1472,241,24,Move CCM to staging k8s.io/cloud-provider
-205ded20da8676ada99786a3ca54b28217041d09,False,1,23,6848,1590,297.7391304347826,316,8429,8113,0.2081195627927727,0.30113763105063573,0.5621235779611867,50073,8637,2254,226,update spf13/cobra dependency to 1.0.0
-855048b1b35f40d71ef264da6b96774e1748ac52,False,1,10,594,319,59.4,146,508,362,0.03389830508474576,0.0,0.9322033898305084,17730,2915,611,24,github.com/hashicorp/hcl v1.0.0
-8af7405f1730c4913c48c6dc494e319cb3015f69,False,1,259,119042,48834,459.6216216216216,41337,95981,54644,0.340421686746988,0.4972289156626506,0.7968674698795181,2586182,382265,66935,7611,vendor: cadvisor v0.38.4
+Repeated steps 2-4 until clean",1623765969
+9465d95ea69bb5ee140df605f0b7960d5ca0b758,False,1,26,113,30,4.346153846153846,278,387,109,,,,9682,1472,241,24,Move CCM to staging k8s.io/cloud-provider,1604029823
+205ded20da8676ada99786a3ca54b28217041d09,False,1,23,6848,1590,297.7391304347826,316,8429,8113,0.2081195627927727,0.30113763105063573,0.5621235779611867,50073,8637,2254,226,update spf13/cobra dependency to 1.0.0,1589425410
+855048b1b35f40d71ef264da6b96774e1748ac52,False,1,10,594,319,59.4,146,508,362,0.03389830508474576,0.0,0.9322033898305084,17730,2915,611,24,github.com/hashicorp/hcl v1.0.0,1561341327
+8af7405f1730c4913c48c6dc494e319cb3015f69,False,1,259,119042,48834,459.6216216216216,41337,95981,54644,0.340421686746988,0.4972289156626506,0.7968674698795181,2586182,382265,66935,7611,vendor: cadvisor v0.38.4,1605297177
 2926b4572e687a761fe09a4dad2ee3579d330329,False,1,31,281819,104816,9090.935483870968,135193,222018,86825,0.4049814573519094,0.6897865089706324,0.9579532925729177,1688091,260591,45021,15248,"upgrade google.golang.org/api to v0.45.0
 
-Signed-off-by: pacoxu <paco.xu@daocloud.io>"
+Signed-off-by: pacoxu <paco.xu@daocloud.io>",1626060802
 fb03e0c46120e5f7505c9bcc2999f39a415ea167,False,1,7,1138,346,162.57142857142858,503,852,349,0.219435736677116,0.22570532915360503,1.0,16288,2295,640,56,"Bump objx to v0.2.0
 
-Signed-off-by: He Xiaoxi <xxhe@alauda.io>"
+Signed-off-by: He Xiaoxi <xxhe@alauda.io>",1561606407
 0a98875e9572d998fbdf3bcdaef4961715b8bc06,False,1,16,1763,364,110.1875,157,2390,2233,0.30465666929755325,0.49329123914759276,0.6874506708760852,9905,1548,328,66,"feat: add missing SOCKS5 features
 
 Goal of this commit is to add some missing features when the
@@ -957,8 +957,8 @@ or when exec'ing inside a container (`kubectl exec`), with this
 commit it'll now be possible to use both.
 
 Signed-off-by: Romain Aviolat <romain.aviolat@kudelskisecurity.com>
-Signed-off-by: Romain Jufer <romain.jufer@kudelskisecurity.com>"
-12b2e2c2b53ab987e956673bc778e040af22e304,False,1,3,253,190,84.33333333333333,65,494,429,0.15172413793103448,0.19310344827586207,0.3448275862068966,2785,409,156,18,Update github.com/imdario/mergo to v0.3.5
+Signed-off-by: Romain Jufer <romain.jufer@kudelskisecurity.com>",1642762181
+12b2e2c2b53ab987e956673bc778e040af22e304,False,1,3,253,190,84.33333333333333,65,494,429,0.15172413793103448,0.19310344827586207,0.3448275862068966,2785,409,156,18,Update github.com/imdario/mergo to v0.3.5,1530649931
 ecef45df84a082c71dd3d96e6adb181a2c5b3790,False,1,425,16469,2670,38.75058823529412,2795,15761,12966,0.6860963916225082,0.8468332071662882,0.6775170325510976,1170911,176632,16551,1145,"[go1.16] bump golang.org/x/... dependencies
 
 hack/pin-dependency.sh golang.org/x/crypto latest
@@ -978,33 +978,33 @@ hack/lint-dependencies.sh
 hack/update-internal-modules.sh
 hack/update-vendor.sh
 
-Co-authored-by: Stephen Augustus <foo@auggie.dev>"
-ae8ce0d190eb07b7cc12096843932c7b4ff40f63,False,1,57,2011,160,35.280701754385966,1053,2220,1167,0.7777777777777778,0.7777777777777778,0.8333333333333334,21083,3359,551,131,Move cmd/controller-manager to k8s.io/controller-manager and cloud specific configs to k8s.io/cloud-provider.
-d0261b10770210f83edbcfe379db24e1b82a9e86,False,1,383,13542,4367,35.35770234986945,131839,30098,-101741,1.0,1.0,1.0,2263540,363085,40066,1753,generated: hack/update-vendor.sh
-a8e1c67667288fb3aacc0a63a04b77aaac13bb4a,False,1,68,1929,296,28.36764705882353,613,1845,1232,0.22692307692307692,0.44871794871794873,1.0,45363,7874,1787,163,"Update kubectl kustomize to kyaml/v0.13.6, cmd/config/v0.10.6, api/v0.11.4, kustomize/v4.5.4"
+Co-authored-by: Stephen Augustus <foo@auggie.dev>",1614663481
+ae8ce0d190eb07b7cc12096843932c7b4ff40f63,False,1,57,2011,160,35.280701754385966,1053,2220,1167,0.7777777777777778,0.7777777777777778,0.8333333333333334,21083,3359,551,131,Move cmd/controller-manager to k8s.io/controller-manager and cloud specific configs to k8s.io/cloud-provider.,1602188596
+d0261b10770210f83edbcfe379db24e1b82a9e86,False,1,383,13542,4367,35.35770234986945,131839,30098,-101741,1.0,1.0,1.0,2263540,363085,40066,1753,generated: hack/update-vendor.sh,1554301180
+a8e1c67667288fb3aacc0a63a04b77aaac13bb4a,False,1,68,1929,296,28.36764705882353,613,1845,1232,0.22692307692307692,0.44871794871794873,1.0,45363,7874,1787,163,"Update kubectl kustomize to kyaml/v0.13.6, cmd/config/v0.10.6, api/v0.11.4, kustomize/v4.5.4",1648571351
 07d88617e55b64c243956c7b2032430beb03b159,False,1,4,1712,1308,428.0,2642,2018,-624,0.3322314049586777,0.08429752066115702,0.2413223140495868,1278,217,45,104,"Run hack/update-vendor.sh
 
-Signed-off-by: Davanum Srinivas <davanum@gmail.com>"
+Signed-off-by: Davanum Srinivas <davanum@gmail.com>",1589630073
 eee5235d2509df063189e08e150cc2c8213b54ed,False,1,4,12,4,3.0,31,141,110,,,,965,190,45,1,"Updating dependency github.com/fsnotify/fsnotify to version v1.4.9
 
-Signed-off-by: Davanum Srinivas <davanum@gmail.com>"
+Signed-off-by: Davanum Srinivas <davanum@gmail.com>",1586307027
 6bed35ebd2bfc8d0de1d5fe7a6db0fd15a7abace,False,1,5,60,25,12.0,63,161,98,0.6,0.0,1.0,10154,1709,443,10,"generated
 
-running hack/update-vendor.sh"
-23a9b0c23920cc27f1d32cc7c72854801e3a7b8c,False,1,65,6483,317,99.73846153846154,0,12271,12271,0.5341959334565619,0.6573012939001849,0.9072088724584103,19634,4110,756,286,vendor kustomize
-32783f75684e0e514b15f79023ba31485be07d9e,False,1,5,562,301,112.4,49,857,808,0.28125,0.6432291666666666,0.7864583333333334,4967,755,158,24,PodSecurity: Initial webhook implementation
-660b17d0aeda96af94defd4c5110d9fef523d52b,False,1,502,49119,11360,97.84661354581674,21879,32179,10300,0.09010202729561415,0.2530806943156221,0.7216112362528156,562039,87081,15137,2614,Pin dependencies and update vendors
-ed2b80fe0fdf8fcbd69e8b8837875e41daa054ed,False,1,4,2023,1193,505.75,482,1904,1422,0.37857142857142856,1.0,1.0,12978,1922,181,30,updating github.com/spf13/viper to v1.3.2
+running hack/update-vendor.sh",1565207631
+23a9b0c23920cc27f1d32cc7c72854801e3a7b8c,False,1,65,6483,317,99.73846153846154,0,12271,12271,0.5341959334565619,0.6573012939001849,0.9072088724584103,19634,4110,756,286,vendor kustomize,1549923324
+32783f75684e0e514b15f79023ba31485be07d9e,False,1,5,562,301,112.4,49,857,808,0.28125,0.6432291666666666,0.7864583333333334,4967,755,158,24,PodSecurity: Initial webhook implementation,1625875469
+660b17d0aeda96af94defd4c5110d9fef523d52b,False,1,502,49119,11360,97.84661354581674,21879,32179,10300,0.09010202729561415,0.2530806943156221,0.7216112362528156,562039,87081,15137,2614,Pin dependencies and update vendors,1571951364
+ed2b80fe0fdf8fcbd69e8b8837875e41daa054ed,False,1,4,2023,1193,505.75,482,1904,1422,0.37857142857142856,1.0,1.0,12978,1922,181,30,updating github.com/spf13/viper to v1.3.2,1560940712
 6e0650e3e132a5145a83b287fb90a30b5581bcac,False,1,2,37,33,18.5,87,93,6,0.0,0.0,0.6,5095,875,246,6,"upgrade gopkg.in/evanphx/json-patch to v4.11.0
 
-Signed-off-by: pacoxu <paco.xu@daocloud.io>"
-123fa89f2116a9fd144551631925b96c872db293,False,1,105,202,6,1.9238095238095239,183,351,168,,,,106766,18710,3020,0,"Moved pkg/kubectl/util/term, pkg/kubectl/util/templates, pkg/kubectl/util/interrupt, and pkg/kubectl/util/interrupt to staging"
-5991d3ded009b3f71522394b4c729a5faf187efd,False,1,56,2582,251,46.107142857142854,7277,13186,5909,0.2771618625277162,0.3303769401330377,0.6718403547671841,61623,9976,2407,196,upgrade kustomize-in-kubectl to v4.4.1
-ba39d22e3976540d66fde0a650a7a463d75d5b17,False,1,338,48259,2104,142.77810650887574,6380,142030,135650,0.4328695195589394,0.5740089262273562,0.8603307954843791,193964,32883,6790,2096,"until stable: pin-dependency, update-vendor, update-bazel, lint-dep"
-73ffb492032896c1c87edfa1d85de5fc74bb526c,False,1,4,115,97,28.75,111,276,165,0.75,0.75,1.0,5703,898,218,17,generated: ./hack/update-vendor.sh
+Signed-off-by: pacoxu <paco.xu@daocloud.io>",1622783709
+123fa89f2116a9fd144551631925b96c872db293,False,1,105,202,6,1.9238095238095239,183,351,168,,,,106766,18710,3020,0,"Moved pkg/kubectl/util/term, pkg/kubectl/util/templates, pkg/kubectl/util/interrupt, and pkg/kubectl/util/interrupt to staging",1561060216
+5991d3ded009b3f71522394b4c729a5faf187efd,False,1,56,2582,251,46.107142857142854,7277,13186,5909,0.2771618625277162,0.3303769401330377,0.6718403547671841,61623,9976,2407,196,upgrade kustomize-in-kubectl to v4.4.1,1636743452
+ba39d22e3976540d66fde0a650a7a463d75d5b17,False,1,338,48259,2104,142.77810650887574,6380,142030,135650,0.4328695195589394,0.5740089262273562,0.8603307954843791,193964,32883,6790,2096,"until stable: pin-dependency, update-vendor, update-bazel, lint-dep",1615251043
+73ffb492032896c1c87edfa1d85de5fc74bb526c,False,1,4,115,97,28.75,111,276,165,0.75,0.75,1.0,5703,898,218,17,generated: ./hack/update-vendor.sh,1637020499
 bcdde6bf75c7e177b44e58c5313e405c22d8d46d,False,1,24,1061,111,44.208333333333336,278,1061,783,0.5131964809384164,0.8328445747800587,1.0,21747,3581,850,33,"bump k8s.io/kube-openapi
 
-Signed-off-by: Gautier Delorme <gautier.delorme@gmail.com>"
+Signed-off-by: Gautier Delorme <gautier.delorme@gmail.com>",1618994537
 283d9f7483d9a5b30746921a68e7a5e586c2c80e,False,1,208,62351,5637,299.7644230769231,20120,47210,27090,0.4319949668268131,0.5354037977579501,0.6365248226950354,277821,39544,9868,3341,"Pin transitive dependencies:
 pin dependency github.com/beorn7/perks from v1.0.0 to v1.0.1
 pin dependency github.com/golang/protobuf from v1.3.3 to v1.4.2
@@ -1016,8 +1016,8 @@ pin dependency github.com/alecthomas/units from v0.0.0-20151022065526-2efee857e7
 pin dependency github.com/go-kit/kit from v0.8.0 to v0.9.0
 pin dependency github.com/go-logfmt/logfmt from v0.3.0 to v0.4.0
 
-Co-Authored-By: Jordan Liggitt <jordan@liggitt.net>"
-e8e15acff61ee4e291396e37081c6137ec33ad5d,False,1,15,1482,638,98.8,1037,844,-193,0.94,0.93,0.7,46034,5819,1737,243,"github.com/stretchr/objx v0.1.1, github.com/stretchr/testify v1.2.2"
+Co-Authored-By: Jordan Liggitt <jordan@liggitt.net>",1589852309
+e8e15acff61ee4e291396e37081c6137ec33ad5d,False,1,15,1482,638,98.8,1037,844,-193,0.94,0.93,0.7,46034,5819,1737,243,"github.com/stretchr/objx v0.1.1, github.com/stretchr/testify v1.2.2",1554751244
 876c9f0d8c132d47aa777200820d5e08d0562b50,False,1,237,872,144,3.679324894514768,1757,3624,1867,,,,67137,10264,1254,19,"Rename _examples to examples
 
 The alternative to this would be to special-case code-generator.  Since
@@ -1025,41 +1025,41 @@ it legit wants codegen, it seems wrong to make it be _examples (which tools
 should ignore).
 
 Make examples an ""internal module"" so the main go.mod for
-k8s.io/code-generator does not get too polluted."
+k8s.io/code-generator does not get too polluted.",1611598846
 815c6d4c90a7143d68bb4f7a509a244a26d6df01,False,1,4,8,2,2.0,99,90,-9,,,,4971,826,196,0,"Updating dependency k8s.io/kube-openapi to version 656914f
 
-Signed-off-by: Davanum Srinivas <davanum@gmail.com>"
-ef88c43c0296e6004d0e3407a1336074897b309d,False,1,100,25252,1685,252.52,9523,17448,7925,0.5317551963048499,0.5985373364126251,0.7958044649730562,163442,23178,6221,1110,hack/pin-dependency.sh github.com/go-openapi/validate v0.19.5
-6d4096cc69a8980f638a8aa3526207f8e3bf06cc,False,1,76,12476,3038,164.1578947368421,405,12357,11952,0.1966349670811997,0.24476956839795172,0.6627651792245793,85522,14835,3792,376,Upgrade kustomize-in-kubectl to v4.2.0
+Signed-off-by: Davanum Srinivas <davanum@gmail.com>",1589629975
+ef88c43c0296e6004d0e3407a1336074897b309d,False,1,100,25252,1685,252.52,9523,17448,7925,0.5317551963048499,0.5985373364126251,0.7958044649730562,163442,23178,6221,1110,hack/pin-dependency.sh github.com/go-openapi/validate v0.19.5,1574271225
+6d4096cc69a8980f638a8aa3526207f8e3bf06cc,False,1,76,12476,3038,164.1578947368421,405,12357,11952,0.1966349670811997,0.24476956839795172,0.6627651792245793,85522,14835,3792,376,Upgrade kustomize-in-kubectl to v4.2.0,1625187704
 a849c8998c1ed71f25387a560f8359596aec8bd3,False,1,31,14822,8199,478.1290322580645,5461,10009,4548,0.4456692913385827,0.49763779527559054,0.9960629921259843,177188,24038,6147,1962,"Update kube-openapi and gnostic dependencies
 
-Pulling in https://github.com/kubernetes/kube-openapi/pull/220"
+Pulling in https://github.com/kubernetes/kube-openapi/pull/220",1618860245
 a6a3bf2eb4a0b7e9f86f991ffc24b72beafce2f4,False,1,474,122681,3215,258.82067510548524,89281,36494,-52787,0.12244673841423237,0.0,0.6525367889303756,974532,176844,22274,3872,"vendor: update google/cadvisor and opencontainers/runc
 
-Signed-off-by: Giuseppe Scrivano <gscrivan@redhat.com>"
+Signed-off-by: Giuseppe Scrivano <gscrivan@redhat.com>",1593016790
 ac753f44ccbea9331499c1b22fa5bb3ce52b1796,False,1,81,6540,651,80.74074074074075,6547,955,-5592,0.33687405159332323,0.210546282245827,0.07511380880121396,49409,8369,2050,470,"upgrade kustomize to v4.1.3
 
-Signed-off-by: Gautier Delorme <gautier.delorme@gmail.com>"
-09c55bd1172e9b044762957efeae2c34de145bef,False,1,7,298,94,42.57142857142857,89,305,216,0.10526315789473684,0.3368421052631579,0.45263157894736844,16430,2720,475,23,"make kubectl --raw consistent for create, update, get, delete"
-91a3704938070b8b18dc39774d5acd8234c0c55c,False,1,23,1948,273,84.69565217391305,789,1903,1114,0.25380710659898476,0.26649746192893403,1.0,24021,3824,902,144,Run update-vendor.sh
+Signed-off-by: Gautier Delorme <gautier.delorme@gmail.com>",1621581090
+09c55bd1172e9b044762957efeae2c34de145bef,False,1,7,298,94,42.57142857142857,89,305,216,0.10526315789473684,0.3368421052631579,0.45263157894736844,16430,2720,475,23,"make kubectl --raw consistent for create, update, get, delete",1562677436
+91a3704938070b8b18dc39774d5acd8234c0c55c,False,1,23,1948,273,84.69565217391305,789,1903,1114,0.25380710659898476,0.26649746192893403,1.0,24021,3824,902,144,Run update-vendor.sh,1563093231
 0803ea49b95579195fc55b4a64a6e859932dba7f,False,1,73,4077,561,55.84931506849315,3179,2856,-323,1.0,1.0,0.0,79604,10890,2913,296,"update testing related dependencies
 
-Signed-off-by: Davanum Srinivas <davanum@gmail.com>"
-6448181d95c8d6486ba8e9a2a92b4a8172ca1f8f,False,1,78,2346,220,30.076923076923077,996,2448,1452,0.2905982905982906,0.5669515669515669,0.9145299145299145,188856,35772,3191,144,Update to etcd v3.5.0 client
+Signed-off-by: Davanum Srinivas <davanum@gmail.com>",1621389246
+6448181d95c8d6486ba8e9a2a92b4a8172ca1f8f,False,1,78,2346,220,30.076923076923077,996,2448,1452,0.2905982905982906,0.5669515669515669,0.9145299145299145,188856,35772,3191,144,Update to etcd v3.5.0 client,1623811846
 9b65bd80866f1d6c72226dfaf1e165b59806abc9,False,1,32,4969,801,155.28125,1360,7164,5804,0.47619047619047616,0.6168582375478927,0.7624521072796935,51894,8717,1726,250,"Update cobra dependency to v1.1.1
 
 Cobra v1.1.1 brings improvements to autocompletion needed for ongoing kubectl work.
 
-Signed-off-by: Eddie Zaneski <eddiezane@gmail.com>"
-2b8b3b4008bbf072d216049c48ba792f023d2de8,False,1,1,30,30,30.0,53,84,31,0.7647058823529411,0.7647058823529411,1.0,1427,231,50,4,Updating dependency golang.org/x/time to version v0.0.0-20191024005414-555d28b269f0
-93c051e28fc43ed35cb9074f6de5a8c4de799eb2,False,1,325,54495,15540,167.6769230769231,22914,40382,17468,0.4390434104497011,0.5927995840914999,0.8797764491811801,1600912,269532,58736,3611,Level sets dependency graph to consume etcd 3.1.5
+Signed-off-by: Eddie Zaneski <eddiezane@gmail.com>",1604358378
+2b8b3b4008bbf072d216049c48ba792f023d2de8,False,1,1,30,30,30.0,53,84,31,0.7647058823529411,0.7647058823529411,1.0,1427,231,50,4,Updating dependency golang.org/x/time to version v0.0.0-20191024005414-555d28b269f0,1585152581
+93c051e28fc43ed35cb9074f6de5a8c4de799eb2,False,1,325,54495,15540,167.6769230769231,22914,40382,17468,0.4390434104497011,0.5927995840914999,0.8797764491811801,1600912,269532,58736,3611,Level sets dependency graph to consume etcd 3.1.5,1491917680
 c40081b55086f997660589b184f70726eb4ec365,False,1,1,65,65,65.0,32,33,1,,,,11212,1632,325,2,"kube-proxy ipvs masquerade hairpin traffic
 
 Masquerade de traffic that loops back to the originator
 before they hit the kubernetes-specific postrouting rules
 
-Signed-off-by: Antonio Ojea <antonio.ojea.garcia@gmail.com>"
-37838215535849e9be55602e1921200075546ba8,False,1,3,244,154,81.33333333333333,130,114,-16,0.0,0.0,0.0,22465,3177,655,13,move the redundant writeline writeBytesLine to proxy/util/util.go
+Signed-off-by: Antonio Ojea <antonio.ojea.garcia@gmail.com>",1593587779
+37838215535849e9be55602e1921200075546ba8,False,1,3,244,154,81.33333333333333,130,114,-16,0.0,0.0,0.0,22465,3177,655,13,move the redundant writeline writeBytesLine to proxy/util/util.go,1611197499
 229ae585209237475a0bd68f1dfab26df0f9024c,False,1,1,161,161,161.0,127,217,90,0.0,0.946236559139785,1.0,9036,1180,222,1,"proxy/iptables: fix all-vs-ready endpoints a bit
 
 Filter the allEndpoints list into readyEndpoints sooner, and set
@@ -1075,62 +1075,62 @@ And don't write out endpoint chains that won't be used
 
 Also, generate affinity rules only for readyEndpoints rather than
 allEndpoints, so affinity gets broken correctly when an endpoint
-becomes unready."
+becomes unready.",1636057928
 b82c028f77d85ac0be39b510ccdbc2783e43fdc7,False,1,6,502,255,83.66666666666667,61,628,567,0.14087759815242495,0.4780600461893764,0.8060046189376443,27498,3895,938,31,"GCE Cloud provider changes for ESIPP
 
-Add feature gate (ExternalTrafficLocalOnly) for alpha feature"
-339f92c175932d46bd0ef64b419948dbb97b7feb,False,1,2,855,840,427.5,540,383,-157,1.0,0.7559523809523809,0.08928571428571429,8756,1301,240,14,abstract duplicated code in ipvs proxier
-731d5e519139da63b1d551d45708484bbde4a9b8,False,1,1,272,272,272.0,94,178,84,0.047619047619047616,0.047619047619047616,1.0,3746,491,107,6,"Clean up iptables rules, add nodeport support"
+Add feature gate (ExternalTrafficLocalOnly) for alpha feature",1471994199
+339f92c175932d46bd0ef64b419948dbb97b7feb,False,1,2,855,840,427.5,540,383,-157,1.0,0.7559523809523809,0.08928571428571429,8756,1301,240,14,abstract duplicated code in ipvs proxier,1526442795
+731d5e519139da63b1d551d45708484bbde4a9b8,False,1,1,272,272,272.0,94,178,84,0.047619047619047616,0.047619047619047616,1.0,3746,491,107,6,"Clean up iptables rules, add nodeport support",1439869926
 ba19451020457c2fa89ee9066986243956048091,False,1,1,21,21,21.0,10,11,1,,,,7678,1039,194,1,"iptables proxier: fix comments for LB IP traffic from local address
 
-Signed-off-by: Andrew Sy Kim <kiman@vmware.com>"
-f662170ff72a1d6635ad66cb9dcc659693e520c3,False,1,3,262,162,87.33333333333333,146,158,12,1.0,1.0,1.0,22799,3225,657,12,kube-proxy: make iptables buffer-writing cleaner
+Signed-off-by: Andrew Sy Kim <kiman@vmware.com>",1561754521
+f662170ff72a1d6635ad66cb9dcc659693e520c3,False,1,3,262,162,87.33333333333333,146,158,12,1.0,1.0,1.0,22799,3225,657,12,kube-proxy: make iptables buffer-writing cleaner,1636140499
 f558554ce0350ca85f99d316e59f8149043e7c7a,False,1,2,65,53,32.5,67,36,-31,0.5357142857142857,0.0,0.32142857142857145,11284,1560,331,3,"kube-proxy: minor cleanup
 
-Get rid of overlapping helper functions."
-b7c2faf26c2a25427794478c6265e6d55e8acb5a,False,1,21,157,26,7.476190476190476,370,391,21,0.2,0.6,0.9,107181,14054,2477,43,client-go dynamic client: add context to callers
+Get rid of overlapping helper functions.",1636140499
+b7c2faf26c2a25427794478c6265e6d55e8acb5a,False,1,21,157,26,7.476190476190476,370,391,21,0.2,0.6,0.9,107181,14054,2477,43,client-go dynamic client: add context to callers,1583510183
 4c31e9855d8f73ede31bcd9a9af9fbbdc2025975,False,1,1,11,11,11.0,4,116,112,0.6271186440677966,1.0,1.0,2038,353,63,2,"Add support for waiting by label selector or on all resources
 
-Add test for multiple deletions in kubectl watch"
-9fe20cfd46bcab48e389f3a52e9da07c031dca79,False,1,3,69,36,23.0,11,112,101,0.40476190476190477,0.4166666666666667,0.9880952380952381,4057,696,131,6,make delete waits match on UID
-c12d8a56f8397b6d1dfcb853eb36de0fc06cbd9f,False,1,2,33,32,16.5,48,82,34,0.625,0.625,1.0,4646,636,151,3,Find current resourceVersion for waiting for deletion/conditions
-892f15d9a2b4662db0492dab2fb3f96982dbed74,False,1,1,18,18,18.0,15,17,2,0.6,0.6,1.0,2076,356,64,3,Added resource name to timeout error output on WAIT cmd
+Add test for multiple deletions in kubectl watch",1549121160
+9fe20cfd46bcab48e389f3a52e9da07c031dca79,False,1,3,69,36,23.0,11,112,101,0.40476190476190477,0.4166666666666667,0.9880952380952381,4057,696,131,6,make delete waits match on UID,1531421293
+c12d8a56f8397b6d1dfcb853eb36de0fc06cbd9f,False,1,2,33,32,16.5,48,82,34,0.625,0.625,1.0,4646,636,151,3,Find current resourceVersion for waiting for deletion/conditions,1547238245
+892f15d9a2b4662db0492dab2fb3f96982dbed74,False,1,1,18,18,18.0,15,17,2,0.6,0.6,1.0,2076,356,64,3,Added resource name to timeout error output on WAIT cmd,1549642243
 5a8afa073f6b8cbb8b09f997f6db747c39dffb6e,False,1,2,54,38,27.0,7,308,301,0.17829457364341086,0.43410852713178294,1.0,4460,770,145,8,"Dynamic client watchers should be able to handle ERROR gracefully
 
 Watch can return type ""ERROR"" and a metav1.Status object. We need to
-handle that during wait, and make it easy to handle the status object."
-e187e6d310f961f62e703423b462d8e633091558,False,1,1,6,6,6.0,0,28,28,0.27586206896551724,0.7931034482758621,1.0,1795,316,58,2,fix kubectl wait with no resource name provided
-44aff9917566885ab5d8cc712a3330bac1923214,False,1,1,16,16,16.0,0,118,118,0.6833333333333333,0.9416666666666667,0.8,2275,381,71,2,wait ensures observedGeneration >= generation
+handle that during wait, and make it easy to handle the status object.",1539708923
+e187e6d310f961f62e703423b462d8e633091558,False,1,1,6,6,6.0,0,28,28,0.27586206896551724,0.7931034482758621,1.0,1795,316,58,2,fix kubectl wait with no resource name provided,1538107391
+44aff9917566885ab5d8cc712a3330bac1923214,False,1,1,16,16,16.0,0,118,118,0.6833333333333333,0.9416666666666667,0.8,2275,381,71,2,wait ensures observedGeneration >= generation,1608453331
 d3445d71d097f4f9fe8619af65269b6de735b74a,False,1,1,21,21,21.0,58,121,63,0.4098360655737705,1.0,1.0,1706,304,56,4,"Return an error if there is no resources matching
 
 This makes `kubectl wait` print useful message when
 there is no resources matching a query. Also it will now
-exit with the exit status 1."
-469df1203884b49fdfe1010fdd544cc42f3ec216,False,1,196,1724,116,8.795918367346939,1554,1519,-35,0.40816326530612246,0.0,0.0,464533,65229,11889,510,refactor: move ListOptions references to metav1
-0ac10c6cc2ab18c6543e845d0a2aee8c4500177b,False,1,36,5146,1666,142.94444444444446,20,8688,8668,0.11993022241604885,0.22546881814217182,0.9555167902311382,55781,9192,1488,145,"PetSet type, apps apigroup"
-5df8cc39c98fa10129f137b2e44482204c133175,False,1,575,21613,3804,37.587826086956525,20194,7233,-12961,0.7657319974050314,0.2909969004541195,0.0,2393803,425891,93686,1346,refactor: generated
-4271384966e34baddabda61e370311e9ea4bbf6c,False,1,12,103,14,8.583333333333334,22,87,65,0.36538461538461536,1.0,0.46153846153846156,9836,1420,264,24,Call conditional validation from create/update strategies
-48388fec7eaad4ac8d84fbe20673ffacf41964a1,False,1,139,386,12,2.776978417266187,320,320,0,,,,359960,53654,10072,103,fix all the typos across the project
+exit with the exit status 1.",1533057324
+469df1203884b49fdfe1010fdd544cc42f3ec216,False,1,196,1724,116,8.795918367346939,1554,1519,-35,0.40816326530612246,0.0,0.0,464533,65229,11889,510,refactor: move ListOptions references to metav1,1485211966
+0ac10c6cc2ab18c6543e845d0a2aee8c4500177b,False,1,36,5146,1666,142.94444444444446,20,8688,8668,0.11993022241604885,0.22546881814217182,0.9555167902311382,55781,9192,1488,145,"PetSet type, apps apigroup",1461203371
+5df8cc39c98fa10129f137b2e44482204c133175,False,1,575,21613,3804,37.587826086956525,20194,7233,-12961,0.7657319974050314,0.2909969004541195,0.0,2393803,425891,93686,1346,refactor: generated,1480810246
+4271384966e34baddabda61e370311e9ea4bbf6c,False,1,12,103,14,8.583333333333334,22,87,65,0.36538461538461536,1.0,0.46153846153846156,9836,1420,264,24,Call conditional validation from create/update strategies,1549426171
+48388fec7eaad4ac8d84fbe20673ffacf41964a1,False,1,139,386,12,2.776978417266187,320,320,0,,,,359960,53654,10072,103,fix all the typos across the project,1518318254
 400f5545bf4119a015c4f2c891b86380033a3be6,False,1,1,3,3,3.0,63,155,92,0.5777777777777777,1.0,1.0,1636,159,31,1,"add more test case in TestValidateStatefulSet
 
-Signed-off-by: yuexiao-wang <wang.yuexiao@zte.com.cn>"
-6bc3052551550aa2bd7306daed44c8b293221ff0,False,1,17,2153,378,126.6470588235294,38,2759,2721,0.34863387978142074,0.687431693989071,0.8579234972677595,59513,8121,1846,118,PetSet alpha controller
-d7e80ab0388c0e9c7e2945c9ed4d7a27e328a6d4,False,1,10,186,46,18.6,89,295,206,0.12080536912751678,1.0,0.2550335570469799,72993,8259,2376,28,Implement pod deletion cost
-9a2a50cda7ef78a965339a5ad3a6fed144e696a1,False,1,311,14620,2866,47.0096463022508,9278,11902,2624,0.0,0.0,1.0,1742661,292252,64997,866,refactor: use metav1.ObjectMeta in other types
-357203d992bb9b0cf9685f878d8635cf3277bef9,False,1,28,1264,342,45.142857142857146,484,1369,885,0.0664819944598338,0.814404432132964,0.9958448753462604,466620,97745,8832,36,API: maxUnavailable for StatefulSet
-ed586da1476a50790b75f6013ab9c679d40b105f,False,1,11,169,44,15.363636363636363,124,73,-51,1.0,1.0,0.04225352112676056,23308,3482,814,18,apimachinery: remove Scheme.DeepCopy
+Signed-off-by: yuexiao-wang <wang.yuexiao@zte.com.cn>",1511337638
+6bc3052551550aa2bd7306daed44c8b293221ff0,False,1,17,2153,378,126.6470588235294,38,2759,2721,0.34863387978142074,0.687431693989071,0.8579234972677595,59513,8121,1846,118,PetSet alpha controller,1462412357
+d7e80ab0388c0e9c7e2945c9ed4d7a27e328a6d4,False,1,10,186,46,18.6,89,295,206,0.12080536912751678,1.0,0.2550335570469799,72993,8259,2376,28,Implement pod deletion cost,1614624358
+9a2a50cda7ef78a965339a5ad3a6fed144e696a1,False,1,311,14620,2866,47.0096463022508,9278,11902,2624,0.0,0.0,1.0,1742661,292252,64997,866,refactor: use metav1.ObjectMeta in other types,1484687839
+357203d992bb9b0cf9685f878d8635cf3277bef9,False,1,28,1264,342,45.142857142857146,484,1369,885,0.0664819944598338,0.814404432132964,0.9958448753462604,466620,97745,8832,36,API: maxUnavailable for StatefulSet,1648490465
+ed586da1476a50790b75f6013ab9c679d40b105f,False,1,11,169,44,15.363636363636363,124,73,-51,1.0,1.0,0.04225352112676056,23308,3482,814,18,apimachinery: remove Scheme.DeepCopy,1507294757
 2861ae5eb986a059c69e812513c272566c346710,False,1,20,1047,232,52.35,416,889,473,0.22697368421052633,0.26973684210526316,0.9736842105263158,128220,23100,5490,36,"Support burst in stateful set scale up and down
 
 The alpha field podManagementPolicy defines how pods are created,
 deleted, and replaced. The new `Parallel` policy will replace pods
 as fast as possible, not waiting for the pod to be `Ready` or providing
 an order. This allows for advanced clustered software to take advantage
-of rapid changes in scale."
-ad0c6b66b555423a871bdbf2c9be4ddffd8db927,False,1,1,2,2,2.0,2,55,53,0.0,0.0,1.0,1633,159,31,1,Fix StatefulSet update validation
-98c37f9e2a739e8a67899d0b89bd52b08e2cda26,False,1,10,260,43,26.0,5,273,268,0.32857142857142857,0.18571428571428572,0.9857142857142858,13293,2076,283,10,statefulset PersistentVolumeClaimDeletePolicy api change
-f1d5d4df5a786a3387e1f39f59941f2c6fb4299d,False,1,24,2144,543,89.33333333333333,551,2216,1665,0.2903981264637002,0.4855581576893052,0.9578454332552693,213249,44143,8293,120,tests for statefulset PersistentVolumeClaimDeletePolicy api change
-10aee82ae3bf8ec8f8926e5198efceae1384e0b8,False,1,38,1791,533,47.13157894736842,739,1675,936,0.7056603773584905,1.0,0.9886792452830189,87408,12191,2021,288,Rename PetSet API to StatefulSet
-b1ce1ffc5585a604a2df795722ccbf23f491e666,False,1,7,116,34,16.571428571428573,112,76,-36,1.0,0.07692307692307693,0.0,8816,1393,285,6,Removes PartitionStatefulSetStrategyType and Partition from UpdateStrategy and replaces them with a parameterized RollingUpdate strategy.
+of rapid changes in scale.",1495343666
+ad0c6b66b555423a871bdbf2c9be4ddffd8db927,False,1,1,2,2,2.0,2,55,53,0.0,0.0,1.0,1633,159,31,1,Fix StatefulSet update validation,1503354488
+98c37f9e2a739e8a67899d0b89bd52b08e2cda26,False,1,10,260,43,26.0,5,273,268,0.32857142857142857,0.18571428571428572,0.9857142857142858,13293,2076,283,10,statefulset PersistentVolumeClaimDeletePolicy api change,1637196407
+f1d5d4df5a786a3387e1f39f59941f2c6fb4299d,False,1,24,2144,543,89.33333333333333,551,2216,1665,0.2903981264637002,0.4855581576893052,0.9578454332552693,213249,44143,8293,120,tests for statefulset PersistentVolumeClaimDeletePolicy api change,1637196408
+10aee82ae3bf8ec8f8926e5198efceae1384e0b8,False,1,38,1791,533,47.13157894736842,739,1675,936,0.7056603773584905,1.0,0.9886792452830189,87408,12191,2021,288,Rename PetSet API to StatefulSet,1477614310
+b1ce1ffc5585a604a2df795722ccbf23f491e666,False,1,7,116,34,16.571428571428573,112,76,-36,1.0,0.07692307692307693,0.0,8816,1393,285,6,Removes PartitionStatefulSetStrategyType and Partition from UpdateStrategy and replaces them with a parameterized RollingUpdate strategy.,1497287169
 4a09ded01d6e56ecea986693814a0890b1e70307,False,1,2,356,237,178.0,180,244,64,0.1875,1.0,1.0,3407,563,111,18,"Make kubectl label and annotate more consistent
 
 Some of the main changes:
@@ -1139,9 +1139,9 @@ Some of the main changes:
 - don't place dynamic variables in the options (only user options and args)
 - call the NewBuilder() in the Run function.
 
-You can now do diff between these files and they are as identical as possible."
-ac35aa5e32dff2276a0af02ebef3bf017f7f9330,False,1,2,172,170,86.0,0,479,479,0.03735632183908046,0.23850574712643677,0.8908045977011494,2823,423,80,8,Add a label command.
-cec30fdbedc326ef0abcbd8475b89840ae0f776d,False,1,1,13,13,13.0,3,153,150,0.021739130434782608,0.021739130434782608,1.0,2390,394,83,1,fix kubectl unlabel msg
+You can now do diff between these files and they are as identical as possible.",1475738260
+ac35aa5e32dff2276a0af02ebef3bf017f7f9330,False,1,2,172,170,86.0,0,479,479,0.03735632183908046,0.23850574712643677,0.8908045977011494,2823,423,80,8,Add a label command.,1423541342
+cec30fdbedc326ef0abcbd8475b89840ae0f776d,False,1,1,13,13,13.0,3,153,150,0.021739130434782608,0.021739130434782608,1.0,2390,394,83,1,fix kubectl unlabel msg,1632402818
 cfece3edfe8a726fc5dc65ef89b89021316837c7,False,1,1,230,230,230.0,61,653,592,0.027923211169284468,0.9616055846422339,1.0,3132,447,82,13,"Add debug by copy support for kubectl alpha debug command
 
 Signed-off-by: Aylei <rayingecho@gmail.com>
@@ -1152,18 +1152,18 @@ Co-Authored-By: Lee Verberne <lee@verb.is>
 
 Apply suggestions from code review
 
-Co-Authored-By: Lee Verberne <lee@verb.is>"
+Co-Authored-By: Lee Verberne <lee@verb.is>",1593610521
 8414d180feb9ddb0d4b9b80ea8e570dcacf98703,False,1,1,83,83,83.0,31,52,21,1.0,1.0,0.0,2500,362,66,5,"kubectl debug: support different kinds
 
-This is a refactor ahead of adding support for supporting `kubectl debug` of nodes."
+This is a refactor ahead of adding support for supporting `kubectl debug` of nodes.",1585926669
 4d20c38c337525f8105969a582ce421f52d09c8e,False,1,1,7,7,7.0,1,6,5,0.0,0.0,0.0,1274,180,47,1,"avoid duplicate status in audit events
 
-Fixes: https://github.com/kubernetes/kubernetes/issues/60108"
-8ad1c6655bde4ca8d61c3574980cffce5ee937a5,False,1,13,364,115,28.0,15,774,759,0.17551963048498845,0.5519630484988453,0.6581986143187067,14321,2348,285,15,add support for /token subresource in serviceaccount registry
-ae0e52d28cd26fcece361e14e5263a654b1c4a09,False,1,11,175,63,15.909090909090908,33,251,218,0.043478260869565216,0.2782608695652174,0.0,18286,2962,533,17,Monitoring safe rollout of time-bound service account token.
+Fixes: https://github.com/kubernetes/kubernetes/issues/60108",1524622431
+8ad1c6655bde4ca8d61c3574980cffce5ee937a5,False,1,13,364,115,28.0,15,774,759,0.17551963048498845,0.5519630484988453,0.6581986143187067,14321,2348,285,15,add support for /token subresource in serviceaccount registry,1519247811
+ae0e52d28cd26fcece361e14e5263a654b1c4a09,False,1,11,175,63,15.909090909090908,33,251,218,0.043478260869565216,0.2782608695652174,0.0,18286,2962,533,17,Monitoring safe rollout of time-bound service account token.,1587581956
 15b03b8c0cb30f762f31f68e35024ade0f147efb,False,1,4,245,116,61.25,269,403,134,1.0,1.0,0.5263157894736842,15659,2371,488,9,"port setNodeAddress to Setter abstraction, port test
 
-also put cloud_request_manager.go in its own package"
+also put cloud_request_manager.go in its own package",1531757387
 d75a3d5021411b6c997cccc9ead3711ab4ee59c8,False,1,8,1405,563,175.625,0,2487,2487,0.34511568123393316,0.6503856041131105,0.9170951156812339,6630,1092,249,70,"Move Resource functionality to its own package
 
 Create a unified Builder object for working with files, selectors,
@@ -1171,17 +1171,17 @@ types, and items that makes it easier to get multi-object functionality.
 
 Supports all of the behaviors previously in resource.go, but with
 additional flexibility to allow multi-type retrieval and access, directories,
-URLs, nested objects, and lists."
-4d753d4a597eb33fada99a12d32303359524eac2,False,1,1,5,5,5.0,2,3,1,0.0,0.0,1.0,5299,889,212,1,fix ContinueOnError visitor
-0800ed834c3761681cacc607eacffa1c91886eff,False,1,1,2,2,2.0,1,1,0,,,,2543,470,121,1,Fix URLVisitor error message
+URLs, nested objects, and lists.",1420822746
+4d753d4a597eb33fada99a12d32303359524eac2,False,1,1,5,5,5.0,2,3,1,0.0,0.0,1.0,5299,889,212,1,fix ContinueOnError visitor,1540593306
+0800ed834c3761681cacc607eacffa1c91886eff,False,1,1,2,2,2.0,1,1,0,,,,2543,470,121,1,Fix URLVisitor error message,1464268842
 58e7d16fb75b23b26380bda56efddb0c5be1c36d,False,1,1,19,19,19.0,8,11,3,0.0,0.0,1.0,3203,569,151,2,"FlattenListVisitor now continues traversal on errors and returns an
-aggregate error"
+aggregate error",1566025054
 75417ba3e477d052b53d1d420760fcc5fa94efba,False,1,1,56,56,56.0,6,133,127,0.379746835443038,0.6962025316455697,0.6962025316455697,2524,466,120,3,"Retry fetching http urls passed to '-f' in kubectl.
 
-Closes #24089."
-b9f9d130d766b353e900f3be4aafe899af8ae803,False,1,2,23,12,11.5,13,41,28,0.391304347826087,0.8695652173913043,0.8695652173913043,6265,1026,270,6,Address PR comments 2
-29dc7f6ec20aecf8887ed897ba3445d9ec64d042,False,1,11,186,122,16.90909090909091,101,128,27,0.0,0.24242424242424243,1.0,13656,2316,523,57,"Make a change to visitor to allow it to accept an error, like Go's path walker"
-ee6568a52ad32dd2cacf6caf85b8761bb7f0d04a,False,1,2,4,2,2.0,2,2,0,,,,3421,616,157,2,use status code const to express http status
+Closes #24089.",1462834697
+b9f9d130d766b353e900f3be4aafe899af8ae803,False,1,2,23,12,11.5,13,41,28,0.391304347826087,0.8695652173913043,0.8695652173913043,6265,1026,270,6,Address PR comments 2,1462836195
+29dc7f6ec20aecf8887ed897ba3445d9ec64d042,False,1,11,186,122,16.90909090909091,101,128,27,0.0,0.24242424242424243,1.0,13656,2316,523,57,"Make a change to visitor to allow it to accept an error, like Go's path walker",1440039448
+ee6568a52ad32dd2cacf6caf85b8761bb7f0d04a,False,1,2,4,2,2.0,2,2,0,,,,3421,616,157,2,use status code const to express http status,1479949624
 a47716e66dc9c1f8662935f6cbbe879cc869d548,False,1,3,144,111,48.0,30,145,115,0.5066666666666667,0.5066666666666667,1.0,6877,1127,287,9,"Make ContinueOnError actually work
 
 In resource.Builder ContinueOnError() should actually do so.
@@ -1189,9 +1189,9 @@ In resource.Builder ContinueOnError() should actually do so.
 Reorganized util.CheckErr() to make it display bulk errors more
 effectively and be more reusable. Clarified that CheckErr is not
 specific to kubectl in Godoc. Changed the ""Error: "" prefix to
-""error: "" to more closely match Unix conventions."
-f9445b9dc7a79b3f96ab5e4086b46e731a6108b7,False,1,3,1222,784,407.3333333333333,0,1256,1256,0.12790697674418605,0.21035940803382663,0.3974630021141649,30038,4504,996,41,Add Amazon NLB support
-8db551f674f99fb0ec3f22a61c102e4dc133ff9c,False,1,6,627,529,104.5,310,325,15,0.0,0.0,0.0,18326,2882,484,115,golint fixes for aws cloudprovider
+""error: "" to more closely match Unix conventions.",1431714374
+f9445b9dc7a79b3f96ab5e4086b46e731a6108b7,False,1,3,1222,784,407.3333333333333,0,1256,1256,0.12790697674418605,0.21035940803382663,0.3974630021141649,30038,4504,996,41,Add Amazon NLB support,1511185977
+8db551f674f99fb0ec3f22a61c102e4dc133ff9c,False,1,6,627,529,104.5,310,325,15,0.0,0.0,0.0,18326,2882,484,115,golint fixes for aws cloudprovider,1466802398
 0aae852a3c1a5542e47fed344e12d1132c54964b,False,1,1,9,9,9.0,7,37,30,1.0,1.0,1.0,2602,352,83,2,"Stably sort controllerrevisions
 
 Fixes https://github.com/kubernetes/kubernetes/issues/61998
@@ -1202,24 +1202,24 @@ largest revision number, the statefulset controller will periodically
 select one of the maximal controllerrevisions to be the target of the
 underlying statefulset. The selection happens here: https://github.com/kubernetes/kubernetes/blob/master/pkg/controller/statefulset/stateful_set_control.go#L212.
 Prior to this change this selection was random as the sort was not
-stable, which caused the pods of a stable set to continually roll."
-c3baf402f5c273da5a73ac078efeff905644ed3a,False,1,9,1878,1001,208.66666666666666,729,1302,573,0.4341317365269461,0.5988023952095808,1.0,18855,2615,609,99,gc changes
+stable, which caused the pods of a stable set to continually roll.",1541462465
+c3baf402f5c273da5a73ac078efeff905644ed3a,False,1,9,1878,1001,208.66666666666666,729,1302,573,0.4341317365269461,0.5988023952095808,1.0,18855,2615,609,99,gc changes,1488351941
 a864fd210025934f63cd68bad5d74bfe5d9064ec,False,1,4,233,118,58.25,44,189,145,0.0,1.0,0.4827586206896552,7230,1100,236,14,"fix unsafe JSON construction
 
-Signed-off-by: Zou Nengren <zouyee1989@gmail.com>"
-25651408aeadf38c3df7ea8c760e7519fd37d625,False,1,282,1940,80,6.879432624113475,1507,1560,53,0.3333333333333333,0.3333333333333333,1.0,690903,94607,15599,664,generated: run refactor
-29d72a71345d535e270cee59e31e8b5788910bb9,False,1,5,256,117,51.2,20,240,220,0.23163841807909605,0.3220338983050847,0.7231638418079096,14624,2061,422,18,GC fallback to jsonmerge patch when SMP is not supported
-37bc34c567665f5c2a8e8478830acd1d0b3bba37,False,1,2,125,108,62.5,5,240,235,0.3125,0.3125,0.8472222222222222,4691,702,161,5,periodically GC pod ips
-60604f8818aecbc9c3736fbc32747cc0a535bc80,False,1,602,11906,2556,19.777408637873755,15979,28544,12565,0.19185558354324098,0.2774979009235936,0.9886649874055415,1899970,304679,65843,264,run hack/update-all
-637e0f91ceabd13de6c23f00b45db90b2621760f,False,1,1,514,514,514.0,0,1193,1193,0.25497512437810943,0.7649253731343284,0.835820895522388,2590,404,66,24,"add +build linux to density_test, resource_usage_test and resource_collector"
+Signed-off-by: Zou Nengren <zouyee1989@gmail.com>",1570671894
+25651408aeadf38c3df7ea8c760e7519fd37d625,False,1,282,1940,80,6.879432624113475,1507,1560,53,0.3333333333333333,0.3333333333333333,1.0,690903,94607,15599,664,generated: run refactor,1581183021
+29d72a71345d535e270cee59e31e8b5788910bb9,False,1,5,256,117,51.2,20,240,220,0.23163841807909605,0.3220338983050847,0.7231638418079096,14624,2061,422,18,GC fallback to jsonmerge patch when SMP is not supported,1527897007
+37bc34c567665f5c2a8e8478830acd1d0b3bba37,False,1,2,125,108,62.5,5,240,235,0.3125,0.3125,0.8472222222222222,4691,702,161,5,periodically GC pod ips,1477631735
+60604f8818aecbc9c3736fbc32747cc0a535bc80,False,1,602,11906,2556,19.777408637873755,15979,28544,12565,0.19185558354324098,0.2774979009235936,0.9886649874055415,1899970,304679,65843,264,run hack/update-all,1498156263
+637e0f91ceabd13de6c23f00b45db90b2621760f,False,1,1,514,514,514.0,0,1193,1193,0.25497512437810943,0.7649253731343284,0.835820895522388,2590,404,66,24,"add +build linux to density_test, resource_usage_test and resource_collector",1470331261
 6bb8bb0227247cad69ab98a114e1733a4b4b62df,False,1,3,14,8,4.666666666666667,44,41,-3,1.0,1.0,1.0,5947,963,121,5,"Cleanup e2e_node test style
 
 Remove the use of  Except(err).NotTo(HaveOccured()), and switch to using
-framework ramework.ExpectNoError(err)"
-29400ac195c3a48cb80f30f1e1831f07b3fcf881,False,1,5,126,51,25.2,383,385,2,1.0,0.0,0.0,4713,775,124,20,test/e2e_node
-d1290ffdefa242b7af1f7da09035852c43b4e5c5,False,1,19,199,23,10.473684210526315,258,214,-44,,,,21417,3266,452,54,clean up test code
-1d053c4f7cdfa9b7c9726da1cffb732e50b99208,False,1,31,463,49,14.935483870967742,475,86,-389,1.0,1.0,0.27076923076923076,82268,11729,2667,59,controllers: simplify deepcopy calls
-f52e7ef4bf66a24b18df2f453a50922070d14c51,False,1,6,234,87,39.0,210,245,35,0.08,0.0,0.64,12584,1814,424,66,Update the DaemonSet controller to use the apps/v1 API
+framework ramework.ExpectNoError(err)",1560527508
+29400ac195c3a48cb80f30f1e1831f07b3fcf881,False,1,5,126,51,25.2,383,385,2,1.0,0.0,0.0,4713,775,124,20,test/e2e_node,1479945189
+d1290ffdefa242b7af1f7da09035852c43b4e5c5,False,1,19,199,23,10.473684210526315,258,214,-44,,,,21417,3266,452,54,clean up test code,1567698259
+1d053c4f7cdfa9b7c9726da1cffb732e50b99208,False,1,31,463,49,14.935483870967742,475,86,-389,1.0,1.0,0.27076923076923076,82268,11729,2667,59,controllers: simplify deepcopy calls,1504027284
+f52e7ef4bf66a24b18df2f453a50922070d14c51,False,1,6,234,87,39.0,210,245,35,0.08,0.0,0.64,12584,1814,424,66,Update the DaemonSet controller to use the apps/v1 API,1519328334
 d02f40a5e725d70f59e9f9e96b22ddad5c0426f7,False,1,10,640,328,64.0,136,742,606,0.1293634496919918,0.28952772073921973,0.8850102669404517,22939,2916,669,40,"Implement DaemonSet history logic in controller
 
 1. Create controllerrevisions (history) and label pods with template
@@ -1229,14 +1229,14 @@ d02f40a5e725d70f59e9f9e96b22ddad5c0426f7,False,1,10,640,328,64.0,136,742,606,0.1
    and relabel their pods
 4. Update RBAC to allow DaemonSet controller to manage
    controllerrevisions
-5. In DaemonSet controller unit tests, create new pods with hash labels"
-75612c17461fe81fb969768e12ca52bfb22f745d,False,1,16,536,119,33.5,41,1458,1417,0.031423290203327174,0.9741219963031423,0.94362292051756,11221,1816,190,25,Promote new Event API to v1
-69e2a9cb48fd49cf1449042984ea9c25edc0598c,False,1,29,852,122,29.379310344827587,16,1045,1029,0.328125,0.8645833333333334,0.8541666666666666,35179,6871,632,42,Add new Events API group
-a286455a3e230eb1373002b302669c6999c949f1,False,1,1,2,2,2.0,20,362,342,0.038348082595870206,1.0,1.0,35508,4464,1063,1,fix problem that NewReplicaSet shows <none> when describing deployments
-798f677aaca0b28f22c09ba6b536c84bec6f5d2f,False,1,1,13,13,13.0,0,13,13,0.6666666666666666,1.0,1.0,33417,4224,998,2,kubectl: fix the Scheduled eventTime is <unknown> when use kubectl describe pod xxx
+5. In DaemonSet controller unit tests, create new pods with hash labels",1496475863
+75612c17461fe81fb969768e12ca52bfb22f745d,False,1,16,536,119,33.5,41,1458,1417,0.031423290203327174,0.9741219963031423,0.94362292051756,11221,1816,190,25,Promote new Event API to v1,1593615028
+69e2a9cb48fd49cf1449042984ea9c25edc0598c,False,1,29,852,122,29.379310344827587,16,1045,1029,0.328125,0.8645833333333334,0.8541666666666666,35179,6871,632,42,Add new Events API group,1511376009
+a286455a3e230eb1373002b302669c6999c949f1,False,1,1,2,2,2.0,20,362,342,0.038348082595870206,1.0,1.0,35508,4464,1063,1,fix problem that NewReplicaSet shows <none> when describing deployments,1610775494
+798f677aaca0b28f22c09ba6b536c84bec6f5d2f,False,1,1,13,13,13.0,0,13,13,0.6666666666666666,1.0,1.0,33417,4224,998,2,kubectl: fix the Scheduled eventTime is <unknown> when use kubectl describe pod xxx,1587124707
 73aa0a92f8c79d18a53dd39d3064ac3b0257f11b,False,1,1,368,368,368.0,138,689,551,0.13082039911308205,0.8270509977827051,1.0,1944,356,61,16,"Add support for create ingress in kubectl
 
-Signed-off-by: Ricardo Pchevuzinske Katz <ricardo.katz@gmail.com>"
+Signed-off-by: Ricardo Pchevuzinske Katz <ricardo.katz@gmail.com>",1602763660
 54195d590f03a544d78b4449b2fbafaa258fd6df,False,1,57,1223,122,21.45614035087719,777,998,221,0.03896103896103896,0.8051948051948052,0.8831168831168831,227311,42415,4203,330,"Use strongly-typed types.NodeName for a node name
 
 We had another bug where we confused the hostname with the NodeName.
@@ -1250,53 +1250,53 @@ node name to use types.NodeName
 
 Also clean up some of the (many) places where the NodeName is referred
 to as a hostname (not true on AWS), or an instanceID (not true on GCE),
-etc."
-b1a3fb4988feb108af74e66504571fb82f917b72,False,1,2,34,30,17.0,43,31,-12,0.0,0.0,0.0,11546,1723,340,4,change kubelte nodeInfo to nodeLister
+etc.",1474987651
+b1a3fb4988feb108af74e66504571fb82f917b72,False,1,2,34,30,17.0,43,31,-12,0.0,0.0,0.0,11546,1723,340,4,change kubelte nodeInfo to nodeLister,1571928419
 9d8d6ad16cba1e0dea9e195f4a212acc8f7d8470,False,1,8,305,179,38.125,223,419,196,0.0,0.7107843137254902,0.946078431372549,21424,3207,587,14,"Switch scheduler to use generated listers/informers
 
 Where possible, switch the scheduler to use generated listers and
 informers. There are still some places where it probably makes more
 sense to use one-off reflectors/informers (listing/watching just a
 single node, listing/watching scheduled & unscheduled pods using a field
-selector)."
+selector).",1487861832
 d789615902ead2a112ad24fbfebe95285b87004b,False,1,8,92,30,11.5,42,52,10,0.42857142857142855,0.7142857142857143,0.7142857142857143,16940,2657,548,16,"Shared Informer Run blocks until all goroutines finish
 
-Fixes #45454"
-4c8539cece2f0a6e6974b30d00c7341e10320bc5,False,1,170,1650,172,9.705882352941176,921,921,0,,,,450993,63760,11360,519,use core client with explicit version globally
+Fixes #45454",1500350708
+4c8539cece2f0a6e6974b30d00c7341e10320bc5,False,1,170,1650,172,9.705882352941176,921,921,0,,,,450993,63760,11360,519,use core client with explicit version globally,1509090512
 189129c71ddce495e3080642b80f22d7dc17b96e,False,1,2,264,253,132.0,253,881,628,0.0,0.0,0.9952229299363057,5957,835,113,4,"Add inter-pod-affinity integration tests and remove corresponding e2e tests
 
-Signed-off-by: vikaschoudhary16 <choudharyvikas16@gmail.com>"
+Signed-off-by: vikaschoudhary16 <choudharyvikas16@gmail.com>",1501125868
 8a17ae241df651edad5129c5f5b3b3abc29ac56c,False,1,6,385,213,64.16666666666667,388,853,465,1.0,1.0,0.0,18210,2681,392,26,"Add logic to account for pods nominated to run on nodes, but are not running yet.
-Add tests for the new logic."
-d7dbc96c70d480f0b81cd83ae3abd34b69c1e70d,False,1,9,111,64,12.333333333333334,1,444,443,0.13839285714285715,0.5446428571428571,0.8928571428571429,16846,2568,434,9,Adding support for custom TLS ciphers in api server and kubelet
-6a4d5cd7cc58e28c20ca133dab7b0e9e56192fe3,False,1,1678,40823,5288,24.328367103694873,9790,51371,41581,0.2740906305202062,0.4292151843974188,0.9474025739932946,2989236,484631,99421,1740,start the apimachinery repo
-0b5bcb021932355b3ff7c2b45fb579f4adad84bf,False,1,22,962,202,43.72727272727273,200,1561,1361,0.38426453819840367,0.7172177879133409,0.8392246294184721,21717,3277,648,71,audit: add audit event to the context and fill in handlers
-c08db5feacc78aeaf104f2c0eb0c4b038fba1df5,False,1,1,108,108,108.0,68,277,209,0.03804347826086957,0.0,0.8858695652173914,2113,359,60,9,add a flag in azure auth module to omit spn: prefix in audience claim
-2b776677183502cd2bcba530dbf03bff7d39c057,False,1,4,123,99,30.75,58,268,210,0.5324675324675324,0.5324675324675324,1.0,1322,230,66,7,vendor updates
-a29789d60e2e50981ea7f811020d8f2acd0d81ca,False,1,13,50,30,3.8461538461538463,16,144,128,0.3614457831325301,0.39759036144578314,1.0,2962,498,94,5,Switch from to code.google.com/p/go-uuid/uuid to github.com/pborman/uuid
-31e40e1a6889d5387b2ead8b2e6990d9d531c132,False,1,9,650,163,72.22222222222223,0,1067,1067,0.5269360269360269,0.696969696969697,0.9158249158249159,2707,417,95,38,bump(code.google.com/p/go-uuid/uuid): 3da0bf12e76e1048469b95fb20e29f1bc9799ae1
-e2e1f497d09cc931c59ba5f9b20e3d912b4cb4fc,False,1,19,641,147,33.73684210526316,393,437,44,1.0,1.0,0.0,4547,710,154,46,github.com/pborman/uuid v1.2.0
-e16a7f24217c97e86e22c6d053d533726da6e04d,False,1,20,54383,31918,2719.15,762,58149,57387,0.11510904344070824,0.21606501383899654,0.9952299628997114,276405,53087,13056,1769,Initial protobuf generated files
-8d991e6ee22400d187b53ca4699ad99489e8bbc2,False,1,2,85,45,42.5,50,189,139,0.07291666666666667,0.5416666666666666,1.0,6098,987,219,3,Pick node for preemption based on start time of pods
-f462a31e9b3c85ea7ba287e04357fa63b9fbd284,False,1,3,59,40,19.666666666666668,40,79,39,1.0,1.0,0.0,5786,826,177,17,Move heap into its own internal package
+Add tests for the new logic.",1511245025
+d7dbc96c70d480f0b81cd83ae3abd34b69c1e70d,False,1,9,111,64,12.333333333333334,1,444,443,0.13839285714285715,0.5446428571428571,0.8928571428571429,16846,2568,434,9,Adding support for custom TLS ciphers in api server and kubelet,1516222555
+6a4d5cd7cc58e28c20ca133dab7b0e9e56192fe3,False,1,1678,40823,5288,24.328367103694873,9790,51371,41581,0.2740906305202062,0.4292151843974188,0.9474025739932946,2989236,484631,99421,1740,start the apimachinery repo,1484143788
+0b5bcb021932355b3ff7c2b45fb579f4adad84bf,False,1,22,962,202,43.72727272727273,200,1561,1361,0.38426453819840367,0.7172177879133409,0.8392246294184721,21717,3277,648,71,audit: add audit event to the context and fill in handlers,1495531214
+c08db5feacc78aeaf104f2c0eb0c4b038fba1df5,False,1,1,108,108,108.0,68,277,209,0.03804347826086957,0.0,0.8858695652173914,2113,359,60,9,add a flag in azure auth module to omit spn: prefix in audience claim,1580941079
+2b776677183502cd2bcba530dbf03bff7d39c057,False,1,4,123,99,30.75,58,268,210,0.5324675324675324,0.5324675324675324,1.0,1322,230,66,7,vendor updates,1562106386
+a29789d60e2e50981ea7f811020d8f2acd0d81ca,False,1,13,50,30,3.8461538461538463,16,144,128,0.3614457831325301,0.39759036144578314,1.0,2962,498,94,5,Switch from to code.google.com/p/go-uuid/uuid to github.com/pborman/uuid,1438733587
+31e40e1a6889d5387b2ead8b2e6990d9d531c132,False,1,9,650,163,72.22222222222223,0,1067,1067,0.5269360269360269,0.696969696969697,0.9158249158249159,2707,417,95,38,bump(code.google.com/p/go-uuid/uuid): 3da0bf12e76e1048469b95fb20e29f1bc9799ae1,1405026403
+e2e1f497d09cc931c59ba5f9b20e3d912b4cb4fc,False,1,19,641,147,33.73684210526316,393,437,44,1.0,1.0,0.0,4547,710,154,46,github.com/pborman/uuid v1.2.0,1554751244
+e16a7f24217c97e86e22c6d053d533726da6e04d,False,1,20,54383,31918,2719.15,762,58149,57387,0.11510904344070824,0.21606501383899654,0.9952299628997114,276405,53087,13056,1769,Initial protobuf generated files,1461168785
+8d991e6ee22400d187b53ca4699ad99489e8bbc2,False,1,2,85,45,42.5,50,189,139,0.07291666666666667,0.5416666666666666,1.0,6098,987,219,3,Pick node for preemption based on start time of pods,1552365015
+f462a31e9b3c85ea7ba287e04357fa63b9fbd284,False,1,3,59,40,19.666666666666668,40,79,39,1.0,1.0,0.0,5786,826,177,17,Move heap into its own internal package,1570218876
 603ec33821a24c1375694f0b26568d98691142ea,False,1,21,11354,2710,540.6666666666666,0,16852,16852,0.1869334166927165,0.47681567156403043,0.7798270292799834,43872,7298,2199,319,"Add depedencies for move from go-yaml/yaml to ghodss/yaml
 
-Also add go-spew for better debugging."
+Also add go-spew for better debugging.",1417566245
 6364af128b0ca50e66501519f333e696a26801d9,False,1,14,883,240,63.07142857142857,342,1065,723,1.0,1.0,0.0,35732,6115,1794,79,"Updating ghodss/yaml and gopkg.in/yaml.v2 to latest version
 
-Change-Id: I1f1a10b68a2d3e796724c6ac26f0ed3260153588"
+Change-Id: I1f1a10b68a2d3e796724c6ac26f0ed3260153588",1539181449
 713b1fc396a1ccdda51d395ae54c8e5512ce5ab2,False,1,8,67,15,8.375,470,152,-318,0.5,0.4166666666666667,0.9166666666666666,31838,5566,1681,17,"bump(gopkg.in/yaml.v2): 670d4cfef0544295bc27a114dbac37980d83185a
 
-Fix parsing of non-specific tags"
-90a50158270ed5e7406386a12b12b2606c587ffd,False,1,3,56,38,18.666666666666668,18,111,93,0.5862068965517241,0.7586206896551724,0.8275862068965517,15546,2459,776,5,bump gopkg.in/yaml.v2 v2.2.4
-bf30f75ec6e7f8b18cdd697456c6d78989a88ff2,False,1,3,12,6,4.0,4,19,15,0.0,0.45454545454545453,1.0,9558,1380,292,6,Update azure_test.go
-65329a59867bb628889547532e7c0e823bbd3b7d,False,1,1,64,64,64.0,9,123,114,0.1839080459770115,0.6666666666666666,1.0,1880,285,69,4,list vm instead of get when getting virtual machine
-fcfcd880fb41ab869c372c2f7c499dfa3008a6ed,False,1,18,409,101,22.72222222222222,179,245,66,0.0,0.0,0.8333333333333334,19949,3753,551,54,refactor: replace all calls to os.Exit() / CheckErr().
-eae3e3ce8ccd8eac397bcc82b15ca6f782485506,False,1,5,24,10,4.8,29,17,-12,0.0,0.0,0.0,6395,1030,195,7,cmd/kubeadm/app: fix staticcheck warning
-919826531ccb02868de8533df3b273d8936fa899,False,1,6,208,83,34.666666666666664,21,255,234,0.368,0.8,0.944,6557,1107,184,16,certs-expiration
+Fix parsing of non-specific tags",1516077298
+90a50158270ed5e7406386a12b12b2606c587ffd,False,1,3,56,38,18.666666666666668,18,111,93,0.5862068965517241,0.7586206896551724,0.8275862068965517,15546,2459,776,5,bump gopkg.in/yaml.v2 v2.2.4,1570071185
+bf30f75ec6e7f8b18cdd697456c6d78989a88ff2,False,1,3,12,6,4.0,4,19,15,0.0,0.45454545454545453,1.0,9558,1380,292,6,Update azure_test.go,1578682622
+65329a59867bb628889547532e7c0e823bbd3b7d,False,1,1,64,64,64.0,9,123,114,0.1839080459770115,0.6666666666666666,1.0,1880,285,69,4,list vm instead of get when getting virtual machine,1578341270
+fcfcd880fb41ab869c372c2f7c499dfa3008a6ed,False,1,18,409,101,22.72222222222222,179,245,66,0.0,0.0,0.8333333333333334,19949,3753,551,54,refactor: replace all calls to os.Exit() / CheckErr().,1567649813
+eae3e3ce8ccd8eac397bcc82b15ca6f782485506,False,1,5,24,10,4.8,29,17,-12,0.0,0.0,0.0,6395,1030,195,7,cmd/kubeadm/app: fix staticcheck warning,1572575996
+919826531ccb02868de8533df3b273d8936fa899,False,1,6,208,83,34.666666666666664,21,255,234,0.368,0.8,0.944,6557,1107,184,16,certs-expiration,1558189713
 adf9d7a031acc48bb1f83f5965f1386b4452ae45,False,1,1,53,53,53.0,25,28,3,0.0,1.0,1.0,721,124,17,8,"Fix overflow issue on renewal
 
-Co-authored-by: Ruben Orduz <rubenoz@gmail.com>"
+Co-authored-by: Ruben Orduz <rubenoz@gmail.com>",1541167977
 5671ea9cf14e33a326df52373595027844b00f35,False,1,14,294,69,21.0,182,211,29,0.0,0.0,1.0,22820,3338,635,43,"kubeadm: Remove ClusterConfiguration from InitConfiguration in v1beta2
 
 Ever since v1alpha3, InitConfiguration is containing ClusterConfiguration
@@ -1313,14 +1313,14 @@ Thus, to make things smooth for users and to reduce third party exposure to
 technical debt, this change removes ClusterConfiguration embedding from
 InitConfiguration.
 
-Signed-off-by: Rostislav M. Georgiev <rostislavg@vmware.com>"
-cf7f8acae2d7d1bf84a017d69e919dec719a151a,False,1,3,284,164,94.66666666666667,164,631,467,0.13142857142857142,0.5228571428571429,0.45714285714285713,4704,707,148,19,renew-embedded-certs
-0c31c79e7bb1f019ba1f0d5fb4739e2c3683b84e,False,1,12,787,162,65.58333333333333,433,461,28,1.0,0.0,0.8125,6008,1166,133,34,kubeadm alpha commands
-b474b28f7b042ae30fa11e13be95fd01cd0803b1,False,1,36,667,60,18.52777777777778,335,332,-3,,,,70043,10027,1344,129,Use framework.ExpectNoError() for rest of under test/e2e/storage
+Signed-off-by: Rostislav M. Georgiev <rostislavg@vmware.com>",1559121217
+cf7f8acae2d7d1bf84a017d69e919dec719a151a,False,1,3,284,164,94.66666666666667,164,631,467,0.13142857142857142,0.5228571428571429,0.45714285714285713,4704,707,148,19,renew-embedded-certs,1557154104
+0c31c79e7bb1f019ba1f0d5fb4739e2c3683b84e,False,1,12,787,162,65.58333333333333,433,461,28,1.0,0.0,0.8125,6008,1166,133,34,kubeadm alpha commands,1541020719
+b474b28f7b042ae30fa11e13be95fd01cd0803b1,False,1,36,667,60,18.52777777777778,335,332,-3,,,,70043,10027,1344,129,Use framework.ExpectNoError() for rest of under test/e2e/storage,1554403911
 a8f318779b511307a53fbaecb5fbb7bb40847ab7,False,1,10,523,273,52.3,77,787,710,0.16052060737527116,0.8481561822125814,0.7483731019522777,25504,3943,660,32,"Add  CSI volume resizing tests
 
 Add some tests for checking node expansion
-Add new tests for expander"
+Add new tests for expander",1552054998
 14408bec8736cc630019e398a34c2f2a00b1b5d3,False,1,1,6,6,6.0,0,6,6,0.0,0.0,0.0,1498,265,40,1,"kubeadm: improve the kubeconfig file validation phase
 
 When a kubeconfig file is read from disk it may lack the
@@ -1330,38 +1330,38 @@ In such a case the kubeconfig phase backend will panic,
 without throwing a sensible error.
 
 Add nil checks for a couple of map operations in
-validateKubeConfig()."
-f9f91bf18e639a8ecee12391d0fb149539e9a8f8,False,1,10,880,331,88.0,305,1682,1377,0.22021116138763197,0.7782805429864253,0.717948717948718,6734,1174,167,47,fully implement kubeadm-phase-kubeconfig
-13499f443a91a12dc51f86defb2c21c9bae58288,False,1,9,587,145,65.22222222222223,420,642,222,0.0,0.23214285714285715,0.9642857142857143,7169,1158,203,24,Generate two certs and two private keys; only the necessary ones; make the certs and kubeconfig phases work with valid files already on-disk and some cleanup
-7351c8686031b320f61c70fe065d3c039dda0a99,False,1,5,595,503,119.0,14,1094,1080,0.2302357836338419,0.6726768377253814,0.9736477115117892,10491,1717,298,28,publish cluster authentication trust via controller
+validateKubeConfig().",1560946342
+f9f91bf18e639a8ecee12391d0fb149539e9a8f8,False,1,10,880,331,88.0,305,1682,1377,0.22021116138763197,0.7782805429864253,0.717948717948718,6734,1174,167,47,fully implement kubeadm-phase-kubeconfig,1501944279
+13499f443a91a12dc51f86defb2c21c9bae58288,False,1,9,587,145,65.22222222222223,420,642,222,0.0,0.23214285714285715,0.9642857142857143,7169,1158,203,24,Generate two certs and two private keys; only the necessary ones; make the certs and kubeconfig phases work with valid files already on-disk and some cleanup,1484951586
+7351c8686031b320f61c70fe065d3c039dda0a99,False,1,5,595,503,119.0,14,1094,1080,0.2302357836338419,0.6726768377253814,0.9736477115117892,10491,1717,298,28,publish cluster authentication trust via controller,1573053439
 d9adf535f35051be1d79d1309c72762939593d7c,False,1,3,66,50,22.0,7,264,257,0.3287671232876712,0.547945205479452,0.8082191780821918,2636,423,84,4,"Dynamic SNI certificates
 
 Reload SNI certificate cert and key file from disk every minute and notify
 the dynamic certificate controller when they change, allowing serving
-tls config to be updated."
-6beb96261e29754f2b7d0e44829eb6d15422cebf,False,1,13,328,68,25.23076923076923,105,438,333,0.6097560975609756,0.39634146341463417,0.975609756097561,13211,2258,438,31,wire up a means to dynamically reload ca bundles for kube-apiserver
+tls config to be updated.",1572017931
+6beb96261e29754f2b7d0e44829eb6d15422cebf,False,1,13,328,68,25.23076923076923,105,438,333,0.6097560975609756,0.39634146341463417,0.975609756097561,13211,2258,438,31,wire up a means to dynamically reload ca bundles for kube-apiserver,1571842916
 de7be9d6133bb985d9f1d0fa029e03166f6cd0f4,False,1,10,271,42,27.1,18,253,235,0.18452380952380953,0.9523809523809523,1.0,21224,3300,716,14,"Populate InlineVolumeSpec in CSI attacher and translation library
 
-Signed-off-by: Deep Debroy <ddebroy@docker.com>"
+Signed-off-by: Deep Debroy <ddebroy@docker.com>",1559208922
 141d33a2a52e6359a027ffffc3ae9b66ea25b4bb,False,1,74,855,91,11.554054054054054,423,640,217,1.0,0.5625,0.0625,87079,14806,2505,111,"Fix some golint errors for packages in `pkg/kubectl/cmd`
 
-Co-authored-by: Arijit Basu <sayanarijit@gmail.com>"
-f88c7725b4f9446c652d160bdcfab7c6201bddea,False,1,4,244,220,61.0,1,285,284,0.3969465648854962,0.648854961832061,1.0,3516,544,113,9,add mutation cache filter
-75b18e20d5258efbfb710c75c8aebda7ba652a40,False,1,2,34,24,17.0,4,115,111,0.06521739130434782,0.7065217391304348,1.0,4552,783,69,1,"Don't print non-error (blank lines in this case) to stdout, and don't print blank lines for empty resources"
-191a48f4c3cddbba5669b2f4412508c581305c38,False,1,6,567,303,94.5,377,423,46,1.0,0.0,1.0,6233,1225,196,38,wire PrintFlags through get cmd
-70138273098f1b8d411b2798384d14482190b5ee,False,1,1,37,37,37.0,20,17,-3,,,,3949,666,54,0,Stop special-casing tables in kubectl get to print 'No resources found'
-09e4de385c3ea5422ce4d696c7c84f7ea12bb3e9,False,1,3,57,40,19.0,10,76,66,0.0,0.0,0.95,10814,1617,305,9,Enable nontrivial secret manager
-44258647074ede9c7375979df84f551840680254,False,1,13,241,61,18.53846153846154,50,270,220,0.618421052631579,0.9210526315789473,0.6973684210526315,33805,5153,1100,30,Migrate kubelet configmap management logic to an interface
-0859798e8e278ec382dcbeb77914f40bf2c78a2c,False,1,9,175,50,19.444444444444443,110,202,92,0.5851063829787234,0.0,1.0,12020,2158,281,20,update admission webhook to accept client config
-4d922682125da944b9ee7e7e06c6674f6721227d,False,1,2,17,11,8.5,19,38,19,0.0,0.6,1.0,2677,469,118,3,"Better error handling for output format when ""kubectl config view"""
-c679fee12911ed7eec03c02cb7fa0d60257d57b6,False,1,275,19658,3203,71.48363636363636,8313,12700,4387,1.0,1.0,1.0,336994,54208,10858,1425,Update staging client-go
-949704af2c4a9be65ac8c38b9c8645a3570bad38,False,1,6,1838,599,306.3333333333333,0,2180,2180,0.28034875922199864,0.44198524480214624,0.994634473507713,9306,1472,404,87,jsonpath template
-68e2a96016b985b3e856fc0b01e9819b616eedec,False,1,1,2,2,2.0,11,143,132,0.4056603773584906,1.0,1.0,2822,410,80,2,Add unit test TestGarbageCollectorSync
-7d2be1c521dc7f93ae3f83dd123199963598c938,False,1,26,552,32,21.23076923076923,0,552,552,1.0,1.0,1.0,31812,6410,340,40,generate UpdateScale and GetScale verbs for scalable resources
-f8de7cea406a8d01799c4b4d40b892f3b38fa534,False,1,214,4142,298,19.35514018691589,2096,2046,-50,1.0,0.0,0.0,312339,42802,8825,1145,Update generated files
+Co-authored-by: Arijit Basu <sayanarijit@gmail.com>",1542895748
+f88c7725b4f9446c652d160bdcfab7c6201bddea,False,1,4,244,220,61.0,1,285,284,0.3969465648854962,0.648854961832061,1.0,3516,544,113,9,add mutation cache filter,1494945574
+75b18e20d5258efbfb710c75c8aebda7ba652a40,False,1,2,34,24,17.0,4,115,111,0.06521739130434782,0.7065217391304348,1.0,4552,783,69,1,"Don't print non-error (blank lines in this case) to stdout, and don't print blank lines for empty resources",1563067408
+191a48f4c3cddbba5669b2f4412508c581305c38,False,1,6,567,303,94.5,377,423,46,1.0,0.0,1.0,6233,1225,196,38,wire PrintFlags through get cmd,1524682968
+70138273098f1b8d411b2798384d14482190b5ee,False,1,1,37,37,37.0,20,17,-3,,,,3949,666,54,0,Stop special-casing tables in kubectl get to print 'No resources found',1554441601
+09e4de385c3ea5422ce4d696c7c84f7ea12bb3e9,False,1,3,57,40,19.0,10,76,66,0.0,0.0,0.95,10814,1617,305,9,Enable nontrivial secret manager,1484851653
+44258647074ede9c7375979df84f551840680254,False,1,13,241,61,18.53846153846154,50,270,220,0.618421052631579,0.9210526315789473,0.6973684210526315,33805,5153,1100,30,Migrate kubelet configmap management logic to an interface,1496219976
+0859798e8e278ec382dcbeb77914f40bf2c78a2c,False,1,9,175,50,19.444444444444443,110,202,92,0.5851063829787234,0.0,1.0,12020,2158,281,20,update admission webhook to accept client config,1508421178
+4d922682125da944b9ee7e7e06c6674f6721227d,False,1,2,17,11,8.5,19,38,19,0.0,0.6,1.0,2677,469,118,3,"Better error handling for output format when ""kubectl config view""",1446510352
+c679fee12911ed7eec03c02cb7fa0d60257d57b6,False,1,275,19658,3203,71.48363636363636,8313,12700,4387,1.0,1.0,1.0,336994,54208,10858,1425,Update staging client-go,1478735177
+949704af2c4a9be65ac8c38b9c8645a3570bad38,False,1,6,1838,599,306.3333333333333,0,2180,2180,0.28034875922199864,0.44198524480214624,0.994634473507713,9306,1472,404,87,jsonpath template,1438049876
+68e2a96016b985b3e856fc0b01e9819b616eedec,False,1,1,2,2,2.0,11,143,132,0.4056603773584906,1.0,1.0,2822,410,80,2,Add unit test TestGarbageCollectorSync,1521224938
+7d2be1c521dc7f93ae3f83dd123199963598c938,False,1,26,552,32,21.23076923076923,0,552,552,1.0,1.0,1.0,31812,6410,340,40,generate UpdateScale and GetScale verbs for scalable resources,1504268746
+f8de7cea406a8d01799c4b4d40b892f3b38fa534,False,1,214,4142,298,19.35514018691589,2096,2046,-50,1.0,0.0,0.0,312339,42802,8825,1145,Update generated files,1530297377
 dd08d1b489894de6e51952c752f4cfadfa1c4499,False,1,7,1193,268,170.42857142857142,0,2049,2049,0.24393939393939393,0.625,0.7863636363636364,7106,1062,175,72,"CSI - API source code implementation
 
-This commit tracks source code update for the CSI volume plugin implementation."
+This commit tracks source code update for the CSI volume plugin implementation.",1511313658
 a092fd2dd4091b735cc2389015ce4bef951abfab,False,1,9,394,125,43.77777777777778,48,926,878,0.43523316062176165,0.6994818652849741,0.9430051813471503,37095,5014,1079,22,"Federation build and e2e test integration
 
-Federation components are now buildable and e2e-testable via e2e.go."
+Federation components are now buildable and e2e-testable via e2e.go.",1464214047

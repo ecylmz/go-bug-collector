@@ -1,4 +1,4 @@
-sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message
+sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message,commit_timestamp
 26004c54076ef4bb6e75711f5fd39287d44749d6,False,1,3,69,37,23.0,57,97,40,0.0,0.0,1.0,5510,901,180,9,"vault: set renew increment to lease duration (#26041)
 
 When we renew Vault tokens, we use the lease duration to determine how often to
@@ -18,7 +18,7 @@ safe timer so that we don't have to spawn a new goroutine per loop, and have
 tighter control over when that's GC'd.
 
 Ref: https://github.com/hashicorp/nomad/pull/1606
-Ref: https://github.com/hashicorp/nomad/issues/25812"
+Ref: https://github.com/hashicorp/nomad/issues/25812",1749837054
 716df52788a0b36a8220b4060737dc7a7f499c08,False,1,2,79,58,39.5,0,123,123,0.05263157894736842,0.3157894736842105,0.5526315789473685,16698,2493,519,3,"CNI: migrate from persistent state to ephemeral state during restart (#25093)
 
 In #24650 we switched to using ephemeral state for CNI plugins, so that when a
@@ -34,7 +34,7 @@ As a compatibility shim, copy the old CNI state directory to the new CNI state
 directory during agent startup, if the new CNI state directory doesn't already
 exist.
 
-Ref: https://github.com/hashicorp/nomad/pull/24650"
+Ref: https://github.com/hashicorp/nomad/pull/24650",1739370350
 24fa7439dffdccc0e4071d09dbc47e8325b4eae2,False,1,2,14,7,7.0,11,21,10,0.0,1.0,1.0,417,114,4,1,"cni: use tmpfs location for ipam plugin (#24650)
 
 When a Nomad host reboots, the network namespace files in the tmpfs in
@@ -55,11 +55,11 @@ appears to be related to the netns itself being restored unexpectedly from
 Docker's state.
 
 Ref: https://github.com/hashicorp/nomad/issues/24292#issuecomment-2537078584
-Ref: https://www.cni.dev/plugins/current/ipam/host-local/#files"
+Ref: https://www.cni.dev/plugins/current/ipam/host-local/#files",1734359795
 8164d9e1d4939771a8d230ba6fd8f4f54442f6fe,False,1,1,5,5,5.0,4,22,18,0.07692307692307693,0.7692307692307693,1.0,9476,1426,341,1,"csi: send secrets with snapshot delete command (#26022)
 
 so that -secret arguments make it to the CSI plugin
-to carry out the snapshot deletion"
+to carry out the snapshot deletion",1749502972
 b5faeff233933f550c84875b08d22bd55a083f74,False,1,1,8,8,8.0,4,7,3,,,,2835,454,103,1,"vault: fix bug in logging logic around renewals (#25040)
 
 In #24409 we fixed a bug where some of the error messages we get from Vault
@@ -68,7 +68,7 @@ the logic that logged the non-fatal errors so that it logs when there is no
 renewal error.
 
 Ref: https://github.com/hashicorp/nomad/pull/24409
-Fixes: https://github.com/hashicorp/nomad/issues/24933"
+Fixes: https://github.com/hashicorp/nomad/issues/24933",1738935933
 5d09d7ad0723c133f71a742b1e143d86f9332f92,False,1,1,20,20,20.0,6,72,66,0.2978723404255319,0.9574468085106383,0.9574468085106383,2401,361,85,1,"reset max query time of blocking queries in client after retries (#25039)
 
 When a blocking query on the client hits a retryable error, we change the max
@@ -81,18 +81,18 @@ frequency until the agent restarts. No other current RPC on the client has this
 behavior, but we'll fix this in the `rpc` method rather than in the caller so
 that any future users of the `rpc` method don't have to remember this detail.
 
-Fixes: https://github.com/hashicorp/nomad/issues/25033"
+Fixes: https://github.com/hashicorp/nomad/issues/25033",1738935956
 3493551c38bcaa41d015de09e63eed54bd8fb08a,False,1,1,3,3,3.0,7,58,51,0.2222222222222222,0.9629629629629629,0.9629629629629629,1972,278,52,2,"docker: surface image pull progress error (#24981)
 
 set() on the future, so the caller can handle it
 instead of wait()ing forever and causing the
-allocation to get stuck ""pending"""
+allocation to get stuck ""pending""",1738946169
 62ef621582d5e9d6da544d9baaadfb39b502fc07,False,1,1,26,26,26.0,12,89,77,0.11940298507462686,1.0,0.9402985074626866,1997,282,54,4,"docker: respect image_pull_timeout (#24991)
 
 I believe the docker driver stopped respecting image_pull_timeout
 in Nomad 1.9.0 in 981ca3604965b6934a96559634887ee443106bfb
 
-this makes the timeout apply again"
+this makes the timeout apply again",1738949791
 beae92cd0be102fc56d82d7ad29079b24ae3fee0,False,1,5,115,51,23.0,10,228,218,0.09032258064516129,0.6516129032258065,0.6516129032258065,117912,18618,3269,5,"cancel waiting evals when allocs reconnect (#25923)
 
 When a disconnected alloc reconnects, the follow-up evaluation is left pending
@@ -104,7 +104,7 @@ ID if the allocation is reconnecting, and mark the eval as canceled. Update the
 FSM to remove those evals from the eval broker's delay heap.
 
 Fixes: https://github.com/hashicorp/nomad/issues/12809
-Fixes: https://hashicorp.atlassian.net/browse/NMD-302"
+Fixes: https://hashicorp.atlassian.net/browse/NMD-302",1748609871
 48b1b01e69d31bab56fea8895e6713c1a012cf3a,False,1,1,129,129,129.0,99,180,81,0.7346938775510204,1.0,1.0,713,128,30,7,"prevent client deadlock and incorrect timing on stop_on_client_after (#25946)
 
 The `disconnect.stop_on_client_after` feature is implemented as a loop on the
@@ -137,13 +137,13 @@ This commit includes the following:
 * Minor refactoring of the disconnect timeout lookup to improve brevity.
 
 Fixes: https://github.com/hashicorp/nomad/issues/24679
-Ref: https://hashicorp.atlassian.net/browse/NMD-407"
+Ref: https://hashicorp.atlassian.net/browse/NMD-407",1748545533
 bfcbe83ab5fcabedba545a298c501e050df39464,False,1,1,2,2,2.0,1,4,3,,,,2475,447,60,1,"sec: sanitize identity token from events (#24966)
 
 * bug: sanitize identity token from events
 
-* add changelog"
-e107d84c7823476b8c1a1abcf16a8ac1ee84d279,False,1,1,2,2,2.0,1,31,30,0.0,1.0,1.0,428,79,13,1,taskrunner: fix panic when a task that has a dynamic user is recovered (#24739)
+* add changelog",1738079826
+e107d84c7823476b8c1a1abcf16a8ac1ee84d279,False,1,1,2,2,2.0,1,31,30,0.0,1.0,1.0,428,79,13,1,taskrunner: fix panic when a task that has a dynamic user is recovered (#24739),1738001155
 09eb47318948bbcc931e09b0bd7b20399260cbfe,False,1,4,75,59,18.75,38,82,44,0.0,1.0,0.8461538461538461,5445,940,170,3,"dynamic host volumes: set status unavailable on failed restore (#24962)
 
 When a client restarts but can't restore a volume (ex. the plugin is now
@@ -155,7 +155,7 @@ more meaningful by setting the value to ""unavailable"".
 Also, remove the unused ""deleted"" field. We did not implement soft deletes and
 aren't planning on it for Nomad 1.10.0.
 
-Ref: https://hashicorp.atlassian.net/browse/NET-11551"
+Ref: https://hashicorp.atlassian.net/browse/NET-11551",1738013753
 c1dc9ed75da559a0700a00e08b8b0df9fc9aecce,False,1,1,10,10,10.0,3,25,22,0.4666666666666667,0.8666666666666667,1.0,5328,1149,251,1,"CSI: don't overwrite context with empty value from request (#24922)
 
 When a volume is updated, we merge the new definition to the old. But the
@@ -171,7 +171,7 @@ explictly set by the user. We still need to support user-driven updates to
 context for the `volume register` workflow.
 
 Ref: https://github.com/hashicorp/terraform-provider-nomad/pull/503
-Fixes: https://github.com/democratic-csi/democratic-csi/issues/438"
+Fixes: https://github.com/democratic-csi/democratic-csi/issues/438",1737659192
 456d95a19e167f265cb220c654b66fff80f9d457,False,1,1,6,6,6.0,35,92,57,0.3939393939393939,1.0,1.0,4780,744,129,1,"scheduler: account for affinity value of zero in score normalization (#25800)
 
 If there are no affinities on a job, we don't want to count an affinity score of
@@ -185,7 +185,7 @@ affinity being picked over a node with no affinity, because the denominator is 1
 larger. Include zero-value affinities in the count of scores if the job has
 affinities but the value just happens to be zero.
 
-Fixes: https://github.com/hashicorp/nomad/issues/25621"
+Fixes: https://github.com/hashicorp/nomad/issues/25621",1747678200
 44d9c2a3d1e1a3f457ba384137646fa17e80da2d,False,1,1,23,23,23.0,1,70,69,0.0,0.6851851851851852,0.6851851851851852,2710,408,116,1,"dynamic host volumes: enforce exclusive access in plan apply (#24881)
 
 Some dynamic host volumes are claimed by allocations with the capability we
@@ -194,13 +194,13 @@ allocation can use the volume, and it can use it in read/write mode. We enforce
 this in the scheduler, but if evaluations for different jobs were to be
 processed concurrently by the scheduler, it's possible to get plans that would
 fail to enforce this requirement. Add a check in the plan applier to ensure that
-non-terminal allocations have exclusive access when requested."
+non-terminal allocations have exclusive access when requested.",1737146313
 87f1427d9e003a59f110aa992551006ed432cfba,False,1,1,5,5,5.0,3,4,1,0.0,0.0,1.0,1268,277,38,2,"dynamic host volumes: capacity_max may be unset during register (#24850)
 
 When using the register workflow, `capacity_max` is ignored so is likely
 unset. If the volume is then updated later, the check we had for valid updates
 assumes that the value was previously. Only perform this check if the value is
-set."
+set.",1736802325
 08a6f870ad2b96c2514e83e9f30eea6523ea0ea4,False,1,4,76,39,19.0,15,247,232,0.1588235294117647,0.8235294117647058,0.8588235294117647,5074,838,176,10,"cni: use check command when restoring from restart (#24658)
 
 When the Nomad client restarts and restores allocations, the network namespace
@@ -221,7 +221,7 @@ This should fix the gap left #24650 for Docker task drivers and any other
 drivers with the `MustInitiateNetwork` capability.
 
 Fixes: https://github.com/hashicorp/nomad/issues/24292
-Ref: https://github.com/hashicorp/nomad/pull/24650"
+Ref: https://github.com/hashicorp/nomad/pull/24650",1736260719
 374e987b9ba2885d401f301724e609fc7718c329,False,1,2,45,24,22.5,9,47,38,0.0,0.6190476190476191,0.7142857142857143,5387,843,147,2,"metrics: emit cache and rss stats on cgroup v2 (#25751)
 
 In cgroups v2, a different map of memory stats is available from the kernel than
@@ -237,11 +237,11 @@ the `docker` driver and the Linux executor for `exec` and `java` drivers.
 Fixes: https://github.com/hashicorp/nomad/issues/19185
 Ref: https://hashicorp.atlassian.net/browse/NMD-437
 Ref: https://www.kernel.org/doc/html/latest/admin-guide/cgroup-v2.html#memory-interface-files
-Ref: https://www.kernel.org/doc/Documentation/cgroup-v1/memory.txt"
+Ref: https://www.kernel.org/doc/Documentation/cgroup-v1/memory.txt",1745513298
 c46521a80dc0be4cc9f67c2714923d93b809137b,False,1,2,25,18,12.5,6,22,16,1.0,1.0,1.0,12336,2004,368,3,"cli: operator debug: respect NOMAD_REGION env var (#25716)
 
 properly filter out regions other than the one specified
-like the -namespace flag does"
+like the -namespace flag does",1745269610
 c205688857d92ec300d6c4f57be05794a811c35d,False,1,4,74,34,18.5,19,68,49,0.7666666666666667,0.7666666666666667,0.0,64519,11166,1273,17,"scheduler: fix state corruption from rescheduler tracker updates (#25698)
 
 In #12319 we fixed a bug where updates to the reschedule tracker would be
@@ -260,7 +260,7 @@ reschedule tracker in the ""normalized"" (stripped-down) allocations we send to
 the leader as part of a plan.
 
 Ref: https://github.com/hashicorp/nomad/pull/12319
-Fixes: https://hashicorp.atlassian.net/browse/NET-12357"
+Fixes: https://hashicorp.atlassian.net/browse/NET-12357",1744980174
 30e57c39b03619143fbf122598440113774f0f4e,False,1,1,20,20,20.0,5,30,25,0.0,0.0,1.0,2368,356,85,1,"discovery: correctly handle IPv6 addresses from go-discover (#24649)
 
 Nomad sets a default port when resolving server addresses that don't have
@@ -277,7 +277,7 @@ includes the port but is missing brackets, but there's no way to unambiguously
 parse that address.
 
 Ref: https://www.rfc-editor.org/rfc/rfc5952
-Fixes: https://github.com/hashicorp/nomad/issues/24608"
+Fixes: https://github.com/hashicorp/nomad/issues/24608",1734468580
 75b0202f7fe1243e751d7b89d550071938cae581,False,1,1,1,1,1.0,1,4,3,1.0,0.0,1.0,5390,886,195,1,"api: don't copy previously parsed URL when setting new address (#24644)
 
 In #16872 we added support for unix domain sockets, but this required mutating
@@ -308,7 +308,7 @@ Fixes: https://github.com/hashicorp/nomad/issues/24635
 Fixes: https://github.com/hashicorp/nomad/issues/24609
 Ref: https://github.com/hashicorp/nomad/pull/16872
 Ref: https://github.com/hashicorp/nomad/pull/23785
-Ref: https://github.com/hashicorp/nomad/commit/4d3b75d867dae508011c198c84318f54b4aa6684"
+Ref: https://github.com/hashicorp/nomad/commit/4d3b75d867dae508011c198c84318f54b4aa6684",1734365129
 d28af58cbbf955f2270babb5c7101b19412919ff,False,1,4,36,13,9.0,12,27,15,1.0,1.0,1.0,7789,1413,244,3,"agent: implement sd-notify reload correctly (#25636)
 
 First of all, we should not send the unix time, but the monotonic time.
@@ -327,7 +327,7 @@ now has code samples of the protocol to clarify.
 Without these changes, if you'd set
 Type=notify-reload on the agen'ts systemd unit, systemd
 would kill the service due to the service not responding to reload
-correctly."
+correctly.",1744645136
 48f304d0cab3ef3ba3e4030e3dd9633fe13fec26,False,1,2,5,3,2.5,1,7,6,0.0,1.0,1.0,4657,712,129,2,"java: only set nobody user on Unix (#25648)
 
 In #25496 we introduced the ability to have `task.user` set for on Windows, so
@@ -347,18 +347,18 @@ executor code don't hit the same probem on Windows.
 
 Ref: https://github.com/hashicorp/nomad/pull/5143
 Ref: https://github.com/hashicorp/nomad/pull/25496
-Fixes: https://github.com/hashicorp/nomad/issues/25638"
+Fixes: https://github.com/hashicorp/nomad/issues/25638",1744295674
 5c8e436de98b18bd3b7d0da05d8fa83c1529b4b2,False,1,5,36,11,7.2,71,18,-53,1.0,0.1111111111111111,0.0,27698,4477,748,5,"auth: oidc: disable pkce by default (#25600)
 
 our goal of ""enable by default, only for new auth methods""
 proved to be unwieldy, so instead make it a simple bool,
-disabled by default."
+disabled by default.",1744047369
 78cc7ec1ebaf61f8fd51f0770235467bf018f0a4,False,1,1,12,12,12.0,3,24,21,0.0,0.631578947368421,1.0,3751,583,131,2,"dynamic host volumes: enforce that namespace exists (#25590)
 
 Testing found that if you create or register a dynamic host volume in a
 non-existing namespace, the volume gets created on the client but then we can't
-write it to state. Add a check for this in the initial validation."
-af56eb8b7f5e0a95d1cffa8a920cfc89a0269717,False,1,1,20,20,20.0,31,110,79,0.5866666666666667,0.9066666666666666,1.0,1216,228,47,2,fix bug in nomad fmt -check does not return error code (#15797)
+write it to state. Add a check for this in the initial validation.",1743621535
+af56eb8b7f5e0a95d1cffa8a920cfc89a0269717,False,1,1,20,20,20.0,31,110,79,0.5866666666666667,0.9066666666666666,1.0,1216,228,47,2,fix bug in nomad fmt -check does not return error code (#15797),1673964934
 5536328c2bae55b5845a33b4b5df8b57b4baaf52,False,1,1,41,41,41.0,8,52,44,0.0,0.4375,1.0,1742,284,82,2,"acl: Fix panic when bogus token is passed (#15863)
 
 If a consumer of the new `Authenticate` method gets passed a bogus token that's
@@ -368,7 +368,7 @@ for authorization.
 
 Because no API client should ever send a bogus auth token, update the
 `Authenticate` method to create the identity with remote IP (for metrics
-tracking) but also return an `ErrPermissionDenied`."
+tracking) but also return an `ErrPermissionDenied`.",1674658997
 f9d835f3c603750674c38706ac35e264902b185e,False,1,1,4,4,4.0,1,12,11,0.0,1.0,1.0,816,120,23,1,"Ensure infra_image gets proper label used for reconciliation (#15898)
 
 * Ensure infra_image gets proper label used for reconciliation
@@ -385,18 +385,18 @@ Ensure we set this label on the infra container as well.
 
 ---------
 
-Co-authored-by: Seth Hoenig <shoenig@duck.com>"
+Co-authored-by: Seth Hoenig <shoenig@duck.com>",1675093605
 736103aa5428ba5eb3b61a15f1d73ccc275959c3,False,1,1,2,2,2.0,1,4,3,,,,594,82,12,1,"client: fix JSON formatted logs when failing to reserve cores (#25523)
 
 Fixed a bug where JSON formatted logs would not show the requested and overlapping 
-cores when failing to reserve cores"
-67f8f22df74a791c9f798b4909ebf7dd1aba822b,False,1,1,2,2,2.0,1,4,3,,,,6016,1027,202,1,fix(#13844): canonicalize job to avoid nil pointer deference (#13845)
-00d5749a4b859e9b898de1fa319fd086248f7031,False,1,1,11,11,11.0,0,14,14,0.0,0.0,1.0,3166,526,75,1,job parsing: fix panic when variable validation is missing condition (#16018)
+cores when failing to reserve cores",1743079952
+67f8f22df74a791c9f798b4909ebf7dd1aba822b,False,1,1,2,2,2.0,1,4,3,,,,6016,1027,202,1,fix(#13844): canonicalize job to avoid nil pointer deference (#13845),1675285288
+00d5749a4b859e9b898de1fa319fd086248f7031,False,1,1,11,11,11.0,0,14,14,0.0,0.0,1.0,3166,526,75,1,job parsing: fix panic when variable validation is missing condition (#16018),1675287663
 89f4f2b7a6f33306aa114c3e5a8f261735de79ca,False,1,1,4,4,4.0,2,5,3,,,,3481,555,102,2,"cli: Fix a panic in `deployment status` when scheduling is slow (#16011)
 
 If a deployment fails, the `deployment status` command can get a nil deployment
 when it checks for a rollback deployment if there isn't one (or at least not one
-at the time of the query). Fix the panic."
+at the time of the query). Fix the panic.",1675359284
 ba20138ffd71224a165842ad2aac67294279dd46,False,1,2,20,18,10.0,37,78,41,0.1,0.7,0.0,45432,8374,1884,3,"System and sysbatch jobs always have zero index (#16030)
 
 Service jobs should have unique allocation Names, derived from the
@@ -412,7 +412,7 @@ system/sysbatch jobs
 Validate that `volume.per_alloc` is incompatible with system/sysbatch jobs.
 System and sysbatch jobs always have a `NOMAD_ALLOC_INDEX` of 0. So
 interpolation via `per_alloc` will not work as soon as there's more than one
-allocation placed. Validate against this on job submission."
+allocation placed. Validate against this on job submission.",1675372681
 587e080ee7315e023086966f940c344ef53fcbc6,False,1,2,14,12,7.0,400,116,-284,0.09375,0.625,0.0,44485,8195,1852,3,"System and sysbatch jobs always have zero index (#16030) (#16043)
 
 Service jobs should have unique allocation Names, derived from the
@@ -428,7 +428,7 @@ system/sysbatch jobs
 Validate that `volume.per_alloc` is incompatible with system/sysbatch jobs.
 System and sysbatch jobs always have a `NOMAD_ALLOC_INDEX` of 0. So
 interpolation via `per_alloc` will not work as soon as there's more than one
-allocation placed. Validate against this on job submission."
+allocation placed. Validate against this on job submission.",1675431580
 38e1ba1174e436d2529dd06129103730f2bd37cf,False,1,2,14,12,7.0,32,77,45,0.09375,0.625,0.0,45082,8302,1870,3,"System and sysbatch jobs always have zero index (#16030) (#16041)
 
 Service jobs should have unique allocation Names, derived from the
@@ -444,7 +444,7 @@ system/sysbatch jobs
 Validate that `volume.per_alloc` is incompatible with system/sysbatch jobs.
 System and sysbatch jobs always have a `NOMAD_ALLOC_INDEX` of 0. So
 interpolation via `per_alloc` will not work as soon as there's more than one
-allocation placed. Validate against this on job submission."
+allocation placed. Validate against this on job submission.",1675431588
 fdd37d19d8877040c80826aa8ee0ce97a1f03058,False,1,2,14,12,7.0,379,115,-264,0.09375,0.625,0.0,42295,7780,1738,3,"System and sysbatch jobs always have zero index (#16030) (#16044)
 
 Service jobs should have unique allocation Names, derived from the
@@ -460,7 +460,7 @@ system/sysbatch jobs
 Validate that `volume.per_alloc` is incompatible with system/sysbatch jobs.
 System and sysbatch jobs always have a `NOMAD_ALLOC_INDEX` of 0. So
 interpolation via `per_alloc` will not work as soon as there's more than one
-allocation placed. Validate against this on job submission."
+allocation placed. Validate against this on job submission.",1675431598
 d1dcf10bac31c04ae1b216e25a0540cb514fd4cc,False,1,1,7,7,7.0,4,3,-1,1.0,1.0,0.0,12720,1896,489,1,"acl: never return auth errors for `ACL.Bootstrap` RPC (#16108)
 
 In #15901 we introduced pre-forwarding authentication for RPCs so that we can
@@ -471,7 +471,7 @@ your `NOMAD_TOKEN` already set (perhaps because you were talking to another
 cluster previously from the same shell session), you'll get an authentication
 error instead of just having the token be ignored. This is a regression from the
 existing behavior, so have this endpoint ignore auth errors the same way we do
-for every other unauthenticated endpoint (ex `Status.Peers`)"
+for every other unauthenticated endpoint (ex `Status.Peers`)",1675954976
 e1685483413e66e720d307fdd353ff248635c633,False,1,21,249,42,11.857142857142858,277,276,-1,0.6923076923076923,1.0,0.6153846153846154,33551,5489,1145,58,"provide allocrunner hooks with prebuilt taskenv and fix mutation bugs (#25373)
 
 Some of our allocrunner hooks require a task environment for interpolating values based on the node or allocation. But several of the hooks accept an already-built environment or builder and then keep that in memory. Both of these retain a copy of all the node attributes and allocation metadata, which balloons memory usage until the allocation is GC'd.
@@ -489,7 +489,7 @@ I also bumped into an incorrectly implemented interface in the CSI hook. I've pu
 
 Fixes: https://github.com/hashicorp/nomad/issues/25269
 Fixes: https://hashicorp.atlassian.net/browse/NET-12310
-Ref: https://github.com/hashicorp/nomad/issues/25372"
+Ref: https://github.com/hashicorp/nomad/issues/25372",1742832304
 68abcb80a0c7a61cc1619e96bfee21978e2227e1,False,1,1,59,59,59.0,138,210,72,0.0,0.8870967741935484,1.0,1245,240,49,3,"cli: `fmt -check` should return early on diff (#16174)
 
 The `nomad fmt -check` command incorrectly writes to file because we didn't
@@ -502,9 +502,9 @@ easily misread to be the opposite of the actual behavior. Clarify this and fix
 up the docs to match.
 
 This changeset also refactors the tests quite a bit so as to make the test
-outputs clear when something is incorrect."
-38931c9a2bd6f5cba76dfd7ae86a0fefc442e3bf,False,1,1,28,28,28.0,8,23,15,0.9166666666666666,0.9166666666666666,1.0,2703,489,100,2,[cli] var put - Add extension parsing to second argument when file (#16181)
-69b08bb706ebdb464118880aedf7dddb39cd0f79,False,1,1,14,14,14.0,6,12,6,0.0,0.0,0.5,1271,184,43,2,volume: Add the missing option propagation_mode (#15626)
+outputs clear when something is incorrect.",1676487991
+38931c9a2bd6f5cba76dfd7ae86a0fefc442e3bf,False,1,1,28,28,28.0,8,23,15,0.9166666666666666,0.9166666666666666,1.0,2703,489,100,2,[cli] var put - Add extension parsing to second argument when file (#16181),1676572981
+69b08bb706ebdb464118880aedf7dddb39cd0f79,False,1,1,14,14,14.0,6,12,6,0.0,0.0,0.5,1271,184,43,2,volume: Add the missing option propagation_mode (#15626),1675089127
 7c56fd50733277fad1f85af4839119a0b56e3901,False,1,2,6,4,3.0,8,16,8,0.0,0.8333333333333334,1.0,40024,5775,1524,3,"CSI: fix potential state store corruptions (#16256)
 
 The `CSIVolume` struct has references to allocations that are ""denormalized""; we
@@ -518,7 +518,7 @@ copying the volume before denormalizing:
 There are no known user-visible problems associated with these bugs but both
 have the potential of mutating volume claims outside of a FSM transaction. This
 changeset also cleans up state mutations in some CSI tests so as to avoid having
-working tests cover up potential future bugs."
+working tests cover up potential future bugs.",1677505628
 f619b0bd7a95b66795a50ec64bd2a621537e2e1c,False,1,1,1,1,1.0,0,4,4,0.0,0.0,1.0,3028,434,78,1,"populate Nomad token for task runner update hooks (#16266)
 
 The `TaskUpdateRequest` struct we send to task runner update hooks was not
@@ -526,7 +526,7 @@ populating the Nomad token that we get from the task runner (which we do for the
 Vault token). This results in task runner hooks like the template hook
 overwriting the Nomad token with the zero value for the token. This causes
 in-place updates of a task to break templates (but not other uses that rely on
-identity but don't currently bother to update it, like the identity hook)."
+identity but don't currently bother to update it, like the identity hook).",1677512893
 a9bb8e940fdd54f993d43f558004f695e78a7cb5,False,1,1,30,30,30.0,12,21,9,0.0,0.0,1.0,14816,2215,459,1,"client: use RPC address and not serf after initial Consul discovery (#16217)
 
 Nomad servers can advertise independent IP addresses for `serf` and
@@ -554,7 +554,7 @@ client has registered, it will get the correct set of RPC addresses.
 
 This changeset updates the client logic to query `Status.Members` instead of
 `Status.Peers`, and then extract the correctly advertised address and port from
-the response body."
+the response body.",1677782205
 bbd41c87f1578fe153f4b40c311a7309c329b6df,False,1,10,189,42,18.9,192,65,-127,0.9732142857142857,1.0,0.0,49669,7374,1809,31,"handle `FSM.Apply` errors in `raftApply` (#16287)
 
 The signature of the `raftApply` function requires that the caller unwrap the
@@ -575,7 +575,7 @@ and surfaces a few minor bugs in the process:
 Note that although _most_ of the `FSM.Apply` functions return only errors (which
 makes it tempting to remove the first return value entirely), there are few that
 return `bool` for some reason and Variables relies on the response value for
-proper CAS checking."
+proper CAS checking.",1677783069
 a4f792641b04da2f5e3243be117448cf017236ed,False,1,1,6,6,6.0,3,24,21,0.0,0.0,0.13333333333333333,2229,337,72,2,"service: fix regression in task access to list/read endpoint (#16316)
 
 When native service discovery was added, we used the node secret as the auth
@@ -592,10 +592,10 @@ to the job the `acl.ACL` is no longer nil and this causes permissions errors.
 Fix the regression by adding back the bypass for valid claims. In future work,
 we should strongly consider getting turning the implicit policies into real
 `ACLPolicy` objects (even if not stored in state) so that we don't have these
-kind of brittle exceptions to the auth code."
+kind of brittle exceptions to the auth code.",1677861679
 642e33ae4197db72ba4a478c74c102017bd8c643,False,1,1,16,16,16.0,3,111,108,0.1414141414141414,0.8888888888888888,1.0,1207,273,72,2,"CSI: fix topology matching logic (#24522)
 
-Some plugins emit multiple topology segment entries for the same segment (ex. newer versions of AWS EBS) to accommodate convention changes in k8s. Check that segments are a superset instead of exactly equal to the plugin's topology segments."
+Some plugins emit multiple topology segment entries for the same segment (ex. newer versions of AWS EBS) to accommodate convention changes in k8s. Check that segments are a superset instead of exactly equal to the plugin's topology segments.",1732285356
 6f52a9194f1e0e13a5a85f7fbd1317b3df17ede6,False,1,3,30,14,10.0,16,47,31,0.20833333333333334,1.0,1.0,59469,10356,2385,6,"scheduler: correctly detect inplace update with wildcard datacenters (#16362)
 
 Wildcard datacenters introduced a bug where a job with any wildcard datacenters
@@ -603,7 +603,7 @@ will always be treated as a destructive update when we check whether a
 datacenter has been removed from the jobspec.
 
 Includes updating the helper so that callers don't have to loop over the job's
-datacenters."
+datacenters.",1678201559
 997da25cdb49c634749be97874955024492b9d43,False,1,2,70,58,35.0,28,240,212,0.02824858757062147,0.9887005649717514,1.0,50735,9204,752,2,"scheduler: take all assigned cpu cores into account instead of only those part of the largest lifecycle (#24304)
 
 Fixes a bug in the AllocatedResources.Comparable method, where the scheduler
@@ -611,7 +611,7 @@ would only take into account the cpusets of the tasks in the largest lifecycle.
 This could result in overlapping cgroup cpusets. Now we make the distinction
 between reserved and fungible resources throughout the lifespan of the alloc.
 In addition, added logging in case of future regressions thus not requiring
-manual inspection of cgroup files."
+manual inspection of cgroup files.",1732213308
 c0c41f11a5ccc33b53252102dac6fd67e00c4a8e,False,1,3,62,49,20.666666666666668,51,48,-3,0.0,1.0,0.0,46249,6655,1745,10,"CSI: prevent loop in volumewatcher when node is GC'd (#25428)
 
 If a CSI volume is has terminal allocations, the volumewatcher will submit an
@@ -636,7 +636,7 @@ This changeset includes the following:
 * Remove some dead code found while working on this.
 
 Fixes: https://github.com/hashicorp/nomad/issues/25349
-Ref: https://hashicorp.atlassian.net/browse/NET-12298"
+Ref: https://hashicorp.atlassian.net/browse/NET-12298",1742576836
 c67c4ea18230053f6ac4aa023d222f590b4343d6,False,1,14,122,23,8.714285714285714,54,109,55,0.0,0.0,0.0,12361,2161,379,2,"client: statically assert hook interfaces in build (#25472)
 
 While working on #25373, I noticed that the CSI hook's `Destroy` method doesn't
@@ -649,7 +649,7 @@ Fix the interface, but also make static assertions for all the allocrunner hooks
 in the production code, so that you can make changes to interfaces and have
 compile-time assistance in avoiding mistakes.
 
-Ref: https://github.com/hashicorp/nomad/pull/25373"
+Ref: https://github.com/hashicorp/nomad/pull/25373",1742562853
 6b9dbefb9ed4b51394218ba8fdc4eee9959d416b,False,1,1,2,2,2.0,1,4,3,,,,10029,1471,359,1,"consul: handle nil multierror pointer correctly (#24513)
 
 When the service client syncs to Consul, we accumulate service sync errors in a
@@ -661,7 +661,7 @@ need to do this ourselves.
 I've also made a quick pass through the rest of the code base looking for
 multierror `Len` method calls to see if we have this pattern elsewhere.
 
-Fixes: https://github.com/hashicorp/nomad/issues/24512"
+Fixes: https://github.com/hashicorp/nomad/issues/24512",1732118152
 a420732424590eb792abc729744d2c1f168d2ca4,False,1,1,2,2,2.0,1,4,3,,,,357,66,11,0,"consul: allow non-root Nomad to rewrite token (#24410)
 
 When a task restarts, the Nomad client may need to rewrite the Consul token, but
@@ -670,7 +670,7 @@ it. While Nomad clients should be run as root (currently), it's harmless to
 allow whatever user the Nomad agent is running as to be able to write to it, and
 that's one less barrier to rootless Nomad.
 
-Ref: https://github.com/hashicorp/nomad/issues/23859#issuecomment-2465757392"
+Ref: https://github.com/hashicorp/nomad/issues/23859#issuecomment-2465757392",1732029674
 13b95b76858ec9f98f7f442182e3b22d7e07454b,False,1,2,6,3,3.0,1,12,11,0.0,0.5,1.0,24616,3467,901,2,"CSI: prevent extraneous GC attempts for plugins (#25432)
 
 We can't delete a CSI plugin when it has volumes in use. When periodic GC runs,
@@ -680,7 +680,7 @@ also check if the plugin is empty first before sending the RPC to save a
 request and subsequent Raft write.
 
 Fixes: https://github.com/hashicorp/nomad/issues/17025
-Ref: https://github.com/hashicorp/nomad/pull/20555"
+Ref: https://github.com/hashicorp/nomad/pull/20555",1742390082
 6be9a50626098cfc545233b5b68f0e3dc8c7ccf4,False,1,1,27,27,27.0,8,22,14,0.0,0.0,1.0,2835,454,103,1,"vault: catch expired lease as fatal error (#24409)
 
 When a Vault lease expires, it's revoked on the server and cannot be removed, so
@@ -692,7 +692,7 @@ messages (which might be bubbling up from the stdlib). I've audited the errors
 currently used and have documented their source.
 
 Ref https://github.com/hashicorp/vault/blob/52ba156d47da170bf40471fe57d72522030bdc7e/vault/expiration.go#L1327
-Fixes: https://github.com/hashicorp/nomad/issues/23859"
+Fixes: https://github.com/hashicorp/nomad/issues/23859",1731939155
 868418349211f5bd7efb2f9ba92f461c4b7e659b,False,1,1,75,75,75.0,45,33,-12,1.0,1.0,0.0,14721,2202,458,5,"client: don't use `Status` RPC for Consul discovery (#16490)
 
 In #16217 we switched clients using Consul discovery to the `Status.Members`
@@ -706,7 +706,7 @@ Instead of hitting the `Status.Peers` or `Status.Members` RPC endpoint, use the
 Consul response directly. Update the `registerNode` method to handle the list of
 servers we get back in the response; if we get a ""no servers"" or ""no path to
 region"" response we'll kick off discovery again and retry immediately rather
-than waiting 15s."
+than waiting 15s.",1678995513
 70faebbbb8d219926cd715f9a3cc0e1a37404d00,False,1,1,11,11,11.0,11,46,35,0.0,1.0,1.0,4276,681,124,1,"drivers/exec: Fix handling of capabilities for unprivileged tasks (#16643)
 
 Currently, the `exec` driver is only setting the Bounding set, which is
@@ -720,7 +720,7 @@ Per CAPABILITIES (7):
 > Ambient: This is a set of capabilities that are preserved across an
 > execve(2) of a program that is not privileged.  The ambient capability
 > set obeys the invariant that no capability can ever be ambient if it
-> is not both permitted and inheritable."
+> is not both permitted and inheritable.",1680019975
 03a90f497aad75c8a505be2661e3f39daa1db6fc,False,1,2,18,14,9.0,8,13,5,0.0,0.0,0.0,13790,2001,319,3,"docker: move pause container recovery to after `SetConfig` (#16713)
 
 When we added recovery of pause containers in #16352 we called the recovery
@@ -734,7 +734,7 @@ use the default config.
 Move the `recoveryPauseContainers` call into the `SetConfig`. Fix the error
 handling so that we return any error but also don't log when the context is
 canceled, which happens twice during normal startup as we fingerprint the
-driver."
+driver.",1680121237
 f3fc54adcfeff54185bfdb5aad1e1e19fee7b656,False,1,7,109,36,15.571428571428571,77,69,-8,0.18181818181818182,0.09090909090909091,0.0,16374,2556,514,14,"CSI: set mounts in alloc hook resources atomically (#16722)
 
 The allocrunner has a facility for passing data written by allocrunner hooks to
@@ -749,7 +749,7 @@ long afterwards, this should be safe but #16623 shows there's some sequence of
 events during restore where this breaks down.
 
 Refactor hook resources so that hook data is accessed via setters and getters
-that hold the mutex."
+that hold the mutex.",1680534216
 f91bf84e12de0fa432dbb658d5723f959c83de16,False,1,2,12,10,6.0,216,362,146,0.2875,0.7875,0.0,2840,440,107,2,"drain: use client status to determine drain is complete (#14348)
 
 If an allocation is slow to stop because of `kill_timeout` or `shutdown_delay`,
@@ -758,7 +758,7 @@ will continue to report allocation migrations. This impacts the UI or API
 clients that monitor node draining to shut down nodes.
 
 This changeset updates the behavior to wait until the client status of all
-drained allocs are terminal before marking the node as done draining."
+drained allocs are terminal before marking the node as done draining.",1681390528
 433f8c9a8b25af7ef83546aafc8f08be0c7fde52,False,1,2,27,18,13.5,4,37,33,0.0,1.0,1.0,5174,795,192,2,"dynamic host volumes: don't wait for fingerprint to reserve node (#25386)
 
 If multiple dynamic host volumes are created in quick succession, it's possible
@@ -767,13 +767,13 @@ placed but not yet fingerprinted as ready. Once a `VolumeCreate` RPC returns a
 response, we've already invoked the plugin successfully and written to state, so
 we're just waiting on the fingerprint for scheduling purposes. Change the
 placement selection so that we skip a node if it has a volume, regardless of
-whether that volume is ready yet."
+whether that volume is ready yet.",1741894021
 84cd58db27c5bbd5f121fed6c832ff7975078d2c,False,1,2,14,9,7.0,2,114,112,0.20224719101123595,0.9887640449438202,1.0,9273,1486,387,2,"[scheduler] Honor `false` for distinct hosts constraint (#16907)
 
 * Honor value for distinct_hosts constraint
 * Add test for feasibility checking for `false`
 ---------
-Co-authored-by: Michael Schurter <mschurter@hashicorp.com>"
+Co-authored-by: Michael Schurter <mschurter@hashicorp.com>",1681767836
 645923274d20bf8d77fa10c9a1428e175eccca41,False,1,1,17,17,17.0,3,14,11,0.0,0.0,1.0,18690,2537,685,1,"fsm: fix bug in snapshot restore for removed timetable (#24412)
 
 When we removed the time table in #24112 we introduced a bug where if a previous
@@ -790,7 +790,7 @@ While fixing this bug, we still need to ensure we're reading the time table
 entries even if we're throwing them away, so that we move the snapshot reader
 along to the next full entry.
 
-Fixes: https://github.com/hashicorp/nomad/issues/24411"
+Fixes: https://github.com/hashicorp/nomad/issues/24411",1731330078
 c36d3bd2f9b95fe3b0af62dbd0e1dc0f9aed5734,False,1,3,84,52,28.0,37,152,115,0.19480519480519481,1.0,0.7922077922077922,8016,1227,289,10,"scheduling: prevent self-collision in dynamic port network offerings (#16401)
 
 When the scheduler tries to find a placement for a new allocation, it iterates
@@ -844,7 +844,7 @@ This changeset:
   scheduler test for spread scheduling to more easily detect this kind of problem
   in the future.
 * Adds a `String()` method to `Bitmap` so that any future ""screaming"" log lines
-  have a human-readable list of used ports."
+  have a human-readable list of used ports.",1678374594
 c2dc1c58dda2c926bf1b8acb35944202bcee8c8c,False,1,7,206,118,29.428571428571427,35,334,299,0.5028248587570622,1.0,0.9943502824858758,20794,3278,652,16,"full task cleanup when alloc prerun hook fails (#17104)
 
 to avoid leaking task resources (e.g. containers,
@@ -868,7 +868,7 @@ also done in tr.Run() now that it's not skipped:
    * also includes task preKill hooks
  * clearDriverHandle() to destroy the task
    and associated resources
- * task exited hooks"
+ * task exited hooks",1683569830
 2aa3c746c44dc39414ef8be339f7cbde504a7292,False,1,7,78,24,11.142857142857142,72,108,36,0.0,1.0,1.0,71416,12499,2819,16,"logs: fix missing allocation logs after update to Nomad 1.5.4 (#17087)
 
 When the server restarts for the upgrade, it loads the `structs.Job` from the
@@ -885,7 +885,7 @@ false`, and logs will not be collected.
 This changeset fixes the bug by adding a new field `Disabled` which defaults to
 false (so that the zero value works), and deprecates the old field.
 
-Fixes #17076"
+Fixes #17076",1683230478
 30849c518e16647a4f698e5f5cc82bef2bf40e4d,False,1,1,40,40,40.0,61,123,62,0.0,0.8936170212765957,1.0,9486,1430,340,2,"CSI: fix namespace ACL bypass on create/register APIs (#24396)
 
 When creating or registering a CSI volume, the RPC handler uses the volume
@@ -905,7 +905,7 @@ ACL checking in these two RPCs.
 
 Ref: CVE-2024-10975
 Ref: https://hashicorp.atlassian.net/browse/SECVULN-15463
-Fixes: https://github.com/hashicorp/nomad/issues/24397"
+Fixes: https://github.com/hashicorp/nomad/issues/24397",1731008850
 f3d53e3e2b4c96f5c3e87f5bcb9a1a48ec9e956b,False,1,1,84,84,84.0,32,55,23,0.8181818181818182,0.8181818181818182,0.45454545454545453,2013,306,57,9,"CSI: restart task on failing initial probe, instead of killing it (#25307)
 
 When a CSI plugin is launched, we probe it until the csi_plugin.health_timeout
@@ -924,7 +924,7 @@ triggered. Combine the two contexts to make sure we stop the supervisor
 whichever context gets closed first.
 
 Fixes: https://github.com/hashicorp/nomad/issues/25293
-Ref: https://hashicorp.atlassian.net/browse/NET-12264"
+Ref: https://hashicorp.atlassian.net/browse/NET-12264",1741359899
 c80c8ab43d33c428735901be56f6ae942768a459,False,1,1,15,15,15.0,1,117,116,0.011627906976744186,0.9186046511627907,1.0,1215,191,42,2,"scheduler: prevent -Inf in spread scoring (#17198)
 
 When spread targets have a percent value of zero it's possible for them to
@@ -938,7 +938,7 @@ score without generating a score that might be greater than the negative scores
 set by other spread targets. Instead, track the lowest-seen spread boost and use
 that as the spread boost for any cases where we'd divide by zero.
 
-Fixes: #8863"
+Fixes: #8863",1684267292
 feb34c738dffaf67db3ea836e46ec22debda8df7,False,1,2,47,42,23.5,11,179,168,0.20714285714285716,0.9857142857142858,0.9928571428571429,2827,420,96,9,"scheduler: count implicit spread targets as a single target (#17195)
 
 When calculating the score in the `SpreadIterator`, the score boost is
@@ -951,12 +951,12 @@ This changeset updates the `propertySet` struct to accept a set of explicit
 target values so it can detect when a property value falls into the implicit set
 and should be combined with other implicit values.
 
-Fixes: #11823"
+Fixes: #11823",1684333500
 7e93f150b5a014eeac0934eb42560a0e89aee2cf,False,1,2,114,112,57.0,638,780,142,0.07954545454545454,0.75,0.8409090909090909,2339,399,83,4,"cli: tls certs not created with correct SANs  (#16959)
 
 The `nomad tls cert` command did not create certificates with the correct SANs for
 them to work with non default domain and region names. This changset updates the
-code to support non default domains and regions in the certificates."
+code to support non default domains and regions in the certificates.",1684762316
 a6f15ba0acfa56875d77e6f4c64d6cbbfa6610e7,False,1,1,6,6,6.0,3,12,9,0.0,0.2,1.0,1931,310,93,1,"allow periodic jobs to use workload identity ACL policies (#17018)
 
 When resolving ACL policies, we were not using the parent ID for the policy
@@ -964,7 +964,7 @@ lookup for dispatch/periodic jobs, even though the claims were signed for that
 parent ID. This prevents all calls to the Task API (and other WI-authenticated
 API calls) from a periodically-dispatched job failing with 403.
 
-Fix this by using the parent job ID whenever it's available."
+Fix this by using the parent job ID whenever it's available.",1684761556
 3fd8a1ed8d9ebb5ce2b166266153909c63a3f290,False,1,1,4,4,4.0,2,2,0,,,,49545,9030,730,0,"scheduler: prevent nil pointer ref when reschedule policy is missing (#24893)
 
 When upgrading from older versions of Nomad, the reschedule policy block may be
@@ -973,10 +973,10 @@ for allocs on disconnected clients, but it's missing from the
 `NextRescheduleTime` method used by more typical allocations. Return an empty
 time object in this case.
 
-Fixes: https://github.com/hashicorp/nomad/issues/24846"
+Fixes: https://github.com/hashicorp/nomad/issues/24846",1741206850
 4510f6d7c1f9537ce25f0d15c4b00719e71b8296,False,1,2,25,22,12.5,5,43,38,0.6842105263157895,0.0,0.6842105263157895,25962,3808,879,2,"[core] nil check and error handling for client status in heartbeat responses (#17316)
 
-Add a nil check to constructNodeServerInfoResponse to manage an apparent race between deregister and client heartbeats. Fixes #17310"
+Add a nil check to constructNodeServerInfoResponse to manage an apparent race between deregister and client heartbeats. Fixes #17310",1685045094
 1788bfb42eff36f2ee88ae20404ea30f8494cee0,False,1,5,69,50,13.8,89,126,37,0.0,0.8571428571428571,0.0,7669,1218,261,6,"remove addresses from node class hash (#24942)
 
 When a node is fingerprinted, we calculate a ""computed class"" from a hash over a
@@ -998,7 +998,7 @@ allowed this to pass unnoticed since the early days of Nomad.
 
 Ref: https://github.com/hashicorp/nomad/pull/708
 Ref: https://github.com/hashicorp/nomad/pull/4390
-Ref: https://github.com/hashicorp/nomad/pull/19969"
+Ref: https://github.com/hashicorp/nomad/pull/19969",1741012112
 cff3c9b874bfdae38e6dc53de3a2fa1d2b8065af,False,1,1,37,37,37.0,2,38,36,0.0,0.0,1.0,11511,1782,416,3,"replication: fix potential panic during upgrades (#17476)
 
 If the authoritative region has been upgraded to a version of Nomad that has new
@@ -1010,12 +1010,12 @@ upgraded, then it will attempt to write a Raft log entry that the followers
 don't understand. The followers will then panic.
 
 Add same the minimum version checks that we do for RPC writes to the leader's
-replication loop."
+replication loop.",1686574436
 95b6d7abd850a4c7a00728b943fe8934ca9329fe,False,1,3,17,11,5.666666666666667,1,16,15,0.0,0.0,1.0,14486,2244,516,2,"node pools: prevent panic on upsert during upgrades (#17474)
 
 Whenever we write a Raft log entry for node pools, we need to first make sure
 that all servers can safely apply the log without panicking. Gate upsert and
-delete RPCs on all servers being upgraded to the minimum version."
+delete RPCs on all servers being upgraded to the minimum version.",1686574890
 deae9bb62e6be1fe4fa907fd636d6d4502123e59,False,1,9,228,109,25.333333333333332,32,211,179,0.5299145299145299,0.905982905982906,0.38461538461538464,28176,4321,940,28,"client: send node secret with every client-to-server RPC (#16799)
 
 In Nomad 1.5.3 we fixed a security bug that allowed bypass of ACL checks if the
@@ -1045,8 +1045,8 @@ first, and it should make for a good place to hook in future plans for secure
 introduction of nodes. The tradeoff is that an existing client that has running
 allocs will take slightly longer (a second or two) to transition to ready after
 a restart, because the transition in `Node.UpdateStatus` is gated at the server
-by first submitting `Node.UpdateAlloc` with client alloc updates."
-202baa1cfc0e517dc0a755800e0e3693efb98b71,False,1,1,7,7,7.0,5,39,34,0.0,0.896551724137931,1.0,9998,1795,524,1,Validate that Connect Native services define a port (#24329)
+by first submitting `Node.UpdateAlloc` with client alloc updates.",1687446409
+202baa1cfc0e517dc0a755800e0e3693efb98b71,False,1,1,7,7,7.0,5,39,34,0.0,0.896551724137931,1.0,9998,1795,524,1,Validate that Connect Native services define a port (#24329),1730235802
 18327cd3673a39e2dd83a588b033bbf1eaef4376,False,1,1,4,4,4.0,1,6,5,1.0,1.0,1.0,2545,396,78,1,"consul: handle ""not found"" errors from Consul when deleting tokens (#17847)
 
 In Consul 1.15.0, the Delete Token API was changed so as to return an error when
@@ -1057,7 +1057,7 @@ non-existent token forever.
 Update the token deletion function to ignore ""not found"" errors and treat them
 as successful deletions.
 
-Fixes: #17833"
+Fixes: #17833",1688761333
 0ba7d0036b9aa710d08f88b0e2916f24418c5642,False,1,14,524,332,37.42857142857143,246,636,390,0.45614035087719296,0.7403508771929824,0.8421052631578947,31235,4870,1107,37,"CSI: persist previous mounts on client to restore during restart (#17840)
 
 When claiming a CSI volume, we need to ensure the CSI node plugin is running
@@ -1087,8 +1087,8 @@ avoid re-claiming and remounting the volume unnecessarily.
 This changeset also updates the RPC handler to use the external node ID from the
 claim whenever it is available.
 
-Fixes: #13028"
-3a687930bd3eb061b38be21485d6bada194bb796,False,1,2,6,4,3.0,3,3,0,,,,5497,847,78,0,Fix typos (#17962)
+Fixes: #13028",1689009615
+3a687930bd3eb061b38be21485d6bada194bb796,False,1,2,6,4,3.0,3,3,0,,,,5497,847,78,0,Fix typos (#17962),1689701496
 f52912454dec9bc552b7e2b6f0e3160bd31c625e,False,1,3,142,75,47.333333333333336,23,178,155,0.28421052631578947,0.7894736842105263,0.9894736842105263,19213,2921,619,10,"CSI: improve controller RPC reliability (#17996)
 
 The CSI specification says that we ""SHOULD"" send no more than one in-flight
@@ -1119,15 +1119,15 @@ This changeset includes four major changes to fix this:
   node, not just ones eligible for scheduling (which CSI controllers don't care
   about)
 
-Fixes: #15415"
+Fixes: #15415",1689879111
 1ef8ad8176fad088a423e92a38d26efcd3813a35,False,1,1,28,28,28.0,4,24,20,0.8461538461538461,0.0,0.0,4760,664,178,2,"scheduler: fix panic in `render_templates` destructive update check (#18100)
 
 In #18054 we introduced a new field `render_templates` in the `restart`
 block. Previously changes to the `restart` block were always non-destructive in
 the scheduler but we now need to check the new field so that we can update the
 template runner. The check assumed that the block was always non-nil, which
-causes panics in our scheduler tests."
-4841791c86f78a1306354660831746164b978f31,False,1,1,8,8,8.0,8,10,2,1.0,1.0,1.0,1527,262,58,1,fingerprint: fix 'default' alias not added to interface specified by `network_interface`  (#18096)
+causes panics in our scheduler tests.",1690818771
+4841791c86f78a1306354660831746164b978f31,False,1,1,8,8,8.0,8,10,2,1.0,1.0,1.0,1527,262,58,1,fingerprint: fix 'default' alias not added to interface specified by `network_interface`  (#18096),1690893331
 8ad663d1de4065f31199f70d573021641584a240,False,1,1,10,10,10.0,9,4,-5,1.0,0.0,0.0,2705,450,91,1,"allocwatcher: don't destroy local allocdir after migration (#18108)
 
 When ephemeral disks are migrated from an allocation on the same node,
@@ -1149,7 +1149,7 @@ the usual client garbage collection should destroy it later on when needed. By
 not deleting it, the previous allocation's logs are still available for the user
 to read.
 
-Fixes: #18034"
+Fixes: #18034",1690983706
 b1742c7015ab196cbd400acc5ff759af1f4e9136,False,1,1,35,35,35.0,19,78,59,0.0,0.5,0.5238095238095238,604,104,26,2,"scheduler: filter device instance IDs by constraints (#18141)
 
 When the scheduler assigns a device instance, it iterates over the feasible
@@ -1162,7 +1162,7 @@ Add a second filter based on the `${device.ids}` constraint after selecting a
 node's device to ensure the device instance ID falls within the constraint as
 well.
 
-Fixes: #18112"
+Fixes: #18112",1691089110
 f00bff09f19fb108491b2f7d0b4bda9d093536bc,False,1,10,162,31,16.2,75,162,87,0.17647058823529413,1.0,0.803921568627451,57091,8450,2052,14,"fix multiple overflow errors in exponential backoff (#18200)
 
 We use capped exponential backoff in several places in the code when handling
@@ -1180,7 +1180,7 @@ Introduce a helper with a check on the cap before the bitshift to avoid overflow
 places this can occur.
 
 Fixes: #18199
-Co-authored-by: stswidwinski <stan.swidwinski@gmail.com>"
+Co-authored-by: stswidwinski <stan.swidwinski@gmail.com>",1692124698
 6d17a9bf6436526eb93e32c8104dbba0dcfa91f7,False,1,1,6,6,6.0,6,9,3,,,,1901,236,37,2,"deps: update go-plugin to 1.6.2 (#24265)
 
 During allocation recovery, the go-plugin reattachment workflow checks to see if
@@ -1194,7 +1194,7 @@ unrelated process getting silently killed.
 Update go-plugin to 1.6.2, which includes a bug fix so we do not kill the
 process.
 
-Fixes: https://github.com/hashicorp/nomad/issues/23969"
+Fixes: https://github.com/hashicorp/nomad/issues/23969",1729540106
 d12128c3808ed56123668c1488cd928aa6d3a3c3,False,1,1,26,26,26.0,10,83,73,0.28846153846153844,0.5769230769230769,0.8846153846153846,505,94,19,3,"docker: use streaming stats collection to correct CPU stats (#24229)
 
 In #23966 we switched to the official Docker SDK for the `docker` driver. In the
@@ -1208,7 +1208,7 @@ Switch back to using the streaming stats collection. Add a test that fully
 exercises the `TaskStats` API.
 
 Fixes: https://github.com/hashicorp/nomad/issues/24224
-Ref: https://hashicorp.atlassian.net/browse/NET-11348"
+Ref: https://hashicorp.atlassian.net/browse/NET-11348",1729167959
 55fe05d353ca2e37e135d0670c20773ff5c4e52d,False,1,3,25,18,8.333333333333334,20,46,26,0.26666666666666666,0.9333333333333333,0.7333333333333333,6054,952,225,5,"heartbeat: use leader's ACL token when failing heartbeat (#24241)
 
 In #23838 we updated the `Node.Update` RPC handler we use for heartbeats to be
@@ -1223,7 +1223,7 @@ a note to the `Authenticate` comment about how that authentication path requires
 the leader ACL.
 
 Fixes: https://github.com/hashicorp/nomad/issues/24231
-Ref: https://hashicorp.atlassian.net/browse/NET-11384"
+Ref: https://hashicorp.atlassian.net/browse/NET-11384",1729187300
 7b89c0ee28b17a742b97ecd9c6601ba7839748cb,False,1,1,12,12,12.0,16,69,53,0.0,1.0,1.0,3220,588,121,1,"template: fix client's default retry configuration (#25113)
 
 In #20165 we fixed a bug where a partially configured `client.template` retry
@@ -1234,7 +1234,7 @@ correct behavior and add better test coverage at both the config parsing and
 template configuration code.
 
 Ref: https://github.com/hashicorp/nomad/pull/20165
-Ref: https://github.com/hashicorp/nomad/issues/23305#issuecomment-2643731565"
+Ref: https://github.com/hashicorp/nomad/issues/23305#issuecomment-2643731565",1739543141
 6b8ddff1fa36e6bd034e170f2576e9da872678e3,False,1,1,33,33,33.0,142,369,227,0.028985507246376812,1.0,1.0,408,67,13,1,"windows: set job object for executor and children (#24214)
 
 On Windows, if the `raw_exec` driver's executor exits, the child processes are
@@ -1245,13 +1245,13 @@ exit), the job itself is destroyed and this causes all processes in that job to
 exit.
 
 Fixes: https://github.com/hashicorp/nomad/issues/23668
-Ref: https://learn.microsoft.com/en-us/windows/win32/procthread/job-objects"
+Ref: https://learn.microsoft.com/en-us/windows/win32/procthread/job-objects",1729084826
 f9cbaaf6c7e192ab7a0c5a8444cc17ef99ddd853,False,1,2,40,35,20.0,3,577,574,0.5523809523809524,0.8285714285714286,1.0,1540,260,71,6,"docker: fix a bug where auth for private registries wasn't parsed correctly (#24215)
 
 In #23966 we introduced an official Docker client and did not notice that in
 contrast to our previous 3rd party client, the official SDK PullOptions object
 expects a base64 encoded JSON with username and password, instead of username/
-password pair."
+password pair.",1729109094
 8c57fd5eb0d89214f3e43f41e76d5c61d4c460a5,False,1,3,127,61,42.333333333333336,38,167,129,0.13513513513513514,0.35135135135135137,1.0,3201,505,96,13,"fingerprint: initial fingerprint of Vault/Consul should be periodic (#25102)
 
 In #24526 we updated the Consul and Vault fingerprints so that they are no
@@ -1269,7 +1269,7 @@ mark and allow the subsequent fingerprint to run normally.
 
 Fixes: https://github.com/hashicorp/nomad/issues/25097
 Ref: https://github.com/hashicorp/nomad/pull/24526
-Ref: https://github.com/hashicorp/nomad/issues/24049"
+Ref: https://github.com/hashicorp/nomad/issues/24049",1739474764
 fec91d1dc8605f7b3113a847d18adc529e7f3651,False,1,2,96,50,48.0,147,162,15,0.7352941176470589,1.0,1.0,567,102,12,7,"windows: trade heap for stack to build process tree for stats in linear space (#24182)
 
 In #20619 we overhauled how we were gathering stats for Windows
@@ -1287,7 +1287,7 @@ makes the stats gathering linear in steps and space required.
 This changeset also moves as much of this code as possible into an area
  not conditionally-compiled by OS, as the tagged test file was not being run in CI.
 
-Fixes: https://github.com/hashicorp/nomad/issues/23984"
+Fixes: https://github.com/hashicorp/nomad/issues/23984",1728919598
 4d9cc73ed2c03535fdb925ffff07a79b340f4a34,False,1,1,3,3,3.0,1,44,43,0.0,0.967741935483871,0.967741935483871,1288,216,41,1,"sids_hook: fix check for Consul token derived from WI (#18821)
 
 The `sids_hook` serves the legacy Connect workflow, and we want to bypass it
@@ -1297,7 +1297,7 @@ Identity. This check was looking for the wrong key. This would cause the hook to
 ignore the Consul token we already have and then fail to derive a SI token
 unless the Nomad agent has its own token with `acl:write` permission.
 
-Fix the lookup and add tests covering the bypass behavior."
+Fix the lookup and add tests covering the bypass behavior.",1698065822
 cb3fde3c96d0f9384b829dec9381909287806ea3,False,1,1,10,10,10.0,15,37,22,1.0,1.0,1.0,1518,257,42,1,"metrics: prevent negative counter from iowait decrease (#18835)
 
 The iowait metric obtained from `/proc/stat` can under some circumstances
@@ -1318,7 +1318,7 @@ Fix the bug by putting a zero floor on the values we return from the host CPU
 stats calculator.
 
 Fixes: #15861
-Fixes: #18804"
+Fixes: #18804",1698155905
 b3d099cdc0a60f1dd6730e189613513d191693b6,False,1,1,10,10,10.0,15,37,22,1.0,1.0,1.0,1325,233,38,1,"metrics: prevent negative counter from iowait decrease (#18849)
 
 The iowait metric obtained from `/proc/stat` can under some circumstances
@@ -1338,7 +1338,7 @@ reporting an error message.
 Fix the bug by putting a zero floor on the values we return from the host CPU
 stats calculator.
 
-Backport-of: #18835"
+Backport-of: #18835",1698158266
 f0330d6df1bb0a47215f62c00d62f3cb50c4e903,False,1,2,18,15,9.0,9,17,8,0.8,1.0,1.0,2102,335,72,4,"`identity_hook`: implement PreKill hook, not TaskStop hook (#18913)
 
 The allocrunner's `identity_hook` implements the interface for TaskStop, but
@@ -1349,7 +1349,7 @@ down gracefully.
 Add an implementation for the allocrunner's `PreKill` and `Destroy` hooks, so
 that whenever an allocation is stopped or garbage collected we stop renewing its
 Workload Identities. This also requires making the `Shutdown` method of `WIDMgr`
-safe to call multiple times."
+safe to call multiple times.",1698677662
 6fd3143fe7500da89896d864a086ab0921a42c7f,False,1,3,16,8,5.333333333333333,8,8,0,1.0,1.0,1.0,10553,1892,531,3,"services: fix lookup for Consul tokens (#18914)
 
 The `group_service_hook` needs to supply the Consul service client with Consul
@@ -1358,14 +1358,14 @@ wrong key. This would cause the service client to ignore the Consul token we've
 received and use the agent's own token.
 
 This changeset also moves the prefix formatting into `MakeUniqueIdentityName` method
-to reduce the risk of this kind of bug in the future."
+to reduce the risk of this kind of bug in the future.",1698687738
 c1fa145765b2ae70e59ab075985f1051223d78f9,False,1,2,18,15,9.0,4,14,10,0.0,0.0,0.0,3205,559,85,2,"vault: fix lookups of default cluster across upgrades (#18940)
 
 Allocations that were created before Nomad 1.7 will not have the `cluster` field
 set for their Vault blocks. While this can be corrected server-side, that
 doesn't help allocations already on clients.
 
-Also add extra safety on Consul cluster lookup too"
+Also add extra safety on Consul cluster lookup too",1698787801
 b62c5c51d2514c515ee1afa556b971f994ffbb0b,False,1,1,33,33,33.0,8,63,55,0.0,0.22857142857142856,1.0,736,140,20,1,"cli: extend coverage of `operator client-state` command (#18996)
 
 The `operator client-state` command is mostly used for developer debugging of
@@ -1375,7 +1375,7 @@ objects it outputs.
 
 Also, fix a bug where reading the state for an allocation without task states
 will crash the CLI. This can happen if the Nomad client stops after an alloc is
-persisted to disk but before the task actually starts."
+persisted to disk but before the task actually starts.",1699040585
 1ef99f05364b7d3739befa6a789f0d55b2314dcf,False,1,7,118,59,16.857142857142858,108,121,13,0.47368421052631576,0.8421052631578947,1.0,32532,4938,1065,24,"config: remove old Vault/Consul config blocks from server (#18991)
 
 Remove the now-unused original configuration blocks for Consul and Vault from
@@ -1393,7 +1393,7 @@ registration saying that Vault is disabled. Fix that to check only the
 cluster(s) used by the job.
 
 Ref: https://github.com/hashicorp/nomad/issues/18947
-Fixes: https://github.com/hashicorp/nomad/issues/18990"
+Fixes: https://github.com/hashicorp/nomad/issues/18990",1699284380
 50f0ce54124fc0e0d2be054249ead38b8c9fd4ca,False,1,13,275,89,21.153846153846153,150,246,96,0.19230769230769232,0.8974358974358975,0.8717948717948718,41399,6396,1374,30,"config: remove old Vault/Consul config blocks from client (#18994)
 
 Remove the now-unused original configuration blocks for Consul and Vault from
@@ -1417,22 +1417,22 @@ As part of this work I discovered and fixed two bugs:
 Ref: https://github.com/hashicorp/nomad/issues/18947
 Ref: https://github.com/hashicorp/nomad/pull/18991
 Fixes: https://github.com/hashicorp/nomad/issues/18984
-Fixes: https://github.com/hashicorp/nomad/issues/18983"
+Fixes: https://github.com/hashicorp/nomad/issues/18983",1699366537
 4a74fda8ce0ea7f9e30557b2e5fe89099f377704,False,1,2,20,12,10.0,7,127,120,0.15789473684210525,0.8947368421052632,1.0,6595,1036,230,1,"Allow client template config block to be parsed when using json config (#24007)
 
 - Adds tests
 - Adds sample test data for parsing hcl and json
-- Adds changelog"
+- Adds changelog",1727811876
 c7c3b3ae3394b1ad31795f9023ac6109df8af19f,False,1,9,157,87,17.444444444444443,62,197,135,0.6019417475728155,0.6990291262135923,1.0,7438,1238,195,24,"revoke Consul tokens obtained via WI when alloc stops (#19034)
 
 Add a `Postrun` and `Destroy` hook to the allocrunner's `consul_hook` to ensure
 that Consul tokens we've created via WI get revoked via the logout API when
 we're done with them. Also add the logout to the `Prerun` hook if we've hit an
-error."
+error.",1699542489
 b5af87ebf33bbf98a5cce086ef0aa0a5ee714953,False,1,2,31,26,15.5,12,27,15,0.3333333333333333,0.6666666666666666,1.0,5210,852,170,6,"set Vault namespace from task in `vault_hook` JWT login (#19080)
 
 The JWT login codepath for the `vault_hook` was missing the Vault namespace, so
-the login request for non-default namespaces would fail."
+the login request for non-default namespaces would fail.",1699973676
 0236bd090720da7ba6d6743ceace6fd45038b7c4,False,1,1,12,12,12.0,0,12,12,0.0,0.0,1.0,1393,200,48,2,"qemu: fix panic from missing resources block (#19089)
 
 The `qemu` driver uses our universal executor to run the qemu command line
@@ -1448,12 +1448,12 @@ In future work, we should ensure that the `resources` block is being translated
 into qemu equivalents, so that we have support for things like NUMA-aware
 scheduling for that driver.
 
-Fixes: https://github.com/hashicorp/nomad/issues/19078"
+Fixes: https://github.com/hashicorp/nomad/issues/19078",1699997204
 659c0945fc35a2a0a999be7ce531beb55cfeeeab,False,1,1,7,7,7.0,64,95,31,0.0,1.0,1.0,6332,1118,327,1,"[core] Honor job's namespace when checking `distinct_hosts` feasibility (#19004)
 
 * Update distinct_host feasibility checking to honor the job's namespace. Fixes #9792
 * Added test to verify original condition and that fix resolved it.
-* Added documentation"
+* Added documentation",1700238310
 7531b7a62fc5bda7b50f82111fcc27c3a80b2929,False,1,1,8,8,8.0,4,7,3,,,,50029,9105,736,3,"fix data race in node upsert (#24127)
 
 While testing with agents built with the race-detection option enabled, I
@@ -1465,7 +1465,7 @@ executed on the original struct and not the copy, which means we're uselessly
 fixing up the wrong struct and we're corrupting the state store in the
 process (albeit harmlessly, I suspect).
 
-Fix the data race by calling the method on the correct pointer."
+Fix the data race by calling the method on the correct pointer.",1728045674
 f77b4baebbc39798e3b3b3d9d9890a9025483887,False,1,3,46,32,15.333333333333334,15,34,19,0.0,1.0,1.0,4545,684,112,4,"service_hook: ensure task-level `consul.namespace` is respected (#19224)
 
 The task-level service hook is using the group-level method to get the provider
@@ -1473,22 +1473,22 @@ namespace, but this was not designed with task-level `consul` blocks in
 mind. This leads to task-level services using the group-level
 `consul.namespace`. Fix by creating a method to get the correct namespace and
 move this into the service hook itself rather than in the outer `initHooks`
-method."
+method.",1701294387
 ae403dcb4bb72844e1e2224cf9a1486e79ffe882,False,1,1,42,42,42.0,17,25,8,0.6666666666666666,1.0,0.3333333333333333,1787,311,53,3,"script_check_hook: handle task-level Consul namespace (#19241)
 
 The `script_check_hook` runs at the task level but can create script checks for
 both task-level services and group-level services. Now that we allow the Consul
 namespace to be set at the task-level `consul.namespace`, we need to have both
-possible namespaces handy when creating and updating checks."
+possible namespaces handy when creating and updating checks.",1701360810
 79c74bf12508a65848c81ea1fac3d3cc8e322ea6,False,1,1,2,2,2.0,1,1,0,,,,255,57,11,1,"service hook: get correct NS for task-level `consul` (#19242)
 
 Ensure that the `ServiceProviderNamespace` correctly picks the task-level
-`consul.namespace` and falls back to the group if set."
+`consul.namespace` and falls back to the group if set.",1701360827
 13eda8bfdd845164d1e393d60a74cb51acc5de84,False,1,1,15,15,15.0,2,13,11,0.0,0.0,1.0,545,108,30,1,"consul: respect task-level namespace when checking permissions (#19236)
 
 In the legacy Consul token workflow, we check the user's token's permissions in
 Consul at the time of job submit. The new task-level `consul` block was not
-being respected when checking the list of namespaces."
+being respected when checking the list of namespaces.",1701360852
 b7595c646d05b28259b2b257c7c03a67711305e1,False,1,1,9,9,9.0,2,80,78,0.2,1.0,1.0,3434,507,112,2,"alloc fs: use case-insensitive check for reads of secret/private dir (#24125)
 
 When using the Client FS APIs, we check to ensure that reads don't traverse into
@@ -1504,13 +1504,13 @@ so, which is a fail-safe failure mode.
 
 Ref: https://github.com/golang/go/issues/18358
 
-Co-authored-by: dduzgun-security <deniz.duzgun@hashicorp.com>"
+Co-authored-by: dduzgun-security <deniz.duzgun@hashicorp.com>",1727979624
 5a7c4cdb7a33605707c0fe84c38d591b18ec1694,False,1,1,2,2,2.0,1,4,3,,,,1900,306,91,1,"variables: fix access to variables for poststop tasks (#19270)
 
 In the recent auth refactor, we accidentally fixed a bug where poststop tasks
 would not get access to Variables. Fix this same bug for backports by ensuring
 that we use client-terminal status and not server-terminal status to enforce
-access."
+access.",1701453708
 bf0a65f2d66de10e8ec9279bb16ad532167e1774,False,1,1,41,41,41.0,21,20,-1,0.0,1.0,1.0,483,89,17,2,"docker: reset timer after collecting stats (#24092)
 
 In ##23966 when we switched to using the official Docker SDK client, we had to
@@ -1519,7 +1519,7 @@ timer on the collection loop, which meant that we'd only collect stats once and
 then never again.
 
 * Ref: [NET-11202 (comment)](https://hashicorp.atlassian.net/browse/NET-11202?focusedCommentId=550814)
-* This has shipped in Nomad 1.9.0-beta.1 but not production yet."
+* This has shipped in Nomad 1.9.0-beta.1 but not production yet.",1727785863
 7a88d5d626df7a2ae2e9c1a65bfaafa1ea3b90a2,False,1,1,6,6,6.0,3,3,0,,,,1612,262,47,1,"docker: fix non-streaming exec attachment (#24095)
 
 In ##23966 when we switched to using the official Docker SDK client, this
@@ -1532,7 +1532,7 @@ in errors like ""unable to upgrade to tcp, received 404"" because the Docker API
 can't find the exec object with the container ID.
 
 * Ref: [NET-11202 (comment)](https://hashicorp.atlassian.net/browse/NET-11202?focusedCommentId=551618)
-* This has shipped in Nomad 1.9.0-beta.1 but not production yet."
+* This has shipped in Nomad 1.9.0-beta.1 but not production yet.",1727796433
 5e1ad14f1feb874063db2ff84c46f1c87a0b8712,False,1,5,68,40,13.6,39,88,49,0.0,0.9736842105263158,0.34210526315789475,85842,14326,1870,7,"scaling policy: use request namespace as target if unset in jobspec (#24065)
 
 When jobs are submitted with a scaling policy, the scaling policy's target only
@@ -1549,7 +1549,7 @@ can't remove it immediately because API requests may come from any agent across
 upgrades. Move the scaling target creation into the `Canonicalize` method and
 mark it for future removal in the API conversion code path.
 
-Fixes: https://github.com/hashicorp/nomad/issues/24039"
+Fixes: https://github.com/hashicorp/nomad/issues/24039",1727797300
 e9ba63063979ba9f9cb110b95be258bd84337267,False,1,1,12,12,12.0,11,3,-8,1.0,1.0,1.0,1580,256,46,1,"docker: fix script check execution (#24098)
 
 In #24095 we made a fix for non-streaming exec into Docker tasks for script
@@ -1560,7 +1560,7 @@ running successfully with an error that the exec has already run.
 
 * Ref: [NET-11202 (comment)](https://hashicorp.atlassian.net/browse/NET-11202?focusedCommentId=551618)
 * This has shipped in Nomad 1.9.0-beta.1 but not production yet.
-* This should fix the remaining issues in nightly E2E for Docker."
+* This should fix the remaining issues in nightly E2E for Docker.",1727815298
 f1be76b8b8fe73bf5561e098755b5d7e86ddd1ea,False,1,2,17,10,8.5,16,47,31,0.2727272727272727,0.9545454545454546,1.0,5124,793,168,6,"keyring: replicate RSA private key via `GetKey` RPC (#19350)
 
 When we added a RSA key for signing Workload Identities, we added it to the
@@ -1576,7 +1576,7 @@ Add the RSA key material to the `GetKey` RPC.
 Also remove an extraneous write to disk that happens for each key each time we
 restart the Nomad server.
 
-Fixes: #19340"
+Fixes: #19340",1701976508
 3c4e2009f5758b5e4ee4cd468966fe490f8caa55,False,1,3,32,17,10.666666666666666,0,71,71,0.0,0.6666666666666666,1.0,12887,1997,493,2,"connect: deployments should wait for Connect sidecar checks (#19334)
 
 When a Connect service is registered with Consul, Nomad includes the nested
@@ -1593,7 +1593,7 @@ Update the Consul service client to find the nested sidecar service in the
 service catalog and attach it to the results provided to the tracker. The
 tracker can then check the sidecar health checks.
 
-Fixes: https://github.com/hashicorp/nomad/issues/19269"
+Fixes: https://github.com/hashicorp/nomad/issues/19269",1701899991
 7f87ede1e27fe6bb4131518bd6be66ec5f80bdf1,False,1,2,14,12,7.0,15,34,19,0.0,1.0,1.0,12019,1882,384,5,"auth: respect default `tls.verify_server_hostname=false` (#19425)
 
 In Nomad 1.7.0, we refactored much of the authentication code to eliminate nil
@@ -1604,13 +1604,13 @@ default `tls.verify_server_hostname=false` option.
 Fix the bug by including the field in the set of conditions we check for the TLS
 argument we pass into the constructor (this keeps ""policy"" separate from
 ""mechanism"" in the auth code and reduces the number of dimensions we need to
-test). Change the field name in the Authenticator to better match the intent."
+test). Change the field name in the Authenticator to better match the intent.",1702322413
 154aeb77af90c470fa0aa0c6503f9ac2aac0b5e1,False,1,1,16,16,16.0,5,11,6,0.0,0.0,1.0,1598,262,47,1,"docker: fix bug in waiting for container to exit (#24081)
 
 In ##23966 when we switched to using the official Docker SDK client, we had more
 contexts to add because most of the library methods take one. But for some APIs
 like waiting for a container to exit after we've started it, we never want to
-close this context, because the operation can outlive the Nomad agent itself."
+close this context, because the operation can outlive the Nomad agent itself.",1727700607
 a76daf61c18618b8cbc6fab2ea5cddc78c4f9e88,False,1,1,69,69,69.0,46,89,43,0.8571428571428571,0.9428571428571428,0.4,2744,444,110,13,"consul: fix constraints for non-default clusters (ENT) (#19449)
 
 The Connect-related constraints injected by the Connect job mutating hook do not
@@ -1618,15 +1618,15 @@ account for non-default `consul` blocks (for Nomad Enterprise). This works when
 both the default and non-default clusters are available and are the same
 version, but not when they do not.
 
-Fixes: https://github.com/hashicorp/nomad/issues/19442"
-9b2e8ae20fe8cb119f9ce598d22f3af6760cefc9,False,1,1,5,5,5.0,1,20,19,0.0,1.0,1.0,48177,8803,688,0,CSI: prevent stage_publish_base_dir from being subdir of mount_dir (#19441)
+Fixes: https://github.com/hashicorp/nomad/issues/19442",1702399494
+9b2e8ae20fe8cb119f9ce598d22f3af6760cefc9,False,1,1,5,5,5.0,1,20,19,0.0,1.0,1.0,48177,8803,688,0,CSI: prevent stage_publish_base_dir from being subdir of mount_dir (#19441),1702495900
 f1fb51422ba91eff4179478b274a02c05087d5e2,False,1,2,31,27,15.5,11,23,12,0.0,0.0,1.0,3475,504,88,5,"client: consul hook not called for templates (#19490)
 
 Due to some refactoring mishap, task-level Consul hook was never triggered and
-thus never wrote any secrets in task secret dirs."
+thus never wrote any secrets in task secret dirs.",1702656960
 e39b39e6565f0c9a88c44725c24f57de4c435584,False,1,1,1,1,1.0,0,27,27,0.05555555555555555,1.0,1.0,17960,2426,659,1,"Surfaces errors from namespace delete properly (#19483)
 
-Surfaces errors from namespace delete properly"
+Surfaces errors from namespace delete properly",1702657555
 e7ca2b51ad1bde9d128d35108587e5eedd0b4458,False,1,1,2,2,2.0,2,19,17,0.5454545454545454,1.0,1.0,414,83,19,1,"vault: ignore `allow_unauthenticated` config if identity is set (#19585)
 
 When the server's `vault` block has a default identity, we don't check the
@@ -1635,7 +1635,7 @@ one). But the validation hook still checks for a token if
 `allow_unauthenticated` is set to true. This is a misconfiguration but there's
 no reason for Nomad not to do the expected thing here.
 
-Fixes: https://github.com/hashicorp/nomad/issues/19565"
+Fixes: https://github.com/hashicorp/nomad/issues/19565",1704231994
 f2630add918b606c4cb43b39e24c15908ee48703,False,1,1,10,10,10.0,0,58,58,0.0,0.41025641025641024,1.0,13689,2042,510,1,"acl: remove timestamps from `WhoAmI` response (#19578)
 
 In Nomad 1.7 we updated our JWT library to go-jose, but this changed the wire
@@ -1650,7 +1650,7 @@ current caller. In a future version of Nomad, we'll likely remove the `WhoAmI`
 callers from the client in lieu of using the public keys the clients have to
 check auth.
 
-Fixes: https://github.com/hashicorp/nomad/issues/19555"
+Fixes: https://github.com/hashicorp/nomad/issues/19555",1704288278
 cc9227b85830c308ec842d12c1d760b33473c004,False,1,8,115,39,14.375,119,59,-60,1.0,0.47619047619047616,0.023809523809523808,11128,1761,345,10,"template: fix panic in change_mode=script on client restart (#24057)
 
 When we introduced change_mode=script to templates, we passed the driver handle
@@ -1668,7 +1668,7 @@ manager to a new `Lifecycle.Exec` call that reuses the existing behavior. This
 eliminates the need for the template manager to know anything at all about the
 handle state.
 
-Fixes: https://github.com/hashicorp/nomad/issues/24051"
+Fixes: https://github.com/hashicorp/nomad/issues/24051",1727269141
 62c57d208b25a58ded25b689e50cd1a7424f5458,False,1,1,4,4,4.0,5,5,0,,,,1694,234,50,2,"fingerprint: eliminate spurious warning logs with Consul CE (#19923)
 
 Support for fingerprinting the Consul admin partition was added in #19485. But
@@ -1676,14 +1676,14 @@ when the client fingerprints Consul CE, it gets a valid fingerprint and working
 Consul but with a warn-level log. Return ""ok"" from the partition extractor, but
 also ensure that we only add the Consul attribute if it actually has a value.
 
-Fixes: https://github.com/hashicorp/nomad/issues/19756"
+Fixes: https://github.com/hashicorp/nomad/issues/19756",1707484740
 0985f96f8dbf91b088fdda294eae2d5726cf27b9,False,1,1,1,1,1.0,0,1,1,0.0,0.0,0.0,36812,5224,1404,1,"state: fix state store corruption in plan apply (#19937)
 
 The state store's `UpsertPlanResults` method canonicalizes allocations in order
 to upgrade them to a new version. But the method does not copy the allocation
 before doing so, which can potentially corrupt the state store. This hasn't been
 implicated in any known user-facing bugs, but was detected when running Nomad
-under a build with Go toolchains data race detection enabled."
+under a build with Go toolchains data race detection enabled.",1707746344
 e986c298acba03db31a7379f9b0921637390ba2b,False,1,2,106,104,53.0,40,181,141,0.9375,1.0,0.8020833333333334,15664,2243,524,11,"alloc exec: fix panics after stream close (#19932)
 
 In #19172 we added a check on websocket errors to see if they were one of
@@ -1709,7 +1709,7 @@ This changeset includes two fixes:
 * Move all writes to the websocket into the same response streaming
   goroutine. The main handler goroutine will block on a results channel, and the
   response streaming goroutine will send on that channel with the final error when
-  it's done so it can be reported to the user."
+  it's done so it can be reported to the user.",1707749014
 3149e5393cc5fb03f5b38c264bbe768833e18e83,False,1,2,40,38,20.0,1,86,85,0.0,0.5789473684210527,0.5789473684210527,25405,3859,1051,3,"connect: fix missing diff of expose block (#19990)
 
 While working on #10628 I discovered that the `expose` block was missing an
@@ -1717,7 +1717,7 @@ implementation of Diff, which means it doesn't show up correctly in `job plan`
 output.
 
 Also, fix field comparison in `ServiceCheck.Equal`.
-This is a bug in the method but it doesn't look like it impacts production code."
+This is a bug in the method but it doesn't look like it impacts production code.",1708005713
 45b2c3453249cd9a0d4270dbdd2b99784f31d395,False,1,3,40,24,13.333333333333334,6,163,157,0.12295081967213115,0.9344262295081968,1.0,13075,2026,418,4,"cni: add DNS set by CNI plugins to task configuration (#20007)
 
 CNI plugins may set DNS configuration, but this isn't threaded through to the
@@ -1726,13 +1726,13 @@ needed. Add the `AllocNetworkStatus` to the alloc hook resources so they're
 accessible from the taskrunner. Any DNS entries provided by the user will
 override these values.
 
-Fixes: https://github.com/hashicorp/nomad/issues/11102"
+Fixes: https://github.com/hashicorp/nomad/issues/11102",1708442247
 14280e0820b616ebbb15f91257859a0338bb3d4e,False,1,1,5,5,5.0,1,7,6,1.0,1.0,1.0,991,197,47,2,"Prevent NPE when service lacks identity (#19987)
 
 Fixes a null pointer exception if `Alloc.SignIdentities` was called for
 any service and any service lacked an identity.
 
-Fixes #19986"
+Fixes #19986",1708610466
 96acddbc131fa6f98c107512f7832f2e21ad68d8,False,1,1,8,8,8.0,1,10,9,1.0,1.0,1.0,4944,934,180,2,"Avoid NPE in nomad/command/job_restart.go (#20049)
 
 stopAlloc() checks if an allocation represents a system job like this:
@@ -1771,7 +1771,7 @@ I was scrambling to get the job running again, so I didn't have the
 opportunity to find out why those values were nil, but this change
 ensures the CLI does not crash in these situations.
 
-Fixes #20048"
+Fixes #20048",1709302048
 7b9bce2d083b82222086553b65bd40e750d00d8e,False,1,3,115,102,38.333333333333336,89,207,118,0.25287356321839083,0.5862068965517241,1.0,20641,3428,800,7,"config: fix `client.template` config merging with defaults (#20165)
 
 When loading the client configuration, the user-specified `client.template`
@@ -1786,7 +1786,7 @@ This changeset:
   instead of two different constructors.
 * Extends the tests to cover the merge of a partial block better.
 
-Fixes: https://github.com/hashicorp/nomad/issues/20164"
+Fixes: https://github.com/hashicorp/nomad/issues/20164",1710944336
 15162917c11f08761455b25e65590292264dc640,False,1,1,13,13,13.0,55,65,10,0.0,0.5,1.0,1783,285,62,1,"cni: fix regression in falling back to DNS owned by `dockerd` (#20189)
 
 In #20007 we fixed a bug where the DNS configuration set by CNI plugins was not
@@ -1799,7 +1799,7 @@ Handle this case correctly by checking whether the DNS struct we get back from
 CNI has any nameservers, and ignore it if it doesn't. Expand test coverage of
 this case.
 
-Fixes: https://github.com/hashicorp/nomad/issues/20174"
+Fixes: https://github.com/hashicorp/nomad/issues/20174",1711119256
 02d98b9357b36804a6008c3c85ef3b4eca55c819,False,1,1,28,28,28.0,25,27,2,,,,9809,1493,280,5,"operator debug: fix pprof interval handling (#20206)
 
 The `nomad operator debug` command saves a CPU profile for each interval, and
@@ -1817,7 +1817,7 @@ be the same as the `-pprof-duration`, which always resulted in a single profile
 being taken at the start of the bundle. Correct the check as well as change the
 defaults to be more sensible.
 
-Fixes: https://github.com/hashicorp/nomad/issues/20151"
+Fixes: https://github.com/hashicorp/nomad/issues/20151",1711371666
 2fde4a0c93aee9d49322355df887c6ef28508ab7,False,1,2,24,12,12.0,4,23,19,0.0,0.0,1.0,5095,771,183,4,"namespace/node pool: forward RPCs cross-region if ACLs aren't enabled (#20220)
 
 Although it's not recommended, it's possible to federate regions without ACLs
@@ -1832,13 +1832,13 @@ Remove the change to the RPC region for the namespace and node pool write RPC
 whenver ACLs are disabled, so that forwarding works.
 
 Fixes: https://github.com/hashicorp/nomad/issues/20197
-Ref: https://github.com/hashicorp/nomad/issues/20128"
+Ref: https://github.com/hashicorp/nomad/issues/20128",1711463977
 f2965cad365745e145e87181aa73283741c36be0,False,1,1,4,4,4.0,46,43,-3,0.0,1.0,1.0,3500,540,166,1,"[gh-19729] Fix logic for updating terminal allocs on clients with max client disconnect (#20181)
 
 Only ignore allocs on terminal states that are updated
 ---------
 
-Co-authored-by: Tim Gross <tgross@hashicorp.com>"
+Co-authored-by: Tim Gross <tgross@hashicorp.com>",1711445518
 31f53cec01927a842e991447c4bdf437fe588573,False,1,1,2,2,2.0,1,2,1,0.0,1.0,1.0,48823,8907,693,1,"structs: fix test for empty DNS configuration (#20233)
 
 The `DNSConfig.IsZero` method incorrectly returns true if any of the fields are
@@ -1850,14 +1850,14 @@ of allocation updates to the server. Hypothetically, if the network hook
 modified only the DNS configuration and no task states were emitted, it would be
 possible to miss an allocation update. In practice this appears to be
 impossible, but we should fix the bug so that there aren't errors in future
-consumers."
+consumers.",1711723673
 78f9f178670097eac9036c4bf83f7e0ceb55e6f3,False,1,1,1,1,1.0,0,25,25,1.0,1.0,1.0,3161,656,106,0,"api: add missing `AllocDirStats` field in Go API (#20261)
 
 The JSON response for the Read Stats client API includes an `AllocDirStats`
 field. This field is missing in the `api` package, so consumers of the Go API
 can't use it to read the values we're getting back from the HTTP server.
 
-Fixes: https://github.com/hashicorp/nomad/issues/20246"
+Fixes: https://github.com/hashicorp/nomad/issues/20246",1712148845
 a0cbc1a26ace658dd578cd9e699f3df3f1603b94,False,1,1,2,2,2.0,1,1,0,,,,1242,240,49,1,"cli: remove extraneous trailing newline from `nomad fmt` (#20318)
 
 When `nomad fmt` writes to stdout instead of overwriting a file, the command was
@@ -1866,7 +1866,7 @@ trailing newlines when using `nomad fmt` as part of a pipeline or editor plugin.
 
 Update the command to write directly to stdout when in the stdout mode.
 
-Fixes: https://github.com/hashicorp/nomad/issues/20307"
+Fixes: https://github.com/hashicorp/nomad/issues/20307",1712597362
 8eaf176868e9807082f725b30e14206f1daf1f8e,False,1,1,8,8,8.0,3,87,84,0.1746031746031746,1.0,1.0,2300,347,81,1,"client: fix IPv6 parsing for `client.servers` block (#20324)
 
 When the `client.servers` block is parsed, we split the port from the
@@ -1877,7 +1877,7 @@ address.
 Fix the parser to correctly split out the port and handle a missing port value
 for IPv6. Update the documentation to make the URL format requirement clear.
 
-Fixes: https://github.com/hashicorp/nomad/issues/20310"
+Fixes: https://github.com/hashicorp/nomad/issues/20310",1712603187
 2cf341b7611f73416b56595265947a3116482c29,False,1,3,34,25,11.333333333333334,47,43,-4,1.0,1.0,1.0,78232,12966,1772,2,"drain: use authenticated ID as source of drained-by metadata (#20317)
 
 When a node is set to drain, the state store reads the auth token off the
@@ -1890,7 +1890,7 @@ Rather than re-authenticating the request at the time of FSM apply, record the
 string derived from the authenticated identity as part of the Raft log
 entry.
 
-Fixes: https://github.com/hashicorp/nomad/issues/17471"
+Fixes: https://github.com/hashicorp/nomad/issues/17471",1712669304
 a13e455c51cc43e0dd01651865850c42395e31ef,False,1,1,35,35,35.0,4,85,81,0.2459016393442623,0.9836065573770492,1.0,1922,301,67,4,"deployment watcher: fix goroutine leak when job is purged (#20348)
 
 The deployment watcher on the leader makes blocking queries to detect when the
@@ -1902,7 +1902,7 @@ the query result only shows the remaining deployments.
 When the query unblocks, ensure that all active watchers have a corresponding
 deployment in state. If not, remove the watcher so that the goroutine stops.
 
-Fixes: https://github.com/hashicorp/nomad/issues/19988"
+Fixes: https://github.com/hashicorp/nomad/issues/19988",1712861465
 d56e8ad1aadccd6bb0e58ad79e0f8cbf7db23167,False,1,10,121,32,12.1,101,127,26,1.0,0.0,0.0,76729,13416,1796,19,"WI: ensure Consul hook and WID manager interpolate services (#20344)
 
 Services can have some of their string fields interpolated. The new Workload
@@ -1921,7 +1921,7 @@ This changeset also makes two related test improvements:
   behavior without this refactor, as the mocks were bypassing the new code.
 * Fixed swapped expect-vs-actual assertions on the `consul_hook` tests.
 
-Fixes: https://github.com/hashicorp/nomad/issues/20025"
+Fixes: https://github.com/hashicorp/nomad/issues/20025",1712864428
 9cb1ef3e3da387d58201faa748b93b42d3e10ec0,False,1,2,8,6,4.0,4,4,0,,,,5795,945,225,3,"CNI: fix bugs in parsing strings to port number integers (#20379)
 
 Ports are a maximum of uint16, but we have a few places in the recent tproxy
@@ -1931,7 +1931,7 @@ practice we've validated the range elsewhere and don't build for 32-bit
 platforms. This changeset fixes the parsing to make everything a bit more robust
 and silence the alert.
 
-Fixes: https://github.com/hashicorp/nomad-enterprise/security/code-scanning/444"
+Fixes: https://github.com/hashicorp/nomad-enterprise/security/code-scanning/444",1712943085
 07aca67108ffd52ed7392a48167a1c94f150c320,False,1,1,2,2,2.0,0,26,26,0.0,0.09090909090909091,1.0,4518,729,177,1,"template: lock task handle before trying script check (#23917)
 
 In #23663 we fixed the template hook so that `change_mode=""script""` didn't lose
@@ -1939,7 +1939,7 @@ track of the task handle during restores. But this revealed a second bug which
 is that access to the handle is not locked while in use, which can allow it to
 be removed concurrently.
 
-Fixes: https://github.com/hashicorp/nomad/issues/23875"
+Fixes: https://github.com/hashicorp/nomad/issues/23875",1726144866
 77dc74a301b879e7dd77cf04d621a9ad8289792a,False,1,1,59,59,59.0,42,20,-22,0.5,0.5,0.5,36721,5201,1399,4,"quota: ensure quota usage is freed when jobs are purged (#20492)
 
 When a job is purged, we delete all its allocations and the client detects the
@@ -1960,7 +1960,7 @@ Tests for this code can be found in the linked ENT repo PR.
 
 Fixes: https://github.com/hashicorp/nomad-enterprise/issues/1422
 Ref: https://hashicorp.atlassian.net/browse/NOMAD-620
-Ref: https://github.com/hashicorp/nomad-enterprise/pull/1432"
+Ref: https://github.com/hashicorp/nomad-enterprise/pull/1432",1714567462
 65ae61249cae5132723099b9aba588c4f3de77d0,False,1,10,163,69,16.3,152,318,166,0.0,0.18333333333333332,0.8833333333333333,20457,3154,629,32,"CSI: include volume namespace in staging path (#20532)
 
 CSI volumes are namespaced. But the client does not include the namespace in the
@@ -1973,7 +1973,7 @@ Rework the CSI hook tests to have more fine-grained control over the mock
 on-disk state. Add tests covering upgrades from staging paths missing
 namespaces.
 
-Fixes: https://github.com/hashicorp/nomad/issues/18741"
+Fixes: https://github.com/hashicorp/nomad/issues/18741",1715613849
 c9fd93c7722070053078005bcf8e49df52b0fe79,False,1,4,119,57,29.75,17,301,284,0.05622489959839357,0.7469879518072289,0.8875502008032129,42275,6460,1640,11,"connect: support `volume_mount` blocks for sidecar task overrides (#20575)
 
 Users can override the default sidecar task for Connect workloads. This sidecar
@@ -1983,7 +1983,7 @@ task might need access to certificate stores on the host. Allow adding the
 Also fixes a bug where `volume_mount` blocks would not appear in plan diff
 outputs.
 
-Fixes: https://github.com/hashicorp/nomad/issues/19786"
+Fixes: https://github.com/hashicorp/nomad/issues/19786",1715705377
 6d806a993465ad566d0c3e56bb24c57d45321d8d,False,1,3,83,41,27.666666666666668,120,233,113,0.35064935064935066,1.0,0.5454545454545454,49477,7017,1861,7,"services: fix data integrity errors for Nomad native services (#20590)
 
 This changeset fixes three potential data integrity issues between allocations
@@ -2017,7 +2017,7 @@ and their Nomad native service registrations.
 This changeset does not address client-side retries for the originally reported
 issue, which will be done in a separate PR.
 
-Ref: https://github.com/hashicorp/nomad/issues/16616"
+Ref: https://github.com/hashicorp/nomad/issues/16616",1715788567
 953bfcc31e7e283acb44ea04c3b288bd5d65dd65,False,1,1,78,78,78.0,30,99,69,0.0,1.0,1.0,1463,223,39,3,"services: retry failed Nomad service deregistrations from client (#20596)
 
 When the allocation is stopped, we deregister the service in the alloc runner's
@@ -2031,7 +2031,7 @@ that transient errors give us an extra opportunity to deregister the service
 before the tasks are stopped, before we need to fall back to the data integrity
 improvements implemented in #20590.
 
-Ref: https://github.com/hashicorp/nomad/issues/16616"
+Ref: https://github.com/hashicorp/nomad/issues/16616",1715864394
 b1657dd1fa22e472f1c7699dcadd2f9aa4ad6910,False,1,1,9,9,9.0,4,79,75,0.14583333333333334,1.0,1.0,2388,302,55,1,"CSI: track node claim before staging to prevent interleaved unstage (#20550)
 
 The CSI hook for each allocation that claims a volume runs concurrently. If a
@@ -2047,7 +2047,7 @@ complete. Move the call to claim the volume for the usage tracker to the top of
 the `MountVolume` workflow to prevent it from being unstaged until all consuming
 allocations have called `UnmountVolume`.
 
-Fixes: https://github.com/hashicorp/nomad/issues/20424"
+Fixes: https://github.com/hashicorp/nomad/issues/20424",1715867107
 c8c67da52d7b44e754fd75b86eb7117f57fe98a8,False,1,4,51,34,12.75,78,142,64,0.25,0.4318181818181818,0.7045454545454546,96603,15764,2499,4,"CSI: allow plugin GC to detect jobs with updated plugin IDs (#20555)
 
 When a job that implements a plugin is updated to have a new plugin ID, the old
@@ -2064,7 +2064,7 @@ This changeset also updates the CSI plugin lifecycle tests in the state store to
 use `shoenig/test` over `testify`, and removes a spurious error log that was
 happening on every periodic plugin GC attempt.
 
-Fixes: https://github.com/hashicorp/nomad/issues/20225"
+Fixes: https://github.com/hashicorp/nomad/issues/20225",1715869747
 5a6262d1c48ad7195049c42f0a312f14bc943664,False,1,1,9,9,9.0,0,10,10,0.0,0.5,1.0,2588,418,95,1,"tproxy: add implicit constraint on client version (#20623)
 
 The new transparent proxy feature already has an implicity constraint on the
@@ -2073,7 +2073,7 @@ version of Nomad, this isn't sufficient to protect against placing tproxy
 workloads on clients that can't support it. Add a Nomad version constraint as
 well.
 
-Fixes: https://github.com/hashicorp/nomad/issues/20614"
+Fixes: https://github.com/hashicorp/nomad/issues/20614",1715961426
 140747240f76327118581dd1b120fc1c026bf8a8,False,1,3,74,68,24.666666666666668,29,48,19,0.8571428571428571,1.0,1.0,4074,597,110,5,"consul: include admin partition in JWT login requests (#22226)
 
 When logging into a JWT auth method, we need to explicitly supply the Consul
@@ -2083,7 +2083,7 @@ canonical, so instead we get the partition from the fingerprint (if
 available). This changeset updates the Consul client constructor so that we
 close over the partition from the fingerprint.
 
-Ref: https://hashicorp.atlassian.net/browse/NET-9451"
+Ref: https://hashicorp.atlassian.net/browse/NET-9451",1717014669
 de38ff4189a70413edb23dd23e3d5c122ddd5d62,False,1,4,83,40,20.75,52,103,51,0.0,0.7777777777777778,0.6944444444444444,16137,2389,549,11,"consul: set partition for gateway config entries (#22228)
 
 When we write Connect gateway configuation entries from the server, we're not
@@ -2092,7 +2092,7 @@ partition to submit the configuration entries and this may not match. Note this
 requires the Nomad server's token has permission to that partition.
 
 Also, move the config entry write after we check Sentinel policies. This allows
-us to return early if we hit a Sentinel error without making Consul RPCs first."
+us to return early if we hit a Sentinel error without making Consul RPCs first.",1717014662
 096c72a2f48707f2fa1e98d4d06be17f4a801828,False,1,1,9,9,9.0,2,10,8,0.0,0.0,1.0,2962,485,125,1,"Consul Connect: Fix validation with multiple local_bind_socket_paths (#22312)
 
 When a consul connect sidecar service is defined with multiple
@@ -2100,7 +2100,7 @@ local_bind_socket_path upstreams, validation would fail due to duplicate
 socket address bindings on `:0` being detected.
 
 Validate local_bind_socket_path sockets separately from IP address
-sockets."
+sockets.",1717505184
 fa70267787dbc4fc8e94a5b77e6db5a5cc3d03f3,False,1,4,59,25,14.75,25,390,365,0.025735294117647058,0.4264705882352941,0.9669117647058824,59620,10643,1071,5,"scheduler: `RescheduleTracker` dropped if follow-up fails placements (#12319)
 
 When an allocation fails it triggers an evaluation. The evaluation is processed
@@ -2122,13 +2122,13 @@ to pass to the reschedule tracker. I've also included tests that cover this case
 and expands coverage of the relevant area of the code.
 
 Fixes: https://github.com/hashicorp/nomad/issues/12147
-Fixes: https://github.com/hashicorp/nomad/issues/17072"
+Fixes: https://github.com/hashicorp/nomad/issues/17072",1718032540
 61608e43cb8e0922b7bb825e889873705b99b221,False,1,1,17,17,17.0,9,8,-1,1.0,1.0,1.0,282,49,9,2,"test: move NUMA platform scan out of testing global (#23289)
 
 The `testing.go` test helpers file for the driver manager initializes the NUMA
 scan as a package-global variable. This causes it to be pulled in even in
 production builds, so even running commands like `nomad version` will cause the
-NUMA scan to happen. Move the scan into the test helper setup."
+NUMA scan to happen. Move the scan into the test helper setup.",1718110371
 7d73065066e61c19e96a555749a51be83d14926f,False,1,11,154,41,14.0,61,134,73,0.14814814814814814,0.9814814814814815,1.0,8966,1463,231,27,"numa: fix scheduler panic due to topology serialization bug (#23284)
 
 The NUMA topology struct field `NodeIDs` is a `idset.Set`, which has no public
@@ -2142,8 +2142,8 @@ compatibility across upgrades. Instead, create a new field that's populated at
 the same time we populate the more useful `idset.Set`, and repopulate the set on
 demand.
 
-Fixes: https://hashicorp.atlassian.net/browse/NET-9924"
-75874136acf7fdff44668bd9401219960a783d1b,False,1,1,9,9,9.0,4,40,36,0.0,0.0,1.0,4859,770,136,3,fix cgroup setup for non-default devices (#22518)
+Fixes: https://hashicorp.atlassian.net/browse/NET-9924",1718110500
+75874136acf7fdff44668bd9401219960a783d1b,False,1,1,9,9,9.0,4,40,36,0.0,0.0,1.0,4859,770,136,3,fix cgroup setup for non-default devices (#22518),1718285239
 ee48bdd4d9bce7518ac521e09d3d56d40d36171b,False,1,1,4,4,4.0,0,7,7,0.0,0.0,1.0,1075,175,39,1,"server: fix panic if heartbeat reset happens for GC'd node (#23383)
 
 When setting up the timer for heartbeat invalidation, there's no control that
@@ -2155,7 +2155,7 @@ by correctly handling a `nil` node and allowing the `Node.Update` RPC to fire
 normally (which then errors correctly).
 
 Fixes: https://github.com/hashicorp/nomad/issues/23376
-Ref: https://hashicorp.atlassian.net/browse/NET-10109"
+Ref: https://hashicorp.atlassian.net/browse/NET-10109",1718892344
 df67e74615476dc95cf759a520d644a9daeb9cb5,False,1,11,321,122,29.181818181818183,128,580,452,0.21201413427561838,0.6996466431095406,0.47703180212014135,31838,4915,969,32,"Consul: add preflight checks for Envoy bootstrap (#23381)
 
 Nomad creates Consul ACL tokens and service registrations to support Consul
@@ -2197,7 +2197,7 @@ Fixes: https://github.com/hashicorp/nomad/issues/20516
 Ref: https://github.com/hashicorp/consul-k8s/pull/887
 Ref: https://hashicorp.atlassian.net/browse/NET-10051
 Ref: https://hashicorp.atlassian.net/browse/NET-9273
-Follow-up: https://hashicorp.atlassian.net/browse/NET-10138"
+Follow-up: https://hashicorp.atlassian.net/browse/NET-10138",1719497737
 7d3ce7e92d97c9158f6be220748327675689dc4a,False,1,1,10,10,10.0,11,24,13,0.3333333333333333,1.0,1.0,1392,226,42,1,"job statuses: fix filtering for namespace parameter (#23456)
 
 The job statuses endpoint does not filter jobs by the namespace query parameter
@@ -2210,7 +2210,7 @@ Remove the RPC handler's extra condition that prevents using the requested
 namespace. This is safe because we specifically check the ACL for that namespace
 earlier in the handler.
 
-Fixes: https://github.com/hashicorp/nomad/issues/23370"
+Fixes: https://github.com/hashicorp/nomad/issues/23370",1719519576
 c43e30a3876450cba0385a461f26932c49b662d9,False,1,3,24,10,8.0,34,47,13,1.0,1.0,1.0,54384,9839,924,4,"WI: interpolate parent job ID in `vault.default_identity.extra_claims` (#23817)
 
 When we interpolate job fields for the `vault.default_identity.extra_claims`
@@ -2221,7 +2221,7 @@ hopefully remind us to do this going forward.
 Also added a missing changelog entry for #23675 where we implemented the
 `extra_claims` block originally, which shipped in Nomad 1.8.3.
 
-Fixes: https://github.com/hashicorp/nomad/issues/23798"
+Fixes: https://github.com/hashicorp/nomad/issues/23798",1725386196
 60284ad874bd2f90c4e04448e506f5923fefa979,False,1,1,2,2,2.0,21,24,3,,,,2105,373,89,1,"WI: use parent job ID for subject claim (#23902)
 
 When we use the job ID in creating the subject claim (`sub`) for workload
@@ -2229,7 +2229,7 @@ identities, we forgot to use the parent job ID when that's available. Child job
 IDs have a random component that makes them unsuitable for the subject field.
 
 Ref: https://github.com/hashicorp/nomad/pull/23817#discussion_r1717490323
-Ref: https://hashicorp.atlassian.net/browse/NET-10714"
+Ref: https://hashicorp.atlassian.net/browse/NET-10714",1725395590
 18fdda6242f2230f6374d5bf371a64edb60a0e49,False,1,2,44,41,22.0,38,39,1,0.0,1.0,1.0,3881,593,132,6,"vault: fix namespace reset for clients with unset namespace (#23491)
 
 The Vault ""logical"" API doesn't allow configuring the namespace on a per-request
@@ -2247,7 +2247,7 @@ accepting the ""previous"" namespace from the caller.
 This changeset also removes some long-dead code in the Vault client wrapper.
 
 Fixes: https://github.com/hashicorp/nomad/issues/22230
-Ref: https://hashicorp.atlassian.net/browse/NET-10207"
+Ref: https://hashicorp.atlassian.net/browse/NET-10207",1720016000
 b09c1146a953976932a1168cb953e8618b418879,False,1,9,322,74,35.77777777777778,129,287,158,0.040983606557377046,0.4098360655737705,0.9098360655737705,12471,2054,428,23,"CLI: fix prefix matching across multiple commands (#23502)
 
 Several commands that inspect objects where the names are user-controlled share
@@ -2276,7 +2276,7 @@ Fixes: https://github.com/hashicorp/nomad/issues/13920
 Fixes: https://github.com/hashicorp/nomad/issues/17132
 Fixes: https://github.com/hashicorp/nomad/issues/23236
 Ref: https://hashicorp.atlassian.net/browse/NET-10054
-Ref: https://hashicorp.atlassian.net/browse/NET-10055"
+Ref: https://hashicorp.atlassian.net/browse/NET-10055",1720616650
 eedbd36fef471c082a220450db57579e66c365a4,False,1,1,1,1,1.0,106,131,25,0.1875,0.0,1.0,3890,589,111,1,"qemu: pass task resources into driver for cgroup setup (#23466)
 
 As part of the work for 1.7.0 we moved portions of the task cgroup setup down
@@ -2290,11 +2290,11 @@ This was undetected in testing because our CI environment doesn't have QEMU
 installed. I've got all the unit tests running locally again and have added QEMU
 installation when we're running the drivers tests.
 
-Fixes: https://github.com/hashicorp/nomad/issues/23250"
+Fixes: https://github.com/hashicorp/nomad/issues/23250",1719848470
 32d8ec446f07befb42a557d65fa4099b3ca600df,False,1,2,57,51,28.5,13,141,128,0.19444444444444445,0.9351851851851852,0.9166666666666666,3830,676,137,8,"cni: fix parsing .conf and .json configs (#23629)
 
 so we can support more than just .conflist format
-like our docs claim we do"
+like our docs claim we do",1721332513
 2f4353412d1bcf305898f676a815d342304ffa28,False,1,10,359,139,35.9,214,652,438,0.13141025641025642,0.0,1.0,64520,9689,2374,38,"keyring: support prepublishing keys (#23577)
 
 When a root key is rotated, the servers immediately start signing Workload
@@ -2327,7 +2327,7 @@ Ref: https://hashicorp.atlassian.net/browse/NET-10398
 Ref: https://hashicorp.atlassian.net/browse/NET-10280
 Fixes: https://github.com/hashicorp/nomad/issues/19669
 Fixes: https://github.com/hashicorp/nomad/issues/23528
-Fixes: https://github.com/hashicorp/nomad/issues/19368"
+Fixes: https://github.com/hashicorp/nomad/issues/19368",1721410181
 c28089170306f1633434f0d095795671db36c880,False,1,3,16,13,5.333333333333333,3,85,82,0.018867924528301886,0.9811320754716981,1.0,8919,1388,286,4,"template: allow change_mode script to run after client restart (#23663)
 
 For templates with `change_mode = ""script""`, we set a driver handle in the
@@ -2345,7 +2345,7 @@ The error messages are also misleading, as there's no capabilities check
 happening here. Update the error messages to match.
 
 Fixes: https://github.com/hashicorp/nomad/issues/15851
-Ref: https://hashicorp.atlassian.net/browse/NET-9338"
+Ref: https://hashicorp.atlassian.net/browse/NET-9338",1721824179
 92d216f3b8c4945dd6ab8056cd2574768dfb8c98,False,1,2,39,37,19.5,19,38,19,0.0,1.0,1.0,86860,14330,2128,1,"scaling: fix state store corruption bug for job scaling events (#23673)
 
 When updating a `JobScalingEvent`, the state store function did not copy the
@@ -2358,7 +2358,7 @@ time as it's being written.
 This changeset also removes some mostly-unused public methods on the struct that
 dangerously encourage you to mutate it outside of a copy.
 
-Ref: https://hashicorp.atlassian.net/browse/NET-10529"
+Ref: https://hashicorp.atlassian.net/browse/NET-10529",1721827083
 bcb0ee30314c55258ddcce61fc8f8bc5bed8d965,False,1,3,25,16,8.333333333333334,2,26,24,0.0,0.8333333333333334,0.8333333333333334,55208,9962,934,4,"identity: prevent missing task identity from panicking server (#23763)
 
 Tasks have a default identity created during canonicalization. If this default
@@ -2370,7 +2370,7 @@ This changeset will need a different implementation in 1.7.x+ent backports, as
 the constructor for identities was refactored significantly in #23708. The panic
 cannot occur in 1.6.x+ent.
 
-Fixes: https://github.com/hashicorp/nomad/issues/23758"
+Fixes: https://github.com/hashicorp/nomad/issues/23758",1723058780
 9543e740af72d1b94dc1a907d6de3c673c7aec52,False,1,2,44,34,22.0,32,137,105,0.01098901098901099,0.9010989010989011,1.0,10790,1593,359,3,"docker: fix delimiter for selinux label for read-only volumes (#23750)
 
 The Docker driver's `volume` field to specify bind-mounts takes a list of
@@ -2385,7 +2385,7 @@ mounts configuration. Updated the tests to split out Windows behavior (which
 doesn't accept options) and to ensure the test task has the expected environment
 for bind mounts.
 
-Fixes: https://github.com/hashicorp/nomad/issues/23690"
+Fixes: https://github.com/hashicorp/nomad/issues/23690",1723122481
 b7419bc940151684d19054ee3cef6b732196b50a,False,1,1,10,10,10.0,3,54,51,0.14705882352941177,0.9411764705882353,1.0,5399,887,195,1,"api: only set url field in config if previously unset (#23785)
 
 In #16872 we added support for configuring the API client with a unix domain
@@ -2400,21 +2400,21 @@ already been parsed. Include a test demonstrating safe reuse with a unix domain
 socket.
 
 Ref: https://github.com/hashicorp/nomad-autoscaler/issues/944
-Ref: https://github.com/hashicorp/nomad-autoscaler/pull/945"
-abe088954efe5fc8bf3ec20f3b91adc6b68804c0,False,1,3,4,2,1.3333333333333333,2,18,16,,,1.0,24466,3953,866,2,Fix rejoin_after_leave behavior (#15552)
+Ref: https://github.com/hashicorp/nomad-autoscaler/pull/945",1723224484
+abe088954efe5fc8bf3ec20f3b91adc6b68804c0,False,1,3,4,2,1.3333333333333333,2,18,16,,,1.0,24466,3953,866,2,Fix rejoin_after_leave behavior (#15552),1673473164
 e23b3a350e724674350a600dcbc63d6b854c29f0,False,1,5,30,10,6.0,18,17,-1,1.0,1.0,0.0,5237,855,160,5,"csi: Fix parsing of '=' in secrets at command line and HTTP (#15670)
 
 The command line flag parsing and the HTTP header parsing for CSI secrets
 incorrectly split at more than one '=' rune, making it impossible to use secrets
-that included that rune."
-f89ac8080102b56ce96375a17453948f8d7abb34,False,1,1,15,15,15.0,3,18,15,0.0,0.0,1.0,6991,1242,212,1,agent: Make agent syslog log level inherit from Nomad agent log (#15625)
+that included that rune.",1672781318
+f89ac8080102b56ce96375a17453948f8d7abb34,False,1,1,15,15,15.0,3,18,15,0.0,0.0,1.0,6991,1242,212,1,agent: Make agent syslog log level inherit from Nomad agent log (#15625),1672843086
 837f9e26b0952cb945be97b413e29c2c56350d47,False,1,2,14,12,7.0,6,11,5,0.0,0.0,0.0,2991,506,103,2,"csi: avoid a nil pointer when handling plugin events (#15518)
 
 If a plugin crashes quickly enough, we can get into a situation where the
 deregister function is called before it's ever registered. Safely handle the
 resulting nil pointer in the dynamic registry by not emitting a plugin event,
 but also update the plugin event handler to tolerate nil pointers in case we
-wire it up elsewhere in the future."
+wire it up elsewhere in the future.",1670852577
 8018dd0ee83fafca5ffa31a5e7bff0215e4d11ad,False,1,1,2,2,2.0,0,93,93,0.029850746268656716,1.0,1.0,1793,258,29,1,"scheduler: set job on system stack for CSI feasibility check (#15372)
 
 When the scheduler checks feasibility of each node, it creates a ""stack"" which
@@ -2424,7 +2424,7 @@ and `batch` jobs. This stack was missing the call to set the job ID and
 namespace for the CSI check. This prevents CSI volumes from being scheduled for
 system jobs whenever the volume is in a non-default namespace.
 
-Set the job ID and namespace to match the generic scheduler."
+Set the job ID and namespace to match the generic scheduler.",1669240055
 f54a50bb0ba27b1a9fa27a4ba9b07541c5436e67,False,1,1,29,29,29.0,23,37,14,0.0,0.0,1.0,2559,404,86,1,"keyring: update handle to state inside replication loop (#15227)
 
 * keyring: update handle to state inside replication loop
@@ -2438,7 +2438,7 @@ existing clusters with large-enough state, the keyring replication can get
 started quickly enough that it's running before the snapshot from the existing
 clusters have been restored.
 
-Fix this by updating the handle to the state store on each pass."
+Fix this by updating the handle to the state store on each pass.",1668692412
 6eb1f99fb3e4a419529997b5dcd4c74ad835bee3,False,1,1,5,5,5.0,1,43,42,0.36666666666666664,1.0,1.0,1132,182,41,2,"autopilot: include only servers from the same region (#15290)
 
 When we migrated to the updated autopilot library in Nomad 1.4.0, the interface
@@ -2449,10 +2449,10 @@ library, the equivalent interface is `KnownServers` for which we did not filter
 by region. This causes spurious attempts for the cross-region stats fetching,
 which results in TLS errors and a lot of log noise.
 
-Filter the member set by region to fix the regression."
+Filter the member set by region to fix the regression.",1668704976
 9ad90290e238c3ddaf1c715af2d1e4be1ac0a6b6,False,1,1,13,13,13.0,1,15,14,0.0,1.0,1.0,917,140,36,1,"[bug] Return a spec on reconnect (#15214)
 
-client: fixed a bug where non-`docker` tasks with network isolation would leak network namespaces and iptables rules if the client was restarted while they were running"
+client: fixed a bug where non-`docker` tasks with network isolation would leak network namespaces and iptables rules if the client was restarted while they were running",1668191256
 5a5b4b04cbf451c7de04c187ca03453627a0778f,False,1,2,12,8,6.0,2,13,11,0.8,0.8,0.2,6840,1046,195,3,"WI: set identity to client secret if missing (#15121)
 
 Allocations created before 1.4.0 will not have a workload identity token. When
@@ -2463,8 +2463,8 @@ causes service discovery queries to fail.
 Fallback to the node's secret ID when the allocation doesn't have a signed
 identity. Note that pre-1.4.0 allocations won't have templates that read
 Variables, so there's no threat that this new node ID secret will be able to
-read data that the allocation shouldn't have access to."
-748a99db3976648ea91836d943ce74ae20deea7d,False,1,1,2,2,2.0,0,5,5,1.0,1.0,1.0,1036,173,32,1,Add missing timer reset (#15134)
+read data that the allocation shouldn't have access to.",1667488211
+748a99db3976648ea91836d943ce74ae20deea7d,False,1,1,2,2,2.0,0,5,5,1.0,1.0,1.0,1036,173,32,1,Add missing timer reset (#15134),1667516277
 6b2da83f6a613065cf1130a43dabd340b16005fd,False,1,7,334,127,47.714285714285715,162,331,169,0.2727272727272727,1.0,1.0,95349,16039,3612,17,"keyring: safely handle missing keys and restore GC (#15092)
 
 When replication of a single key fails, the replication loop breaks early and
@@ -2487,7 +2487,7 @@ error once a second complaining about the missing key, so we also need to fix
 keyring GC so the keys can be removed from the state store. Now we'll store the
 key ID used to sign a workload identity in the Allocation, and we'll index the
 Allocation table on that so we can track whether any live Allocation was signed
-with a particular key ID."
+with a particular key ID.",1667329250
 18cb9c76f220503c861805e7df6a05f8f7cc40ca,False,1,1,2,2,2.0,1,4,3,,,,5048,812,194,1,"variables: limit rekey eval to half the nack timeout (#15102)
 
 In order to limit how much the rekey job can monopolize a scheduler worker, we
@@ -2495,7 +2495,7 @@ limit how long it can run to 1min before stopping work and emitting a new
 eval. But this exactly matches the default nack timeout, so it'll fail the eval
 rather than getting a chance to emit a new one.
 
-Set the timeout for the rekey eval to half the configured nack timeout."
+Set the timeout for the rekey eval to half the configured nack timeout.",1667335850
 ffbae78263eb4cc8d763c7740d6534756ccbd0cf,False,1,2,48,40,24.0,50,82,32,0.0,1.0,1.0,1861,313,64,6,"volumewatcher: prevent panic on nil volume (#15101)
 
 If a GC claim is written and then volume is deleted before the `volumewatcher`
@@ -2511,8 +2511,8 @@ loop.
 
 Updated the tests now that we'll safely return from the goroutine and stop the
 runner in a larger set of cases. Ran the tests with the `-race` detection flag
-and fixed up any problems found here as well."
-b583f7822a1a1c92b72ac1a6593d3a96b9951d11,False,1,1,99,99,99.0,155,35,-120,0.8876404494382022,0.5842696629213483,0.0,4964,796,187,6,keyring: remove root key GC (#15034)
+and fixed up any problems found here as well.",1667335990
+b583f7822a1a1c92b72ac1a6593d3a96b9951d11,False,1,1,99,99,99.0,155,35,-120,0.8876404494382022,0.5842696629213483,0.0,4964,796,187,6,keyring: remove root key GC (#15034),1666731978
 19653074237c113037b9e82eb9b8fe906b14bfa1,False,1,2,27,21,13.5,1,48,47,0.4166666666666667,0.4166666666666667,1.0,11974,1848,443,4,"keyring: fix missing GC config, don't rotate on manual GC (#15009)
 
 The configuration knobs for root keyring garbage collection are present in the
@@ -2523,7 +2523,7 @@ The root key is automatically rotated every ~30d, but the function that does
 both rotation and key GC was wired up such that `nomad system gc` caused an
 unexpected key rotation. Split this into two functions so that `nomad system gc`
 cleans up old keys without forcing a rotation, which will be done periodially
-or by the `nomad operator root keyring rotate` command."
+or by the `nomad operator root keyring rotate` command.",1666615422
 5732eb2cd51ea6632cdcbaf1a716a5497058ca93,False,1,3,62,39,20.666666666666668,14,77,63,0.0,0.0,1.0,13682,2116,492,7,"keyring: fixes for keyring replication on cluster join (#14987)
 
 * keyring: don't unblock early if rate limit burst exceeded
@@ -2556,7 +2556,7 @@ keyring.
 
 Also, if a key is rotated immediately following a leader election, plans that
 are in-flight may get signed before the new leader has the key. Allow for a
-short timeout-and-retry to avoid rejecting plans"
+short timeout-and-retry to avoid rejecting plans",1666369996
 f6838f6c6f2084aeb895742e7f9554f2b458a9c9,False,1,2,14,10,7.0,3,14,11,0.0,0.0,1.0,11974,1849,424,2,"keyring: filter by region before checking version (#14901)
 
 In #14821 we fixed a panic that can happen if a leadership election happens in
@@ -2568,7 +2568,7 @@ the same upgrade cycle.
 
 Filter the version check by the leader's region.
 
-Also bump up log levels of major keyring operations"
+Also bump up log levels of major keyring operations",1666027276
 a130c7cd2bf1d963806456e08f14729381fb1ecb,False,1,10,79,34,7.9,50,41,-9,1.0,1.0,0.0,43299,6523,1552,19,"make version checks specific to region (1.3.x) (#14911)
 
 * One-time tokens are not replicated between regions, so we don't want to enforce
@@ -2579,7 +2579,7 @@ a130c7cd2bf1d963806456e08f14729381fb1ecb,False,1,10,79,34,7.9,50,41,-9,1.0,1.0,0
 * Cleans up a bunch of legacy checks.
 
 This changeset is specific to 1.3.x and the changes for other versions of
-Nomad will be manually backported in separate PRs"
+Nomad will be manually backported in separate PRs",1666038219
 1b434184e4a1c3b5df87052d8022a36866fbbb9e,False,1,11,93,34,8.454545454545455,58,50,-8,1.0,1.0,0.0,50920,7764,1844,21,"make version checks specific to region (1.4.x) (#14912)
 
 * One-time tokens are not replicated between regions, so we don't want to enforce
@@ -2591,7 +2591,7 @@ Nomad will be manually backported in separate PRs"
 * Cleans up a bunch of legacy checks.
 
 This changeset is specific to 1.4.x and the changes for previous versions of
-Nomad will be manually backported in a separate PR."
+Nomad will be manually backported in a separate PR.",1666038231
 1cd899990ed2fff0fff5379f39249a9995f3a702,False,1,9,70,34,7.777777777777778,45,32,-13,1.0,1.0,0.0,41982,6340,1529,18,"make version checks specific to region (1.2.x)  (#14910)
 
 * One-time tokens are not replicated between regions, so we don't want to enforce
@@ -2599,7 +2599,7 @@ Nomad will be manually backported in a separate PR."
 * Cleans up a bunch of legacy checks.
 
 This changeset is specific to 1.2.x and the changes for other versions of
-Nomad will be manually backported in separate PRs"
+Nomad will be manually backported in separate PRs",1666038244
 6e108d396d5c2b7c0821abc11e61459494f84f4c,False,1,2,49,46,24.5,15,41,26,0.16666666666666666,0.16666666666666666,1.0,11930,1842,422,4,"fix panic from keyring raft entries being written during upgrade (#14821)
 
 During an upgrade to Nomad 1.4.0, if a server running 1.4.0 becomes the leader
@@ -2607,9 +2607,9 @@ before one of the 1.3.x servers, the old server will crash because the keyring
 is initialized and writes a raft entry.
 
 Wait until all members are on a version that supports the keyring before
-initializing it."
-9af59904722fd998b686d34d91eebc7b56036d22,False,1,1,4,4,4.0,0,7,7,1.0,1.0,1.0,3465,585,123,1,Check that JobPlanResponse Diff Type is None before checking for changes on getExitCode (#14492)
-974ff0392c3f0ca52634a7818b66efec3170ff64,False,1,1,3,3,3.0,0,3,3,0.0,1.0,1.0,552,129,17,1,ar: fix bridge networking port mapping when port.To is unset (#6190)
+initializing it.",1665074822
+9af59904722fd998b686d34d91eebc7b56036d22,False,1,1,4,4,4.0,0,7,7,1.0,1.0,1.0,3465,585,123,1,Check that JobPlanResponse Diff Type is None before checking for changes on getExitCode (#14492),1665087802
+974ff0392c3f0ca52634a7818b66efec3170ff64,False,1,1,3,3,3.0,0,3,3,0.0,1.0,1.0,552,129,17,1,ar: fix bridge networking port mapping when port.To is unset (#6190),1566525232
 d3a55915f5b92f406f0a2fa79e69385a8bc13da1,False,1,2,33,24,16.5,17,16,-1,0.0,0.0,1.0,582,102,21,3,"client: defer `nobody` user lookup so Windows doesn't panic (#14790)
 
 In #14742 we introduced a cached lookup of the `nobody` user, which is only ever
@@ -2620,8 +2620,8 @@ agent from starting on Windows.
 An alternative fix here would be to have a separate `init` block for Windows and
 Unix, but this potentially masks incorrect behavior if we accidentally added a
 call to the `Nobody()` method on Windows later. This way we're forced to handle
-the error in the caller."
-635f67b50738ac282fb54dcee0b9a571cf428b5b,False,1,2,2,1,1.0,2,0,-2,1.0,1.0,0.0,3077,550,108,2,CLI: Remove duplicated error output (#6738)
+the error in the caller.",1664898732
+635f67b50738ac282fb54dcee0b9a571cf428b5b,False,1,2,2,1,1.0,2,0,-2,1.0,1.0,0.0,3077,550,108,2,CLI: Remove duplicated error output (#6738),1574201153
 b4cd9af3693dd044269694125b52938a3955d62b,False,1,1,31,31,31.0,10,41,31,0.0,0.3888888888888889,1.0,8053,1210,292,3,"CSI: ensure initial unpublish state is checkpointed (#14675)
 
 A test flake revealed a bug in the CSI unpublish workflow, where an unpublish
@@ -2632,17 +2632,17 @@ will result in a delay in releasing the volume claim until the next GC.
 This changeset also ensures we're using a new snapshot after each write to raft,
 and fixes two timing issues in test where either the volume watcher can
 unpublish before the unpublish RPC is sent or we don't wait long enough in
-resource-restricted environements like GHA."
-0735ed361b12efd28a2ea6a39fa31467fa62694d,False,1,1,16,16,16.0,0,19,19,0.0,0.0,1.0,7705,1151,279,1,backport: CSI: skip node unpublish on GC'd or down nodes (#14720)
-82f2c0cca733b132fd86657a5f2719ced9b55eeb,False,1,1,16,16,16.0,0,19,19,0.0,0.0,1.0,7705,1151,279,1,backport: CSI: skip node unpublish on GC'd or down nodes (#14721)
+resource-restricted environements like GHA.",1664282625
+0735ed361b12efd28a2ea6a39fa31467fa62694d,False,1,1,16,16,16.0,0,19,19,0.0,0.0,1.0,7705,1151,279,1,backport: CSI: skip node unpublish on GC'd or down nodes (#14720),1664287655
+82f2c0cca733b132fd86657a5f2719ced9b55eeb,False,1,1,16,16,16.0,0,19,19,0.0,0.0,1.0,7705,1151,279,1,backport: CSI: skip node unpublish on GC'd or down nodes (#14721),1664287659
 67e9b656ecc854683e31f1d99ef901498bae5dd1,False,1,1,22,22,22.0,4,18,14,0.0,0.0,0.0,2105,313,61,1,"[vars:api] Return fake QueryMeta on 403s with Peek() (#14661)
 
-Consul-template expects that the Response Metadata is non-zero, but on a 403 we do not pass back QueryMeta headers."
-3f67b5b8ebd78673e2f431f7822f60af53a6efea,False,1,1,3,3,3.0,0,3,3,0.0,0.0,0.0,2606,412,88,1,variables: handler should catch errors before conflicts (#14591)
+Consul-template expects that the Response Metadata is non-zero, but on a 403 we do not pass back QueryMeta headers.",1663866905
+3f67b5b8ebd78673e2f431f7822f60af53a6efea,False,1,1,3,3,3.0,0,3,3,0.0,0.0,0.0,2606,412,88,1,variables: handler should catch errors before conflicts (#14591),1663175657
 ce03548d846abbb0e4ae5081fe8df26252e4a235,False,1,1,23,23,23.0,6,104,98,0.48717948717948717,0.9615384615384616,0.9615384615384616,2659,343,84,1,"var: Correct 0-index CAS Deletes (#14555)
 
 * Add missing 0 case for VarDeleteCAS, more comments
-* Add tests for VarDeleteCAS"
+* Add tests for VarDeleteCAS",1663078328
 757c3c94f206c62c53156200ebc64857b947fdd5,False,1,5,34,22,6.8,19,474,455,0.06460674157303371,1.0,1.0,9617,1529,413,5,"scheduler: stopped-yet-running allocs are still running (#10446)
 
 * scheduler: stopped-yet-running allocs are still running
@@ -2665,9 +2665,9 @@ it's not concise... feedback welcome
 * test: output nicer failure message if err==nil
 
 Co-authored-by: Mahmood Ali <mahmood@hashicorp.com>
-Co-authored-by: Michael Schurter <mschurter@hashicorp.com>"
-9f5156a81babb0273b2724cebede17ac7cfab330,False,1,2,19,10,9.5,3,16,13,0.46153846153846156,0.0,1.0,29528,4329,1117,4,csi: nil-check allocs for VolumeDenormalize and claim methods (#7760)
-2c1dcc8cd234f95171cbff676b946eeb33046252,False,1,1,2,2,2.0,1,1,0,,,,1742,236,42,1,Use ExternalID in NodeStageVolume RPC (#7754)
+Co-authored-by: Michael Schurter <mschurter@hashicorp.com>",1663098767
+9f5156a81babb0273b2724cebede17ac7cfab330,False,1,2,19,10,9.5,3,16,13,0.46153846153846156,0.0,1.0,29528,4329,1117,4,csi: nil-check allocs for VolumeDenormalize and claim methods (#7760),1587472344
+2c1dcc8cd234f95171cbff676b946eeb33046252,False,1,1,2,2,2.0,1,1,0,,,,1742,236,42,1,Use ExternalID in NodeStageVolume RPC (#7754),1587417226
 f2186be02c9050dfd391d37d19a937746a6b58b1,False,1,3,54,39,18.0,25,111,86,0.22916666666666666,0.9375,1.0,15678,2750,596,4,"CSI: failed allocation should not block its own controller unpublish (#14484)
 
 A Nomad user reported problems with CSI volumes associated with failed
@@ -2695,19 +2695,19 @@ before handing off to the steps.
 * The list stub object for volumes in `nomad/structs` did not match the stub
 object in `api`. The `api` package also did not include the current
 readers/writers fields that are expected by the UI. True up the two objects and
-add the previously undocumented fields to the docs."
-61a6dbcfcb62cc9d727f21a80f659915b65510c1,False,1,3,24,12,8.0,4,23,19,0.625,0.875,0.0,68882,11706,2643,7,Add client scheduling eligibility to heartbeat (#14483)
+add the previously undocumented fields to the docs.",1662658205
+61a6dbcfcb62cc9d727f21a80f659915b65510c1,False,1,3,24,12,8.0,4,23,19,0.625,0.875,0.0,68882,11706,2643,7,Add client scheduling eligibility to heartbeat (#14483),1662661896
 8f98ff2da6303c4a8809e322a7d028a60b8d6c0d,False,1,2,4,2,2.0,2,2,0,,,,2120,408,48,2,"fix volume deregister -force params in API (#8380)
 
 The CSI `volume deregister -force` flag was using the documented parameter
 `force` everywhere except in the API, where it was incorrectly passing `purge`
-as the query parameter."
-36799570f6e69409fd86da44c3b8212cb8406e02,False,1,1,3,3,3.0,7,16,9,0.0,1.0,1.0,4384,652,33,0,search: enforce correct ACL for search over variables (#14397)
+as the query parameter.",1594217302
+36799570f6e69409fd86da44c3b8212cb8406e02,False,1,1,3,3,3.0,7,16,9,0.0,1.0,1.0,4384,652,33,0,search: enforce correct ACL for search over variables (#14397),1661880451
 33e7d161393fa360f50eb4a987dec05f51f430df,False,1,4,44,14,11.0,17,35,18,0.0,0.75,0.16666666666666666,13285,2084,430,8,"CSI: fix missing ACL tokens for leader-driven RPCs (#8607)
 
 The volumewatcher and GC job in the leader can't make CSI RPCs when ACLs are
-enabled without the leader ACL token being passed thru."
-b665da6c5f86d6a660a0c9e8f01634ea4d7f2279,False,1,1,4,4,4.0,1,56,55,0.3404255319148936,1.0,1.0,693,126,24,1,cli: force periodic job if its id equals search prefix
+enabled without the leader ACL token being passed thru.",1596829047
+b665da6c5f86d6a660a0c9e8f01634ea4d7f2279,False,1,1,4,4,4.0,1,56,55,0.3404255319148936,1.0,1.0,693,126,24,1,cli: force periodic job if its id equals search prefix,1661525677
 73afdea08d7582c326eeeb9aeefa467518110627,False,1,1,6,6,6.0,2,7,5,,,,7714,1156,276,1,"csi: fix handling of garbage collected node in node unpublish (#12350)
 
 When a node is garbage collected, we assume that the volume is no
@@ -2715,17 +2715,17 @@ longer attached to it and ignore the `ErrUnknownNode` error. But we
 used `errors.Is` to check for a wrapped error, and RPC flattens the
 errors during serialization. This results in an error check that works
 in automated testing but not in real clusters. Use a string contains
-check instead."
+check instead.",1647978024
 7c231fd54838d663cd7cbca3b869626b78f96a47,False,1,1,16,16,16.0,0,54,54,0.07894736842105263,0.7368421052631579,0.9210526315789473,33808,4786,1271,3,"block deleting namespaces if the namespace contains a volume (#13880)
 
 When we delete a namespace, we check to ensure that there are no non-terminal
 jobs, which effectively covers evals, allocs, etc. CSI volumes are also
-namespaced, so extend this check to cover CSI volumes."
+namespaced, so extend this check to cover CSI volumes.",1658434432
 9457a13c7ccff55f4eb2d50981c22517fdac5f08,False,1,4,13,8,3.25,11,17,6,0.0,0.0,0.0,98049,15681,3837,6,"fsm: one-time token expiration should be deterministic (#13737)
 
 When applying a raft log to expire ACL tokens, we need to use a
 timestamp provided by the leader so that the result is deterministic
-across servers. Use leader's timestamp from RPC call"
+across servers. Use leader's timestamp from RPC call",1658168369
 55ca76e205263dcf515737843efa8e99018697d3,False,1,1,9,9,9.0,6,3,-3,1.0,1.0,0.0,1221,208,35,1,"docker: back out cgroup v2 OOM detection (#12735)
 
 When shutting down an allocation that ends up needing to be
@@ -2734,7 +2734,7 @@ the task termination event. We introduced this as part of cgroups v2
 support because the Docker daemon isn't detecting the container status
 correctly. Although exit code 137 is the exit code we get for
 OOM-killed processes, that's because OOM kill is a `SIGKILL`. So any
-sigkilled process will get that exit code."
+sigkilled process will get that exit code.",1650558694
 9d5c7b5d9458dcf18d2ae59cb9c3ebd75892e0e2,False,1,1,6,6,6.0,4,4,0,,,,679,105,31,1,"CSI: node drain should end once only plugins remain (#12846)
 
 In #12324 we made it so that plugins wait until the node drain is
@@ -2742,7 +2742,7 @@ complete, as we do for system jobs. But we neglected to mark the node
 drain as complete once only plugins (or system jobs) remaining, which
 means that the node drain is left in a draining state until the
 `deadline` time expires. This was incorrectly documented as expected
-behavior in #12324."
+behavior in #12324.",1651587622
 e886d5d055e320b7985c21c553608ddebcd769f6,False,1,3,75,61,25.0,49,134,85,0.2727272727272727,0.7272727272727273,1.0,7666,1177,287,6,"vault: detect namespace change in config reload (#14298)
 
 The `namespace` field was not included in the equality check between old and new
@@ -2757,7 +2757,7 @@ typical test scenarios.
 
 Includes a minor refactor of the order of fields for `Copy` and `Merge` to match
 the struct fields in hopes it makes it harder to make this mistake in the
-future, as well as additional test coverage."
+future, as well as additional test coverage.",1661375009
 108a42283b9c3906d9b50a6e83f1dd0c5e312e72,False,1,1,42,42,42.0,18,85,67,0.39622641509433965,0.9622641509433962,1.0,7144,1054,253,1,"failed core jobs should not have follow-ups (#8682)
 
 If a core job fails more than the delivery limit, the leader will create a new
@@ -2767,25 +2767,25 @@ Evaluations for core jobs have the leader's ACL, which is not valid on another
 leader after an election. The `failed-follow-up` evals do not have ACLs, so
 core job evals that fail more than the delivery limit or core job evals that
 span leader elections will never succeed and will be re-enqueued forever. So
-we should not retry with a `failed-follow-up`."
-ab67f30e441649fc7ae82cf6046173bd3ae76830,False,1,1,8,8,8.0,4,139,135,0.14285714285714285,0.3277310924369748,0.8067226890756303,2638,340,82,1,Make var get a blocking query as expected (#14205)
-79d983f9827fb52b62c6a26479476586f29c8664,False,1,1,2,2,2.0,1,1,0,,,,1563,242,48,1,client/allocrunner/taskrunner: client.Close after err check (#8825)
-e1e73035792d6dc1d331f1720d35b1b6731fb43f,False,1,55,14893,1164,270.7818181818182,23,17255,17232,0.18227510513898862,0.26156528874756385,0.9091188839881014,80107,11817,2424,425,Update go-getter to v1.5.2 with support for vhost style S3 paths (#9349)
+we should not retry with a `failed-follow-up`.",1597783723
+ab67f30e441649fc7ae82cf6046173bd3ae76830,False,1,1,8,8,8.0,4,139,135,0.14285714285714285,0.3277310924369748,0.8067226890756303,2638,340,82,1,Make var get a blocking query as expected (#14205),1661200641
+79d983f9827fb52b62c6a26479476586f29c8664,False,1,1,2,2,2.0,1,1,0,,,,1563,242,48,1,client/allocrunner/taskrunner: client.Close after err check (#8825),1599221528
+e1e73035792d6dc1d331f1720d35b1b6731fb43f,False,1,55,14893,1164,270.7818181818182,23,17255,17232,0.18227510513898862,0.26156528874756385,0.9091188839881014,80107,11817,2424,425,Update go-getter to v1.5.2 with support for vhost style S3 paths (#9349),1610044468
 288e50ad32d0fd26aea418bca42e61cfc2cca489,False,1,5,67,22,13.4,6,61,55,0.0,1.0,1.0,6831,969,180,5,"Add handling for license requests in OSS (#9963)
 
 This changes the license-fetching endpoint to respond with 204 in
-OSS instead of 501. It closes #9827."
-bf4dafa70edf5a6204a8f1c73d05c939e127d601,False,1,1,4,4,4.0,2,2,0,,,,1478,266,29,0,deps: run make sync to sync vendor dir
+OSS instead of 501. It closes #9827.",1612810386
+bf4dafa70edf5a6204a8f1c73d05c939e127d601,False,1,1,4,4,4.0,2,2,0,,,,1478,266,29,0,deps: run make sync to sync vendor dir,1617289617
 47951aeb5396990312ab53c717fe4486a79f3c26,False,1,1,6,6,6.0,2,4,2,,,,7380,1095,268,2,"CSI: ensure page slices are within bounds
 
 Plugins could potentially ignore the `max_entries` field and return a list of
 entries that is greater, so we slice the return value in the server RPC to
 enforce these value. But page sizes less than the number of entries for the
 external CSI ListVolumes and ListSnapshots RPCs could cause a panic, so fix
-the boundary checking."
+the boundary checking.",1617991958
 02a8e6c2ad04741885b375985942a286ee39956e,False,1,1,4,4,4.0,2,2,0,,,,10875,1592,412,1,"Fix parameterized <-> non-parameterized job error (#10357)
 
-The error messages are reversed from tests performed above them.  The test uses the `validateJobUpdate()` function, but ignores the text of the error message itself."
+The error messages are reversed from tests performed above them.  The test uses the `validateJobUpdate()` function, but ignores the text of the error message itself.",1618234024
 b66a341505fcc97bb0ed76f15b5000cf5bf368bb,False,1,1,18,18,18.0,9,27,18,0.0,0.9230769230769231,1.0,5778,1044,310,1,"scheduler/csi: fix early return when multiple volumes are requested
 
 When multiple CSI volumes are requested, the feasibility check could return
@@ -2797,12 +2797,12 @@ depending on how the map of volumes was being ordered at runtime.
 Remove the early return from the feasibility check. Add a test to verify that
 missing volumes in the map will cause a failure; this test will not catch a
 regression every test run because of the random map ordering, but any failure
-will be caught over the course of several CI runs."
+will be caught over the course of several CI runs.",1615407516
 b0ca1fd74d3cad1fb533c06555355e1ced3fe850,False,1,2,11,9,5.5,0,62,62,0.0625,0.9375,1.0,1791,297,77,2,"server: handle invalid jobs in expose handler hook (#10154)
 
 The expose handler hook must handle if the submitted job is invalid. Without this validation, the rpc handler panics on invalid input.
 
-Co-authored-by: Tim Gross <tgross@hashicorp.com>"
+Co-authored-by: Tim Gross <tgross@hashicorp.com>",1615385566
 a1eaad9cf751d3d57ec12e4651ecdfcc0327ae65,False,1,10,137,33,13.7,39,114,75,0.11940298507462686,0.029850746268656716,0.31343283582089554,51246,7602,1934,21,"CSI: remove prefix matching from CSIVolumeByID and fix CLI prefix matching (#10158)
 
 Callers of `CSIVolumeByID` are generally assuming they should receive a single
@@ -2812,7 +2812,7 @@ volume (for example: ""test"" and ""testing"").
 
 Removing the incorrect prefix matching from `CSIVolumeByID` breaks prefix
 matching in the command line client. Add the required elements for prefix
-matching to the commands and API."
+matching to the commands and API.",1616092360
 a94ac46187c947f669792df131747ee84948b551,False,1,2,12,8,6.0,4,137,133,0.38392857142857145,1.0,1.0,41981,7636,1662,2,"Migrate all allocs when draining a node (#10411)
 
 This fixes a bug affecting drain nodes, where allocs may fail to be
@@ -2824,19 +2824,19 @@ indexed the allocs by job ID without accounting for the namespaces.
 When job ids clash, only an eval is created for one and the rest of the
 allocs remain intact.
 
-Fixes #10172"
+Fixes #10172",1619021474
 982f0acaf7ea875b740110d0475b58b65daa26f5,False,1,1,1,1,1.0,3,62,59,0.09090909090909091,1.0,1.0,9771,1412,307,1,"api: Ignore User provided ParentID (#10424)
 
 ParentID is an internal field that Nomad sets for dispatched or parameterized jobs. Job submitters should not be able to set it directly, as that messes up children tracking.
 
-Fixes #10422 . It specifically stops the scheduler from honoring the ParentID. The reason failure and why the scheduler didn't schedule that job once it was created is very interesting and requires follow up with a more technical issue."
+Fixes #10422 . It specifically stops the scheduler from honoring the ParentID. The reason failure and why the scheduler didn't schedule that job once it was created is very interesting and requires follow up with a more technical issue.",1619209337
 6ab7f4945979b4a9f3c448df2f8cc4e2246e2a90,False,1,1,33,33,33.0,10,38,28,0.5,0.0,1.0,1862,286,49,2,"hcl2: handle unquoted undefined variables (#10419)
 
 This fixes a regression in #10326, to handle unquoted unknown variables.
 
 The HCL job may contain unquoted undefined variable references without ${...} wrapping, e.g. value = meta.node_class. In 1.0.4, this got parsed as value = ""${meta.node_class}"".
 
-This code performs a scan to find the relevant ${ and }, and only tries to find the closest ones with whitespace as the only separator."
+This code performs a scan to find the relevant ${ and }, and only tries to find the closest ones with whitespace as the only separator.",1619025862
 61a3b73d44a6e6c3b0c43af28c9745ed764fe940,False,1,2,62,60,31.0,20,91,71,0.0,0.2777777777777778,1.0,6533,994,192,6,"drivers: Capture exit code when task is killed (#10494)
 
 This commit ensures Nomad captures the task code more reliably even when the task is killed. This issue affect to `raw_exec` driver, as noted in https://github.com/hashicorp/nomad/issues/10430 .
@@ -2849,31 +2849,31 @@ By having a single WaitTask call and consistently waiting for the task, we ensur
 
 I opted to change the TaskRunner implementation to avoid changing the driver interface or requiring 3rd party drivers to update.
 
-Additionally, the PR ensures that attempts to kill the task terminate when the task ""naturally"" dies. Without this change, if the task dies at the right moment, the `killTask` call may retry to kill an already-dead task for up to 5 minutes before giving up."
+Additionally, the PR ensures that attempts to kill the task terminate when the task ""naturally"" dies. Without this change, if the task dies at the right moment, the `killTask` call may retry to kill an already-dead task for up to 5 minutes before giving up.",1620140040
 9b35750489c1339c32c87a7a3b34a75ab0a7ba51,False,1,1,10,10,10.0,6,7,1,1.0,1.0,0.0,1585,230,54,1,"csi: fix CLI panic when formatting volume status with -verbose flag (#10818)
 
 When the `-verbose` flag is passed to the `nomad volume status` command, we
 hit a code path where the rows of text to be formatted were not initialized
-correctly, resulting in a panic in the CLI."
+correctly, resulting in a panic in the CLI.",1624652257
 33f4f50044996510d99107b88a8838338267c2b7,False,1,2,27,20,13.5,8,50,42,0.7575757575757576,1.0,1.0,6993,1141,170,2,"search: use secure vars ACL policy for secure vars context (#13788)
 
 The search RPC used a placeholder policy for searching within the secure
 variables context. Now that we have ACL policies built for secure variables, we
 can use them for search. Requires a new loose policy for checking if a token has
 any secure variables access within a namespace, so that we can filter on
-specific paths in the iterator."
+specific paths in the iterator.",1658407176
 c9ee4be982c893d08eee09c0e3eeb02fea4cc5d7,False,1,3,16,12,5.333333333333333,10,38,28,0.0,1.0,1.0,49613,8905,2001,6,"workload identity: use parent ID for dispatch/periodic jobs (#13748)
 
 Workload identities grant implicit access to policies, and operators
 will not want to craft separate policies for each invocation of a
-periodic or dispatch job. Use the parent job's ID as the JobID claim."
+periodic or dispatch job. Use the parent job's ID as the JobID claim.",1658408754
 44ea61ef3a0dd4019da8b1c6ccff05b41acecfc1,False,1,1,21,21,21.0,7,23,16,1.0,1.0,1.0,3353,543,100,3,"cli: Use glint to determine if os.Stdout is tty (#10926)
 
 Use glint to determine if os.Stdout is a terminal.
 
 glint Terminal renderer expects os.Stdout [not only to be a terminal, but also to have non-zero size](https://github.com/mitchellh/go-glint/blob/b492b545f6208fc979e7ee498d55599b8107e770/renderer_term.go#L39-L46). It's unclear how this condition arises, but this additional check causes Nomad to render deployments progress through glint when glint cannot support it.
 
-By using golint to perform the check, we eliminate the risk of mis-judgement."
+By using golint to perform the check, we eliminate the risk of mis-judgement.",1627054067
 3f80eab49eaa4c44237defeb4f8d1dc917b51675,False,1,2,18,12,9.0,0,21,21,0.0,0.0,1.0,12401,1886,470,4,"nomad: only activate one-time auth tokens with 1.1.0 (#10952)
 
 Fix a panic in handling one-time auth tokens, used to support `nomad ui
@@ -2884,7 +2884,7 @@ pre-1.1.0 servers risk crashing and the cluster may lose quorum. That
 can happen when `nomad authenticate -ui` command is issued, or when the
 leader scans for expired tokens every 10 minutes.
 
-Fixed #10943 ."
+Fixed #10943 .",1627406275
 2b63a093ac3063920d9f23f8d547fd4abc7f91f6,False,1,1,30,30,30.0,13,25,12,,,,1713,243,27,2,"quotas: evaluate quota feasibility last in scheduler (#10753)
 
 The `QuotaIterator` is used as the source of nodes passed into feasibility
@@ -2897,7 +2897,7 @@ nodes happen to be quota checked first, everything works as expected.
 
 This changeset moves the `QuotaIterator` to happen last among all feasibility
 checkers (but before ranking). The `QuotaIterator` will never receive filtered
-nodes so it will calculate quotas correctly."
+nodes so it will calculate quotas correctly.",1623679900
 3f6ece54d9dd15a07c32aa8acd9a0a430fdf820e,False,1,1,13,13,13.0,11,5,-6,1.0,1.0,0.0,40838,7492,1644,1,"service: remove duplicate name check during validation (#10868)
 
 When a task group with `service` block(s) is validated, we validate that there
@@ -2905,16 +2905,16 @@ are no duplicates, but this validation doesn't have access to the task environme
 because it hasn't been created yet. Services and checks with interpolation can
 be flagged incorrectly as conflicting. Name conflicts in services are not
 actually an error in Consul and users have reported wanting to use the same
-service name for task groups differentiated by tags."
-8ba714e2116f9b2c8aaf5efebb755038b320c707,False,1,3,13,7,4.333333333333333,58,63,5,0.0,0.0,0.0,4566,675,123,3,Return SchedulerConfig instead of SchedulerConfigResponse struct (#10799)
+service name for task groups differentiated by tags.",1625751818
+8ba714e2116f9b2c8aaf5efebb755038b320c707,False,1,3,13,7,4.333333333333333,58,63,5,0.0,0.0,0.0,4566,675,123,3,Return SchedulerConfig instead of SchedulerConfigResponse struct (#10799),1634174593
 573aa4519e30f021ea25e164cfa94ff7852ab38b,False,1,1,47,47,47.0,163,148,-15,1.0,0.0,0.0,1617,231,51,1,"secure vars: updates should reduce quota tracking if smaller (#13742)
 
 When secure variables are updated, we were adding the update to the
 existing quota tracking without first checking whether it was an
 update to an existing variable. In that case we need to add/subtract
-only the difference between the new and existing quota usage."
-3636340f3e10d11e1d2c8634d422c2c266921aef,False,1,1,1,1,1.0,1,0,-1,1.0,1.0,1.0,33694,4773,1268,1,keyring: upserting key metadata in FSM must be deterministic (#13733)
-b5046dfdc2cd1851798aec82a68bb8e92f0970ae,False,1,2,22,13,11.0,7,15,8,1.0,1.0,1.0,2054,367,73,2,Fix Testutil for delve debugging API tests (#13589)
+only the difference between the new and existing quota usage.",1657897733
+3636340f3e10d11e1d2c8634d422c2c266921aef,False,1,1,1,1,1.0,1,0,-1,1.0,1.0,1.0,33694,4773,1268,1,keyring: upserting key metadata in FSM must be deterministic (#13733),1657802294
+b5046dfdc2cd1851798aec82a68bb8e92f0970ae,False,1,2,22,13,11.0,7,15,8,1.0,1.0,1.0,2054,367,73,2,Fix Testutil for delve debugging API tests (#13589),1657118868
 189806f643117936a45e9cc58e336538ce38d1bc,False,1,1,40,40,40.0,13,27,14,0.0,0.0,1.0,1036,230,32,1,"Override TLS flags individually for meta commands (#11592)
 
 * Override TLS flags individually for meta commands
@@ -2923,7 +2923,7 @@ b5046dfdc2cd1851798aec82a68bb8e92f0970ae,False,1,2,22,13,11.0,7,15,8,1.0,1.0,1.0
 
 Co-authored-by: Tim Gross <tgross@hashicorp.com>
 
-Co-authored-by: Tim Gross <tgross@hashicorp.com>"
+Co-authored-by: Tim Gross <tgross@hashicorp.com>",1638378468
 072d3b6b7407e0bba3ebba8e4b4550a5e30eced1,False,1,5,135,104,27.0,40,149,109,0.5571428571428572,0.9,0.9,16418,2639,518,20,"cli: ensure `-stale` flag is respected by `nomad operator debug` (#11678)
 
 When a cluster doesn't have a leader, the `nomad operator debug`
@@ -2934,7 +2934,7 @@ API calls was not being set by the command.
 Some `api` package queries do not include `QueryOptions` because
 they target a specific agent, but they can potentially be forwarded to
 other agents. If there is no leader, these forwarded queries will
-fail. Provide methods to call these APIs with `QueryOptions`."
+fail. Provide methods to call these APIs with `QueryOptions`.",1639583043
 631db25e4ad4029f271fa8a86fad8701130b1292,False,1,2,12,8,6.0,4,11,7,0.0,0.0,1.0,3247,494,78,1,"task runner: fix goroutine leak in prestart hook (#11741)
 
 The task runner prestart hooks take a `joincontext` so they have the
@@ -2945,7 +2945,7 @@ canceled and we leak the `joincontext` (48 bytes) and its internal
 goroutine. This primarily impacts batch jobs and any task that fails
 or completes early such as non-sidecar prestart lifecycle tasks.
 Cancel the `joincontext` after the prestart call exits to fix the
-leak."
+leak.",1640278251
 e9032c10d34f889827cdbd46d9ab7658caafc865,False,1,1,6,6,6.0,5,1,-4,1.0,1.0,0.0,1553,274,44,1,"Un-break templates when using vault stanza change_mode noop (#11783)
 
 Templates in nomad jobs make use of the vault token defined in
@@ -3000,14 +3000,14 @@ It is assumed that ""take no action"" was never meant to mean ""don't tell
 consul-template about the new vault token"".
 
 Successfully tested in a staging cluster consisting of multiple
-nomad client nodes."
+nomad client nodes.",1641843698
 a69bb6bd3bb84576cc862deb239db142e6240c56,False,1,1,3,3,3.0,1,2,1,1.0,1.0,1.0,1096,159,38,1,"e2e: `StopJob` should tolerate progress deadline expired (#12179)
 
 The `TestRescheduleProgressDeadlineFail` E2E test failed during test
 cleanup because the error message ""progress deadline expired"" that it
 emits when we stop the job does not match the one expected from
 monitoring the `job stop` command. Update the `StopJob` helper to
-tolerate this use case as well."
+tolerate this use case as well.",1646402122
 87b0d93c6068ec5b3ef37e363520f9116ee9ed0e,False,1,5,41,10,8.2,7,37,30,0.0,0.0,1.0,3290,619,104,5,"cli: fix detach handling (#13405)
 
 Fix detach handling for:
@@ -3016,8 +3016,8 @@ Fix detach handling for:
 - `deployment promote`
 - `deployment resume`
 - `deployment unblock`
-- `job promote`"
-a30c3f36bf93f28e3ad24831e8ee33d225705aa6,False,1,1,26,26,26.0,12,14,2,1.0,1.0,1.0,3187,398,71,3,e2e: fix eventual consistency failure within consultemplate suite. (#12494)
+- `job promote`",1655805683
+a30c3f36bf93f28e3ad24831e8ee33d225705aa6,False,1,1,26,26,26.0,12,14,2,1.0,1.0,1.0,3187,398,71,3,e2e: fix eventual consistency failure within consultemplate suite. (#12494),1649343790
 ab6f13db1de61bd644dd407fc0cbbd1c5984245a,False,1,1,80,80,80.0,136,139,3,0.0,1.0,1.0,8541,1315,243,5,"Fix flaky `operator debug` test (#12501)
 
 We introduced a `pprof-interval` argument to `operator debug` in #11938, and unfortunately this has resulted in a lot of test flakes. The actual command in use is mostly fine (although I've fixed some quirks here), so what's really happened is that the change has revealed some existing issues in the tests. Summary of changes:
@@ -3071,7 +3071,7 @@ Additional minor bug fixes (mostly in tests) and test refactorings:
   being prefixed with the filename.
 
 * Remove explicit pprof args so we use the defaults clamped from
-  duration/interval"
+  duration/interval",1649358007
 0213a36e457c7bdfa4366dc992322fed305bc7b5,False,1,1,13,13,13.0,5,79,74,0.27450980392156865,0.9803921568627451,1.0,3117,458,106,3,"fix deadlock in plan_apply (#13407)
 
 The plan applier has to get a snapshot with a minimum index for the
@@ -3094,19 +3094,19 @@ This timeout creates backpressure where any concurrent `Plan.Submit`
 RPCs will block waiting for results. This sheds load across all
 servers and gives raft some CPU to catch up, because schedulers won't
 dequeue more work while waiting. Increase it to 10s based on
-observations of large production clusters."
-a30c7dd56b8d4712d3f919ee3751756a07410e19,False,1,1,5,5,5.0,1,61,60,0.1111111111111111,0.8888888888888888,1.0,2833,523,119,1,Update IsEmpty to check for pre-1.2.4 fields (#11930)
+observations of large production clusters.",1656000387
+a30c7dd56b8d4712d3f919ee3751756a07410e19,False,1,1,5,5,5.0,1,61,60,0.1111111111111111,0.8888888888888888,1.0,2833,523,119,1,Update IsEmpty to check for pre-1.2.4 fields (#11930),1643214697
 9d7ea218bb2ddf9d95641f5fa7db62a5b0ae0386,False,1,2,79,72,39.5,111,121,10,1.0,1.0,0.0,9864,1791,422,2,"`consul-template`:  revert `function_denylist` logic (#12071)
 
 * consul-template: replace config rather than append
-Co-authored-by: Seth Hoenig <seth.a.hoenig@gmail.com>"
+Co-authored-by: Seth Hoenig <seth.a.hoenig@gmail.com>",1650304676
 2c25bb2126b8af04a9d32857ec2a433ee26006a7,False,1,1,4,4,4.0,3,4,1,0.0,1.0,1.0,1479,230,62,2,"fix blocking query for `Keyring.List` RPC (#13384)
 
 The blocking query for `Keyring.List` appended the keys for each pass
 through the blocking query to the response. This results in mulitple
 copies of keys in the response. Overwrite the `reply.Keys` field on
 each pass through the blocking query to ensure we only get the
-expected page of responses."
+expected page of responses.",1655740093
 16baefcb45fa3032c7c1a8d170f8adc3676d747a,False,1,2,50,40,25.0,9,44,35,0.0,0.5882352941176471,1.0,4606,683,127,4,"csi: provide `CSI_ENDPOINT` env var to plugins (#12050)
 
 The CSI specification says:
@@ -3120,7 +3120,7 @@ socket anyways.
 Refactor to use opts struct for plugin supervisor hook config.
 The parameter list for configuring the plugin supervisor hook has
 grown enough where is makes sense to use an options struct similiar to
-many of the other task runner hooks (ex. template)."
+many of the other task runner hooks (ex. template).",1644587181
 4afc67b7002ec93374462721bab89d220f16d8ef,False,1,3,64,22,21.333333333333332,29,38,9,0.0,0.0,1.0,3300,497,118,5,"csi: volume cli prefix matching should accept exact match (#12051)
 
 The `volume detach`, `volume deregister`, and `volume status` commands
@@ -3129,12 +3129,12 @@ exact matches so that if there is more than one volume that matches
 the prefix, we should only return an error if one of the volume IDs is
 not an exact match. Otherwise we won't be able to use these commands
 at all on those volumes. This also makes the behavior of these commands
-consistent with `job stop`."
+consistent with `job stop`.",1644587583
 822285fa0c03b8e1211fb9f278b582193fa572a2,False,1,1,63,63,63.0,6,57,51,,,,3124,646,106,0,"CSI: add missing plugin capabilities to api response (#12108)
 
 Detection of the full set of plugin capabilities was added in Nomad
 1.1 for the volume creation workflow, but these were not added to the
-API response for plugins."
+API response for plugins.",1645647749
 6b6b82799c846d4d118d3bb764e7d0a9c6db9484,False,1,1,54,54,54.0,26,39,13,1.0,1.0,1.0,4555,1012,206,4,"CSI: enforce usage at claim time (#12112)
 
 * Remove redundant schedulable check in `FreeWriteClaims`. If a volume
@@ -3159,7 +3159,7 @@ API response for plugins."
 * Enforce single-node reader check for read-only volumes. When the
   alloc runner makes a claim for a read-only volume, we only check that
   the volume is potentially schedulable and not that it actually has
-  free read claims."
+  free read claims.",1645713457
 649f1e39675fe7b8c766efc0cf6293d8396e655b,False,1,1,80,80,80.0,31,203,172,0.0,0.7368421052631579,0.9924812030075187,1692,292,53,5,"CSI: retry claims from client when max claims are reached (#12113)
 
 When the alloc runner claims a volume, an allocation for a previous
@@ -3168,12 +3168,12 @@ still shutting down. In this case we'll receive an error from the
 server. Retry this error until we succeed or until a very long timeout
 expires, to give operators a chance to recover broken plugins.
 
-Make the alloc runner hook tolerant of temporary RPC failures."
+Make the alloc runner hook tolerant of temporary RPC failures.",1645717147
 bfbb6509a39208af8079840db573dfc0cd7c41a5,False,1,1,10,10,10.0,3,10,7,0.0,0.0,0.0,31718,4441,1189,1,"csi: tolerate missing plugins on job delete (#12114)
 
 If a plugin job fails before successfully fingerprinting the plugins,
 the plugin will not exist when we try to delete the job. Tolerate
-missing plugins."
+missing plugins.",1645710795
 9ed4d962fd0de4154b1890eccb77c3a541da2f19,False,1,3,43,23,14.333333333333334,6,43,37,0.0,0.0,1.0,40820,5798,1520,4,"csi: fix prefix queries for plugin list RPC (#12194)
 
 The `CSIPlugin.List` RPC was intended to accept a prefix to filter the
@@ -3186,7 +3186,7 @@ prefix-matching method in the state store if we're looking for a
 prefix.
 
 Update the `plugin status command` to accept a prefix for the plugin
-ID argument so that it matches the expected behavior of other commands."
+ID argument so that it matches the expected behavior of other commands.",1646430249
 bec44cc6f9825705551eb3dfe504de0028e13e20,False,1,1,33,33,33.0,15,22,7,0.0,0.0,1.0,7460,1114,269,1,"csi: get plugin ID for creating snapshot from volume, not args (#12195)
 
 The `CreateSnapshot` RPC expects a plugin ID to be set by the API, but
@@ -3196,7 +3196,7 @@ volume we're snapshotting.
 
 Change the order of the RPC so that we get the volume first and then
 use the volume's plugin ID for the plugin if the API didn't set the
-value."
+value.",1646662010
 876e8168d333780a4cbac0fe71a14c5341d367bf,False,1,2,97,95,48.5,37,158,121,0.0891089108910891,0.8217821782178217,1.0,43370,7984,1789,4,"CSI: enforce single access mode at validation time (#12337)
 
 A volume that has single-use access mode is feasibility checked during
@@ -3207,7 +3207,7 @@ count > 1 that mounts one of these volumes will pass feasibility
 checking.
 
 Enforce the check at validation time instead to prevent us from even
-trying to evaluation a job that's misconfigured this way."
+trying to evaluation a job that's misconfigured this way.",1648041686
 fe65d80501013f2e98066b9402da0054ee0bd4c2,False,1,2,4,2,2.0,10,26,16,0.16666666666666666,1.0,1.0,4701,905,159,2,"CSI: fix timestamp from volume snapshot responses (#12352)
 
 Listing snapshots was incorrectly returning nanoseconds instead of
@@ -3218,7 +3218,7 @@ zero values.
 
 Fix the unit conversion error in the command line and the incorrect
 extraction in the CSI plugin client code. Beef up the unit tests to
-make sure this code is actually exercised."
+make sure this code is actually exercised.",1648046368
 1e55a35848a891910799c7e895fae4db5cdca24f,False,1,1,1,1,1.0,0,4,4,0.0,1.0,1.0,4366,668,155,1,"csi: set gRPC authority header for unix domain socket (#12359)
 
 The go-grpc library used by most CSI plugins doesn't require the
@@ -3226,7 +3226,7 @@ authority header to be set, which violates the HTTP2 spec but doesn't
 impact Nomad because both sides of the connection are using the same
 library. But plugins written in other languages (`democratic-csi` for
 example) may have more strictly conforming gRPC server libraries and
-we need to set the authority header manually."
+we need to set the authority header manually.",1648051268
 9d5b3bcc53736071e88ff1d6d33251602627592c,False,1,1,19,19,19.0,29,54,25,0.0,1.0,0.5,1107,181,34,3,"CSI: fix data race in plugin manager (#12553)
 
 The plugin manager for CSI hands out instances of a plugin for callers
@@ -3239,11 +3239,11 @@ needed to be accessed only from the main loop but that comment was
 unfortunately ignored shortly thereafter, so this bug has existed in
 the code for a couple years without being detected until we ran tests
 with `-race` in #12098. Lesson learned here: comments make for lousy
-enforcement of invariants!"
+enforcement of invariants!",1649780284
 334c25834aa00b63b6ee1814c3465d69092ca086,False,1,1,2,2,2.0,1,4,3,,,,43324,7931,1780,2,"QueryOptions.SetTimeToBlock should take pointer receiver
 
 Fixes a bug where blocking queries that are retried don't have their blocking 
-timeout reset, resulting in them running longer than expected."
+timeout reset, resulting in them running longer than expected.",1650292887
 42bcb74a5191638ec53bd1e8d18f8d18773944dd,False,1,1,4,4,4.0,3,3,0,,,,1183,216,45,2,"cli: detect directory when applying namespace spec file (#12738)
 
 The new `namespace apply` feature that allows for passing a namespace
@@ -3260,13 +3260,13 @@ name only, and then you get a confusing error message of the form:
    Failed to read file: read $namespace: is a directory
 
 Detect the case where the namespace name collides with a directory in
-the current working directory, and skip trying to load the directory."
-0b9a85f5c2fefa94c93037329fb2c71b6a57c677,False,1,1,3,3,3.0,0,3,3,0.0,1.0,1.0,1651,245,57,1,CSI: handle nil topologies safely in command line (#12751)
+the current working directory, and skip trying to load the directory.",1650567225
+0b9a85f5c2fefa94c93037329fb2c71b6a57c677,False,1,1,3,3,3.0,0,3,3,0.0,1.0,1.0,1651,245,57,1,CSI: handle nil topologies safely in command line (#12751),1650633904
 2986f1f18a6b2d2bf90b5ce705113b2c8b8ff9c6,False,1,5,33,12,6.6,16,53,37,0.25,0.5,1.0,25071,4289,917,6,"CSI: make plugin health_timeout configurable in csi_plugin stanza (#13340)
 
 
-Signed-off-by: Grant Griffiths <ggriffiths@purestorage.com>"
-7c1c117e14e3ae2a6e1141dd8eb1ba4fbf17e457,False,1,1,9,9,9.0,0,38,38,0.0,0.7692307692307693,0.7692307692307693,5332,833,202,1,scheduler: volume updates should always be destructive (#13008)
+Signed-off-by: Grant Griffiths <ggriffiths@purestorage.com>",1655215456
+7c1c117e14e3ae2a6e1141dd8eb1ba4fbf17e457,False,1,1,9,9,9.0,0,38,38,0.0,0.7692307692307693,0.7692307692307693,5332,833,202,1,scheduler: volume updates should always be destructive (#13008),1652456044
 b74712321b28a0defce9886b47590e691efa7a12,False,1,1,5,5,5.0,4,93,89,0.0,1.0,1.0,5945,1065,314,1,"CSI: no early return when feasibility check fails on eligible nodes (#13274)
 
 As a performance optimization in the scheduler, feasibility checks
@@ -3283,4 +3283,4 @@ causes the entire task group to be rejected.
 Fix the bug by not returning early in the fast path and instead jump
 to the top of the loop like all the other code paths in this method.
 Includes a new test exercising topology at whole-scheduler level and a
-fix for an existing test that should've caught this previously."
+fix for an existing test that should've caught this previously.",1654623070

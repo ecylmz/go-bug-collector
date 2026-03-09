@@ -1,16 +1,16 @@
-sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message
+sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message,commit_timestamp
 e469c8974c3596c4ddf844868919be52aead99ef,False,1,1,2,2,2.0,0,2,2,,,,11698,1865,109,0,"chunker: fix double-transform
 
 Before this change, chunker could double-transform a file under certain
 conditions, when --name-transform was in use. This change fixes the issue by
-ensuring that --name-transform is disabled during internal file moves."
+ensuring that --name-transform is disabled during internal file moves.",1749749461
 44e83d77d754aef3b4408edf62f5943d1c979a8c,False,1,1,9,9,9.0,1,8,7,0.0,0.0,1.0,3536,614,129,2,"http: correct root if definitely pointing to a file - fixes #8428
 
 This was formalized in
 https://github.com/rclone/rclone/commit/c69eb84573c85206ab028eda2987180e049ef2e4
 But it appears that we forgot to update `http`, and the `FsRoot` test didn't
-catch it because we don't currently have an http integration test."
-f4c058e13e3b0af3bed5c4e6db39599e5e440694,False,1,2,34,29,17.0,18,16,-2,1.0,0.0,0.0,3900,565,100,3,bisync: use global --retries and --retries-sleep flags instead of overriding
+catch it because we don't currently have an http integration test.",1742234723
+f4c058e13e3b0af3bed5c4e6db39599e5e440694,False,1,2,34,29,17.0,18,16,-2,1.0,0.0,0.0,3900,565,100,3,bisync: use global --retries and --retries-sleep flags instead of overriding,1707762294
 3b49fd24d4e9eebe04e676c680a49056714c5ace,False,1,2,34,18,17.0,24,181,157,1.0,1.0,1.0,7541,1078,280,2,"bisync: fix listings missing concurrent modifications - fixes #8359
 
 Before this change, there was a bug affecting listing files when:
@@ -28,7 +28,7 @@ of the changed file, potentially causing conflicts or errors.
 This change fixes the issue by making sure that if we're updating the listings
 on one side, we must also update the other. (We previously tried to skip it for
 efficiency, but this failed to account for the possibility that a changed file
-could change again during the run.)"
+could change again during the run.)",1739272862
 abe884e74473e8a60beacc7b013ca6db899adcb9,False,1,1,9,9,9.0,8,1,-7,0.0,0.0,0.0,78,17,1,2,"bisync: fix output capture restoring the wrong output for logrus
 
 Before this change, if rclone is used as a library and logrus is used
@@ -37,7 +37,7 @@ leads to writing to a closed pipe.
 
 This change restores the output correctly.
 
-Fixes #8158"
+Fixes #8158",1731411774
 9b4b3033da25ec41aabb35b858a765dd734a5f09,False,1,2,127,111,63.5,27,197,170,0.5153846153846153,0.9307692307692308,0.9076923076923077,2492,420,97,13,"fs/cache: fix parent not getting pinned when remote is a file
 
 Before this change, when cache.GetFn was called on a file rather than a
@@ -62,7 +62,7 @@ This change fixes the issue by ensuring that:
 3. fs.ErrorIsFile is returned when (and only when) fsString points to a file
 	(preserving the fix from https://github.com/rclone/rclone/commit/8d5bc7f28b8459a0e04fdbfd2dca43c5d9ec4555).
 
-Note that f.Root() should always point to the parent dir as of https://github.com/rclone/rclone/commit/c69eb84573c85206ab028eda2987180e049ef2e4"
+Note that f.Root() should always point to the parent dir as of https://github.com/rclone/rclone/commit/c69eb84573c85206ab028eda2987180e049ef2e4",1727527796
 462a1cf491e5c6bdab4e35891dc59af7d7c28a4c,False,1,1,17,17,17.0,6,46,40,0.0,0.7,0.7,362,63,16,1,"local: fix --copy-links on macOS when cloning
 
 Before this change, --copy-links erroneously behaved like --links when using cloning
@@ -76,8 +76,8 @@ Cloning is now also supported in --links mode for regular files (which benefit
 most from cloning). symlinks in --links mode continue to be tossed back to be
 handled by rclone's special translation logic.
 
-See https://forum.rclone.org/t/macos-local-to-local-copy-with-copy-links-causes-error/47671/5?u=nielash"
-9a02c040284d30ccf90b1257680e0b5117e10d0f,False,1,1,2,2,2.0,1,1,0,,,,11278,1688,338,1,jottacloud: fix setting of metadata on server side move - fixes #7900
+See https://forum.rclone.org/t/macos-local-to-local-copy-with-copy-links-causes-error/47671/5?u=nielash",1726850632
+9a02c040284d30ccf90b1257680e0b5117e10d0f,False,1,1,2,2,2.0,1,1,0,,,,11278,1688,338,1,jottacloud: fix setting of metadata on server side move - fixes #7900,1725721203
 956c2963fd1d7352e58913b4bb6282310c1c5f1e,False,1,1,36,36,36.0,26,16,-10,0.0,0.0,0.0,5485,715,206,5,"bisync: don't convert modtime precision in listings - fixes #8025
 
 Before this change, bisync proactively converted modtime precision when greater
@@ -97,7 +97,7 @@ After this change, bisync preserves the original precision in the listing
 (without conversion), even when greater than what the backend supports, to avoid
 rounding error. On the next run, bisync will compare it to the rounded time
 reported by the backend, and if it's within the modifyWindow, it will treat them
-as equivalent."
+as equivalent.",1724553168
 8470bdf8104e3e040172de8e725f09464d736911,False,1,1,2,2,2.0,1,1,0,,,,28338,5715,588,1,"s3: fix 405 error on HEAD for delete marker with versionId
 
 When getting an object by specifying a versionId in the request, if the
@@ -113,23 +113,23 @@ deemed the object to exist when we should not have.
 After this change, 405 (Method Not Allowed) is treated the same as 404 (Not
 Found) for the purposes of headObject.
 
-See https://forum.rclone.org/t/bisync-rename-failed-method-not-allowed/45723/13"
+See https://forum.rclone.org/t/bisync-rename-failed-method-not-allowed/45723/13",1718298569
 5323a2189852b29e67dd1ff9cb726518e4612f59,False,1,1,5,5,5.0,0,5,5,0.5,0.5,0.0,14338,2060,558,2,"operations: fix move when dst is nil and fdst is case-insensitive
 
 Before this change, the MoveCaseInsensitive logic in operations.move made the
 assumption that dst != nil && remote != """". After this change, it should work
-correctly when either one is present without the other."
+correctly when either one is present without the other.",1713032889
 71069ed5c1942113fe28e39d7d4b2eb802ef7db5,False,1,1,36,36,36.0,3,34,31,0.0,0.0,1.0,7538,1216,267,4,"webdav: fix SetModTime erasing checksums on owncloud and nextcloud
 
 Before this change, calling SetModTime on owncloud and nextcloud would
 inadvertently erase the object's stored hashes. This change fixes the issue,
-which was discovered by the bisync integration tests."
-f995ece64d419e4b4dcda57748718b67dde46601,False,1,1,7,7,7.0,0,7,7,1.0,1.0,1.0,112,24,3,2,bisync: fix io.PipeWriter not getting closed on tests
+which was discovered by the bisync integration tests.",1712176991
+f995ece64d419e4b4dcda57748718b67dde46601,False,1,1,7,7,7.0,0,7,7,1.0,1.0,1.0,112,24,3,2,bisync: fix io.PipeWriter not getting closed on tests,1712541326
 998df26ceb125601fed286052cc82b960550bc4d,False,1,3,49,33,16.333333333333332,61,68,7,0.045454545454545456,0.13636363636363635,1.0,20607,3191,656,5,"onedrive: fix --metadata-mapper called twice if writing permissions
 
 Before this change, the --metadata-mapper was called twice if an object was
 uploaded via multipart upload with --metadata and --onedrive-metadata-permissions
-""write"" or ""read,write"". This change fixes the issue."
+""write"" or ""read,write"". This change fixes the issue.",1712066263
 bce80be2f8916b46823ba8e6c90617e7a5471486,False,1,1,30,30,30.0,20,738,718,0.25806451612903225,0.0,0.532258064516129,3097,381,99,1,"bisync: several fixes for integration tests
 
 Several fixes for the bisync integration tests:
@@ -141,7 +141,7 @@ Several fixes for the bisync integration tests:
 - don't expect ""{hashtype} differ"" messages on backends with no hash types
 - print timestamps in UTC local
 
-More fixes will still be needed, but this should hopefully fix a good portion of them."
+More fixes will still be needed, but this should hopefully fix a good portion of them.",1711820384
 f62e7b5b30be8357e53fe0134baafe25cf552238,False,1,2,25,23,12.5,1,24,23,0.0,1.0,1.0,18970,2441,463,3,"memory: fix incorrect list entries when rooted at subdirectory
 
 Before this change, List would return incorrect directory paths (relative to the
@@ -151,7 +151,7 @@ remote :memory:a/b would not, and would result in ""Entry doesn't belong in
 directory %q (contains subdir)"" errors.
 
 This change fixes the issue and adds a test to detect any other backends that
-might have the same issue."
+might have the same issue.",1711554206
 2b0a25a64d95edb671bfc31df99577bff3b2faff,False,1,1,19,19,19.0,4,55,51,0.9655172413793104,0.9655172413793104,0.5862068965517241,3004,466,93,3,"memory: fix deadlock in operations.Purge
 
 Before this change, the Memory backend had the potential to deadlock under
@@ -164,7 +164,7 @@ fallback option does:
 which potentially starts removing objects before the listing has completed.
 
 This change fixes the issue by batching all the entries before calling the
-callback on them."
+callback on them.",1711554169
 fecce67ac66f889f729b1ae11bebaee4885798c4,False,1,2,10,7,5.0,1,9,8,0.0,1.0,0.8333333333333334,18733,2412,459,3,"memory: fix dst mutating src after server-side copy
 
 Before this change, the Memory backend's Copy method created a dst object that
@@ -173,7 +173,7 @@ minimized memory usage, an unintended consequence was that subsequently mutating
 the src (such as changing the modtime) would inadvertently also mutate the dst,
 and vice versa.
 
-This change fixes the issue and adds a test."
+This change fixes the issue and adds a test.",1711500006
 431524445eaf3b767e7127fc1eb7f5d2fdc7af2d,False,1,1,5,5,5.0,1,31,30,0.12,0.88,0.76,14243,2051,553,1,"combine: fix operations.DirMove across upstreams - fixes #7661
 
 Before this change, operations.DirMove would fail when moving a directory, if
@@ -192,7 +192,7 @@ DirMove, despite not always being able to do it.
 
 This change fixes the issue by checking the returned error in a manner similar
 to sync.MoveDir and falling back to individual file moves (copy + delete)
-depending on which error was returned."
+depending on which error was returned.",1709809906
 252562d00a757ee8d6913a9ba2c71d00e7fd8541,False,1,2,27,23,13.5,4,23,19,1.0,1.0,1.0,5953,953,233,4,"combine: fix CopyDirMetadata error on upstream root
 
 Before this change, operations.CopyDirMetadata would fail with: `internal error:
@@ -211,7 +211,7 @@ special directories have more limited abilities than what the Fs usually
 supports.
 
 It is possible that other similar wrapping backends (Union?) may need this same
-fix."
+fix.",1709809747
 fd8faeb0e6289f6b56699c3fceb102f449d3de53,False,1,5,68,46,13.6,26,115,89,0.34615384615384615,0.9615384615384616,1.0,10945,1654,97,3,"vfs: fix unicode normalization on macOS - fixes #7072
 
 Before this change, the VFS layer did not properly handle unicode normalization,
@@ -237,7 +237,7 @@ versions of the file will be visible in the mount, and both will appear to be
 editable, however, editing either version will actually result in only the NFD
 version getting edited under the hood. `--vfs-block-norm-dupes` prevents this
 confusion by detecting this scenario, hiding the duplicates, and logging an
-error, similar to how this is handled in `rclone sync`."
+error, similar to how this is handled in `rclone sync`.",1709741533
 7b8bbe531e0f062254b2d8ffe1e6284cd62309f6,False,1,1,2,2,2.0,1,1,0,,,,565,93,14,1,"nfsmount: fix --volname being ignored #7503
 
 Before this change, nfsmount ignored the --volname flag. After this change, the --
@@ -247,8 +247,8 @@ macOS users should note that Finder will show the correct volume name in most
 places, but a notable exception is the sidebar, which will show ""localhost"".
 This seems to be a system limitation (at least without `sudo`), but see the
 discussion at https://github.com/rclone/rclone/issues/7503#issuecomment-1933997678
-for some possible workarounds."
-d8e07bfd8e9c011f73ef2066a546dfc0c1615616,False,1,2,8,5,4.0,1,12,11,,,,1394,268,13,0,bisync: document beta status more clearly - fixes #6082
+for some possible workarounds.",1708250939
+d8e07bfd8e9c011f73ef2066a546dfc0c1615616,False,1,2,8,5,4.0,1,12,11,,,,1394,268,13,0,bisync: document beta status more clearly - fixes #6082,1705783106
 d031cc138dae08edad68c95a590dc7cefedda834,False,1,1,29,29,29.0,0,29,29,0.0,0.0,0.8333333333333334,4492,659,165,2,"bisync: check for syntax errors in path args - fixes #7511
 
 Before this change, certain shell quoting / escaping errors (particularly on
@@ -260,7 +260,7 @@ of the path.
 
 After this change, Bisync specifically checks for a few of the most common
 patterns, and if detected, exits with a more helpful error message before doing
-any damage."
+any damage.",1705787652
 57624629d6b43177846fd64b3e252d1ad364bec4,False,1,2,9,6,4.5,755,1064,309,0.15508021390374332,0.46524064171123,0.893048128342246,1372,204,46,3,"bisync: account for differences in backend features on integration tests - see #5679
 
 Before this change, integration tests often could not be run on backends with
@@ -268,13 +268,13 @@ differing features from the local system that goldenized them. In particular,
 differences in modtime precision, checksum support, and encoding would cause
 false positives. After this change, the tests more accurately account for the
 features of the backend being tested, which allows us to see true positives
-more clearly, and more meaningfully assess whether a backend is supported."
+more clearly, and more meaningfully assess whether a backend is supported.",1705780208
 3ca766b2f11a7e84322d04fbe65cc8334aa30ee5,False,1,3,14,8,4.666666666666667,5,22,17,0.125,0.0,0.5,5598,850,178,3,"hasher: fix invalid memory address error when MaxAge == 0
 
 When f.opt.MaxAge == 0, f.db is never set, however several methods later assume
 it is set and attempt to access it, causing an invalid memory address error.
 This change fixes the issue in a few spots (there may still be others I haven't
-yet encountered.)"
+yet encountered.)",1704219241
 0d34efb10f7a20ac45f2839ea78256b35186c958,False,1,1,12,12,12.0,5,7,2,,,,7252,1083,213,1,"box: fix reconnect failing with HTTP 400 Bad Request
 
 The error is:
@@ -291,7 +291,7 @@ currently use there is an alternative type StandardClaims which matches what box
 Unfortunately StandardClaims is marked as deprecated, and is removed in the
 newer v5 version, so we this is a short term fix only.
 
-Fixes #7114"
+Fixes #7114",1689326673
 0328878e46da5d8ef8096dc519c7c1f9780c129d,False,1,2,29,27,14.5,27,56,29,0.35294117647058826,0.7058823529411765,1.0,5244,815,172,4,"accounting: limit length of ETA string
 
 No need to report hours, minutes, and even seconds when the
@@ -299,17 +299,17 @@ ETA is several years, e.g. ""292y24w3d23h47m16s"". Now only
 reports the 3 most significant units, sacrificing precision,
 e.g. ""292y24w3d"", ""24w3d23h"", ""3d23h47m"", ""23h47m16s"".
 
-Fixes #6381"
-d376fb1df25ca0203347c54b032685239d61c371,False,1,1,2,2,2.0,1,1,0,,,,1092,187,41,1,smb: check smb connection is closed - fixes #6735
+Fixes #6381",1675528148
+d376fb1df25ca0203347c54b032685239d61c371,False,1,1,2,2,2.0,1,1,0,,,,1092,187,41,1,smb: check smb connection is closed - fixes #6735,1675236325
 f31ab6d17857cc5619f321f0d7146721099ba644,False,1,2,70,54,35.0,4,113,109,0.9841269841269841,0.9841269841269841,0.9841269841269841,6503,1062,242,7,"seafile: renew library password - fixes #6662
 
 Passwords for encrypted libraries are kept in memory in the server
 and flushed after an hour.
-This MR fixes an issue when the library password expires after 1 hour."
-b085aa1a3f6e0c29018e2c7cd8eaca33806e0e9f,False,1,1,3,3,3.0,7,13,6,0.8,1.0,1.0,6246,1009,232,1,seafile: fix error when not configured for 2fa (#5665)
-ad5395e95352e7e1d257353cca321082b52cb51d,False,1,1,2,2,2.0,1,1,0,,,,6202,1105,169,1,"backend/local: fix %!w(<nil>) in ""failed to read directory"" error"
-7db1c506f261698a536c343de39b628fc82e13bb,False,1,1,6,6,6.0,1,5,4,1.0,1.0,0.0,3957,617,90,1,smb: fix issue where spurious dot directory is created
-f4a571786ceed95867df1f1b7bdea033804f0681,False,1,1,15,15,15.0,9,6,-3,,,,6203,1106,169,0,local: clean absolute paths - fixes #6493
+This MR fixes an issue when the library password expires after 1 hour.",1673799989
+b085aa1a3f6e0c29018e2c7cd8eaca33806e0e9f,False,1,1,3,3,3.0,7,13,6,0.8,1.0,1.0,6246,1009,232,1,seafile: fix error when not configured for 2fa (#5665),1634673215
+ad5395e95352e7e1d257353cca321082b52cb51d,False,1,1,2,2,2.0,1,1,0,,,,6202,1105,169,1,"backend/local: fix %!w(<nil>) in ""failed to read directory"" error",1672076252
+7db1c506f261698a536c343de39b628fc82e13bb,False,1,1,6,6,6.0,1,5,4,1.0,1.0,0.0,3957,617,90,1,smb: fix issue where spurious dot directory is created,1668964322
+f4a571786ceed95867df1f1b7bdea033804f0681,False,1,1,15,15,15.0,9,6,-3,,,,6203,1106,169,0,local: clean absolute paths - fixes #6493,1666724996
 72227a01519f4cc9b0a1ecd390785c9d1d09d5d0,False,1,1,24,24,24.0,8,16,8,0.0,0.0,0.0,10255,1528,308,1,"jottacloud: do not store username in config when using standard auth
 
 Previously, with standard auth, the username would be stored in config - but only after
@@ -326,8 +326,8 @@ recently reverted.
 
 The current commit takes another step back to not store the username in config during
 the non-standard device/mountpoint config sequence (consistentcy). The username will
-now only be stored in config when using legacy auth, where it is an input parameter."
-f0396070ebc24762c2f90a91835aa90367aa2872,False,1,1,17,17,17.0,3,14,11,0.0,0.0,0.0,9534,1617,279,1,sftp: fix issue with WS_FTP by working around failing RealPath
+now only be stored in config when using legacy auth, where it is an input parameter.",1658769789
+f0396070ebc24762c2f90a91835aa90367aa2872,False,1,1,17,17,17.0,3,14,11,0.0,0.0,0.0,9534,1617,279,1,sftp: fix issue with WS_FTP by working around failing RealPath,1658336870
 9dbed02329456c71d2052a6365041deda94bc020,False,1,1,53,53,53.0,19,34,15,0.0,0.0,0.0,10305,1537,311,4,"jottacloud: always store username in config and use it to avoid initial api request
 
 Existing version did save username in config, but only when entering the custom
@@ -337,7 +337,7 @@ username at startup with an api request.
 This commit improves it so that the username will always be stored in config,
 and when using standard authentication it picks it from the login token instead of
 requesting it from the remote api, and also in fs constructor it picks it from config
-instead of requesting it from remote api (again)."
+instead of requesting it from remote api (again).",1656845785
 0f41e91d411fdfbd517a2c2a8f76bdaeb9b0ae47,False,1,1,9,9,9.0,4,5,1,,,,4246,738,178,3,"cmd/ncdu: display correct path in delete confirmation dialog
 
 If the remote on the command line is ""remote:subdir"", when
@@ -345,23 +345,23 @@ deleting ""filename"", the confirmation message shows the path
 ""remote:subdirfilename"".
 Using fspath.JoinRootPath() fixes this. Also use this function
 and fs.ConfigString() in other parts of the file, since they
-are more appropriate."
+are more appropriate.",1655138459
 a9d3283d97e15a51c838a5d13655d9c1e9bee55e,False,1,1,14,14,14.0,7,7,0,0.0,0.0,0.0,9559,1412,283,7,"jottacloud: fix listing output of remote with special characters
 
-This fixes the failing integration test: TestIntegration/FsMkdir/FsPutFiles/FsIsFile"
-97606bbdef90bebe240d9d4603cbbacf17e06e36,False,1,2,115,78,57.5,47,68,21,1.0,1.0,1.0,5392,926,211,6,ncdu: refactor accumulated attributes into a struct
-a667e03fc9ebc0e21f56e7a820bf873be987e034,False,1,1,117,117,117.0,37,218,181,0.07142857142857142,0.23809523809523808,0.753968253968254,3181,548,118,5,http: improved recognition of url pointing to a single file - fixes #5929
-c504d970174a604a39fdb2b2d1c51f2ca34ab31d,False,1,1,6,6,6.0,3,3,0,,,,3475,638,163,1,config: fix display of config choices with empty help text
-4b99e84242f990281c4aca5b68aaec32dc9cf11c,False,1,1,3,3,3.0,2,1,-1,0.0,0.0,0.0,3957,598,136,1,vfs/cache: fix handling of special characters in file names (#5875)
-9beb0677e4462e13c45742159dae720732663b3a,False,1,1,2,2,2.0,1,1,0,,,,672,96,23,1,backend: Fix union eplus policy returned nil
-7b7d780fffd8981e48c89096ef0e14400e625ca5,False,1,2,26,24,13.0,8,18,10,0.0,0.0,1.0,5644,988,177,1,stats: fix missing StatsInfo fields in the computation of the group sum
+This fixes the failing integration test: TestIntegration/FsMkdir/FsPutFiles/FsIsFile",1652384467
+97606bbdef90bebe240d9d4603cbbacf17e06e36,False,1,2,115,78,57.5,47,68,21,1.0,1.0,1.0,5392,926,211,6,ncdu: refactor accumulated attributes into a struct,1651000372
+a667e03fc9ebc0e21f56e7a820bf873be987e034,False,1,1,117,117,117.0,37,218,181,0.07142857142857142,0.23809523809523808,0.753968253968254,3181,548,118,5,http: improved recognition of url pointing to a single file - fixes #5929,1643193661
+c504d970174a604a39fdb2b2d1c51f2ca34ab31d,False,1,1,6,6,6.0,3,3,0,,,,3475,638,163,1,config: fix display of config choices with empty help text,1642533477
+4b99e84242f990281c4aca5b68aaec32dc9cf11c,False,1,1,3,3,3.0,2,1,-1,0.0,0.0,0.0,3957,598,136,1,vfs/cache: fix handling of special characters in file names (#5875),1642076605
+9beb0677e4462e13c45742159dae720732663b3a,False,1,1,2,2,2.0,1,1,0,,,,672,96,23,1,backend: Fix union eplus policy returned nil,1636372527
+7b7d780fffd8981e48c89096ef0e14400e625ca5,False,1,2,26,24,13.0,8,18,10,0.0,0.0,1.0,5644,988,177,1,stats: fix missing StatsInfo fields in the computation of the group sum,1636126380
 a074a2b9832e5e0ace0b8fbca3e4245b8c10e32d,False,1,1,42,42,42.0,10,101,91,0.023809523809523808,0.8095238095238095,0.8095238095238095,1888,330,61,5,"lib/http: Fix handling of ssl credentials
-Adds a test that makes an actual http and https request against the server"
-82ad9a30b909008458222bb0b076b77100407b2b,False,1,1,3,3,3.0,0,4,4,0.0,0.25,1.0,1508,351,47,1,rc: fix speed does not update in core/stats
-29c6c86c009a25c26dde4639766f171164f697f3,False,1,1,15,15,15.0,1,112,111,0.3055555555555556,0.9583333333333334,0.8472222222222222,5667,931,75,2,ftp: fix timeout after long uploads #5596
+Adds a test that makes an actual http and https request against the server",1635335170
+82ad9a30b909008458222bb0b076b77100407b2b,False,1,1,3,3,3.0,0,4,4,0.0,0.25,1.0,1508,351,47,1,rc: fix speed does not update in core/stats,1628941551
+29c6c86c009a25c26dde4639766f171164f697f3,False,1,1,15,15,15.0,1,112,111,0.3055555555555556,0.9583333333333334,0.8472222222222222,5667,931,75,2,ftp: fix timeout after long uploads #5596,1634815103
 16949fde09d87ebbeeb8f2f6d84e1d1d58c52f31,False,1,2,71,36,35.5,35,36,1,0.0,1.0,1.0,1986,347,65,2,"Do not override mime types from os defaults
 
-https://forum.rclone.org/t/rclone-serve-http-save-as/26672"
+https://forum.rclone.org/t/rclone-serve-http-save-as/26672",1634560102
 cf9b82b8dbfe0b4ae8b89059a1eb10d97c35881a,False,1,1,16,16,16.0,19,75,56,0.36363636363636365,1.0,0.7272727272727273,11484,1826,107,2,"chunker: md5all must create metadata if base hash is slow
 
 Before this patch the md5all option would skip creating metadata with
@@ -373,26 +373,26 @@ This patch makes chunker snapshot base hashsum in metadata when md5all is
 set and base hashsum is slow since chunker was intended to provide only
 instant hashsums from the start.
 
-Fixes #5508"
-023e32de0565ca3fdfa971b3af91c3f70c80840f,False,1,2,14,10,7.0,4,10,6,1.0,1.0,0.0,950,158,30,4,lib/http: Factor password hash salt into options with default
+Fixes #5508",1634131088
+023e32de0565ca3fdfa971b3af91c3f70c80840f,False,1,2,14,10,7.0,4,10,6,1.0,1.0,0.0,950,158,30,4,lib/http: Factor password hash salt into options with default,1634121218
 7190c058a76dfd50e006c7e63ddef475bd2248f2,False,1,1,6,6,6.0,1,5,4,0.0,0.0,1.0,5397,811,165,2,"crypt: return wrapped object even with no-data-encryption
 
 In presence of no_data_encryption the Crypt's Put method used to over-optimize
 and returned base object. This patch makes it return Crypt-wrapped object now.
 
-Fixes #5498"
-7a1cab57b60cedcd747d366d809a225b593ef324,False,1,1,26,26,26.0,12,42,30,0.8947368421052632,0.9473684210526315,0.7368421052631579,11930,1745,466,4,cmd/hashsum: dont put ERROR or UNSUPPORTED in output
-729704bcb8f2b007111f31bdea9157e1c0ee3a50,False,1,1,11,11,11.0,2,9,7,0.0,0.0,0.0,1548,254,83,1,serve/docker: fix octal umask
+Fixes #5498",1633988472
+7a1cab57b60cedcd747d366d809a225b593ef324,False,1,1,26,26,26.0,12,42,30,0.8947368421052632,0.9473684210526315,0.7368421052631579,11930,1745,466,4,cmd/hashsum: dont put ERROR or UNSUPPORTED in output,1633692387
+729704bcb8f2b007111f31bdea9157e1c0ee3a50,False,1,1,11,11,11.0,2,9,7,0.0,0.0,0.0,1548,254,83,1,serve/docker: fix octal umask,1633633347
 b30731c9d04d03faee84e78f0e0f16357996e6dc,False,1,1,3,3,3.0,0,3,3,1.0,1.0,1.0,1231,196,32,1,"lib/http: Add auth to http service
 
-Fixes https://github.com/rclone/rclone/issues/5620"
-69f4b4871919ee3dc726228b8d295b2a70050c6e,False,1,1,3,3,3.0,1,2,1,,,,5477,888,71,0,ftp: fix deadlock after failed update when concurrency=1
-00c6642fad9c04965601fe75d23b370406acdaa9,False,1,1,13,13,13.0,16,119,103,0.11702127659574468,1.0,1.0,6251,1009,232,1,seafile: fix 2fa state machine
+Fixes https://github.com/rclone/rclone/issues/5620",1633099908
+69f4b4871919ee3dc726228b8d295b2a70050c6e,False,1,1,3,3,3.0,1,2,1,,,,5477,888,71,0,ftp: fix deadlock after failed update when concurrency=1,1633071839
+00c6642fad9c04965601fe75d23b370406acdaa9,False,1,1,13,13,13.0,16,119,103,0.11702127659574468,1.0,1.0,6251,1009,232,1,seafile: fix 2fa state machine,1631965499
 3a2f748aebfe4763c375de45ff18584e8c7a886b,False,1,2,174,168,87.0,67,117,50,1.0,1.0,0.6538461538461539,9967,1526,351,16,"vfs: ensure names used in cache path are legal on current os
 
-Fixes #5360"
-55e766f4e80c4f711353e0cd768f2a61db74ab1e,False,1,2,22,20,11.0,11,11,0,,0.0,,3076,526,112,4,mountlib: restore daemon mode after #5415
-bc74f0621ef61714907e9784fbde7b64f7b6a785,False,1,2,11,10,5.5,0,11,11,1.0,1.0,1.0,2922,499,87,4,http: fix serve http exits directly after starting
+Fixes #5360",1629396890
+55e766f4e80c4f711353e0cd768f2a61db74ab1e,False,1,2,22,20,11.0,11,11,0,,0.0,,3076,526,112,4,mountlib: restore daemon mode after #5415,1627554904
+bc74f0621ef61714907e9784fbde7b64f7b6a785,False,1,2,11,10,5.5,0,11,11,1.0,1.0,1.0,2922,499,87,4,http: fix serve http exits directly after starting,1627218403
 4680c0776d4219c82e8362ae114423f6ff20c2df,False,1,2,8,4,4.0,3,56,53,0.08888888888888889,0.9333333333333333,1.0,11663,1937,376,2,"backend/local: skip entries removed concurrently with List() (#5297)
 
 This change fixes the bug described below:
@@ -404,16 +404,16 @@ The odds to hit this bug depend on --checkers and --transfers.
 Chunker over local backend is affected even more because
 updating a composite object with a smaller size content
 translates into removing chunks on the underlying file system
-and involves a number of List() calls."
-a2886464192ae83ef79948a834986193b5c5354a,False,1,1,2,2,2.0,1,1,0,,,,7367,1170,237,1,onedrive: fix sometimes special chars in filenames not replaced
+and involves a number of List() calls.",1625665819
+a2886464192ae83ef79948a834986193b5c5354a,False,1,1,2,2,2.0,1,1,0,,,,7367,1170,237,1,onedrive: fix sometimes special chars in filenames not replaced,1536932335
 41f561bf26be9a5a7360bdbdf5a820037e76b86a,False,1,1,24,24,24.0,7,17,10,1.0,1.0,1.0,8432,1244,238,4,"jottacloud: fix invalid url in output from link command
 
-Fixes #5370"
+Fixes #5370",1622450421
 22e86ce3359a34f299aedd9d11a869ec0fecda74,False,1,1,2,2,2.0,1,1,0,,,,124,15,1,1,"vfs: fix that umask option cannot be set as environment variable (#5351)
 
-Fixes #5350"
-119bddc10bd7882e6eaca91e06bbaff10fff3a37,False,1,1,4,4,4.0,2,2,0,,,,2494,395,117,1,selfupdate: fix archive name on macos
-f2d326405470fd1f13c28c95e715e33901ff09fc,False,1,3,54,36,18.0,4,77,73,0.0,0.1836734693877551,1.0,2400,449,107,3,config: prevent use of windows reserved names in config file name
+Fixes #5350",1621709282
+119bddc10bd7882e6eaca91e06bbaff10fff3a37,False,1,1,4,4,4.0,2,2,0,,,,2494,395,117,1,selfupdate: fix archive name on macos,1620934539
+f2d326405470fd1f13c28c95e715e33901ff09fc,False,1,3,54,36,18.0,4,77,73,0.0,0.1836734693877551,1.0,2400,449,107,3,config: prevent use of windows reserved names in config file name,1618244239
 629a3eeca286d21311214fdb4eb67dd16792a70b,False,1,1,36,36,36.0,20,16,-4,0.0,0.0,0.0,5441,879,71,3,"backend/ftp: fix implicit TLS after PR #4266 (#5219)
 
 PR #4266 modified ftpConnection to make ftp library into using
@@ -424,20 +424,20 @@ options to FTP server. This was not taken care of resulting in
 failure to connect via FTP with implicit TLS.
 This PR fixes that.
 
-Fixes #5210"
+Fixes #5210",1617921830
 93353c431b3a9a519d7c001fe3368cdb97fa7cff,False,1,5,24,11,4.8,16,8,-8,0.75,0.75,0.0,3738,662,169,3,"selfupdate: dont detect FUSE if build is static
 
 Before this patch selfupdate detected ANY build with cmount tag as a build
 having libFUSE capabilities. However, only dynamic builds really have it.
 The official linux builds are static and have the cmount tag as of the time
 of this writing. This results in inability to update official linux binaries.
-This patch fixes that. The build can be fixed independently."
-cc5a1e90d88d82cf0f95f68408e4d3346ee1f73b,False,1,1,9,9,9.0,4,5,1,0.0,0.0,1.0,679,115,32,1,mount: improved handling of relative paths on windows
+This patch fixes that. The build can be fixed independently.",1617476055
+cc5a1e90d88d82cf0f95f68408e4d3346ee1f73b,False,1,1,9,9,9.0,4,5,1,0.0,0.0,1.0,679,115,32,1,mount: improved handling of relative paths on windows,1612817723
 c3e2392f2bd8728091010c686d93653dc6a4ccfa,False,1,1,17,17,17.0,1,16,15,1.0,1.0,1.0,8044,1310,96,1,"dropbox: fix polling support for scoped apps - fixes #5089 (#5092)
 
 This fixes the polling implementation for Dropbox, particularly
 when using a scoped app. This also adds a lower end check for the
-timeout, as I forgot to include that in the original implementation."
+timeout, as I forgot to include that in the original implementation.",1614966287
 1605f9e14dbbe58e0b05f746dd9e2dc162e26148,False,1,1,3,3,3.0,3,0,-3,1.0,1.0,0.0,15210,2990,338,1,"s3: Fix shared_credentials_file auth
 
 S3 backend shared_credentials_file option wasn't working neither from
@@ -449,14 +449,14 @@ from ChainProvider.
 
 AWS_SHARED_CREDENTIALS_FILE env varible as far as i understood worked,
 cause aws_sdk code handles it as one of default auth options, when
-there's not configured credentials."
+there's not configured credentials.",1613563466
 459cc70a50a61f20b336586678695cae207815c0,False,1,1,9,9,9.0,2,7,5,0.0,0.0,0.0,3399,528,119,1,"vfs: fix invalid cache path on windows when using :backend: as remote
 
 The initial ':' is included in the ad-hoc remote name, but is illegal character
 in Windows path. Replacing it with '^', which is legal in filesystems but illegal
 in regular remote names, so name conflict is avoided.
 
-Fixes #4544"
+Fixes #4544",1612023495
 847625822fd5a65b4b9bc7714474c4c99d11623c,False,1,1,232,232,232.0,86,146,60,1.0,1.0,1.0,10766,1681,96,1,"chunker: improve detection of incompatible metadata #4917
 
 Before this patch chunker required that there is at least one
@@ -466,15 +466,15 @@ Now if chunker finds at least one potential temporary or control
 chunk, it marks found files as a suspected composite object.
 When later rclone tries a concrete operation on the object,
 it performs postponed metadata read and decides: is this a native
-composite object, incompatible metadata or just garbage."
+composite object, incompatible metadata or just garbage.",1610304915
 35a4de20305d91a52148459542fc1aff719acf7b,False,1,1,65,65,65.0,12,134,122,0.26153846153846155,1.0,0.8769230769230769,10875,1703,96,2,"chunker: fix case-insensitive NewObject, test metadata detection #4902
 
 - fix test case FsNewObjectCaseInsensitive (PR #4830)
 - continue PR #4917, add comments in metadata detection code
 - add warning about metadata detection in user documentation
 - change metadata size limits, make room for future development
-- hide critical chunker parameters from command line"
+- hide critical chunker parameters from command line",1610306964
 65ff10906525ed7c7a9539da6b81356e2492eb35,False,1,1,75,75,75.0,22,53,31,0.08695652173913043,0.08695652173913043,0.8260869565217391,11993,1949,340,5,"mailru: accept special folders eg camera-upload
 
 Fixes #4025
-PR 4690"
+PR 4690",1603731871

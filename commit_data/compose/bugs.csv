@@ -1,25 +1,25 @@
-sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message
+sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message,commit_timestamp
 949e8bb090e3fcefb9ca13bcc9d228368600b22f,False,1,13,116,27,8.923076923076923,63,57,-6,1.0,0.0,1.0,39026,4180,756,30,"use ""container name witout project"" for both logs and events
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1615977523
 74de423cc33db21f21668e58e87a9b3f674a91bf,False,1,5,169,91,33.8,42,127,85,0.7272727272727273,0.7727272727272727,0.8181818181818182,3242,548,104,12,"reuse ECS logConsumer to implement formatted compose log output
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1605608888
 0368f190303b28e142f983257171a6f554749313,False,1,8,75,23,9.375,34,104,70,0.8823529411764706,0.8823529411764706,1.0,9590,1313,211,20,"distinguish stdout and stderr in `up` logs
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1670938962
 ca734ce565dae69cd3812f693981a5b8a89b0206,False,1,1,4,4,4.0,1,3,2,1.0,1.0,1.0,698,126,24,2,"don't clear line when navigation is disabled
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1713276263
 84ea395d5d191ae2f5b740bf0ed93eb47417c9de,False,1,3,22,13,7.333333333333333,6,27,21,0.8571428571428571,1.0,0.14285714285714285,2322,367,68,6,"introduce --timestamp option on compose up
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1671102862
 e9dc82011f477abb3118676b1574127d7a80286e,False,1,14,614,321,43.857142857142854,47,589,542,0.6941896024464832,0.8593272171253823,0.7675840978593272,24821,4041,823,61,"Add Navigation Menu to compose up
 
-Signed-off-by: Joana Hrotko <joana.hrotko@docker.com>"
+Signed-off-by: Joana Hrotko <joana.hrotko@docker.com>",1711126105
 cc47e5385be4eaa51f2f9e0e8181201fb2eca8ff,False,1,1,37,37,37.0,15,22,7,1.0,1.0,1.0,504,91,16,7,"use a sync.Map to avoid concurrency issue accessing log presenters
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1631271264
 1b5fa3b93ff4488c2d14a1195b7ca1efd1c2bf79,False,1,10,320,85,32.0,90,230,140,0.6857142857142857,0.9714285714285714,0.9857142857142858,7801,1259,255,22,"feat(experiments): add experimental feature state (#11633)
 
 Use environment variable for global opt-out and Docker Desktop (if
@@ -28,7 +28,7 @@ available) to determine specific experiment states.
 In the future, we'll allow per-feature opt-in/opt-out via env vars
 as well, but currently there is a single `COMPOSE_EXPERIMENTAL` env
 var that can be used to opt-out of all experimental features
-independently of Docker Desktop configuration."
+independently of Docker Desktop configuration.",1710942267
 3371227794f5f3645f4f19829c60a741635ed329,False,1,4,53,31,13.25,2,51,49,0.42424242424242425,1.0,1.0,11259,1759,409,6,"chore(desktop): revised feature detection for file shares
 
 Unfortunately, the feature flag mechanism for experimental features
@@ -46,8 +46,8 @@ extra call if we can avoid it. The actual endpoint is very cheap/
 fast, but every IPC call is a potential point of of failure, so
 it's worth it.
 
-Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
-db4ed89528b9bd496d5460c65de70e37d964cb24,False,1,14,930,387,66.42857142857143,131,858,727,0.2412280701754386,0.44298245614035087,0.7236842105263158,21151,3467,819,47,feat(desktop): synchronized file share integration (#11614)
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>",1711127787
+db4ed89528b9bd496d5460c65de70e37d964cb24,False,1,14,930,387,66.42857142857143,131,858,727,0.2412280701754386,0.44298245614035087,0.7236842105263158,21151,3467,819,47,feat(desktop): synchronized file share integration (#11614),1710960084
 3c8a56dbf3b7db165f723f651da0851f9dac3c61,False,1,8,479,151,59.875,23,534,511,0.38636363636363635,0.5772727272727273,1.0,1831,349,60,19,"trace: add OTEL initialization (#10526)
 
 This is a bunch of OTEL initialization code. It's all in
@@ -67,10 +67,10 @@ None of this is enabled by default. It requires setting the
 `COMPOSE_EXPERIMENTAL_OTEL=1` environment variable to
 gate it during development.
 
-Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>",1686257167
 680763f8b7d7ff9794052a4a297108693c7c50dd,False,1,2,315,202,157.5,112,228,116,0.7971014492753623,1.0,1.0,2557,394,92,11,"down: refactor image pruning
 
-Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>",1663086224
 bc806da71258b11832bbcffddcd8a3b219bff904,False,1,6,180,128,30.0,73,262,189,0.09523809523809523,0.5782312925170068,0.5714285714285714,6876,1080,248,14,"build: label built images for reliable cleanup on `down`
 
 When running `compose down`, the `--rmi` flag can be passed,
@@ -106,85 +106,85 @@ See also:
  * https://github.com/docker/compose/issues/9655
  * https://github.com/docker/compose/pull/9715
 
-Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>",1662587849
 672790880388bf9470d91872e5d78a2e71879bb5,False,1,3,115,95,38.333333333333336,33,100,67,0.7659574468085106,1.0,0.6808510638297872,2972,578,53,8,"introduce --resolve-image-digests for publish to seal service images by digest
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1698918225
 c9d54f09cff799fda88f800dd4913ac555cb2274,False,1,6,113,49,18.833333333333332,0,153,153,0.6458333333333334,1.0,0.4375,9236,1080,170,9,"introduce publish (alpha) command
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1694064452
 7c8ff36d78d01d16bddb52c483da90cac8e97489,False,1,4,374,183,93.5,213,236,23,1.0,0.0,0.0,3355,660,66,12,"move around OCI logic, auto fallback/retry 1.1 -> 1.0
 
-Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>",1701796118
 804d7163a70c3ee09c08848499a5992a9e8694aa,False,1,6,106,59,17.666666666666668,45,73,28,0.0,0.9230769230769231,0.46153846153846156,4538,758,172,15,"detect required service are gone to stop watching
 explicit API to stop the log printer
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1670443647
 fd7847f2ac27b3eba0a637813e7172518a18cf96,False,1,5,46,35,9.2,10,36,26,0.0,0.0,1.0,6051,933,174,11,"`parallel` flag belong do top-level ""compose"" cobra command, not the current one
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1684177029
 c9fbb9ba9c844f5143111bc389f9edc45d49de11,False,1,2,18,16,9.0,8,10,2,,,,1630,275,63,6,"inspect container before attachment to use the adequate logic regarding TTY
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1649075978
 46d936c750a84b571f86fb36fb74863e122318ff,False,1,3,38,29,12.666666666666666,12,32,20,0.8095238095238095,0.8095238095238095,0.8095238095238095,4295,648,141,4,"support `attach`
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1688992468
 d5e4f00644ab9160ac2a1dc03dae126155588aa9,False,1,2,14,11,7.0,0,31,31,0.0,0.5,0.0,1466,218,43,2,"introduce --no-attach to ignore some service output
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1672767820
 8d03e299946c4c2d885022c7ab98e7cd2990e4d5,False,1,2,7,4,3.5,2,5,3,0.0,0.0,0.0,1714,271,59,4,"attach _only_ to services declared by project applying profiles
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1653035766
 e8666b02f356a2e2549cabc311e5c28e6316a7cb,False,1,1,9,9,9.0,2,7,5,0.0,0.25,0.25,1168,176,37,3,"introduce up --attach
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1631168947
 24f83271f25d68c22aadb098b5bcf1563bf98bf6,False,1,19,213,40,11.210526315789474,104,138,34,1.0,1.0,0.0,13770,2218,409,78,"don't assume os.Stdout and rely on dockerCLI.streams
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1671576745
 9ac0392baff968189c1fb71ad9b38d5407e69e86,False,1,3,23,10,7.666666666666667,40,68,28,0.0,0.09090909090909091,0.0,4008,721,101,4,"introduce --timeout on `up`
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1676373401
 c135bd1d7c57012df83a9eb3f548ee3ed6c2db34,False,1,14,623,292,44.5,304,323,19,1.0,0.0,1.0,16883,2619,506,61,"move up logic from CLI into local backend
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1623090031
 59d4382f3c0a47b295fdcb23d25c5515790ebf13,False,1,2,410,290,205.0,0,1502,1502,0.376,0.376,0.904,1998,314,83,20,"generate reference documentation
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1615293853
 df702362a3a23a96242c59833d088a0692b5422e,False,1,3,55,47,18.333333333333332,1,54,53,0.8148148148148148,0.14814814814814814,0.8888888888888888,1676,290,55,5,"introduce compose create command
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1611928256
 d90495e1cdc4a1279639ec488472762746c7ff6e,False,1,120,1620,113,13.5,893,864,-29,,,,97190,15084,3007,609,"move compose API into pkg/api
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1623765168
 10d024428c2d2277388f269982d5e3d2afc12e3a,False,1,7,64,43,9.142857142857142,26,38,12,0.0,0.0,0.125,4793,866,158,11,"Add --attach-dependencies
 
 This actually makes the service selection
 effective and add the flag to disable
 the service selection.
 
-Signed-off-by: Ulysses Souza <ulyssessouza@gmail.com>"
+Signed-off-by: Ulysses Souza <ulyssessouza@gmail.com>",1614734854
 6f6ae071d64a514137350c86c2d1a8d97bf686ee,False,1,3,166,147,55.333333333333336,86,94,8,0.3333333333333333,0.0,0.0,1983,415,42,6,"improve container events watch robustness
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1622030678
 42710b7c4356ef9b196b07a3286d35f7692e625d,False,1,1,6,6,6.0,5,461,456,,,,284,54,8,3,"docs: also generate ""usage"" in MarkDown files
 
-Signed-off-by: Sebastiaan van Stijn <github@gone.nl>"
+Signed-off-by: Sebastiaan van Stijn <github@gone.nl>",1646833235
 22d2e83896239b1d5106522480623d854ade0fac,False,1,2,50,25,25.0,20,54,34,0.21739130434782608,1.0,1.0,1645,281,58,11,"don't fail `logs` when driver:none is set
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1671549827
 10a5d998e6d7c0a7d3b7f3830f68c906903600ac,False,1,1,4,4,4.0,2,2,0,,,,2529,368,95,1,"useDockerDefaultOrServicePlatform fct should return service.platform if defined
 and present in the build.platforms list (or if the list is empty)
 
-Signed-off-by: Guillaume Lours <705411+glours@users.noreply.github.com>"
+Signed-off-by: Guillaume Lours <705411+glours@users.noreply.github.com>",1669363383
 5952183eca550f64c42c23d193eeb0cbcb75f36e,False,1,9,108,67,12.0,0,108,108,0.9516129032258065,1.0,0.8709677419354839,7755,1260,233,11,"introduce `compose build` command
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1606736618
 a1c50ef2c987d4709865aa02c237f45b08c529e2,False,1,1,7,7,7.0,2,5,3,0.0,0.0,1.0,2427,355,91,2,"keep the platform defined via DOCKER_DEFAULT_PLATFORM during build if no build platforms provided
 
-Signed-off-by: Guillaume Lours <705411+glours@users.noreply.github.com>"
+Signed-off-by: Guillaume Lours <705411+glours@users.noreply.github.com>",1663359571
 0f4bcb9f17eb871529e7f20f5a3106551215cee7,False,1,2,172,108,86.0,106,103,-3,1.0,1.0,1.0,3891,632,122,7,"Build and pull in parallel with BuildKit
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1606396300
 636c13f81814109f280b1cd1eae055719f0b7433,False,1,6,55,26,9.166666666666666,26,36,10,0.5714285714285714,0.0,1.0,9506,1618,310,12,"build: do not attempt to push unnamed service images
 
 When building, if images are being pushed, ensure that only
@@ -203,35 +203,35 @@ its presence to determine whether a push makes sense.
 
 Fixes #10813.
 
-Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>",1689753517
 4dafeb57a50221bb787c08f753a837ff42c65c01,False,1,3,7,3,2.3333333333333335,1,6,5,0.0,0.5,0.5,3807,671,96,3,"introduce run —quiet-pull to align with up
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1637691252
 8b1b70833ee52d3880b044984092e2dbffa72dd6,False,1,4,297,203,74.25,28,404,376,0.36929460580912865,0.36929460580912865,1.0,4631,743,170,15,"add support of platforms in build section
 
-Signed-off-by: Guillaume Lours <guillaume.lours@docker.com>"
+Signed-off-by: Guillaume Lours <guillaume.lours@docker.com>",1662126295
 bcaa908f742d55f9d1e598829f8e8c902c0c6872,False,1,1,11,11,11.0,3,27,24,0.8823529411764706,1.0,0.8823529411764706,1405,220,38,6,"Support COMPOSE_IGNORE_ORPHANS for compose run
 
 This revives #7020 and resolves the issue mentioned in #4992.
 
-Signed-off-by: Zixuan James Li <359101898@qq.com>"
+Signed-off-by: Zixuan James Li <359101898@qq.com>",1646517256
 e016faac33c7d0ad8b58e63b47fa5eab3dc73039,False,1,3,73,38,24.333333333333332,43,192,149,0.336734693877551,1.0,1.0,3630,564,133,5,"don't push images at the end of multi-arch build (and simplify e2e tests)
 support DOCKER_DEFAULT_PLATFORM when 'compose up --build'
 add tests to check behaviour when DOCKER_DEFAULT_PLATFORM is defined
 
-Signed-off-by: Guillaume Lours <705411+glours@users.noreply.github.com>"
+Signed-off-by: Guillaume Lours <705411+glours@users.noreply.github.com>",1662126295
 466e1d31975670fc839c7d6c8ae08ea62ee7152d,False,1,2,33,31,16.5,17,24,7,0.0,0.0,0.5,4611,741,179,4,"prevent buildkt's progress to render `Building` when no built is needed
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1685106277
 aa4d15d28ce1a9765fda24ff0205ef25879bdb94,False,1,5,23,9,4.6,15,39,24,0.14285714285714285,0.42857142857142855,0.0,9026,1471,281,8,"Add `quietPull` option to `up`
 
-Signed-off-by: Ulysses Souza <ulyssessouza@gmail.com>"
+Signed-off-by: Ulysses Souza <ulyssessouza@gmail.com>",1615387433
 c61b8aa5acecc8f37deac80241053a6756d8fbfa,False,1,3,138,127,46.0,59,99,40,0.0,0.2857142857142857,0.0,4129,715,92,9,"introduce run --cap-add to run maintenance commands using service image
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1687177220
 b776826d92797548371bf878178a6cbc9726ccfa,False,1,1,25,25,25.0,2,23,21,0.0,0.0,1.0,2884,445,112,1,"check local image matches the required platform
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1683730641
 bfa54081d4133a272a0e3271ffb45a00f71884ea,False,1,2,94,81,47.0,54,63,9,0.0,1.0,0.0,4244,675,157,9,"build: fix missing proxy build args for classic builder (#10887)
 
 Refactor to use a consistent code path for determining the build
@@ -242,41 +242,41 @@ After recent changes, these code paths had diverged, so the classic
 builder was missing the proxy variables from the Docker client
 config.
 
-Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>",1691672248
 c15bf1955acda35633e63dc4114d01c295ca7247,False,1,3,112,62,37.333333333333336,4,163,159,0.5471698113207547,1.0,0.839622641509434,3374,513,128,13,"debounce refresh requests with quietperiod
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1674076374
 58bfbbb28878c4984d20299dd05dbc669383c4cc,False,1,5,66,46,13.2,38,28,-10,1.0,0.8888888888888888,1.0,8889,1404,302,12,"introduce ImageDigestLabel to track image built for service
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1629878631
 cf378834e56515b95df6e85ced0157ccd7634710,False,1,3,46,37,15.333333333333334,20,41,21,0.6842105263157895,0.7368421052631579,0.7368421052631579,2125,347,74,7,"No rebuild on compose up if image already exists by default, added first use of compose pull_policy and `compose up --build` to allow to force rebuild. 
 
-Signed-off-by: Guillaume Tardif <guillaume.tardif@gmail.com>"
+Signed-off-by: Guillaume Tardif <guillaume.tardif@gmail.com>",1607621896
 88b0d17ff8ee6376daa36243f3ff34e5bd06dd16,False,1,2,125,120,62.5,79,209,130,0.08771929824561403,1.0,0.8070175438596491,4211,654,163,8,"use `build` as common API for build scenarios
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1679409475
 6c1f06e42032fe2eda9ece164d8caad37fa88526,False,1,3,231,112,77.0,132,111,-21,0.0,0.15789473684210525,0.5789473684210527,5235,908,159,15,"Run classic builder with BuildConfig, not buildx.Options
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1679409475
 cfe91becc75aada9cd5747a262ee63cdc0838144,False,1,4,124,41,31.0,34,106,72,0.25,0.34375,0.0,4128,643,124,13,"use `--progress` to configure progress UI stylet push
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1686581622
 c227fd5c5f2baf0923fe897c8d0178f62bd042f6,False,1,2,136,132,68.0,60,76,16,0.0,0.6875,1.0,2178,358,79,9,"refactor to reduce calls to InspectRawImage
 
-Signed-off-by: aiordache <anca.iordache@docker.com>"
+Signed-off-by: aiordache <anca.iordache@docker.com>",1618924688
 49e7f2d45ddc5a0c1c3361eb337c4850841407ff,False,1,80,572,111,7.15,330,260,-70,0.547945205479452,0.547945205479452,0.0547945205479452,49764,7946,1724,58,"Move compose v2 implementation under pkg/compose with dependencies
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1623765168
 ce3700d334fc6d235c86f8522ad05811e775e4df,False,1,1,36,36,36.0,14,22,8,0.0,1.0,0.0,2521,368,95,3,"keep the platform defined, in priority, via DOCKER_DEFAULT_PLATFORM or the service.plaform one if no build platforms provided
 
-Signed-off-by: Guillaume Lours <705411+glours@users.noreply.github.com>"
+Signed-off-by: Guillaume Lours <705411+glours@users.noreply.github.com>",1663847184
 0d0a02cc6b3dbd6cff644fcdb6933f8215753df8,False,1,1,16,16,16.0,4,16,12,0.0,0.0,1.0,2621,378,99,3,"add more information when service.platform isn't part of  service.build.platforms
 
-Signed-off-by: Bartłomiej Klimczak <bartlomiej.klimczak88@gmail.com>"
+Signed-off-by: Bartłomiej Klimczak <bartlomiej.klimczak88@gmail.com>",1664217899
 7b1a602fd42cedfe92adf0d7a32b42f7e7211b45,False,1,1,6,6,6.0,1,5,4,0.0,0.0,1.0,706,121,26,1,"If compose file has a build section and no image name, build image with the right derived image name (project_service), like docker-compose.
 See awesome_compose/react-express-mongodb example
 
-Signed-off-by: Guillaume Tardif <guillaume.tardif@gmail.com>"
+Signed-off-by: Guillaume Tardif <guillaume.tardif@gmail.com>",1606907159
 1ae191a936322cd2a388cad7b148e4c6e765b8b5,False,1,5,323,152,64.6,28,295,267,0.75177304964539,0.9929078014184397,0.9290780141843972,9090,1339,317,21,"trace: instrument `compose up` at a high-level
 
 * Image pull
@@ -287,22 +287,22 @@ Signed-off-by: Guillaume Tardif <guillaume.tardif@gmail.com>"
   * Scale up (event)
   * Container start (event)
 
-Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>",1689758772
 c16834cba691b19ca2abec2ec0cbf575387888f0,False,1,6,307,106,51.166666666666664,131,186,55,1.0,1.0,1.0,5210,862,188,19,"attach to containers added by ""scale""
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1621976397
 2a1e989f3e19b73328e13a88139862909fc56083,False,1,4,18,8,4.5,6,24,18,0.0,0.9333333333333333,0.6666666666666666,2947,544,62,5,"Stop only the service ran by it's up command
 
-Signed-off-by: Ulysses Souza <ulyssessouza@gmail.com>"
+Signed-off-by: Ulysses Souza <ulyssessouza@gmail.com>",1632149140
 91eae4f03526ccafb1bf3271a816738aaeb3d298,False,1,2,144,78,72.0,100,118,18,0.0,1.0,0.0,308,48,7,11,"Add Codecov
 
-Signed-off-by: Ulysses Souza <ulyssessouza@gmail.com>"
+Signed-off-by: Ulysses Souza <ulyssessouza@gmail.com>",1666013571
 8301dc8314f630822545186c4f5fdaa7cecfa344,False,1,1,12,12,12.0,5,7,2,0.0,0.0,0.0,435,88,22,1,"Only capture exit codes from `exit` events
 
-Signed-off-by: Laura Brehm <laurabrehm@hey.com>"
+Signed-off-by: Laura Brehm <laurabrehm@hey.com>",1661713300
 0f5b5ccbd0377ea011249780f1efd3f29e1f56c2,False,1,10,138,63,13.8,42,96,54,0.21739130434782608,0.2608695652173913,0.8695652173913043,11299,1884,367,15,"detect replacement container is created and inform printer so it attach and don't stop
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1675678993
 765c071c89cf2ec8ef35bf628c570d89e2154ce7,False,1,3,116,66,38.666666666666664,3,203,200,0.4519230769230769,1.0,0.8365384615384616,832,141,22,9,"up: do not stop dependency containers (#9701)
 
 This keeps parity with v1, where only the containers explicitly
@@ -312,46 +312,46 @@ around) should not be touched.
 
 Fixes #9696.
 
-Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>",1659468359
 b304c4e1547e0e9119a74207ae1661967e2986aa,False,1,1,9,9,9.0,3,6,3,0.5,0.5,0.5,463,80,15,2,"stop containers after termination
 
-Signed-off-by: TP-O <letranphong2k1@gmail.com>"
+Signed-off-by: TP-O <letranphong2k1@gmail.com>",1683107276
 ed38fe0da80e0787468194a93d2406aee8984f63,False,1,1,2,2,2.0,0,2,2,1.0,1.0,1.0,422,76,14,3,"only stop services started by `up` on interruption
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1669792040
 919d6c9ed8bba872236f21790d336347e25d95e7,False,1,3,46,32,15.333333333333334,20,26,6,1.0,1.0,1.0,1398,250,55,14,"LogPrinter should not be part of the API
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1623226538
 7205d918adfb3e8b368094d040c875722487f7f9,False,1,3,88,84,29.333333333333332,41,47,6,0.0,0.0,0.0,1261,228,48,6,"interrupt printer when `compose log` is cancelled
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1637148892
 cd8074d501ba7559e202e1dbc4ed009e03985ee5,False,1,5,56,29,11.2,31,42,11,1.0,1.0,0.0,4005,654,92,13,"kill only need project name
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1647249996
 65ed8cf4c29925c387d51906ebd260627d3bd20b,False,1,12,132,31,11.0,58,83,25,0.0,0.0,1.0,7717,1280,210,31,"Implemented #9147
 
-Signed-off-by: Mehrad Dadar <mehrad.dadar@gmail.com>"
+Signed-off-by: Mehrad Dadar <mehrad.dadar@gmail.com>",1644044272
 52478f0c6e2a0272dbfc2ba7d1c0e151fe7b1b57,False,1,2,55,43,27.5,30,29,-1,1.0,1.0,1.0,5543,846,207,9,"wait on service containers as dependencies to be deterministic
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1675784205
 c83c46293f6d5d2df00d88e5c49a4cc2bfd51c1f,False,1,2,96,68,48.0,57,45,-12,0.3,0.0,1.0,4160,652,163,8,"fix race: poll for service completion. Using waitContainer might happend after container exit
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1619074285
 2d16a05afa99d460defa8edc4f12e2fd80cd7c84,False,1,1,28,28,28.0,5,27,22,0.35,0.35,0.8,4309,633,156,4,"only check if a dependency is required when something unexpected happens
 
-Signed-off-by: Guillaume Lours <705411+glours@users.noreply.github.com>"
+Signed-off-by: Guillaume Lours <705411+glours@users.noreply.github.com>",1689716731
 f2088bb91763595ba27e3586e755f27e35fe8a77,False,1,1,2,2,2.0,1,1,0,,,,4405,655,163,2,"fix typo
 
-Signed-off-by: Tom Collingwood <tomcollingwood@yahoo.co.uk>"
+Signed-off-by: Tom Collingwood <tomcollingwood@yahoo.co.uk>",1673464049
 150fd4b8cfa39726e68c12fc0fd45ac4e0f20c5f,False,1,4,24,8,6.0,41,41,0,,,,8667,1400,269,4,"use '-' as separator by default for image name
 
-Signed-off-by: Guillaume Lours <guillaume.lours@docker.com>"
+Signed-off-by: Guillaume Lours <guillaume.lours@docker.com>",1659113722
 c901edd65d94c50a404aeb79a3a46bdf9801a019,False,1,10,577,333,57.7,352,239,-113,0.3780487804878049,0.3048780487804878,0.6097560975609756,14194,2169,479,57,"introduce `convergence` to hold per-service Containers and prevent race conditions
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1624619880
 b5d3eda22357492a0c72150f040b7915278d5461,False,1,1,40,40,40.0,11,29,18,0.4,0.2,0.4,3030,469,118,3,"only disconnect active networks in a container
 
-Signed-off-by: Lorena Rangel <lorena.rangel@docker.com>"
+Signed-off-by: Lorena Rangel <lorena.rangel@docker.com>",1623941722
 d9065050fd1c832242523870b1f3fea65176f81d,False,1,1,81,81,81.0,358,395,37,0.9722222222222222,1.0,0.75,1745,234,48,31,"e2e: fix subtests and block parallel unsafe tests
 
 The big mechanical change here is to NOT store `t` as a field on
@@ -367,7 +367,7 @@ can fail as a result (e.g. due to a port conflict on the host).
 I'll fix these in follow-up PRs but want to focus on correctness
 for the tests before optimizing them.
 
-Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>",1655324850
 10b290e6826267a4a0d6e0ee008a3645203bdbe8,False,1,3,288,165,96.0,156,170,14,0.0,1.0,1.0,11841,1812,412,18,"up: fix race condition on network connect
 
 Engine API only allows at most one network to be connected as
@@ -391,10 +391,10 @@ To avoid needing to disconnect and immediately reconnect, the
 network config logic has been refactored to ensure that it sets
 up the network config correctly the first time.
 
-Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>",1688068855
 8b38874ababc9a1013a785d53f7ca859e87311cc,False,1,12,174,77,14.5,12,167,155,0.44,0.7066666666666667,0.25333333333333335,10782,1646,311,14,"introduce `port` command for parity with docker-compose
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1616157102
 a1f7be7b5c61660daca10f4dc3e385a77d258e22,False,1,1,6,6,6.0,0,6,6,0.0,0.0,1.0,723,119,28,2,"Don't exit on container destroy events
 
 Fixes #8747
@@ -407,39 +407,39 @@ stopped container.
 This container has already emitted its die event, and has already been
 cleaned up. I believe all that needs doing in this case is to early-out.
 
-Signed-off-by: Stephen Thirlwall <sdt@dr.com>"
+Signed-off-by: Stephen Thirlwall <sdt@dr.com>",1636013639
 2bee75c3c4a860506c269f32a67b340b72d23d36,False,1,1,2,2,2.0,1,1,0,,,,721,119,28,2,"Fix formatting with gofmt -s
 
 Knew I'd forget something.
 
-Signed-off-by: Stephen Thirlwall <sdt@dr.com>"
+Signed-off-by: Stephen Thirlwall <sdt@dr.com>",1636013639
 29179840c33799ec9209f1e38caa99b4082b39dc,False,1,1,3,3,3.0,1,2,1,,,,1602,249,63,1,"restore support for `compose build` with a git URL
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1637150910
 413f46ade06ba2d40bed1f60ca1303a8610b545a,False,1,1,10,10,10.0,1,9,8,1.0,1.0,1.0,1594,248,62,2,"use Dockerfile directly when path is absolute otherwise join it with Context path
 
-Signed-off-by: Guillaume Lours <guillaume.lours@docker.com>"
+Signed-off-by: Guillaume Lours <guillaume.lours@docker.com>",1637048324
 6ec682cade1776e9d6a3b9b7bb7a64fb9e59cc00,False,1,1,38,38,38.0,3,35,32,0.0,0.0,1.0,5600,862,181,2,"ignore mount options which don't match type
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1618307586
 1eb40999e27a40393bc3bfe25bb1bfcd985c266f,False,1,21,2693,1109,128.23809523809524,1209,1501,292,1.0,1.0,1.0,13344,2239,450,127,"Split compose.go into command-focussed go files
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1607425129
 fb73dd58d9fbb861534e5ba8f6fd4829a356fa29,False,1,2,272,267,136.0,330,410,80,1.0,0.3076923076923077,0.1794871794871795,1656,263,56,23,"Move compose e2e tests into pkg
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1624862878
 5ec20296e41cbc24476a2471326cafd0eefec67d,False,1,1,4,4,4.0,481,478,-3,,,,2006,286,52,2,"Better sandboxed workflow and enhanced cross compilation
 
-Signed-off-by: CrazyMax <crazy-max@users.noreply.github.com>"
+Signed-off-by: CrazyMax <crazy-max@users.noreply.github.com>",1660309558
 45956c36fba5d50cc43312600dd848a2187dc0d8,False,1,1,20,20,20.0,0,20,20,0.0,0.0,1.0,1126,202,42,3,"introduce docker compose config --images
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1637691184
 709190312c14a5b239031bbdceac9358ddc8fbc2,False,1,1,4,4,4.0,2,2,0,,,,1695,258,56,2,"Fix to use Key instead of Service for graph updates
 
-Signed-off-by: Kyungsik Park <kay.pak@naverlabs.com>"
+Signed-off-by: Kyungsik Park <kay.pak@naverlabs.com>",1637737370
 209293e449260f37e949a888149ee7f92f2a73c8,False,1,4,37,27,9.25,10,27,17,0.0,0.5714285714285714,0.21428571428571427,4159,755,116,8,"Restrict compose project to selected services and dependencies on `compose start`
 
-Signed-off-by: Laura Brehm <laurabrehm@hey.com>"
+Signed-off-by: Laura Brehm <laurabrehm@hey.com>",1662654715
 1f43b83409393c25c1c4c56f78958a7fc7237701,False,1,3,214,206,71.33333333333333,69,145,76,1.0,1.0,1.0,6241,1001,202,19,"Use a dependency graph to start services
 
 The algorithm is like so:
@@ -448,53 +448,53 @@ The algorithm is like so:
 * if all the dependencies of each of those dependents are started then we can start it as well
 * if not then we continue to the next dependent
 
-Signed-off-by: Djordje Lukic <djordje.lukic@docker.com>"
+Signed-off-by: Djordje Lukic <djordje.lukic@docker.com>",1605994232
 7e4cfc0e3b376abe4e15a4b165eed367dfaf5330,False,1,5,251,125,50.2,56,246,190,0.9292035398230089,0.7079646017699115,0.7522123893805309,6936,1108,227,29,"Add order to down command
 
-Signed-off-by: Ulysses Souza <ulyssessouza@gmail.com>"
+Signed-off-by: Ulysses Souza <ulyssessouza@gmail.com>",1606913471
 918fe00f3e487e399a440ccb22cecd2339490d29,False,1,11,68,10,6.181818181818182,35,33,-2,0.0,0.0,0.0,12039,1903,420,17,"Fix loop variable captures in goroutines
 
-Signed-off-by: Mathieu Champlon <mathieu.champlon@docker.com>"
+Signed-off-by: Mathieu Champlon <mathieu.champlon@docker.com>",1625653522
 79af3cdd852d2f8d9257767b35fb7a6dac7ae9a2,False,1,1,12,12,12.0,3,21,18,0.6363636363636364,0.6363636363636364,1.0,2197,338,66,4,"Apply newly loaded envvars to ""DockerCli"" and ""APIClient""
 
 Re-evaluate DockerCli and APIClient after reading the environment file.
 I can contain DOCKER_HOST and/or DOCKER_CONTEXT so the DockerCli passed by docker/cli has to be re-evaluated.
 Also checks for DOCKER_CERT_PATH and DOCKER_TLS_VERIFY.
 
-Signed-off-by: Ulysses Souza <ulyssessouza@gmail.com>"
+Signed-off-by: Ulysses Souza <ulyssessouza@gmail.com>",1662654198
 b725c56c428f4855c555859b06fe7fc503f0bc52,False,1,1,60,60,60.0,1,190,189,0.3037974683544304,0.689873417721519,0.689873417721519,3832,583,145,4,"Fix links resolution
 
-Signed-off-by: Ulysses Souza <ulyssessouza@gmail.com>"
+Signed-off-by: Ulysses Souza <ulyssessouza@gmail.com>",1637954455
 22b8c731c7f06a4623dc9554bd92d83aa7ad914a,False,1,1,4,4,4.0,14,42,28,0.2631578947368421,1.0,1.0,786,136,30,1,"prevent getCanonicalContainerName to crash
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1646661519
 edb30e7e82158b14015b6692d99ed403d53db926,False,1,15,213,30,14.2,126,87,-39,0.7352941176470589,0.23529411764705882,0.23529411764705882,9107,1519,277,53,"Revisit compose API so it uses compose-go Project as parameter
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1598518760
 4140196eb07655307609465f6673644cd48f242b,False,1,3,32,20,10.666666666666666,39,117,78,0.21875,1.0,1.0,5488,834,168,5,"Add down unit tests
 
-Signed-off-by: Guillaume Tardif <guillaume.tardif@gmail.com>"
+Signed-off-by: Guillaume Tardif <guillaume.tardif@gmail.com>",1613055185
 55cf579e021e1ff736caa653a4ebd55cc7ea1e00,False,1,4,22,12,5.5,8,102,94,0.013888888888888888,0.9166666666666666,0.9305555555555556,4971,749,173,6,"Fix `down` with `--rmi`
 
-Signed-off-by: Ulysses Souza <ulyssessouza@gmail.com>"
+Signed-off-by: Ulysses Souza <ulyssessouza@gmail.com>",1661795303
 f86f252a66b6983592c3c667d972be86a559b4ba,False,1,31,553,301,17.838709677419356,138,438,300,0.8,1.0,1.0,32531,5139,1083,124,"composeService to use dockerCli's In/Out/Err streams
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1646321697
 b8093e668aa3743f67cda62665884723674d76ec,False,1,2,1816,1812,908.0,2,1906,1904,1.0,1.0,0.8488721804511278,17933,1368,251,99,"Kill Unit test mocking docker client API
 
-Signed-off-by: Guillaume Tardif <guillaume.tardif@gmail.com>"
+Signed-off-by: Guillaume Tardif <guillaume.tardif@gmail.com>",1613055143
 a4b003ecfa334ab7687d0d7b41ee83f03d6af73b,False,1,8,247,84,30.875,111,145,34,1.0,1.0,0.0,3698,677,112,23,"pull logs and events better than aggregate events from multiple channels
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1612888056
 f159bc49015dfc75386a0b613e6882e0aef0963c,False,1,2,27,16,13.5,20,10,-10,0.0,0.0,0.0,1742,328,24,5,"Support bypass envvars
 
-Signed-off-by: Ulysses Souza <ulyssessouza@gmail.com>"
+Signed-off-by: Ulysses Souza <ulyssessouza@gmail.com>",1620326851
 e433777796fbebcc51c74267b36b9e16106c268d,False,1,3,14,10,4.666666666666667,3,25,22,0.8,0.8,0.8,3189,569,74,4,"resolve build args without value from environment
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1619685789
 70eaf2cc612986962d97f1f5a5df6619b49812d6,False,1,1,41,41,41.0,22,19,-3,1.0,1.0,0.0,1619,261,60,8,"resolve build args on compose up --build
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1621241645
 c5cdce0b6040ac21f87245bfafef649cfe8056c1,False,1,1,9,9,9.0,1,55,54,0.5384615384615384,0.5384615384615384,0.5384615384615384,3897,592,148,1,"Don't wait forever for unhealthy dependencies
 
 The previous code would wait for dependencies to become healthy forever,
@@ -504,4 +504,4 @@ introduced the `--wait` flag [0].
 
 [0]: https://github.com/docker/compose/pull/8777#issuecomment-965643839
 
-Signed-off-by: Nikhil Benesch <nikhil.benesch@gmail.com>"
+Signed-off-by: Nikhil Benesch <nikhil.benesch@gmail.com>",1641579223

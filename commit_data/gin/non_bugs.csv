@@ -1,9 +1,9 @@
-sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message
+sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message,commit_timestamp
 86ff4a64c7efe1a1c875529835eeef9e15de1e86,False,1,1,14,14,14.0,3,23,20,0.7222222222222222,0.7222222222222222,1.0,3106,492,105,1,"fix(header): Allow header according to RFC 7231 (HTTP 405) (#3759)
 
-Co-authored-by: Helios <i@shangyes.net>"
-8763f33c65f7df8be5b9fe7504ab7fcf20abb41d,False,1,1,2,2,2.0,0,40,40,0.4444444444444444,1.0,1.0,3381,533,116,1,fix: prevent middleware re-entry issue in HandleContext (#3987)
-e737e3e267beb4dc3bab16cc8be59e3902d98a94,False,1,1,2,2,2.0,1,1,0,,,,126,24,5,1,fix(binding): prevent duplicate decoding and add validation in decodeToml (#4193)
+Co-authored-by: Helios <i@shangyes.net>",1707188936
+8763f33c65f7df8be5b9fe7504ab7fcf20abb41d,False,1,1,2,2,2.0,0,40,40,0.4444444444444444,1.0,1.0,3381,533,116,1,fix: prevent middleware re-entry issue in HandleContext (#3987),1742485241
+e737e3e267beb4dc3bab16cc8be59e3902d98a94,False,1,1,2,2,2.0,1,1,0,,,,126,24,5,1,fix(binding): prevent duplicate decoding and add validation in decodeToml (#4193),1742484949
 f875d8728306c2c2c6f504900ab08cd1d8c47f12,False,1,1,5,5,5.0,4,46,42,0.2564102564102564,1.0,1.0,6106,844,229,1,"chore(context): test context initialization and handler logic (#4087)
 
 * enhance code imported by #3413
@@ -21,11 +21,11 @@ Signed-off-by: Bo-Yi Wu <appleboy.tw@gmail.com>
 ---------
 
 Signed-off-by: Bo-Yi Wu <appleboy.tw@gmail.com>
-Co-authored-by: zjj <zhong2plus@gmail.com>"
-ea53388e6ee4a6a0a1647b390c56eeed780e7e56,False,1,1,2,2,2.0,2,27,25,0.14285714285714285,0.14285714285714285,1.0,3925,652,179,1,fix(tree): Keep panic infos consistent when wildcard type build faild (#4077)
+Co-authored-by: zjj <zhong2plus@gmail.com>",1731685748
+ea53388e6ee4a6a0a1647b390c56eeed780e7e56,False,1,1,2,2,2.0,2,27,25,0.14285714285714285,0.14285714285714285,1.0,3925,652,179,1,fix(tree): Keep panic infos consistent when wildcard type build faild (#4077),1729902539
 8eb5f832bac1853fc84c508a2b9406134d39492e,False,1,1,18,18,18.0,9,28,19,1.0,1.0,1.0,3814,633,175,1,"fix(router): tree bug where loop index is not decremented. (#3460)
 
-fixes https://github.com/gin-gonic/gin/issues/3459"
+fixes https://github.com/gin-gonic/gin/issues/3459",1673053074
 28e57f58b184b2305ace192e02496bb89f6fd8cb,False,1,1,3,3,3.0,0,23,23,0.8571428571428571,0.8571428571428571,0.8571428571428571,2524,400,114,1,"fix(form): Set default value for form fields (#4047)
 
 - Use specified default value in struct tags when binding a request input to struct for validation, even if sent empty, not only when not sent at all.
@@ -33,10 +33,10 @@ fixes https://github.com/gin-gonic/gin/issues/3459"
 - Add test case for not sent form field to default to the value specified via code.
 - Add test case for form field sent empty to default to the value specified via code.
 
-Fixes: How to apply default value if empty value provided by client during model binding? #4042, #13042df, #a41721a"
+Fixes: How to apply default value if empty value provided by client during model binding? #4042, #13042df, #a41721a",1725600079
 626d55b0c02937645c21774cacc021713de88604,False,1,1,2,2,2.0,1,12,11,1.0,1.0,1.0,3371,531,116,1,"fix(gin): Do not panic when handling method not allowed on empty tree (#4003)
 
-Signed-off-by: Pierre-Henri Symoneaux <pierre-henri.symoneaux@ovhcloud.com>"
+Signed-off-by: Pierre-Henri Symoneaux <pierre-henri.symoneaux@ovhcloud.com>",1719065944
 36b0dede4b8c4a67d92c4107cebc5a068364321d,False,1,1,6,6,6.0,3,8,5,1.0,1.0,1.0,5727,820,235,2,"fix(context): check handler is nil (#3413)
 
 * fixed #3404 2022-11-23
@@ -60,7 +60,7 @@ Signed-off-by: Bo-Yi Wu <appleboy.tw@gmail.com>
 ---------
 
 Signed-off-by: Bo-Yi Wu <appleboy.tw@gmail.com>
-Co-authored-by: Bo-Yi Wu <appleboy.tw@gmail.com>"
+Co-authored-by: Bo-Yi Wu <appleboy.tw@gmail.com>",1715583341
 7d147928ee232fce156ea7ce8ae6329e148aeb41,False,1,2,23,20,11.5,25,17,-8,1.0,0.0,0.0,644,148,32,3,"fix(gin): data race warning for gin mode (#1580)
 
 * fix: data race warning (#1180)
@@ -82,17 +82,17 @@ Signed-off-by: Bo-Yi Wu <appleboy.tw@gmail.com>
 ---------
 
 Signed-off-by: Bo-Yi Wu <appleboy.tw@gmail.com>
-Co-authored-by: Bo-Yi Wu <appleboy.tw@gmail.com>"
+Co-authored-by: Bo-Yi Wu <appleboy.tw@gmail.com>",1715130816
 8790d08909fc4d193c6c787c9c72f3089168f411,False,1,1,4,4,4.0,2,25,23,1.0,1.0,1.0,77,13,3,2,"fix(uri): query binding bug (#3236)
 
 * fix query mapping
 
-* query binding test"
-646312aef6a34095476ac846b0920db5fb24b2ea,False,1,1,2,2,2.0,0,2,2,0.0,1.0,1.0,5497,788,225,1,fix: protect Context.Keys map when call Copy method (#3873)
-82bcd6d39bfe9c22032764ff3b0b6f8ef1673e49,False,1,1,5,5,5.0,1,28,27,0.8125,0.8125,1.0,430,78,19,1,fix(binding): dereference pointer to struct (#3199)
+* query binding test",1711031322
+646312aef6a34095476ac846b0920db5fb24b2ea,False,1,1,2,2,2.0,0,2,2,0.0,1.0,1.0,5497,788,225,1,fix: protect Context.Keys map when call Copy method (#3873),1710167076
+82bcd6d39bfe9c22032764ff3b0b6f8ef1673e49,False,1,1,5,5,5.0,1,28,27,0.8125,0.8125,1.0,430,78,19,1,fix(binding): dereference pointer to struct (#3199),1707306251
 3dc1cd6572b4e3a0cd170a15debe546c2c72294f,False,1,1,3,3,3.0,0,5,5,0.0,0.3333333333333333,0.3333333333333333,2205,347,98,1,"fix(binding): binding error while not upload file (#3819) (#3820)
 
-Co-authored-by: zhangmj <zhangmj1@dustess.com>"
+Co-authored-by: zhangmj <zhangmj1@dustess.com>",1707101195
 9f598a31aafb92d675f38f1c8371e4ac76f858bf,False,1,1,5,5,5.0,1,6,5,0.0,0.4,0.4,3907,646,177,1,"fix(router): catch-all conflicting wildcard (#3812)
 
 * fix: catch-all conflicting wildcard
@@ -195,37 +195,37 @@ Signed-off-by: Bo-Yi Wu <appleboy.tw@gmail.com>
 Signed-off-by: dependabot[bot] <support@github.com>
 Co-authored-by: Bo-Yi Wu <appleboy.tw@gmail.com>
 Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
-Co-authored-by: caption <101684156+chncaption@users.noreply.github.com>"
-386d244068db3693f938db4ead6d1f5f85942e3f,False,1,1,16,16,16.0,4,85,81,0.45,0.8333333333333334,0.8333333333333334,3882,643,176,1,fix(tree): correctly expand the capacity of params (#3502)
+Co-authored-by: caption <101684156+chncaption@users.noreply.github.com>",1707052469
+386d244068db3693f938db4ead6d1f5f85942e3f,False,1,1,16,16,16.0,4,85,81,0.45,0.8333333333333334,0.8333333333333334,3882,643,176,1,fix(tree): correctly expand the capacity of params (#3502),1701909535
 44d0dd70924dd154e3b98bc340accc53484efa9c,False,1,1,5,5,5.0,0,38,38,0.0,1.0,1.0,2197,344,97,0,"fix: Add pointer support for url query params (#3659) (#3666)
 
-The pointer support in url query params (using []*Struct for binding query params) was previously available in Gin, but was removed in commit 0d50ce8 since there wasn't a test case for such a scenario, and so the case block was removed as a redundant one."
-81ac7d55a09e34013225db0aeac6e70c1ae68928,False,1,1,4,4,4.0,0,16,16,0.18181818181818182,1.0,1.0,3031,485,104,1,Add escape logic for header (#3500)
-7cb151bb4c4cfc6018a00a125422ff38a041b9f8,False,1,1,2,2,2.0,1,9,8,1.0,1.0,1.0,5454,775,226,1,fix(context): panic on NegotiateFormat - index out of range (#3397)
+The pointer support in url query params (using []*Struct for binding query params) was previously available in Gin, but was removed in commit 0d50ce8 since there wasn't a test case for such a scenario, and so the case block was removed as a redundant one.",1700149603
+81ac7d55a09e34013225db0aeac6e70c1ae68928,False,1,1,4,4,4.0,0,16,16,0.18181818181818182,1.0,1.0,3031,485,104,1,Add escape logic for header (#3500),1676599219
+7cb151bb4c4cfc6018a00a125422ff38a041b9f8,False,1,1,2,2,2.0,1,9,8,1.0,1.0,1.0,5454,775,226,1,fix(context): panic on NegotiateFormat - index out of range (#3397),1673880607
 8b9c55e8b059a1ffcc69e3b5dc0b9d583958811f,False,1,1,9,9,9.0,1,28,27,0.0,0.7727272727272727,0.8181818181818182,3808,633,175,2,"fix(route): redirectSlash bug (#3227)
 
 fixes https://github.com/gin-gonic/gin/issues/2959
 fixes https://github.com/gin-gonic/gin/issues/2282
-fixes https://github.com/gin-gonic/gin/issues/2211"
-55e27f12465e058058180280d5f0bdc473eb3302,False,1,2,16,10,8.0,5,27,22,1.0,1.0,1.0,3103,497,106,6,fix(engine): missing route params for CreateTestContext (#2778) (#2803)
-68542126982eb2275ea0447c58b38cb38cff8ddc,False,1,1,1,1,1.0,0,1,1,1.0,1.0,1.0,5262,754,216,1,Fix: missing `sameSite` when do context.reset() (#3123)
-5929d521715610c9dd14898ebbe1d188d5de8937,False,1,1,39,39,39.0,20,21,1,1.0,1.0,1.0,5497,783,228,5,ClientIP: check every proxy for trustiness (#2844)
-cbdd47a7e108217d4672f0e24d423b632a8cd900,False,1,1,48,48,48.0,26,49,23,0.0,0.0,1.0,3733,622,171,1,fix tsr with mixed static and wildcard paths (#2924)
-1c2aa59b20c8cff5b3c601708afe22100eac25e6,False,1,1,3,3,3.0,1,17,16,0.5,0.9375,0.9375,3733,622,171,1,fix the misplacement of adding slashes (#2847)
-3fe928994b7ba7ed16b0c5114ca82a9dafa7a974,False,1,3,135,117,45.0,52,120,68,0.22388059701492538,0.5671641791044776,0.5223880597014925,11914,1841,488,7,Update the code logic for latestNode in tree.go (#2897)
-d4ca9a0fb1211108f0a893634ee01b0006890c16,False,1,1,88,88,88.0,30,172,142,0.0,0.6363636363636364,0.8677685950413223,3432,586,164,1,fix #2762 (#2767)
+fixes https://github.com/gin-gonic/gin/issues/2211",1667725360
+55e27f12465e058058180280d5f0bdc473eb3302,False,1,2,16,10,8.0,5,27,22,1.0,1.0,1.0,3103,497,106,6,fix(engine): missing route params for CreateTestContext (#2778) (#2803),1667725691
+68542126982eb2275ea0447c58b38cb38cff8ddc,False,1,1,1,1,1.0,0,1,1,1.0,1.0,1.0,5262,754,216,1,Fix: missing `sameSite` when do context.reset() (#3123),1650170519
+5929d521715610c9dd14898ebbe1d188d5de8937,False,1,1,39,39,39.0,20,21,1,1.0,1.0,1.0,5497,783,228,5,ClientIP: check every proxy for trustiness (#2844),1633739931
+cbdd47a7e108217d4672f0e24d423b632a8cd900,False,1,1,48,48,48.0,26,49,23,0.0,0.0,1.0,3733,622,171,1,fix tsr with mixed static and wildcard paths (#2924),1635726097
+1c2aa59b20c8cff5b3c601708afe22100eac25e6,False,1,1,3,3,3.0,1,17,16,0.5,0.9375,0.9375,3733,622,171,1,fix the misplacement of adding slashes (#2847),1635243329
+3fe928994b7ba7ed16b0c5114ca82a9dafa7a974,False,1,3,135,117,45.0,52,120,68,0.22388059701492538,0.5671641791044776,0.5223880597014925,11914,1841,488,7,Update the code logic for latestNode in tree.go (#2897),1634961537
+d4ca9a0fb1211108f0a893634ee01b0006890c16,False,1,1,88,88,88.0,30,172,142,0.0,0.6363636363636364,0.8677685950413223,3432,586,164,1,fix #2762 (#2767),1626994695
 bfc8ca285eb46dad60e037d57c545cd260636711,False,1,2,155,82,77.5,22,391,369,0.18518518518518517,0.7916666666666666,1.0,7717,1153,300,7,"feat(engine): add trustedproxies and remoteIP (#2632)
 
 Co-authored-by: Søren L. Hansen <soren@linux2go.dk>
 Co-authored-by: Bo-Yi Wu <appleboy.tw@gmail.com>
 Co-authored-by: thinkerou <thinkerou@gmail.com>
-Co-authored-by: Javier Provecho Fernandez <javiertitan@gmail.com>"
+Co-authored-by: Javier Provecho Fernandez <javiertitan@gmail.com>",1617680245
 0a55865c3fc4c2b30dce86dfa9cff7654ba9bc74,False,1,1,67,67,67.0,43,197,154,0.10555555555555556,1.0,1.0,3418,583,164,1,"fix #2786 (#2796)
 
 * update match rule
 
-* add comments"
-1d0f938f28d7e592623264591605dc22ac141cc5,False,1,1,2,2,2.0,1,14,13,1.0,1.0,1.0,3405,574,159,1,Fix insufficient slice check (#2755)
+* add comments",1627265274
+1d0f938f28d7e592623264591605dc22ac141cc5,False,1,1,2,2,2.0,1,14,13,1.0,1.0,1.0,3405,574,159,1,Fix insufficient slice check (#2755),1624598521
 2921582d11d517dff4cf0226bfbcd8bc7c63d536,False,1,1,29,29,29.0,3,44,41,0.0,0.36363636363636365,0.36363636363636365,3401,574,158,1,"Fix conflict between param and exact path (#2706)
 
 * Fix conflict between param and exact path
@@ -246,18 +246,18 @@ Signed-off-by: Yue Yang <g1enyy0ung@gmail.com>
 
 * Fix panic
 
-Signed-off-by: Yue Yang <g1enyy0ung@gmail.com>"
+Signed-off-by: Yue Yang <g1enyy0ung@gmail.com>",1621389936
 03e5e05ae089bc989f1ca41841f05504d29e3fd9,False,1,1,2,2,2.0,3,17,14,0.23076923076923078,1.0,1.0,5247,756,217,1,"fix: data race with trustedCIDRs (#2674) (#2675)
 
-Co-authored-by: Bo-Yi Wu <appleboy.tw@gmail.com>"
+Co-authored-by: Bo-Yi Wu <appleboy.tw@gmail.com>",1617899254
 67008be35f5432aeec06641540f3b6df3eac8747,False,1,1,7,7,7.0,5,2,-3,1.0,0.0,0.0,2147,344,70,1,"Unix Socket Handling (#2280)
 
 * do not set unix socket permissions. Cleanup unix socket.
 
-* removed useless error checking"
+* removed useless error checking",1584369375
 815e1ce281f873c62cdbe05d60b5b2ef9d20ed6b,False,1,1,6,6,6.0,1,20,19,1.0,1.0,1.0,4985,709,198,1,"Prevent panic in Context.GetQuery() when there is no Request (#2412)
 
-Co-authored-by: thinkerou <thinkerou@gmail.com>"
+Co-authored-by: thinkerou <thinkerou@gmail.com>",1596889939
 a6e8665e42dad83ee275d4adc34a6e507bdd11ed,False,1,1,1,1,1.0,0,4,4,0.0,0.75,1.0,3185,545,153,1,"fix(tree): reassign fullpath when register new node which the same current node (#2366)
 
 * fix(tree): assign fullpath to current node by fullpath of new node if current node the same new node
@@ -267,7 +267,7 @@ a6e8665e42dad83ee275d4adc34a6e507bdd11ed,False,1,1,1,1,1.0,0,4,4,0.0,0.75,1.0,31
 * chg(tree-test): update test case with register new route in TestRouteContextHoldsFullPath
 
 Co-authored-by: vinhha <vinhha@vng.com.vn>
-Co-authored-by: Bo-Yi Wu <appleboy.tw@gmail.com>"
+Co-authored-by: Bo-Yi Wu <appleboy.tw@gmail.com>",1589174749
 298ebca69107001096eaf81c4b4977b14ffa0e6d,False,1,1,8,8,8.0,0,22,22,1.0,1.0,1.0,4968,705,199,2,"fix missing initial sync.RWMutex (#2305)
 
 * fix missing initial sync.RWMutex
@@ -276,7 +276,7 @@ Signed-off-by: Bo-Yi Wu <appleboy.tw@gmail.com>
 
 * Add unit testing.
 
-Signed-off-by: Bo-Yi Wu <appleboy.tw@gmail.com>"
+Signed-off-by: Bo-Yi Wu <appleboy.tw@gmail.com>",1585277856
 73ccfea3ba5a115e74177dbfbc1ea0fff88c13f4,False,1,2,12,10,6.0,1,11,10,1.0,1.0,1.0,7067,1039,266,4,"Add mutex for protect Context.Keys map (#1391)
 
 * Add mutex for protect Context.Keys map
@@ -284,11 +284,11 @@ Signed-off-by: Bo-Yi Wu <appleboy.tw@gmail.com>"
 * Fix tests
 
 Co-authored-by: Nikolay Tolkachov <nik.tolkachov@gmail.com>
-Co-authored-by: Bo-Yi Wu <appleboy.tw@gmail.com>"
+Co-authored-by: Bo-Yi Wu <appleboy.tw@gmail.com>",1584377522
 1bebd9af9119315dab3870a1011369a11c886a2a,False,1,1,4,4,4.0,2,2,0,,,,651,123,35,1,"Revert ""fix accept incoming network connections (#2216)"" (#2294)
 
-This reverts commit 2ff2b19e14420de970264012e1bcdf91929725b4."
-2ff2b19e14420de970264012e1bcdf91929725b4,False,1,1,4,4,4.0,2,2,0,,,,651,123,35,1,fix accept incoming network connections (#2216)
+This reverts commit 2ff2b19e14420de970264012e1bcdf91929725b4.",1584956905
+2ff2b19e14420de970264012e1bcdf91929725b4,False,1,1,4,4,4.0,2,2,0,,,,651,123,35,1,fix accept incoming network connections (#2216),1583544062
 5f56109bcffd58e851dd186282d8fbd4d0decc82,False,1,1,7,7,7.0,12,15,3,1.0,1.0,1.0,793,143,29,1,"Use json marshall in context json to fix breaking new line issue. Fixes #2209 (#2228)
 
 * ignore IntelliJ idea generated files
@@ -300,22 +300,22 @@ This reverts commit 2ff2b19e14420de970264012e1bcdf91929725b4."
 This reverts commit e7bd017227df5dbd2ed2f5fe353adb5f1b08c678.
 
 Co-authored-by: Bo-Yi Wu <appleboy.tw@gmail.com>
-Co-authored-by: thinkerou <thinkerou@gmail.com>"
-7c21e04f628f1cabdf4029fd5c78a8f2b152faae,False,1,1,4,4,4.0,0,11,11,0.6666666666666666,0.6666666666666666,0.6666666666666666,2918,479,138,1,fix maxParams bug (#2166)
-b52a1a1588f8af4e6d1e2a711adbae42d11bb59d,False,1,1,3,3,3.0,0,43,43,1.0,1.0,1.0,203,35,7,1,allow empty headers on DataFromReader (#2121)
-db9174ae0c2587fe1c755def0f88cb9aba9e9641,False,1,1,7,7,7.0,3,14,11,1.0,1.0,1.0,1910,297,86,2,fix ignore walking on form mapping (#1942) (#1943)
+Co-authored-by: thinkerou <thinkerou@gmail.com>",1582276517
+7c21e04f628f1cabdf4029fd5c78a8f2b152faae,False,1,1,4,4,4.0,0,11,11,0.6666666666666666,0.6666666666666666,0.6666666666666666,2918,479,138,1,fix maxParams bug (#2166),1575417361
+b52a1a1588f8af4e6d1e2a711adbae42d11bb59d,False,1,1,3,3,3.0,0,43,43,1.0,1.0,1.0,203,35,7,1,allow empty headers on DataFromReader (#2121),1574649953
+db9174ae0c2587fe1c755def0f88cb9aba9e9641,False,1,1,7,7,7.0,3,14,11,1.0,1.0,1.0,1910,297,86,2,fix ignore walking on form mapping (#1942) (#1943),1572576460
 01ca625b98910363175cd24b0093c6f14e9d6dd3,False,1,1,2,2,2.0,4,4,0,,,,779,138,28,1,"Fixed JSONP format (added semicolon) (#2007)
 
 * Fixed JSONP format (added semicolon)
 
-* render_test fix"
+* render_test fix",1567426688
 f65018d7b1f1a5d54e5791e9e9ac76e9946eae36,False,1,1,9,9,9.0,2,14,12,0.0,0.45454545454545453,0.9090909090909091,2892,474,136,2,"Bugfix for the FullPath feature (#1919)
 
 * worked with more complex situations
  * the original pr not work when and a short route with the same prefix
- to some already added routes"
-37854ee10f7161843c338d9a9fa87f9398aacbbe,False,1,1,34,34,34.0,5,69,64,0.2619047619047619,0.2619047619047619,1.0,642,112,27,3,Fix panic stack trace being printed during recovery of broken pipe (#1089) (#1259)
-75b9d2bed75a2d96198738ac3974211924dbde6c,False,1,1,1,1,1.0,0,1,1,1.0,1.0,1.0,4738,672,192,1,Attempt to fix PostForm cache bug (#1931)
+ to some already added routes",1561737292
+37854ee10f7161843c338d9a9fa87f9398aacbbe,False,1,1,34,34,34.0,5,69,64,0.2619047619047619,0.2619047619047619,1.0,642,112,27,3,Fix panic stack trace being printed during recovery of broken pipe (#1089) (#1259),1541482820
+75b9d2bed75a2d96198738ac3974211924dbde6c,False,1,1,1,1,1.0,0,1,1,1.0,1.0,1.0,4738,672,192,1,Attempt to fix PostForm cache bug (#1931),1560344835
 6e320c97e83a61df3daa0f28695a736bece3104b,False,1,1,3,3,3.0,0,26,26,1.0,1.0,1.0,4634,653,188,1,"Fix context.Params race condition on Copy() (#1841)
 
 * Fix context.Params race condition on Copy()
@@ -324,56 +324,56 @@ Using context.Param(key) on a context.Copy inside a goroutine
 may lead to incorrect value on a high load, where another request
 overwrite a Param
 
-* Using waitgroup to wait asynchronous test case"
+* Using waitgroup to wait asynchronous test case",1558937070
 4a23c4f7b9ced6b8e4476f2e021a61165153b71d,False,1,1,2,2,2.0,2,22,20,1.0,1.0,1.0,1135,152,32,2,"fix #1804 which is caused by calling middleware twice. (#1805)
 
 Fix: https://github.com/gin-gonic/gin/issues/1804
 
 `allNoRoute` contains middlewares such as `gin.Logger`, `gin.Recovery`, so on.  The correct code is to use `noRoute`.
 
-cc: @MetalBreaker"
-98c7ac7202ffc7cfb60706bb48e0ef10f737abb1,False,1,1,5,5,5.0,1,4,3,1.0,1.0,1.0,1135,152,32,2,fix bug (#1682)
+cc: @MetalBreaker",1552272767
+98c7ac7202ffc7cfb60706bb48e0ef10f737abb1,False,1,1,5,5,5.0,1,4,3,1.0,1.0,1.0,1135,152,32,2,fix bug (#1682),1543988209
 7ec82ee8944579c533425bb6826bcb12b5860ecd,False,1,1,4,4,4.0,4,4,0,,,,662,112,27,3,"recovery: fix issue about syscall import on google app engine (#1640)
 
 * recovery: fix issue about syscall import on google app engine
 
 * add ToLower()
 
-* the whole error message"
-64457fbca718085b793de98a50e7441b82ad5eb1,False,1,1,4,4,4.0,0,11,11,1.0,1.0,1.0,165,32,8,1,handle nil body for JSON binding (#1638)
+* the whole error message",1542849464
+64457fbca718085b793de98a50e7441b82ad5eb1,False,1,1,4,4,4.0,0,11,11,1.0,1.0,1.0,165,32,8,1,handle nil body for JSON binding (#1638),1542851751
 dbc330b804052d7db230729c15d041cbb775e7b6,False,1,1,7,7,7.0,2,18,16,1.0,1.0,1.0,4223,597,174,3,"Pass MaxMultipartMemory when FormFile is called (#1600)
 
-When `gin.Context.FormFile(""..."")` is called the `engine.MaxMultipartMemory` is never used. This PR makes sure that the `MaxMultipartMemory` is passed and removes 2 calls to `http.Request.ParseForm` since they are called from `http.Request.ParseMultipartForm`"
-07f1bf0e63512fbf9c7d7984d235a399eb916244,False,1,1,8,8,8.0,74,86,12,0.8787878787878788,1.0,1.0,260,66,11,2,feat: replace debug log with fmt package. (#1560)
+When `gin.Context.FormFile(""..."")` is called the `engine.MaxMultipartMemory` is never used. This PR makes sure that the `MaxMultipartMemory` is passed and removes 2 calls to `http.Request.ParseForm` since they are called from `http.Request.ParseMultipartForm`",1540220474
+07f1bf0e63512fbf9c7d7984d235a399eb916244,False,1,1,8,8,8.0,74,86,12,0.8787878787878788,1.0,1.0,260,66,11,2,feat: replace debug log with fmt package. (#1560),1537336620
 402ef120e19218544152502d1ea20709ff5adbc8,False,1,1,3,3,3.0,1,2,1,,,,369,81,15,1,"fix: fmt output log to os.Stderr (#1571)
 
 fix #1560 changes are breaking in App Engine.
 
-cc @giulianobr @philippgille"
+cc @giulianobr @philippgille",1538009984
 ad53619b15fda20df57c16cf19fe83f4a428cefa,False,1,1,8,8,8.0,3,17,14,0.0,1.0,1.0,537,92,21,3,"Don't log requests (#1370)
 
 Fixes #1331
 
 HTTP logging leaks sensitive request information.
 
-This PR removes HTTP request logging during panics."
+This PR removes HTTP request logging during panics.",1537686923
 0ebd42d0a921e49ed6a36fae33f2a2dcae800d6f,False,1,1,1,1,1.0,0,1,1,,,,32,9,0,0,"Update jsoniter.go (#1500)
 
-add newencoder to fix compile error for -tags=jsoniter"
+add newencoder to fix compile error for -tags=jsoniter",1534760745
 7e64d32269d817b645d5d4694100a8a8ad6960cb,False,1,1,25,25,25.0,24,21,-3,,,,49,9,1,3,"Attempt to fix #1462 (#1463)
 
-#1462"
+#1462",1534039953
 0552c3bc3a6de6b802684b024ae49c3195cc70dd,False,1,1,1,1,1.0,0,17,17,1.0,1.0,1.0,443,81,16,1,"flush operation will overwrite the origin status code (#1460)
 
-The status of responseWriter will be overwrite if flush was called. This is caused by the Flush of http.response.Flush()."
+The status of responseWriter will be overwrite if flush was called. This is caused by the Flush of http.response.Flush().",1533616888
 e2b4cf6e2dffb4e59f95f96b78e25e65f9037dec,False,1,1,1,1,1.0,0,1,1,,,,160,29,2,0,"interface implement type check (#1459)
 
-interface implement type check"
+interface implement type check",1533568081
 5636afe02d00308bc5ade9dd80acfa7646b608df,False,1,1,2,2,2.0,1,24,23,1.0,1.0,0.3125,1141,185,55,1,"fix bug, return err when failed binding bool (#1350)
 
 * fix bug, return err when failed binding bool
 
-* add test, return err when failed binding bool"
+* add test, return err when failed binding bool",1526049633
 dfb68ce0852d3fe600148f486f67d2327146dfea,False,1,1,23,23,23.0,14,138,124,1.0,1.0,1.0,3551,523,147,1,"feat(context): ShouldBind counterparts for Bind methods (#1047)
 
 * feat(context): ShouldBind counterparts for Bind methods + tests
@@ -381,7 +381,7 @@ dfb68ce0852d3fe600148f486f67d2327146dfea,False,1,1,23,23,23.0,14,138,124,1.0,1.0
 * docs(readme): Switch examples to use ShouldBind methods
 
 Add section for bind methods types, explain difference in behavior.
-Switch all `c.Bind` examples to use `c.ShouldBind`."
+Switch all `c.Bind` examples to use `c.ShouldBind`.",1508750049
 ce670a64977a513d8caa58c143471ddbbf641bd4,False,1,5,46,18,9.2,9,47,38,,,,1154,225,47,0,"refactor(json): make jsonite optional with build tags (#1026)
 
 * refactor(json): Restore gin support for app engine
@@ -407,4 +407,4 @@ Signed-off-by: Bo-Yi Wu <appleboy.tw@gmail.com>
 
 * fix(docs): markdown format.
 
-* fix(json): missing space."
+* fix(json): missing space.",1500411689

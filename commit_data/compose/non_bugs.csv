@@ -1,6 +1,6 @@
-sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message
-9c0b92259737c0baf886619517c3222626c2a247,False,1,4,66,31,16.5,32,34,2,0.0,0.0,0.0,4858,795,165,16,fix: overlapping logs and menu navigation (#11765)
-fd532a37e7a57024fa50de15735439513da91b02,False,1,2,10,6,5.0,7,3,-4,0.0,0.0,0.0,310,68,17,2,fix(desktop): remove overly-aggressive feature flag check (#11748)
+sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message,commit_timestamp
+9c0b92259737c0baf886619517c3222626c2a247,False,1,4,66,31,16.5,32,34,2,0.0,0.0,0.0,4858,795,165,16,fix: overlapping logs and menu navigation (#11765),1713985182
+fd532a37e7a57024fa50de15735439513da91b02,False,1,2,10,6,5.0,7,3,-4,0.0,0.0,0.0,310,68,17,2,fix(desktop): remove overly-aggressive feature flag check (#11748),1713557217
 922422a53922e21e4e3e5717b81066a74d065dc1,False,1,1,25,25,25.0,7,18,11,0.0,0.0,1.0,7394,1169,273,2,"fix: do not try to create file shares for non-directories
 
 When creating automatic file shares, ignore any non-directory
@@ -12,10 +12,10 @@ does not exist, the API will handle that. However, the check
 for existence remains so that `create_host_path: false`
 mounts can be ignored.
 
-Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>",1713366723
 ff20b641c7f1cce588faea476fbd1a6fdd953b36,False,1,3,47,21,15.666666666666666,21,26,5,1.0,1.0,1.0,4044,652,130,8,"Does not start keyboard manager if there is no tty
 
-Signed-off-by: Joana Hrotko <joana.hrotko@docker.com>"
+Signed-off-by: Joana Hrotko <joana.hrotko@docker.com>",1711648646
 d688d3bf22f262445a9c61aa98250c1b3f830657,False,1,1,4,4,4.0,3,1,-2,1.0,1.0,0.0,531,103,19,1,"fix(tracing): batch span exports to prevent blocking
 
 This was a bad configuration (my fault) that meant each span was
@@ -28,15 +28,15 @@ to tune the intervals based on the fact that Compose is a CLI vs
 a long-running server app, but we handle flushing out on exit
 already, so it's not a huge deal.
 
-Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>",1705522636
 792afb8d13e5d4db5e0f05d27c936c99a28a5c6d,False,1,1,1,1,1.0,0,1,1,0.0,1.0,0.0,3131,494,122,1,"build: use correct values for proxy variables (#10908)
 
 clone variable before we capture a pointer
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1692296728
 0363d9260afef4bcc32479c1930766e8ce0cf83c,False,1,1,10,10,10.0,9,3,-6,1.0,1.0,0.0,830,150,31,1,"fix local image removal when `compose down` is ran with `--project-name` (#10558)
 
-Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>"
+Signed-off-by: Nicolas De Loof <nicolas.deloof@gmail.com>",1683823274
 caad72713ba81b1fe9548bec3092b3257253708d,False,1,3,177,84,59.0,53,182,129,0.8676470588235294,0.8676470588235294,0.7941176470588235,3563,546,126,10,"up: handle various attach use cases better
 
 By default, `compose up` attaches to all services (i.e.
@@ -78,7 +78,7 @@ here, which improves error handling that gets shown to
 the user and should help avoid potential leaks by getting
 rid of a `context.Background()`.
 
-Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>",1692355118
 1fdbcb6255479d3955d07ebe699b7baaeb805b32,False,1,11,331,129,30.09090909090909,242,340,98,1.0,0.0,1.0,22576,3673,735,40,"build: pass BuildOptions around explicitly & fix multi-platform issues
 
 The big change here is to pass around an explicit `*BuildOptions` object
@@ -111,7 +111,7 @@ edge cases have been addressed as part of this:
 Because there's a LOT of subtlety and tricky logic here, I've also tried
 to add an excessive amount of explanatory comments.
 
-Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>",1693549976
 407a0d5b531787443531473d87040b43eabc6f78,False,1,3,174,110,58.0,82,105,23,0.0,1.0,1.0,1216,221,47,9,"up: fix various race/deadlock conditions on exit (#10934)
 
 If running `up` in foreground mode (i.e. not `-d`),
@@ -140,14 +140,14 @@ same API but coalesces errors instead of canceling a
 context the moment the first one fails and returning
 that single error.
 
-Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>",1693493234
 c350f80d4b182e1787099e1c86ff46defc150381,False,1,1,27,27,27.0,11,16,5,0.0,0.0,1.0,4486,646,159,4,"up: do not warn on successful optional dependency complete (#10870)
 
 If an optional dependency exits successfully (exit code of 0),
 with a service condition of `service_completed_successfully`,
 don't log a warning.
 
-Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>",1691096449
 be22bc735a1a5a629b7580da3bf0b1d5bb3603cd,False,1,1,16,16,16.0,40,29,-11,0.0,0.0,0.0,4105,610,151,1,"network: fix random missing network when service has more than one
 
 As part of the fix for #10668, the logic was adjusted so that the
@@ -170,17 +170,17 @@ a service and ignores the ""default"" one now. Before, it would
 always skip the first one in the slice since that _should_ have
 been the ""default"".
 
-Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>",1688714281
 ff3984e6093672ede542f842148996b36f7d1fab,False,1,2,10,6,5.0,5,5,0,0.0,0.0,0.0,619,113,19,1,"otel: fix initialization / error-handling (#10717)
 
 * If there's no `otel` key (or the value is `null`) in the config,
   don't return an error
 * Propagate error from the exporter instead of panicking
 
-Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>",1686847395
 b304c4e1547e0e9119a74207ae1661967e2986aa,False,1,1,9,9,9.0,3,6,3,0.5,0.5,0.5,463,80,15,2,"stop containers after termination
 
-Signed-off-by: TP-O <letranphong2k1@gmail.com>"
+Signed-off-by: TP-O <letranphong2k1@gmail.com>",1683107276
 9ef173a3aca1e2411f43b8348ac72fe8d144063e,False,1,1,16,16,16.0,6,10,4,0.0,0.0,1.0,1355,228,51,2,"log: fix race on container kill (#10459)
 
 If we go to inspect a container that we got an event for and it
@@ -189,10 +189,10 @@ out.
 
 Fixes #10373.
 
-Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>",1681316158
 a842522f4966948514f9cd372a7073da02a87bc6,False,1,1,3,3,3.0,2,1,-1,,,,1601,248,63,1,"use filepath instead of path to check if the dockerfile path is abolute or not
 
-Signed-off-by: Guillaume Lours <guillaume.lours@docker.com>"
+Signed-off-by: Guillaume Lours <guillaume.lours@docker.com>",1638530122
 113fb6732dc254884507ddbbe0faaa198728603e,False,1,2,30,23,15.0,533,59,-474,1.0,1.0,1.0,8562,1317,274,6,"schema: add support for tmpfs.mode in mount definition (#10031)
 
 See compose-spec/compose-go#325 for the acutal spec change. This
@@ -201,17 +201,17 @@ Cucumber 🥒
 
 Fixes #9873.
 
-Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>",1669998113
 2e7644ff21f9ca0ea6fb5e8d41d4f6af32cd7e20,False,1,1,2,2,2.0,1,1,0,,,,1139,201,41,1,"use api.Separator to print right image names
 
-Signed-off-by: windforce17 <wzcboss@qq.com>"
+Signed-off-by: windforce17 <wzcboss@qq.com>",1669882809
 616777eb4ad4d1101622d6727d9b7adaeb7943bb,False,1,1,67,67,67.0,20,93,73,0.6027397260273972,1.0,1.0,1864,287,63,11,"deps: fix race condition during graph traversal (#9878)
 
 Keep track of visited nodes to prevent visiting a service multiple
 times. This is possible when a service depends on multiple others,
 as an attempt could be made to visit it from multiple parents.
 
-Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>",1664283673
 a95cc4074a38a65c02e349ef284a9a4f28e2a0cc,False,1,1,12,12,12.0,21,3,-18,0.36363636363636365,0.36363636363636365,0.0,2130,327,63,4,"Remove support for `DOCKER_HOST` in `.env` files (#9871)
 
 Revert ""Merge pull request #9817 from ulyssessouza/apply-newly-loaded-envvars""
@@ -219,7 +219,7 @@ Revert ""Merge pull request #9817 from ulyssessouza/apply-newly-loaded-envvars""
 This reverts commit 126cb988c6f0c00a2a9887b8a39dc0907daec289, reversing
 changes made to b80222fb077436f2d4fcc62b3765d3a493891632.
 
-Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>",1664198761
 61845dd7816cec9d42c715c8b157f88dfe78fd54,False,1,3,35,21,11.666666666666666,26,290,264,0.09289617486338798,0.8087431693989071,0.8415300546448088,2235,446,32,3,"logs: filter to services from current Compose file (#9811)
 
 * logs: filter to services from current Compose file
@@ -253,10 +253,10 @@ See also #9705.
 
 Fixes #9801.
 
-Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>",1662668760
 bbaaa6a9de8c4f54b2db85ae86c592638a94d83b,False,1,3,80,68,26.666666666666668,9,186,177,0.2543859649122807,1.0,1.0,2892,431,107,8,"config: case-insensitive env vars on Windows (#9438)
 
-Signed-off-by: IKEDA Yasuyuki <devld@ikedam.jp>"
+Signed-off-by: IKEDA Yasuyuki <devld@ikedam.jp>",1659466569
 765c071c89cf2ec8ef35bf628c570d89e2154ce7,False,1,3,116,66,38.666666666666664,3,203,200,0.4519230769230769,1.0,0.8365384615384616,832,141,22,9,"up: do not stop dependency containers (#9701)
 
 This keeps parity with v1, where only the containers explicitly
@@ -266,4 +266,4 @@ around) should not be touched.
 
 Fixes #9696.
 
-Signed-off-by: Milas Bowman <milas.bowman@docker.com>"
+Signed-off-by: Milas Bowman <milas.bowman@docker.com>",1659468359

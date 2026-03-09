@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite it in your academic work."
+title: "go-bug-collector"
+type: software
+authors:
+  - name: "go-bug-collector contributors"
+repository-code: "https://github.com/ecylmz/go-bug-collector"
+license: "Apache-2.0"
+abstract: "Public reproducibility package for a study on bug prediction in Go projects."
+keywords:
+  - bug prediction
+  - software engineering
+  - go
+  - dataset
+  - reproducibility

@@ -1,4 +1,4 @@
-sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message
+sha,is_merge,parents_count,modified_files_count,code_churn,max_file_churn,avg_file_churn,deletions,insertions,net_lines,dmm_unit_size,dmm_unit_complexity,dmm_unit_interfacing,total_token_count,total_nloc,total_complexity,total_changed_method_count,commit_message,commit_timestamp
 b35c5c0a301d326fdfa353943fca077778544ac6,False,1,4,343,204,85.75,107,236,129,0.24742268041237114,0.0,0.20618556701030927,6305,958,111,12,"e2e: Fix shadowed error in reboot test and clean up containers after reboot test (#131699)
 
 * Fix test flakiness caused by shadowed error in reboot test and stale pods affecting eviction test
@@ -19,7 +19,7 @@ TODO: Remove this workaround once the Calico issue is resolved.
 
 * Fix the lint issue.
 
-* Address comments"
+* Address comments",1747942835
 609e4a9ba044e64a6244e053d2b1b7c545a2d2ed,False,1,1,12,12,12.0,2,92,90,0.25609756097560976,0.926829268292683,1.0,1011,170,30,2,"Unhandled panic crash on rollout_history printer.PrintObj (#130503)
 
 * Change: Handling nil runtime.Object
@@ -64,7 +64,7 @@ Signed-off-by: Taha Farahani <tahacodes@proton.me>
 
 ---------
 
-Signed-off-by: Taha Farahani <tahacodes@proton.me>"
+Signed-off-by: Taha Farahani <tahacodes@proton.me>",1745440274
 cce99a8c73a32c6dff31768c4757968440ef91c3,False,1,1,12,12,12.0,2,92,90,0.25609756097560976,0.926829268292683,1.0,1011,170,30,2,"Automated cherry pick of #130503: Unhandled panic crash on rollout_history printer.PrintObj (#131496)
 
 * Change: Handling nil runtime.Object
@@ -109,7 +109,7 @@ Signed-off-by: Taha Farahani <tahacodes@proton.me>
 
 ---------
 
-Signed-off-by: Taha Farahani <tahacodes@proton.me>"
+Signed-off-by: Taha Farahani <tahacodes@proton.me>",1747207614
 381ccf0f4c723f7164d4363d2bcd76f4e34e5441,False,1,1,39,39,39.0,25,21,-4,1.0,0.0,1.0,8766,1128,206,1,"Fix empty describedObject in hpa status (#124555)
 
 * fix empty DescribedObject in hpa MetricStatus when object target type is AverageValue
@@ -122,7 +122,7 @@ Signed-off-by: mchtech <michu_an@126.com>
 
 ---------
 
-Signed-off-by: mchtech <michu_an@126.com>"
+Signed-off-by: mchtech <michu_an@126.com>",1742315636
 20cecaee97f34f874a84902bf8dbe2bc359db9f0,False,1,1,24,24,24.0,12,73,61,1.0,0.7045454545454546,1.0,5752,466,22,2,"Add Watch to controller roles (#130405)
 
 * Add Watch to controller roles
@@ -179,17 +179,17 @@ Signed-off-by: Mitsuru Kariya <mitsuru.kariya@nttdata.com>
 ---------
 
 Signed-off-by: Mitsuru Kariya <mitsuru.kariya@nttdata.com>
-Co-authored-by: Jordan Liggitt <jordan@liggitt.net>"
+Co-authored-by: Jordan Liggitt <jordan@liggitt.net>",1740587078
 7c887412c882afc130d78e4bb6efad056b0fe376,False,1,2,20,13,10.0,6,48,42,0.0,0.972972972972973,0.8918918918918919,7774,730,175,3,"Add validation for revisionHistoryLimit in sts to prevent negative value (#129017)
 
 * Add validation for revisionHistoryLimit in sts to prevent negative value
 
-* Add unit tests to verify warning messages"
+* Add unit tests to verify warning messages",1736190271
 4114a9b4e45a4df96f0383d87b2649640a6ffbf1,False,1,1,10,10,10.0,4,46,42,0.0,0.9512195121951219,1.0,38515,4884,1169,1,"[kubectl] Enhance describe output for projected volume sources to indicate optional Secret/ConfigMap (#129457)
 
 * kubectl: enhance output for projected volume sources to indicate optional secrets
 
-* ."
+* .",1736171416
 0cc926220067cd814cecd8f3d0c3b9235e6a68db,False,1,1,4,4,4.0,1,46,45,1.0,1.0,1.0,1511,298,49,3,"kubectl: fix wait --for=create to work correctly with label selectors (#128662)
 
 * kubectl: fix wait --for=create to work correctly with label selectors
@@ -210,7 +210,7 @@ Signed-off-by: Omer Aplatony <omerap12@gmail.com>
 
 ---------
 
-Signed-off-by: Omer Aplatony <omerap12@gmail.com>"
+Signed-off-by: Omer Aplatony <omerap12@gmail.com>",1733972248
 ae35048cb0b9b177891aab41346b6d6cc504582f,False,1,3,161,119,53.666666666666664,21,140,119,0.46987951807228917,0.9397590361445783,0.927710843373494,4511,544,93,11,"adds watchListEndpointRestrictions for watchlist requests (#126996)
 
 * endpoints/handlers/get: intro watchListEndpointRestrictions
@@ -219,14 +219,14 @@ ae35048cb0b9b177891aab41346b6d6cc504582f,False,1,3,161,119,53.666666666666664,21
 
 * e2e/watchlist: extract common function for adding unstructured secrets
 
-* e2e/watchlist: new e2e scenarios for convering watchListEndpointRestrict"
+* e2e/watchlist: new e2e scenarios for convering watchListEndpointRestrict",1727255521
 05bc2708700a09a477eff902ad7f9189ab0ac4be,False,1,2,32,30,16.0,13,137,124,0.0,1.0,0.9655172413793104,7694,996,279,4,"add tests for getReplicaSetFraction in the deployment controller (#128535)
 
 * better name variables in deployment_util
 
 * add tests for getReplicaSetFraction in the deployment controller
 
-- make validation more robust and make sure we do not divide by 0"
+- make validation more robust and make sure we do not divide by 0",1730747503
 442183a9298e37cb655b4a3f48462ee30e475069,False,1,2,22,13,11.0,5,43,38,0.0,1.0,0.71875,10780,1553,294,3,"Fix crash on kube manager's service-lb-controller after v1.31.0. (#128182)
 
 * Fix crash on kube manager's service-lb-controller after v1.31.0.
@@ -237,12 +237,12 @@ Co-authored-by: Antonio Ojea <antonio.ojea.garcia@gmail.com>
 
 ---------
 
-Co-authored-by: Antonio Ojea <antonio.ojea.garcia@gmail.com>"
+Co-authored-by: Antonio Ojea <antonio.ojea.garcia@gmail.com>",1729528732
 5826868586d501060a6151d04c511236b11a26d4,False,1,3,38,28,12.666666666666666,21,29,8,0.75,0.75,0.0,11594,1783,377,13,"Wire context to logs command and add interrupt handler (#127503)
 
 * Wire context to logs command and add interrupt handler
 
-* Move conditional outside of interrupt handler"
+* Move conditional outside of interrupt handler",1729622946
 85d55b67371bae83aa73a3a65b23520e0f22a74b,False,1,3,71,43,23.666666666666668,118,137,19,1.0,1.0,1.0,8526,1136,275,10,"fix stateful set pod recreation and event spam (#123809)
 
 * fix pods tracking and internal error checking in statefulset tests
@@ -256,7 +256,7 @@ Co-authored-by: Antonio Ojea <antonio.ojea.garcia@gmail.com>"
 * fix conflict race in statefulset rest update
 
 statefulset controller does less requests per sync now and thus can
-reconcile status faster, thus resulting in a higher chance for conflicts"
+reconcile status faster, thus resulting in a higher chance for conflicts",1713427426
 ebdca538058d2265cb8dc528d0145faea0a6a7cf,False,1,2,89,56,44.5,50,144,94,0.4528301886792453,1.0,1.0,4744,661,128,10,"[sample-apiserver] Fix: Use Correct Effective Version for kube (#125941)
 
 * Fix slice copy of VersionedSpecs in FeatureGate.
@@ -281,16 +281,16 @@ Signed-off-by: Siyuan Zhang <sizhang@google.com>
 
 Signed-off-by: Siyuan Zhang <sizhang@google.com>
 Signed-off-by: Feilian Xie <fxie@redhat.com>
-Co-authored-by: Siyuan Zhang <sizhang@google.com>"
-5420b2fe9a84af57cc24793c8f8ac8821b65f42f,False,1,3,20,13,6.666666666666667,3,235,232,0.04054054054054054,0.33783783783783783,0.918918918918919,7803,1214,285,3,Hot fix for panic on schema conversion. (#126167)
+Co-authored-by: Siyuan Zhang <sizhang@google.com>",1722020632
+5420b2fe9a84af57cc24793c8f8ac8821b65f42f,False,1,3,20,13,6.666666666666667,3,235,232,0.04054054054054054,0.33783783783783783,0.918918918918919,7803,1214,285,3,Hot fix for panic on schema conversion. (#126167),1721702625
 bc3c07091b3501ac52c7c322f246df5e36815c20,False,1,1,22,22,22.0,1,37,36,0.0,0.06666666666666667,0.5333333333333333,2133,289,90,1,"Fix a bug where the target pod doesn't become schedulable within 5 minutes when a deleted pod uses the same PVC with the ReadWriteOncePod access mode. (#126263)
 
-Co-authored-by: Kensei Nakada <handbomusic@gmail.com>"
+Co-authored-by: Kensei Nakada <handbomusic@gmail.com>",1721636434
 58c44005cdaec53fe3cb49b2d7a308df3af2d081,False,1,1,28,28,28.0,24,86,62,0.0,0.0,0.9491525423728814,4230,545,132,1,"fix(cronjob): lastSuccessfullTime not set when successfulJobsHistoryLimit equal to zero (#122025)
 
 * fix(cronjob): lastSuccessfullTime not set when successfulJobsHistoryLimit equal to zero
 
-* fix(cronjob): added tests for successfulJobsHistoryLimit mutations"
+* fix(cronjob): added tests for successfulJobsHistoryLimit mutations",1720177067
 8dbeaa5786bab14772873cc90af70ccb9b06b4c1,False,1,4,48,26,12.0,44,116,72,0.0,1.0,1.0,312598,79837,1415,9,"fix(api): make LocalObjectReference.Name and HostAlias.IP required (#124553)
 
 * fix(api): LocalObjectReference Name a """" default and make HostAlias.IP required
@@ -301,22 +301,22 @@ Co-authored-by: Kensei Nakada <handbomusic@gmail.com>"
 
 * chore(api): add kubebuilder:default annotation
 
-* chore(api): ./hack/update-codegen.sh"
+* chore(api): ./hack/update-codegen.sh",1714774874
 fc2134c84cc1c84a1cc1278401f70fce93eb11c3,False,1,1,2,2,2.0,1,1,0,,,,1947,293,72,1,"dra kubelet: fix error log
 
 Previously we were returning the error string from 'err' (which is nil), when
 we should have been returning it from result.Error. Without this it is hard to
 debug issues with NodeUnprepareResources.
 
-Signed-off-by: Kevin Klues <kklues@nvidia.com>"
+Signed-off-by: Kevin Klues <kklues@nvidia.com>",1710165089
 0df4a69f5c90990d47d1337e5fc99a764ff99474,False,1,2,89,82,44.5,33,138,105,0.32653061224489793,0.6632653061224489,0.8775510204081632,5870,826,163,4,"Kube-proxy: Get nodeIPs for both families with dual-stack (#119525)
 
 * Kube-proxy: handle dual-stack in detectNodeIPs()
 
-* Updates"
+* Updates",1694449823
 20b28312ea9278c7b93340d0eca71023c45a43b3,False,1,1,4,4,4.0,0,48,48,0.325,0.925,0.925,2129,365,73,1,"Add namespace to NotFound error for kubectl logs command (#120111)
 
-Signed-off-by: Craig Newton <newtondev@gmail.com>"
+Signed-off-by: Craig Newton <newtondev@gmail.com>",1709279843
 dd1e617ba0b9b45faa94fbcbc03560fed8c0fcf7,False,1,5,66,26,13.2,0,154,154,0.25190839694656486,0.7175572519083969,0.9312977099236641,12088,1644,364,10,"Scheduler first fit  (#123384)
 
 * Don't evaluate extra nodes if there's no score plugin defined
@@ -327,12 +327,12 @@ dd1e617ba0b9b45faa94fbcbc03560fed8c0fcf7,False,1,5,66,26,13.2,0,154,154,0.251908
 
 * address review comments
 
-* add a test with non-filter, non-scoring extender"
+* add a test with non-filter, non-scoring extender",1708974439
 1ad143177c365212e53793aff204c6f1c9727d45,False,1,1,8,8,8.0,13,13,0,,,,26135,2682,534,1,"Added metric resource name to HPA table (#122804)
 
 * Added metric resource name to HPA table
 
-* Added colon suggested from code review"
+* Added colon suggested from code review",1706139159
 f8a4e343a106a73145464e8de8a919d13b59d25a,False,1,1,2,2,2.0,99,207,108,0.46153846153846156,1.0,0.5,10838,1414,406,1,"Fix tracking of terminating Pods when nothing else changes (#121342)
 
 * cleanup: refactor pod replacement policy integration test into staged assertion
@@ -345,7 +345,7 @@ f8a4e343a106a73145464e8de8a919d13b59d25a,False,1,1,2,2,2.0,99,207,108,0.46153846
 
 * use t.Cleanup instead of defer in PodReplacementPolicy integration tests
 
-* revert t.Cleanup to defer for reseting feature flag in PodReplacementPolicy integration tests"
+* revert t.Cleanup to defer for reseting feature flag in PodReplacementPolicy integration tests",1698152686
 a504aed54d028dbc8ea2508142c94d309f5f1ec6,False,1,7,142,40,20.285714285714285,46,431,385,0.10964912280701754,0.10964912280701754,0.9868421052631579,11371,1738,310,17,"Add shortname ambiguity warning in shortcut expander (#117668)
 
 * Add warning handler callback function in shortcut expander
@@ -400,19 +400,19 @@ clusters.
 
 * Apply gocritic review
 
-* Add multi-resource multi-version ambiguity unit test"
+* Add multi-resource multi-version ambiguity unit test",1697036651
 a919079ff3132a070909e9286674b0b0d8672377,False,1,1,5,5,5.0,2,31,29,0.0,0.7777777777777778,1.0,37795,4812,1151,1,"Check --show-events in kubectl describe pvc (#120380)
 
 * Check --show-events arg before fetching events
 
 * Remove unnecessary else statement
 
-* Add test for false show events"
+* Add test for false show events",1695025230
 0d3eafdfa39b23f035e66c4575490ed14a12c198,False,1,1,32,32,32.0,55,159,104,0.04395604395604396,0.0,1.0,7213,959,216,5,"fix(scheduling_queue): always put Pods with no unschedulable plugins into activeQ/backoffQ (#119105)
 
 * always put Pods with no unschedulable plugins into activeQ/backoffQ
 
-* address review comments"
+* address review comments",1694449811
 d94c733ee2bfaedd9a1c45d58fbd56c99403c94d,False,1,2,49,42,24.5,10,145,135,0.0,1.0,0.9662921348314607,430,79,11,4,"Use absolute path instead requestURI in openapiv3 discovery (#117495)
 
 Currently, openapiv3 discovery uses requestURI to discover resources.
@@ -422,7 +422,7 @@ Because requestURI overwrites prefixes also in rest endpoint
 (e.g. `http://localhost/openapiv3/apis/apps/v1`).
 
 Since `absPath` keeps the prefixes in the rest endpoint,
-this PR changes to absPath instead requestURI."
+this PR changes to absPath instead requestURI.",1682782107
 a9a1cdbd1531df06e27029686669a8fea99d44e8,False,1,1,67,67,67.0,33,34,1,0.0,0.9166666666666666,0.9166666666666666,479,103,21,5,"Allow timestamp transformer equalities to be configurable (#112158)
 
 * allow noop-ignoring transformer to be configurable
@@ -433,26 +433,26 @@ a9a1cdbd1531df06e27029686669a8fea99d44e8,False,1,1,67,67,67.0,33,34,1,0.0,0.9166
 
 * fix typo
 
-* remove CustomEqualities list"
+* remove CustomEqualities list",1664376994
 85bc6b031b4c45f21b5d50cec75e2145a14a5497,False,1,1,2,2,2.0,1,1,0,,,,2147,280,79,1,"Automated cherry pick of #105122: added keys for structured logging (#105138)
 
 * added keys for structured logging
 
 * used KObj
 
-Co-authored-by: Shivanshu Raj Shrivastava <shivanshu1333@gmail.com>"
+Co-authored-by: Shivanshu Raj Shrivastava <shivanshu1333@gmail.com>",1636350292
 bd146ab0e1bfb54f086729c000e20e93cadae7f9,False,1,1,2,2,2.0,1,1,0,,,,2147,280,79,1,"Automated cherry pick of #105122: added keys for structured logging (#105137)
 
 * added keys for structured logging
 
 * used KObj
 
-Co-authored-by: Shivanshu Raj Shrivastava <shivanshu1333@gmail.com>"
-a2c37bfd09fe0df6ceecd9499528994626e22b56,False,1,3,45,29,15.0,36,70,34,0.0,0.8571428571428571,0.42857142857142855,1389,225,51,9,use original requests in NodeResourcesBalancedAllocation instead of NonZero (#105845)
+Co-authored-by: Shivanshu Raj Shrivastava <shivanshu1333@gmail.com>",1636355932
+a2c37bfd09fe0df6ceecd9499528994626e22b56,False,1,3,45,29,15.0,36,70,34,0.0,0.8571428571428571,0.42857142857142855,1389,225,51,9,use original requests in NodeResourcesBalancedAllocation instead of NonZero (#105845),1635559454
 63177db32c28ecd2dc9de933c844cc1cf4cf1057,False,1,1,17,17,17.0,0,159,159,0.2323943661971831,1.0,0.9507042253521126,1675,248,54,2,"Add an e2e test for the pod sandbox changed scenario
 
 This adds an e2e test to ensure that a pod should restart its containers
-in right order after the pod sandbox is changed."
+in right order after the pod sandbox is changed.",1693494827
 6f374b977d49735da6521d071309cb8e636e7956,False,1,1,71,71,71.0,39,157,118,0.028846153846153848,0.7596153846153846,1.0,4492,541,141,2,"Automated cherry pick of #119776: Fix a job quota related deadlock (#120322)
 
 * Fix a job quota related deadlock
@@ -494,7 +494,7 @@ syncCronJob are invoked.
 
 * Explicitly ignore err in tests to fix linter
 
-* Fix formatting with update-gofmt.sh"
+* Fix formatting with update-gofmt.sh",1693810429
 787b6276d9ec63fe56e20c30eb56243798e95959,False,1,1,71,71,71.0,39,157,118,0.028846153846153848,0.7596153846153846,1.0,4466,540,138,2,"Automated cherry pick of #119776: Fix a job quota related deadlock (#120321)
 
 * Fix a job quota related deadlock
@@ -536,7 +536,7 @@ syncCronJob are invoked.
 
 * Explicitly ignore err in tests to fix linter
 
-* Fix formatting with update-gofmt.sh"
+* Fix formatting with update-gofmt.sh",1693810429
 c0d2ca7bb67fbbe6ec2848154d9ba99535fa6ed1,False,1,1,69,69,69.0,38,155,117,0.028846153846153848,0.7596153846153846,1.0,4119,520,128,2,"Automated cherry pick of #119776: Fix a job quota related deadlock (#120320)
 
 * Fix a job quota related deadlock
@@ -578,7 +578,7 @@ syncCronJob are invoked.
 
 * Explicitly ignore err in tests to fix linter
 
-* Fix formatting with update-gofmt.sh"
+* Fix formatting with update-gofmt.sh",1693810429
 19c4cf0f1a00f3f6b19cb13b48609df626939bef,False,1,1,68,68,68.0,39,152,113,0.02912621359223301,0.7669902912621359,1.0,4119,520,128,2,"Automated cherry pick of #119776: Fix a job quota related deadlock (#120319)
 
 * Fix a job quota related deadlock
@@ -618,7 +618,7 @@ syncCronJob are invoked.
 
 * Return updateStatus bool instead of changing the reference
 
-* Explicitly ignore err in tests to fix linter"
+* Explicitly ignore err in tests to fix linter",1693810429
 a46bab6930804d8a111026760f008f85c305bc20,False,1,1,68,68,68.0,39,152,113,0.02912621359223301,0.7669902912621359,1.0,4119,520,128,2,"Fix a job quota related deadlock (#119776)
 
 * Fix a job quota related deadlock
@@ -658,14 +658,14 @@ syncCronJob are invoked.
 
 * Return updateStatus bool instead of changing the reference
 
-* Explicitly ignore err in tests to fix linter"
+* Explicitly ignore err in tests to fix linter",1693495500
 dbbce2aaba2501d2409e1829be1637a976990e3b,False,1,1,86,86,86.0,390,487,97,0.4166666666666667,1.0,1.0,358,62,10,5,"sort stability list of metrics in the shell command (#120197)
 
 * sort stability list of metrics in the shell command
 
 * remove used vars
 
-* fix verify errors"
+* fix verify errors",1693223034
 7e0a9a7f4e70e4cc6f5dd49917d18101a8e1a25c,False,1,14,915,400,65.35714285714286,445,520,75,0.41025641025641024,0.9743589743589743,0.9743589743589743,473298,90085,7480,15,"Use statusReason for reason under x-kubernetes-validations (#119544)
 
 * Change reason field format
@@ -676,7 +676,7 @@ dbbce2aaba2501d2409e1829be1637a976990e3b,False,1,1,86,86,86.0,390,487,97,0.41666
 
 * Auto update
 
-* Update the test"
+* Update the test",1690246563
 056c19e8b3971919d012be5b3f8aa2402c544a7c,False,1,1,3,3,3.0,0,5,5,0.0,1.0,1.0,4769,475,22,1,"Add slash ended urls for service-account-issuer-discovery to match API in swagger (#117511)
 
 * Add slash ended urls for service-account-issuer-discovery to match API in swagger
@@ -687,7 +687,7 @@ Co-authored-by: Jordan Liggitt <jordan@liggitt.net>
 
 ---------
 
-Co-authored-by: Jordan Liggitt <jordan@liggitt.net>"
+Co-authored-by: Jordan Liggitt <jordan@liggitt.net>",1689667868
 c688478a28ba01827cbd1d4dba88547faa6fec0e,False,1,1,13,13,13.0,11,150,139,0.0,0.5520833333333334,1.0,2697,373,92,2,"Fix lifecycle generator to check the version correctly (#119268)
 
 * Fix lifecycle generator to check the version correctly
@@ -698,7 +698,7 @@ Co-authored-by: Antonio Ojea <antonio.ojea.garcia@gmail.com>
 
 ---------
 
-Co-authored-by: Antonio Ojea <antonio.ojea.garcia@gmail.com>"
+Co-authored-by: Antonio Ojea <antonio.ojea.garcia@gmail.com>",1689267409
 c655001fa4827bc9f8378db2339f1c0dc991244e,False,1,4,65,32,16.25,86,204,118,0.26666666666666666,0.6571428571428571,0.6095238095238096,26060,3214,705,10,"Automated cherry pick of #118716 upstream release 1.27 (#118911)
 
 * Skip terminal Pods with a deletion timestamp from the Daemonset sync
@@ -715,7 +715,7 @@ Change-Id: I8b921157e6be1c809dd59f8035ec259ea4d96301
 
 * Exclude terminal pods from Daemonset e2e tests
 
-Change-Id: Ic29ca1739ebdc54822d1751fcd56a99c628021c4"
+Change-Id: Ic29ca1739ebdc54822d1751fcd56a99c628021c4",1688695022
 3510bf8280c736ba2a1330c64985a76debf4d2cb,False,1,4,65,32,16.25,85,203,118,0.26666666666666666,0.6666666666666666,0.6190476190476191,25301,3175,691,10,"Cherry pick of #118716 upstream release 1.26 (#118912)
 
 * Skip terminal Pods with a deletion timestamp from the Daemonset sync
@@ -732,7 +732,7 @@ Change-Id: I8b921157e6be1c809dd59f8035ec259ea4d96301
 
 * Exclude terminal pods from Daemonset e2e tests
 
-Change-Id: Ic29ca1739ebdc54822d1751fcd56a99c628021c4"
+Change-Id: Ic29ca1739ebdc54822d1751fcd56a99c628021c4",1688691784
 56cb4c93918efdc6e05f1c8f011166734fbe8a2f,False,1,1,8,8,8.0,7,22,15,0.0,0.2857142857142857,1.0,37680,4787,1143,1,"[bug] Update DefaultObjectDescriber to handle interface params (#118190)
 
 * Update DefaultObjectDescriber to handle interface params
@@ -745,12 +745,12 @@ Signed-off-by: Vihang Mehta <vihang@pixielabs.ai>
 
 ---------
 
-Signed-off-by: Vihang Mehta <vihang@pixielabs.ai>"
+Signed-off-by: Vihang Mehta <vihang@pixielabs.ai>",1687378661
 e865b30abd0a862697ff1d2526ea8897ee98a523,False,1,3,35,27,11.666666666666666,10,34,24,0.0,0.3157894736842105,0.3157894736842105,5351,752,151,4,"update serial number to a valid non-zero number in ca certificate (#117791)
 
 * update serial number to a valid non-zero number in ca certificate
 
-* fix the existing problem (0 SerialNumber in all certificate) as part of this PR in a separate commit"
+* fix the existing problem (0 SerialNumber in all certificate) as part of this PR in a separate commit",1683639248
 a4519665fe05095f2b2e56d51b2b83b3579b4598,False,1,3,49,32,16.333333333333332,84,188,104,0.24509803921568626,0.6470588235294118,0.6274509803921569,17055,2236,552,9,"Skip terminal Pods with a deletion timestamp from the Daemonset sync (#118716)
 
 * Skip terminal Pods with a deletion timestamp from the Daemonset sync
@@ -763,7 +763,7 @@ Change-Id: I3eb5ec62bce8b4b150726a1e9b2b517c4e993713
 
 * Include deleted terminal pods in history
 
-Change-Id: I8b921157e6be1c809dd59f8035ec259ea4d96301"
+Change-Id: I8b921157e6be1c809dd59f8035ec259ea4d96301",1687881393
 2ea6896f90c8b757d8a247d393b9a13fff2dab58,False,1,1,24,24,24.0,2,89,87,0.03225806451612903,1.0,1.0,2810,465,125,3,"Add warning log callback in client-go loading rules (#117233)
 
 * Add warning log callback in client-go loading rules
@@ -773,7 +773,7 @@ mechanisms instead default klog warning.
 
 * Use typed error instead plain string
 
-* Fix interface change in unit test"
+* Fix interface change in unit test",1684944530
 0813904404034fd760d8e7e1e3ca5444610a7fa8,False,1,1,30,30,30.0,1,263,262,0.2619047619047619,1.0,1.0,1656,276,67,4,"Fix: Restricted profile comply with PSS (#117543)
 
 * restricted profile comply with PSA v1.27
@@ -784,7 +784,7 @@ mechanisms instead default klog warning.
 
 * Reflect review comments 2
 
-* Reflect review comments 3"
+* Reflect review comments 3",1684927009
 0bff705acd8982e34b937116eb2016c9d6e4c4a6,False,1,1,4,4,4.0,2,57,55,0.11538461538461539,1.0,1.0,574,81,21,1,"Preserve code blocks in templates.Normalizer (#118029)
 
 * Preserve code blocks in templates.Normalizer
@@ -800,19 +800,19 @@ post invocations.
 
 * Add indentations to test for code blocks
 
-* Use strings.repeat for repetition"
+* Use strings.repeat for repetition",1684909249
 a5575425b039bf7c15dfaa9a7acf257fdc4fde3f,False,1,1,14,14,14.0,1,39,38,0.0,1.0,1.0,1072,182,25,2,"add no resources found message to rollout-status command (#117884)
 
 * add no resources found message to rollout-status command
 
-* return err if not nil before no resource message"
+* return err if not nil before no resource message",1683723778
 5da386745af1040681bbfe40bef6fff339fb58f5,False,1,1,16,16,16.0,4,56,52,0.0,0.7142857142857143,0.7142857142857143,1293,224,39,5,"Kubectl convert - warn users with NotRegisteredError and Fail on all other errors (#117002)
 
 * Convert file but warn user with impossible conversions
 
 * Only continuing for NotRegisteredErrors. Using iostreams for warning user instead of stdError
 
-* Formatting, correct tests to use valid DNS-1035."
+* Formatting, correct tests to use valid DNS-1035.",1681265873
 3b17aece1fa492e98aa82b948597b3641961195f,False,1,2,115,107,57.5,55,220,165,0.0,0.0,1.0,5991,903,206,11,"cacher allow context cancellation if not ready (#116024)
 
 * cacher allow context cancellation if not ready
@@ -829,7 +829,7 @@ Change-Id: I1ad79253a5a5d56a4d9611125825b1f7ad552be8
 
 ---------
 
-Co-authored-by: Wojciech Tyczy<C5><84>ski <wojtekt@google.com>"
+Co-authored-by: Wojciech Tyczy<C5><84>ski <wojtekt@google.com>",1677583396
 3d0894fabf96013bf5871a59f01f433a76361edc,False,1,2,27,17,13.5,33,33,0,0.75,0.5,0.0,7548,1006,221,9,"Fix failure(context canceled) in scheduler_perf benchmark (#114843)
 
 * Fix failure in scheduler_perf benchmark
@@ -850,15 +850,15 @@ Signed-off-by: Kante Yin <kerthcet@gmail.com>
 
 ---------
 
-Signed-off-by: Kante Yin <kerthcet@gmail.com>"
-6adf60fdf4fd0428cc7f101fbbb608cd02d99cf5,False,1,2,12,6,6.0,0,267,267,0.24390243902439024,0.5609756097560976,1.0,5439,841,163,2,Do not create endpoints if service of type ExternalName (#114814)
+Signed-off-by: Kante Yin <kerthcet@gmail.com>",1675124460
+6adf60fdf4fd0428cc7f101fbbb608cd02d99cf5,False,1,2,12,6,6.0,0,267,267,0.24390243902439024,0.5609756097560976,1.0,5439,841,163,2,Do not create endpoints if service of type ExternalName (#114814),1674040354
 575616cc72dbfdd070ead81ec29c0d4f00226487,False,1,2,38,32,19.0,10,124,114,0.20388349514563106,1.0,0.9029126213592233,10308,1694,361,5,"fix: kubelet event about unattached volumes is incorrect (#112719)
 
 * fix kubelet event
 
 * add ut
 
-* fix ut"
+* fix ut",1672825919
 369534c6ec625ed9b251b453215c9578cdeb59bc,False,1,1,38,38,38.0,22,61,39,0.6,0.6,0.0,3376,523,107,11,"kubectl wait: wire generic context (#114574)
 
 * Wire generic context to better handle timeout
@@ -872,19 +872,19 @@ it gets an error. Problem is object check is done after errexit is
 turned off.
 
 This PR redirects error to output and correctly assures that
-object is expected status and if it is not, test should fail."
+object is expected status and if it is not, test should fail.",1671470516
 94fd5bd553dc0e811b19a10a7dfe75f19773685b,False,1,1,33,33,33.0,7,83,76,0.3,0.8857142857142857,1.0,1751,231,57,3,"Skip resize if fs is readonly (#114325)
 
 * skip resize if fs is readonly
 
 * run formatter + add log line for early return case
 
-* fix error"
+* fix error",1671189987
 dad0e937c0f76344363eb691b2668490ffef8537,False,1,5,71,39,14.2,13,139,126,0.11235955056179775,1.0,1.0,43520,5624,1340,6,"Escape terminal special characters in kubectl (#112553)
 
 * Escape terminal special characters in kubectl
 
-* Add escaping for kubectl alpha events"
+* Add escaping for kubectl alpha events",1667142523
 7dc36bdf82093c2defa3d0ae1ec68534fe8688c9,False,1,3,38,35,12.666666666666666,183,323,140,0.0,0.8625954198473282,0.9007633587786259,13282,1871,518,8,"Wait for Pods to finish before considering Failed in Job (#113860)
 
 * Wait for Pods to finish before considering Failed
@@ -896,14 +896,14 @@ Change-Id: I926391cc2521b389c8e52962afb0d4a6a845ab8f
 
 * Remove check for unsheduled terminating pod
 
-Change-Id: I3dc05bb4ea3738604f01bf8cb5fc8cc0f6ea54ec"
+Change-Id: I3dc05bb4ea3738604f01bf8cb5fc8cc0f6ea54ec",1668534293
 afdde383210294c3da573decc44b5ce55cffcb94,False,1,2,15,11,7.5,1,94,93,0.025,0.9625,0.9875,2200,338,48,4,"Enable setting proxyurl in kubeconfig via kubectl config (#105566)
 
 * Enable setting proxyurl in kubeconfig via kubectl config
 
 This PR enables setting `proxy-url` in kubeconfig via kubectl config.
 
-* Add godoc for proxy-url unit tests"
+* Add godoc for proxy-url unit tests",1640023976
 f86acbad68baf1a99d6fa153f6f0cdc7b93932e4,False,1,2,10,5,5.0,5,16,11,0.0,0.0,1.0,4679,750,132,2,"add superuser fallback to authorizer (#111558)
 
 * add superuser fallback to authorizer
@@ -914,12 +914,12 @@ f86acbad68baf1a99d6fa153f6f0cdc7b93932e4,False,1,2,10,5,5.0,5,16,11,0.0,0.0,1.0,
 
 * remove the duplicate superuser authorizer
 
-* add integration test for superuser permissions"
+* add integration test for superuser permissions",1666144620
 00053643632c14bbed790f404214f3b3bc80dd31,False,1,1,24,24,24.0,12,14,2,,,,342,59,8,1,"Fix NPE (#112999)
 
 * Fix NPE
 
-* bump version"
+* bump version",1665855785
 f9afd68e3b3fc05f3607ea7cb90808c3e931ba9c,False,1,1,12,12,12.0,6,6,0,,,,3523,466,51,2,"Sanitize hostname in network proxy test (#112763)
 
 * Update Url string to have only one slash
@@ -928,7 +928,7 @@ Signed-off-by: Akanksha Kumari <akankshakumari393@gmail.com>
 
 * Trim / from Right in hostname
 
-Signed-off-by: Akanksha Kumari <akankshakumari393@gmail.com>"
+Signed-off-by: Akanksha Kumari <akankshakumari393@gmail.com>",1664449626
 6b45bddbbd8f8f4882de9b4cf782b60d12b6b6f8,False,1,2,50,40,25.0,3,89,86,0.4166666666666667,1.0,1.0,1707,225,35,3,"Automated cherry pick of #111009: Windows: ensure runAsNonRoot does case-insensitive comparison (#112213)
 
 * Windows: ensure runAsNonRoot does case-insensitive comparison on user name
@@ -938,15 +938,15 @@ Signed-off-by: Mark Rossetti <marosset@microsoft.com>
 * fixing build error in test/e2e/windows/security_context.go
 
 Signed-off-by: Mark Rossetti <marosset@microsoft.com>
-Co-authored-by: Mark Rossetti <marosset@microsoft.com>"
-83c3c37a879c6d14cce2465161f88d3c6881de8b,False,1,66,1210,229,18.333333333333332,102217,45090,-57127,0.19310344827586207,0.45517241379310347,0.7862068965517242,67027,10870,2682,134,"Update kubectl kustomize to kyaml/v0.13.9, cmd/config/v0.10.9, api/v0.12.1, kustomize/v4.5.7 (#111606)"
+Co-authored-by: Mark Rossetti <marosset@microsoft.com>",1662591037
+83c3c37a879c6d14cce2465161f88d3c6881de8b,False,1,66,1210,229,18.333333333333332,102217,45090,-57127,0.19310344827586207,0.45517241379310347,0.7862068965517242,67027,10870,2682,134,"Update kubectl kustomize to kyaml/v0.13.9, cmd/config/v0.10.9, api/v0.12.1, kustomize/v4.5.7 (#111606)",1659496431
 64ab974abe00396a527905d247fb09808b25b8c3,False,1,1,20,20,20.0,54,88,34,1.0,1.0,1.0,1386,225,49,5,"Automated cherry pick of #104014: Update golang.org/x/time/rate (#104018)
 
 * Add failing test case
 
 * Update golang.org/x/time/rate
 
-* Call update-internal-modules from update-vendor"
+* Call update-internal-modules from update-vendor",1627937659
 731dc8cf741e2f3dec72a37a95a638a2b92ff5bf,False,1,3,173,103,57.666666666666664,88,126,38,0.13333333333333333,0.24444444444444444,1.0,22649,3249,661,7,"Fix regression in kube-proxy (#106214)
 
 * Fix regression in kube-proxy
@@ -958,7 +958,7 @@ either strings or slices (I wish we could express that better).
 
 * WIP: less appends
 
-* tests and ipvs"
+* tests and ipvs",1636413289
 171431ca2c009c0a576fa288b7df892b59299389,False,1,1,224,224,224.0,175,193,18,1.0,1.0,1.0,3136,495,98,5,"Move kubectl wait to informers with a cache to avoid hanging due to objects disappearing from the cluster (#108086)
 
 * move to using informers for getObjAndCheckCondition
@@ -969,7 +969,7 @@ either strings or slices (I wish we could express that better).
 
 * set minimum timeout to 1s because informer can't handle less for caching reasons
 
-* fix null return for deletes issue"
+* fix null return for deletes issue",1656605168
 a6943ad863ee33466248641158ac87df0cfd80b4,False,1,2,16,12,8.0,417,779,362,0.0,1.0,0.9485714285714286,7610,730,174,3,"[fix] fix and refactor TestValidateStatefulSet and TestValidateStatefulSet test cases (#109809)
 
 * restructure tests
@@ -986,12 +986,12 @@ adding expected errors and making the tests pass, without making any changes to 
 
 * validate new statefulset as part of update validation
 
-* address PR comments"
+* address PR comments",1653418524
 10eb7092f854c71122c03752465e868bce23c0b6,False,1,1,6,6,6.0,9,24,15,0.0,0.0,1.0,2402,394,85,1,"Do not raise an error proposing to use '--overwrite' when labeling with the same value (#105936)
 
 * Do not propose to use '--overwrite' when labeling with the same value
 
-* Check expected error value in label_test.TestLabelFunc"
+* Check expected error value in label_test.TestLabelFunc",1651623469
 90956e6d3e9df02d932f9954911b89a3fd1619fb,False,1,1,16,16,16.0,6,10,4,0.0,0.0,1.0,4441,650,132,7,"Print kubectl debug messages received when starting a container (#108591)
 
 * kubectl debug: print container messages
@@ -1003,11 +1003,11 @@ unable to pull the debug container image.
 
 Co-authored-by: Eddie Zaneski <eddiezane@gmail.com>
 
-Co-authored-by: Eddie Zaneski <eddiezane@gmail.com>"
-016b96ca3896d27b37c5b2d6e223fb3320a0fdec,False,1,1,8,8,8.0,3,5,2,0.0,0.0,0.0,1694,260,68,1,Issue 105353: Add messages+details to audit logs response (#105415)
+Co-authored-by: Eddie Zaneski <eddiezane@gmail.com>",1646877095
+016b96ca3896d27b37c5b2d6e223fb3320a0fdec,False,1,1,8,8,8.0,3,5,2,0.0,0.0,0.0,1694,260,68,1,Issue 105353: Add messages+details to audit logs response (#105415),1645667613
 a1b52fb17a6f7f34f676bf399e82979b8ff9b072,False,1,2,12,10,6.0,4,68,64,0.06382978723404255,0.0851063829787234,0.9787234042553191,1286,196,36,3,"extend sa token if audience is apiserver (#105954)
 
-Signed-off-by: Jyoti Mahapatra <jyotima@amazon.com>"
+Signed-off-by: Jyoti Mahapatra <jyotima@amazon.com>",1643673712
 0e0abd602fac12c4422f8fe89c1f04c34067a76f,False,1,1,2,2,2.0,1,15,14,0.0,1.0,1.0,3970,601,152,2,"parse ipv6 address before comparison (#107736)
 
 * parse ipv6 address before comparison
@@ -1024,16 +1024,16 @@ Signed-off-by: Jyoti Mahapatra <jyotima@amazon.com>
 
 * use node address from cloudprovider as is
 
-Signed-off-by: Jyoti Mahapatra <jyotima@amazon.com>"
+Signed-off-by: Jyoti Mahapatra <jyotima@amazon.com>",1643251129
 0b8d725f5a04178caf09cd802305c4b8370db65e,False,1,2,35,30,17.5,20,23,3,0.25,0.25,0.0,8619,1477,374,6,"Close HTTP response body on failed GET attempts (#105591)
 
 * Close response body when it's not needed
 
-* Code cleanups"
+* Code cleanups",1641843626
 f48972e671e5f338d0d6adfe6055aba4534569ad,False,1,2,124,115,62.0,5,571,566,0.13075506445672191,0.8895027624309392,0.9852670349907919,25182,3822,845,4,"additional subnet configuration for AWS ELB (#97431)
 
 * support subnets without cluster tag for auto-discovery
-* add support for manual subnet configuration via service annotation"
+* add support for manual subnet configuration via service annotation",1612970339
 79a51090f9582c9b67576c180d77b95214d1cd3e,False,1,4,124,72,31.0,72,122,50,0.03636363636363636,0.9454545454545454,1.0,9440,1357,289,12,"fix: 81134: fix unsafe json for ReleaseControllerRevision (#104049)
 
 * fix: 81134: fix unsafe json for ReleaseControllerRevision
@@ -1046,7 +1046,7 @@ marshalling an object into bytes. Otherwise, it returns an error.
    used across ReleasePod, ReleaseControllerRevison
    ReleaseReplicaSet.
 
-* Move GeneratePatchBytesForDelete to controller_ref_manager"
+* Move GeneratePatchBytesForDelete to controller_ref_manager",1636119232
 5eb584d1cb6917f26346db75e9c3df318e495b04,False,1,1,14,14,14.0,17,16,-1,1.0,1.0,0.0,2824,439,70,3,"Node tests fixes (#106371)
 
 * capture loop variable
@@ -1067,7 +1067,7 @@ Co-authored-by: Mike Miranda <mikemp96@gmail.com>
 
 * capture loop using index
 
-Co-authored-by: Mike Miranda <mikemp96@gmail.com>"
+Co-authored-by: Mike Miranda <mikemp96@gmail.com>",1636948487
 9bcfa71e3121ecb2c12bf70ae8e16eac717b9d59,False,1,1,17,17,17.0,5,142,137,0.13636363636363635,0.0,0.9454545454545454,3151,425,105,1,"Fix Daemonset controller role missing 'update pod' permission (#104758)
 
 * fix_dsc_rbac_pod_update
@@ -1076,8 +1076,8 @@ Co-authored-by: Mike Miranda <mikemp96@gmail.com>"
 
 * rebase
 
-* update parameter of dsc.Run"
-0734820279ccce8c6034d9d122392fe3a0c7535e,False,1,1,4,4,4.0,2,222,220,0.11374407582938388,0.7488151658767772,1.0,1456,136,38,1,'New' Event namespace validate failed (#100125)
+* update parameter of dsc.Run",1635423866
+0734820279ccce8c6034d9d122392fe3a0c7535e,False,1,1,4,4,4.0,2,222,220,0.11374407582938388,0.7488151658767772,1.0,1456,136,38,1,'New' Event namespace validate failed (#100125),1631791785
 c6935ad50e0809c1dc2d3ac9000abda0ecb49bcc,False,1,1,15,15,15.0,8,66,58,0.0,0.9482758620689655,1.0,37854,4788,1136,1,"kubectl: Use fields from event series when computing describe events for a object (#104482)
 
 * take into account new fields for event
@@ -1086,14 +1086,14 @@ c6935ad50e0809c1dc2d3ac9000abda0ecb49bcc,False,1,1,15,15,15.0,8,66,58,0.0,0.9482
 
 * fix: remove unnecessary ""+1"" from event series count
 
-* fix: update the assertion for failing test case"
+* fix: update the assertion for failing test case",1631568842
 09dc055984e9532f29f37acae7aea7a979ded764,False,1,1,20,20,20.0,54,88,34,1.0,1.0,1.0,1386,225,49,5,"Update golang.org/x/time/rate (#104014)
 
 * Add failing test case
 
 * Update golang.org/x/time/rate
 
-* Call update-internal-modules from update-vendor"
+* Call update-internal-modules from update-vendor",1627600418
 cd0d8fb960ab519df97c0f2991cb277e18af350a,False,1,1,10,10,10.0,2,26,24,0.0,0.7727272727272727,1.0,1973,357,62,2,"Automated cherry pick of #101377: Fix validation in kubectl create ingress (#101426)
 
 * Fix validation in kubectl create ingress
@@ -1102,7 +1102,7 @@ Signed-off-by: Ricardo Pchevuzinske Katz <ricardo.katz@gmail.com>
 
 * Fix validation in kubectl create ingress
 
-Signed-off-by: Ricardo Pchevuzinske Katz <ricardo.katz@gmail.com>"
+Signed-off-by: Ricardo Pchevuzinske Katz <ricardo.katz@gmail.com>",1620361022
 fe7d8068809110ad2bb19050d57af337ab409826,False,1,1,10,10,10.0,2,26,24,0.0,0.7727272727272727,1.0,1986,361,63,2,"Automated cherry pick of #101377: Fix validation in kubectl create ingress (#101428)
 
 * Fix validation in kubectl create ingress
@@ -1111,7 +1111,7 @@ Signed-off-by: Ricardo Pchevuzinske Katz <ricardo.katz@gmail.com>
 
 * Fix validation in kubectl create ingress
 
-Signed-off-by: Ricardo Pchevuzinske Katz <ricardo.katz@gmail.com>"
+Signed-off-by: Ricardo Pchevuzinske Katz <ricardo.katz@gmail.com>",1620328320
 a41a3ed4ae77a7902577bdb50b35fc5f42ed7c60,False,1,1,1,1,1.0,0,47,47,0.9285714285714286,1.0,1.0,1124,147,21,1,"client-go: NewSelfSignedCACert makes Go 1.15+ compatible cert (#100324)
 
 * NewSelfSignedCACert makes Go 1.15+ compatible cert
@@ -1124,7 +1124,7 @@ https://golang.org/doc/go1.15#commonname
 Updating NewSelfSignedCACert to produce certificates that
 work with this change.
 
-* add missing license"
+* add missing license",1620049682
 3dfbcbc878a72a9544af6841315e7dceef9e99fc,False,1,1,10,10,10.0,2,26,24,0.0,0.7727272727272727,1.0,1973,357,62,2,"Fix validation in kubectl create ingress (#101377)
 
 * Fix validation in kubectl create ingress
@@ -1133,8 +1133,8 @@ Signed-off-by: Ricardo Pchevuzinske Katz <ricardo.katz@gmail.com>
 
 * Fix validation in kubectl create ingress
 
-Signed-off-by: Ricardo Pchevuzinske Katz <ricardo.katz@gmail.com>"
-853cc1cba8497fddf9364f08fe576b87f51b3ea7,False,1,2,51,38,25.5,8,44,36,0.7333333333333333,0.7666666666666667,0.7333333333333333,11719,1759,343,6,WIP: node sync at least once
+Signed-off-by: Ricardo Pchevuzinske Katz <ricardo.katz@gmail.com>",1619138663
+853cc1cba8497fddf9364f08fe576b87f51b3ea7,False,1,2,51,38,25.5,8,44,36,0.7333333333333333,0.7666666666666667,0.7333333333333333,11719,1759,343,6,WIP: node sync at least once,1612681297
 a5eedcde611658c220c56d2819bf0420aded4ed6,False,1,1,20,20,20.0,2,18,16,0.0,0.375,1.0,2745,454,122,2,"Added custom error message when wrong file is provided with KUBECONFIG (#78185)
 
 * Added custom error message when wrong file is provided with KUBECONFIG
@@ -1143,8 +1143,8 @@ a5eedcde611658c220c56d2819bf0420aded4ed6,False,1,1,20,20,20.0,2,18,16,0.0,0.375,
 
 * Updated the code to warn the missing files
 
-* Renamed the variable"
-34226de021dce74cb4e1677c4f4d0f2350fa2253,False,1,1,3,3,3.0,1,5,4,0.0,0.0,1.0,424,79,12,0,Add support for TLS 1.3 ciphers. (#90843)
+* Renamed the variable",1562815494
+34226de021dce74cb4e1677c4f4d0f2350fa2253,False,1,1,3,3,3.0,1,5,4,0.0,0.0,1.0,424,79,12,0,Add support for TLS 1.3 ciphers. (#90843),1589297090
 db3392ed1243c98cfbe4c88fa8edd6d984c1b06b,False,1,1,49,49,49.0,17,157,140,0.06201550387596899,1.0,1.0,1950,325,90,2,"Always include remoteAddr in source IP list for audit (#87167)
 
 * Always include remoteAddr in source IP list for audit
@@ -1152,40 +1152,40 @@ db3392ed1243c98cfbe4c88fa8edd6d984c1b06b,False,1,1,49,49,49.0,17,157,140,0.06201
 Since the remoteAddr is much harder to spoof than headers, always include it in
 the list of source IPs used in audit logs.
 
-* Add v6 tests"
+* Add v6 tests",1583266514
 ac0ce7338ef2f241c8261fc3b57bb6ec5d46f73a,False,1,1,2,2,2.0,1,1,0,,,,1147,167,32,1,"Reflect DecisionNoOpinion in RBAC authorizer logs (#89608)
 
 * Reflect DecisionNoOpinion in RBAC authorizer logs
 
-* Modify RBAC authorizer log message"
-f0d45ee31f93b9f2784a04d4e16167c050d41778,False,1,11,653,162,59.36363636363637,808,1,-807,0.1056338028169014,0.1056338028169014,0.03873239436619718,0,0,0,44,remove github.com/pborman/uuid
+* Modify RBAC authorizer log message",1586378264
+f0d45ee31f93b9f2784a04d4e16167c050d41778,False,1,11,653,162,59.36363636363637,808,1,-807,0.1056338028169014,0.1056338028169014,0.03873239436619718,0,0,0,44,remove github.com/pborman/uuid,1572938510
 a20ae3953b583e5e16f9a8e8e0146683aa49f4f2,False,1,1,3,3,3.0,3,4,1,,,,5470,1683,0,0,"Remove optional from core docs for 'Type' (#88029)
 
 * Remove optional from core docs for 'Type'
 
 * Regenerate protobuf and openapi docs
 
-* Regenerate protobuf and openapi docs"
+* Regenerate protobuf and openapi docs",1581657031
 e9e11de4e1be9c6476a5de41039bf48c6fc9a325,False,1,1,13,13,13.0,10,3,-7,0.0,0.0,1.0,347,61,17,1,"Remove Error log for nil StartTime
 
-Signed-off-by: Aldo Culquicondor <acondor@google.com>"
-e9ba264d57d379d86dfbf3ae94e82eb0ead9c468,False,1,4,124,107,31.0,124,130,6,1.0,1.0,1.0,17151,2998,860,11,update gopkg.in/yaml.v2 to v2.2.8
-dd65e2151b4a32b3482da4895da9e1c508da99f2,False,1,1,14,14,14.0,4,10,6,1.0,1.0,1.0,1560,266,77,5,add crash protection to wait functions that were missing it
-210737b0ce80e4e36f09fc41b839b468874b97ec,False,1,1,64,64,64.0,124,9,-115,0.8181818181818182,0.32954545454545453,0.0,1669,247,61,4,"Revert ""list vm instead of get when getting virtual machine"""
-a372dff6488a946a4f5b239878221ba7cb8d3278,False,1,1,75,75,75.0,23,58,35,0.45454545454545453,1.0,0.5454545454545454,1566,280,42,14,alpha certs tries to read in-cluster config
-03df6320e594c3fd988cd48bff71df6affaa5ef0,False,1,1,6,6,6.0,3,3,0,,,,4641,725,106,2,Wait for resizing condition
+Signed-off-by: Aldo Culquicondor <acondor@google.com>",1581016184
+e9ba264d57d379d86dfbf3ae94e82eb0ead9c468,False,1,4,124,107,31.0,124,130,6,1.0,1.0,1.0,17151,2998,860,11,update gopkg.in/yaml.v2 to v2.2.8,1580279705
+dd65e2151b4a32b3482da4895da9e1c508da99f2,False,1,1,14,14,14.0,4,10,6,1.0,1.0,1.0,1560,266,77,5,add crash protection to wait functions that were missing it,1579295837
+210737b0ce80e4e36f09fc41b839b468874b97ec,False,1,1,64,64,64.0,124,9,-115,0.8181818181818182,0.32954545454545453,0.0,1669,247,61,4,"Revert ""list vm instead of get when getting virtual machine""",1579069313
+a372dff6488a946a4f5b239878221ba7cb8d3278,False,1,1,75,75,75.0,23,58,35,0.45454545454545453,1.0,0.5454545454545454,1566,280,42,14,alpha certs tries to read in-cluster config,1573551331
+03df6320e594c3fd988cd48bff71df6affaa5ef0,False,1,1,6,6,6.0,3,3,0,,,,4641,725,106,2,Wait for resizing condition,1576709429
 3e19201ec2fffc52248ac0fa5a9cb7592ee5b23f,False,1,1,13,13,13.0,5,16,11,0.0,0.7272727272727273,0.7272727272727273,1512,268,41,1,"kubeadm: Throw an error if the currentContext does not exists
 
 Check if the CurrentContext exists in validateKubeConfig
 
-Signed-off-by: Julien DOCHE <julien.doche@gmail.com>"
-e44352f31a8d506d77d2757dbb354fd539826c92,False,1,1,97,97,97.0,119,132,13,1.0,1.0,0.0,392,63,13,5,create utilities inspecting server TLS certs
-631e218c360f39f1058c39b159fce5b91b2056b7,False,1,1,14,14,14.0,4,42,38,0.0,0.15625,1.0,1861,291,68,1,Make GCE PD Access Mode reflect readonly status when translating an inline read only volume
+Signed-off-by: Julien DOCHE <julien.doche@gmail.com>",1575623726
+e44352f31a8d506d77d2757dbb354fd539826c92,False,1,1,97,97,97.0,119,132,13,1.0,1.0,0.0,392,63,13,5,create utilities inspecting server TLS certs,1573580059
+631e218c360f39f1058c39b159fce5b91b2056b7,False,1,1,14,14,14.0,4,42,38,0.0,0.15625,1.0,1861,291,68,1,Make GCE PD Access Mode reflect readonly status when translating an inline read only volume,1572979281
 e528c2f2925d61fa7a12313a895af5a312d36dd6,False,1,1,8,8,8.0,4,4,0,,,,1216,208,36,4,"Kubectl certificate signing: fix certificate deny message (#84400)
 
 * add certificate deny flag message
 
-* bring back NewCertificateOptions with operation parameter"
+* bring back NewCertificateOptions with operation parameter",1572136643
 4160909495626262ae514bab30fe81a3ff869d39,False,1,1,26,26,26.0,8,18,10,,,,276,44,7,0,"Fixed and clarified comments and parameter names in index.go (#77633)
 
 * Fixed and clarified comments and parameter names in index.go
@@ -1196,18 +1196,18 @@ Clarified the comments and parameter names in the Indexer interface to
 consistently use a dichotomy between ""storage keys"" and ""indexed
 values"".
 
-* Updated comments in index.go based on review by Liggitt"
+* Updated comments in index.go based on review by Liggitt",1561521793
 a4d97cc47d1b3dcf95a06736e38ac8f3b98d8247,False,1,1,41,41,41.0,12,100,88,0.0,0.5645161290322581,1.0,3914,663,58,0,"kubectl: eliminate unnecessary blank ending line (#81229)
 
 * kubectl: eliminate unnecessary blank ending line
 
-* address comments and add more tests"
-6dce4d87a335495b3097dd4bfaa30d0d232fb2ff,False,1,2,36,32,18.0,6,61,55,0.3157894736842105,0.7894736842105263,1.0,1929,262,50,2,Fix secret/configmap management for terminated pods
+* address comments and add more tests",1565697020
+6dce4d87a335495b3097dd4bfaa30d0d232fb2ff,False,1,2,36,32,18.0,6,61,55,0.3157894736842105,0.7894736842105263,1.0,1929,262,50,2,Fix secret/configmap management for terminated pods,1551376793
 1e245fad87584a28809f8f5d380b766edfa984ec,False,1,3,14,8,4.666666666666667,7,169,162,0.0,0.9607843137254902,1.0,6534,1053,286,2,"fix a client-go bug which could casue kubectl panic (#72952)
 
 * When user try execute command like `kubectl get pod test -o custom-columns=CONTAINER:.spec.containers[-1].name`
 It will throw a panic about slice index out of bounds. This patch fix it.
 
-* add test case"
-15a81f51d8ee9a91886c2388c130b0d52c846ba6,False,1,3,34,16,11.333333333333334,19,19,0,,,,7105,1823,34,6,Fix GetScale/UpdateScale type for replicationcontroller client
-2a4945c6eee667f947aa42eeb9660518fbf8497d,False,1,1,2,2,2.0,2,2,0,,,,1534,204,37,1,CSI - Fix so  VolumeAttachment.Spec.Attacher use driverName
+* add test case",1547856860
+15a81f51d8ee9a91886c2388c130b0d52c846ba6,False,1,3,34,16,11.333333333333334,19,19,0,,,,7105,1823,34,6,Fix GetScale/UpdateScale type for replicationcontroller client,1540914316
+2a4945c6eee667f947aa42eeb9660518fbf8497d,False,1,1,2,2,2.0,2,2,0,,,,1534,204,37,1,CSI - Fix so  VolumeAttachment.Spec.Attacher use driverName,1512321771
